@@ -1,0 +1,373 @@
+using System;
+using System.Runtime.InteropServices;
+using Etch.Gpu.Descriptors;
+using Etch.Shaders;
+
+namespace Etch.Gpu.Pipelines;
+
+[StructLayout(LayoutKind.Sequential)]
+public struct TileInfo
+{
+    public uint TileIndex;
+    public uint StripStart;
+    public uint StripCount;
+    public uint Reserved;
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 16)]
+internal readonly struct Strip
+{
+    public readonly ushort TileIndex;
+    public readonly ushort RowMask;
+    public readonly ushort X0;
+    public readonly ushort X1;
+    public readonly uint CoverageOffset;
+    public readonly uint Reserved;
+}
+
+public sealed unsafe class StripCoveragePipeline : IDisposable
+{
+    private readonly Device _device;
+    private readonly RenderPipeline _pipeline;
+    private readonly PipelineLayout _layout;
+    private readonly Buffer _perFrameBuffer;
+    private readonly Buffer _perDrawBuffer;
+    private readonly Buffer _vertexBuffer;
+    private readonly Buffer _instanceBuffer;
+    private bool _disposed;
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct PerFrameData
+    {
+        public float SurfaceSizeX;
+        public float SurfaceSizeY;
+        public uint GammaMode;
+        public uint Pad0;
+        public float Pad1X;
+        public float Pad1Y;
+        public float Pad2X;
+        public float Pad2Y;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct PerDrawData
+    {
+        public float ColorR;
+        public float ColorG;
+        public float ColorB;
+        public float ColorA;
+        public float TransformM00;
+        public float TransformM01;
+        public float TransformM02;
+        public float TransformM10;
+        public float TransformM11;
+        public float TransformM12;
+        public float TransformM20;
+        public float TransformM21;
+        public float TransformM22;
+    }
+
+    public StripCoveragePipeline(Device device)
+    {
+        _device = device;
+
+        var perFrameEntries = stackalloc BindGroupLayoutEntry[1];
+        perFrameEntries[0] = new BindGroupLayoutEntry
+        {
+            Binding = 0,
+            Visibility = (ulong)(ShaderStage.Vertex | ShaderStage.Fragment),
+            Buffer = new BufferBindingLayout
+            {
+                Type = BufferBindingType.Uniform,
+                HasDynamicOffset = 0,
+                MinBindingSize = (ulong)sizeof(PerFrameData)
+            }
+        };
+
+        var stripBufferEntries = stackalloc BindGroupLayoutEntry[2];
+        stripBufferEntries[0] = new BindGroupLayoutEntry
+        {
+            Binding = 0,
+            Visibility = (ulong)ShaderStage.Fragment,
+            Buffer = new BufferBindingLayout
+            {
+                Type = BufferBindingType.ReadOnlyStorage,
+                HasDynamicOffset = 0,
+                MinBindingSize = 0
+            }
+        };
+        stripBufferEntries[1] = new BindGroupLayoutEntry
+        {
+            Binding = 1,
+            Visibility = (ulong)ShaderStage.Fragment,
+            Buffer = new BufferBindingLayout
+            {
+                Type = BufferBindingType.ReadOnlyStorage,
+                HasDynamicOffset = 0,
+                MinBindingSize = 0
+            }
+        };
+
+        var perDrawEntries = stackalloc BindGroupLayoutEntry[1];
+        perDrawEntries[0] = new BindGroupLayoutEntry
+        {
+            Binding = 0,
+            Visibility = (ulong)(ShaderStage.Vertex | ShaderStage.Fragment),
+            Buffer = new BufferBindingLayout
+            {
+                Type = BufferBindingType.Uniform,
+                HasDynamicOffset = 0,
+                MinBindingSize = (ulong)sizeof(PerDrawData)
+            }
+        };
+
+        var perFrameLayoutDesc = new BindGroupLayoutDescriptor
+        {
+            EntryCount = 1,
+            Entries = (IntPtr)perFrameEntries
+        };
+
+        var stripBufferLayoutDesc = new BindGroupLayoutDescriptor
+        {
+            EntryCount = 2,
+            Entries = (IntPtr)stripBufferEntries
+        };
+
+        var perDrawLayoutDesc = new BindGroupLayoutDescriptor
+        {
+            EntryCount = 1,
+            Entries = (IntPtr)perDrawEntries
+        };
+
+        var perFrameLayout = device.CreateBindGroupLayout(perFrameLayoutDesc);
+        var stripBufferLayout = device.CreateBindGroupLayout(stripBufferLayoutDesc);
+        var perDrawLayout = device.CreateBindGroupLayout(perDrawLayoutDesc);
+
+        var layouts = stackalloc nint[3];
+        layouts[0] = perFrameLayout.Handle;
+        layouts[1] = stripBufferLayout.Handle;
+        layouts[2] = perDrawLayout.Handle;
+
+        var pipelineLayoutDesc = new PipelineLayoutDescriptor
+        {
+            BindGroupLayoutCount = 3,
+            BindGroupLayouts = (IntPtr)layouts
+        };
+
+        _layout = device.CreatePipelineLayout(pipelineLayoutDesc);
+
+        perFrameLayout.Dispose();
+        stripBufferLayout.Dispose();
+        perDrawLayout.Dispose();
+
+        byte[] shaderBytes = ShaderResources.strip_coverage.ToArray();
+        string wgsl = System.Text.Encoding.UTF8.GetString(shaderBytes);
+        using var shaderModule = device.CreateShaderModuleWgsl(wgsl, "StripCoverage");
+
+        var vertexAttributes = stackalloc VertexAttribute[1];
+        vertexAttributes[0] = new VertexAttribute
+        {
+            Format = VertexFormat.Float32x2,
+            Offset = 0,
+            ShaderLocation = 0
+        };
+
+        var vertexBuffers = stackalloc VertexBufferLayout[1];
+        vertexBuffers[0] = new VertexBufferLayout
+        {
+            StepMode = VertexStepMode.Vertex,
+            ArrayStride = 8,
+            AttributeCount = (UIntPtr)1,
+            Attributes = (IntPtr)vertexAttributes
+        };
+
+        var instanceAttributes = stackalloc VertexAttribute[1];
+        instanceAttributes[0] = new VertexAttribute
+        {
+            Format = VertexFormat.Uint32x4,
+            Offset = 0,
+            ShaderLocation = 1
+        };
+
+        var instanceBuffers = stackalloc VertexBufferLayout[1];
+        instanceBuffers[0] = new VertexBufferLayout
+        {
+            StepMode = VertexStepMode.Instance,
+            ArrayStride = (ulong)sizeof(TileInfo),
+            AttributeCount = (UIntPtr)1,
+            Attributes = (IntPtr)instanceAttributes
+        };
+
+        byte[] vertexEntryBytes = System.Text.Encoding.UTF8.GetBytes(ShaderResources.Strip_coverageLayout.VertexEntryPoint);
+        byte[] fragmentEntryBytes = System.Text.Encoding.UTF8.GetBytes(ShaderResources.Strip_coverageLayout.FragmentEntryPoint);
+
+        fixed (byte* vertexEntryPtr = vertexEntryBytes)
+        fixed (byte* fragmentEntryPtr = fragmentEntryBytes)
+        {
+            var vertexState = new VertexState
+            {
+                Module = shaderModule.Handle,
+                EntryPoint = new StringView
+                {
+                    Data = (IntPtr)vertexEntryPtr,
+                    Length = (UIntPtr)vertexEntryBytes.Length
+                },
+                BufferCount = 2,
+                Buffers = (IntPtr)vertexBuffers
+            };
+
+            var colorTarget = new ColorTargetState
+            {
+                Format = TextureFormat.Bgra8UnormSrgb,
+                WriteMask = (ulong)ColorWriteMask.All
+            };
+
+            var fragmentState = new FragmentState
+            {
+                Module = shaderModule.Handle,
+                EntryPoint = new StringView
+                {
+                    Data = (IntPtr)fragmentEntryPtr,
+                    Length = (UIntPtr)fragmentEntryBytes.Length
+                },
+                TargetCount = 1,
+                Targets = (IntPtr)(&colorTarget)
+            };
+
+            var renderPipelineDesc = new RenderPipelineDescriptor
+            {
+                Layout = _layout.Handle,
+                Vertex = vertexState,
+                Primitive = new PrimitiveState
+                {
+                    Topology = PrimitiveTopology.TriangleList,
+                    FrontFace = FrontFace.Ccw,
+                    CullMode = CullMode.Back
+                },
+                Multisample = new MultisampleState
+                {
+                    Count = 1
+                },
+                Fragment = (IntPtr)(&fragmentState)
+            };
+
+            _pipeline = device.CreateRenderPipeline(renderPipelineDesc);
+        }
+
+        _perFrameBuffer = device.CreateBuffer(new BufferDescriptor
+        {
+            Usage = 64ul,
+            Size = (ulong)sizeof(PerFrameData)
+        });
+
+        _perDrawBuffer = device.CreateBuffer(new BufferDescriptor
+        {
+            Usage = 64ul,
+            Size = (ulong)sizeof(PerDrawData)
+        });
+
+        _vertexBuffer = device.CreateBuffer(new BufferDescriptor
+        {
+            Usage = 32ul,
+            Size = 256 * 2 * sizeof(float)
+        });
+
+        _instanceBuffer = device.CreateBuffer(new BufferDescriptor
+        {
+            Usage = 32ul,
+            Size = (ulong)(1024 * sizeof(TileInfo))
+        });
+    }
+
+    public void SetSurfaceSize(float width, float height)
+    {
+        PerFrameData data;
+        data.SurfaceSizeX = width;
+        data.SurfaceSizeY = height;
+        data.GammaMode = 0;
+        data.Pad0 = 0;
+        data.Pad1X = 0; data.Pad1Y = 0;
+        data.Pad2X = 0; data.Pad2Y = 0;
+
+        var span = new ReadOnlySpan<byte>(&data, sizeof(PerFrameData));
+        _device.Queue.WriteBuffer(_perFrameBuffer, 0, span);
+    }
+
+    public void SetColor(float r, float g, float b, float a)
+    {
+        PerDrawData data;
+        data.ColorR = r;
+        data.ColorG = g;
+        data.ColorB = b;
+        data.ColorA = a;
+        data.TransformM00 = 1.0f; data.TransformM01 = 0.0f; data.TransformM02 = 0.0f;
+        data.TransformM10 = 0.0f; data.TransformM11 = 1.0f; data.TransformM12 = 0.0f;
+        data.TransformM20 = 0.0f; data.TransformM21 = 0.0f; data.TransformM22 = 1.0f;
+
+        var span = new ReadOnlySpan<byte>(&data, sizeof(PerDrawData));
+        _device.Queue.WriteBuffer(_perDrawBuffer, 0, span);
+    }
+
+    public void SetTransform(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22)
+    {
+        PerDrawData data;
+        data.ColorR = 1.0f; data.ColorG = 0.0f; data.ColorB = 0.0f; data.ColorA = 1.0f;
+        data.TransformM00 = m00; data.TransformM01 = m01; data.TransformM02 = m02;
+        data.TransformM10 = m10; data.TransformM11 = m11; data.TransformM12 = m12;
+        data.TransformM20 = m20; data.TransformM21 = m21; data.TransformM22 = m22;
+
+        var span = new ReadOnlySpan<byte>(&data, sizeof(PerDrawData));
+        _device.Queue.WriteBuffer(_perDrawBuffer, 0, span);
+    }
+
+    public void Record(
+        CommandEncoder encoder,
+        TextureView renderTarget,
+        ReadOnlySpan<float> quadVerticesXY,
+        ReadOnlySpan<TileInfo> tileInfos,
+        Buffer stripBuffer,
+        Buffer coverageBuffer)
+    {
+        ObjectDisposedException.ThrowIf(_disposed, this);
+
+        var vertexSpan = MemoryMarshal.AsBytes(quadVerticesXY);
+        _device.Queue.WriteBuffer(_vertexBuffer, 0, vertexSpan);
+
+        var instanceSpan = MemoryMarshal.AsBytes(tileInfos);
+        _device.Queue.WriteBuffer(_instanceBuffer, 0, instanceSpan);
+
+        var colorAttachment = new RenderPassColorAttachment
+        {
+            View = renderTarget.Handle,
+            LoadOp = LoadOp.Clear,
+            StoreOp = StoreOp.Store,
+            ClearValue = new Color { R = 0, G = 0, B = 0, A = 1 }
+        };
+
+        var pass = encoder.BeginRenderPass(new RenderPassDescriptor
+        {
+            ColorAttachmentCount = 1,
+            ColorAttachments = (IntPtr)(&colorAttachment)
+        });
+
+        pass.SetVertexBuffer(0, _vertexBuffer, 0, (ulong)(quadVerticesXY.Length * sizeof(float)));
+        pass.SetVertexBuffer(1, _instanceBuffer, 0, (ulong)(tileInfos.Length * sizeof(TileInfo)));
+        pass.SetPipeline(_pipeline);
+        pass.Draw((uint)(quadVerticesXY.Length / 2), (uint)tileInfos.Length);
+        pass.End();
+    }
+
+    public void Dispose()
+    {
+        if (!_disposed)
+        {
+            _disposed = true;
+            _perFrameBuffer.Dispose();
+            _perDrawBuffer.Dispose();
+            _vertexBuffer.Dispose();
+            _instanceBuffer.Dispose();
+            _pipeline.Dispose();
+            _layout.Dispose();
+        }
+    }
+}

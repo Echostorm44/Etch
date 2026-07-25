@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.MipmapFilterMode
+  commentId: T:Etch.Gpu.MipmapFilterMode
+  id: MipmapFilterMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.MipmapFilterMode.Linear
+  - Etch.Gpu.MipmapFilterMode.Nearest
+  - Etch.Gpu.MipmapFilterMode.Undefined
+  langs:
+  - csharp
+  - vb
+  name: MipmapFilterMode
+  nameWithType: MipmapFilterMode
+  fullName: Etch.Gpu.MipmapFilterMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum MipmapFilterMode : uint'
+    content.vb: Public Enum MipmapFilterMode As UInteger
+- uid: Etch.Gpu.MipmapFilterMode.Undefined
+  commentId: F:Etch.Gpu.MipmapFilterMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.MipmapFilterMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: MipmapFilterMode.Undefined
+  fullName: Etch.Gpu.MipmapFilterMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.MipmapFilterMode
+- uid: Etch.Gpu.MipmapFilterMode.Nearest
+  commentId: F:Etch.Gpu.MipmapFilterMode.Nearest
+  id: Nearest
+  parent: Etch.Gpu.MipmapFilterMode
+  langs:
+  - csharp
+  - vb
+  name: Nearest
+  nameWithType: MipmapFilterMode.Nearest
+  fullName: Etch.Gpu.MipmapFilterMode.Nearest
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Nearest = 1
+    return:
+      type: Etch.Gpu.MipmapFilterMode
+- uid: Etch.Gpu.MipmapFilterMode.Linear
+  commentId: F:Etch.Gpu.MipmapFilterMode.Linear
+  id: Linear
+  parent: Etch.Gpu.MipmapFilterMode
+  langs:
+  - csharp
+  - vb
+  name: Linear
+  nameWithType: MipmapFilterMode.Linear
+  fullName: Etch.Gpu.MipmapFilterMode.Linear
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Linear = 2
+    return:
+      type: Etch.Gpu.MipmapFilterMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.MipmapFilterMode
+  commentId: T:Etch.Gpu.MipmapFilterMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.MipmapFilterMode.html
+  name: MipmapFilterMode
+  nameWithType: MipmapFilterMode
+  fullName: Etch.Gpu.MipmapFilterMode

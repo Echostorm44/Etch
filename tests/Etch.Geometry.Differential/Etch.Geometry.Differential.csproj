@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.Geometry.Differential</RootNamespace>
+    <AssemblyName>Etch.Geometry.Differential</AssemblyName>
+    <Description>Differential geometry tests vs kurbo oracle</Description>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>$(NoWarn);CS1591;CA1707;ET0105;CA5394;CA1031;CA1307;CA1852</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\Etch.Geometry.Oracle\Etch.Geometry.Oracle.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+  </ItemGroup>
+</Project>

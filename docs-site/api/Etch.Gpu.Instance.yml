@@ -1,0 +1,548 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Instance
+  commentId: T:Etch.Gpu.Instance
+  id: Instance
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.Instance.#ctor(Etch.Gpu.Native.InstanceHandle)
+  - Etch.Gpu.Instance.Create(System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor})
+  - Etch.Gpu.Instance.Dispose
+  - Etch.Gpu.Instance.Handle
+  - Etch.Gpu.Instance.IsInvalid
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: Instance
+  fullName: Etch.Gpu.Instance
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: >-
+    A handle to a wgpu-native instance. This is the root of the GPU hierarchy;
+
+    create one at application startup and dispose at shutdown.
+  example: []
+  syntax:
+    content: 'public readonly struct Instance : IDisposable'
+    content.vb: Public Structure Instance Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Instance.#ctor(Etch.Gpu.Native.InstanceHandle)
+  commentId: M:Etch.Gpu.Instance.#ctor(Etch.Gpu.Native.InstanceHandle)
+  id: '#ctor(Etch.Gpu.Native.InstanceHandle)'
+  parent: Etch.Gpu.Instance
+  langs:
+  - csharp
+  - vb
+  name: Instance(InstanceHandle)
+  nameWithType: Instance.Instance(InstanceHandle)
+  fullName: Etch.Gpu.Instance.Instance(Etch.Gpu.Native.InstanceHandle)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Instance(InstanceHandle handle)
+    parameters:
+    - id: handle
+      type: Etch.Gpu.Native.InstanceHandle
+    content.vb: Public Sub New(handle As InstanceHandle)
+  overload: Etch.Gpu.Instance.#ctor*
+  nameWithType.vb: Instance.New(InstanceHandle)
+  fullName.vb: Etch.Gpu.Instance.New(Etch.Gpu.Native.InstanceHandle)
+  name.vb: New(InstanceHandle)
+- uid: Etch.Gpu.Instance.Handle
+  commentId: P:Etch.Gpu.Instance.Handle
+  id: Handle
+  parent: Etch.Gpu.Instance
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: Instance.Handle
+  fullName: Etch.Gpu.Instance.Handle
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public InstanceHandle Handle { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Native.InstanceHandle
+    content.vb: Public ReadOnly Property Handle As InstanceHandle
+  overload: Etch.Gpu.Instance.Handle*
+- uid: Etch.Gpu.Instance.IsInvalid
+  commentId: P:Etch.Gpu.Instance.IsInvalid
+  id: IsInvalid
+  parent: Etch.Gpu.Instance
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: Instance.IsInvalid
+  fullName: Etch.Gpu.Instance.IsInvalid
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInvalid As Boolean
+  overload: Etch.Gpu.Instance.IsInvalid*
+- uid: Etch.Gpu.Instance.Dispose
+  commentId: M:Etch.Gpu.Instance.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Instance
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Instance.Dispose()
+  fullName: Etch.Gpu.Instance.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Instance.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Etch.Gpu.Instance.Create(System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor})
+  commentId: M:Etch.Gpu.Instance.Create(System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor})
+  id: Create(System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor})
+  parent: Etch.Gpu.Instance
+  langs:
+  - csharp
+  - vb
+  name: Create(InstanceDescriptor?)
+  nameWithType: Instance.Create(InstanceDescriptor?)
+  fullName: Etch.Gpu.Instance.Create(Etch.Gpu.Descriptors.InstanceDescriptor?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Creates a new wgpu instance with optional capabilities.
+  example: []
+  syntax:
+    content: public static Instance Create(InstanceDescriptor? descriptor = null)
+    parameters:
+    - id: descriptor
+      type: System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor}
+    return:
+      type: Etch.Gpu.Instance
+    content.vb: Public Shared Function Create(descriptor As InstanceDescriptor? = Nothing) As Instance
+  overload: Etch.Gpu.Instance.Create*
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Gpu.Instance.#ctor*
+  commentId: Overload:Etch.Gpu.Instance.#ctor
+  href: Etch.Gpu.Instance.html#Etch_Gpu_Instance__ctor_Etch_Gpu_Native_InstanceHandle_
+  name: Instance
+  nameWithType: Instance.Instance
+  fullName: Etch.Gpu.Instance.Instance
+  nameWithType.vb: Instance.New
+  fullName.vb: Etch.Gpu.Instance.New
+  name.vb: New
+- uid: Etch.Gpu.Native.InstanceHandle
+  commentId: T:Etch.Gpu.Native.InstanceHandle
+  parent: Etch.Gpu.Native
+  name: InstanceHandle
+  nameWithType: InstanceHandle
+  fullName: Etch.Gpu.Native.InstanceHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.Instance.Handle*
+  commentId: Overload:Etch.Gpu.Instance.Handle
+  href: Etch.Gpu.Instance.html#Etch_Gpu_Instance_Handle
+  name: Handle
+  nameWithType: Instance.Handle
+  fullName: Etch.Gpu.Instance.Handle
+- uid: Etch.Gpu.Instance.IsInvalid*
+  commentId: Overload:Etch.Gpu.Instance.IsInvalid
+  href: Etch.Gpu.Instance.html#Etch_Gpu_Instance_IsInvalid
+  name: IsInvalid
+  nameWithType: Instance.IsInvalid
+  fullName: Etch.Gpu.Instance.IsInvalid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Gpu.Instance.Dispose*
+  commentId: Overload:Etch.Gpu.Instance.Dispose
+  href: Etch.Gpu.Instance.html#Etch_Gpu_Instance_Dispose
+  name: Dispose
+  nameWithType: Instance.Dispose
+  fullName: Etch.Gpu.Instance.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Etch.Gpu.Instance.Create*
+  commentId: Overload:Etch.Gpu.Instance.Create
+  href: Etch.Gpu.Instance.html#Etch_Gpu_Instance_Create_System_Nullable_Etch_Gpu_Descriptors_InstanceDescriptor__
+  name: Create
+  nameWithType: Instance.Create
+  fullName: Etch.Gpu.Instance.Create
+- uid: System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor}
+  commentId: T:System.Nullable{Etch.Gpu.Descriptors.InstanceDescriptor}
+  parent: System
+  definition: System.Nullable`1
+  href: Etch.Gpu.Descriptors.InstanceDescriptor.html
+  name: InstanceDescriptor?
+  nameWithType: InstanceDescriptor?
+  fullName: Etch.Gpu.Descriptors.InstanceDescriptor?
+  spec.csharp:
+  - uid: Etch.Gpu.Descriptors.InstanceDescriptor
+    name: InstanceDescriptor
+    href: Etch.Gpu.Descriptors.InstanceDescriptor.html
+  - name: '?'
+  spec.vb:
+  - uid: Etch.Gpu.Descriptors.InstanceDescriptor
+    name: InstanceDescriptor
+    href: Etch.Gpu.Descriptors.InstanceDescriptor.html
+  - name: '?'
+- uid: Etch.Gpu.Instance
+  commentId: T:Etch.Gpu.Instance
+  parent: Etch.Gpu
+  href: Etch.Gpu.Instance.html
+  name: Instance
+  nameWithType: Instance
+  fullName: Etch.Gpu.Instance
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.SubpixelMode
+  commentId: T:Etch.Gpu.Pipelines.SubpixelMode
+  id: SubpixelMode
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.SubpixelMode.FiveChannel
+  - Etch.Gpu.Pipelines.SubpixelMode.None
+  - Etch.Gpu.Pipelines.SubpixelMode.ThreeChannel
+  langs:
+  - csharp
+  - vb
+  name: SubpixelMode
+  nameWithType: SubpixelMode
+  fullName: Etch.Gpu.Pipelines.SubpixelMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public enum SubpixelMode : uint'
+    content.vb: Public Enum SubpixelMode As UInteger
+- uid: Etch.Gpu.Pipelines.SubpixelMode.None
+  commentId: F:Etch.Gpu.Pipelines.SubpixelMode.None
+  id: None
+  parent: Etch.Gpu.Pipelines.SubpixelMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SubpixelMode.None
+  fullName: Etch.Gpu.Pipelines.SubpixelMode.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.Pipelines.SubpixelMode
+- uid: Etch.Gpu.Pipelines.SubpixelMode.ThreeChannel
+  commentId: F:Etch.Gpu.Pipelines.SubpixelMode.ThreeChannel
+  id: ThreeChannel
+  parent: Etch.Gpu.Pipelines.SubpixelMode
+  langs:
+  - csharp
+  - vb
+  name: ThreeChannel
+  nameWithType: SubpixelMode.ThreeChannel
+  fullName: Etch.Gpu.Pipelines.SubpixelMode.ThreeChannel
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: ThreeChannel = 1
+    return:
+      type: Etch.Gpu.Pipelines.SubpixelMode
+- uid: Etch.Gpu.Pipelines.SubpixelMode.FiveChannel
+  commentId: F:Etch.Gpu.Pipelines.SubpixelMode.FiveChannel
+  id: FiveChannel
+  parent: Etch.Gpu.Pipelines.SubpixelMode
+  langs:
+  - csharp
+  - vb
+  name: FiveChannel
+  nameWithType: SubpixelMode.FiveChannel
+  fullName: Etch.Gpu.Pipelines.SubpixelMode.FiveChannel
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: FiveChannel = 2
+    return:
+      type: Etch.Gpu.Pipelines.SubpixelMode
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: Etch.Gpu.Pipelines.SubpixelMode
+  commentId: T:Etch.Gpu.Pipelines.SubpixelMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.SubpixelMode.html
+  name: SubpixelMode
+  nameWithType: SubpixelMode
+  fullName: Etch.Gpu.Pipelines.SubpixelMode

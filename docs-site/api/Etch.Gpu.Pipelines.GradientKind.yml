@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.GradientKind
+  commentId: T:Etch.Gpu.Pipelines.GradientKind
+  id: GradientKind
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.GradientKind.Conic
+  - Etch.Gpu.Pipelines.GradientKind.Linear
+  - Etch.Gpu.Pipelines.GradientKind.Radial
+  - Etch.Gpu.Pipelines.GradientKind.Sweep
+  langs:
+  - csharp
+  - vb
+  name: GradientKind
+  nameWithType: GradientKind
+  fullName: Etch.Gpu.Pipelines.GradientKind
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public enum GradientKind : uint'
+    content.vb: Public Enum GradientKind As UInteger
+- uid: Etch.Gpu.Pipelines.GradientKind.Linear
+  commentId: F:Etch.Gpu.Pipelines.GradientKind.Linear
+  id: Linear
+  parent: Etch.Gpu.Pipelines.GradientKind
+  langs:
+  - csharp
+  - vb
+  name: Linear
+  nameWithType: GradientKind.Linear
+  fullName: Etch.Gpu.Pipelines.GradientKind.Linear
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Linear = 0
+    return:
+      type: Etch.Gpu.Pipelines.GradientKind
+- uid: Etch.Gpu.Pipelines.GradientKind.Radial
+  commentId: F:Etch.Gpu.Pipelines.GradientKind.Radial
+  id: Radial
+  parent: Etch.Gpu.Pipelines.GradientKind
+  langs:
+  - csharp
+  - vb
+  name: Radial
+  nameWithType: GradientKind.Radial
+  fullName: Etch.Gpu.Pipelines.GradientKind.Radial
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Radial = 1
+    return:
+      type: Etch.Gpu.Pipelines.GradientKind
+- uid: Etch.Gpu.Pipelines.GradientKind.Conic
+  commentId: F:Etch.Gpu.Pipelines.GradientKind.Conic
+  id: Conic
+  parent: Etch.Gpu.Pipelines.GradientKind
+  langs:
+  - csharp
+  - vb
+  name: Conic
+  nameWithType: GradientKind.Conic
+  fullName: Etch.Gpu.Pipelines.GradientKind.Conic
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Conic = 2
+    return:
+      type: Etch.Gpu.Pipelines.GradientKind
+- uid: Etch.Gpu.Pipelines.GradientKind.Sweep
+  commentId: F:Etch.Gpu.Pipelines.GradientKind.Sweep
+  id: Sweep
+  parent: Etch.Gpu.Pipelines.GradientKind
+  langs:
+  - csharp
+  - vb
+  name: Sweep
+  nameWithType: GradientKind.Sweep
+  fullName: Etch.Gpu.Pipelines.GradientKind.Sweep
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Sweep = 3
+    return:
+      type: Etch.Gpu.Pipelines.GradientKind
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: Etch.Gpu.Pipelines.GradientKind
+  commentId: T:Etch.Gpu.Pipelines.GradientKind
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.GradientKind.html
+  name: GradientKind
+  nameWithType: GradientKind
+  fullName: Etch.Gpu.Pipelines.GradientKind

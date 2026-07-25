@@ -1,0 +1,1000 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureFormat
+  commentId: T:Etch.Gpu.TextureFormat
+  id: TextureFormat
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureFormat.Bgra8Unorm
+  - Etch.Gpu.TextureFormat.Bgra8UnormSrgb
+  - Etch.Gpu.TextureFormat.Depth16Unorm
+  - Etch.Gpu.TextureFormat.Depth24Plus
+  - Etch.Gpu.TextureFormat.Depth24PlusStencil8
+  - Etch.Gpu.TextureFormat.Depth32Float
+  - Etch.Gpu.TextureFormat.Depth32FloatStencil8
+  - Etch.Gpu.TextureFormat.R16Float
+  - Etch.Gpu.TextureFormat.R16Sint
+  - Etch.Gpu.TextureFormat.R16Snorm
+  - Etch.Gpu.TextureFormat.R16Uint
+  - Etch.Gpu.TextureFormat.R16Unorm
+  - Etch.Gpu.TextureFormat.R32Float
+  - Etch.Gpu.TextureFormat.R32Sint
+  - Etch.Gpu.TextureFormat.R32Uint
+  - Etch.Gpu.TextureFormat.R8Sint
+  - Etch.Gpu.TextureFormat.R8Snorm
+  - Etch.Gpu.TextureFormat.R8Uint
+  - Etch.Gpu.TextureFormat.R8Unorm
+  - Etch.Gpu.TextureFormat.Rg11B10Ufloat
+  - Etch.Gpu.TextureFormat.Rg16Float
+  - Etch.Gpu.TextureFormat.Rg16Sint
+  - Etch.Gpu.TextureFormat.Rg16Snorm
+  - Etch.Gpu.TextureFormat.Rg16Uint
+  - Etch.Gpu.TextureFormat.Rg16Unorm
+  - Etch.Gpu.TextureFormat.Rg32Float
+  - Etch.Gpu.TextureFormat.Rg32Sint
+  - Etch.Gpu.TextureFormat.Rg32Uint
+  - Etch.Gpu.TextureFormat.Rg8Sint
+  - Etch.Gpu.TextureFormat.Rg8Snorm
+  - Etch.Gpu.TextureFormat.Rg8Uint
+  - Etch.Gpu.TextureFormat.Rg8Unorm
+  - Etch.Gpu.TextureFormat.Rgb10A2Uint
+  - Etch.Gpu.TextureFormat.Rgb10A2Unorm
+  - Etch.Gpu.TextureFormat.Rgb9E5Ufloat
+  - Etch.Gpu.TextureFormat.Rgba16Float
+  - Etch.Gpu.TextureFormat.Rgba16Sint
+  - Etch.Gpu.TextureFormat.Rgba16Snorm
+  - Etch.Gpu.TextureFormat.Rgba16Uint
+  - Etch.Gpu.TextureFormat.Rgba16Unorm
+  - Etch.Gpu.TextureFormat.Rgba32Float
+  - Etch.Gpu.TextureFormat.Rgba32Sint
+  - Etch.Gpu.TextureFormat.Rgba32Uint
+  - Etch.Gpu.TextureFormat.Rgba8Sint
+  - Etch.Gpu.TextureFormat.Rgba8Snorm
+  - Etch.Gpu.TextureFormat.Rgba8Uint
+  - Etch.Gpu.TextureFormat.Rgba8Unorm
+  - Etch.Gpu.TextureFormat.Rgba8UnormSrgb
+  - Etch.Gpu.TextureFormat.Stencil8
+  - Etch.Gpu.TextureFormat.Undefined
+  langs:
+  - csharp
+  - vb
+  name: TextureFormat
+  nameWithType: TextureFormat
+  fullName: Etch.Gpu.TextureFormat
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum TextureFormat : uint'
+    content.vb: Public Enum TextureFormat As UInteger
+- uid: Etch.Gpu.TextureFormat.Undefined
+  commentId: F:Etch.Gpu.TextureFormat.Undefined
+  id: Undefined
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TextureFormat.Undefined
+  fullName: Etch.Gpu.TextureFormat.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R8Unorm
+  commentId: F:Etch.Gpu.TextureFormat.R8Unorm
+  id: R8Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R8Unorm
+  nameWithType: TextureFormat.R8Unorm
+  fullName: Etch.Gpu.TextureFormat.R8Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R8Unorm = 1
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R8Snorm
+  commentId: F:Etch.Gpu.TextureFormat.R8Snorm
+  id: R8Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R8Snorm
+  nameWithType: TextureFormat.R8Snorm
+  fullName: Etch.Gpu.TextureFormat.R8Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R8Snorm = 2
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R8Uint
+  commentId: F:Etch.Gpu.TextureFormat.R8Uint
+  id: R8Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R8Uint
+  nameWithType: TextureFormat.R8Uint
+  fullName: Etch.Gpu.TextureFormat.R8Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R8Uint = 3
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R8Sint
+  commentId: F:Etch.Gpu.TextureFormat.R8Sint
+  id: R8Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R8Sint
+  nameWithType: TextureFormat.R8Sint
+  fullName: Etch.Gpu.TextureFormat.R8Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R8Sint = 4
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R16Unorm
+  commentId: F:Etch.Gpu.TextureFormat.R16Unorm
+  id: R16Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R16Unorm
+  nameWithType: TextureFormat.R16Unorm
+  fullName: Etch.Gpu.TextureFormat.R16Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R16Unorm = 5
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R16Snorm
+  commentId: F:Etch.Gpu.TextureFormat.R16Snorm
+  id: R16Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R16Snorm
+  nameWithType: TextureFormat.R16Snorm
+  fullName: Etch.Gpu.TextureFormat.R16Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R16Snorm = 6
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R16Uint
+  commentId: F:Etch.Gpu.TextureFormat.R16Uint
+  id: R16Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R16Uint
+  nameWithType: TextureFormat.R16Uint
+  fullName: Etch.Gpu.TextureFormat.R16Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R16Uint = 7
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R16Sint
+  commentId: F:Etch.Gpu.TextureFormat.R16Sint
+  id: R16Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R16Sint
+  nameWithType: TextureFormat.R16Sint
+  fullName: Etch.Gpu.TextureFormat.R16Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R16Sint = 8
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R16Float
+  commentId: F:Etch.Gpu.TextureFormat.R16Float
+  id: R16Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R16Float
+  nameWithType: TextureFormat.R16Float
+  fullName: Etch.Gpu.TextureFormat.R16Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R16Float = 9
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg8Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Rg8Unorm
+  id: Rg8Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg8Unorm
+  nameWithType: TextureFormat.Rg8Unorm
+  fullName: Etch.Gpu.TextureFormat.Rg8Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg8Unorm = 10
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg8Snorm
+  commentId: F:Etch.Gpu.TextureFormat.Rg8Snorm
+  id: Rg8Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg8Snorm
+  nameWithType: TextureFormat.Rg8Snorm
+  fullName: Etch.Gpu.TextureFormat.Rg8Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg8Snorm = 11
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg8Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rg8Uint
+  id: Rg8Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg8Uint
+  nameWithType: TextureFormat.Rg8Uint
+  fullName: Etch.Gpu.TextureFormat.Rg8Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg8Uint = 12
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg8Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rg8Sint
+  id: Rg8Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg8Sint
+  nameWithType: TextureFormat.Rg8Sint
+  fullName: Etch.Gpu.TextureFormat.Rg8Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg8Sint = 13
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R32Float
+  commentId: F:Etch.Gpu.TextureFormat.R32Float
+  id: R32Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R32Float
+  nameWithType: TextureFormat.R32Float
+  fullName: Etch.Gpu.TextureFormat.R32Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R32Float = 14
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R32Uint
+  commentId: F:Etch.Gpu.TextureFormat.R32Uint
+  id: R32Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R32Uint
+  nameWithType: TextureFormat.R32Uint
+  fullName: Etch.Gpu.TextureFormat.R32Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R32Uint = 15
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.R32Sint
+  commentId: F:Etch.Gpu.TextureFormat.R32Sint
+  id: R32Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: R32Sint
+  nameWithType: TextureFormat.R32Sint
+  fullName: Etch.Gpu.TextureFormat.R32Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: R32Sint = 16
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg16Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Rg16Unorm
+  id: Rg16Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg16Unorm
+  nameWithType: TextureFormat.Rg16Unorm
+  fullName: Etch.Gpu.TextureFormat.Rg16Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg16Unorm = 17
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg16Snorm
+  commentId: F:Etch.Gpu.TextureFormat.Rg16Snorm
+  id: Rg16Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg16Snorm
+  nameWithType: TextureFormat.Rg16Snorm
+  fullName: Etch.Gpu.TextureFormat.Rg16Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg16Snorm = 18
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg16Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rg16Uint
+  id: Rg16Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg16Uint
+  nameWithType: TextureFormat.Rg16Uint
+  fullName: Etch.Gpu.TextureFormat.Rg16Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg16Uint = 19
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg16Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rg16Sint
+  id: Rg16Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg16Sint
+  nameWithType: TextureFormat.Rg16Sint
+  fullName: Etch.Gpu.TextureFormat.Rg16Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg16Sint = 20
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg16Float
+  commentId: F:Etch.Gpu.TextureFormat.Rg16Float
+  id: Rg16Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg16Float
+  nameWithType: TextureFormat.Rg16Float
+  fullName: Etch.Gpu.TextureFormat.Rg16Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg16Float = 21
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba8Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Rgba8Unorm
+  id: Rgba8Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba8Unorm
+  nameWithType: TextureFormat.Rgba8Unorm
+  fullName: Etch.Gpu.TextureFormat.Rgba8Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba8Unorm = 22
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba8UnormSrgb
+  commentId: F:Etch.Gpu.TextureFormat.Rgba8UnormSrgb
+  id: Rgba8UnormSrgb
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba8UnormSrgb
+  nameWithType: TextureFormat.Rgba8UnormSrgb
+  fullName: Etch.Gpu.TextureFormat.Rgba8UnormSrgb
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba8UnormSrgb = 23
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba8Snorm
+  commentId: F:Etch.Gpu.TextureFormat.Rgba8Snorm
+  id: Rgba8Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba8Snorm
+  nameWithType: TextureFormat.Rgba8Snorm
+  fullName: Etch.Gpu.TextureFormat.Rgba8Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba8Snorm = 24
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba8Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba8Uint
+  id: Rgba8Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba8Uint
+  nameWithType: TextureFormat.Rgba8Uint
+  fullName: Etch.Gpu.TextureFormat.Rgba8Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba8Uint = 25
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba8Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba8Sint
+  id: Rgba8Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba8Sint
+  nameWithType: TextureFormat.Rgba8Sint
+  fullName: Etch.Gpu.TextureFormat.Rgba8Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba8Sint = 26
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Bgra8Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Bgra8Unorm
+  id: Bgra8Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Bgra8Unorm
+  nameWithType: TextureFormat.Bgra8Unorm
+  fullName: Etch.Gpu.TextureFormat.Bgra8Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Bgra8Unorm = 27
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Bgra8UnormSrgb
+  commentId: F:Etch.Gpu.TextureFormat.Bgra8UnormSrgb
+  id: Bgra8UnormSrgb
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Bgra8UnormSrgb
+  nameWithType: TextureFormat.Bgra8UnormSrgb
+  fullName: Etch.Gpu.TextureFormat.Bgra8UnormSrgb
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Bgra8UnormSrgb = 28
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgb10A2Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rgb10A2Uint
+  id: Rgb10A2Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgb10A2Uint
+  nameWithType: TextureFormat.Rgb10A2Uint
+  fullName: Etch.Gpu.TextureFormat.Rgb10A2Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgb10A2Uint = 29
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgb10A2Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Rgb10A2Unorm
+  id: Rgb10A2Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgb10A2Unorm
+  nameWithType: TextureFormat.Rgb10A2Unorm
+  fullName: Etch.Gpu.TextureFormat.Rgb10A2Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgb10A2Unorm = 30
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg11B10Ufloat
+  commentId: F:Etch.Gpu.TextureFormat.Rg11B10Ufloat
+  id: Rg11B10Ufloat
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg11B10Ufloat
+  nameWithType: TextureFormat.Rg11B10Ufloat
+  fullName: Etch.Gpu.TextureFormat.Rg11B10Ufloat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg11B10Ufloat = 31
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgb9E5Ufloat
+  commentId: F:Etch.Gpu.TextureFormat.Rgb9E5Ufloat
+  id: Rgb9E5Ufloat
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgb9E5Ufloat
+  nameWithType: TextureFormat.Rgb9E5Ufloat
+  fullName: Etch.Gpu.TextureFormat.Rgb9E5Ufloat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgb9E5Ufloat = 32
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg32Float
+  commentId: F:Etch.Gpu.TextureFormat.Rg32Float
+  id: Rg32Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg32Float
+  nameWithType: TextureFormat.Rg32Float
+  fullName: Etch.Gpu.TextureFormat.Rg32Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg32Float = 33
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg32Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rg32Uint
+  id: Rg32Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg32Uint
+  nameWithType: TextureFormat.Rg32Uint
+  fullName: Etch.Gpu.TextureFormat.Rg32Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg32Uint = 34
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rg32Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rg32Sint
+  id: Rg32Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rg32Sint
+  nameWithType: TextureFormat.Rg32Sint
+  fullName: Etch.Gpu.TextureFormat.Rg32Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rg32Sint = 35
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba16Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Rgba16Unorm
+  id: Rgba16Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba16Unorm
+  nameWithType: TextureFormat.Rgba16Unorm
+  fullName: Etch.Gpu.TextureFormat.Rgba16Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba16Unorm = 36
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba16Snorm
+  commentId: F:Etch.Gpu.TextureFormat.Rgba16Snorm
+  id: Rgba16Snorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba16Snorm
+  nameWithType: TextureFormat.Rgba16Snorm
+  fullName: Etch.Gpu.TextureFormat.Rgba16Snorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba16Snorm = 37
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba16Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba16Uint
+  id: Rgba16Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba16Uint
+  nameWithType: TextureFormat.Rgba16Uint
+  fullName: Etch.Gpu.TextureFormat.Rgba16Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba16Uint = 38
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba16Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba16Sint
+  id: Rgba16Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba16Sint
+  nameWithType: TextureFormat.Rgba16Sint
+  fullName: Etch.Gpu.TextureFormat.Rgba16Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba16Sint = 39
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba16Float
+  commentId: F:Etch.Gpu.TextureFormat.Rgba16Float
+  id: Rgba16Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba16Float
+  nameWithType: TextureFormat.Rgba16Float
+  fullName: Etch.Gpu.TextureFormat.Rgba16Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba16Float = 40
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba32Float
+  commentId: F:Etch.Gpu.TextureFormat.Rgba32Float
+  id: Rgba32Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba32Float
+  nameWithType: TextureFormat.Rgba32Float
+  fullName: Etch.Gpu.TextureFormat.Rgba32Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba32Float = 41
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba32Uint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba32Uint
+  id: Rgba32Uint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba32Uint
+  nameWithType: TextureFormat.Rgba32Uint
+  fullName: Etch.Gpu.TextureFormat.Rgba32Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba32Uint = 42
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Rgba32Sint
+  commentId: F:Etch.Gpu.TextureFormat.Rgba32Sint
+  id: Rgba32Sint
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Rgba32Sint
+  nameWithType: TextureFormat.Rgba32Sint
+  fullName: Etch.Gpu.TextureFormat.Rgba32Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Rgba32Sint = 43
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Stencil8
+  commentId: F:Etch.Gpu.TextureFormat.Stencil8
+  id: Stencil8
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Stencil8
+  nameWithType: TextureFormat.Stencil8
+  fullName: Etch.Gpu.TextureFormat.Stencil8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Stencil8 = 44
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Depth16Unorm
+  commentId: F:Etch.Gpu.TextureFormat.Depth16Unorm
+  id: Depth16Unorm
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Depth16Unorm
+  nameWithType: TextureFormat.Depth16Unorm
+  fullName: Etch.Gpu.TextureFormat.Depth16Unorm
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth16Unorm = 45
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Depth24Plus
+  commentId: F:Etch.Gpu.TextureFormat.Depth24Plus
+  id: Depth24Plus
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Depth24Plus
+  nameWithType: TextureFormat.Depth24Plus
+  fullName: Etch.Gpu.TextureFormat.Depth24Plus
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth24Plus = 46
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Depth24PlusStencil8
+  commentId: F:Etch.Gpu.TextureFormat.Depth24PlusStencil8
+  id: Depth24PlusStencil8
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Depth24PlusStencil8
+  nameWithType: TextureFormat.Depth24PlusStencil8
+  fullName: Etch.Gpu.TextureFormat.Depth24PlusStencil8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth24PlusStencil8 = 47
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Depth32Float
+  commentId: F:Etch.Gpu.TextureFormat.Depth32Float
+  id: Depth32Float
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Depth32Float
+  nameWithType: TextureFormat.Depth32Float
+  fullName: Etch.Gpu.TextureFormat.Depth32Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth32Float = 48
+    return:
+      type: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu.TextureFormat.Depth32FloatStencil8
+  commentId: F:Etch.Gpu.TextureFormat.Depth32FloatStencil8
+  id: Depth32FloatStencil8
+  parent: Etch.Gpu.TextureFormat
+  langs:
+  - csharp
+  - vb
+  name: Depth32FloatStencil8
+  nameWithType: TextureFormat.Depth32FloatStencil8
+  fullName: Etch.Gpu.TextureFormat.Depth32FloatStencil8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth32FloatStencil8 = 49
+    return:
+      type: Etch.Gpu.TextureFormat
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureFormat
+  commentId: T:Etch.Gpu.TextureFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureFormat.html
+  name: TextureFormat
+  nameWithType: TextureFormat
+  fullName: Etch.Gpu.TextureFormat

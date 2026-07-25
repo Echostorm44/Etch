@@ -1,0 +1,829 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.VertexFormat
+  commentId: T:Etch.Gpu.VertexFormat
+  id: VertexFormat
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.VertexFormat.Float16
+  - Etch.Gpu.VertexFormat.Float16x2
+  - Etch.Gpu.VertexFormat.Float16x4
+  - Etch.Gpu.VertexFormat.Float32
+  - Etch.Gpu.VertexFormat.Float32x2
+  - Etch.Gpu.VertexFormat.Float32x3
+  - Etch.Gpu.VertexFormat.Float32x4
+  - Etch.Gpu.VertexFormat.Sint16
+  - Etch.Gpu.VertexFormat.Sint16x2
+  - Etch.Gpu.VertexFormat.Sint16x4
+  - Etch.Gpu.VertexFormat.Sint32
+  - Etch.Gpu.VertexFormat.Sint32x2
+  - Etch.Gpu.VertexFormat.Sint32x3
+  - Etch.Gpu.VertexFormat.Sint32x4
+  - Etch.Gpu.VertexFormat.Sint8
+  - Etch.Gpu.VertexFormat.Sint8x2
+  - Etch.Gpu.VertexFormat.Sint8x4
+  - Etch.Gpu.VertexFormat.Snorm16
+  - Etch.Gpu.VertexFormat.Snorm16x2
+  - Etch.Gpu.VertexFormat.Snorm16x4
+  - Etch.Gpu.VertexFormat.Snorm8
+  - Etch.Gpu.VertexFormat.Snorm8x2
+  - Etch.Gpu.VertexFormat.Snorm8x4
+  - Etch.Gpu.VertexFormat.Uint16
+  - Etch.Gpu.VertexFormat.Uint16x2
+  - Etch.Gpu.VertexFormat.Uint16x4
+  - Etch.Gpu.VertexFormat.Uint32
+  - Etch.Gpu.VertexFormat.Uint32x2
+  - Etch.Gpu.VertexFormat.Uint32x3
+  - Etch.Gpu.VertexFormat.Uint32x4
+  - Etch.Gpu.VertexFormat.Uint8
+  - Etch.Gpu.VertexFormat.Uint8x2
+  - Etch.Gpu.VertexFormat.Uint8x4
+  - Etch.Gpu.VertexFormat.Unorm1010102
+  - Etch.Gpu.VertexFormat.Unorm16
+  - Etch.Gpu.VertexFormat.Unorm16x2
+  - Etch.Gpu.VertexFormat.Unorm16x4
+  - Etch.Gpu.VertexFormat.Unorm8
+  - Etch.Gpu.VertexFormat.Unorm8x2
+  - Etch.Gpu.VertexFormat.Unorm8x4
+  - Etch.Gpu.VertexFormat.Unorm8x4BGRA
+  langs:
+  - csharp
+  - vb
+  name: VertexFormat
+  nameWithType: VertexFormat
+  fullName: Etch.Gpu.VertexFormat
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum VertexFormat : uint'
+    content.vb: Public Enum VertexFormat As UInteger
+- uid: Etch.Gpu.VertexFormat.Uint8
+  commentId: F:Etch.Gpu.VertexFormat.Uint8
+  id: Uint8
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint8
+  nameWithType: VertexFormat.Uint8
+  fullName: Etch.Gpu.VertexFormat.Uint8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint8 = 1
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint8x2
+  commentId: F:Etch.Gpu.VertexFormat.Uint8x2
+  id: Uint8x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint8x2
+  nameWithType: VertexFormat.Uint8x2
+  fullName: Etch.Gpu.VertexFormat.Uint8x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint8x2 = 2
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint8x4
+  commentId: F:Etch.Gpu.VertexFormat.Uint8x4
+  id: Uint8x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint8x4
+  nameWithType: VertexFormat.Uint8x4
+  fullName: Etch.Gpu.VertexFormat.Uint8x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint8x4 = 3
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint8
+  commentId: F:Etch.Gpu.VertexFormat.Sint8
+  id: Sint8
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint8
+  nameWithType: VertexFormat.Sint8
+  fullName: Etch.Gpu.VertexFormat.Sint8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint8 = 4
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint8x2
+  commentId: F:Etch.Gpu.VertexFormat.Sint8x2
+  id: Sint8x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint8x2
+  nameWithType: VertexFormat.Sint8x2
+  fullName: Etch.Gpu.VertexFormat.Sint8x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint8x2 = 5
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint8x4
+  commentId: F:Etch.Gpu.VertexFormat.Sint8x4
+  id: Sint8x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint8x4
+  nameWithType: VertexFormat.Sint8x4
+  fullName: Etch.Gpu.VertexFormat.Sint8x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint8x4 = 6
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm8
+  commentId: F:Etch.Gpu.VertexFormat.Unorm8
+  id: Unorm8
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm8
+  nameWithType: VertexFormat.Unorm8
+  fullName: Etch.Gpu.VertexFormat.Unorm8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm8 = 7
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm8x2
+  commentId: F:Etch.Gpu.VertexFormat.Unorm8x2
+  id: Unorm8x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm8x2
+  nameWithType: VertexFormat.Unorm8x2
+  fullName: Etch.Gpu.VertexFormat.Unorm8x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm8x2 = 8
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm8x4
+  commentId: F:Etch.Gpu.VertexFormat.Unorm8x4
+  id: Unorm8x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm8x4
+  nameWithType: VertexFormat.Unorm8x4
+  fullName: Etch.Gpu.VertexFormat.Unorm8x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm8x4 = 9
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm8
+  commentId: F:Etch.Gpu.VertexFormat.Snorm8
+  id: Snorm8
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm8
+  nameWithType: VertexFormat.Snorm8
+  fullName: Etch.Gpu.VertexFormat.Snorm8
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm8 = 10
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm8x2
+  commentId: F:Etch.Gpu.VertexFormat.Snorm8x2
+  id: Snorm8x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm8x2
+  nameWithType: VertexFormat.Snorm8x2
+  fullName: Etch.Gpu.VertexFormat.Snorm8x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm8x2 = 11
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm8x4
+  commentId: F:Etch.Gpu.VertexFormat.Snorm8x4
+  id: Snorm8x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm8x4
+  nameWithType: VertexFormat.Snorm8x4
+  fullName: Etch.Gpu.VertexFormat.Snorm8x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm8x4 = 12
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint16
+  commentId: F:Etch.Gpu.VertexFormat.Uint16
+  id: Uint16
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint16
+  nameWithType: VertexFormat.Uint16
+  fullName: Etch.Gpu.VertexFormat.Uint16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint16 = 13
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint16x2
+  commentId: F:Etch.Gpu.VertexFormat.Uint16x2
+  id: Uint16x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint16x2
+  nameWithType: VertexFormat.Uint16x2
+  fullName: Etch.Gpu.VertexFormat.Uint16x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint16x2 = 14
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint16x4
+  commentId: F:Etch.Gpu.VertexFormat.Uint16x4
+  id: Uint16x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint16x4
+  nameWithType: VertexFormat.Uint16x4
+  fullName: Etch.Gpu.VertexFormat.Uint16x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint16x4 = 15
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint16
+  commentId: F:Etch.Gpu.VertexFormat.Sint16
+  id: Sint16
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint16
+  nameWithType: VertexFormat.Sint16
+  fullName: Etch.Gpu.VertexFormat.Sint16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint16 = 16
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint16x2
+  commentId: F:Etch.Gpu.VertexFormat.Sint16x2
+  id: Sint16x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint16x2
+  nameWithType: VertexFormat.Sint16x2
+  fullName: Etch.Gpu.VertexFormat.Sint16x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint16x2 = 17
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint16x4
+  commentId: F:Etch.Gpu.VertexFormat.Sint16x4
+  id: Sint16x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint16x4
+  nameWithType: VertexFormat.Sint16x4
+  fullName: Etch.Gpu.VertexFormat.Sint16x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint16x4 = 18
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm16
+  commentId: F:Etch.Gpu.VertexFormat.Unorm16
+  id: Unorm16
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm16
+  nameWithType: VertexFormat.Unorm16
+  fullName: Etch.Gpu.VertexFormat.Unorm16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm16 = 19
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm16x2
+  commentId: F:Etch.Gpu.VertexFormat.Unorm16x2
+  id: Unorm16x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm16x2
+  nameWithType: VertexFormat.Unorm16x2
+  fullName: Etch.Gpu.VertexFormat.Unorm16x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm16x2 = 20
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm16x4
+  commentId: F:Etch.Gpu.VertexFormat.Unorm16x4
+  id: Unorm16x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm16x4
+  nameWithType: VertexFormat.Unorm16x4
+  fullName: Etch.Gpu.VertexFormat.Unorm16x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm16x4 = 21
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm16
+  commentId: F:Etch.Gpu.VertexFormat.Snorm16
+  id: Snorm16
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm16
+  nameWithType: VertexFormat.Snorm16
+  fullName: Etch.Gpu.VertexFormat.Snorm16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm16 = 22
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm16x2
+  commentId: F:Etch.Gpu.VertexFormat.Snorm16x2
+  id: Snorm16x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm16x2
+  nameWithType: VertexFormat.Snorm16x2
+  fullName: Etch.Gpu.VertexFormat.Snorm16x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm16x2 = 23
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Snorm16x4
+  commentId: F:Etch.Gpu.VertexFormat.Snorm16x4
+  id: Snorm16x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Snorm16x4
+  nameWithType: VertexFormat.Snorm16x4
+  fullName: Etch.Gpu.VertexFormat.Snorm16x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Snorm16x4 = 24
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float16
+  commentId: F:Etch.Gpu.VertexFormat.Float16
+  id: Float16
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float16
+  nameWithType: VertexFormat.Float16
+  fullName: Etch.Gpu.VertexFormat.Float16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float16 = 25
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float16x2
+  commentId: F:Etch.Gpu.VertexFormat.Float16x2
+  id: Float16x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float16x2
+  nameWithType: VertexFormat.Float16x2
+  fullName: Etch.Gpu.VertexFormat.Float16x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float16x2 = 26
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float16x4
+  commentId: F:Etch.Gpu.VertexFormat.Float16x4
+  id: Float16x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float16x4
+  nameWithType: VertexFormat.Float16x4
+  fullName: Etch.Gpu.VertexFormat.Float16x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float16x4 = 27
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float32
+  commentId: F:Etch.Gpu.VertexFormat.Float32
+  id: Float32
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float32
+  nameWithType: VertexFormat.Float32
+  fullName: Etch.Gpu.VertexFormat.Float32
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float32 = 28
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float32x2
+  commentId: F:Etch.Gpu.VertexFormat.Float32x2
+  id: Float32x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float32x2
+  nameWithType: VertexFormat.Float32x2
+  fullName: Etch.Gpu.VertexFormat.Float32x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float32x2 = 29
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float32x3
+  commentId: F:Etch.Gpu.VertexFormat.Float32x3
+  id: Float32x3
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float32x3
+  nameWithType: VertexFormat.Float32x3
+  fullName: Etch.Gpu.VertexFormat.Float32x3
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float32x3 = 30
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Float32x4
+  commentId: F:Etch.Gpu.VertexFormat.Float32x4
+  id: Float32x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Float32x4
+  nameWithType: VertexFormat.Float32x4
+  fullName: Etch.Gpu.VertexFormat.Float32x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float32x4 = 31
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint32
+  commentId: F:Etch.Gpu.VertexFormat.Uint32
+  id: Uint32
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint32
+  nameWithType: VertexFormat.Uint32
+  fullName: Etch.Gpu.VertexFormat.Uint32
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint32 = 32
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint32x2
+  commentId: F:Etch.Gpu.VertexFormat.Uint32x2
+  id: Uint32x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint32x2
+  nameWithType: VertexFormat.Uint32x2
+  fullName: Etch.Gpu.VertexFormat.Uint32x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint32x2 = 33
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint32x3
+  commentId: F:Etch.Gpu.VertexFormat.Uint32x3
+  id: Uint32x3
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint32x3
+  nameWithType: VertexFormat.Uint32x3
+  fullName: Etch.Gpu.VertexFormat.Uint32x3
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint32x3 = 34
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Uint32x4
+  commentId: F:Etch.Gpu.VertexFormat.Uint32x4
+  id: Uint32x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint32x4
+  nameWithType: VertexFormat.Uint32x4
+  fullName: Etch.Gpu.VertexFormat.Uint32x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint32x4 = 35
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint32
+  commentId: F:Etch.Gpu.VertexFormat.Sint32
+  id: Sint32
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint32
+  nameWithType: VertexFormat.Sint32
+  fullName: Etch.Gpu.VertexFormat.Sint32
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint32 = 36
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint32x2
+  commentId: F:Etch.Gpu.VertexFormat.Sint32x2
+  id: Sint32x2
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint32x2
+  nameWithType: VertexFormat.Sint32x2
+  fullName: Etch.Gpu.VertexFormat.Sint32x2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint32x2 = 37
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint32x3
+  commentId: F:Etch.Gpu.VertexFormat.Sint32x3
+  id: Sint32x3
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint32x3
+  nameWithType: VertexFormat.Sint32x3
+  fullName: Etch.Gpu.VertexFormat.Sint32x3
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint32x3 = 38
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Sint32x4
+  commentId: F:Etch.Gpu.VertexFormat.Sint32x4
+  id: Sint32x4
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Sint32x4
+  nameWithType: VertexFormat.Sint32x4
+  fullName: Etch.Gpu.VertexFormat.Sint32x4
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint32x4 = 39
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm1010102
+  commentId: F:Etch.Gpu.VertexFormat.Unorm1010102
+  id: Unorm1010102
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm1010102
+  nameWithType: VertexFormat.Unorm1010102
+  fullName: Etch.Gpu.VertexFormat.Unorm1010102
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm1010102 = 40
+    return:
+      type: Etch.Gpu.VertexFormat
+- uid: Etch.Gpu.VertexFormat.Unorm8x4BGRA
+  commentId: F:Etch.Gpu.VertexFormat.Unorm8x4BGRA
+  id: Unorm8x4BGRA
+  parent: Etch.Gpu.VertexFormat
+  langs:
+  - csharp
+  - vb
+  name: Unorm8x4BGRA
+  nameWithType: VertexFormat.Unorm8x4BGRA
+  fullName: Etch.Gpu.VertexFormat.Unorm8x4BGRA
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unorm8x4BGRA = 41
+    return:
+      type: Etch.Gpu.VertexFormat
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.VertexFormat
+  commentId: T:Etch.Gpu.VertexFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.VertexFormat.html
+  name: VertexFormat
+  nameWithType: VertexFormat
+  fullName: Etch.Gpu.VertexFormat

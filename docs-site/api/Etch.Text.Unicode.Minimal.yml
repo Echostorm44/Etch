@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode.Minimal
+  commentId: N:Etch.Text.Unicode.Minimal
+  id: Etch.Text.Unicode.Minimal
+  children:
+  - Etch.Text.Unicode.Minimal.BidiAlgorithm
+  - Etch.Text.Unicode.Minimal.BidiClass
+  - Etch.Text.Unicode.Minimal.BidiClassTable
+  - Etch.Text.Unicode.Minimal.BidiParagraphResult
+  - Etch.Text.Unicode.Minimal.BidiRun
+  - Etch.Text.Unicode.Minimal.BidiRunDirection
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Unicode.Minimal
+  nameWithType: Etch.Text.Unicode.Minimal
+  fullName: Etch.Text.Unicode.Minimal
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Unicode.Minimal.BidiAlgorithm
+  commentId: T:Etch.Text.Unicode.Minimal.BidiAlgorithm
+  href: Etch.Text.Unicode.Minimal.BidiAlgorithm.html
+  name: BidiAlgorithm
+  nameWithType: BidiAlgorithm
+  fullName: Etch.Text.Unicode.Minimal.BidiAlgorithm
+- uid: Etch.Text.Unicode.Minimal.BidiClass
+  commentId: T:Etch.Text.Unicode.Minimal.BidiClass
+  parent: Etch.Text.Unicode.Minimal
+  href: Etch.Text.Unicode.Minimal.BidiClass.html
+  name: BidiClass
+  nameWithType: BidiClass
+  fullName: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClassTable
+  commentId: T:Etch.Text.Unicode.Minimal.BidiClassTable
+  href: Etch.Text.Unicode.Minimal.BidiClassTable.html
+  name: BidiClassTable
+  nameWithType: BidiClassTable
+  fullName: Etch.Text.Unicode.Minimal.BidiClassTable
+- uid: Etch.Text.Unicode.Minimal.BidiRunDirection
+  commentId: T:Etch.Text.Unicode.Minimal.BidiRunDirection
+  parent: Etch.Text.Unicode.Minimal
+  href: Etch.Text.Unicode.Minimal.BidiRunDirection.html
+  name: BidiRunDirection
+  nameWithType: BidiRunDirection
+  fullName: Etch.Text.Unicode.Minimal.BidiRunDirection
+- uid: Etch.Text.Unicode.Minimal.BidiRun
+  commentId: T:Etch.Text.Unicode.Minimal.BidiRun
+  href: Etch.Text.Unicode.Minimal.BidiRun.html
+  name: BidiRun
+  nameWithType: BidiRun
+  fullName: Etch.Text.Unicode.Minimal.BidiRun
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  commentId: T:Etch.Text.Unicode.Minimal.BidiParagraphResult
+  parent: Etch.Text.Unicode.Minimal
+  href: Etch.Text.Unicode.Minimal.BidiParagraphResult.html
+  name: BidiParagraphResult
+  nameWithType: BidiParagraphResult
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult
+- uid: Etch.Text.Unicode.Minimal
+  commentId: N:Etch.Text.Unicode.Minimal
+  href: Etch.html
+  name: Etch.Text.Unicode.Minimal
+  nameWithType: Etch.Text.Unicode.Minimal
+  fullName: Etch.Text.Unicode.Minimal
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html

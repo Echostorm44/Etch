@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Correctness.Tests</RootNamespace>
+    <AssemblyName>Etch.Correctness.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515;CA5394</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Primitives\Etch.Primitives.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Etch.SkiaRef\Etch.SkiaRef.csproj" />
+    <ProjectReference Include="..\..\tests\Etch.Geometry.Oracle\Etch.Geometry.Oracle.csproj" />
+    <ProjectReference Include="..\..\tools\svg-translator\Etch.SvgTranslator.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyKurboOracleNative" AfterTargets="Build">
+    <PropertyGroup>
+      <_OracleWinDll>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\Etch.Geometry.Oracle\runtimes\win-x64\native\etch_kurbo_oracle.dll'))</_OracleWinDll>
+      <_OutWinDir>$([System.IO.Path]::GetFullPath('$(TargetDir)runtimes\win-x64\native'))</_OutWinDir>
+      <_OutWinDll>$([System.IO.Path]::GetFullPath('$(TargetDir)runtimes\win-x64\native\etch_kurbo_oracle.dll'))</_OutWinDll>
+    </PropertyGroup>
+    <MakeDir Directories="$(_OutWinDir)" />
+    <Copy SourceFiles="$(_OracleWinDll)" DestinationFiles="$(_OutWinDll)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.RequestAdapterStatus
+  commentId: T:Etch.Gpu.RequestAdapterStatus
+  id: RequestAdapterStatus
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.RequestAdapterStatus.CallbackCancelled
+  - Etch.Gpu.RequestAdapterStatus.Error
+  - Etch.Gpu.RequestAdapterStatus.Success
+  - Etch.Gpu.RequestAdapterStatus.Unavailable
+  langs:
+  - csharp
+  - vb
+  name: RequestAdapterStatus
+  nameWithType: RequestAdapterStatus
+  fullName: Etch.Gpu.RequestAdapterStatus
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum RequestAdapterStatus : uint'
+    content.vb: Public Enum RequestAdapterStatus As UInteger
+- uid: Etch.Gpu.RequestAdapterStatus.Success
+  commentId: F:Etch.Gpu.RequestAdapterStatus.Success
+  id: Success
+  parent: Etch.Gpu.RequestAdapterStatus
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: RequestAdapterStatus.Success
+  fullName: Etch.Gpu.RequestAdapterStatus.Success
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Success = 1
+    return:
+      type: Etch.Gpu.RequestAdapterStatus
+- uid: Etch.Gpu.RequestAdapterStatus.CallbackCancelled
+  commentId: F:Etch.Gpu.RequestAdapterStatus.CallbackCancelled
+  id: CallbackCancelled
+  parent: Etch.Gpu.RequestAdapterStatus
+  langs:
+  - csharp
+  - vb
+  name: CallbackCancelled
+  nameWithType: RequestAdapterStatus.CallbackCancelled
+  fullName: Etch.Gpu.RequestAdapterStatus.CallbackCancelled
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CallbackCancelled = 2
+    return:
+      type: Etch.Gpu.RequestAdapterStatus
+- uid: Etch.Gpu.RequestAdapterStatus.Unavailable
+  commentId: F:Etch.Gpu.RequestAdapterStatus.Unavailable
+  id: Unavailable
+  parent: Etch.Gpu.RequestAdapterStatus
+  langs:
+  - csharp
+  - vb
+  name: Unavailable
+  nameWithType: RequestAdapterStatus.Unavailable
+  fullName: Etch.Gpu.RequestAdapterStatus.Unavailable
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unavailable = 3
+    return:
+      type: Etch.Gpu.RequestAdapterStatus
+- uid: Etch.Gpu.RequestAdapterStatus.Error
+  commentId: F:Etch.Gpu.RequestAdapterStatus.Error
+  id: Error
+  parent: Etch.Gpu.RequestAdapterStatus
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: RequestAdapterStatus.Error
+  fullName: Etch.Gpu.RequestAdapterStatus.Error
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Error = 4
+    return:
+      type: Etch.Gpu.RequestAdapterStatus
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.RequestAdapterStatus
+  commentId: T:Etch.Gpu.RequestAdapterStatus
+  parent: Etch.Gpu
+  href: Etch.Gpu.RequestAdapterStatus.html
+  name: RequestAdapterStatus
+  nameWithType: RequestAdapterStatus
+  fullName: Etch.Gpu.RequestAdapterStatus

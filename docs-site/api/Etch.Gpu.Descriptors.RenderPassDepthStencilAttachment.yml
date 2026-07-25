@@ -1,0 +1,524 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  commentId: T:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  id: RenderPassDepthStencilAttachment
+  parent: Etch.Gpu.Descriptors
+  children:
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthClearValue
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthLoadOp
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthReadOnly
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthStoreOp
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilClearValue
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilLoadOp
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilReadOnly
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilStoreOp
+  - Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.View
+  langs:
+  - csharp
+  - vb
+  name: RenderPassDepthStencilAttachment
+  nameWithType: RenderPassDepthStencilAttachment
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public struct RenderPassDepthStencilAttachment
+    content.vb: Public Structure RenderPassDepthStencilAttachment
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.View
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.View
+  id: View
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: RenderPassDepthStencilAttachment.View
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.View
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public nint View
+    return:
+      type: System.IntPtr
+    content.vb: Public View As IntPtr
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthLoadOp
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthLoadOp
+  id: DepthLoadOp
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: DepthLoadOp
+  nameWithType: RenderPassDepthStencilAttachment.DepthLoadOp
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthLoadOp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public LoadOp DepthLoadOp
+    return:
+      type: Etch.Gpu.LoadOp
+    content.vb: Public DepthLoadOp As LoadOp
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthStoreOp
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthStoreOp
+  id: DepthStoreOp
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: DepthStoreOp
+  nameWithType: RenderPassDepthStencilAttachment.DepthStoreOp
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthStoreOp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public StoreOp DepthStoreOp
+    return:
+      type: Etch.Gpu.StoreOp
+    content.vb: Public DepthStoreOp As StoreOp
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthClearValue
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthClearValue
+  id: DepthClearValue
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: DepthClearValue
+  nameWithType: RenderPassDepthStencilAttachment.DepthClearValue
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthClearValue
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public float DepthClearValue
+    return:
+      type: System.Single
+    content.vb: Public DepthClearValue As Single
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthReadOnly
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthReadOnly
+  id: DepthReadOnly
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: DepthReadOnly
+  nameWithType: RenderPassDepthStencilAttachment.DepthReadOnly
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.DepthReadOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public uint DepthReadOnly
+    return:
+      type: System.UInt32
+    content.vb: Public DepthReadOnly As UInteger
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilLoadOp
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilLoadOp
+  id: StencilLoadOp
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: StencilLoadOp
+  nameWithType: RenderPassDepthStencilAttachment.StencilLoadOp
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilLoadOp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public LoadOp StencilLoadOp
+    return:
+      type: Etch.Gpu.LoadOp
+    content.vb: Public StencilLoadOp As LoadOp
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilStoreOp
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilStoreOp
+  id: StencilStoreOp
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: StencilStoreOp
+  nameWithType: RenderPassDepthStencilAttachment.StencilStoreOp
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilStoreOp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public StoreOp StencilStoreOp
+    return:
+      type: Etch.Gpu.StoreOp
+    content.vb: Public StencilStoreOp As StoreOp
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilClearValue
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilClearValue
+  id: StencilClearValue
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: StencilClearValue
+  nameWithType: RenderPassDepthStencilAttachment.StencilClearValue
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilClearValue
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public uint StencilClearValue
+    return:
+      type: System.UInt32
+    content.vb: Public StencilClearValue As UInteger
+- uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilReadOnly
+  commentId: F:Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilReadOnly
+  id: StencilReadOnly
+  parent: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+  langs:
+  - csharp
+  - vb
+  name: StencilReadOnly
+  nameWithType: RenderPassDepthStencilAttachment.StencilReadOnly
+  fullName: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment.StencilReadOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public uint StencilReadOnly
+    return:
+      type: System.UInt32
+    content.vb: Public StencilReadOnly As UInteger
+references:
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: Etch.Gpu.LoadOp
+  commentId: T:Etch.Gpu.LoadOp
+  parent: Etch.Gpu
+  href: Etch.Gpu.LoadOp.html
+  name: LoadOp
+  nameWithType: LoadOp
+  fullName: Etch.Gpu.LoadOp
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.StoreOp
+  commentId: T:Etch.Gpu.StoreOp
+  parent: Etch.Gpu
+  href: Etch.Gpu.StoreOp.html
+  name: StoreOp
+  nameWithType: StoreOp
+  fullName: Etch.Gpu.StoreOp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

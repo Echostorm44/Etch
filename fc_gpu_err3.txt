@@ -1,0 +1,78 @@
+
+thread '<unnamed>' (51852) panicked at src\lib.rs:3083:37:
+invalid buffer
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread '<unnamed>' (51852) panicked at library\core\src\panicking.rs:225:5:
+panic in a function that cannot unwind
+stack backtrace:
+   0:     0x7ffe4fed61f2 - std::backtrace_rs::backtrace::win64::trace
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\..\..\backtrace\src\backtrace\win64.rs:85
+   1:     0x7ffe4fed61f2 - std::backtrace_rs::backtrace::trace_unsynchronized
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\..\..\backtrace\src\backtrace\mod.rs:66
+   2:     0x7ffe4fed61f2 - std::sys::backtrace::_print_fmt
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\sys\backtrace.rs:66
+   3:     0x7ffe4fed61f2 - std::sys::backtrace::impl$0::print::impl$0::fmt
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\sys\backtrace.rs:39
+   4:     0x7ffe4fee23ca - core::fmt::rt::Argument::fmt
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\core\src\fmt\rt.rs:173
+   5:     0x7ffe4fee23ca - core::fmt::write
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\core\src\fmt\mod.rs:1468
+   6:     0x7ffe4fecc29e - std::io::default_write_fmt
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\io\mod.rs:639
+   7:     0x7ffe4fecc29e - std::io::Write::write_fmt<std::sys::stdio::windows::Stderr>
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\io\mod.rs:1954
+   8:     0x7ffe4fecf915 - std::sys::backtrace::BacktraceLock::print
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\sys\backtrace.rs:42
+   9:     0x7ffe4fed1d99 - std::panicking::default_hook::closure$0
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\panicking.rs:301
+  10:     0x7ffe4fed1b88 - std::panicking::default_hook
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\panicking.rs:328
+  11:     0x7ffe4fed261b - std::panicking::panic_with_hook
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\panicking.rs:834
+  12:     0x7ffe4fed2472 - std::panicking::panic_handler::closure$0
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\panicking.rs:700
+  13:     0x7ffe4fecfb1f - std::sys::backtrace::__rust_end_short_backtrace<std::panicking::panic_handler::closure_env$0,never$>
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\sys\backtrace.rs:174
+  14:     0x7ffe4feca76e - std::panicking::panic_handler
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\std\src\panicking.rs:698
+  15:     0x7ffe4ff2c835 - core::panicking::panic_nounwind_fmt
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\core\src\intrinsics\mod.rs:2435
+  16:     0x7ffe4ff2c783 - core::panicking::panic_nounwind
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\core\src\panicking.rs:225
+  17:     0x7ffe4ff2c9b1 - core::panicking::panic_cannot_unwind
+                               at /rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library\core\src\panicking.rs:337
+  18:     0x7ffe4f965eb7 - wgpuQueueWriteBuffer
+  19:     0x7fff7dd20500 - _CxxFrameHandler3
+  20:     0x7fff7dd133d7 - is_exception_typeof
+  21:     0x7fffb1da11c6 - RtlCaptureContext2
+  22:     0x7ffe4f965e96 - wgpuQueueWriteBuffer
+  23:     0x7fff186aa7b7 - <unknown>
+  24:     0x7fff186aa647 - <unknown>
+  25:     0x7fff186bbef8 - <unknown>
+  26:     0x7fff186aaa04 - <unknown>
+  27:     0x7fff186a5960 - <unknown>
+  28:     0x7fff186a54ce - <unknown>
+  29:     0x7fff186a545f - <unknown>
+  30:     0x7fff1869143b - <unknown>
+  31:     0x7fff782d8933 - coreclr_set_error_writer
+  32:     0x7fff7816423c - <unknown>
+  33:     0x7fff7819f2ab - <unknown>
+  34:     0x7fff781a0272 - <unknown>
+  35:     0x7fff7819fc33 - <unknown>
+  36:     0x7fff781a0945 - <unknown>
+  37:     0x7fff78205837 - coreclr_execute_assembly
+  38:     0x7fff8741dd0a - <unknown>
+  39:     0x7fff8741dfac - <unknown>
+  40:     0x7fff8741ef21 - corehost_main
+  41:     0x7fff8836d56b - hostfxr_close
+  42:     0x7fff8837029c - hostfxr_close
+  43:     0x7fff88372676 - hostfxr_close
+  44:     0x7fff8837079d - hostfxr_close
+  45:     0x7fff88368998 - hostfxr_main_startupinfo
+  46:     0x7ff77edd2f48 - <unknown>
+  47:     0x7ff77edd33c6 - <unknown>
+  48:     0x7ff77ede3b28 - <unknown>
+  49:     0x7fffb0a4e8d7 - BaseThreadInitThunk
+  50:     0x7fffb1d0c3fc - RtlUserThreadStart
+thread caused non-unwinding panic. aborting.

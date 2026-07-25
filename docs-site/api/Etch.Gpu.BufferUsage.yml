@@ -1,0 +1,269 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.BufferUsage
+  commentId: T:Etch.Gpu.BufferUsage
+  id: BufferUsage
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.BufferUsage.CopyDst
+  - Etch.Gpu.BufferUsage.CopySrc
+  - Etch.Gpu.BufferUsage.Index
+  - Etch.Gpu.BufferUsage.Indirect
+  - Etch.Gpu.BufferUsage.MapRead
+  - Etch.Gpu.BufferUsage.MapWrite
+  - Etch.Gpu.BufferUsage.None
+  - Etch.Gpu.BufferUsage.QueryResolve
+  - Etch.Gpu.BufferUsage.Storage
+  - Etch.Gpu.BufferUsage.Uniform
+  - Etch.Gpu.BufferUsage.Vertex
+  langs:
+  - csharp
+  - vb
+  name: BufferUsage
+  nameWithType: BufferUsage
+  fullName: Etch.Gpu.BufferUsage
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum BufferUsage : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum BufferUsage As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.BufferUsage.None
+  commentId: F:Etch.Gpu.BufferUsage.None
+  id: None
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: BufferUsage.None
+  fullName: Etch.Gpu.BufferUsage.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.MapRead
+  commentId: F:Etch.Gpu.BufferUsage.MapRead
+  id: MapRead
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: MapRead
+  nameWithType: BufferUsage.MapRead
+  fullName: Etch.Gpu.BufferUsage.MapRead
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: MapRead = 1
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.MapWrite
+  commentId: F:Etch.Gpu.BufferUsage.MapWrite
+  id: MapWrite
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: MapWrite
+  nameWithType: BufferUsage.MapWrite
+  fullName: Etch.Gpu.BufferUsage.MapWrite
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: MapWrite = 2
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.CopySrc
+  commentId: F:Etch.Gpu.BufferUsage.CopySrc
+  id: CopySrc
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: CopySrc
+  nameWithType: BufferUsage.CopySrc
+  fullName: Etch.Gpu.BufferUsage.CopySrc
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CopySrc = 4
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.CopyDst
+  commentId: F:Etch.Gpu.BufferUsage.CopyDst
+  id: CopyDst
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: CopyDst
+  nameWithType: BufferUsage.CopyDst
+  fullName: Etch.Gpu.BufferUsage.CopyDst
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CopyDst = 8
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.Index
+  commentId: F:Etch.Gpu.BufferUsage.Index
+  id: Index
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: BufferUsage.Index
+  fullName: Etch.Gpu.BufferUsage.Index
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Index = 16
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.Vertex
+  commentId: F:Etch.Gpu.BufferUsage.Vertex
+  id: Vertex
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: Vertex
+  nameWithType: BufferUsage.Vertex
+  fullName: Etch.Gpu.BufferUsage.Vertex
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Vertex = 32
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.Uniform
+  commentId: F:Etch.Gpu.BufferUsage.Uniform
+  id: Uniform
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: Uniform
+  nameWithType: BufferUsage.Uniform
+  fullName: Etch.Gpu.BufferUsage.Uniform
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uniform = 64
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.Storage
+  commentId: F:Etch.Gpu.BufferUsage.Storage
+  id: Storage
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: Storage
+  nameWithType: BufferUsage.Storage
+  fullName: Etch.Gpu.BufferUsage.Storage
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Storage = 128
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.Indirect
+  commentId: F:Etch.Gpu.BufferUsage.Indirect
+  id: Indirect
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: Indirect
+  nameWithType: BufferUsage.Indirect
+  fullName: Etch.Gpu.BufferUsage.Indirect
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Indirect = 256
+    return:
+      type: Etch.Gpu.BufferUsage
+- uid: Etch.Gpu.BufferUsage.QueryResolve
+  commentId: F:Etch.Gpu.BufferUsage.QueryResolve
+  id: QueryResolve
+  parent: Etch.Gpu.BufferUsage
+  langs:
+  - csharp
+  - vb
+  name: QueryResolve
+  nameWithType: BufferUsage.QueryResolve
+  fullName: Etch.Gpu.BufferUsage.QueryResolve
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: QueryResolve = 512
+    return:
+      type: Etch.Gpu.BufferUsage
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.BufferUsage
+  commentId: T:Etch.Gpu.BufferUsage
+  parent: Etch.Gpu
+  href: Etch.Gpu.BufferUsage.html
+  name: BufferUsage
+  nameWithType: BufferUsage
+  fullName: Etch.Gpu.BufferUsage

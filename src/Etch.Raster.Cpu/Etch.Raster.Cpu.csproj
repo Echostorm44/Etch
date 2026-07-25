@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Etch.Raster.Cpu</RootNamespace>
+    <AssemblyName>Etch.Raster.Cpu</AssemblyName>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>$(NoWarn);CS1591;CA1815;CA1031;CA1720;CA1028;CA1008;CA1711</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Primitives\Etch.Primitives.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Tiling\Etch.Tiling.csproj" />
+    <ProjectReference Include="..\Etch.ClipBlendGradient\Etch.ClipBlendGradient.csproj" />
+    <ProjectReference Include="..\Etch.Effects\Etch.Effects.csproj" />
+  </ItemGroup>
+</Project>

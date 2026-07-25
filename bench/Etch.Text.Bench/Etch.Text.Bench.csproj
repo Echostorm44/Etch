@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Bench.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Bench.Text</RootNamespace>
+    <AssemblyName>Etch.Text.Bench</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1815;CA1515;CA1725;IL3000;IL3053;IL2104;IL3050</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
+    <ProjectReference Include="..\Etch.Bench.Shared\Etch.Bench.Shared.csproj" />
+  </ItemGroup>
+</Project>

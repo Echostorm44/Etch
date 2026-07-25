@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.FillRule
+  commentId: T:Etch.Scene.FillRule
+  id: FillRule
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.FillRule.EvenOdd
+  - Etch.Scene.FillRule.NonZero
+  langs:
+  - csharp
+  - vb
+  name: FillRule
+  nameWithType: FillRule
+  fullName: Etch.Scene.FillRule
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public enum FillRule
+    content.vb: Public Enum FillRule
+- uid: Etch.Scene.FillRule.NonZero
+  commentId: F:Etch.Scene.FillRule.NonZero
+  id: NonZero
+  parent: Etch.Scene.FillRule
+  langs:
+  - csharp
+  - vb
+  name: NonZero
+  nameWithType: FillRule.NonZero
+  fullName: Etch.Scene.FillRule.NonZero
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: NonZero = 0
+    return:
+      type: Etch.Scene.FillRule
+- uid: Etch.Scene.FillRule.EvenOdd
+  commentId: F:Etch.Scene.FillRule.EvenOdd
+  id: EvenOdd
+  parent: Etch.Scene.FillRule
+  langs:
+  - csharp
+  - vb
+  name: EvenOdd
+  nameWithType: FillRule.EvenOdd
+  fullName: Etch.Scene.FillRule.EvenOdd
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: EvenOdd = 1
+    return:
+      type: Etch.Scene.FillRule
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.FillRule
+  commentId: T:Etch.Scene.FillRule
+  parent: Etch.Scene
+  href: Etch.Scene.FillRule.html
+  name: FillRule
+  nameWithType: FillRule
+  fullName: Etch.Scene.FillRule

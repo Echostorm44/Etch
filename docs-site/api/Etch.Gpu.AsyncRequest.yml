@@ -1,0 +1,627 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.AsyncRequest
+  commentId: T:Etch.Gpu.AsyncRequest
+  id: AsyncRequest
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.AsyncRequest.RequestAdapterSync(Etch.Gpu.Instance,System.Nullable{Etch.Gpu.Surface},Etch.Gpu.PowerPreference,Etch.Gpu.BackendType,System.Int32)
+  - Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,Etch.Gpu.Descriptors.DeviceDescriptor*,System.Int32)
+  - Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: AsyncRequest
+  nameWithType: AsyncRequest
+  fullName: Etch.Gpu.AsyncRequest
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static class AsyncRequest
+    content.vb: Public Module AsyncRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.AsyncRequest.RequestAdapterSync(Etch.Gpu.Instance,System.Nullable{Etch.Gpu.Surface},Etch.Gpu.PowerPreference,Etch.Gpu.BackendType,System.Int32)
+  commentId: M:Etch.Gpu.AsyncRequest.RequestAdapterSync(Etch.Gpu.Instance,System.Nullable{Etch.Gpu.Surface},Etch.Gpu.PowerPreference,Etch.Gpu.BackendType,System.Int32)
+  id: RequestAdapterSync(Etch.Gpu.Instance,System.Nullable{Etch.Gpu.Surface},Etch.Gpu.PowerPreference,Etch.Gpu.BackendType,System.Int32)
+  parent: Etch.Gpu.AsyncRequest
+  langs:
+  - csharp
+  - vb
+  name: RequestAdapterSync(Instance, Surface?, PowerPreference, BackendType, int)
+  nameWithType: AsyncRequest.RequestAdapterSync(Instance, Surface?, PowerPreference, BackendType, int)
+  fullName: Etch.Gpu.AsyncRequest.RequestAdapterSync(Etch.Gpu.Instance, Etch.Gpu.Surface?, Etch.Gpu.PowerPreference, Etch.Gpu.BackendType, int)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static (RequestAdapterStatus Status, Adapter Adapter) RequestAdapterSync(Instance instance, Surface? compatibleSurface = null, PowerPreference preference = PowerPreference.HighPerformance, BackendType backendType = BackendType.Undefined, int timeoutMilliseconds = 5000)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: compatibleSurface
+      type: System.Nullable{Etch.Gpu.Surface}
+    - id: preference
+      type: Etch.Gpu.PowerPreference
+    - id: backendType
+      type: Etch.Gpu.BackendType
+    - id: timeoutMilliseconds
+      type: System.Int32
+    return:
+      type: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}
+    content.vb: Public Shared Function RequestAdapterSync(instance As Instance, compatibleSurface As Surface? = Nothing, preference As PowerPreference = PowerPreference.HighPerformance, backendType As BackendType = BackendType.Undefined, timeoutMilliseconds As Integer = 5000) As (Status As RequestAdapterStatus, Adapter As Adapter)
+  overload: Etch.Gpu.AsyncRequest.RequestAdapterSync*
+  nameWithType.vb: AsyncRequest.RequestAdapterSync(Instance, Surface?, PowerPreference, BackendType, Integer)
+  fullName.vb: Etch.Gpu.AsyncRequest.RequestAdapterSync(Etch.Gpu.Instance, Etch.Gpu.Surface?, Etch.Gpu.PowerPreference, Etch.Gpu.BackendType, Integer)
+  name.vb: RequestAdapterSync(Instance, Surface?, PowerPreference, BackendType, Integer)
+- uid: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,System.Int32)
+  commentId: M:Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,System.Int32)
+  id: RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,System.Int32)
+  parent: Etch.Gpu.AsyncRequest
+  langs:
+  - csharp
+  - vb
+  name: RequestDeviceSync(Instance, Adapter, int)
+  nameWithType: AsyncRequest.RequestDeviceSync(Instance, Adapter, int)
+  fullName: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance, Etch.Gpu.Adapter, int)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static (RequestDeviceStatus Status, Device Device) RequestDeviceSync(Instance instance, Adapter adapter, int timeoutMilliseconds = 5000)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: adapter
+      type: Etch.Gpu.Adapter
+    - id: timeoutMilliseconds
+      type: System.Int32
+    return:
+      type: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}
+    content.vb: Public Shared Function RequestDeviceSync(instance As Instance, adapter As Adapter, timeoutMilliseconds As Integer = 5000) As (Status As RequestDeviceStatus, Device As Device)
+  overload: Etch.Gpu.AsyncRequest.RequestDeviceSync*
+  nameWithType.vb: AsyncRequest.RequestDeviceSync(Instance, Adapter, Integer)
+  fullName.vb: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance, Etch.Gpu.Adapter, Integer)
+  name.vb: RequestDeviceSync(Instance, Adapter, Integer)
+- uid: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,Etch.Gpu.Descriptors.DeviceDescriptor*,System.Int32)
+  commentId: M:Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,Etch.Gpu.Descriptors.DeviceDescriptor*,System.Int32)
+  id: RequestDeviceSync(Etch.Gpu.Instance,Etch.Gpu.Adapter,Etch.Gpu.Descriptors.DeviceDescriptor*,System.Int32)
+  parent: Etch.Gpu.AsyncRequest
+  langs:
+  - csharp
+  - vb
+  name: RequestDeviceSync(Instance, Adapter, DeviceDescriptor*, int)
+  nameWithType: AsyncRequest.RequestDeviceSync(Instance, Adapter, DeviceDescriptor*, int)
+  fullName: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance, Etch.Gpu.Adapter, Etch.Gpu.Descriptors.DeviceDescriptor*, int)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static (RequestDeviceStatus Status, Device Device) RequestDeviceSync(Instance instance, Adapter adapter, DeviceDescriptor* descriptor, int timeoutMilliseconds = 5000)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: adapter
+      type: Etch.Gpu.Adapter
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.DeviceDescriptor*
+    - id: timeoutMilliseconds
+      type: System.Int32
+    return:
+      type: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}
+    content.vb: Public Shared Function RequestDeviceSync(instance As Instance, adapter As Adapter, descriptor As DeviceDescriptor*, timeoutMilliseconds As Integer = 5000) As (Status As RequestDeviceStatus, Device As Device)
+  overload: Etch.Gpu.AsyncRequest.RequestDeviceSync*
+  nameWithType.vb: AsyncRequest.RequestDeviceSync(Instance, Adapter, DeviceDescriptor*, Integer)
+  fullName.vb: Etch.Gpu.AsyncRequest.RequestDeviceSync(Etch.Gpu.Instance, Etch.Gpu.Adapter, Etch.Gpu.Descriptors.DeviceDescriptor*, Integer)
+  name.vb: RequestDeviceSync(Instance, Adapter, DeviceDescriptor*, Integer)
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.AsyncRequest.RequestAdapterSync*
+  commentId: Overload:Etch.Gpu.AsyncRequest.RequestAdapterSync
+  href: Etch.Gpu.AsyncRequest.html#Etch_Gpu_AsyncRequest_RequestAdapterSync_Etch_Gpu_Instance_System_Nullable_Etch_Gpu_Surface__Etch_Gpu_PowerPreference_Etch_Gpu_BackendType_System_Int32_
+  name: RequestAdapterSync
+  nameWithType: AsyncRequest.RequestAdapterSync
+  fullName: Etch.Gpu.AsyncRequest.RequestAdapterSync
+- uid: Etch.Gpu.Instance
+  commentId: T:Etch.Gpu.Instance
+  parent: Etch.Gpu
+  href: Etch.Gpu.Instance.html
+  name: Instance
+  nameWithType: Instance
+  fullName: Etch.Gpu.Instance
+- uid: System.Nullable{Etch.Gpu.Surface}
+  commentId: T:System.Nullable{Etch.Gpu.Surface}
+  parent: System
+  definition: System.Nullable`1
+  href: Etch.Gpu.Surface.html
+  name: Surface?
+  nameWithType: Surface?
+  fullName: Etch.Gpu.Surface?
+  spec.csharp:
+  - uid: Etch.Gpu.Surface
+    name: Surface
+    href: Etch.Gpu.Surface.html
+  - name: '?'
+  spec.vb:
+  - uid: Etch.Gpu.Surface
+    name: Surface
+    href: Etch.Gpu.Surface.html
+  - name: '?'
+- uid: Etch.Gpu.PowerPreference
+  commentId: T:Etch.Gpu.PowerPreference
+  parent: Etch.Gpu
+  href: Etch.Gpu.PowerPreference.html
+  name: PowerPreference
+  nameWithType: PowerPreference
+  fullName: Etch.Gpu.PowerPreference
+- uid: Etch.Gpu.BackendType
+  commentId: T:Etch.Gpu.BackendType
+  parent: Etch.Gpu
+  href: Etch.Gpu.BackendType.html
+  name: BackendType
+  nameWithType: BackendType
+  fullName: Etch.Gpu.BackendType
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}
+  commentId: T:System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}
+  parent: System
+  definition: System.ValueTuple`2
+  href: Etch.Gpu.RequestAdapterStatus.html
+  name: (RequestAdapterStatus Status, Adapter Adapter)
+  nameWithType: (RequestAdapterStatus Status, Adapter Adapter)
+  fullName: (Etch.Gpu.RequestAdapterStatus Status, Etch.Gpu.Adapter Adapter)
+  nameWithType.vb: (Status As RequestAdapterStatus, Adapter As Adapter)
+  fullName.vb: (Status As Etch.Gpu.RequestAdapterStatus, Adapter As Etch.Gpu.Adapter)
+  name.vb: (Status As RequestAdapterStatus, Adapter As Adapter)
+  spec.csharp:
+  - name: (
+  - uid: Etch.Gpu.RequestAdapterStatus
+    name: RequestAdapterStatus
+    href: Etch.Gpu.RequestAdapterStatus.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}.Status
+    name: Status
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestadapterstatus,etch.gpu.adapter-.status
+  - name: ','
+  - name: " "
+  - uid: Etch.Gpu.Adapter
+    name: Adapter
+    href: Etch.Gpu.Adapter.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}.Adapter
+    name: Adapter
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestadapterstatus,etch.gpu.adapter-.adapter
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}.Status
+    name: Status
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestadapterstatus,etch.gpu.adapter-.status
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Gpu.RequestAdapterStatus
+    name: RequestAdapterStatus
+    href: Etch.Gpu.RequestAdapterStatus.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestAdapterStatus,Etch.Gpu.Adapter}.Adapter
+    name: Adapter
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestadapterstatus,etch.gpu.adapter-.adapter
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Gpu.Adapter
+    name: Adapter
+    href: Etch.Gpu.Adapter.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Etch.Gpu.AsyncRequest.RequestDeviceSync*
+  commentId: Overload:Etch.Gpu.AsyncRequest.RequestDeviceSync
+  href: Etch.Gpu.AsyncRequest.html#Etch_Gpu_AsyncRequest_RequestDeviceSync_Etch_Gpu_Instance_Etch_Gpu_Adapter_System_Int32_
+  name: RequestDeviceSync
+  nameWithType: AsyncRequest.RequestDeviceSync
+  fullName: Etch.Gpu.AsyncRequest.RequestDeviceSync
+- uid: Etch.Gpu.Adapter
+  commentId: T:Etch.Gpu.Adapter
+  parent: Etch.Gpu
+  href: Etch.Gpu.Adapter.html
+  name: Adapter
+  nameWithType: Adapter
+  fullName: Etch.Gpu.Adapter
+- uid: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}
+  commentId: T:System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}
+  parent: System
+  definition: System.ValueTuple`2
+  href: Etch.Gpu.RequestDeviceStatus.html
+  name: (RequestDeviceStatus Status, Device Device)
+  nameWithType: (RequestDeviceStatus Status, Device Device)
+  fullName: (Etch.Gpu.RequestDeviceStatus Status, Etch.Gpu.Device Device)
+  nameWithType.vb: (Status As RequestDeviceStatus, Device As Device)
+  fullName.vb: (Status As Etch.Gpu.RequestDeviceStatus, Device As Etch.Gpu.Device)
+  name.vb: (Status As RequestDeviceStatus, Device As Device)
+  spec.csharp:
+  - name: (
+  - uid: Etch.Gpu.RequestDeviceStatus
+    name: RequestDeviceStatus
+    href: Etch.Gpu.RequestDeviceStatus.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}.Status
+    name: Status
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestdevicestatus,etch.gpu.device-.status
+  - name: ','
+  - name: " "
+  - uid: Etch.Gpu.Device
+    name: Device
+    href: Etch.Gpu.Device.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}.Device
+    name: Device
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestdevicestatus,etch.gpu.device-.device
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}.Status
+    name: Status
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestdevicestatus,etch.gpu.device-.status
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Gpu.RequestDeviceStatus
+    name: RequestDeviceStatus
+    href: Etch.Gpu.RequestDeviceStatus.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{Etch.Gpu.RequestDeviceStatus,Etch.Gpu.Device}.Device
+    name: Device
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.gpu.requestdevicestatus,etch.gpu.device-.device
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Gpu.Device
+    name: Device
+    href: Etch.Gpu.Device.html
+  - name: )
+- uid: Etch.Gpu.Descriptors.DeviceDescriptor*
+  isExternal: true
+  href: Etch.Gpu.Descriptors.DeviceDescriptor.html
+  name: DeviceDescriptor*
+  nameWithType: DeviceDescriptor*
+  fullName: Etch.Gpu.Descriptors.DeviceDescriptor*
+  spec.csharp:
+  - uid: Etch.Gpu.Descriptors.DeviceDescriptor
+    name: DeviceDescriptor
+    href: Etch.Gpu.Descriptors.DeviceDescriptor.html
+  - name: '*'
+  spec.vb:
+  - uid: Etch.Gpu.Descriptors.DeviceDescriptor
+    name: DeviceDescriptor
+    href: Etch.Gpu.Descriptors.DeviceDescriptor.html
+  - name: '*'

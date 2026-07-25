@@ -1,0 +1,467 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Descriptors.PrimitiveState
+  commentId: T:Etch.Gpu.Descriptors.PrimitiveState
+  id: PrimitiveState
+  parent: Etch.Gpu.Descriptors
+  children:
+  - Etch.Gpu.Descriptors.PrimitiveState.CullMode
+  - Etch.Gpu.Descriptors.PrimitiveState.FrontFace
+  - Etch.Gpu.Descriptors.PrimitiveState.NextInChain
+  - Etch.Gpu.Descriptors.PrimitiveState.StripIndexFormat
+  - Etch.Gpu.Descriptors.PrimitiveState.Topology
+  - Etch.Gpu.Descriptors.PrimitiveState.UnclippedDepth
+  langs:
+  - csharp
+  - vb
+  name: PrimitiveState
+  nameWithType: PrimitiveState
+  fullName: Etch.Gpu.Descriptors.PrimitiveState
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public struct PrimitiveState
+    content.vb: Public Structure PrimitiveState
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Descriptors.PrimitiveState.NextInChain
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.NextInChain
+  id: NextInChain
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: NextInChain
+  nameWithType: PrimitiveState.NextInChain
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.NextInChain
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public nint NextInChain
+    return:
+      type: System.IntPtr
+    content.vb: Public NextInChain As IntPtr
+- uid: Etch.Gpu.Descriptors.PrimitiveState.Topology
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.Topology
+  id: Topology
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: Topology
+  nameWithType: PrimitiveState.Topology
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.Topology
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public PrimitiveTopology Topology
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+    content.vb: Public Topology As PrimitiveTopology
+- uid: Etch.Gpu.Descriptors.PrimitiveState.StripIndexFormat
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.StripIndexFormat
+  id: StripIndexFormat
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: StripIndexFormat
+  nameWithType: PrimitiveState.StripIndexFormat
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.StripIndexFormat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public IndexFormat StripIndexFormat
+    return:
+      type: Etch.Gpu.IndexFormat
+    content.vb: Public StripIndexFormat As IndexFormat
+- uid: Etch.Gpu.Descriptors.PrimitiveState.FrontFace
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.FrontFace
+  id: FrontFace
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: FrontFace
+  nameWithType: PrimitiveState.FrontFace
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.FrontFace
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public FrontFace FrontFace
+    return:
+      type: Etch.Gpu.FrontFace
+    content.vb: Public FrontFace As FrontFace
+- uid: Etch.Gpu.Descriptors.PrimitiveState.CullMode
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.CullMode
+  id: CullMode
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: CullMode
+  nameWithType: PrimitiveState.CullMode
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.CullMode
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public CullMode CullMode
+    return:
+      type: Etch.Gpu.CullMode
+    content.vb: Public CullMode As CullMode
+- uid: Etch.Gpu.Descriptors.PrimitiveState.UnclippedDepth
+  commentId: F:Etch.Gpu.Descriptors.PrimitiveState.UnclippedDepth
+  id: UnclippedDepth
+  parent: Etch.Gpu.Descriptors.PrimitiveState
+  langs:
+  - csharp
+  - vb
+  name: UnclippedDepth
+  nameWithType: PrimitiveState.UnclippedDepth
+  fullName: Etch.Gpu.Descriptors.PrimitiveState.UnclippedDepth
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public uint UnclippedDepth
+    return:
+      type: System.UInt32
+    content.vb: Public UnclippedDepth As UInteger
+references:
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: Etch.Gpu.PrimitiveTopology
+  commentId: T:Etch.Gpu.PrimitiveTopology
+  parent: Etch.Gpu
+  href: Etch.Gpu.PrimitiveTopology.html
+  name: PrimitiveTopology
+  nameWithType: PrimitiveTopology
+  fullName: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.IndexFormat
+  commentId: T:Etch.Gpu.IndexFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.IndexFormat.html
+  name: IndexFormat
+  nameWithType: IndexFormat
+  fullName: Etch.Gpu.IndexFormat
+- uid: Etch.Gpu.FrontFace
+  commentId: T:Etch.Gpu.FrontFace
+  parent: Etch.Gpu
+  href: Etch.Gpu.FrontFace.html
+  name: FrontFace
+  nameWithType: FrontFace
+  fullName: Etch.Gpu.FrontFace
+- uid: Etch.Gpu.CullMode
+  commentId: T:Etch.Gpu.CullMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.CullMode.html
+  name: CullMode
+  nameWithType: CullMode
+  fullName: Etch.Gpu.CullMode
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

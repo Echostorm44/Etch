@@ -1,0 +1,406 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas.AtlasRegion
+  commentId: T:Etch.Text.Atlas.AtlasRegion
+  id: AtlasRegion
+  parent: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.AtlasRegion.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16)
+  - Etch.Text.Atlas.AtlasRegion.H
+  - Etch.Text.Atlas.AtlasRegion.U
+  - Etch.Text.Atlas.AtlasRegion.V
+  - Etch.Text.Atlas.AtlasRegion.W
+  langs:
+  - csharp
+  - vb
+  name: AtlasRegion
+  nameWithType: AtlasRegion
+  fullName: Etch.Text.Atlas.AtlasRegion
+  type: Struct
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly struct AtlasRegion
+    content.vb: Public Structure AtlasRegion
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Text.Atlas.AtlasRegion.U
+  commentId: F:Etch.Text.Atlas.AtlasRegion.U
+  id: U
+  parent: Etch.Text.Atlas.AtlasRegion
+  langs:
+  - csharp
+  - vb
+  name: U
+  nameWithType: AtlasRegion.U
+  fullName: Etch.Text.Atlas.AtlasRegion.U
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort U
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly U As UShort
+- uid: Etch.Text.Atlas.AtlasRegion.V
+  commentId: F:Etch.Text.Atlas.AtlasRegion.V
+  id: V
+  parent: Etch.Text.Atlas.AtlasRegion
+  langs:
+  - csharp
+  - vb
+  name: V
+  nameWithType: AtlasRegion.V
+  fullName: Etch.Text.Atlas.AtlasRegion.V
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort V
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly V As UShort
+- uid: Etch.Text.Atlas.AtlasRegion.W
+  commentId: F:Etch.Text.Atlas.AtlasRegion.W
+  id: W
+  parent: Etch.Text.Atlas.AtlasRegion
+  langs:
+  - csharp
+  - vb
+  name: W
+  nameWithType: AtlasRegion.W
+  fullName: Etch.Text.Atlas.AtlasRegion.W
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort W
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly W As UShort
+- uid: Etch.Text.Atlas.AtlasRegion.H
+  commentId: F:Etch.Text.Atlas.AtlasRegion.H
+  id: H
+  parent: Etch.Text.Atlas.AtlasRegion
+  langs:
+  - csharp
+  - vb
+  name: H
+  nameWithType: AtlasRegion.H
+  fullName: Etch.Text.Atlas.AtlasRegion.H
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort H
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly H As UShort
+- uid: Etch.Text.Atlas.AtlasRegion.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16)
+  commentId: M:Etch.Text.Atlas.AtlasRegion.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16)
+  id: '#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16)'
+  parent: Etch.Text.Atlas.AtlasRegion
+  langs:
+  - csharp
+  - vb
+  name: AtlasRegion(ushort, ushort, ushort, ushort)
+  nameWithType: AtlasRegion.AtlasRegion(ushort, ushort, ushort, ushort)
+  fullName: Etch.Text.Atlas.AtlasRegion.AtlasRegion(ushort, ushort, ushort, ushort)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public AtlasRegion(ushort u, ushort v, ushort w, ushort h)
+    parameters:
+    - id: u
+      type: System.UInt16
+    - id: v
+      type: System.UInt16
+    - id: w
+      type: System.UInt16
+    - id: h
+      type: System.UInt16
+    content.vb: Public Sub New(u As UShort, v As UShort, w As UShort, h As UShort)
+  overload: Etch.Text.Atlas.AtlasRegion.#ctor*
+  nameWithType.vb: AtlasRegion.New(UShort, UShort, UShort, UShort)
+  fullName.vb: Etch.Text.Atlas.AtlasRegion.New(UShort, UShort, UShort, UShort)
+  name.vb: New(UShort, UShort, UShort, UShort)
+references:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: Etch.Text.Atlas.AtlasRegion.#ctor*
+  commentId: Overload:Etch.Text.Atlas.AtlasRegion.#ctor
+  href: Etch.Text.Atlas.AtlasRegion.html#Etch_Text_Atlas_AtlasRegion__ctor_System_UInt16_System_UInt16_System_UInt16_System_UInt16_
+  name: AtlasRegion
+  nameWithType: AtlasRegion.AtlasRegion
+  fullName: Etch.Text.Atlas.AtlasRegion.AtlasRegion
+  nameWithType.vb: AtlasRegion.New
+  fullName.vb: Etch.Text.Atlas.AtlasRegion.New
+  name.vb: New

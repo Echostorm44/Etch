@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Validation
+  commentId: N:Etch.Gpu.Validation
+  id: Etch.Gpu.Validation
+  children:
+  - Etch.Gpu.Validation.ErrorFilter
+  - Etch.Gpu.Validation.ErrorScope
+  - Etch.Gpu.Validation.GpuError
+  - Etch.Gpu.Validation.GpuErrorType
+  - Etch.Gpu.Validation.ValidationBridge
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.Validation
+  nameWithType: Etch.Gpu.Validation
+  fullName: Etch.Gpu.Validation
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.Validation.GpuErrorType
+  commentId: T:Etch.Gpu.Validation.GpuErrorType
+  parent: Etch.Gpu.Validation
+  href: Etch.Gpu.Validation.GpuErrorType.html
+  name: GpuErrorType
+  nameWithType: GpuErrorType
+  fullName: Etch.Gpu.Validation.GpuErrorType
+- uid: Etch.Gpu.Validation.ErrorFilter
+  commentId: T:Etch.Gpu.Validation.ErrorFilter
+  parent: Etch.Gpu.Validation
+  href: Etch.Gpu.Validation.ErrorFilter.html
+  name: ErrorFilter
+  nameWithType: ErrorFilter
+  fullName: Etch.Gpu.Validation.ErrorFilter
+- uid: Etch.Gpu.Validation.GpuError
+  commentId: T:Etch.Gpu.Validation.GpuError
+  href: Etch.Gpu.Validation.GpuError.html
+  name: GpuError
+  nameWithType: GpuError
+  fullName: Etch.Gpu.Validation.GpuError
+- uid: Etch.Gpu.Validation.ErrorScope
+  commentId: T:Etch.Gpu.Validation.ErrorScope
+  href: Etch.Gpu.Validation.ErrorScope.html
+  name: ErrorScope
+  nameWithType: ErrorScope
+  fullName: Etch.Gpu.Validation.ErrorScope
+- uid: Etch.Gpu.Validation.ValidationBridge
+  commentId: T:Etch.Gpu.Validation.ValidationBridge
+  href: Etch.Gpu.Validation.ValidationBridge.html
+  name: ValidationBridge
+  nameWithType: ValidationBridge
+  fullName: Etch.Gpu.Validation.ValidationBridge
+- uid: Etch.Gpu.Validation
+  commentId: N:Etch.Gpu.Validation
+  href: Etch.html
+  name: Etch.Gpu.Validation
+  nameWithType: Etch.Gpu.Validation
+  fullName: Etch.Gpu.Validation
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Validation
+    name: Validation
+    href: Etch.Gpu.Validation.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Validation
+    name: Validation
+    href: Etch.Gpu.Validation.html

@@ -1,0 +1,10 @@
+<Project>
+  <!--
+    Directory.Build.targets — post-project hooks applied after every project evaluation.
+    Hook order: Directory.Build.props → project file → Directory.Build.targets.
+    Place any after-project transformations (post-build clean, codegen output embedding, etc.) here.
+  -->
+
+  <!-- Validate all .wgsl shaders with naga-cli on every build -->
+  <Import Project="$(MSBuildThisFileDirectory)build/Shaders.targets" />
+</Project>

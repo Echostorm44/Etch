@@ -1,0 +1,366 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.TileInfo
+  commentId: T:Etch.Gpu.Pipelines.TileInfo
+  id: TileInfo
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.TileInfo.Reserved
+  - Etch.Gpu.Pipelines.TileInfo.StripCount
+  - Etch.Gpu.Pipelines.TileInfo.StripStart
+  - Etch.Gpu.Pipelines.TileInfo.TileIndex
+  langs:
+  - csharp
+  - vb
+  name: TileInfo
+  nameWithType: TileInfo
+  fullName: Etch.Gpu.Pipelines.TileInfo
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public struct TileInfo
+    content.vb: Public Structure TileInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Pipelines.TileInfo.TileIndex
+  commentId: F:Etch.Gpu.Pipelines.TileInfo.TileIndex
+  id: TileIndex
+  parent: Etch.Gpu.Pipelines.TileInfo
+  langs:
+  - csharp
+  - vb
+  name: TileIndex
+  nameWithType: TileInfo.TileIndex
+  fullName: Etch.Gpu.Pipelines.TileInfo.TileIndex
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public uint TileIndex
+    return:
+      type: System.UInt32
+    content.vb: Public TileIndex As UInteger
+- uid: Etch.Gpu.Pipelines.TileInfo.StripStart
+  commentId: F:Etch.Gpu.Pipelines.TileInfo.StripStart
+  id: StripStart
+  parent: Etch.Gpu.Pipelines.TileInfo
+  langs:
+  - csharp
+  - vb
+  name: StripStart
+  nameWithType: TileInfo.StripStart
+  fullName: Etch.Gpu.Pipelines.TileInfo.StripStart
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public uint StripStart
+    return:
+      type: System.UInt32
+    content.vb: Public StripStart As UInteger
+- uid: Etch.Gpu.Pipelines.TileInfo.StripCount
+  commentId: F:Etch.Gpu.Pipelines.TileInfo.StripCount
+  id: StripCount
+  parent: Etch.Gpu.Pipelines.TileInfo
+  langs:
+  - csharp
+  - vb
+  name: StripCount
+  nameWithType: TileInfo.StripCount
+  fullName: Etch.Gpu.Pipelines.TileInfo.StripCount
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public uint StripCount
+    return:
+      type: System.UInt32
+    content.vb: Public StripCount As UInteger
+- uid: Etch.Gpu.Pipelines.TileInfo.Reserved
+  commentId: F:Etch.Gpu.Pipelines.TileInfo.Reserved
+  id: Reserved
+  parent: Etch.Gpu.Pipelines.TileInfo
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: TileInfo.Reserved
+  fullName: Etch.Gpu.Pipelines.TileInfo.Reserved
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public uint Reserved
+    return:
+      type: System.UInt32
+    content.vb: Public Reserved As UInteger
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

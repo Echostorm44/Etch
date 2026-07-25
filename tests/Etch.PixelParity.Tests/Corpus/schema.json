@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PixelParityCorpusEntry",
+  "description": "Schema for a single pixel-parity corpus scene entry.",
+  "type": "object",
+  "required": ["scenePath", "goldenPath", "toleranceMean", "toleranceMax"],
+  "properties": {
+    "scenePath": {
+      "type": "string",
+      "description": "Relative path to the .etsc scene file."
+    },
+    "goldenPath": {
+      "type": "string",
+      "description": "Relative path to the committed golden PNG."
+    },
+    "toleranceMean": {
+      "type": "number",
+      "description": "Mean per-channel error tolerance (0-255)."
+    },
+    "toleranceMax": {
+      "type": "number",
+      "description": "Max per-channel error tolerance (0-255)."
+    },
+    "gpuToleranceMean": {
+      "type": "number",
+      "description": "Optional override for GPU path mean tolerance. Defaults to toleranceMean."
+    },
+    "gpuToleranceMax": {
+      "type": "number",
+      "description": "Optional override for GPU path max tolerance. Defaults to toleranceMax."
+    },
+    "skipAdapters": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of adapter names to skip for this scene (e.g., ['Lavapipe'])."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Human-readable notes about known driver-specific behavior."
+    }
+  }
+}

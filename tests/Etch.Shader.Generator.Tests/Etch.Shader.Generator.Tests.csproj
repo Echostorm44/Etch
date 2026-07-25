@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Etch.Shader.Generator.Tests</RootNamespace>
+    <AssemblyName>Etch.Shader.Generator.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src-gen\Etch.Shader.Generator\Etch.Shader.Generator.csproj" />
+  </ItemGroup>
+</Project>

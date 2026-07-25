@@ -1,0 +1,757 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Primitives.SpanReader
+  commentId: T:Etch.Primitives.SpanReader
+  id: SpanReader
+  parent: Etch.Primitives
+  children:
+  - Etch.Primitives.SpanReader.#ctor(System.ReadOnlySpan{System.Byte})
+  - Etch.Primitives.SpanReader.Position
+  - Etch.Primitives.SpanReader.ReadByte
+  - Etch.Primitives.SpanReader.ReadF32LE
+  - Etch.Primitives.SpanReader.ReadF64LE
+  - Etch.Primitives.SpanReader.ReadI32LE
+  - Etch.Primitives.SpanReader.ReadI64LE
+  - Etch.Primitives.SpanReader.ReadU32LE
+  - Etch.Primitives.SpanReader.ReadU64LE
+  - Etch.Primitives.SpanReader.ReadUtf8(System.Int32)
+  - Etch.Primitives.SpanReader.ReadVarInt
+  - Etch.Primitives.SpanReader.Remaining
+  langs:
+  - csharp
+  - vb
+  name: SpanReader
+  nameWithType: SpanReader
+  fullName: Etch.Primitives.SpanReader
+  type: Struct
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public ref struct SpanReader
+    content.vb: Public Structure SpanReader
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Primitives.SpanReader.#ctor(System.ReadOnlySpan{System.Byte})
+  commentId: M:Etch.Primitives.SpanReader.#ctor(System.ReadOnlySpan{System.Byte})
+  id: '#ctor(System.ReadOnlySpan{System.Byte})'
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: SpanReader(ReadOnlySpan<byte>)
+  nameWithType: SpanReader.SpanReader(ReadOnlySpan<byte>)
+  fullName: Etch.Primitives.SpanReader.SpanReader(System.ReadOnlySpan<byte>)
+  type: Constructor
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public SpanReader(ReadOnlySpan<byte> span)
+    parameters:
+    - id: span
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub New(span As ReadOnlySpan(Of Byte))
+  overload: Etch.Primitives.SpanReader.#ctor*
+  nameWithType.vb: SpanReader.New(ReadOnlySpan(Of Byte))
+  fullName.vb: Etch.Primitives.SpanReader.New(System.ReadOnlySpan(Of Byte))
+  name.vb: New(ReadOnlySpan(Of Byte))
+- uid: Etch.Primitives.SpanReader.Position
+  commentId: P:Etch.Primitives.SpanReader.Position
+  id: Position
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: SpanReader.Position
+  fullName: Etch.Primitives.SpanReader.Position
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int Position { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Position As Integer
+  overload: Etch.Primitives.SpanReader.Position*
+- uid: Etch.Primitives.SpanReader.Remaining
+  commentId: P:Etch.Primitives.SpanReader.Remaining
+  id: Remaining
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: Remaining
+  nameWithType: SpanReader.Remaining
+  fullName: Etch.Primitives.SpanReader.Remaining
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int Remaining { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Remaining As Integer
+  overload: Etch.Primitives.SpanReader.Remaining*
+- uid: Etch.Primitives.SpanReader.ReadByte
+  commentId: M:Etch.Primitives.SpanReader.ReadByte
+  id: ReadByte
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadByte()
+  nameWithType: SpanReader.ReadByte()
+  fullName: Etch.Primitives.SpanReader.ReadByte()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public byte ReadByte()
+    return:
+      type: System.Byte
+    content.vb: Public Function ReadByte() As Byte
+  overload: Etch.Primitives.SpanReader.ReadByte*
+- uid: Etch.Primitives.SpanReader.ReadU32LE
+  commentId: M:Etch.Primitives.SpanReader.ReadU32LE
+  id: ReadU32LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadU32LE()
+  nameWithType: SpanReader.ReadU32LE()
+  fullName: Etch.Primitives.SpanReader.ReadU32LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public uint ReadU32LE()
+    return:
+      type: System.UInt32
+    content.vb: Public Function ReadU32LE() As UInteger
+  overload: Etch.Primitives.SpanReader.ReadU32LE*
+- uid: Etch.Primitives.SpanReader.ReadI32LE
+  commentId: M:Etch.Primitives.SpanReader.ReadI32LE
+  id: ReadI32LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadI32LE()
+  nameWithType: SpanReader.ReadI32LE()
+  fullName: Etch.Primitives.SpanReader.ReadI32LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int ReadI32LE()
+    return:
+      type: System.Int32
+    content.vb: Public Function ReadI32LE() As Integer
+  overload: Etch.Primitives.SpanReader.ReadI32LE*
+- uid: Etch.Primitives.SpanReader.ReadU64LE
+  commentId: M:Etch.Primitives.SpanReader.ReadU64LE
+  id: ReadU64LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadU64LE()
+  nameWithType: SpanReader.ReadU64LE()
+  fullName: Etch.Primitives.SpanReader.ReadU64LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public ulong ReadU64LE()
+    return:
+      type: System.UInt64
+    content.vb: Public Function ReadU64LE() As ULong
+  overload: Etch.Primitives.SpanReader.ReadU64LE*
+- uid: Etch.Primitives.SpanReader.ReadI64LE
+  commentId: M:Etch.Primitives.SpanReader.ReadI64LE
+  id: ReadI64LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadI64LE()
+  nameWithType: SpanReader.ReadI64LE()
+  fullName: Etch.Primitives.SpanReader.ReadI64LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public long ReadI64LE()
+    return:
+      type: System.Int64
+    content.vb: Public Function ReadI64LE() As Long
+  overload: Etch.Primitives.SpanReader.ReadI64LE*
+- uid: Etch.Primitives.SpanReader.ReadF32LE
+  commentId: M:Etch.Primitives.SpanReader.ReadF32LE
+  id: ReadF32LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadF32LE()
+  nameWithType: SpanReader.ReadF32LE()
+  fullName: Etch.Primitives.SpanReader.ReadF32LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public float ReadF32LE()
+    return:
+      type: System.Single
+    content.vb: Public Function ReadF32LE() As Single
+  overload: Etch.Primitives.SpanReader.ReadF32LE*
+- uid: Etch.Primitives.SpanReader.ReadF64LE
+  commentId: M:Etch.Primitives.SpanReader.ReadF64LE
+  id: ReadF64LE
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadF64LE()
+  nameWithType: SpanReader.ReadF64LE()
+  fullName: Etch.Primitives.SpanReader.ReadF64LE()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public double ReadF64LE()
+    return:
+      type: System.Double
+    content.vb: Public Function ReadF64LE() As Double
+  overload: Etch.Primitives.SpanReader.ReadF64LE*
+- uid: Etch.Primitives.SpanReader.ReadVarInt
+  commentId: M:Etch.Primitives.SpanReader.ReadVarInt
+  id: ReadVarInt
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadVarInt()
+  nameWithType: SpanReader.ReadVarInt()
+  fullName: Etch.Primitives.SpanReader.ReadVarInt()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public ulong ReadVarInt()
+    return:
+      type: System.UInt64
+    content.vb: Public Function ReadVarInt() As ULong
+  overload: Etch.Primitives.SpanReader.ReadVarInt*
+- uid: Etch.Primitives.SpanReader.ReadUtf8(System.Int32)
+  commentId: M:Etch.Primitives.SpanReader.ReadUtf8(System.Int32)
+  id: ReadUtf8(System.Int32)
+  parent: Etch.Primitives.SpanReader
+  langs:
+  - csharp
+  - vb
+  name: ReadUtf8(int)
+  nameWithType: SpanReader.ReadUtf8(int)
+  fullName: Etch.Primitives.SpanReader.ReadUtf8(int)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public string ReadUtf8(int byteCount)
+    parameters:
+    - id: byteCount
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Function ReadUtf8(byteCount As Integer) As String
+  overload: Etch.Primitives.SpanReader.ReadUtf8*
+  nameWithType.vb: SpanReader.ReadUtf8(Integer)
+  fullName.vb: Etch.Primitives.SpanReader.ReadUtf8(Integer)
+  name.vb: ReadUtf8(Integer)
+references:
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  href: Etch.html
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Primitives.SpanReader.#ctor*
+  commentId: Overload:Etch.Primitives.SpanReader.#ctor
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader__ctor_System_ReadOnlySpan_System_Byte__
+  name: SpanReader
+  nameWithType: SpanReader.SpanReader
+  fullName: Etch.Primitives.SpanReader.SpanReader
+  nameWithType.vb: SpanReader.New
+  fullName.vb: Etch.Primitives.SpanReader.New
+  name.vb: New
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.SpanReader.Position*
+  commentId: Overload:Etch.Primitives.SpanReader.Position
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_Position
+  name: Position
+  nameWithType: SpanReader.Position
+  fullName: Etch.Primitives.SpanReader.Position
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Primitives.SpanReader.Remaining*
+  commentId: Overload:Etch.Primitives.SpanReader.Remaining
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_Remaining
+  name: Remaining
+  nameWithType: SpanReader.Remaining
+  fullName: Etch.Primitives.SpanReader.Remaining
+- uid: Etch.Primitives.SpanReader.ReadByte*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadByte
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadByte
+  name: ReadByte
+  nameWithType: SpanReader.ReadByte
+  fullName: Etch.Primitives.SpanReader.ReadByte
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Primitives.SpanReader.ReadU32LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadU32LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadU32LE
+  name: ReadU32LE
+  nameWithType: SpanReader.ReadU32LE
+  fullName: Etch.Primitives.SpanReader.ReadU32LE
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Primitives.SpanReader.ReadI32LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadI32LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadI32LE
+  name: ReadI32LE
+  nameWithType: SpanReader.ReadI32LE
+  fullName: Etch.Primitives.SpanReader.ReadI32LE
+- uid: Etch.Primitives.SpanReader.ReadU64LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadU64LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadU64LE
+  name: ReadU64LE
+  nameWithType: SpanReader.ReadU64LE
+  fullName: Etch.Primitives.SpanReader.ReadU64LE
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Etch.Primitives.SpanReader.ReadI64LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadI64LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadI64LE
+  name: ReadI64LE
+  nameWithType: SpanReader.ReadI64LE
+  fullName: Etch.Primitives.SpanReader.ReadI64LE
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Etch.Primitives.SpanReader.ReadF32LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadF32LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadF32LE
+  name: ReadF32LE
+  nameWithType: SpanReader.ReadF32LE
+  fullName: Etch.Primitives.SpanReader.ReadF32LE
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Primitives.SpanReader.ReadF64LE*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadF64LE
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadF64LE
+  name: ReadF64LE
+  nameWithType: SpanReader.ReadF64LE
+  fullName: Etch.Primitives.SpanReader.ReadF64LE
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Primitives.SpanReader.ReadVarInt*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadVarInt
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadVarInt
+  name: ReadVarInt
+  nameWithType: SpanReader.ReadVarInt
+  fullName: Etch.Primitives.SpanReader.ReadVarInt
+- uid: Etch.Primitives.SpanReader.ReadUtf8*
+  commentId: Overload:Etch.Primitives.SpanReader.ReadUtf8
+  href: Etch.Primitives.SpanReader.html#Etch_Primitives_SpanReader_ReadUtf8_System_Int32_
+  name: ReadUtf8
+  nameWithType: SpanReader.ReadUtf8
+  fullName: Etch.Primitives.SpanReader.ReadUtf8
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

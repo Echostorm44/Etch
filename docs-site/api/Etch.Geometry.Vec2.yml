@@ -1,0 +1,1258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  id: Vec2
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Vec2.#ctor(System.Double,System.Double)
+  - Etch.Geometry.Vec2.Add(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Cross(Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Dot(Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Equals(Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Equals(System.Object)
+  - Etch.Geometry.Vec2.GetHashCode
+  - Etch.Geometry.Vec2.Length
+  - Etch.Geometry.Vec2.LengthSquared
+  - Etch.Geometry.Vec2.Multiply(Etch.Geometry.Vec2,System.Double)
+  - Etch.Geometry.Vec2.Multiply(System.Double,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Negate(Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.Normalize
+  - Etch.Geometry.Vec2.Perpendicular
+  - Etch.Geometry.Vec2.Subtract(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.ToString
+  - Etch.Geometry.Vec2.X
+  - Etch.Geometry.Vec2.Y
+  - Etch.Geometry.Vec2.op_Addition(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.op_Equality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.op_Inequality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.op_Multiply(Etch.Geometry.Vec2,System.Double)
+  - Etch.Geometry.Vec2.op_Multiply(System.Double,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.op_Subtraction(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  - Etch.Geometry.Vec2.op_UnaryNegation(Etch.Geometry.Vec2)
+  langs:
+  - csharp
+  - vb
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Vec2 : IEquatable<Vec2>'
+    content.vb: Public Structure Vec2 Implements IEquatable(Of Vec2)
+  implements:
+  - System.IEquatable{Etch.Geometry.Vec2}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Vec2.X
+  commentId: F:Etch.Geometry.Vec2.X
+  id: X
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vec2.X
+  fullName: Etch.Geometry.Vec2.X
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double X
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly X As Double
+- uid: Etch.Geometry.Vec2.Y
+  commentId: F:Etch.Geometry.Vec2.Y
+  id: Y
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vec2.Y
+  fullName: Etch.Geometry.Vec2.Y
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double Y
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Y As Double
+- uid: Etch.Geometry.Vec2.#ctor(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Vec2.#ctor(System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double)'
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Vec2(double, double)
+  nameWithType: Vec2.Vec2(double, double)
+  fullName: Etch.Geometry.Vec2.Vec2(double, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Vec2(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    content.vb: Public Sub New(x As Double, y As Double)
+  overload: Etch.Geometry.Vec2.#ctor*
+  nameWithType.vb: Vec2.New(Double, Double)
+  fullName.vb: Etch.Geometry.Vec2.New(Double, Double)
+  name.vb: New(Double, Double)
+- uid: Etch.Geometry.Vec2.Length
+  commentId: P:Etch.Geometry.Vec2.Length
+  id: Length
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: Vec2.Length
+  fullName: Etch.Geometry.Vec2.Length
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Length { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Length As Double
+  overload: Etch.Geometry.Vec2.Length*
+- uid: Etch.Geometry.Vec2.LengthSquared
+  commentId: P:Etch.Geometry.Vec2.LengthSquared
+  id: LengthSquared
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared
+  nameWithType: Vec2.LengthSquared
+  fullName: Etch.Geometry.Vec2.LengthSquared
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double LengthSquared { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property LengthSquared As Double
+  overload: Etch.Geometry.Vec2.LengthSquared*
+- uid: Etch.Geometry.Vec2.Normalize
+  commentId: M:Etch.Geometry.Vec2.Normalize
+  id: Normalize
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vec2.Normalize()
+  fullName: Etch.Geometry.Vec2.Normalize()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Vec2 Normalize()
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Function Normalize() As Vec2
+  overload: Etch.Geometry.Vec2.Normalize*
+- uid: Etch.Geometry.Vec2.Dot(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Dot(Etch.Geometry.Vec2)
+  id: Dot(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vec2)
+  nameWithType: Vec2.Dot(Vec2)
+  fullName: Etch.Geometry.Vec2.Dot(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Dot(Vec2 other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Vec2
+    return:
+      type: System.Double
+    content.vb: Public Function Dot(other As Vec2) As Double
+  overload: Etch.Geometry.Vec2.Dot*
+- uid: Etch.Geometry.Vec2.Cross(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Cross(Etch.Geometry.Vec2)
+  id: Cross(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Cross(Vec2)
+  nameWithType: Vec2.Cross(Vec2)
+  fullName: Etch.Geometry.Vec2.Cross(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Cross(Vec2 other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Vec2
+    return:
+      type: System.Double
+    content.vb: Public Function Cross(other As Vec2) As Double
+  overload: Etch.Geometry.Vec2.Cross*
+- uid: Etch.Geometry.Vec2.Perpendicular
+  commentId: M:Etch.Geometry.Vec2.Perpendicular
+  id: Perpendicular
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Perpendicular()
+  nameWithType: Vec2.Perpendicular()
+  fullName: Etch.Geometry.Vec2.Perpendicular()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Vec2 Perpendicular()
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Function Perpendicular() As Vec2
+  overload: Etch.Geometry.Vec2.Perpendicular*
+- uid: Etch.Geometry.Vec2.op_Addition(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_Addition(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: op_Addition(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator +(Vec2, Vec2)
+  nameWithType: Vec2.operator +(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.operator +(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator +(Vec2 a, Vec2 b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Vec2
+    - id: b
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator +(a As Vec2, b As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.op_Addition*
+  nameWithType.vb: Vec2.+(Vec2, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.+(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  name.vb: +(Vec2, Vec2)
+- uid: Etch.Geometry.Vec2.op_Subtraction(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_Subtraction(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: op_Subtraction(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator -(Vec2, Vec2)
+  nameWithType: Vec2.operator -(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.operator -(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator -(Vec2 a, Vec2 b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Vec2
+    - id: b
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator -(a As Vec2, b As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.op_Subtraction*
+  nameWithType.vb: Vec2.-(Vec2, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.-(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  name.vb: -(Vec2, Vec2)
+- uid: Etch.Geometry.Vec2.op_UnaryNegation(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_UnaryNegation(Etch.Geometry.Vec2)
+  id: op_UnaryNegation(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator -(Vec2)
+  nameWithType: Vec2.operator -(Vec2)
+  fullName: Etch.Geometry.Vec2.operator -(Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator -(Vec2 v)
+    parameters:
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator -(v As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.op_UnaryNegation*
+  nameWithType.vb: Vec2.-(Vec2)
+  fullName.vb: Etch.Geometry.Vec2.-(Etch.Geometry.Vec2)
+  name.vb: -(Vec2)
+- uid: Etch.Geometry.Vec2.op_Multiply(Etch.Geometry.Vec2,System.Double)
+  commentId: M:Etch.Geometry.Vec2.op_Multiply(Etch.Geometry.Vec2,System.Double)
+  id: op_Multiply(Etch.Geometry.Vec2,System.Double)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator *(Vec2, double)
+  nameWithType: Vec2.operator *(Vec2, double)
+  fullName: Etch.Geometry.Vec2.operator *(Etch.Geometry.Vec2, double)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator *(Vec2 v, double scalar)
+    parameters:
+    - id: v
+      type: Etch.Geometry.Vec2
+    - id: scalar
+      type: System.Double
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator *(v As Vec2, scalar As Double) As Vec2
+  overload: Etch.Geometry.Vec2.op_Multiply*
+  nameWithType.vb: Vec2.*(Vec2, Double)
+  fullName.vb: Etch.Geometry.Vec2.*(Etch.Geometry.Vec2, Double)
+  name.vb: '*(Vec2, Double)'
+- uid: Etch.Geometry.Vec2.op_Multiply(System.Double,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_Multiply(System.Double,Etch.Geometry.Vec2)
+  id: op_Multiply(System.Double,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator *(double, Vec2)
+  nameWithType: Vec2.operator *(double, Vec2)
+  fullName: Etch.Geometry.Vec2.operator *(double, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator *(double scalar, Vec2 v)
+    parameters:
+    - id: scalar
+      type: System.Double
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator *(scalar As Double, v As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.op_Multiply*
+  nameWithType.vb: Vec2.*(Double, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.*(Double, Etch.Geometry.Vec2)
+  name.vb: '*(Double, Vec2)'
+- uid: Etch.Geometry.Vec2.op_Equality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_Equality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: op_Equality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Vec2, Vec2)
+  nameWithType: Vec2.operator ==(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.operator ==(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Vec2 left, Vec2 right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Vec2
+    - id: right
+      type: Etch.Geometry.Vec2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Vec2, right As Vec2) As Boolean
+  overload: Etch.Geometry.Vec2.op_Equality*
+  nameWithType.vb: Vec2.=(Vec2, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.=(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  name.vb: =(Vec2, Vec2)
+- uid: Etch.Geometry.Vec2.op_Inequality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.op_Inequality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: op_Inequality(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Vec2, Vec2)
+  nameWithType: Vec2.operator !=(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.operator !=(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Vec2 left, Vec2 right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Vec2
+    - id: right
+      type: Etch.Geometry.Vec2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Vec2, right As Vec2) As Boolean
+  overload: Etch.Geometry.Vec2.op_Inequality*
+  nameWithType.vb: Vec2.<>(Vec2, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.<>(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  name.vb: <>(Vec2, Vec2)
+- uid: Etch.Geometry.Vec2.Add(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Add(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: Add(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Add(Vec2, Vec2)
+  nameWithType: Vec2.Add(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.Add(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Add(Vec2 a, Vec2 b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Vec2
+    - id: b
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Add(a As Vec2, b As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.Add*
+- uid: Etch.Geometry.Vec2.Subtract(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Subtract(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  id: Subtract(Etch.Geometry.Vec2,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vec2, Vec2)
+  nameWithType: Vec2.Subtract(Vec2, Vec2)
+  fullName: Etch.Geometry.Vec2.Subtract(Etch.Geometry.Vec2, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Subtract(Vec2 a, Vec2 b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Vec2
+    - id: b
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Subtract(a As Vec2, b As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.Subtract*
+- uid: Etch.Geometry.Vec2.Negate(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Negate(Etch.Geometry.Vec2)
+  id: Negate(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vec2)
+  nameWithType: Vec2.Negate(Vec2)
+  fullName: Etch.Geometry.Vec2.Negate(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Negate(Vec2 v)
+    parameters:
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Negate(v As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.Negate*
+- uid: Etch.Geometry.Vec2.Multiply(Etch.Geometry.Vec2,System.Double)
+  commentId: M:Etch.Geometry.Vec2.Multiply(Etch.Geometry.Vec2,System.Double)
+  id: Multiply(Etch.Geometry.Vec2,System.Double)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vec2, double)
+  nameWithType: Vec2.Multiply(Vec2, double)
+  fullName: Etch.Geometry.Vec2.Multiply(Etch.Geometry.Vec2, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Multiply(Vec2 v, double scalar)
+    parameters:
+    - id: v
+      type: Etch.Geometry.Vec2
+    - id: scalar
+      type: System.Double
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Multiply(v As Vec2, scalar As Double) As Vec2
+  overload: Etch.Geometry.Vec2.Multiply*
+  nameWithType.vb: Vec2.Multiply(Vec2, Double)
+  fullName.vb: Etch.Geometry.Vec2.Multiply(Etch.Geometry.Vec2, Double)
+  name.vb: Multiply(Vec2, Double)
+- uid: Etch.Geometry.Vec2.Multiply(System.Double,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Multiply(System.Double,Etch.Geometry.Vec2)
+  id: Multiply(System.Double,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Multiply(double, Vec2)
+  nameWithType: Vec2.Multiply(double, Vec2)
+  fullName: Etch.Geometry.Vec2.Multiply(double, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Multiply(double scalar, Vec2 v)
+    parameters:
+    - id: scalar
+      type: System.Double
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Multiply(scalar As Double, v As Vec2) As Vec2
+  overload: Etch.Geometry.Vec2.Multiply*
+  nameWithType.vb: Vec2.Multiply(Double, Vec2)
+  fullName.vb: Etch.Geometry.Vec2.Multiply(Double, Etch.Geometry.Vec2)
+  name.vb: Multiply(Double, Vec2)
+- uid: Etch.Geometry.Vec2.Equals(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Vec2.Equals(Etch.Geometry.Vec2)
+  id: Equals(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vec2)
+  nameWithType: Vec2.Equals(Vec2)
+  fullName: Etch.Geometry.Vec2.Equals(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Vec2 other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Vec2
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Vec2) As Boolean
+  overload: Etch.Geometry.Vec2.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Vec2}.Equals(Etch.Geometry.Vec2)
+- uid: Etch.Geometry.Vec2.Equals(System.Object)
+  commentId: M:Etch.Geometry.Vec2.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Vec2.Equals(object?)
+  fullName: Etch.Geometry.Vec2.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Vec2.Equals*
+  nameWithType.vb: Vec2.Equals(Object)
+  fullName.vb: Etch.Geometry.Vec2.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Vec2.GetHashCode
+  commentId: M:Etch.Geometry.Vec2.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vec2.GetHashCode()
+  fullName: Etch.Geometry.Vec2.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Vec2.GetHashCode*
+- uid: Etch.Geometry.Vec2.ToString
+  commentId: M:Etch.Geometry.Vec2.ToString
+  id: ToString
+  parent: Etch.Geometry.Vec2
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vec2.ToString()
+  fullName: Etch.Geometry.Vec2.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Vec2.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Vec2}
+  commentId: T:System.IEquatable{Etch.Geometry.Vec2}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Vec2>
+  nameWithType: IEquatable<Vec2>
+  fullName: System.IEquatable<Etch.Geometry.Vec2>
+  nameWithType.vb: IEquatable(Of Vec2)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Vec2)
+  name.vb: IEquatable(Of Vec2)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Vec2
+    name: Vec2
+    href: Etch.Geometry.Vec2.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Vec2
+    name: Vec2
+    href: Etch.Geometry.Vec2.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Vec2.#ctor*
+  commentId: Overload:Etch.Geometry.Vec2.#ctor
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2__ctor_System_Double_System_Double_
+  name: Vec2
+  nameWithType: Vec2.Vec2
+  fullName: Etch.Geometry.Vec2.Vec2
+  nameWithType.vb: Vec2.New
+  fullName.vb: Etch.Geometry.Vec2.New
+  name.vb: New
+- uid: Etch.Geometry.Vec2.Length*
+  commentId: Overload:Etch.Geometry.Vec2.Length
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Length
+  name: Length
+  nameWithType: Vec2.Length
+  fullName: Etch.Geometry.Vec2.Length
+- uid: Etch.Geometry.Vec2.LengthSquared*
+  commentId: Overload:Etch.Geometry.Vec2.LengthSquared
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_LengthSquared
+  name: LengthSquared
+  nameWithType: Vec2.LengthSquared
+  fullName: Etch.Geometry.Vec2.LengthSquared
+- uid: Etch.Geometry.Vec2.Normalize*
+  commentId: Overload:Etch.Geometry.Vec2.Normalize
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Normalize
+  name: Normalize
+  nameWithType: Vec2.Normalize
+  fullName: Etch.Geometry.Vec2.Normalize
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry.Vec2.Dot*
+  commentId: Overload:Etch.Geometry.Vec2.Dot
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Dot_Etch_Geometry_Vec2_
+  name: Dot
+  nameWithType: Vec2.Dot
+  fullName: Etch.Geometry.Vec2.Dot
+- uid: Etch.Geometry.Vec2.Cross*
+  commentId: Overload:Etch.Geometry.Vec2.Cross
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Cross_Etch_Geometry_Vec2_
+  name: Cross
+  nameWithType: Vec2.Cross
+  fullName: Etch.Geometry.Vec2.Cross
+- uid: Etch.Geometry.Vec2.Perpendicular*
+  commentId: Overload:Etch.Geometry.Vec2.Perpendicular
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Perpendicular
+  name: Perpendicular
+  nameWithType: Vec2.Perpendicular
+  fullName: Etch.Geometry.Vec2.Perpendicular
+- uid: Etch.Geometry.Vec2.op_Addition*
+  commentId: Overload:Etch.Geometry.Vec2.op_Addition
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Addition_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: operator +
+  nameWithType: Vec2.operator +
+  fullName: Etch.Geometry.Vec2.operator +
+  nameWithType.vb: Vec2.+
+  fullName.vb: Etch.Geometry.Vec2.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_Addition*
+    name: +
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Addition_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+- uid: Etch.Geometry.Vec2.op_Subtraction*
+  commentId: Overload:Etch.Geometry.Vec2.op_Subtraction
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Subtraction_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: operator -
+  nameWithType: Vec2.operator -
+  fullName: Etch.Geometry.Vec2.operator -
+  nameWithType.vb: Vec2.-
+  fullName.vb: Etch.Geometry.Vec2.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_Subtraction*
+    name: '-'
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Subtraction_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+- uid: Etch.Geometry.Vec2.op_UnaryNegation*
+  commentId: Overload:Etch.Geometry.Vec2.op_UnaryNegation
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_UnaryNegation_Etch_Geometry_Vec2_
+  name: operator -
+  nameWithType: Vec2.operator -
+  fullName: Etch.Geometry.Vec2.operator -
+  nameWithType.vb: Vec2.-
+  fullName.vb: Etch.Geometry.Vec2.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_UnaryNegation*
+    name: '-'
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_UnaryNegation_Etch_Geometry_Vec2_
+- uid: Etch.Geometry.Vec2.op_Multiply*
+  commentId: Overload:Etch.Geometry.Vec2.op_Multiply
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Multiply_Etch_Geometry_Vec2_System_Double_
+  name: operator *
+  nameWithType: Vec2.operator *
+  fullName: Etch.Geometry.Vec2.operator *
+  nameWithType.vb: Vec2.*
+  fullName.vb: Etch.Geometry.Vec2.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_Multiply*
+    name: '*'
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Multiply_Etch_Geometry_Vec2_System_Double_
+- uid: Etch.Geometry.Vec2.op_Equality*
+  commentId: Overload:Etch.Geometry.Vec2.op_Equality
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Equality_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: operator ==
+  nameWithType: Vec2.operator ==
+  fullName: Etch.Geometry.Vec2.operator ==
+  nameWithType.vb: Vec2.=
+  fullName.vb: Etch.Geometry.Vec2.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_Equality*
+    name: ==
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Equality_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Vec2.op_Inequality*
+  commentId: Overload:Etch.Geometry.Vec2.op_Inequality
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Inequality_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: operator !=
+  nameWithType: Vec2.operator !=
+  fullName: Etch.Geometry.Vec2.operator !=
+  nameWithType.vb: Vec2.<>
+  fullName.vb: Etch.Geometry.Vec2.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Vec2.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_op_Inequality_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+- uid: Etch.Geometry.Vec2.Add*
+  commentId: Overload:Etch.Geometry.Vec2.Add
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Add_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: Add
+  nameWithType: Vec2.Add
+  fullName: Etch.Geometry.Vec2.Add
+- uid: Etch.Geometry.Vec2.Subtract*
+  commentId: Overload:Etch.Geometry.Vec2.Subtract
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Subtract_Etch_Geometry_Vec2_Etch_Geometry_Vec2_
+  name: Subtract
+  nameWithType: Vec2.Subtract
+  fullName: Etch.Geometry.Vec2.Subtract
+- uid: Etch.Geometry.Vec2.Negate*
+  commentId: Overload:Etch.Geometry.Vec2.Negate
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Negate_Etch_Geometry_Vec2_
+  name: Negate
+  nameWithType: Vec2.Negate
+  fullName: Etch.Geometry.Vec2.Negate
+- uid: Etch.Geometry.Vec2.Multiply*
+  commentId: Overload:Etch.Geometry.Vec2.Multiply
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Multiply_Etch_Geometry_Vec2_System_Double_
+  name: Multiply
+  nameWithType: Vec2.Multiply
+  fullName: Etch.Geometry.Vec2.Multiply
+- uid: Etch.Geometry.Vec2.Equals*
+  commentId: Overload:Etch.Geometry.Vec2.Equals
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_Equals_Etch_Geometry_Vec2_
+  name: Equals
+  nameWithType: Vec2.Equals
+  fullName: Etch.Geometry.Vec2.Equals
+- uid: System.IEquatable{Etch.Geometry.Vec2}.Equals(Etch.Geometry.Vec2)
+  commentId: M:System.IEquatable{Etch.Geometry.Vec2}.Equals(Etch.Geometry.Vec2)
+  parent: System.IEquatable{Etch.Geometry.Vec2}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Vec2)
+  nameWithType: IEquatable<Vec2>.Equals(Vec2)
+  fullName: System.IEquatable<Etch.Geometry.Vec2>.Equals(Etch.Geometry.Vec2)
+  nameWithType.vb: IEquatable(Of Vec2).Equals(Vec2)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Vec2).Equals(Etch.Geometry.Vec2)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Vec2}.Equals(Etch.Geometry.Vec2)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Vec2
+    name: Vec2
+    href: Etch.Geometry.Vec2.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Vec2}.Equals(Etch.Geometry.Vec2)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Vec2
+    name: Vec2
+    href: Etch.Geometry.Vec2.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Vec2.GetHashCode*
+  commentId: Overload:Etch.Geometry.Vec2.GetHashCode
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_GetHashCode
+  name: GetHashCode
+  nameWithType: Vec2.GetHashCode
+  fullName: Etch.Geometry.Vec2.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Vec2.ToString*
+  commentId: Overload:Etch.Geometry.Vec2.ToString
+  href: Etch.Geometry.Vec2.html#Etch_Geometry_Vec2_ToString
+  name: ToString
+  nameWithType: Vec2.ToString
+  fullName: Etch.Geometry.Vec2.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,774 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.Rgba16f
+  commentId: T:Etch.ClipBlendGradient.Rgba16f
+  id: Rgba16f
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  - Etch.ClipBlendGradient.Rgba16f.A
+  - Etch.ClipBlendGradient.Rgba16f.ALinear
+  - Etch.ClipBlendGradient.Rgba16f.B
+  - Etch.ClipBlendGradient.Rgba16f.BLinear
+  - Etch.ClipBlendGradient.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  - Etch.ClipBlendGradient.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  - Etch.ClipBlendGradient.Rgba16f.G
+  - Etch.ClipBlendGradient.Rgba16f.GLinear
+  - Etch.ClipBlendGradient.Rgba16f.R
+  - Etch.ClipBlendGradient.Rgba16f.RLinear
+  - Etch.ClipBlendGradient.Rgba16f.WithA(System.Single)
+  - Etch.ClipBlendGradient.Rgba16f.WithB(System.Single)
+  - Etch.ClipBlendGradient.Rgba16f.WithG(System.Single)
+  - Etch.ClipBlendGradient.Rgba16f.WithR(System.Single)
+  - Etch.ClipBlendGradient.Rgba16f.Zero
+  langs:
+  - csharp
+  - vb
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.ClipBlendGradient.Rgba16f
+  type: Struct
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly struct Rgba16f
+    content.vb: Public Structure Rgba16f
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.ClipBlendGradient.Rgba16f.R
+  commentId: F:Etch.ClipBlendGradient.Rgba16f.R
+  id: R
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: Rgba16f.R
+  fullName: Etch.ClipBlendGradient.Rgba16f.R
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Half R
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly R As Half
+- uid: Etch.ClipBlendGradient.Rgba16f.G
+  commentId: F:Etch.ClipBlendGradient.Rgba16f.G
+  id: G
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: G
+  nameWithType: Rgba16f.G
+  fullName: Etch.ClipBlendGradient.Rgba16f.G
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Half G
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly G As Half
+- uid: Etch.ClipBlendGradient.Rgba16f.B
+  commentId: F:Etch.ClipBlendGradient.Rgba16f.B
+  id: B
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: Rgba16f.B
+  fullName: Etch.ClipBlendGradient.Rgba16f.B
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Half B
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly B As Half
+- uid: Etch.ClipBlendGradient.Rgba16f.A
+  commentId: F:Etch.ClipBlendGradient.Rgba16f.A
+  id: A
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: Rgba16f.A
+  fullName: Etch.ClipBlendGradient.Rgba16f.A
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Half A
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly A As Half
+- uid: Etch.ClipBlendGradient.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  id: '#ctor(System.Half,System.Half,System.Half,System.Half)'
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: Rgba16f(Half, Half, Half, Half)
+  nameWithType: Rgba16f.Rgba16f(Half, Half, Half, Half)
+  fullName: Etch.ClipBlendGradient.Rgba16f.Rgba16f(System.Half, System.Half, System.Half, System.Half)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public Rgba16f(Half r, Half g, Half b, Half a)
+    parameters:
+    - id: r
+      type: System.Half
+    - id: g
+      type: System.Half
+    - id: b
+      type: System.Half
+    - id: a
+      type: System.Half
+    content.vb: Public Sub New(r As Half, g As Half, b As Half, a As Half)
+  overload: Etch.ClipBlendGradient.Rgba16f.#ctor*
+  nameWithType.vb: Rgba16f.New(Half, Half, Half, Half)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.New(System.Half, System.Half, System.Half, System.Half)
+  name.vb: New(Half, Half, Half, Half)
+- uid: Etch.ClipBlendGradient.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  id: From(System.Single,System.Single,System.Single,System.Single)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: From(float, float, float, float)
+  nameWithType: Rgba16f.From(float, float, float, float)
+  fullName: Etch.ClipBlendGradient.Rgba16f.From(float, float, float, float)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public static Rgba16f From(float r, float g, float b, float a)
+    parameters:
+    - id: r
+      type: System.Single
+    - id: g
+      type: System.Single
+    - id: b
+      type: System.Single
+    - id: a
+      type: System.Single
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Shared Function From(r As Single, g As Single, b As Single, a As Single) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.From*
+  nameWithType.vb: Rgba16f.From(Single, Single, Single, Single)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.From(Single, Single, Single, Single)
+  name.vb: From(Single, Single, Single, Single)
+- uid: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  id: FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: FromLinearBytes(byte, byte, byte, byte)
+  nameWithType: Rgba16f.FromLinearBytes(byte, byte, byte, byte)
+  fullName: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes(byte, byte, byte, byte)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public static Rgba16f FromLinearBytes(byte rByte, byte gByte, byte bByte, byte aByte)
+    parameters:
+    - id: rByte
+      type: System.Byte
+    - id: gByte
+      type: System.Byte
+    - id: bByte
+      type: System.Byte
+    - id: aByte
+      type: System.Byte
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Shared Function FromLinearBytes(rByte As Byte, gByte As Byte, bByte As Byte, aByte As Byte) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes*
+  nameWithType.vb: Rgba16f.FromLinearBytes(Byte, Byte, Byte, Byte)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes(Byte, Byte, Byte, Byte)
+  name.vb: FromLinearBytes(Byte, Byte, Byte, Byte)
+- uid: Etch.ClipBlendGradient.Rgba16f.RLinear
+  commentId: P:Etch.ClipBlendGradient.Rgba16f.RLinear
+  id: RLinear
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: RLinear
+  nameWithType: Rgba16f.RLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.RLinear
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public float RLinear { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property RLinear As Single
+  overload: Etch.ClipBlendGradient.Rgba16f.RLinear*
+- uid: Etch.ClipBlendGradient.Rgba16f.GLinear
+  commentId: P:Etch.ClipBlendGradient.Rgba16f.GLinear
+  id: GLinear
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: GLinear
+  nameWithType: Rgba16f.GLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.GLinear
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public float GLinear { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property GLinear As Single
+  overload: Etch.ClipBlendGradient.Rgba16f.GLinear*
+- uid: Etch.ClipBlendGradient.Rgba16f.BLinear
+  commentId: P:Etch.ClipBlendGradient.Rgba16f.BLinear
+  id: BLinear
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: BLinear
+  nameWithType: Rgba16f.BLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.BLinear
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public float BLinear { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property BLinear As Single
+  overload: Etch.ClipBlendGradient.Rgba16f.BLinear*
+- uid: Etch.ClipBlendGradient.Rgba16f.ALinear
+  commentId: P:Etch.ClipBlendGradient.Rgba16f.ALinear
+  id: ALinear
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: ALinear
+  nameWithType: Rgba16f.ALinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.ALinear
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public float ALinear { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property ALinear As Single
+  overload: Etch.ClipBlendGradient.Rgba16f.ALinear*
+- uid: Etch.ClipBlendGradient.Rgba16f.WithR(System.Single)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.WithR(System.Single)
+  id: WithR(System.Single)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: WithR(float)
+  nameWithType: Rgba16f.WithR(float)
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithR(float)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public Rgba16f WithR(float r)
+    parameters:
+    - id: r
+      type: System.Single
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Function WithR(r As Single) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.WithR*
+  nameWithType.vb: Rgba16f.WithR(Single)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.WithR(Single)
+  name.vb: WithR(Single)
+- uid: Etch.ClipBlendGradient.Rgba16f.WithG(System.Single)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.WithG(System.Single)
+  id: WithG(System.Single)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: WithG(float)
+  nameWithType: Rgba16f.WithG(float)
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithG(float)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public Rgba16f WithG(float g)
+    parameters:
+    - id: g
+      type: System.Single
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Function WithG(g As Single) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.WithG*
+  nameWithType.vb: Rgba16f.WithG(Single)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.WithG(Single)
+  name.vb: WithG(Single)
+- uid: Etch.ClipBlendGradient.Rgba16f.WithB(System.Single)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.WithB(System.Single)
+  id: WithB(System.Single)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: WithB(float)
+  nameWithType: Rgba16f.WithB(float)
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithB(float)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public Rgba16f WithB(float b)
+    parameters:
+    - id: b
+      type: System.Single
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Function WithB(b As Single) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.WithB*
+  nameWithType.vb: Rgba16f.WithB(Single)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.WithB(Single)
+  name.vb: WithB(Single)
+- uid: Etch.ClipBlendGradient.Rgba16f.WithA(System.Single)
+  commentId: M:Etch.ClipBlendGradient.Rgba16f.WithA(System.Single)
+  id: WithA(System.Single)
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: WithA(float)
+  nameWithType: Rgba16f.WithA(float)
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithA(float)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public Rgba16f WithA(float a)
+    parameters:
+    - id: a
+      type: System.Single
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Function WithA(a As Single) As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.WithA*
+  nameWithType.vb: Rgba16f.WithA(Single)
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.WithA(Single)
+  name.vb: WithA(Single)
+- uid: Etch.ClipBlendGradient.Rgba16f.Zero
+  commentId: P:Etch.ClipBlendGradient.Rgba16f.Zero
+  id: Zero
+  parent: Etch.ClipBlendGradient.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Rgba16f.Zero
+  fullName: Etch.ClipBlendGradient.Rgba16f.Zero
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public static Rgba16f Zero { get; }
+    parameters: []
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Shared ReadOnly Property Zero As Rgba16f
+  overload: Etch.ClipBlendGradient.Rgba16f.Zero*
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Half
+  commentId: T:System.Half
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.half
+  name: Half
+  nameWithType: Half
+  fullName: System.Half
+- uid: Etch.ClipBlendGradient.Rgba16f.#ctor*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.#ctor
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f__ctor_System_Half_System_Half_System_Half_System_Half_
+  name: Rgba16f
+  nameWithType: Rgba16f.Rgba16f
+  fullName: Etch.ClipBlendGradient.Rgba16f.Rgba16f
+  nameWithType.vb: Rgba16f.New
+  fullName.vb: Etch.ClipBlendGradient.Rgba16f.New
+  name.vb: New
+- uid: Etch.ClipBlendGradient.Rgba16f.From*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.From
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_From_System_Single_System_Single_System_Single_System_Single_
+  name: From
+  nameWithType: Rgba16f.From
+  fullName: Etch.ClipBlendGradient.Rgba16f.From
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.ClipBlendGradient.Rgba16f
+  commentId: T:Etch.ClipBlendGradient.Rgba16f
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.Rgba16f.html
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.ClipBlendGradient.Rgba16f
+- uid: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.FromLinearBytes
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_FromLinearBytes_System_Byte_System_Byte_System_Byte_System_Byte_
+  name: FromLinearBytes
+  nameWithType: Rgba16f.FromLinearBytes
+  fullName: Etch.ClipBlendGradient.Rgba16f.FromLinearBytes
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.ClipBlendGradient.Rgba16f.RLinear*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.RLinear
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_RLinear
+  name: RLinear
+  nameWithType: Rgba16f.RLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.RLinear
+- uid: Etch.ClipBlendGradient.Rgba16f.GLinear*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.GLinear
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_GLinear
+  name: GLinear
+  nameWithType: Rgba16f.GLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.GLinear
+- uid: Etch.ClipBlendGradient.Rgba16f.BLinear*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.BLinear
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_BLinear
+  name: BLinear
+  nameWithType: Rgba16f.BLinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.BLinear
+- uid: Etch.ClipBlendGradient.Rgba16f.ALinear*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.ALinear
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_ALinear
+  name: ALinear
+  nameWithType: Rgba16f.ALinear
+  fullName: Etch.ClipBlendGradient.Rgba16f.ALinear
+- uid: Etch.ClipBlendGradient.Rgba16f.WithR*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.WithR
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_WithR_System_Single_
+  name: WithR
+  nameWithType: Rgba16f.WithR
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithR
+- uid: Etch.ClipBlendGradient.Rgba16f.WithG*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.WithG
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_WithG_System_Single_
+  name: WithG
+  nameWithType: Rgba16f.WithG
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithG
+- uid: Etch.ClipBlendGradient.Rgba16f.WithB*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.WithB
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_WithB_System_Single_
+  name: WithB
+  nameWithType: Rgba16f.WithB
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithB
+- uid: Etch.ClipBlendGradient.Rgba16f.WithA*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.WithA
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_WithA_System_Single_
+  name: WithA
+  nameWithType: Rgba16f.WithA
+  fullName: Etch.ClipBlendGradient.Rgba16f.WithA
+- uid: Etch.ClipBlendGradient.Rgba16f.Zero*
+  commentId: Overload:Etch.ClipBlendGradient.Rgba16f.Zero
+  href: Etch.ClipBlendGradient.Rgba16f.html#Etch_ClipBlendGradient_Rgba16f_Zero
+  name: Zero
+  nameWithType: Rgba16f.Zero
+  fullName: Etch.ClipBlendGradient.Rgba16f.Zero

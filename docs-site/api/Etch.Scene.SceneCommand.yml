@@ -1,0 +1,1147 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneCommand
+  commentId: T:Etch.Scene.SceneCommand
+  id: SceneCommand
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.BeginFramePayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawGlyphRunPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawImagePayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawShadowPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.EndFramePayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillPathPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillRectPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.NoopPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopClipPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopLayerPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushClipPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushLayerPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetBlendModePayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetTransformPayload)
+  - Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.StrokePathPayload)
+  - Etch.Scene.SceneCommand.BeginFrame
+  - Etch.Scene.SceneCommand.CreateNoop
+  - Etch.Scene.SceneCommand.DrawGlyphRun
+  - Etch.Scene.SceneCommand.DrawImage
+  - Etch.Scene.SceneCommand.DrawShadow
+  - Etch.Scene.SceneCommand.EndFrame
+  - Etch.Scene.SceneCommand.FillPath
+  - Etch.Scene.SceneCommand.FillRect
+  - Etch.Scene.SceneCommand.Noop
+  - Etch.Scene.SceneCommand.Op
+  - Etch.Scene.SceneCommand.PopClip
+  - Etch.Scene.SceneCommand.PopLayer
+  - Etch.Scene.SceneCommand.PushClip
+  - Etch.Scene.SceneCommand.PushLayer
+  - Etch.Scene.SceneCommand.SetBlendMode
+  - Etch.Scene.SceneCommand.SetTransform
+  - Etch.Scene.SceneCommand.StrokePath
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand
+  nameWithType: SceneCommand
+  fullName: Etch.Scene.SceneCommand
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly struct SceneCommand
+    content.vb: Public Structure SceneCommand
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.SceneCommand.Op
+  commentId: F:Etch.Scene.SceneCommand.Op
+  id: Op
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: Op
+  nameWithType: SceneCommand.Op
+  fullName: Etch.Scene.SceneCommand.Op
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly SceneOpcode Op
+    return:
+      type: Etch.Scene.SceneOpcode
+    content.vb: Public ReadOnly Op As SceneOpcode
+- uid: Etch.Scene.SceneCommand.FillPath
+  commentId: F:Etch.Scene.SceneCommand.FillPath
+  id: FillPath
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: FillPath
+  nameWithType: SceneCommand.FillPath
+  fullName: Etch.Scene.SceneCommand.FillPath
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly FillPathPayload FillPath
+    return:
+      type: Etch.Scene.FillPathPayload
+    content.vb: Public ReadOnly FillPath As FillPathPayload
+- uid: Etch.Scene.SceneCommand.StrokePath
+  commentId: F:Etch.Scene.SceneCommand.StrokePath
+  id: StrokePath
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: StrokePath
+  nameWithType: SceneCommand.StrokePath
+  fullName: Etch.Scene.SceneCommand.StrokePath
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly StrokePathPayload StrokePath
+    return:
+      type: Etch.Scene.StrokePathPayload
+    content.vb: Public ReadOnly StrokePath As StrokePathPayload
+- uid: Etch.Scene.SceneCommand.FillRect
+  commentId: F:Etch.Scene.SceneCommand.FillRect
+  id: FillRect
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: FillRect
+  nameWithType: SceneCommand.FillRect
+  fullName: Etch.Scene.SceneCommand.FillRect
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly FillRectPayload FillRect
+    return:
+      type: Etch.Scene.FillRectPayload
+    content.vb: Public ReadOnly FillRect As FillRectPayload
+- uid: Etch.Scene.SceneCommand.SetTransform
+  commentId: F:Etch.Scene.SceneCommand.SetTransform
+  id: SetTransform
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SetTransform
+  nameWithType: SceneCommand.SetTransform
+  fullName: Etch.Scene.SceneCommand.SetTransform
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly SetTransformPayload SetTransform
+    return:
+      type: Etch.Scene.SetTransformPayload
+    content.vb: Public ReadOnly SetTransform As SetTransformPayload
+- uid: Etch.Scene.SceneCommand.PushClip
+  commentId: F:Etch.Scene.SceneCommand.PushClip
+  id: PushClip
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: PushClip
+  nameWithType: SceneCommand.PushClip
+  fullName: Etch.Scene.SceneCommand.PushClip
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly PushClipPayload PushClip
+    return:
+      type: Etch.Scene.PushClipPayload
+    content.vb: Public ReadOnly PushClip As PushClipPayload
+- uid: Etch.Scene.SceneCommand.PopClip
+  commentId: F:Etch.Scene.SceneCommand.PopClip
+  id: PopClip
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: PopClip
+  nameWithType: SceneCommand.PopClip
+  fullName: Etch.Scene.SceneCommand.PopClip
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly PopClipPayload PopClip
+    return:
+      type: Etch.Scene.PopClipPayload
+    content.vb: Public ReadOnly PopClip As PopClipPayload
+- uid: Etch.Scene.SceneCommand.DrawImage
+  commentId: F:Etch.Scene.SceneCommand.DrawImage
+  id: DrawImage
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: DrawImage
+  nameWithType: SceneCommand.DrawImage
+  fullName: Etch.Scene.SceneCommand.DrawImage
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly DrawImagePayload DrawImage
+    return:
+      type: Etch.Scene.DrawImagePayload
+    content.vb: Public ReadOnly DrawImage As DrawImagePayload
+- uid: Etch.Scene.SceneCommand.DrawGlyphRun
+  commentId: F:Etch.Scene.SceneCommand.DrawGlyphRun
+  id: DrawGlyphRun
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: DrawGlyphRun
+  nameWithType: SceneCommand.DrawGlyphRun
+  fullName: Etch.Scene.SceneCommand.DrawGlyphRun
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly DrawGlyphRunPayload DrawGlyphRun
+    return:
+      type: Etch.Scene.DrawGlyphRunPayload
+    content.vb: Public ReadOnly DrawGlyphRun As DrawGlyphRunPayload
+- uid: Etch.Scene.SceneCommand.SetBlendMode
+  commentId: F:Etch.Scene.SceneCommand.SetBlendMode
+  id: SetBlendMode
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SetBlendMode
+  nameWithType: SceneCommand.SetBlendMode
+  fullName: Etch.Scene.SceneCommand.SetBlendMode
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly SetBlendModePayload SetBlendMode
+    return:
+      type: Etch.Scene.SetBlendModePayload
+    content.vb: Public ReadOnly SetBlendMode As SetBlendModePayload
+- uid: Etch.Scene.SceneCommand.PushLayer
+  commentId: F:Etch.Scene.SceneCommand.PushLayer
+  id: PushLayer
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: PushLayer
+  nameWithType: SceneCommand.PushLayer
+  fullName: Etch.Scene.SceneCommand.PushLayer
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly PushLayerPayload PushLayer
+    return:
+      type: Etch.Scene.PushLayerPayload
+    content.vb: Public ReadOnly PushLayer As PushLayerPayload
+- uid: Etch.Scene.SceneCommand.PopLayer
+  commentId: F:Etch.Scene.SceneCommand.PopLayer
+  id: PopLayer
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: PopLayer
+  nameWithType: SceneCommand.PopLayer
+  fullName: Etch.Scene.SceneCommand.PopLayer
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly PopLayerPayload PopLayer
+    return:
+      type: Etch.Scene.PopLayerPayload
+    content.vb: Public ReadOnly PopLayer As PopLayerPayload
+- uid: Etch.Scene.SceneCommand.BeginFrame
+  commentId: F:Etch.Scene.SceneCommand.BeginFrame
+  id: BeginFrame
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: BeginFrame
+  nameWithType: SceneCommand.BeginFrame
+  fullName: Etch.Scene.SceneCommand.BeginFrame
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly BeginFramePayload BeginFrame
+    return:
+      type: Etch.Scene.BeginFramePayload
+    content.vb: Public ReadOnly BeginFrame As BeginFramePayload
+- uid: Etch.Scene.SceneCommand.EndFrame
+  commentId: F:Etch.Scene.SceneCommand.EndFrame
+  id: EndFrame
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: EndFrame
+  nameWithType: SceneCommand.EndFrame
+  fullName: Etch.Scene.SceneCommand.EndFrame
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly EndFramePayload EndFrame
+    return:
+      type: Etch.Scene.EndFramePayload
+    content.vb: Public ReadOnly EndFrame As EndFramePayload
+- uid: Etch.Scene.SceneCommand.Noop
+  commentId: F:Etch.Scene.SceneCommand.Noop
+  id: Noop
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: Noop
+  nameWithType: SceneCommand.Noop
+  fullName: Etch.Scene.SceneCommand.Noop
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly NoopPayload Noop
+    return:
+      type: Etch.Scene.NoopPayload
+    content.vb: Public ReadOnly Noop As NoopPayload
+- uid: Etch.Scene.SceneCommand.DrawShadow
+  commentId: F:Etch.Scene.SceneCommand.DrawShadow
+  id: DrawShadow
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: DrawShadow
+  nameWithType: SceneCommand.DrawShadow
+  fullName: Etch.Scene.SceneCommand.DrawShadow
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly DrawShadowPayload DrawShadow
+    return:
+      type: Etch.Scene.DrawShadowPayload
+    content.vb: Public ReadOnly DrawShadow As DrawShadowPayload
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillPathPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillPathPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillPathPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, FillPathPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, FillPathPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.FillPathPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, FillPathPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.FillPathPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As FillPathPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, FillPathPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.FillPathPayload)
+  name.vb: New(SceneOpcode, FillPathPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.StrokePathPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.StrokePathPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.StrokePathPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, StrokePathPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, StrokePathPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.StrokePathPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, StrokePathPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.StrokePathPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As StrokePathPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, StrokePathPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.StrokePathPayload)
+  name.vb: New(SceneOpcode, StrokePathPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillRectPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillRectPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.FillRectPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, FillRectPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, FillRectPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.FillRectPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, FillRectPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.FillRectPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As FillRectPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, FillRectPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.FillRectPayload)
+  name.vb: New(SceneOpcode, FillRectPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetTransformPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetTransformPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetTransformPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, SetTransformPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, SetTransformPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.SetTransformPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, SetTransformPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.SetTransformPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As SetTransformPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, SetTransformPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.SetTransformPayload)
+  name.vb: New(SceneOpcode, SetTransformPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushClipPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushClipPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushClipPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, PushClipPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, PushClipPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.PushClipPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, PushClipPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.PushClipPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As PushClipPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, PushClipPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.PushClipPayload)
+  name.vb: New(SceneOpcode, PushClipPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopClipPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopClipPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopClipPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, PopClipPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, PopClipPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.PopClipPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, PopClipPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.PopClipPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As PopClipPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, PopClipPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.PopClipPayload)
+  name.vb: New(SceneOpcode, PopClipPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawImagePayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawImagePayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawImagePayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, DrawImagePayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, DrawImagePayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.DrawImagePayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, DrawImagePayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.DrawImagePayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As DrawImagePayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, DrawImagePayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.DrawImagePayload)
+  name.vb: New(SceneOpcode, DrawImagePayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawGlyphRunPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawGlyphRunPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawGlyphRunPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, DrawGlyphRunPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, DrawGlyphRunPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.DrawGlyphRunPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, DrawGlyphRunPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.DrawGlyphRunPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As DrawGlyphRunPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, DrawGlyphRunPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.DrawGlyphRunPayload)
+  name.vb: New(SceneOpcode, DrawGlyphRunPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetBlendModePayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetBlendModePayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.SetBlendModePayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, SetBlendModePayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, SetBlendModePayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.SetBlendModePayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, SetBlendModePayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.SetBlendModePayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As SetBlendModePayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, SetBlendModePayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.SetBlendModePayload)
+  name.vb: New(SceneOpcode, SetBlendModePayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushLayerPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushLayerPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PushLayerPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, PushLayerPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, PushLayerPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.PushLayerPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, PushLayerPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.PushLayerPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As PushLayerPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, PushLayerPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.PushLayerPayload)
+  name.vb: New(SceneOpcode, PushLayerPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopLayerPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopLayerPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.PopLayerPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, PopLayerPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, PopLayerPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.PopLayerPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, PopLayerPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.PopLayerPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As PopLayerPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, PopLayerPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.PopLayerPayload)
+  name.vb: New(SceneOpcode, PopLayerPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.BeginFramePayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.BeginFramePayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.BeginFramePayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, BeginFramePayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, BeginFramePayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.BeginFramePayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, BeginFramePayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.BeginFramePayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As BeginFramePayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, BeginFramePayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.BeginFramePayload)
+  name.vb: New(SceneOpcode, BeginFramePayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.EndFramePayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.EndFramePayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.EndFramePayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, EndFramePayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, EndFramePayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.EndFramePayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, EndFramePayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.EndFramePayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As EndFramePayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, EndFramePayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.EndFramePayload)
+  name.vb: New(SceneOpcode, EndFramePayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.NoopPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.NoopPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.NoopPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, NoopPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, NoopPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.NoopPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, NoopPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.NoopPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As NoopPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, NoopPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.NoopPayload)
+  name.vb: New(SceneOpcode, NoopPayload)
+- uid: Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawShadowPayload)
+  commentId: M:Etch.Scene.SceneCommand.#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawShadowPayload)
+  id: '#ctor(Etch.Scene.SceneOpcode,Etch.Scene.DrawShadowPayload)'
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: SceneCommand(SceneOpcode, DrawShadowPayload)
+  nameWithType: SceneCommand.SceneCommand(SceneOpcode, DrawShadowPayload)
+  fullName: Etch.Scene.SceneCommand.SceneCommand(Etch.Scene.SceneOpcode, Etch.Scene.DrawShadowPayload)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneCommand(SceneOpcode op, DrawShadowPayload payload)
+    parameters:
+    - id: op
+      type: Etch.Scene.SceneOpcode
+    - id: payload
+      type: Etch.Scene.DrawShadowPayload
+    content.vb: Public Sub New(op As SceneOpcode, payload As DrawShadowPayload)
+  overload: Etch.Scene.SceneCommand.#ctor*
+  nameWithType.vb: SceneCommand.New(SceneOpcode, DrawShadowPayload)
+  fullName.vb: Etch.Scene.SceneCommand.New(Etch.Scene.SceneOpcode, Etch.Scene.DrawShadowPayload)
+  name.vb: New(SceneOpcode, DrawShadowPayload)
+- uid: Etch.Scene.SceneCommand.CreateNoop
+  commentId: M:Etch.Scene.SceneCommand.CreateNoop
+  id: CreateNoop
+  parent: Etch.Scene.SceneCommand
+  langs:
+  - csharp
+  - vb
+  name: CreateNoop()
+  nameWithType: SceneCommand.CreateNoop()
+  fullName: Etch.Scene.SceneCommand.CreateNoop()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public static SceneCommand CreateNoop()
+    return:
+      type: Etch.Scene.SceneCommand
+    content.vb: Public Shared Function CreateNoop() As SceneCommand
+  overload: Etch.Scene.SceneCommand.CreateNoop*
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Scene.SceneOpcode
+  commentId: T:Etch.Scene.SceneOpcode
+  parent: Etch.Scene
+  href: Etch.Scene.SceneOpcode.html
+  name: SceneOpcode
+  nameWithType: SceneOpcode
+  fullName: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.FillPathPayload
+  commentId: T:Etch.Scene.FillPathPayload
+  parent: Etch.Scene
+  href: Etch.Scene.FillPathPayload.html
+  name: FillPathPayload
+  nameWithType: FillPathPayload
+  fullName: Etch.Scene.FillPathPayload
+- uid: Etch.Scene.StrokePathPayload
+  commentId: T:Etch.Scene.StrokePathPayload
+  parent: Etch.Scene
+  href: Etch.Scene.StrokePathPayload.html
+  name: StrokePathPayload
+  nameWithType: StrokePathPayload
+  fullName: Etch.Scene.StrokePathPayload
+- uid: Etch.Scene.FillRectPayload
+  commentId: T:Etch.Scene.FillRectPayload
+  parent: Etch.Scene
+  href: Etch.Scene.FillRectPayload.html
+  name: FillRectPayload
+  nameWithType: FillRectPayload
+  fullName: Etch.Scene.FillRectPayload
+- uid: Etch.Scene.SetTransformPayload
+  commentId: T:Etch.Scene.SetTransformPayload
+  parent: Etch.Scene
+  href: Etch.Scene.SetTransformPayload.html
+  name: SetTransformPayload
+  nameWithType: SetTransformPayload
+  fullName: Etch.Scene.SetTransformPayload
+- uid: Etch.Scene.PushClipPayload
+  commentId: T:Etch.Scene.PushClipPayload
+  parent: Etch.Scene
+  href: Etch.Scene.PushClipPayload.html
+  name: PushClipPayload
+  nameWithType: PushClipPayload
+  fullName: Etch.Scene.PushClipPayload
+- uid: Etch.Scene.PopClipPayload
+  commentId: T:Etch.Scene.PopClipPayload
+  parent: Etch.Scene
+  href: Etch.Scene.PopClipPayload.html
+  name: PopClipPayload
+  nameWithType: PopClipPayload
+  fullName: Etch.Scene.PopClipPayload
+- uid: Etch.Scene.DrawImagePayload
+  commentId: T:Etch.Scene.DrawImagePayload
+  parent: Etch.Scene
+  href: Etch.Scene.DrawImagePayload.html
+  name: DrawImagePayload
+  nameWithType: DrawImagePayload
+  fullName: Etch.Scene.DrawImagePayload
+- uid: Etch.Scene.DrawGlyphRunPayload
+  commentId: T:Etch.Scene.DrawGlyphRunPayload
+  parent: Etch.Scene
+  href: Etch.Scene.DrawGlyphRunPayload.html
+  name: DrawGlyphRunPayload
+  nameWithType: DrawGlyphRunPayload
+  fullName: Etch.Scene.DrawGlyphRunPayload
+- uid: Etch.Scene.SetBlendModePayload
+  commentId: T:Etch.Scene.SetBlendModePayload
+  parent: Etch.Scene
+  href: Etch.Scene.SetBlendModePayload.html
+  name: SetBlendModePayload
+  nameWithType: SetBlendModePayload
+  fullName: Etch.Scene.SetBlendModePayload
+- uid: Etch.Scene.PushLayerPayload
+  commentId: T:Etch.Scene.PushLayerPayload
+  parent: Etch.Scene
+  href: Etch.Scene.PushLayerPayload.html
+  name: PushLayerPayload
+  nameWithType: PushLayerPayload
+  fullName: Etch.Scene.PushLayerPayload
+- uid: Etch.Scene.PopLayerPayload
+  commentId: T:Etch.Scene.PopLayerPayload
+  parent: Etch.Scene
+  href: Etch.Scene.PopLayerPayload.html
+  name: PopLayerPayload
+  nameWithType: PopLayerPayload
+  fullName: Etch.Scene.PopLayerPayload
+- uid: Etch.Scene.BeginFramePayload
+  commentId: T:Etch.Scene.BeginFramePayload
+  parent: Etch.Scene
+  href: Etch.Scene.BeginFramePayload.html
+  name: BeginFramePayload
+  nameWithType: BeginFramePayload
+  fullName: Etch.Scene.BeginFramePayload
+- uid: Etch.Scene.EndFramePayload
+  commentId: T:Etch.Scene.EndFramePayload
+  parent: Etch.Scene
+  href: Etch.Scene.EndFramePayload.html
+  name: EndFramePayload
+  nameWithType: EndFramePayload
+  fullName: Etch.Scene.EndFramePayload
+- uid: Etch.Scene.NoopPayload
+  commentId: T:Etch.Scene.NoopPayload
+  parent: Etch.Scene
+  href: Etch.Scene.NoopPayload.html
+  name: NoopPayload
+  nameWithType: NoopPayload
+  fullName: Etch.Scene.NoopPayload
+- uid: Etch.Scene.DrawShadowPayload
+  commentId: T:Etch.Scene.DrawShadowPayload
+  parent: Etch.Scene
+  href: Etch.Scene.DrawShadowPayload.html
+  name: DrawShadowPayload
+  nameWithType: DrawShadowPayload
+  fullName: Etch.Scene.DrawShadowPayload
+- uid: Etch.Scene.SceneCommand.#ctor*
+  commentId: Overload:Etch.Scene.SceneCommand.#ctor
+  href: Etch.Scene.SceneCommand.html#Etch_Scene_SceneCommand__ctor_Etch_Scene_SceneOpcode_Etch_Scene_FillPathPayload_
+  name: SceneCommand
+  nameWithType: SceneCommand.SceneCommand
+  fullName: Etch.Scene.SceneCommand.SceneCommand
+  nameWithType.vb: SceneCommand.New
+  fullName.vb: Etch.Scene.SceneCommand.New
+  name.vb: New
+- uid: Etch.Scene.SceneCommand.CreateNoop*
+  commentId: Overload:Etch.Scene.SceneCommand.CreateNoop
+  href: Etch.Scene.SceneCommand.html#Etch_Scene_SceneCommand_CreateNoop
+  name: CreateNoop
+  nameWithType: SceneCommand.CreateNoop
+  fullName: Etch.Scene.SceneCommand.CreateNoop
+- uid: Etch.Scene.SceneCommand
+  commentId: T:Etch.Scene.SceneCommand
+  parent: Etch.Scene
+  href: Etch.Scene.SceneCommand.html
+  name: SceneCommand
+  nameWithType: SceneCommand
+  fullName: Etch.Scene.SceneCommand

@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.FrontFace
+  commentId: T:Etch.Gpu.FrontFace
+  id: FrontFace
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.FrontFace.Ccw
+  - Etch.Gpu.FrontFace.Cw
+  - Etch.Gpu.FrontFace.Undefined
+  langs:
+  - csharp
+  - vb
+  name: FrontFace
+  nameWithType: FrontFace
+  fullName: Etch.Gpu.FrontFace
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum FrontFace : uint'
+    content.vb: Public Enum FrontFace As UInteger
+- uid: Etch.Gpu.FrontFace.Undefined
+  commentId: F:Etch.Gpu.FrontFace.Undefined
+  id: Undefined
+  parent: Etch.Gpu.FrontFace
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: FrontFace.Undefined
+  fullName: Etch.Gpu.FrontFace.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.FrontFace
+- uid: Etch.Gpu.FrontFace.Ccw
+  commentId: F:Etch.Gpu.FrontFace.Ccw
+  id: Ccw
+  parent: Etch.Gpu.FrontFace
+  langs:
+  - csharp
+  - vb
+  name: Ccw
+  nameWithType: FrontFace.Ccw
+  fullName: Etch.Gpu.FrontFace.Ccw
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Ccw = 1
+    return:
+      type: Etch.Gpu.FrontFace
+- uid: Etch.Gpu.FrontFace.Cw
+  commentId: F:Etch.Gpu.FrontFace.Cw
+  id: Cw
+  parent: Etch.Gpu.FrontFace
+  langs:
+  - csharp
+  - vb
+  name: Cw
+  nameWithType: FrontFace.Cw
+  fullName: Etch.Gpu.FrontFace.Cw
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Cw = 2
+    return:
+      type: Etch.Gpu.FrontFace
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.FrontFace
+  commentId: T:Etch.Gpu.FrontFace
+  parent: Etch.Gpu
+  href: Etch.Gpu.FrontFace.html
+  name: FrontFace
+  nameWithType: FrontFace
+  fullName: Etch.Gpu.FrontFace

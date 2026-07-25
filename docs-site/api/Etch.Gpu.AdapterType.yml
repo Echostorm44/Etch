@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.AdapterType
+  commentId: T:Etch.Gpu.AdapterType
+  id: AdapterType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.AdapterType.CPU
+  - Etch.Gpu.AdapterType.DiscreteGPU
+  - Etch.Gpu.AdapterType.IntegratedGPU
+  - Etch.Gpu.AdapterType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: AdapterType
+  nameWithType: AdapterType
+  fullName: Etch.Gpu.AdapterType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum AdapterType : uint'
+    content.vb: Public Enum AdapterType As UInteger
+- uid: Etch.Gpu.AdapterType.DiscreteGPU
+  commentId: F:Etch.Gpu.AdapterType.DiscreteGPU
+  id: DiscreteGPU
+  parent: Etch.Gpu.AdapterType
+  langs:
+  - csharp
+  - vb
+  name: DiscreteGPU
+  nameWithType: AdapterType.DiscreteGPU
+  fullName: Etch.Gpu.AdapterType.DiscreteGPU
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DiscreteGPU = 1
+    return:
+      type: Etch.Gpu.AdapterType
+- uid: Etch.Gpu.AdapterType.IntegratedGPU
+  commentId: F:Etch.Gpu.AdapterType.IntegratedGPU
+  id: IntegratedGPU
+  parent: Etch.Gpu.AdapterType
+  langs:
+  - csharp
+  - vb
+  name: IntegratedGPU
+  nameWithType: AdapterType.IntegratedGPU
+  fullName: Etch.Gpu.AdapterType.IntegratedGPU
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: IntegratedGPU = 2
+    return:
+      type: Etch.Gpu.AdapterType
+- uid: Etch.Gpu.AdapterType.CPU
+  commentId: F:Etch.Gpu.AdapterType.CPU
+  id: CPU
+  parent: Etch.Gpu.AdapterType
+  langs:
+  - csharp
+  - vb
+  name: CPU
+  nameWithType: AdapterType.CPU
+  fullName: Etch.Gpu.AdapterType.CPU
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CPU = 3
+    return:
+      type: Etch.Gpu.AdapterType
+- uid: Etch.Gpu.AdapterType.Unknown
+  commentId: F:Etch.Gpu.AdapterType.Unknown
+  id: Unknown
+  parent: Etch.Gpu.AdapterType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: AdapterType.Unknown
+  fullName: Etch.Gpu.AdapterType.Unknown
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unknown = 4
+    return:
+      type: Etch.Gpu.AdapterType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.AdapterType
+  commentId: T:Etch.Gpu.AdapterType
+  parent: Etch.Gpu
+  href: Etch.Gpu.AdapterType.html
+  name: AdapterType
+  nameWithType: AdapterType
+  fullName: Etch.Gpu.AdapterType

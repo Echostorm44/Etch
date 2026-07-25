@@ -1,0 +1,25 @@
+Etch
+
+This project is licensed under Apache-2.0. For full license text, see LICENSE.
+
+Copyright 2025 Echostorm
+
+Third-party dependencies shipped with Echostorm.Etch.* NuGet packages
+are listed in the NOTICE file at the repo root.
+
+---
+
+wgpu-native
+https://github.com/gfx-rs/wgpu-native
+
+This software contains third-party code from wgpu-native, licensed under the
+following licenses:
+
+Apache License 2.0
+https://github.com/gfx-rs/wgpu-native/blob/master/LICENSE-APACHE
+
+MIT License
+https://github.com/gfx-rs/wgpu-native/blob/master/LICENSE-MIT
+
+The wgpu-native binaries are fetched from GitHub releases at:
+https://github.com/gfx-rs/wgpu-native/releases/tag/v29.0.0.0

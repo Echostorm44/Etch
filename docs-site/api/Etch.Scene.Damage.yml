@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.Damage
+  commentId: N:Etch.Scene.Damage
+  id: Etch.Scene.Damage
+  children:
+  - Etch.Scene.Damage.DamageMode
+  - Etch.Scene.Damage.DamageResult
+  - Etch.Scene.Damage.DamageTracker
+  - Etch.Scene.Damage.ScrollDetector
+  - Etch.Scene.Damage.ScrollHint
+  - Etch.Scene.Damage.SubpixelDamageTracker
+  langs:
+  - csharp
+  - vb
+  name: Etch.Scene.Damage
+  nameWithType: Etch.Scene.Damage
+  fullName: Etch.Scene.Damage
+  type: Namespace
+  assemblies:
+  - Etch.Scene
+references:
+- uid: Etch.Scene.Damage.DamageMode
+  commentId: T:Etch.Scene.Damage.DamageMode
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.DamageMode.html
+  name: DamageMode
+  nameWithType: DamageMode
+  fullName: Etch.Scene.Damage.DamageMode
+- uid: Etch.Scene.Damage.DamageResult
+  commentId: T:Etch.Scene.Damage.DamageResult
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.DamageResult.html
+  name: DamageResult
+  nameWithType: DamageResult
+  fullName: Etch.Scene.Damage.DamageResult
+- uid: Etch.Scene.Damage.DamageTracker
+  commentId: T:Etch.Scene.Damage.DamageTracker
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.DamageTracker.html
+  name: DamageTracker
+  nameWithType: DamageTracker
+  fullName: Etch.Scene.Damage.DamageTracker
+- uid: Etch.Scene.Damage.ScrollDetector
+  commentId: T:Etch.Scene.Damage.ScrollDetector
+  href: Etch.Scene.Damage.ScrollDetector.html
+  name: ScrollDetector
+  nameWithType: ScrollDetector
+  fullName: Etch.Scene.Damage.ScrollDetector
+- uid: Etch.Scene.Damage.ScrollHint
+  commentId: T:Etch.Scene.Damage.ScrollHint
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.ScrollHint.html
+  name: ScrollHint
+  nameWithType: ScrollHint
+  fullName: Etch.Scene.Damage.ScrollHint
+- uid: Etch.Scene.Damage.SubpixelDamageTracker
+  commentId: T:Etch.Scene.Damage.SubpixelDamageTracker
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.SubpixelDamageTracker.html
+  name: SubpixelDamageTracker
+  nameWithType: SubpixelDamageTracker
+  fullName: Etch.Scene.Damage.SubpixelDamageTracker
+- uid: Etch.Scene.Damage
+  commentId: N:Etch.Scene.Damage
+  href: Etch.html
+  name: Etch.Scene.Damage
+  nameWithType: Etch.Scene.Damage
+  fullName: Etch.Scene.Damage
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html

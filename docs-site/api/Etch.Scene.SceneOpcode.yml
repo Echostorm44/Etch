@@ -1,0 +1,335 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneOpcode
+  commentId: T:Etch.Scene.SceneOpcode
+  id: SceneOpcode
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneOpcode.BeginFrame
+  - Etch.Scene.SceneOpcode.DrawGlyphRun
+  - Etch.Scene.SceneOpcode.DrawImage
+  - Etch.Scene.SceneOpcode.DrawShadow
+  - Etch.Scene.SceneOpcode.EndFrame
+  - Etch.Scene.SceneOpcode.FillPath
+  - Etch.Scene.SceneOpcode.FillRect
+  - Etch.Scene.SceneOpcode.Noop
+  - Etch.Scene.SceneOpcode.PopClip
+  - Etch.Scene.SceneOpcode.PopLayer
+  - Etch.Scene.SceneOpcode.PushClip
+  - Etch.Scene.SceneOpcode.PushLayer
+  - Etch.Scene.SceneOpcode.SetBlendMode
+  - Etch.Scene.SceneOpcode.SetTransform
+  - Etch.Scene.SceneOpcode.StrokePath
+  langs:
+  - csharp
+  - vb
+  name: SceneOpcode
+  nameWithType: SceneOpcode
+  fullName: Etch.Scene.SceneOpcode
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: 'public enum SceneOpcode : byte'
+    content.vb: Public Enum SceneOpcode As Byte
+- uid: Etch.Scene.SceneOpcode.Noop
+  commentId: F:Etch.Scene.SceneOpcode.Noop
+  id: Noop
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: Noop
+  nameWithType: SceneOpcode.Noop
+  fullName: Etch.Scene.SceneOpcode.Noop
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Noop = 0
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.PushLayer
+  commentId: F:Etch.Scene.SceneOpcode.PushLayer
+  id: PushLayer
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: PushLayer
+  nameWithType: SceneOpcode.PushLayer
+  fullName: Etch.Scene.SceneOpcode.PushLayer
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: PushLayer = 1
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.PopLayer
+  commentId: F:Etch.Scene.SceneOpcode.PopLayer
+  id: PopLayer
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: PopLayer
+  nameWithType: SceneOpcode.PopLayer
+  fullName: Etch.Scene.SceneOpcode.PopLayer
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: PopLayer = 2
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.PushClip
+  commentId: F:Etch.Scene.SceneOpcode.PushClip
+  id: PushClip
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: PushClip
+  nameWithType: SceneOpcode.PushClip
+  fullName: Etch.Scene.SceneOpcode.PushClip
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: PushClip = 3
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.PopClip
+  commentId: F:Etch.Scene.SceneOpcode.PopClip
+  id: PopClip
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: PopClip
+  nameWithType: SceneOpcode.PopClip
+  fullName: Etch.Scene.SceneOpcode.PopClip
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: PopClip = 4
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.SetTransform
+  commentId: F:Etch.Scene.SceneOpcode.SetTransform
+  id: SetTransform
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: SetTransform
+  nameWithType: SceneOpcode.SetTransform
+  fullName: Etch.Scene.SceneOpcode.SetTransform
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: SetTransform = 5
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.FillPath
+  commentId: F:Etch.Scene.SceneOpcode.FillPath
+  id: FillPath
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: FillPath
+  nameWithType: SceneOpcode.FillPath
+  fullName: Etch.Scene.SceneOpcode.FillPath
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: FillPath = 6
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.StrokePath
+  commentId: F:Etch.Scene.SceneOpcode.StrokePath
+  id: StrokePath
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: StrokePath
+  nameWithType: SceneOpcode.StrokePath
+  fullName: Etch.Scene.SceneOpcode.StrokePath
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: StrokePath = 7
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.FillRect
+  commentId: F:Etch.Scene.SceneOpcode.FillRect
+  id: FillRect
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: FillRect
+  nameWithType: SceneOpcode.FillRect
+  fullName: Etch.Scene.SceneOpcode.FillRect
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: FillRect = 8
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.DrawImage
+  commentId: F:Etch.Scene.SceneOpcode.DrawImage
+  id: DrawImage
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: DrawImage
+  nameWithType: SceneOpcode.DrawImage
+  fullName: Etch.Scene.SceneOpcode.DrawImage
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: DrawImage = 9
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.DrawGlyphRun
+  commentId: F:Etch.Scene.SceneOpcode.DrawGlyphRun
+  id: DrawGlyphRun
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: DrawGlyphRun
+  nameWithType: SceneOpcode.DrawGlyphRun
+  fullName: Etch.Scene.SceneOpcode.DrawGlyphRun
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: DrawGlyphRun = 10
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.SetBlendMode
+  commentId: F:Etch.Scene.SceneOpcode.SetBlendMode
+  id: SetBlendMode
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: SetBlendMode
+  nameWithType: SceneOpcode.SetBlendMode
+  fullName: Etch.Scene.SceneOpcode.SetBlendMode
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: SetBlendMode = 11
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.BeginFrame
+  commentId: F:Etch.Scene.SceneOpcode.BeginFrame
+  id: BeginFrame
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: BeginFrame
+  nameWithType: SceneOpcode.BeginFrame
+  fullName: Etch.Scene.SceneOpcode.BeginFrame
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: BeginFrame = 12
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.EndFrame
+  commentId: F:Etch.Scene.SceneOpcode.EndFrame
+  id: EndFrame
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: EndFrame
+  nameWithType: SceneOpcode.EndFrame
+  fullName: Etch.Scene.SceneOpcode.EndFrame
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: EndFrame = 13
+    return:
+      type: Etch.Scene.SceneOpcode
+- uid: Etch.Scene.SceneOpcode.DrawShadow
+  commentId: F:Etch.Scene.SceneOpcode.DrawShadow
+  id: DrawShadow
+  parent: Etch.Scene.SceneOpcode
+  langs:
+  - csharp
+  - vb
+  name: DrawShadow
+  nameWithType: SceneOpcode.DrawShadow
+  fullName: Etch.Scene.SceneOpcode.DrawShadow
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: DrawShadow = 14
+    return:
+      type: Etch.Scene.SceneOpcode
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.SceneOpcode
+  commentId: T:Etch.Scene.SceneOpcode
+  parent: Etch.Scene
+  href: Etch.Scene.SceneOpcode.html
+  name: SceneOpcode
+  nameWithType: SceneOpcode
+  fullName: Etch.Scene.SceneOpcode

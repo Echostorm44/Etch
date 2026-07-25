@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.GoldenRegen</RootNamespace>
+    <AssemblyName>Etch.GoldenRegen</AssemblyName>
+    <Description>Golden-image regeneration CLI for Etch correctness tests (COR-006)</Description>
+    <NoWarn>$(NoWarn);CS1591;CA1515;CA1062;CA1303;CA1307;CA1308;CA1031;CA1849;ET0105;CA2007;IDE0055</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.SkiaRef\Etch.SkiaRef.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+  </ItemGroup>
+</Project>

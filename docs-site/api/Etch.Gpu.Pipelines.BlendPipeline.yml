@@ -1,0 +1,692 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.BlendPipeline
+  commentId: T:Etch.Gpu.Pipelines.BlendPipeline
+  id: BlendPipeline
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.BlendPipeline.#ctor(Etch.Gpu.Device)
+  - Etch.Gpu.Pipelines.BlendPipeline.Dispose
+  - Etch.Gpu.Pipelines.BlendPipeline.GetLayout(Etch.ClipBlendGradient.BlendMode)
+  - Etch.Gpu.Pipelines.BlendPipeline.GetPipeline(Etch.ClipBlendGradient.BlendMode)
+  - Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+  - Etch.Gpu.Pipelines.BlendPipeline.RecordBlend(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single},Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  - Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors(Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  langs:
+  - csharp
+  - vb
+  name: BlendPipeline
+  nameWithType: BlendPipeline
+  fullName: Etch.Gpu.Pipelines.BlendPipeline
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public sealed class BlendPipeline : IDisposable'
+    content.vb: Public NotInheritable Class BlendPipeline Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.Pipelines.BlendPipeline.#ctor(Etch.Gpu.Device)
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.#ctor(Etch.Gpu.Device)
+  id: '#ctor(Etch.Gpu.Device)'
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: BlendPipeline(Device)
+  nameWithType: BlendPipeline.BlendPipeline(Device)
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.BlendPipeline(Etch.Gpu.Device)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public BlendPipeline(Device device)
+    parameters:
+    - id: device
+      type: Etch.Gpu.Device
+    content.vb: Public Sub New(device As Device)
+  overload: Etch.Gpu.Pipelines.BlendPipeline.#ctor*
+  nameWithType.vb: BlendPipeline.New(Device)
+  fullName.vb: Etch.Gpu.Pipelines.BlendPipeline.New(Etch.Gpu.Device)
+  name.vb: New(Device)
+- uid: Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors(Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors(Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  id: SetBlendColors(Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: SetBlendColors(BlendMode, LinearColor, LinearColor)
+  nameWithType: BlendPipeline.SetBlendColors(BlendMode, LinearColor, LinearColor)
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors(Etch.ClipBlendGradient.BlendMode, Etch.ClipBlendGradient.LinearColor, Etch.ClipBlendGradient.LinearColor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void SetBlendColors(BlendMode mode, LinearColor src, LinearColor dst)
+    parameters:
+    - id: mode
+      type: Etch.ClipBlendGradient.BlendMode
+    - id: src
+      type: Etch.ClipBlendGradient.LinearColor
+    - id: dst
+      type: Etch.ClipBlendGradient.LinearColor
+    content.vb: Public Sub SetBlendColors(mode As BlendMode, src As LinearColor, dst As LinearColor)
+  overload: Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors*
+- uid: Etch.Gpu.Pipelines.BlendPipeline.GetPipeline(Etch.ClipBlendGradient.BlendMode)
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.GetPipeline(Etch.ClipBlendGradient.BlendMode)
+  id: GetPipeline(Etch.ClipBlendGradient.BlendMode)
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: GetPipeline(BlendMode)
+  nameWithType: BlendPipeline.GetPipeline(BlendMode)
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.GetPipeline(Etch.ClipBlendGradient.BlendMode)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public RenderPipeline GetPipeline(BlendMode mode)
+    parameters:
+    - id: mode
+      type: Etch.ClipBlendGradient.BlendMode
+    return:
+      type: Etch.Gpu.RenderPipeline
+    content.vb: Public Function GetPipeline(mode As BlendMode) As RenderPipeline
+  overload: Etch.Gpu.Pipelines.BlendPipeline.GetPipeline*
+- uid: Etch.Gpu.Pipelines.BlendPipeline.GetLayout(Etch.ClipBlendGradient.BlendMode)
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.GetLayout(Etch.ClipBlendGradient.BlendMode)
+  id: GetLayout(Etch.ClipBlendGradient.BlendMode)
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: GetLayout(BlendMode)
+  nameWithType: BlendPipeline.GetLayout(BlendMode)
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.GetLayout(Etch.ClipBlendGradient.BlendMode)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public PipelineLayout GetLayout(BlendMode mode)
+    parameters:
+    - id: mode
+      type: Etch.ClipBlendGradient.BlendMode
+    return:
+      type: Etch.Gpu.PipelineLayout
+    content.vb: Public Function GetLayout(mode As BlendMode) As PipelineLayout
+  overload: Etch.Gpu.Pipelines.BlendPipeline.GetLayout*
+- uid: Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+  commentId: P:Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+  id: PerDrawBuffer
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: PerDrawBuffer
+  nameWithType: BlendPipeline.PerDrawBuffer
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public Buffer PerDrawBuffer { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Buffer
+    content.vb: Public ReadOnly Property PerDrawBuffer As Buffer
+  overload: Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer*
+- uid: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single},Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.RecordBlend(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single},Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  id: RecordBlend(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single},Etch.ClipBlendGradient.BlendMode,Etch.ClipBlendGradient.LinearColor,Etch.ClipBlendGradient.LinearColor)
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: RecordBlend(CommandEncoder, TextureView, ReadOnlySpan<float>, BlendMode, LinearColor, LinearColor)
+  nameWithType: BlendPipeline.RecordBlend(CommandEncoder, TextureView, ReadOnlySpan<float>, BlendMode, LinearColor, LinearColor)
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend(Etch.Gpu.CommandEncoder, Etch.Gpu.TextureView, System.ReadOnlySpan<float>, Etch.ClipBlendGradient.BlendMode, Etch.ClipBlendGradient.LinearColor, Etch.ClipBlendGradient.LinearColor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void RecordBlend(CommandEncoder encoder, TextureView renderTarget, ReadOnlySpan<float> quadVerticesXY, BlendMode mode, LinearColor src, LinearColor dst)
+    parameters:
+    - id: encoder
+      type: Etch.Gpu.CommandEncoder
+    - id: renderTarget
+      type: Etch.Gpu.TextureView
+    - id: quadVerticesXY
+      type: System.ReadOnlySpan{System.Single}
+    - id: mode
+      type: Etch.ClipBlendGradient.BlendMode
+    - id: src
+      type: Etch.ClipBlendGradient.LinearColor
+    - id: dst
+      type: Etch.ClipBlendGradient.LinearColor
+    content.vb: Public Sub RecordBlend(encoder As CommandEncoder, renderTarget As TextureView, quadVerticesXY As ReadOnlySpan(Of Single), mode As BlendMode, src As LinearColor, dst As LinearColor)
+  overload: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend*
+  nameWithType.vb: BlendPipeline.RecordBlend(CommandEncoder, TextureView, ReadOnlySpan(Of Single), BlendMode, LinearColor, LinearColor)
+  fullName.vb: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend(Etch.Gpu.CommandEncoder, Etch.Gpu.TextureView, System.ReadOnlySpan(Of Single), Etch.ClipBlendGradient.BlendMode, Etch.ClipBlendGradient.LinearColor, Etch.ClipBlendGradient.LinearColor)
+  name.vb: RecordBlend(CommandEncoder, TextureView, ReadOnlySpan(Of Single), BlendMode, LinearColor, LinearColor)
+- uid: Etch.Gpu.Pipelines.BlendPipeline.Dispose
+  commentId: M:Etch.Gpu.Pipelines.BlendPipeline.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Pipelines.BlendPipeline
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: BlendPipeline.Dispose()
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Pipelines.BlendPipeline.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Pipelines.BlendPipeline.#ctor*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.#ctor
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline__ctor_Etch_Gpu_Device_
+  name: BlendPipeline
+  nameWithType: BlendPipeline.BlendPipeline
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.BlendPipeline
+  nameWithType.vb: BlendPipeline.New
+  fullName.vb: Etch.Gpu.Pipelines.BlendPipeline.New
+  name.vb: New
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  parent: Etch.Gpu
+  href: Etch.Gpu.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_SetBlendColors_Etch_ClipBlendGradient_BlendMode_Etch_ClipBlendGradient_LinearColor_Etch_ClipBlendGradient_LinearColor_
+  name: SetBlendColors
+  nameWithType: BlendPipeline.SetBlendColors
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.SetBlendColors
+- uid: Etch.ClipBlendGradient.BlendMode
+  commentId: T:Etch.ClipBlendGradient.BlendMode
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.LinearColor
+  commentId: T:Etch.ClipBlendGradient.LinearColor
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.LinearColor.html
+  name: LinearColor
+  nameWithType: LinearColor
+  fullName: Etch.ClipBlendGradient.LinearColor
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: Etch.Gpu.Pipelines.BlendPipeline.GetPipeline*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.GetPipeline
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_GetPipeline_Etch_ClipBlendGradient_BlendMode_
+  name: GetPipeline
+  nameWithType: BlendPipeline.GetPipeline
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.GetPipeline
+- uid: Etch.Gpu.RenderPipeline
+  commentId: T:Etch.Gpu.RenderPipeline
+  parent: Etch.Gpu
+  href: Etch.Gpu.RenderPipeline.html
+  name: RenderPipeline
+  nameWithType: RenderPipeline
+  fullName: Etch.Gpu.RenderPipeline
+- uid: Etch.Gpu.Pipelines.BlendPipeline.GetLayout*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.GetLayout
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_GetLayout_Etch_ClipBlendGradient_BlendMode_
+  name: GetLayout
+  nameWithType: BlendPipeline.GetLayout
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.GetLayout
+- uid: Etch.Gpu.PipelineLayout
+  commentId: T:Etch.Gpu.PipelineLayout
+  parent: Etch.Gpu
+  href: Etch.Gpu.PipelineLayout.html
+  name: PipelineLayout
+  nameWithType: PipelineLayout
+  fullName: Etch.Gpu.PipelineLayout
+- uid: Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_PerDrawBuffer
+  name: PerDrawBuffer
+  nameWithType: BlendPipeline.PerDrawBuffer
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.PerDrawBuffer
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.Buffer.html
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+- uid: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.RecordBlend
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_RecordBlend_Etch_Gpu_CommandEncoder_Etch_Gpu_TextureView_System_ReadOnlySpan_System_Single__Etch_ClipBlendGradient_BlendMode_Etch_ClipBlendGradient_LinearColor_Etch_ClipBlendGradient_LinearColor_
+  name: RecordBlend
+  nameWithType: BlendPipeline.RecordBlend
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.RecordBlend
+- uid: Etch.Gpu.CommandEncoder
+  commentId: T:Etch.Gpu.CommandEncoder
+  parent: Etch.Gpu
+  href: Etch.Gpu.CommandEncoder.html
+  name: CommandEncoder
+  nameWithType: CommandEncoder
+  fullName: Etch.Gpu.CommandEncoder
+- uid: Etch.Gpu.TextureView
+  commentId: T:Etch.Gpu.TextureView
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureView.html
+  name: TextureView
+  nameWithType: TextureView
+  fullName: Etch.Gpu.TextureView
+- uid: System.ReadOnlySpan{System.Single}
+  commentId: T:System.ReadOnlySpan{System.Single}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<float>
+  nameWithType: ReadOnlySpan<float>
+  fullName: System.ReadOnlySpan<float>
+  nameWithType.vb: ReadOnlySpan(Of Single)
+  fullName.vb: System.ReadOnlySpan(Of Single)
+  name.vb: ReadOnlySpan(Of Single)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Pipelines.BlendPipeline.Dispose*
+  commentId: Overload:Etch.Gpu.Pipelines.BlendPipeline.Dispose
+  href: Etch.Gpu.Pipelines.BlendPipeline.html#Etch_Gpu_Pipelines_BlendPipeline_Dispose
+  name: Dispose
+  nameWithType: BlendPipeline.Dispose
+  fullName: Etch.Gpu.Pipelines.BlendPipeline.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

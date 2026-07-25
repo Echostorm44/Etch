@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.SoakReport</RootNamespace>
+    <AssemblyName>Etch.SoakReport</AssemblyName>
+    <Description>Soak test report visualization tool for COR-015</Description>
+    <NoWarn>$(NoWarn);CS1591;CA1515;CA1062;CA1303;CA1307;CA1308;CA1031;CA1849;ET0105;IDE0055;CA1806;CA1815</NoWarn>
+  </PropertyGroup>
+</Project>

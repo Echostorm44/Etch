@@ -1,0 +1,1035 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneBuffer
+  commentId: T:Etch.Scene.SceneBuffer
+  id: SceneBuffer
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneBuffer.#ctor(Etch.Scene.SceneCommand[],Etch.Scene.PathEntry[],System.Byte[],Etch.Scene.Paint[],Etch.Geometry.Affine[],Etch.Geometry.Rect[],Etch.Scene.GradientStops[])
+  - Etch.Scene.SceneBuffer.CommandCount
+  - Etch.Scene.SceneBuffer.Commands
+  - Etch.Scene.SceneBuffer.GetGradientStops(System.Int32)
+  - Etch.Scene.SceneBuffer.GetPaint(System.Int32)
+  - Etch.Scene.SceneBuffer.GetRect(System.Int32)
+  - Etch.Scene.SceneBuffer.GetTransform(System.Int32)
+  - Etch.Scene.SceneBuffer.GradientStopsCount
+  - Etch.Scene.SceneBuffer.PaintCount
+  - Etch.Scene.SceneBuffer.PathArenaBytes
+  - Etch.Scene.SceneBuffer.PathArenaLength
+  - Etch.Scene.SceneBuffer.PathCount
+  - Etch.Scene.SceneBuffer.RectCount
+  - Etch.Scene.SceneBuffer.TransformCount
+  - Etch.Scene.SceneBuffer.TryGetPath(System.Int32,Etch.Scene.PathData@)
+  langs:
+  - csharp
+  - vb
+  name: SceneBuffer
+  nameWithType: SceneBuffer
+  fullName: Etch.Scene.SceneBuffer
+  type: Class
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  summary: >-
+    An immutable, compact encoding of a vector-graphics scene. Built by
+
+    <xref href="Etch.Scene.SceneBuilder" data-throw-if-not-resolved="false"></xref> and consumed by the CPU/GPU renderers.
+  example: []
+  syntax:
+    content: public sealed class SceneBuffer
+    content.vb: Public NotInheritable Class SceneBuffer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Scene.SceneBuffer.#ctor(Etch.Scene.SceneCommand[],Etch.Scene.PathEntry[],System.Byte[],Etch.Scene.Paint[],Etch.Geometry.Affine[],Etch.Geometry.Rect[],Etch.Scene.GradientStops[])
+  commentId: M:Etch.Scene.SceneBuffer.#ctor(Etch.Scene.SceneCommand[],Etch.Scene.PathEntry[],System.Byte[],Etch.Scene.Paint[],Etch.Geometry.Affine[],Etch.Geometry.Rect[],Etch.Scene.GradientStops[])
+  id: '#ctor(Etch.Scene.SceneCommand[],Etch.Scene.PathEntry[],System.Byte[],Etch.Scene.Paint[],Etch.Geometry.Affine[],Etch.Geometry.Rect[],Etch.Scene.GradientStops[])'
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: SceneBuffer(SceneCommand[], PathEntry[], byte[], Paint[], Affine[], Rect[], GradientStops[])
+  nameWithType: SceneBuffer.SceneBuffer(SceneCommand[], PathEntry[], byte[], Paint[], Affine[], Rect[], GradientStops[])
+  fullName: Etch.Scene.SceneBuffer.SceneBuffer(Etch.Scene.SceneCommand[], Etch.Scene.PathEntry[], byte[], Etch.Scene.Paint[], Etch.Geometry.Affine[], Etch.Geometry.Rect[], Etch.Scene.GradientStops[])
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneBuffer(SceneCommand[] commands, PathEntry[] pathTable, byte[] pathArena, Paint[] paints, Affine[] transforms, Rect[] rects, GradientStops[] gradientStops)
+    parameters:
+    - id: commands
+      type: Etch.Scene.SceneCommand[]
+    - id: pathTable
+      type: Etch.Scene.PathEntry[]
+    - id: pathArena
+      type: System.Byte[]
+    - id: paints
+      type: Etch.Scene.Paint[]
+    - id: transforms
+      type: Etch.Geometry.Affine[]
+    - id: rects
+      type: Etch.Geometry.Rect[]
+    - id: gradientStops
+      type: Etch.Scene.GradientStops[]
+    content.vb: Public Sub New(commands As SceneCommand(), pathTable As PathEntry(), pathArena As Byte(), paints As Paint(), transforms As Affine(), rects As Rect(), gradientStops As GradientStops())
+  overload: Etch.Scene.SceneBuffer.#ctor*
+  nameWithType.vb: SceneBuffer.New(SceneCommand(), PathEntry(), Byte(), Paint(), Affine(), Rect(), GradientStops())
+  fullName.vb: Etch.Scene.SceneBuffer.New(Etch.Scene.SceneCommand(), Etch.Scene.PathEntry(), Byte(), Etch.Scene.Paint(), Etch.Geometry.Affine(), Etch.Geometry.Rect(), Etch.Scene.GradientStops())
+  name.vb: New(SceneCommand(), PathEntry(), Byte(), Paint(), Affine(), Rect(), GradientStops())
+- uid: Etch.Scene.SceneBuffer.Commands
+  commentId: P:Etch.Scene.SceneBuffer.Commands
+  id: Commands
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: Commands
+  nameWithType: SceneBuffer.Commands
+  fullName: Etch.Scene.SceneBuffer.Commands
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  summary: All scene commands, in execution order.
+  example: []
+  syntax:
+    content: public ReadOnlySpan<SceneCommand> Commands { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{Etch.Scene.SceneCommand}
+    content.vb: Public ReadOnly Property Commands As ReadOnlySpan(Of SceneCommand)
+  overload: Etch.Scene.SceneBuffer.Commands*
+- uid: Etch.Scene.SceneBuffer.CommandCount
+  commentId: P:Etch.Scene.SceneBuffer.CommandCount
+  id: CommandCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: CommandCount
+  nameWithType: SceneBuffer.CommandCount
+  fullName: Etch.Scene.SceneBuffer.CommandCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  summary: Number of commands in the scene.
+  example: []
+  syntax:
+    content: public int CommandCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CommandCount As Integer
+  overload: Etch.Scene.SceneBuffer.CommandCount*
+- uid: Etch.Scene.SceneBuffer.PathCount
+  commentId: P:Etch.Scene.SceneBuffer.PathCount
+  id: PathCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: PathCount
+  nameWithType: SceneBuffer.PathCount
+  fullName: Etch.Scene.SceneBuffer.PathCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int PathCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PathCount As Integer
+  overload: Etch.Scene.SceneBuffer.PathCount*
+- uid: Etch.Scene.SceneBuffer.PathArenaLength
+  commentId: P:Etch.Scene.SceneBuffer.PathArenaLength
+  id: PathArenaLength
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: PathArenaLength
+  nameWithType: SceneBuffer.PathArenaLength
+  fullName: Etch.Scene.SceneBuffer.PathArenaLength
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int PathArenaLength { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PathArenaLength As Integer
+  overload: Etch.Scene.SceneBuffer.PathArenaLength*
+- uid: Etch.Scene.SceneBuffer.PathArenaBytes
+  commentId: P:Etch.Scene.SceneBuffer.PathArenaBytes
+  id: PathArenaBytes
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: PathArenaBytes
+  nameWithType: SceneBuffer.PathArenaBytes
+  fullName: Etch.Scene.SceneBuffer.PathArenaBytes
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public byte[] PathArenaBytes { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property PathArenaBytes As Byte()
+  overload: Etch.Scene.SceneBuffer.PathArenaBytes*
+- uid: Etch.Scene.SceneBuffer.PaintCount
+  commentId: P:Etch.Scene.SceneBuffer.PaintCount
+  id: PaintCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: PaintCount
+  nameWithType: SceneBuffer.PaintCount
+  fullName: Etch.Scene.SceneBuffer.PaintCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int PaintCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PaintCount As Integer
+  overload: Etch.Scene.SceneBuffer.PaintCount*
+- uid: Etch.Scene.SceneBuffer.TransformCount
+  commentId: P:Etch.Scene.SceneBuffer.TransformCount
+  id: TransformCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: TransformCount
+  nameWithType: SceneBuffer.TransformCount
+  fullName: Etch.Scene.SceneBuffer.TransformCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int TransformCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TransformCount As Integer
+  overload: Etch.Scene.SceneBuffer.TransformCount*
+- uid: Etch.Scene.SceneBuffer.RectCount
+  commentId: P:Etch.Scene.SceneBuffer.RectCount
+  id: RectCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: RectCount
+  nameWithType: SceneBuffer.RectCount
+  fullName: Etch.Scene.SceneBuffer.RectCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int RectCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property RectCount As Integer
+  overload: Etch.Scene.SceneBuffer.RectCount*
+- uid: Etch.Scene.SceneBuffer.GradientStopsCount
+  commentId: P:Etch.Scene.SceneBuffer.GradientStopsCount
+  id: GradientStopsCount
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: GradientStopsCount
+  nameWithType: SceneBuffer.GradientStopsCount
+  fullName: Etch.Scene.SceneBuffer.GradientStopsCount
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int GradientStopsCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property GradientStopsCount As Integer
+  overload: Etch.Scene.SceneBuffer.GradientStopsCount*
+- uid: Etch.Scene.SceneBuffer.TryGetPath(System.Int32,Etch.Scene.PathData@)
+  commentId: M:Etch.Scene.SceneBuffer.TryGetPath(System.Int32,Etch.Scene.PathData@)
+  id: TryGetPath(System.Int32,Etch.Scene.PathData@)
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: TryGetPath(int, out PathData)
+  nameWithType: SceneBuffer.TryGetPath(int, out PathData)
+  fullName: Etch.Scene.SceneBuffer.TryGetPath(int, out Etch.Scene.PathData)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public bool TryGetPath(int pathId, out PathData path)
+    parameters:
+    - id: pathId
+      type: System.Int32
+    - id: path
+      type: Etch.Scene.PathData
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetPath(pathId As Integer, path As PathData) As Boolean
+  overload: Etch.Scene.SceneBuffer.TryGetPath*
+  nameWithType.vb: SceneBuffer.TryGetPath(Integer, PathData)
+  fullName.vb: Etch.Scene.SceneBuffer.TryGetPath(Integer, Etch.Scene.PathData)
+  name.vb: TryGetPath(Integer, PathData)
+- uid: Etch.Scene.SceneBuffer.GetPaint(System.Int32)
+  commentId: M:Etch.Scene.SceneBuffer.GetPaint(System.Int32)
+  id: GetPaint(System.Int32)
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: GetPaint(int)
+  nameWithType: SceneBuffer.GetPaint(int)
+  fullName: Etch.Scene.SceneBuffer.GetPaint(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public Paint GetPaint(int paintId)
+    parameters:
+    - id: paintId
+      type: System.Int32
+    return:
+      type: Etch.Scene.Paint
+    content.vb: Public Function GetPaint(paintId As Integer) As Paint
+  overload: Etch.Scene.SceneBuffer.GetPaint*
+  nameWithType.vb: SceneBuffer.GetPaint(Integer)
+  fullName.vb: Etch.Scene.SceneBuffer.GetPaint(Integer)
+  name.vb: GetPaint(Integer)
+- uid: Etch.Scene.SceneBuffer.GetTransform(System.Int32)
+  commentId: M:Etch.Scene.SceneBuffer.GetTransform(System.Int32)
+  id: GetTransform(System.Int32)
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: GetTransform(int)
+  nameWithType: SceneBuffer.GetTransform(int)
+  fullName: Etch.Scene.SceneBuffer.GetTransform(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public Affine GetTransform(int transformId)
+    parameters:
+    - id: transformId
+      type: System.Int32
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function GetTransform(transformId As Integer) As Affine
+  overload: Etch.Scene.SceneBuffer.GetTransform*
+  nameWithType.vb: SceneBuffer.GetTransform(Integer)
+  fullName.vb: Etch.Scene.SceneBuffer.GetTransform(Integer)
+  name.vb: GetTransform(Integer)
+- uid: Etch.Scene.SceneBuffer.GetRect(System.Int32)
+  commentId: M:Etch.Scene.SceneBuffer.GetRect(System.Int32)
+  id: GetRect(System.Int32)
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: GetRect(int)
+  nameWithType: SceneBuffer.GetRect(int)
+  fullName: Etch.Scene.SceneBuffer.GetRect(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public Rect GetRect(int rectId)
+    parameters:
+    - id: rectId
+      type: System.Int32
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function GetRect(rectId As Integer) As Rect
+  overload: Etch.Scene.SceneBuffer.GetRect*
+  nameWithType.vb: SceneBuffer.GetRect(Integer)
+  fullName.vb: Etch.Scene.SceneBuffer.GetRect(Integer)
+  name.vb: GetRect(Integer)
+- uid: Etch.Scene.SceneBuffer.GetGradientStops(System.Int32)
+  commentId: M:Etch.Scene.SceneBuffer.GetGradientStops(System.Int32)
+  id: GetGradientStops(System.Int32)
+  parent: Etch.Scene.SceneBuffer
+  langs:
+  - csharp
+  - vb
+  name: GetGradientStops(int)
+  nameWithType: SceneBuffer.GetGradientStops(int)
+  fullName: Etch.Scene.SceneBuffer.GetGradientStops(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public GradientStops GetGradientStops(int gradientId)
+    parameters:
+    - id: gradientId
+      type: System.Int32
+    return:
+      type: Etch.Scene.GradientStops
+    content.vb: Public Function GetGradientStops(gradientId As Integer) As GradientStops
+  overload: Etch.Scene.SceneBuffer.GetGradientStops*
+  nameWithType.vb: SceneBuffer.GetGradientStops(Integer)
+  fullName.vb: Etch.Scene.SceneBuffer.GetGradientStops(Integer)
+  name.vb: GetGradientStops(Integer)
+references:
+- uid: Etch.Scene.SceneBuilder
+  commentId: T:Etch.Scene.SceneBuilder
+  parent: Etch.Scene
+  href: Etch.Scene.SceneBuilder.html
+  name: SceneBuilder
+  nameWithType: SceneBuilder
+  fullName: Etch.Scene.SceneBuilder
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Scene.SceneBuffer.#ctor*
+  commentId: Overload:Etch.Scene.SceneBuffer.#ctor
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer__ctor_Etch_Scene_SceneCommand___Etch_Scene_PathEntry___System_Byte___Etch_Scene_Paint___Etch_Geometry_Affine___Etch_Geometry_Rect___Etch_Scene_GradientStops___
+  name: SceneBuffer
+  nameWithType: SceneBuffer.SceneBuffer
+  fullName: Etch.Scene.SceneBuffer.SceneBuffer
+  nameWithType.vb: SceneBuffer.New
+  fullName.vb: Etch.Scene.SceneBuffer.New
+  name.vb: New
+- uid: Etch.Scene.SceneCommand[]
+  isExternal: true
+  href: Etch.Scene.SceneCommand.html
+  name: SceneCommand[]
+  nameWithType: SceneCommand[]
+  fullName: Etch.Scene.SceneCommand[]
+  nameWithType.vb: SceneCommand()
+  fullName.vb: Etch.Scene.SceneCommand()
+  name.vb: SceneCommand()
+  spec.csharp:
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: (
+  - name: )
+- uid: Etch.Scene.PathEntry[]
+  isExternal: true
+  href: Etch.Scene.PathEntry.html
+  name: PathEntry[]
+  nameWithType: PathEntry[]
+  fullName: Etch.Scene.PathEntry[]
+  nameWithType.vb: PathEntry()
+  fullName.vb: Etch.Scene.PathEntry()
+  name.vb: PathEntry()
+  spec.csharp:
+  - uid: Etch.Scene.PathEntry
+    name: PathEntry
+    href: Etch.Scene.PathEntry.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Scene.PathEntry
+    name: PathEntry
+    href: Etch.Scene.PathEntry.html
+  - name: (
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Etch.Scene.Paint[]
+  isExternal: true
+  href: Etch.Scene.Paint.html
+  name: Paint[]
+  nameWithType: Paint[]
+  fullName: Etch.Scene.Paint[]
+  nameWithType.vb: Paint()
+  fullName.vb: Etch.Scene.Paint()
+  name.vb: Paint()
+  spec.csharp:
+  - uid: Etch.Scene.Paint
+    name: Paint
+    href: Etch.Scene.Paint.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Scene.Paint
+    name: Paint
+    href: Etch.Scene.Paint.html
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Affine[]
+  isExternal: true
+  href: Etch.Geometry.Affine.html
+  name: Affine[]
+  nameWithType: Affine[]
+  fullName: Etch.Geometry.Affine[]
+  nameWithType.vb: Affine()
+  fullName.vb: Etch.Geometry.Affine()
+  name.vb: Affine()
+  spec.csharp:
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Rect[]
+  isExternal: true
+  href: Etch.Geometry.Rect.html
+  name: Rect[]
+  nameWithType: Rect[]
+  fullName: Etch.Geometry.Rect[]
+  nameWithType.vb: Rect()
+  fullName.vb: Etch.Geometry.Rect()
+  name.vb: Rect()
+  spec.csharp:
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: (
+  - name: )
+- uid: Etch.Scene.GradientStops[]
+  isExternal: true
+  href: Etch.Scene.GradientStops.html
+  name: GradientStops[]
+  nameWithType: GradientStops[]
+  fullName: Etch.Scene.GradientStops[]
+  nameWithType.vb: GradientStops()
+  fullName.vb: Etch.Scene.GradientStops()
+  name.vb: GradientStops()
+  spec.csharp:
+  - uid: Etch.Scene.GradientStops
+    name: GradientStops
+    href: Etch.Scene.GradientStops.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Scene.GradientStops
+    name: GradientStops
+    href: Etch.Scene.GradientStops.html
+  - name: (
+  - name: )
+- uid: Etch.Scene.SceneBuffer.Commands*
+  commentId: Overload:Etch.Scene.SceneBuffer.Commands
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_Commands
+  name: Commands
+  nameWithType: SceneBuffer.Commands
+  fullName: Etch.Scene.SceneBuffer.Commands
+- uid: System.ReadOnlySpan{Etch.Scene.SceneCommand}
+  commentId: T:System.ReadOnlySpan{Etch.Scene.SceneCommand}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<SceneCommand>
+  nameWithType: ReadOnlySpan<SceneCommand>
+  fullName: System.ReadOnlySpan<Etch.Scene.SceneCommand>
+  nameWithType.vb: ReadOnlySpan(Of SceneCommand)
+  fullName.vb: System.ReadOnlySpan(Of Etch.Scene.SceneCommand)
+  name.vb: ReadOnlySpan(Of SceneCommand)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Scene.SceneBuffer.CommandCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.CommandCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_CommandCount
+  name: CommandCount
+  nameWithType: SceneBuffer.CommandCount
+  fullName: Etch.Scene.SceneBuffer.CommandCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Scene.SceneBuffer.PathCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.PathCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_PathCount
+  name: PathCount
+  nameWithType: SceneBuffer.PathCount
+  fullName: Etch.Scene.SceneBuffer.PathCount
+- uid: Etch.Scene.SceneBuffer.PathArenaLength*
+  commentId: Overload:Etch.Scene.SceneBuffer.PathArenaLength
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_PathArenaLength
+  name: PathArenaLength
+  nameWithType: SceneBuffer.PathArenaLength
+  fullName: Etch.Scene.SceneBuffer.PathArenaLength
+- uid: Etch.Scene.SceneBuffer.PathArenaBytes*
+  commentId: Overload:Etch.Scene.SceneBuffer.PathArenaBytes
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_PathArenaBytes
+  name: PathArenaBytes
+  nameWithType: SceneBuffer.PathArenaBytes
+  fullName: Etch.Scene.SceneBuffer.PathArenaBytes
+- uid: Etch.Scene.SceneBuffer.PaintCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.PaintCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_PaintCount
+  name: PaintCount
+  nameWithType: SceneBuffer.PaintCount
+  fullName: Etch.Scene.SceneBuffer.PaintCount
+- uid: Etch.Scene.SceneBuffer.TransformCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.TransformCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_TransformCount
+  name: TransformCount
+  nameWithType: SceneBuffer.TransformCount
+  fullName: Etch.Scene.SceneBuffer.TransformCount
+- uid: Etch.Scene.SceneBuffer.RectCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.RectCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_RectCount
+  name: RectCount
+  nameWithType: SceneBuffer.RectCount
+  fullName: Etch.Scene.SceneBuffer.RectCount
+- uid: Etch.Scene.SceneBuffer.GradientStopsCount*
+  commentId: Overload:Etch.Scene.SceneBuffer.GradientStopsCount
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_GradientStopsCount
+  name: GradientStopsCount
+  nameWithType: SceneBuffer.GradientStopsCount
+  fullName: Etch.Scene.SceneBuffer.GradientStopsCount
+- uid: Etch.Scene.SceneBuffer.TryGetPath*
+  commentId: Overload:Etch.Scene.SceneBuffer.TryGetPath
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_TryGetPath_System_Int32_Etch_Scene_PathData__
+  name: TryGetPath
+  nameWithType: SceneBuffer.TryGetPath
+  fullName: Etch.Scene.SceneBuffer.TryGetPath
+- uid: Etch.Scene.PathData
+  commentId: T:Etch.Scene.PathData
+  parent: Etch.Scene
+  href: Etch.Scene.PathData.html
+  name: PathData
+  nameWithType: PathData
+  fullName: Etch.Scene.PathData
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Scene.SceneBuffer.GetPaint*
+  commentId: Overload:Etch.Scene.SceneBuffer.GetPaint
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_GetPaint_System_Int32_
+  name: GetPaint
+  nameWithType: SceneBuffer.GetPaint
+  fullName: Etch.Scene.SceneBuffer.GetPaint
+- uid: Etch.Scene.Paint
+  commentId: T:Etch.Scene.Paint
+  parent: Etch.Scene
+  href: Etch.Scene.Paint.html
+  name: Paint
+  nameWithType: Paint
+  fullName: Etch.Scene.Paint
+- uid: Etch.Scene.SceneBuffer.GetTransform*
+  commentId: Overload:Etch.Scene.SceneBuffer.GetTransform
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_GetTransform_System_Int32_
+  name: GetTransform
+  nameWithType: SceneBuffer.GetTransform
+  fullName: Etch.Scene.SceneBuffer.GetTransform
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: Etch.Scene.SceneBuffer.GetRect*
+  commentId: Overload:Etch.Scene.SceneBuffer.GetRect
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_GetRect_System_Int32_
+  name: GetRect
+  nameWithType: SceneBuffer.GetRect
+  fullName: Etch.Scene.SceneBuffer.GetRect
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Scene.SceneBuffer.GetGradientStops*
+  commentId: Overload:Etch.Scene.SceneBuffer.GetGradientStops
+  href: Etch.Scene.SceneBuffer.html#Etch_Scene_SceneBuffer_GetGradientStops_System_Int32_
+  name: GetGradientStops
+  nameWithType: SceneBuffer.GetGradientStops
+  fullName: Etch.Scene.SceneBuffer.GetGradientStops
+- uid: Etch.Scene.GradientStops
+  commentId: T:Etch.Scene.GradientStops
+  parent: Etch.Scene
+  href: Etch.Scene.GradientStops.html
+  name: GradientStops
+  nameWithType: GradientStops
+  fullName: Etch.Scene.GradientStops

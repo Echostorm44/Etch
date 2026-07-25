@@ -1,0 +1,35 @@
+{
+  "categories": [
+    {
+      "name": "Latin",
+      "subdirectory": "latin",
+      "targetPassRate": 0.98,
+      "notes": "Latin + Latin-extended scripts"
+    },
+    {
+      "name": "Arabic",
+      "subdirectory": "arabic",
+      "targetPassRate": 0.85,
+      "notes": "Arabic script — ligature coverage depends on shaping features"
+    },
+    {
+      "name": "Diacritics",
+      "subdirectory": "diacritics",
+      "targetPassRate": 0.90,
+      "notes": "Stacked diacritics and combining marks"
+    },
+    {
+      "name": "LineBreak",
+      "subdirectory": "line-break",
+      "targetPassRate": 0.90,
+      "notes": "UAX #14 line-breaking conformance"
+    },
+    {
+      "name": "BiDi",
+      "subdirectory": "bidi",
+      "targetPassRate": 0.90,
+      "notes": "UAX #9 bidirectional text"
+    }
+  ],
+  "overallTargetPassRate": 0.90
+}

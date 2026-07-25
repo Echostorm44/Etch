@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.ITileSize
+  commentId: T:Etch.Tiling.ITileSize
+  id: ITileSize
+  parent: Etch.Tiling
+  children:
+  - Etch.Tiling.ITileSize.Height
+  - Etch.Tiling.ITileSize.Log2Height
+  - Etch.Tiling.ITileSize.Log2Width
+  - Etch.Tiling.ITileSize.PixelCount
+  - Etch.Tiling.ITileSize.Width
+  langs:
+  - csharp
+  - vb
+  name: ITileSize
+  nameWithType: ITileSize
+  fullName: Etch.Tiling.ITileSize
+  type: Interface
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public interface ITileSize
+    content.vb: Public Interface ITileSize
+- uid: Etch.Tiling.ITileSize.Width
+  commentId: P:Etch.Tiling.ITileSize.Width
+  id: Width
+  parent: Etch.Tiling.ITileSize
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: ITileSize.Width
+  fullName: Etch.Tiling.ITileSize.Width
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public static abstract int Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared MustInherit ReadOnly Property Width As Integer
+  overload: Etch.Tiling.ITileSize.Width*
+- uid: Etch.Tiling.ITileSize.Height
+  commentId: P:Etch.Tiling.ITileSize.Height
+  id: Height
+  parent: Etch.Tiling.ITileSize
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: ITileSize.Height
+  fullName: Etch.Tiling.ITileSize.Height
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public static abstract int Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared MustInherit ReadOnly Property Height As Integer
+  overload: Etch.Tiling.ITileSize.Height*
+- uid: Etch.Tiling.ITileSize.PixelCount
+  commentId: P:Etch.Tiling.ITileSize.PixelCount
+  id: PixelCount
+  parent: Etch.Tiling.ITileSize
+  langs:
+  - csharp
+  - vb
+  name: PixelCount
+  nameWithType: ITileSize.PixelCount
+  fullName: Etch.Tiling.ITileSize.PixelCount
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public static abstract int PixelCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared MustInherit ReadOnly Property PixelCount As Integer
+  overload: Etch.Tiling.ITileSize.PixelCount*
+- uid: Etch.Tiling.ITileSize.Log2Width
+  commentId: P:Etch.Tiling.ITileSize.Log2Width
+  id: Log2Width
+  parent: Etch.Tiling.ITileSize
+  langs:
+  - csharp
+  - vb
+  name: Log2Width
+  nameWithType: ITileSize.Log2Width
+  fullName: Etch.Tiling.ITileSize.Log2Width
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public static abstract int Log2Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared MustInherit ReadOnly Property Log2Width As Integer
+  overload: Etch.Tiling.ITileSize.Log2Width*
+- uid: Etch.Tiling.ITileSize.Log2Height
+  commentId: P:Etch.Tiling.ITileSize.Log2Height
+  id: Log2Height
+  parent: Etch.Tiling.ITileSize
+  langs:
+  - csharp
+  - vb
+  name: Log2Height
+  nameWithType: ITileSize.Log2Height
+  fullName: Etch.Tiling.ITileSize.Log2Height
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public static abstract int Log2Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared MustInherit ReadOnly Property Log2Height As Integer
+  overload: Etch.Tiling.ITileSize.Log2Height*
+references:
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  href: Etch.html
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+- uid: Etch.Tiling.ITileSize.Width*
+  commentId: Overload:Etch.Tiling.ITileSize.Width
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Width
+  name: Width
+  nameWithType: ITileSize.Width
+  fullName: Etch.Tiling.ITileSize.Width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Tiling.ITileSize.Height*
+  commentId: Overload:Etch.Tiling.ITileSize.Height
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Height
+  name: Height
+  nameWithType: ITileSize.Height
+  fullName: Etch.Tiling.ITileSize.Height
+- uid: Etch.Tiling.ITileSize.PixelCount*
+  commentId: Overload:Etch.Tiling.ITileSize.PixelCount
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_PixelCount
+  name: PixelCount
+  nameWithType: ITileSize.PixelCount
+  fullName: Etch.Tiling.ITileSize.PixelCount
+- uid: Etch.Tiling.ITileSize.Log2Width*
+  commentId: Overload:Etch.Tiling.ITileSize.Log2Width
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Log2Width
+  name: Log2Width
+  nameWithType: ITileSize.Log2Width
+  fullName: Etch.Tiling.ITileSize.Log2Width
+- uid: Etch.Tiling.ITileSize.Log2Height*
+  commentId: Overload:Etch.Tiling.ITileSize.Log2Height
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Log2Height
+  name: Log2Height
+  nameWithType: ITileSize.Log2Height
+  fullName: Etch.Tiling.ITileSize.Log2Height

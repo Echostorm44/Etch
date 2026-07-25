@@ -1,0 +1,394 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.GradientStop
+  commentId: T:Etch.ClipBlendGradient.GradientStop
+  id: GradientStop
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,Etch.ClipBlendGradient.Rgba16f)
+  - Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)
+  - Etch.ClipBlendGradient.GradientStop.Color
+  - Etch.ClipBlendGradient.GradientStop.Position
+  langs:
+  - csharp
+  - vb
+  name: GradientStop
+  nameWithType: GradientStop
+  fullName: Etch.ClipBlendGradient.GradientStop
+  type: Struct
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly struct GradientStop
+    content.vb: Public Structure GradientStop
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.ClipBlendGradient.GradientStop.Position
+  commentId: F:Etch.ClipBlendGradient.GradientStop.Position
+  id: Position
+  parent: Etch.ClipBlendGradient.GradientStop
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: GradientStop.Position
+  fullName: Etch.ClipBlendGradient.GradientStop.Position
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly float Position
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Position As Single
+- uid: Etch.ClipBlendGradient.GradientStop.Color
+  commentId: F:Etch.ClipBlendGradient.GradientStop.Color
+  id: Color
+  parent: Etch.ClipBlendGradient.GradientStop
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: GradientStop.Color
+  fullName: Etch.ClipBlendGradient.GradientStop.Color
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Rgba16f Color
+    return:
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public ReadOnly Color As Rgba16f
+- uid: Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,Etch.ClipBlendGradient.Rgba16f)
+  commentId: M:Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,Etch.ClipBlendGradient.Rgba16f)
+  id: '#ctor(System.Single,Etch.ClipBlendGradient.Rgba16f)'
+  parent: Etch.ClipBlendGradient.GradientStop
+  langs:
+  - csharp
+  - vb
+  name: GradientStop(float, Rgba16f)
+  nameWithType: GradientStop.GradientStop(float, Rgba16f)
+  fullName: Etch.ClipBlendGradient.GradientStop.GradientStop(float, Etch.ClipBlendGradient.Rgba16f)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public GradientStop(float position, Rgba16f color)
+    parameters:
+    - id: position
+      type: System.Single
+    - id: color
+      type: Etch.ClipBlendGradient.Rgba16f
+    content.vb: Public Sub New(position As Single, color As Rgba16f)
+  overload: Etch.ClipBlendGradient.GradientStop.#ctor*
+  nameWithType.vb: GradientStop.New(Single, Rgba16f)
+  fullName.vb: Etch.ClipBlendGradient.GradientStop.New(Single, Etch.ClipBlendGradient.Rgba16f)
+  name.vb: New(Single, Rgba16f)
+- uid: Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Etch.ClipBlendGradient.GradientStop.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)'
+  parent: Etch.ClipBlendGradient.GradientStop
+  langs:
+  - csharp
+  - vb
+  name: GradientStop(float, float, float, float, float)
+  nameWithType: GradientStop.GradientStop(float, float, float, float, float)
+  fullName: Etch.ClipBlendGradient.GradientStop.GradientStop(float, float, float, float, float)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public GradientStop(float position, float r, float g, float b, float a)
+    parameters:
+    - id: position
+      type: System.Single
+    - id: r
+      type: System.Single
+    - id: g
+      type: System.Single
+    - id: b
+      type: System.Single
+    - id: a
+      type: System.Single
+    content.vb: Public Sub New(position As Single, r As Single, g As Single, b As Single, a As Single)
+  overload: Etch.ClipBlendGradient.GradientStop.#ctor*
+  nameWithType.vb: GradientStop.New(Single, Single, Single, Single, Single)
+  fullName.vb: Etch.ClipBlendGradient.GradientStop.New(Single, Single, Single, Single, Single)
+  name.vb: New(Single, Single, Single, Single, Single)
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.ClipBlendGradient.Rgba16f
+  commentId: T:Etch.ClipBlendGradient.Rgba16f
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.Rgba16f.html
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.ClipBlendGradient.Rgba16f
+- uid: Etch.ClipBlendGradient.GradientStop.#ctor*
+  commentId: Overload:Etch.ClipBlendGradient.GradientStop.#ctor
+  href: Etch.ClipBlendGradient.GradientStop.html#Etch_ClipBlendGradient_GradientStop__ctor_System_Single_Etch_ClipBlendGradient_Rgba16f_
+  name: GradientStop
+  nameWithType: GradientStop.GradientStop
+  fullName: Etch.ClipBlendGradient.GradientStop.GradientStop
+  nameWithType.vb: GradientStop.New
+  fullName.vb: Etch.ClipBlendGradient.GradientStop.New
+  name.vb: New

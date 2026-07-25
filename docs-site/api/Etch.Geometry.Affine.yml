@@ -1,0 +1,1718 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  id: Affine
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Affine.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - Etch.Geometry.Affine.Determinant
+  - Etch.Geometry.Affine.Equals(Etch.Geometry.Affine)
+  - Etch.Geometry.Affine.Equals(System.Object)
+  - Etch.Geometry.Affine.GetHashCode
+  - Etch.Geometry.Affine.Identity
+  - Etch.Geometry.Affine.Inverse
+  - Etch.Geometry.Affine.M00
+  - Etch.Geometry.Affine.M01
+  - Etch.Geometry.Affine.M02
+  - Etch.Geometry.Affine.M10
+  - Etch.Geometry.Affine.M11
+  - Etch.Geometry.Affine.M12
+  - Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  - Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  - Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  - Etch.Geometry.Affine.PostRotate(System.Double)
+  - Etch.Geometry.Affine.PostScale(System.Double)
+  - Etch.Geometry.Affine.PostScale(System.Double,System.Double)
+  - Etch.Geometry.Affine.PostSkew(System.Double,System.Double)
+  - Etch.Geometry.Affine.PostTranslate(Etch.Geometry.Vec2)
+  - Etch.Geometry.Affine.PostTranslate(System.Double,System.Double)
+  - Etch.Geometry.Affine.PreRotate(System.Double)
+  - Etch.Geometry.Affine.PreScale(System.Double)
+  - Etch.Geometry.Affine.PreScale(System.Double,System.Double)
+  - Etch.Geometry.Affine.PreSkew(System.Double,System.Double)
+  - Etch.Geometry.Affine.PreTranslate(Etch.Geometry.Vec2)
+  - Etch.Geometry.Affine.PreTranslate(System.Double,System.Double)
+  - Etch.Geometry.Affine.Rotate(System.Double)
+  - Etch.Geometry.Affine.Scale(System.Double)
+  - Etch.Geometry.Affine.Scale(System.Double,System.Double)
+  - Etch.Geometry.Affine.Skew(System.Double,System.Double)
+  - Etch.Geometry.Affine.ToString
+  - Etch.Geometry.Affine.Transform(Etch.Geometry.Point)
+  - Etch.Geometry.Affine.Transform(Etch.Geometry.Vec2)
+  - Etch.Geometry.Affine.Translate(Etch.Geometry.Vec2)
+  - Etch.Geometry.Affine.Translate(System.Double,System.Double)
+  - Etch.Geometry.Affine.op_Equality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  - Etch.Geometry.Affine.op_Inequality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  - Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  - Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  - Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  langs:
+  - csharp
+  - vb
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Affine : IEquatable<Affine>'
+    content.vb: Public Structure Affine Implements IEquatable(Of Affine)
+  implements:
+  - System.IEquatable{Etch.Geometry.Affine}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Affine.M00
+  commentId: F:Etch.Geometry.Affine.M00
+  id: M00
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M00
+  nameWithType: Affine.M00
+  fullName: Etch.Geometry.Affine.M00
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M00
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M00 As Double
+- uid: Etch.Geometry.Affine.M01
+  commentId: F:Etch.Geometry.Affine.M01
+  id: M01
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M01
+  nameWithType: Affine.M01
+  fullName: Etch.Geometry.Affine.M01
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M01
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M01 As Double
+- uid: Etch.Geometry.Affine.M10
+  commentId: F:Etch.Geometry.Affine.M10
+  id: M10
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M10
+  nameWithType: Affine.M10
+  fullName: Etch.Geometry.Affine.M10
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M10
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M10 As Double
+- uid: Etch.Geometry.Affine.M11
+  commentId: F:Etch.Geometry.Affine.M11
+  id: M11
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M11
+  nameWithType: Affine.M11
+  fullName: Etch.Geometry.Affine.M11
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M11
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M11 As Double
+- uid: Etch.Geometry.Affine.M02
+  commentId: F:Etch.Geometry.Affine.M02
+  id: M02
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M02
+  nameWithType: Affine.M02
+  fullName: Etch.Geometry.Affine.M02
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M02
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M02 As Double
+- uid: Etch.Geometry.Affine.M12
+  commentId: F:Etch.Geometry.Affine.M12
+  id: M12
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: M12
+  nameWithType: Affine.M12
+  fullName: Etch.Geometry.Affine.M12
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double M12
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly M12 As Double
+- uid: Etch.Geometry.Affine.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Affine(double, double, double, double, double, double)
+  nameWithType: Affine.Affine(double, double, double, double, double, double)
+  fullName: Etch.Geometry.Affine.Affine(double, double, double, double, double, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine(double m00, double m01, double m10, double m11, double m02, double m12)
+    parameters:
+    - id: m00
+      type: System.Double
+    - id: m01
+      type: System.Double
+    - id: m10
+      type: System.Double
+    - id: m11
+      type: System.Double
+    - id: m02
+      type: System.Double
+    - id: m12
+      type: System.Double
+    content.vb: Public Sub New(m00 As Double, m01 As Double, m10 As Double, m11 As Double, m02 As Double, m12 As Double)
+  overload: Etch.Geometry.Affine.#ctor*
+  nameWithType.vb: Affine.New(Double, Double, Double, Double, Double, Double)
+  fullName.vb: Etch.Geometry.Affine.New(Double, Double, Double, Double, Double, Double)
+  name.vb: New(Double, Double, Double, Double, Double, Double)
+- uid: Etch.Geometry.Affine.Identity
+  commentId: P:Etch.Geometry.Affine.Identity
+  id: Identity
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Identity
+  nameWithType: Affine.Identity
+  fullName: Etch.Geometry.Affine.Identity
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Identity { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared ReadOnly Property Identity As Affine
+  overload: Etch.Geometry.Affine.Identity*
+- uid: Etch.Geometry.Affine.Translate(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.Translate(Etch.Geometry.Vec2)
+  id: Translate(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vec2)
+  nameWithType: Affine.Translate(Vec2)
+  fullName: Etch.Geometry.Affine.Translate(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Translate(Vec2 t)
+    parameters:
+    - id: t
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Translate(t As Vec2) As Affine
+  overload: Etch.Geometry.Affine.Translate*
+- uid: Etch.Geometry.Affine.Translate(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.Translate(System.Double,System.Double)
+  id: Translate(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Translate(double, double)
+  nameWithType: Affine.Translate(double, double)
+  fullName: Etch.Geometry.Affine.Translate(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Translate(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Translate(x As Double, y As Double) As Affine
+  overload: Etch.Geometry.Affine.Translate*
+  nameWithType.vb: Affine.Translate(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.Translate(Double, Double)
+  name.vb: Translate(Double, Double)
+- uid: Etch.Geometry.Affine.Scale(System.Double)
+  commentId: M:Etch.Geometry.Affine.Scale(System.Double)
+  id: Scale(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Scale(double)
+  nameWithType: Affine.Scale(double)
+  fullName: Etch.Geometry.Affine.Scale(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Scale(double s)
+    parameters:
+    - id: s
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Scale(s As Double) As Affine
+  overload: Etch.Geometry.Affine.Scale*
+  nameWithType.vb: Affine.Scale(Double)
+  fullName.vb: Etch.Geometry.Affine.Scale(Double)
+  name.vb: Scale(Double)
+- uid: Etch.Geometry.Affine.Scale(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.Scale(System.Double,System.Double)
+  id: Scale(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Scale(double, double)
+  nameWithType: Affine.Scale(double, double)
+  fullName: Etch.Geometry.Affine.Scale(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Scale(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Scale(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.Scale*
+  nameWithType.vb: Affine.Scale(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.Scale(Double, Double)
+  name.vb: Scale(Double, Double)
+- uid: Etch.Geometry.Affine.Rotate(System.Double)
+  commentId: M:Etch.Geometry.Affine.Rotate(System.Double)
+  id: Rotate(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Rotate(double)
+  nameWithType: Affine.Rotate(double)
+  fullName: Etch.Geometry.Affine.Rotate(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Rotate(double radians)
+    parameters:
+    - id: radians
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Rotate(radians As Double) As Affine
+  overload: Etch.Geometry.Affine.Rotate*
+  nameWithType.vb: Affine.Rotate(Double)
+  fullName.vb: Etch.Geometry.Affine.Rotate(Double)
+  name.vb: Rotate(Double)
+- uid: Etch.Geometry.Affine.Skew(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.Skew(System.Double,System.Double)
+  id: Skew(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Skew(double, double)
+  nameWithType: Affine.Skew(double, double)
+  fullName: Etch.Geometry.Affine.Skew(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Skew(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Skew(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.Skew*
+  nameWithType.vb: Affine.Skew(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.Skew(Double, Double)
+  name.vb: Skew(Double, Double)
+- uid: Etch.Geometry.Affine.Determinant
+  commentId: M:Etch.Geometry.Affine.Determinant
+  id: Determinant
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Determinant()
+  nameWithType: Affine.Determinant()
+  fullName: Etch.Geometry.Affine.Determinant()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Determinant()
+    return:
+      type: System.Double
+    content.vb: Public Function Determinant() As Double
+  overload: Etch.Geometry.Affine.Determinant*
+- uid: Etch.Geometry.Affine.Transform(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Affine.Transform(Etch.Geometry.Point)
+  id: Transform(Etch.Geometry.Point)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Transform(Point)
+  nameWithType: Affine.Transform(Point)
+  fullName: Etch.Geometry.Affine.Transform(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Transform(Point p)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Function Transform(p As Point) As Point
+  overload: Etch.Geometry.Affine.Transform*
+- uid: Etch.Geometry.Affine.Transform(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.Transform(Etch.Geometry.Vec2)
+  id: Transform(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vec2)
+  nameWithType: Affine.Transform(Vec2)
+  fullName: Etch.Geometry.Affine.Transform(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Vec2 Transform(Vec2 v)
+    parameters:
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Function Transform(v As Vec2) As Vec2
+  overload: Etch.Geometry.Affine.Transform*
+- uid: Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  id: op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: operator *(Affine, Point)
+  nameWithType: Affine.operator *(Affine, Point)
+  fullName: Etch.Geometry.Affine.operator *(Etch.Geometry.Affine, Etch.Geometry.Point)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point operator *(Affine a, Point p)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Operator *(a As Affine, p As Point) As Point
+  overload: Etch.Geometry.Affine.op_Multiply*
+  nameWithType.vb: Affine.*(Affine, Point)
+  fullName.vb: Etch.Geometry.Affine.*(Etch.Geometry.Affine, Etch.Geometry.Point)
+  name.vb: '*(Affine, Point)'
+- uid: Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  id: op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: operator *(Affine, Vec2)
+  nameWithType: Affine.operator *(Affine, Vec2)
+  fullName: Etch.Geometry.Affine.operator *(Etch.Geometry.Affine, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator *(Affine a, Vec2 v)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator *(a As Affine, v As Vec2) As Vec2
+  overload: Etch.Geometry.Affine.op_Multiply*
+  nameWithType.vb: Affine.*(Affine, Vec2)
+  fullName.vb: Etch.Geometry.Affine.*(Etch.Geometry.Affine, Etch.Geometry.Vec2)
+  name.vb: '*(Affine, Vec2)'
+- uid: Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Affine.op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  id: op_Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: operator *(Affine, Affine)
+  nameWithType: Affine.operator *(Affine, Affine)
+  fullName: Etch.Geometry.Affine.operator *(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine operator *(Affine a, Affine b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: b
+      type: Etch.Geometry.Affine
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Operator *(a As Affine, b As Affine) As Affine
+  overload: Etch.Geometry.Affine.op_Multiply*
+  nameWithType.vb: Affine.*(Affine, Affine)
+  fullName.vb: Etch.Geometry.Affine.*(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  name.vb: '*(Affine, Affine)'
+- uid: Etch.Geometry.Affine.op_Equality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Affine.op_Equality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  id: op_Equality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Affine, Affine)
+  nameWithType: Affine.operator ==(Affine, Affine)
+  fullName: Etch.Geometry.Affine.operator ==(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Affine left, Affine right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Affine
+    - id: right
+      type: Etch.Geometry.Affine
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Affine, right As Affine) As Boolean
+  overload: Etch.Geometry.Affine.op_Equality*
+  nameWithType.vb: Affine.=(Affine, Affine)
+  fullName.vb: Etch.Geometry.Affine.=(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  name.vb: =(Affine, Affine)
+- uid: Etch.Geometry.Affine.op_Inequality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Affine.op_Inequality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  id: op_Inequality(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Affine, Affine)
+  nameWithType: Affine.operator !=(Affine, Affine)
+  fullName: Etch.Geometry.Affine.operator !=(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Affine left, Affine right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Affine
+    - id: right
+      type: Etch.Geometry.Affine
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Affine, right As Affine) As Boolean
+  overload: Etch.Geometry.Affine.op_Inequality*
+  nameWithType.vb: Affine.<>(Affine, Affine)
+  fullName.vb: Etch.Geometry.Affine.<>(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  name.vb: <>(Affine, Affine)
+- uid: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  id: Multiply(Etch.Geometry.Affine,Etch.Geometry.Affine)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Affine, Affine)
+  nameWithType: Affine.Multiply(Affine, Affine)
+  fullName: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine, Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Affine Multiply(Affine a, Affine b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: b
+      type: Etch.Geometry.Affine
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Shared Function Multiply(a As Affine, b As Affine) As Affine
+  overload: Etch.Geometry.Affine.Multiply*
+- uid: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  id: Multiply(Etch.Geometry.Affine,Etch.Geometry.Point)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Affine, Point)
+  nameWithType: Affine.Multiply(Affine, Point)
+  fullName: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine, Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Multiply(Affine a, Point p)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Multiply(a As Affine, p As Point) As Point
+  overload: Etch.Geometry.Affine.Multiply*
+- uid: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  id: Multiply(Etch.Geometry.Affine,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Affine, Vec2)
+  nameWithType: Affine.Multiply(Affine, Vec2)
+  fullName: Etch.Geometry.Affine.Multiply(Etch.Geometry.Affine, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 Multiply(Affine a, Vec2 v)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Function Multiply(a As Affine, v As Vec2) As Vec2
+  overload: Etch.Geometry.Affine.Multiply*
+- uid: Etch.Geometry.Affine.Inverse
+  commentId: M:Etch.Geometry.Affine.Inverse
+  id: Inverse
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Inverse()
+  nameWithType: Affine.Inverse()
+  fullName: Etch.Geometry.Affine.Inverse()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine Inverse()
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function Inverse() As Affine
+  overload: Etch.Geometry.Affine.Inverse*
+- uid: Etch.Geometry.Affine.PreTranslate(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.PreTranslate(Etch.Geometry.Vec2)
+  id: PreTranslate(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreTranslate(Vec2)
+  nameWithType: Affine.PreTranslate(Vec2)
+  fullName: Etch.Geometry.Affine.PreTranslate(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreTranslate(Vec2 t)
+    parameters:
+    - id: t
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreTranslate(t As Vec2) As Affine
+  overload: Etch.Geometry.Affine.PreTranslate*
+- uid: Etch.Geometry.Affine.PreTranslate(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PreTranslate(System.Double,System.Double)
+  id: PreTranslate(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreTranslate(double, double)
+  nameWithType: Affine.PreTranslate(double, double)
+  fullName: Etch.Geometry.Affine.PreTranslate(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreTranslate(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreTranslate(x As Double, y As Double) As Affine
+  overload: Etch.Geometry.Affine.PreTranslate*
+  nameWithType.vb: Affine.PreTranslate(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PreTranslate(Double, Double)
+  name.vb: PreTranslate(Double, Double)
+- uid: Etch.Geometry.Affine.PreScale(System.Double)
+  commentId: M:Etch.Geometry.Affine.PreScale(System.Double)
+  id: PreScale(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreScale(double)
+  nameWithType: Affine.PreScale(double)
+  fullName: Etch.Geometry.Affine.PreScale(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreScale(double s)
+    parameters:
+    - id: s
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreScale(s As Double) As Affine
+  overload: Etch.Geometry.Affine.PreScale*
+  nameWithType.vb: Affine.PreScale(Double)
+  fullName.vb: Etch.Geometry.Affine.PreScale(Double)
+  name.vb: PreScale(Double)
+- uid: Etch.Geometry.Affine.PreScale(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PreScale(System.Double,System.Double)
+  id: PreScale(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreScale(double, double)
+  nameWithType: Affine.PreScale(double, double)
+  fullName: Etch.Geometry.Affine.PreScale(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreScale(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreScale(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.PreScale*
+  nameWithType.vb: Affine.PreScale(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PreScale(Double, Double)
+  name.vb: PreScale(Double, Double)
+- uid: Etch.Geometry.Affine.PreRotate(System.Double)
+  commentId: M:Etch.Geometry.Affine.PreRotate(System.Double)
+  id: PreRotate(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreRotate(double)
+  nameWithType: Affine.PreRotate(double)
+  fullName: Etch.Geometry.Affine.PreRotate(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreRotate(double radians)
+    parameters:
+    - id: radians
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreRotate(radians As Double) As Affine
+  overload: Etch.Geometry.Affine.PreRotate*
+  nameWithType.vb: Affine.PreRotate(Double)
+  fullName.vb: Etch.Geometry.Affine.PreRotate(Double)
+  name.vb: PreRotate(Double)
+- uid: Etch.Geometry.Affine.PreSkew(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PreSkew(System.Double,System.Double)
+  id: PreSkew(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PreSkew(double, double)
+  nameWithType: Affine.PreSkew(double, double)
+  fullName: Etch.Geometry.Affine.PreSkew(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PreSkew(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PreSkew(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.PreSkew*
+  nameWithType.vb: Affine.PreSkew(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PreSkew(Double, Double)
+  name.vb: PreSkew(Double, Double)
+- uid: Etch.Geometry.Affine.PostTranslate(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Affine.PostTranslate(Etch.Geometry.Vec2)
+  id: PostTranslate(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostTranslate(Vec2)
+  nameWithType: Affine.PostTranslate(Vec2)
+  fullName: Etch.Geometry.Affine.PostTranslate(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostTranslate(Vec2 t)
+    parameters:
+    - id: t
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostTranslate(t As Vec2) As Affine
+  overload: Etch.Geometry.Affine.PostTranslate*
+- uid: Etch.Geometry.Affine.PostTranslate(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PostTranslate(System.Double,System.Double)
+  id: PostTranslate(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostTranslate(double, double)
+  nameWithType: Affine.PostTranslate(double, double)
+  fullName: Etch.Geometry.Affine.PostTranslate(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostTranslate(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostTranslate(x As Double, y As Double) As Affine
+  overload: Etch.Geometry.Affine.PostTranslate*
+  nameWithType.vb: Affine.PostTranslate(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PostTranslate(Double, Double)
+  name.vb: PostTranslate(Double, Double)
+- uid: Etch.Geometry.Affine.PostScale(System.Double)
+  commentId: M:Etch.Geometry.Affine.PostScale(System.Double)
+  id: PostScale(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostScale(double)
+  nameWithType: Affine.PostScale(double)
+  fullName: Etch.Geometry.Affine.PostScale(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostScale(double s)
+    parameters:
+    - id: s
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostScale(s As Double) As Affine
+  overload: Etch.Geometry.Affine.PostScale*
+  nameWithType.vb: Affine.PostScale(Double)
+  fullName.vb: Etch.Geometry.Affine.PostScale(Double)
+  name.vb: PostScale(Double)
+- uid: Etch.Geometry.Affine.PostScale(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PostScale(System.Double,System.Double)
+  id: PostScale(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostScale(double, double)
+  nameWithType: Affine.PostScale(double, double)
+  fullName: Etch.Geometry.Affine.PostScale(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostScale(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostScale(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.PostScale*
+  nameWithType.vb: Affine.PostScale(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PostScale(Double, Double)
+  name.vb: PostScale(Double, Double)
+- uid: Etch.Geometry.Affine.PostRotate(System.Double)
+  commentId: M:Etch.Geometry.Affine.PostRotate(System.Double)
+  id: PostRotate(System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostRotate(double)
+  nameWithType: Affine.PostRotate(double)
+  fullName: Etch.Geometry.Affine.PostRotate(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostRotate(double radians)
+    parameters:
+    - id: radians
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostRotate(radians As Double) As Affine
+  overload: Etch.Geometry.Affine.PostRotate*
+  nameWithType.vb: Affine.PostRotate(Double)
+  fullName.vb: Etch.Geometry.Affine.PostRotate(Double)
+  name.vb: PostRotate(Double)
+- uid: Etch.Geometry.Affine.PostSkew(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Affine.PostSkew(System.Double,System.Double)
+  id: PostSkew(System.Double,System.Double)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: PostSkew(double, double)
+  nameWithType: Affine.PostSkew(double, double)
+  fullName: Etch.Geometry.Affine.PostSkew(double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Affine PostSkew(double sx, double sy)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    return:
+      type: Etch.Geometry.Affine
+    content.vb: Public Function PostSkew(sx As Double, sy As Double) As Affine
+  overload: Etch.Geometry.Affine.PostSkew*
+  nameWithType.vb: Affine.PostSkew(Double, Double)
+  fullName.vb: Etch.Geometry.Affine.PostSkew(Double, Double)
+  name.vb: PostSkew(Double, Double)
+- uid: Etch.Geometry.Affine.Equals(Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Affine.Equals(Etch.Geometry.Affine)
+  id: Equals(Etch.Geometry.Affine)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Equals(Affine)
+  nameWithType: Affine.Equals(Affine)
+  fullName: Etch.Geometry.Affine.Equals(Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Affine other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Affine
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Affine) As Boolean
+  overload: Etch.Geometry.Affine.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Affine}.Equals(Etch.Geometry.Affine)
+- uid: Etch.Geometry.Affine.Equals(System.Object)
+  commentId: M:Etch.Geometry.Affine.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Affine.Equals(object?)
+  fullName: Etch.Geometry.Affine.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Affine.Equals*
+  nameWithType.vb: Affine.Equals(Object)
+  fullName.vb: Etch.Geometry.Affine.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Affine.GetHashCode
+  commentId: M:Etch.Geometry.Affine.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Affine.GetHashCode()
+  fullName: Etch.Geometry.Affine.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Affine.GetHashCode*
+- uid: Etch.Geometry.Affine.ToString
+  commentId: M:Etch.Geometry.Affine.ToString
+  id: ToString
+  parent: Etch.Geometry.Affine
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Affine.ToString()
+  fullName: Etch.Geometry.Affine.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Affine.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Affine}
+  commentId: T:System.IEquatable{Etch.Geometry.Affine}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Affine>
+  nameWithType: IEquatable<Affine>
+  fullName: System.IEquatable<Etch.Geometry.Affine>
+  nameWithType.vb: IEquatable(Of Affine)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Affine)
+  name.vb: IEquatable(Of Affine)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Affine.#ctor*
+  commentId: Overload:Etch.Geometry.Affine.#ctor
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine__ctor_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_
+  name: Affine
+  nameWithType: Affine.Affine
+  fullName: Etch.Geometry.Affine.Affine
+  nameWithType.vb: Affine.New
+  fullName.vb: Etch.Geometry.Affine.New
+  name.vb: New
+- uid: Etch.Geometry.Affine.Identity*
+  commentId: Overload:Etch.Geometry.Affine.Identity
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Identity
+  name: Identity
+  nameWithType: Affine.Identity
+  fullName: Etch.Geometry.Affine.Identity
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Geometry.Affine.Translate*
+  commentId: Overload:Etch.Geometry.Affine.Translate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Translate_Etch_Geometry_Vec2_
+  name: Translate
+  nameWithType: Affine.Translate
+  fullName: Etch.Geometry.Affine.Translate
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry.Affine.Scale*
+  commentId: Overload:Etch.Geometry.Affine.Scale
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Scale_System_Double_
+  name: Scale
+  nameWithType: Affine.Scale
+  fullName: Etch.Geometry.Affine.Scale
+- uid: Etch.Geometry.Affine.Rotate*
+  commentId: Overload:Etch.Geometry.Affine.Rotate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Rotate_System_Double_
+  name: Rotate
+  nameWithType: Affine.Rotate
+  fullName: Etch.Geometry.Affine.Rotate
+- uid: Etch.Geometry.Affine.Skew*
+  commentId: Overload:Etch.Geometry.Affine.Skew
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Skew_System_Double_System_Double_
+  name: Skew
+  nameWithType: Affine.Skew
+  fullName: Etch.Geometry.Affine.Skew
+- uid: Etch.Geometry.Affine.Determinant*
+  commentId: Overload:Etch.Geometry.Affine.Determinant
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Determinant
+  name: Determinant
+  nameWithType: Affine.Determinant
+  fullName: Etch.Geometry.Affine.Determinant
+- uid: Etch.Geometry.Affine.Transform*
+  commentId: Overload:Etch.Geometry.Affine.Transform
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Transform_Etch_Geometry_Point_
+  name: Transform
+  nameWithType: Affine.Transform
+  fullName: Etch.Geometry.Affine.Transform
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.Affine.op_Multiply*
+  commentId: Overload:Etch.Geometry.Affine.op_Multiply
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Multiply_Etch_Geometry_Affine_Etch_Geometry_Point_
+  name: operator *
+  nameWithType: Affine.operator *
+  fullName: Etch.Geometry.Affine.operator *
+  nameWithType.vb: Affine.*
+  fullName.vb: Etch.Geometry.Affine.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Affine.op_Multiply*
+    name: '*'
+    href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Multiply_Etch_Geometry_Affine_Etch_Geometry_Point_
+- uid: Etch.Geometry.Affine.op_Equality*
+  commentId: Overload:Etch.Geometry.Affine.op_Equality
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Equality_Etch_Geometry_Affine_Etch_Geometry_Affine_
+  name: operator ==
+  nameWithType: Affine.operator ==
+  fullName: Etch.Geometry.Affine.operator ==
+  nameWithType.vb: Affine.=
+  fullName.vb: Etch.Geometry.Affine.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Affine.op_Equality*
+    name: ==
+    href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Equality_Etch_Geometry_Affine_Etch_Geometry_Affine_
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Affine.op_Inequality*
+  commentId: Overload:Etch.Geometry.Affine.op_Inequality
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Inequality_Etch_Geometry_Affine_Etch_Geometry_Affine_
+  name: operator !=
+  nameWithType: Affine.operator !=
+  fullName: Etch.Geometry.Affine.operator !=
+  nameWithType.vb: Affine.<>
+  fullName.vb: Etch.Geometry.Affine.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Affine.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_op_Inequality_Etch_Geometry_Affine_Etch_Geometry_Affine_
+- uid: Etch.Geometry.Affine.Multiply*
+  commentId: Overload:Etch.Geometry.Affine.Multiply
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Multiply_Etch_Geometry_Affine_Etch_Geometry_Affine_
+  name: Multiply
+  nameWithType: Affine.Multiply
+  fullName: Etch.Geometry.Affine.Multiply
+- uid: Etch.Geometry.Affine.Inverse*
+  commentId: Overload:Etch.Geometry.Affine.Inverse
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Inverse
+  name: Inverse
+  nameWithType: Affine.Inverse
+  fullName: Etch.Geometry.Affine.Inverse
+- uid: Etch.Geometry.Affine.PreTranslate*
+  commentId: Overload:Etch.Geometry.Affine.PreTranslate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PreTranslate_Etch_Geometry_Vec2_
+  name: PreTranslate
+  nameWithType: Affine.PreTranslate
+  fullName: Etch.Geometry.Affine.PreTranslate
+- uid: Etch.Geometry.Affine.PreScale*
+  commentId: Overload:Etch.Geometry.Affine.PreScale
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PreScale_System_Double_
+  name: PreScale
+  nameWithType: Affine.PreScale
+  fullName: Etch.Geometry.Affine.PreScale
+- uid: Etch.Geometry.Affine.PreRotate*
+  commentId: Overload:Etch.Geometry.Affine.PreRotate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PreRotate_System_Double_
+  name: PreRotate
+  nameWithType: Affine.PreRotate
+  fullName: Etch.Geometry.Affine.PreRotate
+- uid: Etch.Geometry.Affine.PreSkew*
+  commentId: Overload:Etch.Geometry.Affine.PreSkew
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PreSkew_System_Double_System_Double_
+  name: PreSkew
+  nameWithType: Affine.PreSkew
+  fullName: Etch.Geometry.Affine.PreSkew
+- uid: Etch.Geometry.Affine.PostTranslate*
+  commentId: Overload:Etch.Geometry.Affine.PostTranslate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PostTranslate_Etch_Geometry_Vec2_
+  name: PostTranslate
+  nameWithType: Affine.PostTranslate
+  fullName: Etch.Geometry.Affine.PostTranslate
+- uid: Etch.Geometry.Affine.PostScale*
+  commentId: Overload:Etch.Geometry.Affine.PostScale
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PostScale_System_Double_
+  name: PostScale
+  nameWithType: Affine.PostScale
+  fullName: Etch.Geometry.Affine.PostScale
+- uid: Etch.Geometry.Affine.PostRotate*
+  commentId: Overload:Etch.Geometry.Affine.PostRotate
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PostRotate_System_Double_
+  name: PostRotate
+  nameWithType: Affine.PostRotate
+  fullName: Etch.Geometry.Affine.PostRotate
+- uid: Etch.Geometry.Affine.PostSkew*
+  commentId: Overload:Etch.Geometry.Affine.PostSkew
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_PostSkew_System_Double_System_Double_
+  name: PostSkew
+  nameWithType: Affine.PostSkew
+  fullName: Etch.Geometry.Affine.PostSkew
+- uid: Etch.Geometry.Affine.Equals*
+  commentId: Overload:Etch.Geometry.Affine.Equals
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_Equals_Etch_Geometry_Affine_
+  name: Equals
+  nameWithType: Affine.Equals
+  fullName: Etch.Geometry.Affine.Equals
+- uid: System.IEquatable{Etch.Geometry.Affine}.Equals(Etch.Geometry.Affine)
+  commentId: M:System.IEquatable{Etch.Geometry.Affine}.Equals(Etch.Geometry.Affine)
+  parent: System.IEquatable{Etch.Geometry.Affine}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Affine)
+  nameWithType: IEquatable<Affine>.Equals(Affine)
+  fullName: System.IEquatable<Etch.Geometry.Affine>.Equals(Etch.Geometry.Affine)
+  nameWithType.vb: IEquatable(Of Affine).Equals(Affine)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Affine).Equals(Etch.Geometry.Affine)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Affine}.Equals(Etch.Geometry.Affine)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Affine}.Equals(Etch.Geometry.Affine)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Affine
+    name: Affine
+    href: Etch.Geometry.Affine.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Affine.GetHashCode*
+  commentId: Overload:Etch.Geometry.Affine.GetHashCode
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_GetHashCode
+  name: GetHashCode
+  nameWithType: Affine.GetHashCode
+  fullName: Etch.Geometry.Affine.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Affine.ToString*
+  commentId: Overload:Etch.Geometry.Affine.ToString
+  href: Etch.Geometry.Affine.html#Etch_Geometry_Affine_ToString
+  name: ToString
+  nameWithType: Affine.ToString
+  fullName: Etch.Geometry.Affine.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

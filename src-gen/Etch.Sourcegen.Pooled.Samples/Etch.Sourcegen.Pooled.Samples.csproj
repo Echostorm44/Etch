@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Sourcegen.props" />
+  <PropertyGroup>
+    <RootNamespace>Etch.Sourcegen.Pooled.Samples</RootNamespace>
+    <AssemblyName>Etch.Sourcegen.Pooled.Samples</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Etch.Sourcegen.Pooled\Etch.Sourcegen.Pooled.csproj" />
+  </ItemGroup>
+</Project>

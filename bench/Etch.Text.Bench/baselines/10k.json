@@ -1,0 +1,39 @@
+{
+  "budgets": {
+    "WarmShape": {
+      "cpuMs": 5.0,
+      "description": "Shaping 10K glyphs with warm cache"
+    },
+    "WarmRasterLookup": {
+      "cpuMs": 5.0,
+      "description": "Atlas bitmap lookup for 10K glyph instances"
+    },
+    "WarmAtlasPack": {
+      "cpuMs": 5.0,
+      "description": "Shelf-packing 10K glyphs (no-op steady state)"
+    },
+    "ColdShape": {
+      "cpuMs": 40.0,
+      "description": "Shaping 10K glyphs cold (raw HarfBuzz)"
+    },
+    "ColdRaster": {
+      "cpuMs": 40.0,
+      "description": "Rasterizing all unique glyphs from scratch"
+    },
+    "ColdAtlasPack": {
+      "cpuMs": 40.0,
+      "description": "Shelf-packing all unique glyphs into empty atlas"
+    }
+  },
+  "gpuBudgets": {
+    "GpuSubmit": {
+      "gpuMs": 2.0,
+      "description": "GPU command submission"
+    },
+    "GpuFrameTotal": {
+      "gpuMs": 2.0,
+      "description": "Total GPU frame time"
+    }
+  },
+  "regressionThreshold": 0.10
+}

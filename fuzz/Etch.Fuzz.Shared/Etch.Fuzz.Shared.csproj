@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.Fuzz.Shared</RootNamespace>
+    <AssemblyName>Etch.Fuzz.Shared</AssemblyName>
+    <IsAotCompatible>true</IsAotCompatible>
+    <NoWarn>$(NoWarn);CS1591;CA1515;CA1716;CA1062;ET0105</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,454 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Primitives.MemoryBudget
+  commentId: T:Etch.Primitives.MemoryBudget
+  id: MemoryBudget
+  parent: Etch.Primitives
+  children:
+  - Etch.Primitives.MemoryBudget.#ctor(System.Int64)
+  - Etch.Primitives.MemoryBudget.AssertPositive(System.String)
+  - Etch.Primitives.MemoryBudget.IsExhausted
+  - Etch.Primitives.MemoryBudget.Remaining
+  - Etch.Primitives.MemoryBudget.TryAllocate(System.Int64)
+  langs:
+  - csharp
+  - vb
+  name: MemoryBudget
+  nameWithType: MemoryBudget
+  fullName: Etch.Primitives.MemoryBudget
+  type: Struct
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public struct MemoryBudget
+    content.vb: Public Structure MemoryBudget
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Primitives.MemoryBudget.Remaining
+  commentId: P:Etch.Primitives.MemoryBudget.Remaining
+  id: Remaining
+  parent: Etch.Primitives.MemoryBudget
+  langs:
+  - csharp
+  - vb
+  name: Remaining
+  nameWithType: MemoryBudget.Remaining
+  fullName: Etch.Primitives.MemoryBudget.Remaining
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public long Remaining { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property Remaining As Long
+  overload: Etch.Primitives.MemoryBudget.Remaining*
+- uid: Etch.Primitives.MemoryBudget.IsExhausted
+  commentId: P:Etch.Primitives.MemoryBudget.IsExhausted
+  id: IsExhausted
+  parent: Etch.Primitives.MemoryBudget
+  langs:
+  - csharp
+  - vb
+  name: IsExhausted
+  nameWithType: MemoryBudget.IsExhausted
+  fullName: Etch.Primitives.MemoryBudget.IsExhausted
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public bool IsExhausted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsExhausted As Boolean
+  overload: Etch.Primitives.MemoryBudget.IsExhausted*
+- uid: Etch.Primitives.MemoryBudget.#ctor(System.Int64)
+  commentId: M:Etch.Primitives.MemoryBudget.#ctor(System.Int64)
+  id: '#ctor(System.Int64)'
+  parent: Etch.Primitives.MemoryBudget
+  langs:
+  - csharp
+  - vb
+  name: MemoryBudget(long)
+  nameWithType: MemoryBudget.MemoryBudget(long)
+  fullName: Etch.Primitives.MemoryBudget.MemoryBudget(long)
+  type: Constructor
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public MemoryBudget(long bytes)
+    parameters:
+    - id: bytes
+      type: System.Int64
+    content.vb: Public Sub New(bytes As Long)
+  overload: Etch.Primitives.MemoryBudget.#ctor*
+  nameWithType.vb: MemoryBudget.New(Long)
+  fullName.vb: Etch.Primitives.MemoryBudget.New(Long)
+  name.vb: New(Long)
+- uid: Etch.Primitives.MemoryBudget.TryAllocate(System.Int64)
+  commentId: M:Etch.Primitives.MemoryBudget.TryAllocate(System.Int64)
+  id: TryAllocate(System.Int64)
+  parent: Etch.Primitives.MemoryBudget
+  langs:
+  - csharp
+  - vb
+  name: TryAllocate(long)
+  nameWithType: MemoryBudget.TryAllocate(long)
+  fullName: Etch.Primitives.MemoryBudget.TryAllocate(long)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public bool TryAllocate(long bytes)
+    parameters:
+    - id: bytes
+      type: System.Int64
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryAllocate(bytes As Long) As Boolean
+  overload: Etch.Primitives.MemoryBudget.TryAllocate*
+  nameWithType.vb: MemoryBudget.TryAllocate(Long)
+  fullName.vb: Etch.Primitives.MemoryBudget.TryAllocate(Long)
+  name.vb: TryAllocate(Long)
+- uid: Etch.Primitives.MemoryBudget.AssertPositive(System.String)
+  commentId: M:Etch.Primitives.MemoryBudget.AssertPositive(System.String)
+  id: AssertPositive(System.String)
+  parent: Etch.Primitives.MemoryBudget
+  langs:
+  - csharp
+  - vb
+  name: AssertPositive(string)
+  nameWithType: MemoryBudget.AssertPositive(string)
+  fullName: Etch.Primitives.MemoryBudget.AssertPositive(string)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void AssertPositive(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub AssertPositive(label As String)
+  overload: Etch.Primitives.MemoryBudget.AssertPositive*
+  nameWithType.vb: MemoryBudget.AssertPositive(String)
+  fullName.vb: Etch.Primitives.MemoryBudget.AssertPositive(String)
+  name.vb: AssertPositive(String)
+references:
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  href: Etch.html
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Primitives.MemoryBudget.Remaining*
+  commentId: Overload:Etch.Primitives.MemoryBudget.Remaining
+  href: Etch.Primitives.MemoryBudget.html#Etch_Primitives_MemoryBudget_Remaining
+  name: Remaining
+  nameWithType: MemoryBudget.Remaining
+  fullName: Etch.Primitives.MemoryBudget.Remaining
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Etch.Primitives.MemoryBudget.IsExhausted*
+  commentId: Overload:Etch.Primitives.MemoryBudget.IsExhausted
+  href: Etch.Primitives.MemoryBudget.html#Etch_Primitives_MemoryBudget_IsExhausted
+  name: IsExhausted
+  nameWithType: MemoryBudget.IsExhausted
+  fullName: Etch.Primitives.MemoryBudget.IsExhausted
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Primitives.MemoryBudget.#ctor*
+  commentId: Overload:Etch.Primitives.MemoryBudget.#ctor
+  href: Etch.Primitives.MemoryBudget.html#Etch_Primitives_MemoryBudget__ctor_System_Int64_
+  name: MemoryBudget
+  nameWithType: MemoryBudget.MemoryBudget
+  fullName: Etch.Primitives.MemoryBudget.MemoryBudget
+  nameWithType.vb: MemoryBudget.New
+  fullName.vb: Etch.Primitives.MemoryBudget.New
+  name.vb: New
+- uid: Etch.Primitives.MemoryBudget.TryAllocate*
+  commentId: Overload:Etch.Primitives.MemoryBudget.TryAllocate
+  href: Etch.Primitives.MemoryBudget.html#Etch_Primitives_MemoryBudget_TryAllocate_System_Int64_
+  name: TryAllocate
+  nameWithType: MemoryBudget.TryAllocate
+  fullName: Etch.Primitives.MemoryBudget.TryAllocate
+- uid: Etch.Primitives.MemoryBudget.AssertPositive*
+  commentId: Overload:Etch.Primitives.MemoryBudget.AssertPositive
+  href: Etch.Primitives.MemoryBudget.html#Etch_Primitives_MemoryBudget_AssertPositive_System_String_
+  name: AssertPositive
+  nameWithType: MemoryBudget.AssertPositive
+  fullName: Etch.Primitives.MemoryBudget.AssertPositive
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

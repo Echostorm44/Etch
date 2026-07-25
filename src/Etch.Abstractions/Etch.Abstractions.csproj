@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);CS1591;CA1812;CA2231;CA1062</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Etch</RootNamespace>
+    <AssemblyName>Etch.Abstractions</AssemblyName>
+    <PackageId>Echostorm.Etch.Abstractions</PackageId>
+  </PropertyGroup>
+</Project>

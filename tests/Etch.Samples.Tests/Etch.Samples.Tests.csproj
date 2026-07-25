@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Samples.Tests</RootNamespace>
+    <AssemblyName>Etch.Samples.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515;CA5394;IDE0055</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu.Native\Etch.Gpu.Native.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+    <ProjectReference Include="..\..\samples\HelloEtch\HelloEtch.csproj" />
+    <ProjectReference Include="..\..\samples\SimpleCascade\SimpleCascade.csproj" />
+    <ProjectReference Include="..\..\samples\FilledCircle\FilledCircle.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+    <PropertyGroup>
+      <_WgpuDll>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\native\wgpu-native\win-x64\lib\wgpu_native.dll'))</_WgpuDll>
+    </PropertyGroup>
+    <Copy SourceFiles="$(_WgpuDll)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

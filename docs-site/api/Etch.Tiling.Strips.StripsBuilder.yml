@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Strips.StripsBuilder
+  commentId: T:Etch.Tiling.Strips.StripsBuilder
+  id: StripsBuilder
+  parent: Etch.Tiling.Strips
+  children:
+  - Etch.Tiling.Strips.StripsBuilder.#ctor(System.Int32)
+  - Etch.Tiling.Strips.StripsBuilder.AddStrip(Etch.Tiling.Strips.Strip,System.ReadOnlySpan{System.Byte})
+  - Etch.Tiling.Strips.StripsBuilder.CoverageCount
+  - Etch.Tiling.Strips.StripsBuilder.Dispose
+  - Etch.Tiling.Strips.StripsBuilder.Finish
+  - Etch.Tiling.Strips.StripsBuilder.Reset(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: StripsBuilder
+  nameWithType: StripsBuilder
+  fullName: Etch.Tiling.Strips.StripsBuilder
+  type: Struct
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public ref struct StripsBuilder
+    content.vb: Public Structure StripsBuilder
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Tiling.Strips.StripsBuilder.#ctor(System.Int32)
+  commentId: M:Etch.Tiling.Strips.StripsBuilder.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: StripsBuilder(int)
+  nameWithType: StripsBuilder.StripsBuilder(int)
+  fullName: Etch.Tiling.Strips.StripsBuilder.StripsBuilder(int)
+  type: Constructor
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public StripsBuilder(int initialCapacity = 256)
+    parameters:
+    - id: initialCapacity
+      type: System.Int32
+    content.vb: Public Sub New(initialCapacity As Integer = 256)
+  overload: Etch.Tiling.Strips.StripsBuilder.#ctor*
+  nameWithType.vb: StripsBuilder.New(Integer)
+  fullName.vb: Etch.Tiling.Strips.StripsBuilder.New(Integer)
+  name.vb: New(Integer)
+- uid: Etch.Tiling.Strips.StripsBuilder.Reset(System.Int32)
+  commentId: M:Etch.Tiling.Strips.StripsBuilder.Reset(System.Int32)
+  id: Reset(System.Int32)
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: Reset(int)
+  nameWithType: StripsBuilder.Reset(int)
+  fullName: Etch.Tiling.Strips.StripsBuilder.Reset(int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public void Reset(int tileCount)
+    parameters:
+    - id: tileCount
+      type: System.Int32
+    content.vb: Public Sub Reset(tileCount As Integer)
+  overload: Etch.Tiling.Strips.StripsBuilder.Reset*
+  nameWithType.vb: StripsBuilder.Reset(Integer)
+  fullName.vb: Etch.Tiling.Strips.StripsBuilder.Reset(Integer)
+  name.vb: Reset(Integer)
+- uid: Etch.Tiling.Strips.StripsBuilder.CoverageCount
+  commentId: P:Etch.Tiling.Strips.StripsBuilder.CoverageCount
+  id: CoverageCount
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: CoverageCount
+  nameWithType: StripsBuilder.CoverageCount
+  fullName: Etch.Tiling.Strips.StripsBuilder.CoverageCount
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public int CoverageCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CoverageCount As Integer
+  overload: Etch.Tiling.Strips.StripsBuilder.CoverageCount*
+- uid: Etch.Tiling.Strips.StripsBuilder.AddStrip(Etch.Tiling.Strips.Strip,System.ReadOnlySpan{System.Byte})
+  commentId: M:Etch.Tiling.Strips.StripsBuilder.AddStrip(Etch.Tiling.Strips.Strip,System.ReadOnlySpan{System.Byte})
+  id: AddStrip(Etch.Tiling.Strips.Strip,System.ReadOnlySpan{System.Byte})
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddStrip(Strip, ReadOnlySpan<byte>)
+  nameWithType: StripsBuilder.AddStrip(Strip, ReadOnlySpan<byte>)
+  fullName: Etch.Tiling.Strips.StripsBuilder.AddStrip(Etch.Tiling.Strips.Strip, System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public void AddStrip(Strip strip, ReadOnlySpan<byte> coverage)
+    parameters:
+    - id: strip
+      type: Etch.Tiling.Strips.Strip
+    - id: coverage
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub AddStrip(strip As Strip, coverage As ReadOnlySpan(Of Byte))
+  overload: Etch.Tiling.Strips.StripsBuilder.AddStrip*
+  nameWithType.vb: StripsBuilder.AddStrip(Strip, ReadOnlySpan(Of Byte))
+  fullName.vb: Etch.Tiling.Strips.StripsBuilder.AddStrip(Etch.Tiling.Strips.Strip, System.ReadOnlySpan(Of Byte))
+  name.vb: AddStrip(Strip, ReadOnlySpan(Of Byte))
+- uid: Etch.Tiling.Strips.StripsBuilder.Finish
+  commentId: M:Etch.Tiling.Strips.StripsBuilder.Finish
+  id: Finish
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: Finish()
+  nameWithType: StripsBuilder.Finish()
+  fullName: Etch.Tiling.Strips.StripsBuilder.Finish()
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public StripBuffer Finish()
+    return:
+      type: Etch.Tiling.Strips.StripBuffer
+    content.vb: Public Function Finish() As StripBuffer
+  overload: Etch.Tiling.Strips.StripsBuilder.Finish*
+- uid: Etch.Tiling.Strips.StripsBuilder.Dispose
+  commentId: M:Etch.Tiling.Strips.StripsBuilder.Dispose
+  id: Dispose
+  parent: Etch.Tiling.Strips.StripsBuilder
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: StripsBuilder.Dispose()
+  fullName: Etch.Tiling.Strips.StripsBuilder.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Tiling.Strips.StripsBuilder.Dispose*
+references:
+- uid: Etch.Tiling.Strips
+  commentId: N:Etch.Tiling.Strips
+  href: Etch.html
+  name: Etch.Tiling.Strips
+  nameWithType: Etch.Tiling.Strips
+  fullName: Etch.Tiling.Strips
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Tiling.Strips.StripsBuilder.#ctor*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.#ctor
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder__ctor_System_Int32_
+  name: StripsBuilder
+  nameWithType: StripsBuilder.StripsBuilder
+  fullName: Etch.Tiling.Strips.StripsBuilder.StripsBuilder
+  nameWithType.vb: StripsBuilder.New
+  fullName.vb: Etch.Tiling.Strips.StripsBuilder.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Tiling.Strips.StripsBuilder.Reset*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.Reset
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder_Reset_System_Int32_
+  name: Reset
+  nameWithType: StripsBuilder.Reset
+  fullName: Etch.Tiling.Strips.StripsBuilder.Reset
+- uid: Etch.Tiling.Strips.StripsBuilder.CoverageCount*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.CoverageCount
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder_CoverageCount
+  name: CoverageCount
+  nameWithType: StripsBuilder.CoverageCount
+  fullName: Etch.Tiling.Strips.StripsBuilder.CoverageCount
+- uid: Etch.Tiling.Strips.StripsBuilder.AddStrip*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.AddStrip
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder_AddStrip_Etch_Tiling_Strips_Strip_System_ReadOnlySpan_System_Byte__
+  name: AddStrip
+  nameWithType: StripsBuilder.AddStrip
+  fullName: Etch.Tiling.Strips.StripsBuilder.AddStrip
+- uid: Etch.Tiling.Strips.Strip
+  commentId: T:Etch.Tiling.Strips.Strip
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.Strip.html
+  name: Strip
+  nameWithType: Strip
+  fullName: Etch.Tiling.Strips.Strip
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Tiling.Strips.StripsBuilder.Finish*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.Finish
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder_Finish
+  name: Finish
+  nameWithType: StripsBuilder.Finish
+  fullName: Etch.Tiling.Strips.StripsBuilder.Finish
+- uid: Etch.Tiling.Strips.StripBuffer
+  commentId: T:Etch.Tiling.Strips.StripBuffer
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.StripBuffer.html
+  name: StripBuffer
+  nameWithType: StripBuffer
+  fullName: Etch.Tiling.Strips.StripBuffer
+- uid: Etch.Tiling.Strips.StripsBuilder.Dispose*
+  commentId: Overload:Etch.Tiling.Strips.StripsBuilder.Dispose
+  href: Etch.Tiling.Strips.StripsBuilder.html#Etch_Tiling_Strips_StripsBuilder_Dispose
+  name: Dispose
+  nameWithType: StripsBuilder.Dispose
+  fullName: Etch.Tiling.Strips.StripsBuilder.Dispose

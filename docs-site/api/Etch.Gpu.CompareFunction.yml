@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.CompareFunction
+  commentId: T:Etch.Gpu.CompareFunction
+  id: CompareFunction
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.CompareFunction.Always
+  - Etch.Gpu.CompareFunction.Equal
+  - Etch.Gpu.CompareFunction.Greater
+  - Etch.Gpu.CompareFunction.GreaterEqual
+  - Etch.Gpu.CompareFunction.Less
+  - Etch.Gpu.CompareFunction.LessEqual
+  - Etch.Gpu.CompareFunction.Never
+  - Etch.Gpu.CompareFunction.NotEqual
+  - Etch.Gpu.CompareFunction.Undefined
+  langs:
+  - csharp
+  - vb
+  name: CompareFunction
+  nameWithType: CompareFunction
+  fullName: Etch.Gpu.CompareFunction
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum CompareFunction : uint'
+    content.vb: Public Enum CompareFunction As UInteger
+- uid: Etch.Gpu.CompareFunction.Undefined
+  commentId: F:Etch.Gpu.CompareFunction.Undefined
+  id: Undefined
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: CompareFunction.Undefined
+  fullName: Etch.Gpu.CompareFunction.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.Never
+  commentId: F:Etch.Gpu.CompareFunction.Never
+  id: Never
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Never
+  nameWithType: CompareFunction.Never
+  fullName: Etch.Gpu.CompareFunction.Never
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Never = 1
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.Less
+  commentId: F:Etch.Gpu.CompareFunction.Less
+  id: Less
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Less
+  nameWithType: CompareFunction.Less
+  fullName: Etch.Gpu.CompareFunction.Less
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Less = 2
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.Equal
+  commentId: F:Etch.Gpu.CompareFunction.Equal
+  id: Equal
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Equal
+  nameWithType: CompareFunction.Equal
+  fullName: Etch.Gpu.CompareFunction.Equal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Equal = 3
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.LessEqual
+  commentId: F:Etch.Gpu.CompareFunction.LessEqual
+  id: LessEqual
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: LessEqual
+  nameWithType: CompareFunction.LessEqual
+  fullName: Etch.Gpu.CompareFunction.LessEqual
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: LessEqual = 4
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.Greater
+  commentId: F:Etch.Gpu.CompareFunction.Greater
+  id: Greater
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Greater
+  nameWithType: CompareFunction.Greater
+  fullName: Etch.Gpu.CompareFunction.Greater
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Greater = 5
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.NotEqual
+  commentId: F:Etch.Gpu.CompareFunction.NotEqual
+  id: NotEqual
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: NotEqual
+  nameWithType: CompareFunction.NotEqual
+  fullName: Etch.Gpu.CompareFunction.NotEqual
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: NotEqual = 6
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.GreaterEqual
+  commentId: F:Etch.Gpu.CompareFunction.GreaterEqual
+  id: GreaterEqual
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: GreaterEqual
+  nameWithType: CompareFunction.GreaterEqual
+  fullName: Etch.Gpu.CompareFunction.GreaterEqual
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: GreaterEqual = 7
+    return:
+      type: Etch.Gpu.CompareFunction
+- uid: Etch.Gpu.CompareFunction.Always
+  commentId: F:Etch.Gpu.CompareFunction.Always
+  id: Always
+  parent: Etch.Gpu.CompareFunction
+  langs:
+  - csharp
+  - vb
+  name: Always
+  nameWithType: CompareFunction.Always
+  fullName: Etch.Gpu.CompareFunction.Always
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Always = 8
+    return:
+      type: Etch.Gpu.CompareFunction
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.CompareFunction
+  commentId: T:Etch.Gpu.CompareFunction
+  parent: Etch.Gpu
+  href: Etch.Gpu.CompareFunction.html
+  name: CompareFunction
+  nameWithType: CompareFunction
+  fullName: Etch.Gpu.CompareFunction

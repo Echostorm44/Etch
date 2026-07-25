@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Etch.Testing.Tests</RootNamespace>
+    <AssemblyName>Etch.Testing.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;ET0105;CA1724</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+    <ProjectReference Include="..\..\tools\etch-ci\Etch.Ci.csproj" />
+    <ProjectReference Include="..\..\tools\etch-flake-detector\Etch.FlakeDetector.csproj" />
+  </ItemGroup>
+</Project>

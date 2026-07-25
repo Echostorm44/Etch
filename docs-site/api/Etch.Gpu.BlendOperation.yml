@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.BlendOperation
+  commentId: T:Etch.Gpu.BlendOperation
+  id: BlendOperation
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.BlendOperation.Add
+  - Etch.Gpu.BlendOperation.Max
+  - Etch.Gpu.BlendOperation.Min
+  - Etch.Gpu.BlendOperation.ReverseSubtract
+  - Etch.Gpu.BlendOperation.Subtract
+  - Etch.Gpu.BlendOperation.Undefined
+  langs:
+  - csharp
+  - vb
+  name: BlendOperation
+  nameWithType: BlendOperation
+  fullName: Etch.Gpu.BlendOperation
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum BlendOperation : uint'
+    content.vb: Public Enum BlendOperation As UInteger
+- uid: Etch.Gpu.BlendOperation.Undefined
+  commentId: F:Etch.Gpu.BlendOperation.Undefined
+  id: Undefined
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: BlendOperation.Undefined
+  fullName: Etch.Gpu.BlendOperation.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.BlendOperation
+- uid: Etch.Gpu.BlendOperation.Add
+  commentId: F:Etch.Gpu.BlendOperation.Add
+  id: Add
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: Add
+  nameWithType: BlendOperation.Add
+  fullName: Etch.Gpu.BlendOperation.Add
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Add = 1
+    return:
+      type: Etch.Gpu.BlendOperation
+- uid: Etch.Gpu.BlendOperation.Subtract
+  commentId: F:Etch.Gpu.BlendOperation.Subtract
+  id: Subtract
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: Subtract
+  nameWithType: BlendOperation.Subtract
+  fullName: Etch.Gpu.BlendOperation.Subtract
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Subtract = 2
+    return:
+      type: Etch.Gpu.BlendOperation
+- uid: Etch.Gpu.BlendOperation.ReverseSubtract
+  commentId: F:Etch.Gpu.BlendOperation.ReverseSubtract
+  id: ReverseSubtract
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: ReverseSubtract
+  nameWithType: BlendOperation.ReverseSubtract
+  fullName: Etch.Gpu.BlendOperation.ReverseSubtract
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: ReverseSubtract = 3
+    return:
+      type: Etch.Gpu.BlendOperation
+- uid: Etch.Gpu.BlendOperation.Min
+  commentId: F:Etch.Gpu.BlendOperation.Min
+  id: Min
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: BlendOperation.Min
+  fullName: Etch.Gpu.BlendOperation.Min
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Min = 4
+    return:
+      type: Etch.Gpu.BlendOperation
+- uid: Etch.Gpu.BlendOperation.Max
+  commentId: F:Etch.Gpu.BlendOperation.Max
+  id: Max
+  parent: Etch.Gpu.BlendOperation
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: BlendOperation.Max
+  fullName: Etch.Gpu.BlendOperation.Max
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Max = 5
+    return:
+      type: Etch.Gpu.BlendOperation
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.BlendOperation
+  commentId: T:Etch.Gpu.BlendOperation
+  parent: Etch.Gpu
+  href: Etch.Gpu.BlendOperation.html
+  name: BlendOperation
+  nameWithType: BlendOperation
+  fullName: Etch.Gpu.BlendOperation

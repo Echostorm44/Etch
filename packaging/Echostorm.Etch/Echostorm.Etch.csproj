@@ -1,0 +1,104 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Echostorm.Etch — a single bundle NuGet package for the Etch rendering/text engine.
+    This project ships NO source of its own: it references the runtime Etch assemblies,
+    bundles their managed DLLs into lib/, ships the cross-platform native binaries
+    (wgpu / FreeType / HarfBuzz for every supported RID) under build/assets, and declares
+    the genuinely third-party runtime dependencies. Etch.UI's consumer (Cascade.UI) then
+    takes a single dependency on this package and needs no other native packs.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!-- No primary assembly — this is a packaging shell. -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IsPackable>true</IsPackable>
+    <!-- Opt out of the repo's Central Package Management: this shell declares the third-party
+         runtime deps inline (a couple aren't in Directory.Packages.props since Etch only pulls
+         them transitively), and keeping the versions local avoids editing shared CPM config. -->
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <!-- Directory.Build.props injects Etch.Analyzers + TreatWarningsAsErrors for source
+         projects; neither applies to a source-free packaging shell. -->
+    <RunAnalyzers>false</RunAnalyzers>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <IsAotCompatible>false</IsAotCompatible>
+
+    <PackageId>Echostorm.Etch</PackageId>
+    <Description>Etch — a NativeAOT-first 2D rendering and text engine (GPU via wgpu, CPU raster fallback, FreeType + HarfBuzz text). Bundled managed assemblies plus cross-platform native binaries (win-x64, linux-x64, osx-arm64). The rendering engine behind Cascade UI.</Description>
+    <PackageTags>rendering;2d;gpu;wgpu;webgpu;text;freetype;harfbuzz;vector;graphics;aot;cross-platform</PackageTags>
+    <PackageProjectUrl>https://github.com/Echostorm44/Etch</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Echostorm44/Etch.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- Pre-release: CI overrides via /p:Version from the git tag. -->
+    <Version Condition="'$(Version)' == ''">0.1.0-alpha.1</Version>
+
+    <!-- NU5100: native/font assets ride under build/ (not lib/), intentionally. -->
+    <NoWarn>$(NoWarn);NU5100</NoWarn>
+    <!-- Add the bundled assemblies + natives at pack time (after Build populates OutputPath).
+         TargetsForTfmSpecificContentInPackage works with IncludeBuildOutput=false, unlike
+         BuildOutputInPackage which that flag suppresses. -->
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);AddEtchBundleContent</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <!-- The runtime Etch assemblies to bundle. PrivateAssets=all so they aren't emitted as
+       (non-existent) package dependencies; their transitive project refs pull the rest of
+       the engine (Abstractions, Primitives, Effects, Gpu.Native, Shaders, Strokes, …). -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Raster.Cpu\Etch.Raster.Cpu.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Gpu.Compositor\Etch.Gpu.Compositor.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Tiling\Etch.Tiling.csproj" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Third-party runtime dependencies the bundled Etch assemblies need. Declared here so
+       they surface as package <dependencies> (the Etch project refs are PrivateAssets=all
+       and would otherwise hide these transitives). -->
+  <ItemGroup>
+    <PackageReference Include="ICU4N" Version="60.1.0-alpha.439" />
+    <PackageReference Include="ICU4N.Resources" Version="60.1.0-alpha.439" />
+    <PackageReference Include="J2N" Version="2.2.0-alpha-0021" />
+    <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.2" />
+  </ItemGroup>
+
+  <!-- Bundle every managed Etch assembly into lib/net10.0 (excludes the compile-time analyzer
+       and test-only helper), and ship the cross-platform native binaries under build/assets.
+       Echostorm.Etch.targets copies the natives into the consumer output at
+       runtimes/<rid>/native/, where the shared NativeLibraryResolver probes them (it checks
+       runtimes/<rid>/native first, then the app base dir). Bundling every RID means a consumer
+       needs no other native packs. Runs after Build so OutputPath is populated. -->
+  <Target Name="AddEtchBundleContent" DependsOnTargets="Build">
+    <ItemGroup>
+      <!-- Exclude only the compile-time Roslyn analyzer; Etch.Testing IS referenced by
+           Cascade.UI at compile time, so it must ship in the bundle. -->
+      <_EtchDll Include="$(OutputPath)Etch.*.dll"
+          Exclude="$(OutputPath)Etch.Analyzers.dll" />
+      <TfmSpecificPackageFile Include="@(_EtchDll)"
+          PackagePath="lib/$(TargetFramework)/%(Filename)%(Extension)" />
+      <!-- FreeType + HarfBuzz already land under runtimes/<rid>/native in OutputPath (Etch.Text). -->
+      <_EtchNative Include="$(OutputPath)runtimes\**\*.*" />
+      <TfmSpecificPackageFile Include="@(_EtchNative)"
+          PackagePath="build/assets/runtimes/%(RecursiveDir)%(Filename)%(Extension)" />
+      <!-- wgpu is copied by Etch.Gpu.Native to the OUTPUT ROOT for the host RID only, so pull
+           every RID's wgpu straight from Etch's vendored native tree into runtimes/<rid>/native.
+           (No win-arm64 wgpu exists upstream yet → win-arm64 gets text natives but can't run GPU.) -->
+      <TfmSpecificPackageFile Include="$(MSBuildThisFileDirectory)..\..\native\wgpu-native\win-x64\lib\wgpu_native.dll"
+          PackagePath="build/assets/runtimes/win-x64/native/wgpu_native.dll" />
+      <TfmSpecificPackageFile Include="$(MSBuildThisFileDirectory)..\..\native\wgpu-native\linux-x64\lib\libwgpu_native.so"
+          PackagePath="build/assets/runtimes/linux-x64/native/libwgpu_native.so" />
+      <TfmSpecificPackageFile Include="$(MSBuildThisFileDirectory)..\..\native\wgpu-native\osx-arm64\lib\libwgpu_native.dylib"
+          PackagePath="build/assets/runtimes/osx-arm64/native/libwgpu_native.dylib" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <None Include="build\Echostorm.Etch.targets" Pack="true" PackagePath="build" />
+  </ItemGroup>
+
+</Project>

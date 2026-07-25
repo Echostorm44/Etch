@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.ShaderStage
+  commentId: T:Etch.Gpu.ShaderStage
+  id: ShaderStage
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.ShaderStage.Compute
+  - Etch.Gpu.ShaderStage.Fragment
+  - Etch.Gpu.ShaderStage.None
+  - Etch.Gpu.ShaderStage.Vertex
+  langs:
+  - csharp
+  - vb
+  name: ShaderStage
+  nameWithType: ShaderStage
+  fullName: Etch.Gpu.ShaderStage
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ShaderStage : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum ShaderStage As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.ShaderStage.None
+  commentId: F:Etch.Gpu.ShaderStage.None
+  id: None
+  parent: Etch.Gpu.ShaderStage
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ShaderStage.None
+  fullName: Etch.Gpu.ShaderStage.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.ShaderStage
+- uid: Etch.Gpu.ShaderStage.Vertex
+  commentId: F:Etch.Gpu.ShaderStage.Vertex
+  id: Vertex
+  parent: Etch.Gpu.ShaderStage
+  langs:
+  - csharp
+  - vb
+  name: Vertex
+  nameWithType: ShaderStage.Vertex
+  fullName: Etch.Gpu.ShaderStage.Vertex
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Vertex = 1
+    return:
+      type: Etch.Gpu.ShaderStage
+- uid: Etch.Gpu.ShaderStage.Fragment
+  commentId: F:Etch.Gpu.ShaderStage.Fragment
+  id: Fragment
+  parent: Etch.Gpu.ShaderStage
+  langs:
+  - csharp
+  - vb
+  name: Fragment
+  nameWithType: ShaderStage.Fragment
+  fullName: Etch.Gpu.ShaderStage.Fragment
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Fragment = 2
+    return:
+      type: Etch.Gpu.ShaderStage
+- uid: Etch.Gpu.ShaderStage.Compute
+  commentId: F:Etch.Gpu.ShaderStage.Compute
+  id: Compute
+  parent: Etch.Gpu.ShaderStage
+  langs:
+  - csharp
+  - vb
+  name: Compute
+  nameWithType: ShaderStage.Compute
+  fullName: Etch.Gpu.ShaderStage.Compute
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Compute = 4
+    return:
+      type: Etch.Gpu.ShaderStage
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.ShaderStage
+  commentId: T:Etch.Gpu.ShaderStage
+  parent: Etch.Gpu
+  href: Etch.Gpu.ShaderStage.html
+  name: ShaderStage
+  nameWithType: ShaderStage
+  fullName: Etch.Gpu.ShaderStage

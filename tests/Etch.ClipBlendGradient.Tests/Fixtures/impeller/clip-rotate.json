@@ -1,0 +1,7 @@
+{
+  "scenePath": "clip-rotate.etsc",
+  "goldenPath": "clip-rotate.png",
+  "toleranceMean": 2,
+  "toleranceMax": 6,
+  "notes": "Rotated clip has slightly higher tolerance due to sub-pixel edge positioning."
+}

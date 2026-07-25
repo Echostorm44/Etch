@@ -1,0 +1,513 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Image.ImageBrush
+  commentId: T:Etch.Effects.Image.ImageBrush
+  id: ImageBrush
+  parent: Etch.Effects.Image
+  children:
+  - Etch.Effects.Image.ImageBrush.#ctor(Etch.Effects.Image.ImageSource,Etch.Effects.Image.ImageFilter,Etch.Effects.Image.ImageExtend,Etch.Effects.Image.ImageExtend)
+  - Etch.Effects.Image.ImageBrush.CreateBilinear(Etch.Effects.Image.ImageSource)
+  - Etch.Effects.Image.ImageBrush.CreateBilinearRepeat(Etch.Effects.Image.ImageSource)
+  - Etch.Effects.Image.ImageBrush.CreateNearest(Etch.Effects.Image.ImageSource)
+  - Etch.Effects.Image.ImageBrush.ExtendX
+  - Etch.Effects.Image.ImageBrush.ExtendY
+  - Etch.Effects.Image.ImageBrush.Filter
+  - Etch.Effects.Image.ImageBrush.Source
+  langs:
+  - csharp
+  - vb
+  name: ImageBrush
+  nameWithType: ImageBrush
+  fullName: Etch.Effects.Image.ImageBrush
+  type: Struct
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public readonly struct ImageBrush
+    content.vb: Public Structure ImageBrush
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Effects.Image.ImageBrush.Source
+  commentId: F:Etch.Effects.Image.ImageBrush.Source
+  id: Source
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: ImageBrush.Source
+  fullName: Etch.Effects.Image.ImageBrush.Source
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public readonly ImageSource Source
+    return:
+      type: Etch.Effects.Image.ImageSource
+    content.vb: Public ReadOnly Source As ImageSource
+- uid: Etch.Effects.Image.ImageBrush.Filter
+  commentId: F:Etch.Effects.Image.ImageBrush.Filter
+  id: Filter
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: Filter
+  nameWithType: ImageBrush.Filter
+  fullName: Etch.Effects.Image.ImageBrush.Filter
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public readonly ImageFilter Filter
+    return:
+      type: Etch.Effects.Image.ImageFilter
+    content.vb: Public ReadOnly Filter As ImageFilter
+- uid: Etch.Effects.Image.ImageBrush.ExtendX
+  commentId: F:Etch.Effects.Image.ImageBrush.ExtendX
+  id: ExtendX
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: ExtendX
+  nameWithType: ImageBrush.ExtendX
+  fullName: Etch.Effects.Image.ImageBrush.ExtendX
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public readonly ImageExtend ExtendX
+    return:
+      type: Etch.Effects.Image.ImageExtend
+    content.vb: Public ReadOnly ExtendX As ImageExtend
+- uid: Etch.Effects.Image.ImageBrush.ExtendY
+  commentId: F:Etch.Effects.Image.ImageBrush.ExtendY
+  id: ExtendY
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: ExtendY
+  nameWithType: ImageBrush.ExtendY
+  fullName: Etch.Effects.Image.ImageBrush.ExtendY
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public readonly ImageExtend ExtendY
+    return:
+      type: Etch.Effects.Image.ImageExtend
+    content.vb: Public ReadOnly ExtendY As ImageExtend
+- uid: Etch.Effects.Image.ImageBrush.#ctor(Etch.Effects.Image.ImageSource,Etch.Effects.Image.ImageFilter,Etch.Effects.Image.ImageExtend,Etch.Effects.Image.ImageExtend)
+  commentId: M:Etch.Effects.Image.ImageBrush.#ctor(Etch.Effects.Image.ImageSource,Etch.Effects.Image.ImageFilter,Etch.Effects.Image.ImageExtend,Etch.Effects.Image.ImageExtend)
+  id: '#ctor(Etch.Effects.Image.ImageSource,Etch.Effects.Image.ImageFilter,Etch.Effects.Image.ImageExtend,Etch.Effects.Image.ImageExtend)'
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: ImageBrush(ImageSource, ImageFilter, ImageExtend, ImageExtend)
+  nameWithType: ImageBrush.ImageBrush(ImageSource, ImageFilter, ImageExtend, ImageExtend)
+  fullName: Etch.Effects.Image.ImageBrush.ImageBrush(Etch.Effects.Image.ImageSource, Etch.Effects.Image.ImageFilter, Etch.Effects.Image.ImageExtend, Etch.Effects.Image.ImageExtend)
+  type: Constructor
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public ImageBrush(ImageSource source, ImageFilter filter, ImageExtend extendX, ImageExtend extendY)
+    parameters:
+    - id: source
+      type: Etch.Effects.Image.ImageSource
+    - id: filter
+      type: Etch.Effects.Image.ImageFilter
+    - id: extendX
+      type: Etch.Effects.Image.ImageExtend
+    - id: extendY
+      type: Etch.Effects.Image.ImageExtend
+    content.vb: Public Sub New(source As ImageSource, filter As ImageFilter, extendX As ImageExtend, extendY As ImageExtend)
+  overload: Etch.Effects.Image.ImageBrush.#ctor*
+  nameWithType.vb: ImageBrush.New(ImageSource, ImageFilter, ImageExtend, ImageExtend)
+  fullName.vb: Etch.Effects.Image.ImageBrush.New(Etch.Effects.Image.ImageSource, Etch.Effects.Image.ImageFilter, Etch.Effects.Image.ImageExtend, Etch.Effects.Image.ImageExtend)
+  name.vb: New(ImageSource, ImageFilter, ImageExtend, ImageExtend)
+- uid: Etch.Effects.Image.ImageBrush.CreateBilinear(Etch.Effects.Image.ImageSource)
+  commentId: M:Etch.Effects.Image.ImageBrush.CreateBilinear(Etch.Effects.Image.ImageSource)
+  id: CreateBilinear(Etch.Effects.Image.ImageSource)
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: CreateBilinear(ImageSource)
+  nameWithType: ImageBrush.CreateBilinear(ImageSource)
+  fullName: Etch.Effects.Image.ImageBrush.CreateBilinear(Etch.Effects.Image.ImageSource)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static ImageBrush CreateBilinear(ImageSource source)
+    parameters:
+    - id: source
+      type: Etch.Effects.Image.ImageSource
+    return:
+      type: Etch.Effects.Image.ImageBrush
+    content.vb: Public Shared Function CreateBilinear(source As ImageSource) As ImageBrush
+  overload: Etch.Effects.Image.ImageBrush.CreateBilinear*
+- uid: Etch.Effects.Image.ImageBrush.CreateNearest(Etch.Effects.Image.ImageSource)
+  commentId: M:Etch.Effects.Image.ImageBrush.CreateNearest(Etch.Effects.Image.ImageSource)
+  id: CreateNearest(Etch.Effects.Image.ImageSource)
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: CreateNearest(ImageSource)
+  nameWithType: ImageBrush.CreateNearest(ImageSource)
+  fullName: Etch.Effects.Image.ImageBrush.CreateNearest(Etch.Effects.Image.ImageSource)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static ImageBrush CreateNearest(ImageSource source)
+    parameters:
+    - id: source
+      type: Etch.Effects.Image.ImageSource
+    return:
+      type: Etch.Effects.Image.ImageBrush
+    content.vb: Public Shared Function CreateNearest(source As ImageSource) As ImageBrush
+  overload: Etch.Effects.Image.ImageBrush.CreateNearest*
+- uid: Etch.Effects.Image.ImageBrush.CreateBilinearRepeat(Etch.Effects.Image.ImageSource)
+  commentId: M:Etch.Effects.Image.ImageBrush.CreateBilinearRepeat(Etch.Effects.Image.ImageSource)
+  id: CreateBilinearRepeat(Etch.Effects.Image.ImageSource)
+  parent: Etch.Effects.Image.ImageBrush
+  langs:
+  - csharp
+  - vb
+  name: CreateBilinearRepeat(ImageSource)
+  nameWithType: ImageBrush.CreateBilinearRepeat(ImageSource)
+  fullName: Etch.Effects.Image.ImageBrush.CreateBilinearRepeat(Etch.Effects.Image.ImageSource)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static ImageBrush CreateBilinearRepeat(ImageSource source)
+    parameters:
+    - id: source
+      type: Etch.Effects.Image.ImageSource
+    return:
+      type: Etch.Effects.Image.ImageBrush
+    content.vb: Public Shared Function CreateBilinearRepeat(source As ImageSource) As ImageBrush
+  overload: Etch.Effects.Image.ImageBrush.CreateBilinearRepeat*
+references:
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  href: Etch.html
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Effects.Image.ImageSource
+  commentId: T:Etch.Effects.Image.ImageSource
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageSource.html
+  name: ImageSource
+  nameWithType: ImageSource
+  fullName: Etch.Effects.Image.ImageSource
+- uid: Etch.Effects.Image.ImageFilter
+  commentId: T:Etch.Effects.Image.ImageFilter
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageFilter.html
+  name: ImageFilter
+  nameWithType: ImageFilter
+  fullName: Etch.Effects.Image.ImageFilter
+- uid: Etch.Effects.Image.ImageExtend
+  commentId: T:Etch.Effects.Image.ImageExtend
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageExtend.html
+  name: ImageExtend
+  nameWithType: ImageExtend
+  fullName: Etch.Effects.Image.ImageExtend
+- uid: Etch.Effects.Image.ImageBrush.#ctor*
+  commentId: Overload:Etch.Effects.Image.ImageBrush.#ctor
+  href: Etch.Effects.Image.ImageBrush.html#Etch_Effects_Image_ImageBrush__ctor_Etch_Effects_Image_ImageSource_Etch_Effects_Image_ImageFilter_Etch_Effects_Image_ImageExtend_Etch_Effects_Image_ImageExtend_
+  name: ImageBrush
+  nameWithType: ImageBrush.ImageBrush
+  fullName: Etch.Effects.Image.ImageBrush.ImageBrush
+  nameWithType.vb: ImageBrush.New
+  fullName.vb: Etch.Effects.Image.ImageBrush.New
+  name.vb: New
+- uid: Etch.Effects.Image.ImageBrush.CreateBilinear*
+  commentId: Overload:Etch.Effects.Image.ImageBrush.CreateBilinear
+  href: Etch.Effects.Image.ImageBrush.html#Etch_Effects_Image_ImageBrush_CreateBilinear_Etch_Effects_Image_ImageSource_
+  name: CreateBilinear
+  nameWithType: ImageBrush.CreateBilinear
+  fullName: Etch.Effects.Image.ImageBrush.CreateBilinear
+- uid: Etch.Effects.Image.ImageBrush
+  commentId: T:Etch.Effects.Image.ImageBrush
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageBrush.html
+  name: ImageBrush
+  nameWithType: ImageBrush
+  fullName: Etch.Effects.Image.ImageBrush
+- uid: Etch.Effects.Image.ImageBrush.CreateNearest*
+  commentId: Overload:Etch.Effects.Image.ImageBrush.CreateNearest
+  href: Etch.Effects.Image.ImageBrush.html#Etch_Effects_Image_ImageBrush_CreateNearest_Etch_Effects_Image_ImageSource_
+  name: CreateNearest
+  nameWithType: ImageBrush.CreateNearest
+  fullName: Etch.Effects.Image.ImageBrush.CreateNearest
+- uid: Etch.Effects.Image.ImageBrush.CreateBilinearRepeat*
+  commentId: Overload:Etch.Effects.Image.ImageBrush.CreateBilinearRepeat
+  href: Etch.Effects.Image.ImageBrush.html#Etch_Effects_Image_ImageBrush_CreateBilinearRepeat_Etch_Effects_Image_ImageSource_
+  name: CreateBilinearRepeat
+  nameWithType: ImageBrush.CreateBilinearRepeat
+  fullName: Etch.Effects.Image.ImageBrush.CreateBilinearRepeat

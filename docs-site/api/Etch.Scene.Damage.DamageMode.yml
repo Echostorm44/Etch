@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.Damage.DamageMode
+  commentId: T:Etch.Scene.Damage.DamageMode
+  id: DamageMode
+  parent: Etch.Scene.Damage
+  children:
+  - Etch.Scene.Damage.DamageMode.RectGranular
+  - Etch.Scene.Damage.DamageMode.Scroll
+  - Etch.Scene.Damage.DamageMode.TileBitmap
+  langs:
+  - csharp
+  - vb
+  name: DamageMode
+  nameWithType: DamageMode
+  fullName: Etch.Scene.Damage.DamageMode
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public enum DamageMode
+    content.vb: Public Enum DamageMode
+- uid: Etch.Scene.Damage.DamageMode.TileBitmap
+  commentId: F:Etch.Scene.Damage.DamageMode.TileBitmap
+  id: TileBitmap
+  parent: Etch.Scene.Damage.DamageMode
+  langs:
+  - csharp
+  - vb
+  name: TileBitmap
+  nameWithType: DamageMode.TileBitmap
+  fullName: Etch.Scene.Damage.DamageMode.TileBitmap
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: TileBitmap = 0
+    return:
+      type: Etch.Scene.Damage.DamageMode
+- uid: Etch.Scene.Damage.DamageMode.RectGranular
+  commentId: F:Etch.Scene.Damage.DamageMode.RectGranular
+  id: RectGranular
+  parent: Etch.Scene.Damage.DamageMode
+  langs:
+  - csharp
+  - vb
+  name: RectGranular
+  nameWithType: DamageMode.RectGranular
+  fullName: Etch.Scene.Damage.DamageMode.RectGranular
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: RectGranular = 1
+    return:
+      type: Etch.Scene.Damage.DamageMode
+- uid: Etch.Scene.Damage.DamageMode.Scroll
+  commentId: F:Etch.Scene.Damage.DamageMode.Scroll
+  id: Scroll
+  parent: Etch.Scene.Damage.DamageMode
+  langs:
+  - csharp
+  - vb
+  name: Scroll
+  nameWithType: DamageMode.Scroll
+  fullName: Etch.Scene.Damage.DamageMode.Scroll
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: Scroll = 2
+    return:
+      type: Etch.Scene.Damage.DamageMode
+references:
+- uid: Etch.Scene.Damage
+  commentId: N:Etch.Scene.Damage
+  href: Etch.html
+  name: Etch.Scene.Damage
+  nameWithType: Etch.Scene.Damage
+  fullName: Etch.Scene.Damage
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html
+- uid: Etch.Scene.Damage.DamageMode
+  commentId: T:Etch.Scene.Damage.DamageMode
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.DamageMode.html
+  name: DamageMode
+  nameWithType: DamageMode
+  fullName: Etch.Scene.Damage.DamageMode

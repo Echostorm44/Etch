@@ -1,0 +1,611 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas.GlyphAtlas
+  commentId: T:Etch.Text.Atlas.GlyphAtlas
+  id: GlyphAtlas
+  parent: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.GlyphAtlas.#ctor(Etch.Gpu.Device,System.Int32,Etch.Gpu.TextureFormat)
+  - Etch.Text.Atlas.GlyphAtlas.Dispose
+  - Etch.Text.Atlas.GlyphAtlas.Format
+  - Etch.Text.Atlas.GlyphAtlas.TryInsert(Etch.Text.Atlas.GlyphCacheKey,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Text.Atlas.AtlasRegion@)
+  - Etch.Text.Atlas.GlyphAtlas.TryLookup(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.AtlasRegion@)
+  langs:
+  - csharp
+  - vb
+  name: GlyphAtlas
+  nameWithType: GlyphAtlas
+  fullName: Etch.Text.Atlas.GlyphAtlas
+  type: Class
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: 'public sealed class GlyphAtlas : IDisposable'
+    content.vb: Public NotInheritable Class GlyphAtlas Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Text.Atlas.GlyphAtlas.#ctor(Etch.Gpu.Device,System.Int32,Etch.Gpu.TextureFormat)
+  commentId: M:Etch.Text.Atlas.GlyphAtlas.#ctor(Etch.Gpu.Device,System.Int32,Etch.Gpu.TextureFormat)
+  id: '#ctor(Etch.Gpu.Device,System.Int32,Etch.Gpu.TextureFormat)'
+  parent: Etch.Text.Atlas.GlyphAtlas
+  langs:
+  - csharp
+  - vb
+  name: GlyphAtlas(Device, int, TextureFormat)
+  nameWithType: GlyphAtlas.GlyphAtlas(Device, int, TextureFormat)
+  fullName: Etch.Text.Atlas.GlyphAtlas.GlyphAtlas(Etch.Gpu.Device, int, Etch.Gpu.TextureFormat)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public GlyphAtlas(Device device, int dim, TextureFormat format = TextureFormat.R8Unorm)
+    parameters:
+    - id: device
+      type: Etch.Gpu.Device
+    - id: dim
+      type: System.Int32
+    - id: format
+      type: Etch.Gpu.TextureFormat
+    content.vb: Public Sub New(device As Device, [dim] As Integer, format As TextureFormat = TextureFormat.R8Unorm)
+  overload: Etch.Text.Atlas.GlyphAtlas.#ctor*
+  nameWithType.vb: GlyphAtlas.New(Device, Integer, TextureFormat)
+  fullName.vb: Etch.Text.Atlas.GlyphAtlas.New(Etch.Gpu.Device, Integer, Etch.Gpu.TextureFormat)
+  name.vb: New(Device, Integer, TextureFormat)
+- uid: Etch.Text.Atlas.GlyphAtlas.Format
+  commentId: P:Etch.Text.Atlas.GlyphAtlas.Format
+  id: Format
+  parent: Etch.Text.Atlas.GlyphAtlas
+  langs:
+  - csharp
+  - vb
+  name: Format
+  nameWithType: GlyphAtlas.Format
+  fullName: Etch.Text.Atlas.GlyphAtlas.Format
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public TextureFormat Format { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.TextureFormat
+    content.vb: Public ReadOnly Property Format As TextureFormat
+  overload: Etch.Text.Atlas.GlyphAtlas.Format*
+- uid: Etch.Text.Atlas.GlyphAtlas.TryInsert(Etch.Text.Atlas.GlyphCacheKey,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Text.Atlas.AtlasRegion@)
+  commentId: M:Etch.Text.Atlas.GlyphAtlas.TryInsert(Etch.Text.Atlas.GlyphCacheKey,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Text.Atlas.AtlasRegion@)
+  id: TryInsert(Etch.Text.Atlas.GlyphCacheKey,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Text.Atlas.AtlasRegion@)
+  parent: Etch.Text.Atlas.GlyphAtlas
+  langs:
+  - csharp
+  - vb
+  name: TryInsert(GlyphCacheKey, ReadOnlySpan<byte>, int, int, out AtlasRegion)
+  nameWithType: GlyphAtlas.TryInsert(GlyphCacheKey, ReadOnlySpan<byte>, int, int, out AtlasRegion)
+  fullName: Etch.Text.Atlas.GlyphAtlas.TryInsert(Etch.Text.Atlas.GlyphCacheKey, System.ReadOnlySpan<byte>, int, int, out Etch.Text.Atlas.AtlasRegion)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public bool TryInsert(GlyphCacheKey key, ReadOnlySpan<byte> bitmap, int w, int h, out AtlasRegion region)
+    parameters:
+    - id: key
+      type: Etch.Text.Atlas.GlyphCacheKey
+    - id: bitmap
+      type: System.ReadOnlySpan{System.Byte}
+    - id: w
+      type: System.Int32
+    - id: h
+      type: System.Int32
+    - id: region
+      type: Etch.Text.Atlas.AtlasRegion
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryInsert(key As GlyphCacheKey, bitmap As ReadOnlySpan(Of Byte), w As Integer, h As Integer, region As AtlasRegion) As Boolean
+  overload: Etch.Text.Atlas.GlyphAtlas.TryInsert*
+  nameWithType.vb: GlyphAtlas.TryInsert(GlyphCacheKey, ReadOnlySpan(Of Byte), Integer, Integer, AtlasRegion)
+  fullName.vb: Etch.Text.Atlas.GlyphAtlas.TryInsert(Etch.Text.Atlas.GlyphCacheKey, System.ReadOnlySpan(Of Byte), Integer, Integer, Etch.Text.Atlas.AtlasRegion)
+  name.vb: TryInsert(GlyphCacheKey, ReadOnlySpan(Of Byte), Integer, Integer, AtlasRegion)
+- uid: Etch.Text.Atlas.GlyphAtlas.TryLookup(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.AtlasRegion@)
+  commentId: M:Etch.Text.Atlas.GlyphAtlas.TryLookup(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.AtlasRegion@)
+  id: TryLookup(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.AtlasRegion@)
+  parent: Etch.Text.Atlas.GlyphAtlas
+  langs:
+  - csharp
+  - vb
+  name: TryLookup(GlyphCacheKey, out AtlasRegion)
+  nameWithType: GlyphAtlas.TryLookup(GlyphCacheKey, out AtlasRegion)
+  fullName: Etch.Text.Atlas.GlyphAtlas.TryLookup(Etch.Text.Atlas.GlyphCacheKey, out Etch.Text.Atlas.AtlasRegion)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public bool TryLookup(GlyphCacheKey key, out AtlasRegion region)
+    parameters:
+    - id: key
+      type: Etch.Text.Atlas.GlyphCacheKey
+    - id: region
+      type: Etch.Text.Atlas.AtlasRegion
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryLookup(key As GlyphCacheKey, region As AtlasRegion) As Boolean
+  overload: Etch.Text.Atlas.GlyphAtlas.TryLookup*
+  nameWithType.vb: GlyphAtlas.TryLookup(GlyphCacheKey, AtlasRegion)
+  fullName.vb: Etch.Text.Atlas.GlyphAtlas.TryLookup(Etch.Text.Atlas.GlyphCacheKey, Etch.Text.Atlas.AtlasRegion)
+  name.vb: TryLookup(GlyphCacheKey, AtlasRegion)
+- uid: Etch.Text.Atlas.GlyphAtlas.Dispose
+  commentId: M:Etch.Text.Atlas.GlyphAtlas.Dispose
+  id: Dispose
+  parent: Etch.Text.Atlas.GlyphAtlas
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: GlyphAtlas.Dispose()
+  fullName: Etch.Text.Atlas.GlyphAtlas.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Text.Atlas.GlyphAtlas.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Atlas.GlyphAtlas.#ctor*
+  commentId: Overload:Etch.Text.Atlas.GlyphAtlas.#ctor
+  href: Etch.Text.Atlas.GlyphAtlas.html#Etch_Text_Atlas_GlyphAtlas__ctor_Etch_Gpu_Device_System_Int32_Etch_Gpu_TextureFormat_
+  name: GlyphAtlas
+  nameWithType: GlyphAtlas.GlyphAtlas
+  fullName: Etch.Text.Atlas.GlyphAtlas.GlyphAtlas
+  nameWithType.vb: GlyphAtlas.New
+  fullName.vb: Etch.Text.Atlas.GlyphAtlas.New
+  name.vb: New
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  parent: Etch.Gpu
+  href: Etch.Gpu.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Gpu.TextureFormat
+  commentId: T:Etch.Gpu.TextureFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureFormat.html
+  name: TextureFormat
+  nameWithType: TextureFormat
+  fullName: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Text.Atlas.GlyphAtlas.Format*
+  commentId: Overload:Etch.Text.Atlas.GlyphAtlas.Format
+  href: Etch.Text.Atlas.GlyphAtlas.html#Etch_Text_Atlas_GlyphAtlas_Format
+  name: Format
+  nameWithType: GlyphAtlas.Format
+  fullName: Etch.Text.Atlas.GlyphAtlas.Format
+- uid: Etch.Text.Atlas.GlyphAtlas.TryInsert*
+  commentId: Overload:Etch.Text.Atlas.GlyphAtlas.TryInsert
+  href: Etch.Text.Atlas.GlyphAtlas.html#Etch_Text_Atlas_GlyphAtlas_TryInsert_Etch_Text_Atlas_GlyphCacheKey_System_ReadOnlySpan_System_Byte__System_Int32_System_Int32_Etch_Text_Atlas_AtlasRegion__
+  name: TryInsert
+  nameWithType: GlyphAtlas.TryInsert
+  fullName: Etch.Text.Atlas.GlyphAtlas.TryInsert
+- uid: Etch.Text.Atlas.GlyphCacheKey
+  commentId: T:Etch.Text.Atlas.GlyphCacheKey
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.GlyphCacheKey.html
+  name: GlyphCacheKey
+  nameWithType: GlyphCacheKey
+  fullName: Etch.Text.Atlas.GlyphCacheKey
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: Etch.Text.Atlas.AtlasRegion
+  commentId: T:Etch.Text.Atlas.AtlasRegion
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.AtlasRegion.html
+  name: AtlasRegion
+  nameWithType: AtlasRegion
+  fullName: Etch.Text.Atlas.AtlasRegion
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Text.Atlas.GlyphAtlas.TryLookup*
+  commentId: Overload:Etch.Text.Atlas.GlyphAtlas.TryLookup
+  href: Etch.Text.Atlas.GlyphAtlas.html#Etch_Text_Atlas_GlyphAtlas_TryLookup_Etch_Text_Atlas_GlyphCacheKey_Etch_Text_Atlas_AtlasRegion__
+  name: TryLookup
+  nameWithType: GlyphAtlas.TryLookup
+  fullName: Etch.Text.Atlas.GlyphAtlas.TryLookup
+- uid: Etch.Text.Atlas.GlyphAtlas.Dispose*
+  commentId: Overload:Etch.Text.Atlas.GlyphAtlas.Dispose
+  href: Etch.Text.Atlas.GlyphAtlas.html#Etch_Text_Atlas_GlyphAtlas_Dispose
+  name: Dispose
+  nameWithType: GlyphAtlas.Dispose
+  fullName: Etch.Text.Atlas.GlyphAtlas.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

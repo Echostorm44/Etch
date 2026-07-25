@@ -1,0 +1,229 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Descriptors.StencilOperation
+  commentId: T:Etch.Gpu.Descriptors.StencilOperation
+  id: StencilOperation
+  parent: Etch.Gpu.Descriptors
+  children:
+  - Etch.Gpu.Descriptors.StencilOperation.DecrementClamp
+  - Etch.Gpu.Descriptors.StencilOperation.DecrementWrap
+  - Etch.Gpu.Descriptors.StencilOperation.IncrementClamp
+  - Etch.Gpu.Descriptors.StencilOperation.IncrementWrap
+  - Etch.Gpu.Descriptors.StencilOperation.Invert
+  - Etch.Gpu.Descriptors.StencilOperation.Keep
+  - Etch.Gpu.Descriptors.StencilOperation.Replace
+  - Etch.Gpu.Descriptors.StencilOperation.Undefined
+  - Etch.Gpu.Descriptors.StencilOperation.Zero
+  langs:
+  - csharp
+  - vb
+  name: StencilOperation
+  nameWithType: StencilOperation
+  fullName: Etch.Gpu.Descriptors.StencilOperation
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: 'public enum StencilOperation : uint'
+    content.vb: Public Enum StencilOperation As UInteger
+- uid: Etch.Gpu.Descriptors.StencilOperation.Undefined
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.Undefined
+  id: Undefined
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: StencilOperation.Undefined
+  fullName: Etch.Gpu.Descriptors.StencilOperation.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.Keep
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.Keep
+  id: Keep
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: Keep
+  nameWithType: StencilOperation.Keep
+  fullName: Etch.Gpu.Descriptors.StencilOperation.Keep
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: Keep = 1
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.Zero
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.Zero
+  id: Zero
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: StencilOperation.Zero
+  fullName: Etch.Gpu.Descriptors.StencilOperation.Zero
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: Zero = 2
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.Replace
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.Replace
+  id: Replace
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: Replace
+  nameWithType: StencilOperation.Replace
+  fullName: Etch.Gpu.Descriptors.StencilOperation.Replace
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: Replace = 3
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.Invert
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.Invert
+  id: Invert
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: Invert
+  nameWithType: StencilOperation.Invert
+  fullName: Etch.Gpu.Descriptors.StencilOperation.Invert
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: Invert = 4
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.IncrementClamp
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.IncrementClamp
+  id: IncrementClamp
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: IncrementClamp
+  nameWithType: StencilOperation.IncrementClamp
+  fullName: Etch.Gpu.Descriptors.StencilOperation.IncrementClamp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: IncrementClamp = 5
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.DecrementClamp
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.DecrementClamp
+  id: DecrementClamp
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: DecrementClamp
+  nameWithType: StencilOperation.DecrementClamp
+  fullName: Etch.Gpu.Descriptors.StencilOperation.DecrementClamp
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: DecrementClamp = 6
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.IncrementWrap
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.IncrementWrap
+  id: IncrementWrap
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: IncrementWrap
+  nameWithType: StencilOperation.IncrementWrap
+  fullName: Etch.Gpu.Descriptors.StencilOperation.IncrementWrap
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: IncrementWrap = 7
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+- uid: Etch.Gpu.Descriptors.StencilOperation.DecrementWrap
+  commentId: F:Etch.Gpu.Descriptors.StencilOperation.DecrementWrap
+  id: DecrementWrap
+  parent: Etch.Gpu.Descriptors.StencilOperation
+  langs:
+  - csharp
+  - vb
+  name: DecrementWrap
+  nameWithType: StencilOperation.DecrementWrap
+  fullName: Etch.Gpu.Descriptors.StencilOperation.DecrementWrap
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: DecrementWrap = 8
+    return:
+      type: Etch.Gpu.Descriptors.StencilOperation
+references:
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: Etch.Gpu.Descriptors.StencilOperation
+  commentId: T:Etch.Gpu.Descriptors.StencilOperation
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.StencilOperation.html
+  name: StencilOperation
+  nameWithType: StencilOperation
+  fullName: Etch.Gpu.Descriptors.StencilOperation

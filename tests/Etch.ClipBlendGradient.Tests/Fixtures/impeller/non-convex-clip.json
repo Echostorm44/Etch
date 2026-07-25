@@ -1,0 +1,7 @@
+{
+  "scenePath": "non-convex-clip.etsc",
+  "goldenPath": "non-convex-clip.png",
+  "toleranceMean": 2,
+  "toleranceMax": 6,
+  "notes": "Non-convex clip uses different flatten strategy; scene-specific override applied."
+}

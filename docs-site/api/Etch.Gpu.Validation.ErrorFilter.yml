@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Validation.ErrorFilter
+  commentId: T:Etch.Gpu.Validation.ErrorFilter
+  id: ErrorFilter
+  parent: Etch.Gpu.Validation
+  children:
+  - Etch.Gpu.Validation.ErrorFilter.DeviceLost
+  - Etch.Gpu.Validation.ErrorFilter.OutOfMemory
+  - Etch.Gpu.Validation.ErrorFilter.Validation
+  langs:
+  - csharp
+  - vb
+  name: ErrorFilter
+  nameWithType: ErrorFilter
+  fullName: Etch.Gpu.Validation.ErrorFilter
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Validation
+  syntax:
+    content: 'public enum ErrorFilter : uint'
+    content.vb: Public Enum ErrorFilter As UInteger
+- uid: Etch.Gpu.Validation.ErrorFilter.Validation
+  commentId: F:Etch.Gpu.Validation.ErrorFilter.Validation
+  id: Validation
+  parent: Etch.Gpu.Validation.ErrorFilter
+  langs:
+  - csharp
+  - vb
+  name: Validation
+  nameWithType: ErrorFilter.Validation
+  fullName: Etch.Gpu.Validation.ErrorFilter.Validation
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Validation
+  syntax:
+    content: Validation = 1
+    return:
+      type: Etch.Gpu.Validation.ErrorFilter
+- uid: Etch.Gpu.Validation.ErrorFilter.OutOfMemory
+  commentId: F:Etch.Gpu.Validation.ErrorFilter.OutOfMemory
+  id: OutOfMemory
+  parent: Etch.Gpu.Validation.ErrorFilter
+  langs:
+  - csharp
+  - vb
+  name: OutOfMemory
+  nameWithType: ErrorFilter.OutOfMemory
+  fullName: Etch.Gpu.Validation.ErrorFilter.OutOfMemory
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Validation
+  syntax:
+    content: OutOfMemory = 2
+    return:
+      type: Etch.Gpu.Validation.ErrorFilter
+- uid: Etch.Gpu.Validation.ErrorFilter.DeviceLost
+  commentId: F:Etch.Gpu.Validation.ErrorFilter.DeviceLost
+  id: DeviceLost
+  parent: Etch.Gpu.Validation.ErrorFilter
+  langs:
+  - csharp
+  - vb
+  name: DeviceLost
+  nameWithType: ErrorFilter.DeviceLost
+  fullName: Etch.Gpu.Validation.ErrorFilter.DeviceLost
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Validation
+  syntax:
+    content: DeviceLost = 3
+    return:
+      type: Etch.Gpu.Validation.ErrorFilter
+references:
+- uid: Etch.Gpu.Validation
+  commentId: N:Etch.Gpu.Validation
+  href: Etch.html
+  name: Etch.Gpu.Validation
+  nameWithType: Etch.Gpu.Validation
+  fullName: Etch.Gpu.Validation
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Validation
+    name: Validation
+    href: Etch.Gpu.Validation.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Validation
+    name: Validation
+    href: Etch.Gpu.Validation.html
+- uid: Etch.Gpu.Validation.ErrorFilter
+  commentId: T:Etch.Gpu.Validation.ErrorFilter
+  parent: Etch.Gpu.Validation
+  href: Etch.Gpu.Validation.ErrorFilter.html
+  name: ErrorFilter
+  nameWithType: ErrorFilter
+  fullName: Etch.Gpu.Validation.ErrorFilter

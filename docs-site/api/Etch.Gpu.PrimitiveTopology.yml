@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.PrimitiveTopology
+  commentId: T:Etch.Gpu.PrimitiveTopology
+  id: PrimitiveTopology
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.PrimitiveTopology.LineList
+  - Etch.Gpu.PrimitiveTopology.LineStrip
+  - Etch.Gpu.PrimitiveTopology.PointList
+  - Etch.Gpu.PrimitiveTopology.TriangleList
+  - Etch.Gpu.PrimitiveTopology.TriangleStrip
+  - Etch.Gpu.PrimitiveTopology.Undefined
+  langs:
+  - csharp
+  - vb
+  name: PrimitiveTopology
+  nameWithType: PrimitiveTopology
+  fullName: Etch.Gpu.PrimitiveTopology
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum PrimitiveTopology : uint'
+    content.vb: Public Enum PrimitiveTopology As UInteger
+- uid: Etch.Gpu.PrimitiveTopology.Undefined
+  commentId: F:Etch.Gpu.PrimitiveTopology.Undefined
+  id: Undefined
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: PrimitiveTopology.Undefined
+  fullName: Etch.Gpu.PrimitiveTopology.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu.PrimitiveTopology.PointList
+  commentId: F:Etch.Gpu.PrimitiveTopology.PointList
+  id: PointList
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: PointList
+  nameWithType: PrimitiveTopology.PointList
+  fullName: Etch.Gpu.PrimitiveTopology.PointList
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: PointList = 1
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu.PrimitiveTopology.LineList
+  commentId: F:Etch.Gpu.PrimitiveTopology.LineList
+  id: LineList
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: LineList
+  nameWithType: PrimitiveTopology.LineList
+  fullName: Etch.Gpu.PrimitiveTopology.LineList
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: LineList = 2
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu.PrimitiveTopology.LineStrip
+  commentId: F:Etch.Gpu.PrimitiveTopology.LineStrip
+  id: LineStrip
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: LineStrip
+  nameWithType: PrimitiveTopology.LineStrip
+  fullName: Etch.Gpu.PrimitiveTopology.LineStrip
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: LineStrip = 3
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu.PrimitiveTopology.TriangleList
+  commentId: F:Etch.Gpu.PrimitiveTopology.TriangleList
+  id: TriangleList
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: TriangleList
+  nameWithType: PrimitiveTopology.TriangleList
+  fullName: Etch.Gpu.PrimitiveTopology.TriangleList
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: TriangleList = 4
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+- uid: Etch.Gpu.PrimitiveTopology.TriangleStrip
+  commentId: F:Etch.Gpu.PrimitiveTopology.TriangleStrip
+  id: TriangleStrip
+  parent: Etch.Gpu.PrimitiveTopology
+  langs:
+  - csharp
+  - vb
+  name: TriangleStrip
+  nameWithType: PrimitiveTopology.TriangleStrip
+  fullName: Etch.Gpu.PrimitiveTopology.TriangleStrip
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: TriangleStrip = 5
+    return:
+      type: Etch.Gpu.PrimitiveTopology
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.PrimitiveTopology
+  commentId: T:Etch.Gpu.PrimitiveTopology
+  parent: Etch.Gpu
+  href: Etch.Gpu.PrimitiveTopology.html
+  name: PrimitiveTopology
+  nameWithType: PrimitiveTopology
+  fullName: Etch.Gpu.PrimitiveTopology

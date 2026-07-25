@@ -1,0 +1,472 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Strips.Strip
+  commentId: T:Etch.Tiling.Strips.Strip
+  id: Strip
+  parent: Etch.Tiling.Strips
+  children:
+  - Etch.Tiling.Strips.Strip.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt32,System.Int32)
+  - Etch.Tiling.Strips.Strip.CoverageOffset
+  - Etch.Tiling.Strips.Strip.PaintId
+  - Etch.Tiling.Strips.Strip.RowMask
+  - Etch.Tiling.Strips.Strip.TileIndex
+  - Etch.Tiling.Strips.Strip.X0
+  - Etch.Tiling.Strips.Strip.X1
+  langs:
+  - csharp
+  - vb
+  name: Strip
+  nameWithType: Strip
+  fullName: Etch.Tiling.Strips.Strip
+  type: Struct
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly struct Strip
+    content.vb: Public Structure Strip
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Tiling.Strips.Strip.TileIndex
+  commentId: F:Etch.Tiling.Strips.Strip.TileIndex
+  id: TileIndex
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: TileIndex
+  nameWithType: Strip.TileIndex
+  fullName: Etch.Tiling.Strips.Strip.TileIndex
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly ushort TileIndex
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly TileIndex As UShort
+- uid: Etch.Tiling.Strips.Strip.RowMask
+  commentId: F:Etch.Tiling.Strips.Strip.RowMask
+  id: RowMask
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: RowMask
+  nameWithType: Strip.RowMask
+  fullName: Etch.Tiling.Strips.Strip.RowMask
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly ushort RowMask
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly RowMask As UShort
+- uid: Etch.Tiling.Strips.Strip.X0
+  commentId: F:Etch.Tiling.Strips.Strip.X0
+  id: X0
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: X0
+  nameWithType: Strip.X0
+  fullName: Etch.Tiling.Strips.Strip.X0
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly ushort X0
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly X0 As UShort
+- uid: Etch.Tiling.Strips.Strip.X1
+  commentId: F:Etch.Tiling.Strips.Strip.X1
+  id: X1
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: X1
+  nameWithType: Strip.X1
+  fullName: Etch.Tiling.Strips.Strip.X1
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly ushort X1
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly X1 As UShort
+- uid: Etch.Tiling.Strips.Strip.CoverageOffset
+  commentId: F:Etch.Tiling.Strips.Strip.CoverageOffset
+  id: CoverageOffset
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: CoverageOffset
+  nameWithType: Strip.CoverageOffset
+  fullName: Etch.Tiling.Strips.Strip.CoverageOffset
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly uint CoverageOffset
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly CoverageOffset As UInteger
+- uid: Etch.Tiling.Strips.Strip.PaintId
+  commentId: F:Etch.Tiling.Strips.Strip.PaintId
+  id: PaintId
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: PaintId
+  nameWithType: Strip.PaintId
+  fullName: Etch.Tiling.Strips.Strip.PaintId
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public readonly int PaintId
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly PaintId As Integer
+- uid: Etch.Tiling.Strips.Strip.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt32,System.Int32)
+  commentId: M:Etch.Tiling.Strips.Strip.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt32,System.Int32)
+  id: '#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt32,System.Int32)'
+  parent: Etch.Tiling.Strips.Strip
+  langs:
+  - csharp
+  - vb
+  name: Strip(ushort, ushort, ushort, ushort, uint, int)
+  nameWithType: Strip.Strip(ushort, ushort, ushort, ushort, uint, int)
+  fullName: Etch.Tiling.Strips.Strip.Strip(ushort, ushort, ushort, ushort, uint, int)
+  type: Constructor
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Strips
+  syntax:
+    content: public Strip(ushort tileIndex, ushort rowMask, ushort x0, ushort x1, uint coverageOffset, int paintId)
+    parameters:
+    - id: tileIndex
+      type: System.UInt16
+    - id: rowMask
+      type: System.UInt16
+    - id: x0
+      type: System.UInt16
+    - id: x1
+      type: System.UInt16
+    - id: coverageOffset
+      type: System.UInt32
+    - id: paintId
+      type: System.Int32
+    content.vb: Public Sub New(tileIndex As UShort, rowMask As UShort, x0 As UShort, x1 As UShort, coverageOffset As UInteger, paintId As Integer)
+  overload: Etch.Tiling.Strips.Strip.#ctor*
+  nameWithType.vb: Strip.New(UShort, UShort, UShort, UShort, UInteger, Integer)
+  fullName.vb: Etch.Tiling.Strips.Strip.New(UShort, UShort, UShort, UShort, UInteger, Integer)
+  name.vb: New(UShort, UShort, UShort, UShort, UInteger, Integer)
+references:
+- uid: Etch.Tiling.Strips
+  commentId: N:Etch.Tiling.Strips
+  href: Etch.html
+  name: Etch.Tiling.Strips
+  nameWithType: Etch.Tiling.Strips
+  fullName: Etch.Tiling.Strips
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Tiling.Strips.Strip.#ctor*
+  commentId: Overload:Etch.Tiling.Strips.Strip.#ctor
+  href: Etch.Tiling.Strips.Strip.html#Etch_Tiling_Strips_Strip__ctor_System_UInt16_System_UInt16_System_UInt16_System_UInt16_System_UInt32_System_Int32_
+  name: Strip
+  nameWithType: Strip.Strip
+  fullName: Etch.Tiling.Strips.Strip.Strip
+  nameWithType.vb: Strip.New
+  fullName.vb: Etch.Tiling.Strips.Strip.New
+  name.vb: New

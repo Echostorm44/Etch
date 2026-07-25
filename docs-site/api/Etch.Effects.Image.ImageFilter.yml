@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Image.ImageFilter
+  commentId: T:Etch.Effects.Image.ImageFilter
+  id: ImageFilter
+  parent: Etch.Effects.Image
+  children:
+  - Etch.Effects.Image.ImageFilter.Bicubic
+  - Etch.Effects.Image.ImageFilter.Bilinear
+  - Etch.Effects.Image.ImageFilter.Nearest
+  - Etch.Effects.Image.ImageFilter.Trilinear
+  langs:
+  - csharp
+  - vb
+  name: ImageFilter
+  nameWithType: ImageFilter
+  fullName: Etch.Effects.Image.ImageFilter
+  type: Enum
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: 'public enum ImageFilter : uint'
+    content.vb: Public Enum ImageFilter As UInteger
+- uid: Etch.Effects.Image.ImageFilter.Nearest
+  commentId: F:Etch.Effects.Image.ImageFilter.Nearest
+  id: Nearest
+  parent: Etch.Effects.Image.ImageFilter
+  langs:
+  - csharp
+  - vb
+  name: Nearest
+  nameWithType: ImageFilter.Nearest
+  fullName: Etch.Effects.Image.ImageFilter.Nearest
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Nearest = 0
+    return:
+      type: Etch.Effects.Image.ImageFilter
+- uid: Etch.Effects.Image.ImageFilter.Bilinear
+  commentId: F:Etch.Effects.Image.ImageFilter.Bilinear
+  id: Bilinear
+  parent: Etch.Effects.Image.ImageFilter
+  langs:
+  - csharp
+  - vb
+  name: Bilinear
+  nameWithType: ImageFilter.Bilinear
+  fullName: Etch.Effects.Image.ImageFilter.Bilinear
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Bilinear = 1
+    return:
+      type: Etch.Effects.Image.ImageFilter
+- uid: Etch.Effects.Image.ImageFilter.Bicubic
+  commentId: F:Etch.Effects.Image.ImageFilter.Bicubic
+  id: Bicubic
+  parent: Etch.Effects.Image.ImageFilter
+  langs:
+  - csharp
+  - vb
+  name: Bicubic
+  nameWithType: ImageFilter.Bicubic
+  fullName: Etch.Effects.Image.ImageFilter.Bicubic
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Bicubic = 2
+    return:
+      type: Etch.Effects.Image.ImageFilter
+- uid: Etch.Effects.Image.ImageFilter.Trilinear
+  commentId: F:Etch.Effects.Image.ImageFilter.Trilinear
+  id: Trilinear
+  parent: Etch.Effects.Image.ImageFilter
+  langs:
+  - csharp
+  - vb
+  name: Trilinear
+  nameWithType: ImageFilter.Trilinear
+  fullName: Etch.Effects.Image.ImageFilter.Trilinear
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Trilinear = 3
+    return:
+      type: Etch.Effects.Image.ImageFilter
+references:
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  href: Etch.html
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+- uid: Etch.Effects.Image.ImageFilter
+  commentId: T:Etch.Effects.Image.ImageFilter
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageFilter.html
+  name: ImageFilter
+  nameWithType: ImageFilter
+  fullName: Etch.Effects.Image.ImageFilter

@@ -1,0 +1,14 @@
+<Project>
+  <!--
+    build/Aot.props — strict AOT opt-in for Etch libraries.
+    Set <IsAotCompatible>true</IsAotCompatible> and <IsTrimmable>true</IsTrimmable>
+    before including this file. The directory build props already set defaults;
+    this file enforces them unconditionally.
+  -->
+  <PropertyGroup>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <AotGenerateInterfaceDispatch>true</AotGenerateInterfaceDispatch>
+    <AotWorkaroundUnsafeCharZero>true</AotWorkaroundUnsafeCharZero>
+  </PropertyGroup>
+</Project>

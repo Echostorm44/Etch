@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Outline
+  commentId: N:Etch.Text.Outline
+  id: Etch.Text.Outline
+  children:
+  - Etch.Text.Outline.GlyphOutlineBuilder
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Outline
+  nameWithType: Etch.Text.Outline
+  fullName: Etch.Text.Outline
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Outline.GlyphOutlineBuilder
+  commentId: T:Etch.Text.Outline.GlyphOutlineBuilder
+  href: Etch.Text.Outline.GlyphOutlineBuilder.html
+  name: GlyphOutlineBuilder
+  nameWithType: GlyphOutlineBuilder
+  fullName: Etch.Text.Outline.GlyphOutlineBuilder

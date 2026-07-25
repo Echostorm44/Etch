@@ -1,0 +1,40 @@
+name: Soak Nightly
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  soak:
+    runs-on: windows-latest
+    timeout-minutes: 1500
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Install wgpu-native
+        run: pwsh tools/ci/fetch.ps1 all
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Soak Test (24h)
+        env:
+          ETCH_SOAK_NIGHTLY: '1'
+        run: dotnet run --project tests/Etch.Correctness.Tests/Etch.Correctness.Tests.csproj --configuration Release
+
+      - name: Upload soak report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: soak-report
+          path: tests/Etch.Correctness.Tests/bin/Release/net10.0/soak-report.json

@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.ExtendMode
+  commentId: T:Etch.Gpu.Pipelines.ExtendMode
+  id: ExtendMode
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.ExtendMode.Pad
+  - Etch.Gpu.Pipelines.ExtendMode.Reflect
+  - Etch.Gpu.Pipelines.ExtendMode.Repeat
+  langs:
+  - csharp
+  - vb
+  name: ExtendMode
+  nameWithType: ExtendMode
+  fullName: Etch.Gpu.Pipelines.ExtendMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public enum ExtendMode : uint'
+    content.vb: Public Enum ExtendMode As UInteger
+- uid: Etch.Gpu.Pipelines.ExtendMode.Pad
+  commentId: F:Etch.Gpu.Pipelines.ExtendMode.Pad
+  id: Pad
+  parent: Etch.Gpu.Pipelines.ExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Pad
+  nameWithType: ExtendMode.Pad
+  fullName: Etch.Gpu.Pipelines.ExtendMode.Pad
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Pad = 0
+    return:
+      type: Etch.Gpu.Pipelines.ExtendMode
+- uid: Etch.Gpu.Pipelines.ExtendMode.Reflect
+  commentId: F:Etch.Gpu.Pipelines.ExtendMode.Reflect
+  id: Reflect
+  parent: Etch.Gpu.Pipelines.ExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Reflect
+  nameWithType: ExtendMode.Reflect
+  fullName: Etch.Gpu.Pipelines.ExtendMode.Reflect
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Reflect = 1
+    return:
+      type: Etch.Gpu.Pipelines.ExtendMode
+- uid: Etch.Gpu.Pipelines.ExtendMode.Repeat
+  commentId: F:Etch.Gpu.Pipelines.ExtendMode.Repeat
+  id: Repeat
+  parent: Etch.Gpu.Pipelines.ExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: ExtendMode.Repeat
+  fullName: Etch.Gpu.Pipelines.ExtendMode.Repeat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Repeat = 2
+    return:
+      type: Etch.Gpu.Pipelines.ExtendMode
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: Etch.Gpu.Pipelines.ExtendMode
+  commentId: T:Etch.Gpu.Pipelines.ExtendMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.ExtendMode.html
+  name: ExtendMode
+  nameWithType: ExtendMode
+  fullName: Etch.Gpu.Pipelines.ExtendMode

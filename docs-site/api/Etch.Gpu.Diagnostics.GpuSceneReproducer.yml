@@ -1,0 +1,579 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  commentId: T:Etch.Gpu.Diagnostics.GpuSceneReproducer
+  id: GpuSceneReproducer
+  parent: Etch.Gpu.Diagnostics
+  children:
+  - Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor(Etch.Gpu.Diagnostics.ValidationLogRing,Etch.Gpu.Diagnostics.AdapterInfo,Etch.Gpu.Diagnostics.SurfaceConfigInfo,System.Byte[])
+  - Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound(System.Int32)
+  - Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo(System.Span{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: GpuSceneReproducer
+  nameWithType: GpuSceneReproducer
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: 'public sealed class GpuSceneReproducer : ISceneReproducer'
+    content.vb: Public NotInheritable Class GpuSceneReproducer Implements ISceneReproducer
+  inheritance:
+  - System.Object
+  implements:
+  - Etch.Abstractions.Diagnostics.ISceneReproducer
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor(Etch.Gpu.Diagnostics.ValidationLogRing,Etch.Gpu.Diagnostics.AdapterInfo,Etch.Gpu.Diagnostics.SurfaceConfigInfo,System.Byte[])
+  commentId: M:Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor(Etch.Gpu.Diagnostics.ValidationLogRing,Etch.Gpu.Diagnostics.AdapterInfo,Etch.Gpu.Diagnostics.SurfaceConfigInfo,System.Byte[])
+  id: '#ctor(Etch.Gpu.Diagnostics.ValidationLogRing,Etch.Gpu.Diagnostics.AdapterInfo,Etch.Gpu.Diagnostics.SurfaceConfigInfo,System.Byte[])'
+  parent: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  langs:
+  - csharp
+  - vb
+  name: GpuSceneReproducer(ValidationLogRing, AdapterInfo, SurfaceConfigInfo, byte[]?)
+  nameWithType: GpuSceneReproducer.GpuSceneReproducer(ValidationLogRing, AdapterInfo, SurfaceConfigInfo, byte[]?)
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.GpuSceneReproducer(Etch.Gpu.Diagnostics.ValidationLogRing, Etch.Gpu.Diagnostics.AdapterInfo, Etch.Gpu.Diagnostics.SurfaceConfigInfo, byte[]?)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public GpuSceneReproducer(ValidationLogRing validationLog, AdapterInfo adapterInfo, SurfaceConfigInfo surfaceConfig, byte[]? lastSceneBytes = null)
+    parameters:
+    - id: validationLog
+      type: Etch.Gpu.Diagnostics.ValidationLogRing
+    - id: adapterInfo
+      type: Etch.Gpu.Diagnostics.AdapterInfo
+    - id: surfaceConfig
+      type: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+    - id: lastSceneBytes
+      type: System.Byte[]
+    content.vb: Public Sub New(validationLog As ValidationLogRing, adapterInfo As AdapterInfo, surfaceConfig As SurfaceConfigInfo, lastSceneBytes As Byte() = Nothing)
+  overload: Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor*
+  nameWithType.vb: GpuSceneReproducer.New(ValidationLogRing, AdapterInfo, SurfaceConfigInfo, Byte())
+  fullName.vb: Etch.Gpu.Diagnostics.GpuSceneReproducer.New(Etch.Gpu.Diagnostics.ValidationLogRing, Etch.Gpu.Diagnostics.AdapterInfo, Etch.Gpu.Diagnostics.SurfaceConfigInfo, Byte())
+  name.vb: New(ValidationLogRing, AdapterInfo, SurfaceConfigInfo, Byte())
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo(System.Span{System.Byte})
+  commentId: M:Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo(System.Span{System.Byte})
+  id: CaptureTo(System.Span{System.Byte})
+  parent: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  langs:
+  - csharp
+  - vb
+  name: CaptureTo(Span<byte>)
+  nameWithType: GpuSceneReproducer.CaptureTo(Span<byte>)
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo(System.Span<byte>)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  example: []
+  syntax:
+    content: public int CaptureTo(Span<byte> destination)
+    parameters:
+    - id: destination
+      type: System.Span{System.Byte}
+    return:
+      type: System.Int32
+    content.vb: Public Function CaptureTo(destination As Span(Of Byte)) As Integer
+  overload: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo*
+  implements:
+  - Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span{System.Byte})
+  nameWithType.vb: GpuSceneReproducer.CaptureTo(Span(Of Byte))
+  fullName.vb: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo(System.Span(Of Byte))
+  name.vb: CaptureTo(Span(Of Byte))
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound(System.Int32)
+  commentId: M:Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound(System.Int32)
+  id: CalculateUpperBound(System.Int32)
+  parent: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  langs:
+  - csharp
+  - vb
+  name: CalculateUpperBound(int)
+  nameWithType: GpuSceneReproducer.CalculateUpperBound(int)
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound(int)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  summary: >-
+    Upper-bound envelope size for a capture with the supplied scene-bytes budget.
+
+    Use when the caller needs to size an ArrayPool rental before calling CaptureTo.
+  example: []
+  syntax:
+    content: public int CalculateUpperBound(int sceneBytesBudget)
+    parameters:
+    - id: sceneBytesBudget
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function CalculateUpperBound(sceneBytesBudget As Integer) As Integer
+  overload: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound*
+  nameWithType.vb: GpuSceneReproducer.CalculateUpperBound(Integer)
+  fullName.vb: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound(Integer)
+  name.vb: CalculateUpperBound(Integer)
+references:
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  href: Etch.html
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Abstractions.Diagnostics.ISceneReproducer
+  commentId: T:Etch.Abstractions.Diagnostics.ISceneReproducer
+  parent: Etch.Abstractions.Diagnostics
+  name: ISceneReproducer
+  nameWithType: ISceneReproducer
+  fullName: Etch.Abstractions.Diagnostics.ISceneReproducer
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Abstractions.Diagnostics
+  commentId: N:Etch.Abstractions.Diagnostics
+  name: Etch.Abstractions.Diagnostics
+  nameWithType: Etch.Abstractions.Diagnostics
+  fullName: Etch.Abstractions.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Abstractions
+    name: Abstractions
+  - name: .
+  - uid: Etch.Abstractions.Diagnostics
+    name: Diagnostics
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Abstractions
+    name: Abstractions
+  - name: .
+  - uid: Etch.Abstractions.Diagnostics
+    name: Diagnostics
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor*
+  commentId: Overload:Etch.Gpu.Diagnostics.GpuSceneReproducer.#ctor
+  href: Etch.Gpu.Diagnostics.GpuSceneReproducer.html#Etch_Gpu_Diagnostics_GpuSceneReproducer__ctor_Etch_Gpu_Diagnostics_ValidationLogRing_Etch_Gpu_Diagnostics_AdapterInfo_Etch_Gpu_Diagnostics_SurfaceConfigInfo_System_Byte___
+  name: GpuSceneReproducer
+  nameWithType: GpuSceneReproducer.GpuSceneReproducer
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.GpuSceneReproducer
+  nameWithType.vb: GpuSceneReproducer.New
+  fullName.vb: Etch.Gpu.Diagnostics.GpuSceneReproducer.New
+  name.vb: New
+- uid: Etch.Gpu.Diagnostics.ValidationLogRing
+  commentId: T:Etch.Gpu.Diagnostics.ValidationLogRing
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.ValidationLogRing.html
+  name: ValidationLogRing
+  nameWithType: ValidationLogRing
+  fullName: Etch.Gpu.Diagnostics.ValidationLogRing
+- uid: Etch.Gpu.Diagnostics.AdapterInfo
+  commentId: T:Etch.Gpu.Diagnostics.AdapterInfo
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html
+  name: AdapterInfo
+  nameWithType: AdapterInfo
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo
+- uid: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+  commentId: T:Etch.Gpu.Diagnostics.SurfaceConfigInfo
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.SurfaceConfigInfo.html
+  name: SurfaceConfigInfo
+  nameWithType: SurfaceConfigInfo
+  fullName: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo*
+  commentId: Overload:Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo
+  href: Etch.Gpu.Diagnostics.GpuSceneReproducer.html#Etch_Gpu_Diagnostics_GpuSceneReproducer_CaptureTo_System_Span_System_Byte__
+  name: CaptureTo
+  nameWithType: GpuSceneReproducer.CaptureTo
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.CaptureTo
+- uid: Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span{System.Byte})
+  commentId: M:Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span{System.Byte})
+  parent: Etch.Abstractions.Diagnostics.ISceneReproducer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: CaptureTo(Span<byte>)
+  nameWithType: ISceneReproducer.CaptureTo(Span<byte>)
+  fullName: Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span<byte>)
+  nameWithType.vb: ISceneReproducer.CaptureTo(Span(Of Byte))
+  fullName.vb: Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span(Of Byte))
+  name.vb: CaptureTo(Span(Of Byte))
+  spec.csharp:
+  - uid: Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span{System.Byte})
+    name: CaptureTo
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Etch.Abstractions.Diagnostics.ISceneReproducer.CaptureTo(System.Span{System.Byte})
+    name: CaptureTo
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound*
+  commentId: Overload:Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound
+  href: Etch.Gpu.Diagnostics.GpuSceneReproducer.html#Etch_Gpu_Diagnostics_GpuSceneReproducer_CalculateUpperBound_System_Int32_
+  name: CalculateUpperBound
+  nameWithType: GpuSceneReproducer.CalculateUpperBound
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer.CalculateUpperBound

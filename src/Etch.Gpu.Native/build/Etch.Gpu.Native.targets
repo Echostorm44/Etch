@@ -1,0 +1,17 @@
+<Project>
+  <ItemGroup>
+    <NativeLibraries Include="$(MSBuildThisFileDirectory)..\runtimes\**\native\*.*" />
+  </ItemGroup>
+
+  <Target Name="CopyNativeLibraries" AfterTargets="Build">
+    <Copy SourceFiles="@(NativeLibraries)"
+          DestinationFiles="@(NativeLibraries->'$(OutDir)runtimes/%(RecursiveDir)native/%(Filename)%(Extension)')"
+          Condition="'@(NativeLibraries)' != ''" />
+  </Target>
+
+  <Target Name="CopyNativeLibrariesForPublish" AfterTargets="Publish">
+    <Copy SourceFiles="@(NativeLibraries)"
+          DestinationFiles="@(NativeLibraries->'$(PublishDir)runtimes/%(RecursiveDir)native/%(Filename)%(Extension)')"
+          Condition="'@(NativeLibraries)' != ''" />
+  </Target>
+</Project>

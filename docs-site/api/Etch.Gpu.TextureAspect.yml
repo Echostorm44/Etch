@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureAspect
+  commentId: T:Etch.Gpu.TextureAspect
+  id: TextureAspect
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureAspect.All
+  - Etch.Gpu.TextureAspect.DepthOnly
+  - Etch.Gpu.TextureAspect.Plane0Only
+  - Etch.Gpu.TextureAspect.Plane1Only
+  - Etch.Gpu.TextureAspect.Plane2Only
+  - Etch.Gpu.TextureAspect.StencilOnly
+  - Etch.Gpu.TextureAspect.Undefined
+  langs:
+  - csharp
+  - vb
+  name: TextureAspect
+  nameWithType: TextureAspect
+  fullName: Etch.Gpu.TextureAspect
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum TextureAspect : uint'
+    content.vb: Public Enum TextureAspect As UInteger
+- uid: Etch.Gpu.TextureAspect.Undefined
+  commentId: F:Etch.Gpu.TextureAspect.Undefined
+  id: Undefined
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TextureAspect.Undefined
+  fullName: Etch.Gpu.TextureAspect.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.All
+  commentId: F:Etch.Gpu.TextureAspect.All
+  id: All
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: TextureAspect.All
+  fullName: Etch.Gpu.TextureAspect.All
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: All = 1
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.StencilOnly
+  commentId: F:Etch.Gpu.TextureAspect.StencilOnly
+  id: StencilOnly
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: StencilOnly
+  nameWithType: TextureAspect.StencilOnly
+  fullName: Etch.Gpu.TextureAspect.StencilOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: StencilOnly = 2
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.DepthOnly
+  commentId: F:Etch.Gpu.TextureAspect.DepthOnly
+  id: DepthOnly
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: DepthOnly
+  nameWithType: TextureAspect.DepthOnly
+  fullName: Etch.Gpu.TextureAspect.DepthOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DepthOnly = 3
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.Plane0Only
+  commentId: F:Etch.Gpu.TextureAspect.Plane0Only
+  id: Plane0Only
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: Plane0Only
+  nameWithType: TextureAspect.Plane0Only
+  fullName: Etch.Gpu.TextureAspect.Plane0Only
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Plane0Only = 4
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.Plane1Only
+  commentId: F:Etch.Gpu.TextureAspect.Plane1Only
+  id: Plane1Only
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: Plane1Only
+  nameWithType: TextureAspect.Plane1Only
+  fullName: Etch.Gpu.TextureAspect.Plane1Only
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Plane1Only = 5
+    return:
+      type: Etch.Gpu.TextureAspect
+- uid: Etch.Gpu.TextureAspect.Plane2Only
+  commentId: F:Etch.Gpu.TextureAspect.Plane2Only
+  id: Plane2Only
+  parent: Etch.Gpu.TextureAspect
+  langs:
+  - csharp
+  - vb
+  name: Plane2Only
+  nameWithType: TextureAspect.Plane2Only
+  fullName: Etch.Gpu.TextureAspect.Plane2Only
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Plane2Only = 6
+    return:
+      type: Etch.Gpu.TextureAspect
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureAspect
+  commentId: T:Etch.Gpu.TextureAspect
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureAspect.html
+  name: TextureAspect
+  nameWithType: TextureAspect
+  fullName: Etch.Gpu.TextureAspect

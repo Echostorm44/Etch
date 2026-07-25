@@ -1,0 +1,881 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Circle
+  commentId: T:Etch.Geometry.Circle
+  id: Circle
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Circle.#ctor(Etch.Geometry.Point,System.Double)
+  - Etch.Geometry.Circle.#ctor(System.Double,System.Double,System.Double)
+  - Etch.Geometry.Circle.Aabb
+  - Etch.Geometry.Circle.Center
+  - Etch.Geometry.Circle.Contains(Etch.Geometry.Point)
+  - Etch.Geometry.Circle.Equals(Etch.Geometry.Circle)
+  - Etch.Geometry.Circle.Equals(System.Object)
+  - Etch.Geometry.Circle.GetHashCode
+  - Etch.Geometry.Circle.Intersects(Etch.Geometry.Circle)
+  - Etch.Geometry.Circle.Intersects(Etch.Geometry.Rect)
+  - Etch.Geometry.Circle.Radius
+  - Etch.Geometry.Circle.ToString
+  - Etch.Geometry.Circle.op_Equality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  - Etch.Geometry.Circle.op_Inequality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  langs:
+  - csharp
+  - vb
+  name: Circle
+  nameWithType: Circle
+  fullName: Etch.Geometry.Circle
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Circle : IEquatable<Circle>'
+    content.vb: Public Structure Circle Implements IEquatable(Of Circle)
+  implements:
+  - System.IEquatable{Etch.Geometry.Circle}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Circle.Center
+  commentId: F:Etch.Geometry.Circle.Center
+  id: Center
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Circle.Center
+  fullName: Etch.Geometry.Circle.Center
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point Center
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Center As Point
+- uid: Etch.Geometry.Circle.Radius
+  commentId: F:Etch.Geometry.Circle.Radius
+  id: Radius
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: Circle.Radius
+  fullName: Etch.Geometry.Circle.Radius
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double Radius
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Radius As Double
+- uid: Etch.Geometry.Circle.#ctor(Etch.Geometry.Point,System.Double)
+  commentId: M:Etch.Geometry.Circle.#ctor(Etch.Geometry.Point,System.Double)
+  id: '#ctor(Etch.Geometry.Point,System.Double)'
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Circle(Point, double)
+  nameWithType: Circle.Circle(Point, double)
+  fullName: Etch.Geometry.Circle.Circle(Etch.Geometry.Point, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Circle(Point center, double radius)
+    parameters:
+    - id: center
+      type: Etch.Geometry.Point
+    - id: radius
+      type: System.Double
+    content.vb: Public Sub New(center As Point, radius As Double)
+  overload: Etch.Geometry.Circle.#ctor*
+  nameWithType.vb: Circle.New(Point, Double)
+  fullName.vb: Etch.Geometry.Circle.New(Etch.Geometry.Point, Double)
+  name.vb: New(Point, Double)
+- uid: Etch.Geometry.Circle.#ctor(System.Double,System.Double,System.Double)
+  commentId: M:Etch.Geometry.Circle.#ctor(System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double)'
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Circle(double, double, double)
+  nameWithType: Circle.Circle(double, double, double)
+  fullName: Etch.Geometry.Circle.Circle(double, double, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Circle(double centerX, double centerY, double radius)
+    parameters:
+    - id: centerX
+      type: System.Double
+    - id: centerY
+      type: System.Double
+    - id: radius
+      type: System.Double
+    content.vb: Public Sub New(centerX As Double, centerY As Double, radius As Double)
+  overload: Etch.Geometry.Circle.#ctor*
+  nameWithType.vb: Circle.New(Double, Double, Double)
+  fullName.vb: Etch.Geometry.Circle.New(Double, Double, Double)
+  name.vb: New(Double, Double, Double)
+- uid: Etch.Geometry.Circle.Contains(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Circle.Contains(Etch.Geometry.Point)
+  id: Contains(Etch.Geometry.Point)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Contains(Point)
+  nameWithType: Circle.Contains(Point)
+  fullName: Etch.Geometry.Circle.Contains(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Contains(Point p)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(p As Point) As Boolean
+  overload: Etch.Geometry.Circle.Contains*
+- uid: Etch.Geometry.Circle.Intersects(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Circle.Intersects(Etch.Geometry.Rect)
+  id: Intersects(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Rect)
+  nameWithType: Circle.Intersects(Rect)
+  fullName: Etch.Geometry.Circle.Intersects(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Intersects(Rect rect)
+    parameters:
+    - id: rect
+      type: Etch.Geometry.Rect
+    return:
+      type: System.Boolean
+    content.vb: Public Function Intersects(rect As Rect) As Boolean
+  overload: Etch.Geometry.Circle.Intersects*
+- uid: Etch.Geometry.Circle.Intersects(Etch.Geometry.Circle)
+  commentId: M:Etch.Geometry.Circle.Intersects(Etch.Geometry.Circle)
+  id: Intersects(Etch.Geometry.Circle)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Circle)
+  nameWithType: Circle.Intersects(Circle)
+  fullName: Etch.Geometry.Circle.Intersects(Etch.Geometry.Circle)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Intersects(Circle other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Circle
+    return:
+      type: System.Boolean
+    content.vb: Public Function Intersects(other As Circle) As Boolean
+  overload: Etch.Geometry.Circle.Intersects*
+- uid: Etch.Geometry.Circle.Aabb
+  commentId: M:Etch.Geometry.Circle.Aabb
+  id: Aabb
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Aabb()
+  nameWithType: Circle.Aabb()
+  fullName: Etch.Geometry.Circle.Aabb()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Aabb()
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Aabb() As Rect
+  overload: Etch.Geometry.Circle.Aabb*
+- uid: Etch.Geometry.Circle.Equals(Etch.Geometry.Circle)
+  commentId: M:Etch.Geometry.Circle.Equals(Etch.Geometry.Circle)
+  id: Equals(Etch.Geometry.Circle)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Equals(Circle)
+  nameWithType: Circle.Equals(Circle)
+  fullName: Etch.Geometry.Circle.Equals(Etch.Geometry.Circle)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Circle other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Circle
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Circle) As Boolean
+  overload: Etch.Geometry.Circle.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Circle}.Equals(Etch.Geometry.Circle)
+- uid: Etch.Geometry.Circle.Equals(System.Object)
+  commentId: M:Etch.Geometry.Circle.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Circle.Equals(object?)
+  fullName: Etch.Geometry.Circle.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Circle.Equals*
+  nameWithType.vb: Circle.Equals(Object)
+  fullName.vb: Etch.Geometry.Circle.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Circle.op_Equality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  commentId: M:Etch.Geometry.Circle.op_Equality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  id: op_Equality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Circle, Circle)
+  nameWithType: Circle.operator ==(Circle, Circle)
+  fullName: Etch.Geometry.Circle.operator ==(Etch.Geometry.Circle, Etch.Geometry.Circle)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Circle left, Circle right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Circle
+    - id: right
+      type: Etch.Geometry.Circle
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Circle, right As Circle) As Boolean
+  overload: Etch.Geometry.Circle.op_Equality*
+  nameWithType.vb: Circle.=(Circle, Circle)
+  fullName.vb: Etch.Geometry.Circle.=(Etch.Geometry.Circle, Etch.Geometry.Circle)
+  name.vb: =(Circle, Circle)
+- uid: Etch.Geometry.Circle.op_Inequality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  commentId: M:Etch.Geometry.Circle.op_Inequality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  id: op_Inequality(Etch.Geometry.Circle,Etch.Geometry.Circle)
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Circle, Circle)
+  nameWithType: Circle.operator !=(Circle, Circle)
+  fullName: Etch.Geometry.Circle.operator !=(Etch.Geometry.Circle, Etch.Geometry.Circle)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Circle left, Circle right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Circle
+    - id: right
+      type: Etch.Geometry.Circle
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Circle, right As Circle) As Boolean
+  overload: Etch.Geometry.Circle.op_Inequality*
+  nameWithType.vb: Circle.<>(Circle, Circle)
+  fullName.vb: Etch.Geometry.Circle.<>(Etch.Geometry.Circle, Etch.Geometry.Circle)
+  name.vb: <>(Circle, Circle)
+- uid: Etch.Geometry.Circle.GetHashCode
+  commentId: M:Etch.Geometry.Circle.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Circle.GetHashCode()
+  fullName: Etch.Geometry.Circle.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Circle.GetHashCode*
+- uid: Etch.Geometry.Circle.ToString
+  commentId: M:Etch.Geometry.Circle.ToString
+  id: ToString
+  parent: Etch.Geometry.Circle
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Circle.ToString()
+  fullName: Etch.Geometry.Circle.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Circle.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Circle}
+  commentId: T:System.IEquatable{Etch.Geometry.Circle}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Circle>
+  nameWithType: IEquatable<Circle>
+  fullName: System.IEquatable<Etch.Geometry.Circle>
+  nameWithType.vb: IEquatable(Of Circle)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Circle)
+  name.vb: IEquatable(Of Circle)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Circle
+    name: Circle
+    href: Etch.Geometry.Circle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Circle
+    name: Circle
+    href: Etch.Geometry.Circle.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Circle.#ctor*
+  commentId: Overload:Etch.Geometry.Circle.#ctor
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle__ctor_Etch_Geometry_Point_System_Double_
+  name: Circle
+  nameWithType: Circle.Circle
+  fullName: Etch.Geometry.Circle.Circle
+  nameWithType.vb: Circle.New
+  fullName.vb: Etch.Geometry.Circle.New
+  name.vb: New
+- uid: Etch.Geometry.Circle.Contains*
+  commentId: Overload:Etch.Geometry.Circle.Contains
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_Contains_Etch_Geometry_Point_
+  name: Contains
+  nameWithType: Circle.Contains
+  fullName: Etch.Geometry.Circle.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Circle.Intersects*
+  commentId: Overload:Etch.Geometry.Circle.Intersects
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_Intersects_Etch_Geometry_Rect_
+  name: Intersects
+  nameWithType: Circle.Intersects
+  fullName: Etch.Geometry.Circle.Intersects
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry.Circle
+  commentId: T:Etch.Geometry.Circle
+  parent: Etch.Geometry
+  href: Etch.Geometry.Circle.html
+  name: Circle
+  nameWithType: Circle
+  fullName: Etch.Geometry.Circle
+- uid: Etch.Geometry.Circle.Aabb*
+  commentId: Overload:Etch.Geometry.Circle.Aabb
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_Aabb
+  name: Aabb
+  nameWithType: Circle.Aabb
+  fullName: Etch.Geometry.Circle.Aabb
+- uid: Etch.Geometry.Circle.Equals*
+  commentId: Overload:Etch.Geometry.Circle.Equals
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_Equals_Etch_Geometry_Circle_
+  name: Equals
+  nameWithType: Circle.Equals
+  fullName: Etch.Geometry.Circle.Equals
+- uid: System.IEquatable{Etch.Geometry.Circle}.Equals(Etch.Geometry.Circle)
+  commentId: M:System.IEquatable{Etch.Geometry.Circle}.Equals(Etch.Geometry.Circle)
+  parent: System.IEquatable{Etch.Geometry.Circle}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Circle)
+  nameWithType: IEquatable<Circle>.Equals(Circle)
+  fullName: System.IEquatable<Etch.Geometry.Circle>.Equals(Etch.Geometry.Circle)
+  nameWithType.vb: IEquatable(Of Circle).Equals(Circle)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Circle).Equals(Etch.Geometry.Circle)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Circle}.Equals(Etch.Geometry.Circle)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Circle
+    name: Circle
+    href: Etch.Geometry.Circle.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Circle}.Equals(Etch.Geometry.Circle)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Circle
+    name: Circle
+    href: Etch.Geometry.Circle.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: Etch.Geometry.Circle.op_Equality*
+  commentId: Overload:Etch.Geometry.Circle.op_Equality
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_op_Equality_Etch_Geometry_Circle_Etch_Geometry_Circle_
+  name: operator ==
+  nameWithType: Circle.operator ==
+  fullName: Etch.Geometry.Circle.operator ==
+  nameWithType.vb: Circle.=
+  fullName.vb: Etch.Geometry.Circle.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Circle.op_Equality*
+    name: ==
+    href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_op_Equality_Etch_Geometry_Circle_Etch_Geometry_Circle_
+- uid: Etch.Geometry.Circle.op_Inequality*
+  commentId: Overload:Etch.Geometry.Circle.op_Inequality
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_op_Inequality_Etch_Geometry_Circle_Etch_Geometry_Circle_
+  name: operator !=
+  nameWithType: Circle.operator !=
+  fullName: Etch.Geometry.Circle.operator !=
+  nameWithType.vb: Circle.<>
+  fullName.vb: Etch.Geometry.Circle.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Circle.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_op_Inequality_Etch_Geometry_Circle_Etch_Geometry_Circle_
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Circle.GetHashCode*
+  commentId: Overload:Etch.Geometry.Circle.GetHashCode
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_GetHashCode
+  name: GetHashCode
+  nameWithType: Circle.GetHashCode
+  fullName: Etch.Geometry.Circle.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Circle.ToString*
+  commentId: Overload:Etch.Geometry.Circle.ToString
+  href: Etch.Geometry.Circle.html#Etch_Geometry_Circle_ToString
+  name: ToString
+  nameWithType: Circle.ToString
+  fullName: Etch.Geometry.Circle.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

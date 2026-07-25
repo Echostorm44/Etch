@@ -1,0 +1,542 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Strokes.DashPattern
+  commentId: T:Etch.Strokes.DashPattern
+  id: DashPattern
+  parent: Etch.Strokes
+  children:
+  - Etch.Strokes.DashPattern.#ctor(System.Single[],System.Single,System.Boolean)
+  - Etch.Strokes.DashPattern.IsOnSegment(System.Single)
+  - Etch.Strokes.DashPattern.Phase
+  - Etch.Strokes.DashPattern.PhasePosition(System.Single)
+  - Etch.Strokes.DashPattern.ResetOnMove
+  - Etch.Strokes.DashPattern.SegmentCount
+  - Etch.Strokes.DashPattern.Segments
+  - Etch.Strokes.DashPattern.TotalLength
+  langs:
+  - csharp
+  - vb
+  name: DashPattern
+  nameWithType: DashPattern
+  fullName: Etch.Strokes.DashPattern
+  type: Struct
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public readonly struct DashPattern
+    content.vb: Public Structure DashPattern
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Strokes.DashPattern.Segments
+  commentId: F:Etch.Strokes.DashPattern.Segments
+  id: Segments
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: Segments
+  nameWithType: DashPattern.Segments
+  fullName: Etch.Strokes.DashPattern.Segments
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public readonly float[] Segments
+    return:
+      type: System.Single[]
+    content.vb: Public ReadOnly Segments As Single()
+- uid: Etch.Strokes.DashPattern.Phase
+  commentId: F:Etch.Strokes.DashPattern.Phase
+  id: Phase
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: Phase
+  nameWithType: DashPattern.Phase
+  fullName: Etch.Strokes.DashPattern.Phase
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public readonly float Phase
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Phase As Single
+- uid: Etch.Strokes.DashPattern.ResetOnMove
+  commentId: F:Etch.Strokes.DashPattern.ResetOnMove
+  id: ResetOnMove
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: ResetOnMove
+  nameWithType: DashPattern.ResetOnMove
+  fullName: Etch.Strokes.DashPattern.ResetOnMove
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public readonly bool ResetOnMove
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly ResetOnMove As Boolean
+- uid: Etch.Strokes.DashPattern.#ctor(System.Single[],System.Single,System.Boolean)
+  commentId: M:Etch.Strokes.DashPattern.#ctor(System.Single[],System.Single,System.Boolean)
+  id: '#ctor(System.Single[],System.Single,System.Boolean)'
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: DashPattern(float[], float, bool)
+  nameWithType: DashPattern.DashPattern(float[], float, bool)
+  fullName: Etch.Strokes.DashPattern.DashPattern(float[], float, bool)
+  type: Constructor
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public DashPattern(float[] segments, float phase = 0, bool resetOnMove = true)
+    parameters:
+    - id: segments
+      type: System.Single[]
+    - id: phase
+      type: System.Single
+    - id: resetOnMove
+      type: System.Boolean
+    content.vb: Public Sub New(segments As Single(), phase As Single = 0, resetOnMove As Boolean = True)
+  overload: Etch.Strokes.DashPattern.#ctor*
+  nameWithType.vb: DashPattern.New(Single(), Single, Boolean)
+  fullName.vb: Etch.Strokes.DashPattern.New(Single(), Single, Boolean)
+  name.vb: New(Single(), Single, Boolean)
+- uid: Etch.Strokes.DashPattern.SegmentCount
+  commentId: P:Etch.Strokes.DashPattern.SegmentCount
+  id: SegmentCount
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: SegmentCount
+  nameWithType: DashPattern.SegmentCount
+  fullName: Etch.Strokes.DashPattern.SegmentCount
+  type: Property
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public int SegmentCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property SegmentCount As Integer
+  overload: Etch.Strokes.DashPattern.SegmentCount*
+- uid: Etch.Strokes.DashPattern.TotalLength
+  commentId: M:Etch.Strokes.DashPattern.TotalLength
+  id: TotalLength
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: TotalLength()
+  nameWithType: DashPattern.TotalLength()
+  fullName: Etch.Strokes.DashPattern.TotalLength()
+  type: Method
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public float TotalLength()
+    return:
+      type: System.Single
+    content.vb: Public Function TotalLength() As Single
+  overload: Etch.Strokes.DashPattern.TotalLength*
+- uid: Etch.Strokes.DashPattern.PhasePosition(System.Single)
+  commentId: M:Etch.Strokes.DashPattern.PhasePosition(System.Single)
+  id: PhasePosition(System.Single)
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: PhasePosition(float)
+  nameWithType: DashPattern.PhasePosition(float)
+  fullName: Etch.Strokes.DashPattern.PhasePosition(float)
+  type: Method
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public float PhasePosition(float position)
+    parameters:
+    - id: position
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Function PhasePosition(position As Single) As Single
+  overload: Etch.Strokes.DashPattern.PhasePosition*
+  nameWithType.vb: DashPattern.PhasePosition(Single)
+  fullName.vb: Etch.Strokes.DashPattern.PhasePosition(Single)
+  name.vb: PhasePosition(Single)
+- uid: Etch.Strokes.DashPattern.IsOnSegment(System.Single)
+  commentId: M:Etch.Strokes.DashPattern.IsOnSegment(System.Single)
+  id: IsOnSegment(System.Single)
+  parent: Etch.Strokes.DashPattern
+  langs:
+  - csharp
+  - vb
+  name: IsOnSegment(float)
+  nameWithType: DashPattern.IsOnSegment(float)
+  fullName: Etch.Strokes.DashPattern.IsOnSegment(float)
+  type: Method
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: public bool IsOnSegment(float positionInCycle)
+    parameters:
+    - id: positionInCycle
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsOnSegment(positionInCycle As Single) As Boolean
+  overload: Etch.Strokes.DashPattern.IsOnSegment*
+  nameWithType.vb: DashPattern.IsOnSegment(Single)
+  fullName.vb: Etch.Strokes.DashPattern.IsOnSegment(Single)
+  name.vb: IsOnSegment(Single)
+references:
+- uid: Etch.Strokes
+  commentId: N:Etch.Strokes
+  href: Etch.html
+  name: Etch.Strokes
+  nameWithType: Etch.Strokes
+  fullName: Etch.Strokes
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Strokes.DashPattern.#ctor*
+  commentId: Overload:Etch.Strokes.DashPattern.#ctor
+  href: Etch.Strokes.DashPattern.html#Etch_Strokes_DashPattern__ctor_System_Single___System_Single_System_Boolean_
+  name: DashPattern
+  nameWithType: DashPattern.DashPattern
+  fullName: Etch.Strokes.DashPattern.DashPattern
+  nameWithType.vb: DashPattern.New
+  fullName.vb: Etch.Strokes.DashPattern.New
+  name.vb: New
+- uid: Etch.Strokes.DashPattern.SegmentCount*
+  commentId: Overload:Etch.Strokes.DashPattern.SegmentCount
+  href: Etch.Strokes.DashPattern.html#Etch_Strokes_DashPattern_SegmentCount
+  name: SegmentCount
+  nameWithType: DashPattern.SegmentCount
+  fullName: Etch.Strokes.DashPattern.SegmentCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Strokes.DashPattern.TotalLength*
+  commentId: Overload:Etch.Strokes.DashPattern.TotalLength
+  href: Etch.Strokes.DashPattern.html#Etch_Strokes_DashPattern_TotalLength
+  name: TotalLength
+  nameWithType: DashPattern.TotalLength
+  fullName: Etch.Strokes.DashPattern.TotalLength
+- uid: Etch.Strokes.DashPattern.PhasePosition*
+  commentId: Overload:Etch.Strokes.DashPattern.PhasePosition
+  href: Etch.Strokes.DashPattern.html#Etch_Strokes_DashPattern_PhasePosition_System_Single_
+  name: PhasePosition
+  nameWithType: DashPattern.PhasePosition
+  fullName: Etch.Strokes.DashPattern.PhasePosition
+- uid: Etch.Strokes.DashPattern.IsOnSegment*
+  commentId: Overload:Etch.Strokes.DashPattern.IsOnSegment
+  href: Etch.Strokes.DashPattern.html#Etch_Strokes_DashPattern_IsOnSegment_System_Single_
+  name: IsOnSegment
+  nameWithType: DashPattern.IsOnSegment
+  fullName: Etch.Strokes.DashPattern.IsOnSegment

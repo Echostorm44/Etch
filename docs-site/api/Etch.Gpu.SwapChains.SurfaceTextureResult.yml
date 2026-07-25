@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult
+  commentId: T:Etch.Gpu.SwapChains.SurfaceTextureResult
+  id: SurfaceTextureResult
+  parent: Etch.Gpu.SwapChains
+  children:
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.DeviceLost
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Error
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Lost
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Ok
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.OutOfMemory
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Outdated
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Suboptimal
+  - Etch.Gpu.SwapChains.SurfaceTextureResult.Timeout
+  langs:
+  - csharp
+  - vb
+  name: SurfaceTextureResult
+  nameWithType: SurfaceTextureResult
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public enum SurfaceTextureResult
+    content.vb: Public Enum SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Ok
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Ok
+  id: Ok
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Ok
+  nameWithType: SurfaceTextureResult.Ok
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Ok
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Ok = 0
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Suboptimal
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Suboptimal
+  id: Suboptimal
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Suboptimal
+  nameWithType: SurfaceTextureResult.Suboptimal
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Suboptimal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Suboptimal = 1
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Timeout
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Timeout
+  id: Timeout
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Timeout
+  nameWithType: SurfaceTextureResult.Timeout
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Timeout
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Timeout = 2
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Outdated
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Outdated
+  id: Outdated
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Outdated
+  nameWithType: SurfaceTextureResult.Outdated
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Outdated
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Outdated = 3
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Lost
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Lost
+  id: Lost
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Lost
+  nameWithType: SurfaceTextureResult.Lost
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Lost
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Lost = 4
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.OutOfMemory
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.OutOfMemory
+  id: OutOfMemory
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: OutOfMemory
+  nameWithType: SurfaceTextureResult.OutOfMemory
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.OutOfMemory
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: OutOfMemory = 5
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.DeviceLost
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.DeviceLost
+  id: DeviceLost
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: DeviceLost
+  nameWithType: SurfaceTextureResult.DeviceLost
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.DeviceLost
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: DeviceLost = 6
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult.Error
+  commentId: F:Etch.Gpu.SwapChains.SurfaceTextureResult.Error
+  id: Error
+  parent: Etch.Gpu.SwapChains.SurfaceTextureResult
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: SurfaceTextureResult.Error
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult.Error
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: Error = 7
+    return:
+      type: Etch.Gpu.SwapChains.SurfaceTextureResult
+references:
+- uid: Etch.Gpu.SwapChains
+  commentId: N:Etch.Gpu.SwapChains
+  href: Etch.html
+  name: Etch.Gpu.SwapChains
+  nameWithType: Etch.Gpu.SwapChains
+  fullName: Etch.Gpu.SwapChains
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult
+  commentId: T:Etch.Gpu.SwapChains.SurfaceTextureResult
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SurfaceTextureResult.html
+  name: SurfaceTextureResult
+  nameWithType: SurfaceTextureResult
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult

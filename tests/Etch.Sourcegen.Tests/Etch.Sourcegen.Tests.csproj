@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Sourcegen.Tests</RootNamespace>
+    <AssemblyName>Etch.Sourcegen.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src-gen\Etch.Sourcegen.Logging\Etch.Sourcegen.Logging.csproj" />
+    <ProjectReference Include="..\..\src-gen\Etch.Sourcegen.Pooled\Etch.Sourcegen.Pooled.csproj" />
+    <ProjectReference Include="..\..\src-gen\Etch.Sourcegen.Pooled.Samples\Etch.Sourcegen.Pooled.Samples.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

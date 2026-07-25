@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  id: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.AtlasRegion
+  - Etch.Text.Atlas.FontFaceExtensions
+  - Etch.Text.Atlas.GlyphAtlas
+  - Etch.Text.Atlas.GlyphCacheKey
+  - Etch.Text.Atlas.ISliceStrategy
+  - Etch.Text.Atlas.ShelfPacker
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Atlas.FontFaceExtensions
+  commentId: T:Etch.Text.Atlas.FontFaceExtensions
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.FontFaceExtensions.html
+  name: FontFaceExtensions
+  nameWithType: FontFaceExtensions
+  fullName: Etch.Text.Atlas.FontFaceExtensions
+- uid: Etch.Text.Atlas.GlyphAtlas
+  commentId: T:Etch.Text.Atlas.GlyphAtlas
+  href: Etch.Text.Atlas.GlyphAtlas.html
+  name: GlyphAtlas
+  nameWithType: GlyphAtlas
+  fullName: Etch.Text.Atlas.GlyphAtlas
+- uid: Etch.Text.Atlas.GlyphCacheKey
+  commentId: T:Etch.Text.Atlas.GlyphCacheKey
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.GlyphCacheKey.html
+  name: GlyphCacheKey
+  nameWithType: GlyphCacheKey
+  fullName: Etch.Text.Atlas.GlyphCacheKey
+- uid: Etch.Text.Atlas.ISliceStrategy
+  commentId: T:Etch.Text.Atlas.ISliceStrategy
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.ISliceStrategy.html
+  name: ISliceStrategy
+  nameWithType: ISliceStrategy
+  fullName: Etch.Text.Atlas.ISliceStrategy
+- uid: Etch.Text.Atlas.AtlasRegion
+  commentId: T:Etch.Text.Atlas.AtlasRegion
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.AtlasRegion.html
+  name: AtlasRegion
+  nameWithType: AtlasRegion
+  fullName: Etch.Text.Atlas.AtlasRegion
+- uid: Etch.Text.Atlas.ShelfPacker
+  commentId: T:Etch.Text.Atlas.ShelfPacker
+  href: Etch.Text.Atlas.ShelfPacker.html
+  name: ShelfPacker
+  nameWithType: ShelfPacker
+  fullName: Etch.Text.Atlas.ShelfPacker
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html

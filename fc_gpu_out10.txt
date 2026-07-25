@@ -1,0 +1,4 @@
+GPU render succeeded
+Center pixel: R=FF G=00 B=00 A=FF
+GPU render succeeded
+Center pixel: R=FF G=00 B=00 A=FF

@@ -1,0 +1,7 @@
+{
+  "scenePath": "rect-minus-circle.etsc",
+  "goldenPath": "rect-minus-circle.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

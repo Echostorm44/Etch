@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureUsage
+  commentId: T:Etch.Gpu.TextureUsage
+  id: TextureUsage
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureUsage.CopyDst
+  - Etch.Gpu.TextureUsage.CopySrc
+  - Etch.Gpu.TextureUsage.None
+  - Etch.Gpu.TextureUsage.RenderAttachment
+  - Etch.Gpu.TextureUsage.StorageBinding
+  - Etch.Gpu.TextureUsage.TextureBinding
+  langs:
+  - csharp
+  - vb
+  name: TextureUsage
+  nameWithType: TextureUsage
+  fullName: Etch.Gpu.TextureUsage
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum TextureUsage : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum TextureUsage As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.TextureUsage.None
+  commentId: F:Etch.Gpu.TextureUsage.None
+  id: None
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TextureUsage.None
+  fullName: Etch.Gpu.TextureUsage.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.TextureUsage.CopySrc
+  commentId: F:Etch.Gpu.TextureUsage.CopySrc
+  id: CopySrc
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: CopySrc
+  nameWithType: TextureUsage.CopySrc
+  fullName: Etch.Gpu.TextureUsage.CopySrc
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CopySrc = 1
+    return:
+      type: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.TextureUsage.CopyDst
+  commentId: F:Etch.Gpu.TextureUsage.CopyDst
+  id: CopyDst
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: CopyDst
+  nameWithType: TextureUsage.CopyDst
+  fullName: Etch.Gpu.TextureUsage.CopyDst
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CopyDst = 2
+    return:
+      type: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.TextureUsage.TextureBinding
+  commentId: F:Etch.Gpu.TextureUsage.TextureBinding
+  id: TextureBinding
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: TextureBinding
+  nameWithType: TextureUsage.TextureBinding
+  fullName: Etch.Gpu.TextureUsage.TextureBinding
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: TextureBinding = 4
+    return:
+      type: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.TextureUsage.StorageBinding
+  commentId: F:Etch.Gpu.TextureUsage.StorageBinding
+  id: StorageBinding
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: StorageBinding
+  nameWithType: TextureUsage.StorageBinding
+  fullName: Etch.Gpu.TextureUsage.StorageBinding
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: StorageBinding = 8
+    return:
+      type: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.TextureUsage.RenderAttachment
+  commentId: F:Etch.Gpu.TextureUsage.RenderAttachment
+  id: RenderAttachment
+  parent: Etch.Gpu.TextureUsage
+  langs:
+  - csharp
+  - vb
+  name: RenderAttachment
+  nameWithType: TextureUsage.RenderAttachment
+  fullName: Etch.Gpu.TextureUsage.RenderAttachment
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: RenderAttachment = 16
+    return:
+      type: Etch.Gpu.TextureUsage
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureUsage
+  commentId: T:Etch.Gpu.TextureUsage
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureUsage.html
+  name: TextureUsage
+  nameWithType: TextureUsage
+  fullName: Etch.Gpu.TextureUsage

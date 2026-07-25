@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.SampleMode
+  commentId: T:Etch.Gpu.Pipelines.SampleMode
+  id: SampleMode
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.SampleMode.Bicubic
+  - Etch.Gpu.Pipelines.SampleMode.Bilinear
+  langs:
+  - csharp
+  - vb
+  name: SampleMode
+  nameWithType: SampleMode
+  fullName: Etch.Gpu.Pipelines.SampleMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public enum SampleMode : uint'
+    content.vb: Public Enum SampleMode As UInteger
+- uid: Etch.Gpu.Pipelines.SampleMode.Bilinear
+  commentId: F:Etch.Gpu.Pipelines.SampleMode.Bilinear
+  id: Bilinear
+  parent: Etch.Gpu.Pipelines.SampleMode
+  langs:
+  - csharp
+  - vb
+  name: Bilinear
+  nameWithType: SampleMode.Bilinear
+  fullName: Etch.Gpu.Pipelines.SampleMode.Bilinear
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Bilinear = 0
+    return:
+      type: Etch.Gpu.Pipelines.SampleMode
+- uid: Etch.Gpu.Pipelines.SampleMode.Bicubic
+  commentId: F:Etch.Gpu.Pipelines.SampleMode.Bicubic
+  id: Bicubic
+  parent: Etch.Gpu.Pipelines.SampleMode
+  langs:
+  - csharp
+  - vb
+  name: Bicubic
+  nameWithType: SampleMode.Bicubic
+  fullName: Etch.Gpu.Pipelines.SampleMode.Bicubic
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: Bicubic = 1
+    return:
+      type: Etch.Gpu.Pipelines.SampleMode
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: Etch.Gpu.Pipelines.SampleMode
+  commentId: T:Etch.Gpu.Pipelines.SampleMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.SampleMode.html
+  name: SampleMode
+  nameWithType: SampleMode
+  fullName: Etch.Gpu.Pipelines.SampleMode

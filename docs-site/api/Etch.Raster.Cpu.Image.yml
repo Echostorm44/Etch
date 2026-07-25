@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Image
+  commentId: N:Etch.Raster.Cpu.Image
+  id: Etch.Raster.Cpu.Image
+  children:
+  - Etch.Raster.Cpu.Image.BicubicSampler
+  - Etch.Raster.Cpu.Image.BilinearSampler
+  - Etch.Raster.Cpu.Image.Extend
+  - Etch.Raster.Cpu.Image.ImageExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Etch.Raster.Cpu.Image
+  nameWithType: Etch.Raster.Cpu.Image
+  fullName: Etch.Raster.Cpu.Image
+  type: Namespace
+  assemblies:
+  - Etch.Raster.Cpu
+references:
+- uid: Etch.Raster.Cpu.Image.BicubicSampler
+  commentId: T:Etch.Raster.Cpu.Image.BicubicSampler
+  href: Etch.Raster.Cpu.Image.BicubicSampler.html
+  name: BicubicSampler
+  nameWithType: BicubicSampler
+  fullName: Etch.Raster.Cpu.Image.BicubicSampler
+- uid: Etch.Raster.Cpu.Image.BilinearSampler
+  commentId: T:Etch.Raster.Cpu.Image.BilinearSampler
+  href: Etch.Raster.Cpu.Image.BilinearSampler.html
+  name: BilinearSampler
+  nameWithType: BilinearSampler
+  fullName: Etch.Raster.Cpu.Image.BilinearSampler
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode
+  commentId: T:Etch.Raster.Cpu.Image.ImageExtendMode
+  parent: Etch.Raster.Cpu.Image
+  href: Etch.Raster.Cpu.Image.ImageExtendMode.html
+  name: ImageExtendMode
+  nameWithType: ImageExtendMode
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode
+- uid: Etch.Raster.Cpu.Image.Extend
+  commentId: T:Etch.Raster.Cpu.Image.Extend
+  href: Etch.Raster.Cpu.Image.Extend.html
+  name: Extend
+  nameWithType: Extend
+  fullName: Etch.Raster.Cpu.Image.Extend
+- uid: Etch.Raster.Cpu.Image
+  commentId: N:Etch.Raster.Cpu.Image
+  href: Etch.html
+  name: Etch.Raster.Cpu.Image
+  nameWithType: Etch.Raster.Cpu.Image
+  fullName: Etch.Raster.Cpu.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  - name: .
+  - uid: Etch.Raster.Cpu.Image
+    name: Image
+    href: Etch.Raster.Cpu.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  - name: .
+  - uid: Etch.Raster.Cpu.Image
+    name: Image
+    href: Etch.Raster.Cpu.Image.html

@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode
+  commentId: T:Etch.Raster.Cpu.Image.ImageExtendMode
+  id: ImageExtendMode
+  parent: Etch.Raster.Cpu.Image
+  children:
+  - Etch.Raster.Cpu.Image.ImageExtendMode.Mirror
+  - Etch.Raster.Cpu.Image.ImageExtendMode.Pad
+  - Etch.Raster.Cpu.Image.ImageExtendMode.Repeat
+  langs:
+  - csharp
+  - vb
+  name: ImageExtendMode
+  nameWithType: ImageExtendMode
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode
+  type: Enum
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu.Image
+  syntax:
+    content: 'public enum ImageExtendMode : uint'
+    content.vb: Public Enum ImageExtendMode As UInteger
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode.Pad
+  commentId: F:Etch.Raster.Cpu.Image.ImageExtendMode.Pad
+  id: Pad
+  parent: Etch.Raster.Cpu.Image.ImageExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Pad
+  nameWithType: ImageExtendMode.Pad
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode.Pad
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu.Image
+  syntax:
+    content: Pad = 0
+    return:
+      type: Etch.Raster.Cpu.Image.ImageExtendMode
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode.Repeat
+  commentId: F:Etch.Raster.Cpu.Image.ImageExtendMode.Repeat
+  id: Repeat
+  parent: Etch.Raster.Cpu.Image.ImageExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: ImageExtendMode.Repeat
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode.Repeat
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu.Image
+  syntax:
+    content: Repeat = 1
+    return:
+      type: Etch.Raster.Cpu.Image.ImageExtendMode
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode.Mirror
+  commentId: F:Etch.Raster.Cpu.Image.ImageExtendMode.Mirror
+  id: Mirror
+  parent: Etch.Raster.Cpu.Image.ImageExtendMode
+  langs:
+  - csharp
+  - vb
+  name: Mirror
+  nameWithType: ImageExtendMode.Mirror
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode.Mirror
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu.Image
+  syntax:
+    content: Mirror = 2
+    return:
+      type: Etch.Raster.Cpu.Image.ImageExtendMode
+references:
+- uid: Etch.Raster.Cpu.Image
+  commentId: N:Etch.Raster.Cpu.Image
+  href: Etch.html
+  name: Etch.Raster.Cpu.Image
+  nameWithType: Etch.Raster.Cpu.Image
+  fullName: Etch.Raster.Cpu.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  - name: .
+  - uid: Etch.Raster.Cpu.Image
+    name: Image
+    href: Etch.Raster.Cpu.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  - name: .
+  - uid: Etch.Raster.Cpu.Image
+    name: Image
+    href: Etch.Raster.Cpu.Image.html
+- uid: Etch.Raster.Cpu.Image.ImageExtendMode
+  commentId: T:Etch.Raster.Cpu.Image.ImageExtendMode
+  parent: Etch.Raster.Cpu.Image
+  href: Etch.Raster.Cpu.Image.ImageExtendMode.html
+  name: ImageExtendMode
+  nameWithType: ImageExtendMode
+  fullName: Etch.Raster.Cpu.Image.ImageExtendMode

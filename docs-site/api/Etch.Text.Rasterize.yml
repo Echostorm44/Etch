@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Rasterize
+  commentId: N:Etch.Text.Rasterize
+  id: Etch.Text.Rasterize
+  children:
+  - Etch.Text.Rasterize.GlyphRasterizer
+  - Etch.Text.Rasterize.RgbFilter
+  - Etch.Text.Rasterize.SubpixelRgbRasterizer
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Rasterize
+  nameWithType: Etch.Text.Rasterize
+  fullName: Etch.Text.Rasterize
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Rasterize.GlyphRasterizer
+  commentId: T:Etch.Text.Rasterize.GlyphRasterizer
+  href: Etch.Text.Rasterize.GlyphRasterizer.html
+  name: GlyphRasterizer
+  nameWithType: GlyphRasterizer
+  fullName: Etch.Text.Rasterize.GlyphRasterizer
+- uid: Etch.Text.Rasterize.RgbFilter
+  commentId: T:Etch.Text.Rasterize.RgbFilter
+  href: Etch.Text.Rasterize.RgbFilter.html
+  name: RgbFilter
+  nameWithType: RgbFilter
+  fullName: Etch.Text.Rasterize.RgbFilter
+- uid: Etch.Text.Rasterize.SubpixelRgbRasterizer
+  commentId: T:Etch.Text.Rasterize.SubpixelRgbRasterizer
+  href: Etch.Text.Rasterize.SubpixelRgbRasterizer.html
+  name: SubpixelRgbRasterizer
+  nameWithType: SubpixelRgbRasterizer
+  fullName: Etch.Text.Rasterize.SubpixelRgbRasterizer

@@ -1,0 +1,530 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.RadialGradient
+  commentId: T:Etch.ClipBlendGradient.RadialGradient
+  id: RadialGradient
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.RadialGradient.#ctor(Etch.Geometry.Vec2,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  - Etch.ClipBlendGradient.RadialGradient.#ctor(System.Double,System.Double,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  - Etch.ClipBlendGradient.RadialGradient.Center
+  - Etch.ClipBlendGradient.RadialGradient.Extend
+  - Etch.ClipBlendGradient.RadialGradient.InterpolationSpace
+  - Etch.ClipBlendGradient.RadialGradient.Radius
+  - Etch.ClipBlendGradient.RadialGradient.Stops
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient
+  nameWithType: RadialGradient
+  fullName: Etch.ClipBlendGradient.RadialGradient
+  type: Struct
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly struct RadialGradient
+    content.vb: Public Structure RadialGradient
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.ClipBlendGradient.RadialGradient.Center
+  commentId: F:Etch.ClipBlendGradient.RadialGradient.Center
+  id: Center
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: RadialGradient.Center
+  fullName: Etch.ClipBlendGradient.RadialGradient.Center
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly Vec2 Center
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public ReadOnly Center As Vec2
+- uid: Etch.ClipBlendGradient.RadialGradient.Radius
+  commentId: F:Etch.ClipBlendGradient.RadialGradient.Radius
+  id: Radius
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: RadialGradient.Radius
+  fullName: Etch.ClipBlendGradient.RadialGradient.Radius
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly float Radius
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Radius As Single
+- uid: Etch.ClipBlendGradient.RadialGradient.Stops
+  commentId: F:Etch.ClipBlendGradient.RadialGradient.Stops
+  id: Stops
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: Stops
+  nameWithType: RadialGradient.Stops
+  fullName: Etch.ClipBlendGradient.RadialGradient.Stops
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly GradientStop[] Stops
+    return:
+      type: Etch.ClipBlendGradient.GradientStop[]
+    content.vb: Public ReadOnly Stops As GradientStop()
+- uid: Etch.ClipBlendGradient.RadialGradient.Extend
+  commentId: F:Etch.ClipBlendGradient.RadialGradient.Extend
+  id: Extend
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: Extend
+  nameWithType: RadialGradient.Extend
+  fullName: Etch.ClipBlendGradient.RadialGradient.Extend
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly GradientExtend Extend
+    return:
+      type: Etch.ClipBlendGradient.GradientExtend
+    content.vb: Public ReadOnly Extend As GradientExtend
+- uid: Etch.ClipBlendGradient.RadialGradient.InterpolationSpace
+  commentId: F:Etch.ClipBlendGradient.RadialGradient.InterpolationSpace
+  id: InterpolationSpace
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: InterpolationSpace
+  nameWithType: RadialGradient.InterpolationSpace
+  fullName: Etch.ClipBlendGradient.RadialGradient.InterpolationSpace
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public readonly GradientInterpolationSpace InterpolationSpace
+    return:
+      type: Etch.ClipBlendGradient.GradientInterpolationSpace
+    content.vb: Public ReadOnly InterpolationSpace As GradientInterpolationSpace
+- uid: Etch.ClipBlendGradient.RadialGradient.#ctor(Etch.Geometry.Vec2,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  commentId: M:Etch.ClipBlendGradient.RadialGradient.#ctor(Etch.Geometry.Vec2,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  id: '#ctor(Etch.Geometry.Vec2,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)'
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient(Vec2, float, GradientStop[], GradientExtend, GradientInterpolationSpace)
+  nameWithType: RadialGradient.RadialGradient(Vec2, float, GradientStop[], GradientExtend, GradientInterpolationSpace)
+  fullName: Etch.ClipBlendGradient.RadialGradient.RadialGradient(Etch.Geometry.Vec2, float, Etch.ClipBlendGradient.GradientStop[], Etch.ClipBlendGradient.GradientExtend, Etch.ClipBlendGradient.GradientInterpolationSpace)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public RadialGradient(Vec2 center, float radius, GradientStop[] stops, GradientExtend extend, GradientInterpolationSpace interpolationSpace)
+    parameters:
+    - id: center
+      type: Etch.Geometry.Vec2
+    - id: radius
+      type: System.Single
+    - id: stops
+      type: Etch.ClipBlendGradient.GradientStop[]
+    - id: extend
+      type: Etch.ClipBlendGradient.GradientExtend
+    - id: interpolationSpace
+      type: Etch.ClipBlendGradient.GradientInterpolationSpace
+    content.vb: Public Sub New(center As Vec2, radius As Single, stops As GradientStop(), extend As GradientExtend, interpolationSpace As GradientInterpolationSpace)
+  overload: Etch.ClipBlendGradient.RadialGradient.#ctor*
+  nameWithType.vb: RadialGradient.New(Vec2, Single, GradientStop(), GradientExtend, GradientInterpolationSpace)
+  fullName.vb: Etch.ClipBlendGradient.RadialGradient.New(Etch.Geometry.Vec2, Single, Etch.ClipBlendGradient.GradientStop(), Etch.ClipBlendGradient.GradientExtend, Etch.ClipBlendGradient.GradientInterpolationSpace)
+  name.vb: New(Vec2, Single, GradientStop(), GradientExtend, GradientInterpolationSpace)
+- uid: Etch.ClipBlendGradient.RadialGradient.#ctor(System.Double,System.Double,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  commentId: M:Etch.ClipBlendGradient.RadialGradient.#ctor(System.Double,System.Double,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)
+  id: '#ctor(System.Double,System.Double,System.Single,Etch.ClipBlendGradient.GradientStop[],Etch.ClipBlendGradient.GradientExtend,Etch.ClipBlendGradient.GradientInterpolationSpace)'
+  parent: Etch.ClipBlendGradient.RadialGradient
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient(double, double, float, GradientStop[], GradientExtend, GradientInterpolationSpace)
+  nameWithType: RadialGradient.RadialGradient(double, double, float, GradientStop[], GradientExtend, GradientInterpolationSpace)
+  fullName: Etch.ClipBlendGradient.RadialGradient.RadialGradient(double, double, float, Etch.ClipBlendGradient.GradientStop[], Etch.ClipBlendGradient.GradientExtend, Etch.ClipBlendGradient.GradientInterpolationSpace)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public RadialGradient(double centerX, double centerY, float radius, GradientStop[] stops, GradientExtend extend, GradientInterpolationSpace interpolationSpace)
+    parameters:
+    - id: centerX
+      type: System.Double
+    - id: centerY
+      type: System.Double
+    - id: radius
+      type: System.Single
+    - id: stops
+      type: Etch.ClipBlendGradient.GradientStop[]
+    - id: extend
+      type: Etch.ClipBlendGradient.GradientExtend
+    - id: interpolationSpace
+      type: Etch.ClipBlendGradient.GradientInterpolationSpace
+    content.vb: Public Sub New(centerX As Double, centerY As Double, radius As Single, stops As GradientStop(), extend As GradientExtend, interpolationSpace As GradientInterpolationSpace)
+  overload: Etch.ClipBlendGradient.RadialGradient.#ctor*
+  nameWithType.vb: RadialGradient.New(Double, Double, Single, GradientStop(), GradientExtend, GradientInterpolationSpace)
+  fullName.vb: Etch.ClipBlendGradient.RadialGradient.New(Double, Double, Single, Etch.ClipBlendGradient.GradientStop(), Etch.ClipBlendGradient.GradientExtend, Etch.ClipBlendGradient.GradientInterpolationSpace)
+  name.vb: New(Double, Double, Single, GradientStop(), GradientExtend, GradientInterpolationSpace)
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.ClipBlendGradient.GradientStop[]
+  isExternal: true
+  href: Etch.ClipBlendGradient.GradientStop.html
+  name: GradientStop[]
+  nameWithType: GradientStop[]
+  fullName: Etch.ClipBlendGradient.GradientStop[]
+  nameWithType.vb: GradientStop()
+  fullName.vb: Etch.ClipBlendGradient.GradientStop()
+  name.vb: GradientStop()
+  spec.csharp:
+  - uid: Etch.ClipBlendGradient.GradientStop
+    name: GradientStop
+    href: Etch.ClipBlendGradient.GradientStop.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.ClipBlendGradient.GradientStop
+    name: GradientStop
+    href: Etch.ClipBlendGradient.GradientStop.html
+  - name: (
+  - name: )
+- uid: Etch.ClipBlendGradient.GradientExtend
+  commentId: T:Etch.ClipBlendGradient.GradientExtend
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.GradientExtend.html
+  name: GradientExtend
+  nameWithType: GradientExtend
+  fullName: Etch.ClipBlendGradient.GradientExtend
+- uid: Etch.ClipBlendGradient.GradientInterpolationSpace
+  commentId: T:Etch.ClipBlendGradient.GradientInterpolationSpace
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.GradientInterpolationSpace.html
+  name: GradientInterpolationSpace
+  nameWithType: GradientInterpolationSpace
+  fullName: Etch.ClipBlendGradient.GradientInterpolationSpace
+- uid: Etch.ClipBlendGradient.RadialGradient.#ctor*
+  commentId: Overload:Etch.ClipBlendGradient.RadialGradient.#ctor
+  href: Etch.ClipBlendGradient.RadialGradient.html#Etch_ClipBlendGradient_RadialGradient__ctor_Etch_Geometry_Vec2_System_Single_Etch_ClipBlendGradient_GradientStop___Etch_ClipBlendGradient_GradientExtend_Etch_ClipBlendGradient_GradientInterpolationSpace_
+  name: RadialGradient
+  nameWithType: RadialGradient.RadialGradient
+  fullName: Etch.ClipBlendGradient.RadialGradient.RadialGradient
+  nameWithType.vb: RadialGradient.New
+  fullName.vb: Etch.ClipBlendGradient.RadialGradient.New
+  name.vb: New
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double

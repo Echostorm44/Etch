@@ -1,0 +1,24 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <IsAotCompatible Condition="'$(IsAotCompatible)' == ''">true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <DebugType>embedded</DebugType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Company>Echostorm</Company>
+    <Copyright>Copyright © Echostorm</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(MSBuildProjectName)' != 'Etch.Analyzers' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled.Samples' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Logging' And '$(MSBuildProjectName)' != 'Etch.Shader.Generator'">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)src-gen\Etch.Analyzers\Etch.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

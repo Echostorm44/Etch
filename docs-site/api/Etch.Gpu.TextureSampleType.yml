@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureSampleType
+  commentId: T:Etch.Gpu.TextureSampleType
+  id: TextureSampleType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureSampleType.BindingNotUsed
+  - Etch.Gpu.TextureSampleType.Depth
+  - Etch.Gpu.TextureSampleType.Float
+  - Etch.Gpu.TextureSampleType.Sint
+  - Etch.Gpu.TextureSampleType.Uint
+  - Etch.Gpu.TextureSampleType.Undefined
+  - Etch.Gpu.TextureSampleType.UnfilterableFloat
+  langs:
+  - csharp
+  - vb
+  name: TextureSampleType
+  nameWithType: TextureSampleType
+  fullName: Etch.Gpu.TextureSampleType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum TextureSampleType : uint'
+    content.vb: Public Enum TextureSampleType As UInteger
+- uid: Etch.Gpu.TextureSampleType.BindingNotUsed
+  commentId: F:Etch.Gpu.TextureSampleType.BindingNotUsed
+  id: BindingNotUsed
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: BindingNotUsed
+  nameWithType: TextureSampleType.BindingNotUsed
+  fullName: Etch.Gpu.TextureSampleType.BindingNotUsed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: BindingNotUsed = 0
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.Undefined
+  commentId: F:Etch.Gpu.TextureSampleType.Undefined
+  id: Undefined
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TextureSampleType.Undefined
+  fullName: Etch.Gpu.TextureSampleType.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 1
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.Float
+  commentId: F:Etch.Gpu.TextureSampleType.Float
+  id: Float
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: Float
+  nameWithType: TextureSampleType.Float
+  fullName: Etch.Gpu.TextureSampleType.Float
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Float = 2
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.UnfilterableFloat
+  commentId: F:Etch.Gpu.TextureSampleType.UnfilterableFloat
+  id: UnfilterableFloat
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: UnfilterableFloat
+  nameWithType: TextureSampleType.UnfilterableFloat
+  fullName: Etch.Gpu.TextureSampleType.UnfilterableFloat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: UnfilterableFloat = 3
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.Depth
+  commentId: F:Etch.Gpu.TextureSampleType.Depth
+  id: Depth
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: TextureSampleType.Depth
+  fullName: Etch.Gpu.TextureSampleType.Depth
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Depth = 4
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.Sint
+  commentId: F:Etch.Gpu.TextureSampleType.Sint
+  id: Sint
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: Sint
+  nameWithType: TextureSampleType.Sint
+  fullName: Etch.Gpu.TextureSampleType.Sint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Sint = 5
+    return:
+      type: Etch.Gpu.TextureSampleType
+- uid: Etch.Gpu.TextureSampleType.Uint
+  commentId: F:Etch.Gpu.TextureSampleType.Uint
+  id: Uint
+  parent: Etch.Gpu.TextureSampleType
+  langs:
+  - csharp
+  - vb
+  name: Uint
+  nameWithType: TextureSampleType.Uint
+  fullName: Etch.Gpu.TextureSampleType.Uint
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint = 6
+    return:
+      type: Etch.Gpu.TextureSampleType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureSampleType
+  commentId: T:Etch.Gpu.TextureSampleType
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureSampleType.html
+  name: TextureSampleType
+  nameWithType: TextureSampleType
+  fullName: Etch.Gpu.TextureSampleType

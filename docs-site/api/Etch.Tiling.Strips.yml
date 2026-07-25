@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Strips
+  commentId: N:Etch.Tiling.Strips
+  id: Etch.Tiling.Strips
+  children:
+  - Etch.Tiling.Strips.AnalyticCoverage
+  - Etch.Tiling.Strips.Strip
+  - Etch.Tiling.Strips.StripBuffer
+  - Etch.Tiling.Strips.StripEmitter
+  - Etch.Tiling.Strips.StripRange
+  - Etch.Tiling.Strips.StripsBuilder
+  - Etch.Tiling.Strips.TileEdgeClipper
+  langs:
+  - csharp
+  - vb
+  name: Etch.Tiling.Strips
+  nameWithType: Etch.Tiling.Strips
+  fullName: Etch.Tiling.Strips
+  type: Namespace
+  assemblies:
+  - Etch.Tiling
+references:
+- uid: Etch.Tiling.Strips.AnalyticCoverage
+  commentId: T:Etch.Tiling.Strips.AnalyticCoverage
+  href: Etch.Tiling.Strips.AnalyticCoverage.html
+  name: AnalyticCoverage
+  nameWithType: AnalyticCoverage
+  fullName: Etch.Tiling.Strips.AnalyticCoverage
+- uid: Etch.Tiling.Strips.Strip
+  commentId: T:Etch.Tiling.Strips.Strip
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.Strip.html
+  name: Strip
+  nameWithType: Strip
+  fullName: Etch.Tiling.Strips.Strip
+- uid: Etch.Tiling.Strips.StripBuffer
+  commentId: T:Etch.Tiling.Strips.StripBuffer
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.StripBuffer.html
+  name: StripBuffer
+  nameWithType: StripBuffer
+  fullName: Etch.Tiling.Strips.StripBuffer
+- uid: Etch.Tiling.Strips.StripRange
+  commentId: T:Etch.Tiling.Strips.StripRange
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.StripRange.html
+  name: StripRange
+  nameWithType: StripRange
+  fullName: Etch.Tiling.Strips.StripRange
+- uid: Etch.Tiling.Strips.StripEmitter
+  commentId: T:Etch.Tiling.Strips.StripEmitter
+  href: Etch.Tiling.Strips.StripEmitter.html
+  name: StripEmitter
+  nameWithType: StripEmitter
+  fullName: Etch.Tiling.Strips.StripEmitter
+- uid: Etch.Tiling.Strips.StripsBuilder
+  commentId: T:Etch.Tiling.Strips.StripsBuilder
+  href: Etch.Tiling.Strips.StripsBuilder.html
+  name: StripsBuilder
+  nameWithType: StripsBuilder
+  fullName: Etch.Tiling.Strips.StripsBuilder
+- uid: Etch.Tiling.Strips.TileEdgeClipper
+  commentId: T:Etch.Tiling.Strips.TileEdgeClipper
+  href: Etch.Tiling.Strips.TileEdgeClipper.html
+  name: TileEdgeClipper
+  nameWithType: TileEdgeClipper
+  fullName: Etch.Tiling.Strips.TileEdgeClipper
+- uid: Etch.Tiling.Strips
+  commentId: N:Etch.Tiling.Strips
+  href: Etch.html
+  name: Etch.Tiling.Strips
+  nameWithType: Etch.Tiling.Strips
+  fullName: Etch.Tiling.Strips
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html

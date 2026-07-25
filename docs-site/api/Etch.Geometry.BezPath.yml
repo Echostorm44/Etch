@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.BezPath
+  commentId: T:Etch.Geometry.BezPath
+  id: BezPath
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.BezPath.#ctor(System.Byte[],System.Double[],System.Int32)
+  - Etch.Geometry.BezPath.Aabb
+  - Etch.Geometry.BezPath.IsEmpty
+  - Etch.Geometry.BezPath.Iterate
+  - Etch.Geometry.BezPath.TransformedBy(Etch.Geometry.Affine)
+  - Etch.Geometry.BezPath.VerbCount
+  langs:
+  - csharp
+  - vb
+  name: BezPath
+  nameWithType: BezPath
+  fullName: Etch.Geometry.BezPath
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly struct BezPath
+    content.vb: Public Structure BezPath
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.BezPath.VerbCount
+  commentId: P:Etch.Geometry.BezPath.VerbCount
+  id: VerbCount
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: VerbCount
+  nameWithType: BezPath.VerbCount
+  fullName: Etch.Geometry.BezPath.VerbCount
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public int VerbCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VerbCount As Integer
+  overload: Etch.Geometry.BezPath.VerbCount*
+- uid: Etch.Geometry.BezPath.#ctor(System.Byte[],System.Double[],System.Int32)
+  commentId: M:Etch.Geometry.BezPath.#ctor(System.Byte[],System.Double[],System.Int32)
+  id: '#ctor(System.Byte[],System.Double[],System.Int32)'
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: BezPath(byte[], double[], int)
+  nameWithType: BezPath.BezPath(byte[], double[], int)
+  fullName: Etch.Geometry.BezPath.BezPath(byte[], double[], int)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public BezPath(byte[] verbs, double[] coords, int verbCount)
+    parameters:
+    - id: verbs
+      type: System.Byte[]
+    - id: coords
+      type: System.Double[]
+    - id: verbCount
+      type: System.Int32
+    content.vb: Public Sub New(verbs As Byte(), coords As Double(), verbCount As Integer)
+  overload: Etch.Geometry.BezPath.#ctor*
+  nameWithType.vb: BezPath.New(Byte(), Double(), Integer)
+  fullName.vb: Etch.Geometry.BezPath.New(Byte(), Double(), Integer)
+  name.vb: New(Byte(), Double(), Integer)
+- uid: Etch.Geometry.BezPath.IsEmpty
+  commentId: P:Etch.Geometry.BezPath.IsEmpty
+  id: IsEmpty
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: BezPath.IsEmpty
+  fullName: Etch.Geometry.BezPath.IsEmpty
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool IsEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsEmpty As Boolean
+  overload: Etch.Geometry.BezPath.IsEmpty*
+- uid: Etch.Geometry.BezPath.Iterate
+  commentId: M:Etch.Geometry.BezPath.Iterate
+  id: Iterate
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: Iterate()
+  nameWithType: BezPath.Iterate()
+  fullName: Etch.Geometry.BezPath.Iterate()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public BezPathEnumerator Iterate()
+    return:
+      type: Etch.Geometry.BezPathEnumerator
+    content.vb: Public Function Iterate() As BezPathEnumerator
+  overload: Etch.Geometry.BezPath.Iterate*
+- uid: Etch.Geometry.BezPath.Aabb
+  commentId: M:Etch.Geometry.BezPath.Aabb
+  id: Aabb
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: Aabb()
+  nameWithType: BezPath.Aabb()
+  fullName: Etch.Geometry.BezPath.Aabb()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Aabb()
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Aabb() As Rect
+  overload: Etch.Geometry.BezPath.Aabb*
+- uid: Etch.Geometry.BezPath.TransformedBy(Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.BezPath.TransformedBy(Etch.Geometry.Affine)
+  id: TransformedBy(Etch.Geometry.Affine)
+  parent: Etch.Geometry.BezPath
+  langs:
+  - csharp
+  - vb
+  name: TransformedBy(Affine)
+  nameWithType: BezPath.TransformedBy(Affine)
+  fullName: Etch.Geometry.BezPath.TransformedBy(Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public BezPath TransformedBy(Affine a)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    return:
+      type: Etch.Geometry.BezPath
+    content.vb: Public Function TransformedBy(a As Affine) As BezPath
+  overload: Etch.Geometry.BezPath.TransformedBy*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Geometry.BezPath.VerbCount*
+  commentId: Overload:Etch.Geometry.BezPath.VerbCount
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath_VerbCount
+  name: VerbCount
+  nameWithType: BezPath.VerbCount
+  fullName: Etch.Geometry.BezPath.VerbCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Geometry.BezPath.#ctor*
+  commentId: Overload:Etch.Geometry.BezPath.#ctor
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath__ctor_System_Byte___System_Double___System_Int32_
+  name: BezPath
+  nameWithType: BezPath.BezPath
+  fullName: Etch.Geometry.BezPath.BezPath
+  nameWithType.vb: BezPath.New
+  fullName.vb: Etch.Geometry.BezPath.New
+  name.vb: New
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Double[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double[]
+  nameWithType: double[]
+  fullName: double[]
+  nameWithType.vb: Double()
+  fullName.vb: Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+- uid: Etch.Geometry.BezPath.IsEmpty*
+  commentId: Overload:Etch.Geometry.BezPath.IsEmpty
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath_IsEmpty
+  name: IsEmpty
+  nameWithType: BezPath.IsEmpty
+  fullName: Etch.Geometry.BezPath.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.BezPath.Iterate*
+  commentId: Overload:Etch.Geometry.BezPath.Iterate
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath_Iterate
+  name: Iterate
+  nameWithType: BezPath.Iterate
+  fullName: Etch.Geometry.BezPath.Iterate
+- uid: Etch.Geometry.BezPathEnumerator
+  commentId: T:Etch.Geometry.BezPathEnumerator
+  parent: Etch.Geometry
+  href: Etch.Geometry.BezPathEnumerator.html
+  name: BezPathEnumerator
+  nameWithType: BezPathEnumerator
+  fullName: Etch.Geometry.BezPathEnumerator
+- uid: Etch.Geometry.BezPath.Aabb*
+  commentId: Overload:Etch.Geometry.BezPath.Aabb
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath_Aabb
+  name: Aabb
+  nameWithType: BezPath.Aabb
+  fullName: Etch.Geometry.BezPath.Aabb
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry.BezPath.TransformedBy*
+  commentId: Overload:Etch.Geometry.BezPath.TransformedBy
+  href: Etch.Geometry.BezPath.html#Etch_Geometry_BezPath_TransformedBy_Etch_Geometry_Affine_
+  name: TransformedBy
+  nameWithType: BezPath.TransformedBy
+  fullName: Etch.Geometry.BezPath.TransformedBy
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Geometry.BezPath
+  commentId: T:Etch.Geometry.BezPath
+  parent: Etch.Geometry
+  href: Etch.Geometry.BezPath.html
+  name: BezPath
+  nameWithType: BezPath
+  fullName: Etch.Geometry.BezPath

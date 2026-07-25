@@ -1,0 +1,413 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  commentId: T:Etch.Text.Unicode.Minimal.BidiParagraphResult
+  id: BidiParagraphResult
+  parent: Etch.Text.Unicode.Minimal
+  children:
+  - Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor(System.Byte,Etch.Text.Unicode.Minimal.BidiRun[])
+  - Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+  - Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+  langs:
+  - csharp
+  - vb
+  name: BidiParagraphResult
+  nameWithType: BidiParagraphResult
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  type: Struct
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Result of BiDi analysis on a paragraph.
+  example: []
+  syntax:
+    content: public readonly struct BidiParagraphResult
+    content.vb: Public Structure BidiParagraphResult
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+  commentId: P:Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+  id: ParagraphLevel
+  parent: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  langs:
+  - csharp
+  - vb
+  name: ParagraphLevel
+  nameWithType: BidiParagraphResult.ParagraphLevel
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Resolved paragraph embedding level (0 = LTR, 1 = RTL).
+  example: []
+  syntax:
+    content: public byte ParagraphLevel { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property ParagraphLevel As Byte
+  overload: Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel*
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+  commentId: P:Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+  id: Runs
+  parent: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  langs:
+  - csharp
+  - vb
+  name: Runs
+  nameWithType: BidiParagraphResult.Runs
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Visual-order runs, left-to-right in display order.
+  example: []
+  syntax:
+    content: public BidiRun[] Runs { get; }
+    parameters: []
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiRun[]
+    content.vb: Public ReadOnly Property Runs As BidiRun()
+  overload: Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs*
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor(System.Byte,Etch.Text.Unicode.Minimal.BidiRun[])
+  commentId: M:Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor(System.Byte,Etch.Text.Unicode.Minimal.BidiRun[])
+  id: '#ctor(System.Byte,Etch.Text.Unicode.Minimal.BidiRun[])'
+  parent: Etch.Text.Unicode.Minimal.BidiParagraphResult
+  langs:
+  - csharp
+  - vb
+  name: BidiParagraphResult(byte, BidiRun[])
+  nameWithType: BidiParagraphResult.BidiParagraphResult(byte, BidiRun[])
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.BidiParagraphResult(byte, Etch.Text.Unicode.Minimal.BidiRun[])
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  syntax:
+    content: public BidiParagraphResult(byte paragraphLevel, BidiRun[] runs)
+    parameters:
+    - id: paragraphLevel
+      type: System.Byte
+    - id: runs
+      type: Etch.Text.Unicode.Minimal.BidiRun[]
+    content.vb: Public Sub New(paragraphLevel As Byte, runs As BidiRun())
+  overload: Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor*
+  nameWithType.vb: BidiParagraphResult.New(Byte, BidiRun())
+  fullName.vb: Etch.Text.Unicode.Minimal.BidiParagraphResult.New(Byte, Etch.Text.Unicode.Minimal.BidiRun())
+  name.vb: New(Byte, BidiRun())
+references:
+- uid: Etch.Text.Unicode.Minimal
+  commentId: N:Etch.Text.Unicode.Minimal
+  href: Etch.html
+  name: Etch.Text.Unicode.Minimal
+  nameWithType: Etch.Text.Unicode.Minimal
+  fullName: Etch.Text.Unicode.Minimal
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel*
+  commentId: Overload:Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+  href: Etch.Text.Unicode.Minimal.BidiParagraphResult.html#Etch_Text_Unicode_Minimal_BidiParagraphResult_ParagraphLevel
+  name: ParagraphLevel
+  nameWithType: BidiParagraphResult.ParagraphLevel
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.ParagraphLevel
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs*
+  commentId: Overload:Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+  href: Etch.Text.Unicode.Minimal.BidiParagraphResult.html#Etch_Text_Unicode_Minimal_BidiParagraphResult_Runs
+  name: Runs
+  nameWithType: BidiParagraphResult.Runs
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.Runs
+- uid: Etch.Text.Unicode.Minimal.BidiRun[]
+  isExternal: true
+  href: Etch.Text.Unicode.Minimal.BidiRun.html
+  name: BidiRun[]
+  nameWithType: BidiRun[]
+  fullName: Etch.Text.Unicode.Minimal.BidiRun[]
+  nameWithType.vb: BidiRun()
+  fullName.vb: Etch.Text.Unicode.Minimal.BidiRun()
+  name.vb: BidiRun()
+  spec.csharp:
+  - uid: Etch.Text.Unicode.Minimal.BidiRun
+    name: BidiRun
+    href: Etch.Text.Unicode.Minimal.BidiRun.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Text.Unicode.Minimal.BidiRun
+    name: BidiRun
+    href: Etch.Text.Unicode.Minimal.BidiRun.html
+  - name: (
+  - name: )
+- uid: Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor*
+  commentId: Overload:Etch.Text.Unicode.Minimal.BidiParagraphResult.#ctor
+  href: Etch.Text.Unicode.Minimal.BidiParagraphResult.html#Etch_Text_Unicode_Minimal_BidiParagraphResult__ctor_System_Byte_Etch_Text_Unicode_Minimal_BidiRun___
+  name: BidiParagraphResult
+  nameWithType: BidiParagraphResult.BidiParagraphResult
+  fullName: Etch.Text.Unicode.Minimal.BidiParagraphResult.BidiParagraphResult
+  nameWithType.vb: BidiParagraphResult.New
+  fullName.vb: Etch.Text.Unicode.Minimal.BidiParagraphResult.New
+  name.vb: New

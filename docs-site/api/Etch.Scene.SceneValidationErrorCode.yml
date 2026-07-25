@@ -1,0 +1,240 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneValidationErrorCode
+  commentId: T:Etch.Scene.SceneValidationErrorCode
+  id: SceneValidationErrorCode
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneValidationErrorCode.BadFrameMarkers
+  - Etch.Scene.SceneValidationErrorCode.BadGradient
+  - Etch.Scene.SceneValidationErrorCode.BadLayerOpacity
+  - Etch.Scene.SceneValidationErrorCode.BadStrokeParam
+  - Etch.Scene.SceneValidationErrorCode.EmptyPath
+  - Etch.Scene.SceneValidationErrorCode.InvalidResourceId
+  - Etch.Scene.SceneValidationErrorCode.LayerStackOverflow
+  - Etch.Scene.SceneValidationErrorCode.NonFiniteGeometry
+  - Etch.Scene.SceneValidationErrorCode.UnbalancedClipStack
+  - Etch.Scene.SceneValidationErrorCode.UnbalancedLayerStack
+  langs:
+  - csharp
+  - vb
+  name: SceneValidationErrorCode
+  nameWithType: SceneValidationErrorCode
+  fullName: Etch.Scene.SceneValidationErrorCode
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public enum SceneValidationErrorCode
+    content.vb: Public Enum SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.BadFrameMarkers
+  commentId: F:Etch.Scene.SceneValidationErrorCode.BadFrameMarkers
+  id: BadFrameMarkers
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: BadFrameMarkers
+  nameWithType: SceneValidationErrorCode.BadFrameMarkers
+  fullName: Etch.Scene.SceneValidationErrorCode.BadFrameMarkers
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: BadFrameMarkers = 0
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.UnbalancedLayerStack
+  commentId: F:Etch.Scene.SceneValidationErrorCode.UnbalancedLayerStack
+  id: UnbalancedLayerStack
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: UnbalancedLayerStack
+  nameWithType: SceneValidationErrorCode.UnbalancedLayerStack
+  fullName: Etch.Scene.SceneValidationErrorCode.UnbalancedLayerStack
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: UnbalancedLayerStack = 1
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.LayerStackOverflow
+  commentId: F:Etch.Scene.SceneValidationErrorCode.LayerStackOverflow
+  id: LayerStackOverflow
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: LayerStackOverflow
+  nameWithType: SceneValidationErrorCode.LayerStackOverflow
+  fullName: Etch.Scene.SceneValidationErrorCode.LayerStackOverflow
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: LayerStackOverflow = 2
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.UnbalancedClipStack
+  commentId: F:Etch.Scene.SceneValidationErrorCode.UnbalancedClipStack
+  id: UnbalancedClipStack
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: UnbalancedClipStack
+  nameWithType: SceneValidationErrorCode.UnbalancedClipStack
+  fullName: Etch.Scene.SceneValidationErrorCode.UnbalancedClipStack
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: UnbalancedClipStack = 3
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.InvalidResourceId
+  commentId: F:Etch.Scene.SceneValidationErrorCode.InvalidResourceId
+  id: InvalidResourceId
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: InvalidResourceId
+  nameWithType: SceneValidationErrorCode.InvalidResourceId
+  fullName: Etch.Scene.SceneValidationErrorCode.InvalidResourceId
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: InvalidResourceId = 4
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.NonFiniteGeometry
+  commentId: F:Etch.Scene.SceneValidationErrorCode.NonFiniteGeometry
+  id: NonFiniteGeometry
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: NonFiniteGeometry
+  nameWithType: SceneValidationErrorCode.NonFiniteGeometry
+  fullName: Etch.Scene.SceneValidationErrorCode.NonFiniteGeometry
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: NonFiniteGeometry = 5
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.EmptyPath
+  commentId: F:Etch.Scene.SceneValidationErrorCode.EmptyPath
+  id: EmptyPath
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: EmptyPath
+  nameWithType: SceneValidationErrorCode.EmptyPath
+  fullName: Etch.Scene.SceneValidationErrorCode.EmptyPath
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: EmptyPath = 6
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.BadGradient
+  commentId: F:Etch.Scene.SceneValidationErrorCode.BadGradient
+  id: BadGradient
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: BadGradient
+  nameWithType: SceneValidationErrorCode.BadGradient
+  fullName: Etch.Scene.SceneValidationErrorCode.BadGradient
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: BadGradient = 7
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.BadLayerOpacity
+  commentId: F:Etch.Scene.SceneValidationErrorCode.BadLayerOpacity
+  id: BadLayerOpacity
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: BadLayerOpacity
+  nameWithType: SceneValidationErrorCode.BadLayerOpacity
+  fullName: Etch.Scene.SceneValidationErrorCode.BadLayerOpacity
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: BadLayerOpacity = 8
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+- uid: Etch.Scene.SceneValidationErrorCode.BadStrokeParam
+  commentId: F:Etch.Scene.SceneValidationErrorCode.BadStrokeParam
+  id: BadStrokeParam
+  parent: Etch.Scene.SceneValidationErrorCode
+  langs:
+  - csharp
+  - vb
+  name: BadStrokeParam
+  nameWithType: SceneValidationErrorCode.BadStrokeParam
+  fullName: Etch.Scene.SceneValidationErrorCode.BadStrokeParam
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: BadStrokeParam = 9
+    return:
+      type: Etch.Scene.SceneValidationErrorCode
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.SceneValidationErrorCode
+  commentId: T:Etch.Scene.SceneValidationErrorCode
+  parent: Etch.Scene
+  href: Etch.Scene.SceneValidationErrorCode.html
+  name: SceneValidationErrorCode
+  nameWithType: SceneValidationErrorCode
+  fullName: Etch.Scene.SceneValidationErrorCode

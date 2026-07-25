@@ -1,0 +1,506 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.ClipMask
+  commentId: T:Etch.Raster.Cpu.ClipMask
+  id: ClipMask
+  parent: Etch.Raster.Cpu
+  children:
+  - Etch.Raster.Cpu.ClipMask.#ctor(Etch.Raster.Cpu.Framebuffer)
+  - Etch.Raster.Cpu.ClipMask.Build(Etch.Scene.SceneBuffer,System.ReadOnlySpan{Etch.Scene.SceneCommand},Etch.Raster.Cpu.Framebuffer)
+  - Etch.Raster.Cpu.ClipMask.Coverage
+  - Etch.Raster.Cpu.ClipMask.Empty
+  langs:
+  - csharp
+  - vb
+  name: ClipMask
+  nameWithType: ClipMask
+  fullName: Etch.Raster.Cpu.ClipMask
+  type: Struct
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly struct ClipMask
+    content.vb: Public Structure ClipMask
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Raster.Cpu.ClipMask.Coverage
+  commentId: P:Etch.Raster.Cpu.ClipMask.Coverage
+  id: Coverage
+  parent: Etch.Raster.Cpu.ClipMask
+  langs:
+  - csharp
+  - vb
+  name: Coverage
+  nameWithType: ClipMask.Coverage
+  fullName: Etch.Raster.Cpu.ClipMask.Coverage
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Framebuffer Coverage { get; }
+    parameters: []
+    return:
+      type: Etch.Raster.Cpu.Framebuffer
+    content.vb: Public ReadOnly Property Coverage As Framebuffer
+  overload: Etch.Raster.Cpu.ClipMask.Coverage*
+- uid: Etch.Raster.Cpu.ClipMask.#ctor(Etch.Raster.Cpu.Framebuffer)
+  commentId: M:Etch.Raster.Cpu.ClipMask.#ctor(Etch.Raster.Cpu.Framebuffer)
+  id: '#ctor(Etch.Raster.Cpu.Framebuffer)'
+  parent: Etch.Raster.Cpu.ClipMask
+  langs:
+  - csharp
+  - vb
+  name: ClipMask(Framebuffer)
+  nameWithType: ClipMask.ClipMask(Framebuffer)
+  fullName: Etch.Raster.Cpu.ClipMask.ClipMask(Etch.Raster.Cpu.Framebuffer)
+  type: Constructor
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public ClipMask(Framebuffer coverage)
+    parameters:
+    - id: coverage
+      type: Etch.Raster.Cpu.Framebuffer
+    content.vb: Public Sub New(coverage As Framebuffer)
+  overload: Etch.Raster.Cpu.ClipMask.#ctor*
+  nameWithType.vb: ClipMask.New(Framebuffer)
+  fullName.vb: Etch.Raster.Cpu.ClipMask.New(Etch.Raster.Cpu.Framebuffer)
+  name.vb: New(Framebuffer)
+- uid: Etch.Raster.Cpu.ClipMask.Empty
+  commentId: P:Etch.Raster.Cpu.ClipMask.Empty
+  id: Empty
+  parent: Etch.Raster.Cpu.ClipMask
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: ClipMask.Empty
+  fullName: Etch.Raster.Cpu.ClipMask.Empty
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static ClipMask Empty { get; }
+    parameters: []
+    return:
+      type: Etch.Raster.Cpu.ClipMask
+    content.vb: Public Shared ReadOnly Property Empty As ClipMask
+  overload: Etch.Raster.Cpu.ClipMask.Empty*
+- uid: Etch.Raster.Cpu.ClipMask.Build(Etch.Scene.SceneBuffer,System.ReadOnlySpan{Etch.Scene.SceneCommand},Etch.Raster.Cpu.Framebuffer)
+  commentId: M:Etch.Raster.Cpu.ClipMask.Build(Etch.Scene.SceneBuffer,System.ReadOnlySpan{Etch.Scene.SceneCommand},Etch.Raster.Cpu.Framebuffer)
+  id: Build(Etch.Scene.SceneBuffer,System.ReadOnlySpan{Etch.Scene.SceneCommand},Etch.Raster.Cpu.Framebuffer)
+  parent: Etch.Raster.Cpu.ClipMask
+  langs:
+  - csharp
+  - vb
+  name: Build(SceneBuffer, ReadOnlySpan<SceneCommand>, Framebuffer)
+  nameWithType: ClipMask.Build(SceneBuffer, ReadOnlySpan<SceneCommand>, Framebuffer)
+  fullName: Etch.Raster.Cpu.ClipMask.Build(Etch.Scene.SceneBuffer, System.ReadOnlySpan<Etch.Scene.SceneCommand>, Etch.Raster.Cpu.Framebuffer)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static ClipMask Build(SceneBuffer scene, ReadOnlySpan<SceneCommand> clipCommands, Framebuffer scratch)
+    parameters:
+    - id: scene
+      type: Etch.Scene.SceneBuffer
+    - id: clipCommands
+      type: System.ReadOnlySpan{Etch.Scene.SceneCommand}
+    - id: scratch
+      type: Etch.Raster.Cpu.Framebuffer
+    return:
+      type: Etch.Raster.Cpu.ClipMask
+    content.vb: Public Shared Function Build(scene As SceneBuffer, clipCommands As ReadOnlySpan(Of SceneCommand), scratch As Framebuffer) As ClipMask
+  overload: Etch.Raster.Cpu.ClipMask.Build*
+  nameWithType.vb: ClipMask.Build(SceneBuffer, ReadOnlySpan(Of SceneCommand), Framebuffer)
+  fullName.vb: Etch.Raster.Cpu.ClipMask.Build(Etch.Scene.SceneBuffer, System.ReadOnlySpan(Of Etch.Scene.SceneCommand), Etch.Raster.Cpu.Framebuffer)
+  name.vb: Build(SceneBuffer, ReadOnlySpan(Of SceneCommand), Framebuffer)
+references:
+- uid: Etch.Raster.Cpu
+  commentId: N:Etch.Raster.Cpu
+  href: Etch.html
+  name: Etch.Raster.Cpu
+  nameWithType: Etch.Raster.Cpu
+  fullName: Etch.Raster.Cpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Raster.Cpu.ClipMask.Coverage*
+  commentId: Overload:Etch.Raster.Cpu.ClipMask.Coverage
+  href: Etch.Raster.Cpu.ClipMask.html#Etch_Raster_Cpu_ClipMask_Coverage
+  name: Coverage
+  nameWithType: ClipMask.Coverage
+  fullName: Etch.Raster.Cpu.ClipMask.Coverage
+- uid: Etch.Raster.Cpu.Framebuffer
+  commentId: T:Etch.Raster.Cpu.Framebuffer
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.Framebuffer.html
+  name: Framebuffer
+  nameWithType: Framebuffer
+  fullName: Etch.Raster.Cpu.Framebuffer
+- uid: Etch.Raster.Cpu.ClipMask.#ctor*
+  commentId: Overload:Etch.Raster.Cpu.ClipMask.#ctor
+  href: Etch.Raster.Cpu.ClipMask.html#Etch_Raster_Cpu_ClipMask__ctor_Etch_Raster_Cpu_Framebuffer_
+  name: ClipMask
+  nameWithType: ClipMask.ClipMask
+  fullName: Etch.Raster.Cpu.ClipMask.ClipMask
+  nameWithType.vb: ClipMask.New
+  fullName.vb: Etch.Raster.Cpu.ClipMask.New
+  name.vb: New
+- uid: Etch.Raster.Cpu.ClipMask.Empty*
+  commentId: Overload:Etch.Raster.Cpu.ClipMask.Empty
+  href: Etch.Raster.Cpu.ClipMask.html#Etch_Raster_Cpu_ClipMask_Empty
+  name: Empty
+  nameWithType: ClipMask.Empty
+  fullName: Etch.Raster.Cpu.ClipMask.Empty
+- uid: Etch.Raster.Cpu.ClipMask
+  commentId: T:Etch.Raster.Cpu.ClipMask
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.ClipMask.html
+  name: ClipMask
+  nameWithType: ClipMask
+  fullName: Etch.Raster.Cpu.ClipMask
+- uid: Etch.Raster.Cpu.ClipMask.Build*
+  commentId: Overload:Etch.Raster.Cpu.ClipMask.Build
+  href: Etch.Raster.Cpu.ClipMask.html#Etch_Raster_Cpu_ClipMask_Build_Etch_Scene_SceneBuffer_System_ReadOnlySpan_Etch_Scene_SceneCommand__Etch_Raster_Cpu_Framebuffer_
+  name: Build
+  nameWithType: ClipMask.Build
+  fullName: Etch.Raster.Cpu.ClipMask.Build
+- uid: Etch.Scene.SceneBuffer
+  commentId: T:Etch.Scene.SceneBuffer
+  parent: Etch.Scene
+  href: Etch.Scene.SceneBuffer.html
+  name: SceneBuffer
+  nameWithType: SceneBuffer
+  fullName: Etch.Scene.SceneBuffer
+- uid: System.ReadOnlySpan{Etch.Scene.SceneCommand}
+  commentId: T:System.ReadOnlySpan{Etch.Scene.SceneCommand}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<SceneCommand>
+  nameWithType: ReadOnlySpan<SceneCommand>
+  fullName: System.ReadOnlySpan<Etch.Scene.SceneCommand>
+  nameWithType.vb: ReadOnlySpan(Of SceneCommand)
+  fullName.vb: System.ReadOnlySpan(Of Etch.Scene.SceneCommand)
+  name.vb: ReadOnlySpan(Of SceneCommand)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+    href: Etch.Scene.SceneCommand.html
+  - name: )
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

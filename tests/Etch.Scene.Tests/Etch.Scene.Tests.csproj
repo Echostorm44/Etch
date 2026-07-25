@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Scene.Tests</RootNamespace>
+    <AssemblyName>Etch.Scene.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnit0034;CA1852;CA1307;CA1812;CA5394;CA1847;CA1508</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+  </ItemGroup>
+</Project>

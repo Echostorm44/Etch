@@ -1,0 +1,16 @@
+[package]
+name = "etch_kurbo_oracle"
+version = "0.1.0"
+edition = "2021"
+description = "Differential oracle wrapping kurbo geometry operations for Etch tests"
+license = "Apache-2.0"
+
+[dependencies]
+kurbo = "0.11"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 3
+lto = true

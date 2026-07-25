@@ -1,0 +1,477 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.TTile32
+  commentId: T:Etch.Tiling.TTile32
+  id: TTile32
+  parent: Etch.Tiling
+  children:
+  - Etch.Tiling.TTile32.Height
+  - Etch.Tiling.TTile32.Log2Height
+  - Etch.Tiling.TTile32.Log2Width
+  - Etch.Tiling.TTile32.PixelCount
+  - Etch.Tiling.TTile32.Width
+  langs:
+  - csharp
+  - vb
+  name: TTile32
+  nameWithType: TTile32
+  fullName: Etch.Tiling.TTile32
+  type: Struct
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: 'public readonly struct TTile32 : ITileSize'
+    content.vb: Public Structure TTile32 Implements ITileSize
+  implements:
+  - Etch.Tiling.ITileSize
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Tiling.TTile32.Width
+  commentId: P:Etch.Tiling.TTile32.Width
+  id: Width
+  parent: Etch.Tiling.TTile32
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: TTile32.Width
+  fullName: Etch.Tiling.TTile32.Width
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  example: []
+  syntax:
+    content: public static int Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property Width As Integer
+  overload: Etch.Tiling.TTile32.Width*
+  implements:
+  - Etch.Tiling.ITileSize.Width
+- uid: Etch.Tiling.TTile32.Height
+  commentId: P:Etch.Tiling.TTile32.Height
+  id: Height
+  parent: Etch.Tiling.TTile32
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: TTile32.Height
+  fullName: Etch.Tiling.TTile32.Height
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  example: []
+  syntax:
+    content: public static int Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property Height As Integer
+  overload: Etch.Tiling.TTile32.Height*
+  implements:
+  - Etch.Tiling.ITileSize.Height
+- uid: Etch.Tiling.TTile32.PixelCount
+  commentId: P:Etch.Tiling.TTile32.PixelCount
+  id: PixelCount
+  parent: Etch.Tiling.TTile32
+  langs:
+  - csharp
+  - vb
+  name: PixelCount
+  nameWithType: TTile32.PixelCount
+  fullName: Etch.Tiling.TTile32.PixelCount
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  example: []
+  syntax:
+    content: public static int PixelCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property PixelCount As Integer
+  overload: Etch.Tiling.TTile32.PixelCount*
+  implements:
+  - Etch.Tiling.ITileSize.PixelCount
+- uid: Etch.Tiling.TTile32.Log2Width
+  commentId: P:Etch.Tiling.TTile32.Log2Width
+  id: Log2Width
+  parent: Etch.Tiling.TTile32
+  langs:
+  - csharp
+  - vb
+  name: Log2Width
+  nameWithType: TTile32.Log2Width
+  fullName: Etch.Tiling.TTile32.Log2Width
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  example: []
+  syntax:
+    content: public static int Log2Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property Log2Width As Integer
+  overload: Etch.Tiling.TTile32.Log2Width*
+  implements:
+  - Etch.Tiling.ITileSize.Log2Width
+- uid: Etch.Tiling.TTile32.Log2Height
+  commentId: P:Etch.Tiling.TTile32.Log2Height
+  id: Log2Height
+  parent: Etch.Tiling.TTile32
+  langs:
+  - csharp
+  - vb
+  name: Log2Height
+  nameWithType: TTile32.Log2Height
+  fullName: Etch.Tiling.TTile32.Log2Height
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  example: []
+  syntax:
+    content: public static int Log2Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property Log2Height As Integer
+  overload: Etch.Tiling.TTile32.Log2Height*
+  implements:
+  - Etch.Tiling.ITileSize.Log2Height
+references:
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  href: Etch.html
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+- uid: Etch.Tiling.ITileSize
+  commentId: T:Etch.Tiling.ITileSize
+  parent: Etch.Tiling
+  href: Etch.Tiling.ITileSize.html
+  name: ITileSize
+  nameWithType: ITileSize
+  fullName: Etch.Tiling.ITileSize
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Tiling.TTile32.Width*
+  commentId: Overload:Etch.Tiling.TTile32.Width
+  href: Etch.Tiling.TTile32.html#Etch_Tiling_TTile32_Width
+  name: Width
+  nameWithType: TTile32.Width
+  fullName: Etch.Tiling.TTile32.Width
+- uid: Etch.Tiling.ITileSize.Width
+  commentId: P:Etch.Tiling.ITileSize.Width
+  parent: Etch.Tiling.ITileSize
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Width
+  name: Width
+  nameWithType: ITileSize.Width
+  fullName: Etch.Tiling.ITileSize.Width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Tiling.TTile32.Height*
+  commentId: Overload:Etch.Tiling.TTile32.Height
+  href: Etch.Tiling.TTile32.html#Etch_Tiling_TTile32_Height
+  name: Height
+  nameWithType: TTile32.Height
+  fullName: Etch.Tiling.TTile32.Height
+- uid: Etch.Tiling.ITileSize.Height
+  commentId: P:Etch.Tiling.ITileSize.Height
+  parent: Etch.Tiling.ITileSize
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Height
+  name: Height
+  nameWithType: ITileSize.Height
+  fullName: Etch.Tiling.ITileSize.Height
+- uid: Etch.Tiling.TTile32.PixelCount*
+  commentId: Overload:Etch.Tiling.TTile32.PixelCount
+  href: Etch.Tiling.TTile32.html#Etch_Tiling_TTile32_PixelCount
+  name: PixelCount
+  nameWithType: TTile32.PixelCount
+  fullName: Etch.Tiling.TTile32.PixelCount
+- uid: Etch.Tiling.ITileSize.PixelCount
+  commentId: P:Etch.Tiling.ITileSize.PixelCount
+  parent: Etch.Tiling.ITileSize
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_PixelCount
+  name: PixelCount
+  nameWithType: ITileSize.PixelCount
+  fullName: Etch.Tiling.ITileSize.PixelCount
+- uid: Etch.Tiling.TTile32.Log2Width*
+  commentId: Overload:Etch.Tiling.TTile32.Log2Width
+  href: Etch.Tiling.TTile32.html#Etch_Tiling_TTile32_Log2Width
+  name: Log2Width
+  nameWithType: TTile32.Log2Width
+  fullName: Etch.Tiling.TTile32.Log2Width
+- uid: Etch.Tiling.ITileSize.Log2Width
+  commentId: P:Etch.Tiling.ITileSize.Log2Width
+  parent: Etch.Tiling.ITileSize
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Log2Width
+  name: Log2Width
+  nameWithType: ITileSize.Log2Width
+  fullName: Etch.Tiling.ITileSize.Log2Width
+- uid: Etch.Tiling.TTile32.Log2Height*
+  commentId: Overload:Etch.Tiling.TTile32.Log2Height
+  href: Etch.Tiling.TTile32.html#Etch_Tiling_TTile32_Log2Height
+  name: Log2Height
+  nameWithType: TTile32.Log2Height
+  fullName: Etch.Tiling.TTile32.Log2Height
+- uid: Etch.Tiling.ITileSize.Log2Height
+  commentId: P:Etch.Tiling.ITileSize.Log2Height
+  parent: Etch.Tiling.ITileSize
+  href: Etch.Tiling.ITileSize.html#Etch_Tiling_ITileSize_Log2Height
+  name: Log2Height
+  nameWithType: ITileSize.Log2Height
+  fullName: Etch.Tiling.ITileSize.Log2Height

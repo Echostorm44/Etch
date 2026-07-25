@@ -1,0 +1,18 @@
+{
+  "engine": "CoreText",
+  "font": "Roboto-Regular",
+  "os": "Version 12.7.6 (Build 21H1320)",
+  "metric": "meanInkBlackOnWhite",
+  "rasterDpiScale": 1.333333,
+  "corpus": "HMEOBRAWNhmeobgjqpadtsn0258",
+  "bySize": {
+    "9": 0.5538,
+    "11": 0.6091,
+    "13": 0.6651,
+    "16": 0.7029,
+    "20": 0.7328,
+    "24": 0.7746,
+    "32": 0.8247,
+    "48": 0.8752
+  }
+}

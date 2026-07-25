@@ -1,0 +1,16 @@
+# Naga CLI binary checksums per RID.
+# Format: <sha256>  <relative-path>
+# Update when bumping NagaCliVersion.
+#
+# Windows x64: https://github.com/gfx-rs/naga/releases/download/v<version>/naga-v<version>-x86_64-pc-windows-msvc.zip
+# Linux x64:    https://github.com/gfx-rs/naga/releases/download/v<version>/naga-v<version>-x86_64-unknown-linux-gnu.tar.gz
+# macOS ARM64: https://github.com/gfx-rs/naga/releases/download/v<version>/naga-v<version>-aarch64-apple-darwin.tar.gz
+
+# win-x64
+24FA4471A2C4292251E5E922B668D46FE00B8D98C0662A97AB92D3023DB60672  tools/naga-cli/win-x64/naga.exe
+
+# linux-x64
+# TODO: obtain from https://github.com/gfx-rs/naga/releases/download/v29.0.0/naga-v29.0.0-x86_64-unknown-linux-gnu.tar.gz
+
+# osx-arm64
+# TODO: obtain from https://github.com/gfx-rs/naga/releases/download/v29.0.0/naga-v29.0.0-aarch64-apple-darwin.tar.gz

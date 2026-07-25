@@ -1,0 +1,380 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Classify.AccumulatorPool
+  commentId: T:Etch.Tiling.Classify.AccumulatorPool
+  id: AccumulatorPool
+  parent: Etch.Tiling.Classify
+  children:
+  - Etch.Tiling.Classify.AccumulatorPool.#ctor(System.Int32)
+  - Etch.Tiling.Classify.AccumulatorPool.Acquire
+  - Etch.Tiling.Classify.AccumulatorPool.Release(Etch.Tiling.Classify.ClassificationAccumulator)
+  langs:
+  - csharp
+  - vb
+  name: AccumulatorPool
+  nameWithType: AccumulatorPool
+  fullName: Etch.Tiling.Classify.AccumulatorPool
+  type: Class
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: public sealed class AccumulatorPool
+    content.vb: Public NotInheritable Class AccumulatorPool
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Tiling.Classify.AccumulatorPool.#ctor(System.Int32)
+  commentId: M:Etch.Tiling.Classify.AccumulatorPool.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Etch.Tiling.Classify.AccumulatorPool
+  langs:
+  - csharp
+  - vb
+  name: AccumulatorPool(int)
+  nameWithType: AccumulatorPool.AccumulatorPool(int)
+  fullName: Etch.Tiling.Classify.AccumulatorPool.AccumulatorPool(int)
+  type: Constructor
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: public AccumulatorPool(int initialCapacity = 1024)
+    parameters:
+    - id: initialCapacity
+      type: System.Int32
+    content.vb: Public Sub New(initialCapacity As Integer = 1024)
+  overload: Etch.Tiling.Classify.AccumulatorPool.#ctor*
+  nameWithType.vb: AccumulatorPool.New(Integer)
+  fullName.vb: Etch.Tiling.Classify.AccumulatorPool.New(Integer)
+  name.vb: New(Integer)
+- uid: Etch.Tiling.Classify.AccumulatorPool.Acquire
+  commentId: M:Etch.Tiling.Classify.AccumulatorPool.Acquire
+  id: Acquire
+  parent: Etch.Tiling.Classify.AccumulatorPool
+  langs:
+  - csharp
+  - vb
+  name: Acquire()
+  nameWithType: AccumulatorPool.Acquire()
+  fullName: Etch.Tiling.Classify.AccumulatorPool.Acquire()
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: public ClassificationAccumulator Acquire()
+    return:
+      type: Etch.Tiling.Classify.ClassificationAccumulator
+    content.vb: Public Function Acquire() As ClassificationAccumulator
+  overload: Etch.Tiling.Classify.AccumulatorPool.Acquire*
+- uid: Etch.Tiling.Classify.AccumulatorPool.Release(Etch.Tiling.Classify.ClassificationAccumulator)
+  commentId: M:Etch.Tiling.Classify.AccumulatorPool.Release(Etch.Tiling.Classify.ClassificationAccumulator)
+  id: Release(Etch.Tiling.Classify.ClassificationAccumulator)
+  parent: Etch.Tiling.Classify.AccumulatorPool
+  langs:
+  - csharp
+  - vb
+  name: Release(ClassificationAccumulator)
+  nameWithType: AccumulatorPool.Release(ClassificationAccumulator)
+  fullName: Etch.Tiling.Classify.AccumulatorPool.Release(Etch.Tiling.Classify.ClassificationAccumulator)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: public static void Release(ClassificationAccumulator accumulator)
+    parameters:
+    - id: accumulator
+      type: Etch.Tiling.Classify.ClassificationAccumulator
+    content.vb: Public Shared Sub Release(accumulator As ClassificationAccumulator)
+  overload: Etch.Tiling.Classify.AccumulatorPool.Release*
+references:
+- uid: Etch.Tiling.Classify
+  commentId: N:Etch.Tiling.Classify
+  href: Etch.html
+  name: Etch.Tiling.Classify
+  nameWithType: Etch.Tiling.Classify
+  fullName: Etch.Tiling.Classify
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Tiling.Classify.AccumulatorPool.#ctor*
+  commentId: Overload:Etch.Tiling.Classify.AccumulatorPool.#ctor
+  href: Etch.Tiling.Classify.AccumulatorPool.html#Etch_Tiling_Classify_AccumulatorPool__ctor_System_Int32_
+  name: AccumulatorPool
+  nameWithType: AccumulatorPool.AccumulatorPool
+  fullName: Etch.Tiling.Classify.AccumulatorPool.AccumulatorPool
+  nameWithType.vb: AccumulatorPool.New
+  fullName.vb: Etch.Tiling.Classify.AccumulatorPool.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Tiling.Classify.AccumulatorPool.Acquire*
+  commentId: Overload:Etch.Tiling.Classify.AccumulatorPool.Acquire
+  href: Etch.Tiling.Classify.AccumulatorPool.html#Etch_Tiling_Classify_AccumulatorPool_Acquire
+  name: Acquire
+  nameWithType: AccumulatorPool.Acquire
+  fullName: Etch.Tiling.Classify.AccumulatorPool.Acquire
+- uid: Etch.Tiling.Classify.ClassificationAccumulator
+  commentId: T:Etch.Tiling.Classify.ClassificationAccumulator
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassificationAccumulator.html
+  name: ClassificationAccumulator
+  nameWithType: ClassificationAccumulator
+  fullName: Etch.Tiling.Classify.ClassificationAccumulator
+- uid: Etch.Tiling.Classify.AccumulatorPool.Release*
+  commentId: Overload:Etch.Tiling.Classify.AccumulatorPool.Release
+  href: Etch.Tiling.Classify.AccumulatorPool.html#Etch_Tiling_Classify_AccumulatorPool_Release_Etch_Tiling_Classify_ClassificationAccumulator_
+  name: Release
+  nameWithType: AccumulatorPool.Release
+  fullName: Etch.Tiling.Classify.AccumulatorPool.Release

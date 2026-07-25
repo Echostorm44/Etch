@@ -1,0 +1,546 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Primitives.PooledBuffer`1
+  commentId: T:Etch.Primitives.PooledBuffer`1
+  id: PooledBuffer`1
+  parent: Etch.Primitives
+  children:
+  - Etch.Primitives.PooledBuffer`1.#ctor(`0[],System.Int32)
+  - Etch.Primitives.PooledBuffer`1.Dispose
+  - Etch.Primitives.PooledBuffer`1.Length
+  - Etch.Primitives.PooledBuffer`1.Rent(System.Int32)
+  - Etch.Primitives.PooledBuffer`1.Span
+  langs:
+  - csharp
+  - vb
+  name: PooledBuffer<T>
+  nameWithType: PooledBuffer<T>
+  fullName: Etch.Primitives.PooledBuffer<T>
+  type: Struct
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public ref struct PooledBuffer<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Structure PooledBuffer(Of T)
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: PooledBuffer(Of T)
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T)
+  name.vb: PooledBuffer(Of T)
+- uid: Etch.Primitives.PooledBuffer`1.Span
+  commentId: P:Etch.Primitives.PooledBuffer`1.Span
+  id: Span
+  parent: Etch.Primitives.PooledBuffer`1
+  langs:
+  - csharp
+  - vb
+  name: Span
+  nameWithType: PooledBuffer<T>.Span
+  fullName: Etch.Primitives.PooledBuffer<T>.Span
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public readonly Span<T> Span { get; }
+    parameters: []
+    return:
+      type: System.Span{{T}}
+    content.vb: Public ReadOnly Property Span As Span(Of T)
+  overload: Etch.Primitives.PooledBuffer`1.Span*
+  nameWithType.vb: PooledBuffer(Of T).Span
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Span
+- uid: Etch.Primitives.PooledBuffer`1.Length
+  commentId: P:Etch.Primitives.PooledBuffer`1.Length
+  id: Length
+  parent: Etch.Primitives.PooledBuffer`1
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: PooledBuffer<T>.Length
+  fullName: Etch.Primitives.PooledBuffer<T>.Length
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: Etch.Primitives.PooledBuffer`1.Length*
+  nameWithType.vb: PooledBuffer(Of T).Length
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Length
+- uid: Etch.Primitives.PooledBuffer`1.#ctor(`0[],System.Int32)
+  commentId: M:Etch.Primitives.PooledBuffer`1.#ctor(`0[],System.Int32)
+  id: '#ctor(`0[],System.Int32)'
+  parent: Etch.Primitives.PooledBuffer`1
+  langs:
+  - csharp
+  - vb
+  name: PooledBuffer(T[], int)
+  nameWithType: PooledBuffer<T>.PooledBuffer(T[], int)
+  fullName: Etch.Primitives.PooledBuffer<T>.PooledBuffer(T[], int)
+  type: Constructor
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public PooledBuffer(T[] array, int length)
+    parameters:
+    - id: array
+      type: '{T}[]'
+    - id: length
+      type: System.Int32
+    content.vb: Public Sub New(array As T(), length As Integer)
+  overload: Etch.Primitives.PooledBuffer`1.#ctor*
+  nameWithType.vb: PooledBuffer(Of T).New(T(), Integer)
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).New(T(), Integer)
+  name.vb: New(T(), Integer)
+- uid: Etch.Primitives.PooledBuffer`1.Rent(System.Int32)
+  commentId: M:Etch.Primitives.PooledBuffer`1.Rent(System.Int32)
+  id: Rent(System.Int32)
+  parent: Etch.Primitives.PooledBuffer`1
+  langs:
+  - csharp
+  - vb
+  name: Rent(int)
+  nameWithType: PooledBuffer<T>.Rent(int)
+  fullName: Etch.Primitives.PooledBuffer<T>.Rent(int)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public static PooledBuffer<T> Rent(int minimumLength)
+    parameters:
+    - id: minimumLength
+      type: System.Int32
+    return:
+      type: Etch.Primitives.PooledBuffer`1
+    content.vb: Public Shared Function Rent(minimumLength As Integer) As PooledBuffer(Of T)
+  overload: Etch.Primitives.PooledBuffer`1.Rent*
+  nameWithType.vb: PooledBuffer(Of T).Rent(Integer)
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Rent(Integer)
+  name.vb: Rent(Integer)
+- uid: Etch.Primitives.PooledBuffer`1.Dispose
+  commentId: M:Etch.Primitives.PooledBuffer`1.Dispose
+  id: Dispose
+  parent: Etch.Primitives.PooledBuffer`1
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: PooledBuffer<T>.Dispose()
+  fullName: Etch.Primitives.PooledBuffer<T>.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Primitives.PooledBuffer`1.Dispose*
+  nameWithType.vb: PooledBuffer(Of T).Dispose()
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Dispose()
+references:
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  href: Etch.html
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Primitives.PooledBuffer`1.Span*
+  commentId: Overload:Etch.Primitives.PooledBuffer`1.Span
+  href: Etch.Primitives.PooledBuffer-1.html#Etch_Primitives_PooledBuffer_1_Span
+  name: Span
+  nameWithType: PooledBuffer<T>.Span
+  fullName: Etch.Primitives.PooledBuffer<T>.Span
+  nameWithType.vb: PooledBuffer(Of T).Span
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Span
+- uid: System.Span{{T}}
+  commentId: T:System.Span{`0}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.PooledBuffer`1.Length*
+  commentId: Overload:Etch.Primitives.PooledBuffer`1.Length
+  href: Etch.Primitives.PooledBuffer-1.html#Etch_Primitives_PooledBuffer_1_Length
+  name: Length
+  nameWithType: PooledBuffer<T>.Length
+  fullName: Etch.Primitives.PooledBuffer<T>.Length
+  nameWithType.vb: PooledBuffer(Of T).Length
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Length
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Primitives.PooledBuffer`1.#ctor*
+  commentId: Overload:Etch.Primitives.PooledBuffer`1.#ctor
+  href: Etch.Primitives.PooledBuffer-1.html#Etch_Primitives_PooledBuffer_1__ctor__0___System_Int32_
+  name: PooledBuffer
+  nameWithType: PooledBuffer<T>.PooledBuffer
+  fullName: Etch.Primitives.PooledBuffer<T>.PooledBuffer
+  nameWithType.vb: PooledBuffer(Of T).New
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).New
+  name.vb: New
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )
+- uid: Etch.Primitives.PooledBuffer`1.Rent*
+  commentId: Overload:Etch.Primitives.PooledBuffer`1.Rent
+  href: Etch.Primitives.PooledBuffer-1.html#Etch_Primitives_PooledBuffer_1_Rent_System_Int32_
+  name: Rent
+  nameWithType: PooledBuffer<T>.Rent
+  fullName: Etch.Primitives.PooledBuffer<T>.Rent
+  nameWithType.vb: PooledBuffer(Of T).Rent
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Rent
+- uid: Etch.Primitives.PooledBuffer`1
+  commentId: T:Etch.Primitives.PooledBuffer`1
+  parent: Etch.Primitives
+  href: Etch.Primitives.PooledBuffer-1.html
+  name: PooledBuffer<T>
+  nameWithType: PooledBuffer<T>
+  fullName: Etch.Primitives.PooledBuffer<T>
+  nameWithType.vb: PooledBuffer(Of T)
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T)
+  name.vb: PooledBuffer(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.PooledBuffer`1
+    name: PooledBuffer
+    href: Etch.Primitives.PooledBuffer-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.PooledBuffer`1
+    name: PooledBuffer
+    href: Etch.Primitives.PooledBuffer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.PooledBuffer`1.Dispose*
+  commentId: Overload:Etch.Primitives.PooledBuffer`1.Dispose
+  href: Etch.Primitives.PooledBuffer-1.html#Etch_Primitives_PooledBuffer_1_Dispose
+  name: Dispose
+  nameWithType: PooledBuffer<T>.Dispose
+  fullName: Etch.Primitives.PooledBuffer<T>.Dispose
+  nameWithType.vb: PooledBuffer(Of T).Dispose
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T).Dispose

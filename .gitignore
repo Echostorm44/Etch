@@ -1,0 +1,36 @@
+bin/
+obj/
+.vs/
+.idea/
+artifacts/
+*.user
+TestResults/
+BenchmarkDotNet.Artifacts/
+target/
+naga-out/
+*.dll
+*.so
+*.dylib
+# Vendored FreeType native binaries (RENDER-004): Etch.Text owns and ships these, so they must be
+# tracked despite the blanket *.dll/*.so/*.dylib rules above.
+!src/Etch.Text/native/win-x64/freetype.dll
+!src/Etch.Text/native/win-arm64/freetype.dll
+!src/Etch.Text/native/linux-x64/libfreetype.so
+!src/Etch.Text/native/osx/libfreetype.dylib
+!src/Etch.Text/native/win-x64/harfbuzz.dll
+!src/Etch.Text/native/win-arm64/harfbuzz.dll
+!src/Etch.Text/native/linux-x64/libharfbuzz.so
+!src/Etch.Text/native/osx/libharfbuzz.dylib
+*.png
+*.scene
+*.ttf
+*.otf
+docs-site/_site/
+*.bak
+frame.bmp
+debug.txt
+dbg.txt
+frame0.bmp
+docs/
+AGENTS.md
+ProjectPlan.md

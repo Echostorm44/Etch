@@ -1,0 +1,884 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Line
+  commentId: T:Etch.Geometry.Line
+  id: Line
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Line.#ctor(Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.Line.Aabb
+  - Etch.Geometry.Line.ClosestPoint(Etch.Geometry.Point)
+  - Etch.Geometry.Line.DistanceTo(Etch.Geometry.Point)
+  - Etch.Geometry.Line.End
+  - Etch.Geometry.Line.Equals(Etch.Geometry.Line)
+  - Etch.Geometry.Line.Equals(System.Object)
+  - Etch.Geometry.Line.GetHashCode
+  - Etch.Geometry.Line.Length
+  - Etch.Geometry.Line.LengthSquared
+  - Etch.Geometry.Line.Start
+  - Etch.Geometry.Line.ToString
+  - Etch.Geometry.Line.op_Equality(Etch.Geometry.Line,Etch.Geometry.Line)
+  - Etch.Geometry.Line.op_Inequality(Etch.Geometry.Line,Etch.Geometry.Line)
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: Line
+  fullName: Etch.Geometry.Line
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Line : IEquatable<Line>'
+    content.vb: Public Structure Line Implements IEquatable(Of Line)
+  implements:
+  - System.IEquatable{Etch.Geometry.Line}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Line.Start
+  commentId: F:Etch.Geometry.Line.Start
+  id: Start
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: Line.Start
+  fullName: Etch.Geometry.Line.Start
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point Start
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Start As Point
+- uid: Etch.Geometry.Line.End
+  commentId: F:Etch.Geometry.Line.End
+  id: End
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: Line.End
+  fullName: Etch.Geometry.Line.End
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point End
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly [End] As Point
+- uid: Etch.Geometry.Line.#ctor(Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Line.#ctor(Etch.Geometry.Point,Etch.Geometry.Point)
+  id: '#ctor(Etch.Geometry.Point,Etch.Geometry.Point)'
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Line(Point, Point)
+  nameWithType: Line.Line(Point, Point)
+  fullName: Etch.Geometry.Line.Line(Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Line(Point start, Point end)
+    parameters:
+    - id: start
+      type: Etch.Geometry.Point
+    - id: end
+      type: Etch.Geometry.Point
+    content.vb: Public Sub New(start As Point, [end] As Point)
+  overload: Etch.Geometry.Line.#ctor*
+  nameWithType.vb: Line.New(Point, Point)
+  fullName.vb: Etch.Geometry.Line.New(Etch.Geometry.Point, Etch.Geometry.Point)
+  name.vb: New(Point, Point)
+- uid: Etch.Geometry.Line.Length
+  commentId: P:Etch.Geometry.Line.Length
+  id: Length
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: Line.Length
+  fullName: Etch.Geometry.Line.Length
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Length { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Length As Double
+  overload: Etch.Geometry.Line.Length*
+- uid: Etch.Geometry.Line.LengthSquared
+  commentId: P:Etch.Geometry.Line.LengthSquared
+  id: LengthSquared
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared
+  nameWithType: Line.LengthSquared
+  fullName: Etch.Geometry.Line.LengthSquared
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double LengthSquared { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property LengthSquared As Double
+  overload: Etch.Geometry.Line.LengthSquared*
+- uid: Etch.Geometry.Line.Aabb
+  commentId: M:Etch.Geometry.Line.Aabb
+  id: Aabb
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Aabb()
+  nameWithType: Line.Aabb()
+  fullName: Etch.Geometry.Line.Aabb()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Aabb()
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Aabb() As Rect
+  overload: Etch.Geometry.Line.Aabb*
+- uid: Etch.Geometry.Line.ClosestPoint(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Line.ClosestPoint(Etch.Geometry.Point)
+  id: ClosestPoint(Etch.Geometry.Point)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: ClosestPoint(Point)
+  nameWithType: Line.ClosestPoint(Point)
+  fullName: Etch.Geometry.Line.ClosestPoint(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point ClosestPoint(Point p)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Function ClosestPoint(p As Point) As Point
+  overload: Etch.Geometry.Line.ClosestPoint*
+- uid: Etch.Geometry.Line.DistanceTo(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Line.DistanceTo(Etch.Geometry.Point)
+  id: DistanceTo(Etch.Geometry.Point)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: DistanceTo(Point)
+  nameWithType: Line.DistanceTo(Point)
+  fullName: Etch.Geometry.Line.DistanceTo(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double DistanceTo(Point p)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceTo(p As Point) As Double
+  overload: Etch.Geometry.Line.DistanceTo*
+- uid: Etch.Geometry.Line.Equals(Etch.Geometry.Line)
+  commentId: M:Etch.Geometry.Line.Equals(Etch.Geometry.Line)
+  id: Equals(Etch.Geometry.Line)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Equals(Line)
+  nameWithType: Line.Equals(Line)
+  fullName: Etch.Geometry.Line.Equals(Etch.Geometry.Line)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Line other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Line
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Line) As Boolean
+  overload: Etch.Geometry.Line.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Line}.Equals(Etch.Geometry.Line)
+- uid: Etch.Geometry.Line.Equals(System.Object)
+  commentId: M:Etch.Geometry.Line.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Line.Equals(object?)
+  fullName: Etch.Geometry.Line.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Line.Equals*
+  nameWithType.vb: Line.Equals(Object)
+  fullName.vb: Etch.Geometry.Line.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Line.op_Equality(Etch.Geometry.Line,Etch.Geometry.Line)
+  commentId: M:Etch.Geometry.Line.op_Equality(Etch.Geometry.Line,Etch.Geometry.Line)
+  id: op_Equality(Etch.Geometry.Line,Etch.Geometry.Line)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Line, Line)
+  nameWithType: Line.operator ==(Line, Line)
+  fullName: Etch.Geometry.Line.operator ==(Etch.Geometry.Line, Etch.Geometry.Line)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Line left, Line right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Line
+    - id: right
+      type: Etch.Geometry.Line
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Line, right As Line) As Boolean
+  overload: Etch.Geometry.Line.op_Equality*
+  nameWithType.vb: Line.=(Line, Line)
+  fullName.vb: Etch.Geometry.Line.=(Etch.Geometry.Line, Etch.Geometry.Line)
+  name.vb: =(Line, Line)
+- uid: Etch.Geometry.Line.op_Inequality(Etch.Geometry.Line,Etch.Geometry.Line)
+  commentId: M:Etch.Geometry.Line.op_Inequality(Etch.Geometry.Line,Etch.Geometry.Line)
+  id: op_Inequality(Etch.Geometry.Line,Etch.Geometry.Line)
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Line, Line)
+  nameWithType: Line.operator !=(Line, Line)
+  fullName: Etch.Geometry.Line.operator !=(Etch.Geometry.Line, Etch.Geometry.Line)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Line left, Line right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Line
+    - id: right
+      type: Etch.Geometry.Line
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Line, right As Line) As Boolean
+  overload: Etch.Geometry.Line.op_Inequality*
+  nameWithType.vb: Line.<>(Line, Line)
+  fullName.vb: Etch.Geometry.Line.<>(Etch.Geometry.Line, Etch.Geometry.Line)
+  name.vb: <>(Line, Line)
+- uid: Etch.Geometry.Line.GetHashCode
+  commentId: M:Etch.Geometry.Line.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Line.GetHashCode()
+  fullName: Etch.Geometry.Line.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Line.GetHashCode*
+- uid: Etch.Geometry.Line.ToString
+  commentId: M:Etch.Geometry.Line.ToString
+  id: ToString
+  parent: Etch.Geometry.Line
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Line.ToString()
+  fullName: Etch.Geometry.Line.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Line.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Line}
+  commentId: T:System.IEquatable{Etch.Geometry.Line}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Line>
+  nameWithType: IEquatable<Line>
+  fullName: System.IEquatable<Etch.Geometry.Line>
+  nameWithType.vb: IEquatable(Of Line)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Line)
+  name.vb: IEquatable(Of Line)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Line
+    name: Line
+    href: Etch.Geometry.Line.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Line
+    name: Line
+    href: Etch.Geometry.Line.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.Line.#ctor*
+  commentId: Overload:Etch.Geometry.Line.#ctor
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line__ctor_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: Line
+  nameWithType: Line.Line
+  fullName: Etch.Geometry.Line.Line
+  nameWithType.vb: Line.New
+  fullName.vb: Etch.Geometry.Line.New
+  name.vb: New
+- uid: Etch.Geometry.Line.Length*
+  commentId: Overload:Etch.Geometry.Line.Length
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_Length
+  name: Length
+  nameWithType: Line.Length
+  fullName: Etch.Geometry.Line.Length
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Line.LengthSquared*
+  commentId: Overload:Etch.Geometry.Line.LengthSquared
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_LengthSquared
+  name: LengthSquared
+  nameWithType: Line.LengthSquared
+  fullName: Etch.Geometry.Line.LengthSquared
+- uid: Etch.Geometry.Line.Aabb*
+  commentId: Overload:Etch.Geometry.Line.Aabb
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_Aabb
+  name: Aabb
+  nameWithType: Line.Aabb
+  fullName: Etch.Geometry.Line.Aabb
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry.Line.ClosestPoint*
+  commentId: Overload:Etch.Geometry.Line.ClosestPoint
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_ClosestPoint_Etch_Geometry_Point_
+  name: ClosestPoint
+  nameWithType: Line.ClosestPoint
+  fullName: Etch.Geometry.Line.ClosestPoint
+- uid: Etch.Geometry.Line.DistanceTo*
+  commentId: Overload:Etch.Geometry.Line.DistanceTo
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_DistanceTo_Etch_Geometry_Point_
+  name: DistanceTo
+  nameWithType: Line.DistanceTo
+  fullName: Etch.Geometry.Line.DistanceTo
+- uid: Etch.Geometry.Line.Equals*
+  commentId: Overload:Etch.Geometry.Line.Equals
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_Equals_Etch_Geometry_Line_
+  name: Equals
+  nameWithType: Line.Equals
+  fullName: Etch.Geometry.Line.Equals
+- uid: System.IEquatable{Etch.Geometry.Line}.Equals(Etch.Geometry.Line)
+  commentId: M:System.IEquatable{Etch.Geometry.Line}.Equals(Etch.Geometry.Line)
+  parent: System.IEquatable{Etch.Geometry.Line}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Line)
+  nameWithType: IEquatable<Line>.Equals(Line)
+  fullName: System.IEquatable<Etch.Geometry.Line>.Equals(Etch.Geometry.Line)
+  nameWithType.vb: IEquatable(Of Line).Equals(Line)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Line).Equals(Etch.Geometry.Line)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Line}.Equals(Etch.Geometry.Line)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Line
+    name: Line
+    href: Etch.Geometry.Line.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Line}.Equals(Etch.Geometry.Line)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Line
+    name: Line
+    href: Etch.Geometry.Line.html
+  - name: )
+- uid: Etch.Geometry.Line
+  commentId: T:Etch.Geometry.Line
+  parent: Etch.Geometry
+  href: Etch.Geometry.Line.html
+  name: Line
+  nameWithType: Line
+  fullName: Etch.Geometry.Line
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: Etch.Geometry.Line.op_Equality*
+  commentId: Overload:Etch.Geometry.Line.op_Equality
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_op_Equality_Etch_Geometry_Line_Etch_Geometry_Line_
+  name: operator ==
+  nameWithType: Line.operator ==
+  fullName: Etch.Geometry.Line.operator ==
+  nameWithType.vb: Line.=
+  fullName.vb: Etch.Geometry.Line.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Line.op_Equality*
+    name: ==
+    href: Etch.Geometry.Line.html#Etch_Geometry_Line_op_Equality_Etch_Geometry_Line_Etch_Geometry_Line_
+- uid: Etch.Geometry.Line.op_Inequality*
+  commentId: Overload:Etch.Geometry.Line.op_Inequality
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_op_Inequality_Etch_Geometry_Line_Etch_Geometry_Line_
+  name: operator !=
+  nameWithType: Line.operator !=
+  fullName: Etch.Geometry.Line.operator !=
+  nameWithType.vb: Line.<>
+  fullName.vb: Etch.Geometry.Line.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Line.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Line.html#Etch_Geometry_Line_op_Inequality_Etch_Geometry_Line_Etch_Geometry_Line_
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Line.GetHashCode*
+  commentId: Overload:Etch.Geometry.Line.GetHashCode
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_GetHashCode
+  name: GetHashCode
+  nameWithType: Line.GetHashCode
+  fullName: Etch.Geometry.Line.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Line.ToString*
+  commentId: Overload:Etch.Geometry.Line.ToString
+  href: Etch.Geometry.Line.html#Etch_Geometry_Line_ToString
+  name: ToString
+  nameWithType: Line.ToString
+  fullName: Etch.Geometry.Line.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

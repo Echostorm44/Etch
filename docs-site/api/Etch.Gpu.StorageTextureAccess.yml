@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.StorageTextureAccess
+  commentId: T:Etch.Gpu.StorageTextureAccess
+  id: StorageTextureAccess
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.StorageTextureAccess.BindingNotUsed
+  - Etch.Gpu.StorageTextureAccess.ReadOnly
+  - Etch.Gpu.StorageTextureAccess.ReadWrite
+  - Etch.Gpu.StorageTextureAccess.Undefined
+  - Etch.Gpu.StorageTextureAccess.WriteOnly
+  langs:
+  - csharp
+  - vb
+  name: StorageTextureAccess
+  nameWithType: StorageTextureAccess
+  fullName: Etch.Gpu.StorageTextureAccess
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum StorageTextureAccess : uint'
+    content.vb: Public Enum StorageTextureAccess As UInteger
+- uid: Etch.Gpu.StorageTextureAccess.BindingNotUsed
+  commentId: F:Etch.Gpu.StorageTextureAccess.BindingNotUsed
+  id: BindingNotUsed
+  parent: Etch.Gpu.StorageTextureAccess
+  langs:
+  - csharp
+  - vb
+  name: BindingNotUsed
+  nameWithType: StorageTextureAccess.BindingNotUsed
+  fullName: Etch.Gpu.StorageTextureAccess.BindingNotUsed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: BindingNotUsed = 0
+    return:
+      type: Etch.Gpu.StorageTextureAccess
+- uid: Etch.Gpu.StorageTextureAccess.Undefined
+  commentId: F:Etch.Gpu.StorageTextureAccess.Undefined
+  id: Undefined
+  parent: Etch.Gpu.StorageTextureAccess
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: StorageTextureAccess.Undefined
+  fullName: Etch.Gpu.StorageTextureAccess.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 1
+    return:
+      type: Etch.Gpu.StorageTextureAccess
+- uid: Etch.Gpu.StorageTextureAccess.WriteOnly
+  commentId: F:Etch.Gpu.StorageTextureAccess.WriteOnly
+  id: WriteOnly
+  parent: Etch.Gpu.StorageTextureAccess
+  langs:
+  - csharp
+  - vb
+  name: WriteOnly
+  nameWithType: StorageTextureAccess.WriteOnly
+  fullName: Etch.Gpu.StorageTextureAccess.WriteOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: WriteOnly = 2
+    return:
+      type: Etch.Gpu.StorageTextureAccess
+- uid: Etch.Gpu.StorageTextureAccess.ReadOnly
+  commentId: F:Etch.Gpu.StorageTextureAccess.ReadOnly
+  id: ReadOnly
+  parent: Etch.Gpu.StorageTextureAccess
+  langs:
+  - csharp
+  - vb
+  name: ReadOnly
+  nameWithType: StorageTextureAccess.ReadOnly
+  fullName: Etch.Gpu.StorageTextureAccess.ReadOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: ReadOnly = 3
+    return:
+      type: Etch.Gpu.StorageTextureAccess
+- uid: Etch.Gpu.StorageTextureAccess.ReadWrite
+  commentId: F:Etch.Gpu.StorageTextureAccess.ReadWrite
+  id: ReadWrite
+  parent: Etch.Gpu.StorageTextureAccess
+  langs:
+  - csharp
+  - vb
+  name: ReadWrite
+  nameWithType: StorageTextureAccess.ReadWrite
+  fullName: Etch.Gpu.StorageTextureAccess.ReadWrite
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: ReadWrite = 4
+    return:
+      type: Etch.Gpu.StorageTextureAccess
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.StorageTextureAccess
+  commentId: T:Etch.Gpu.StorageTextureAccess
+  parent: Etch.Gpu
+  href: Etch.Gpu.StorageTextureAccess.html
+  name: StorageTextureAccess
+  nameWithType: StorageTextureAccess
+  fullName: Etch.Gpu.StorageTextureAccess

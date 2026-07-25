@@ -1,0 +1,8 @@
+* text=lf
+*.dll binary
+*.so binary
+*.dylib binary
+*.png binary
+*.scene binary
+*.ttf binary
+*.otf binary

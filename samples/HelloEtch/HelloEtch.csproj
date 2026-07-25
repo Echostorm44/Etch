@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>HelloEtch</AssemblyName>
+    <Description>Minimal red triangle sample using Etch.Gpu — M0 gate artifact</Description>
+    <PublishAot>true</PublishAot>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>$(NoWarn);CA1303;CA1852;CA2007;CA1849;ET0105;CA5392;CS4004;CA1515;CA1815;IDE0055</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Gpu.Native\Etch.Gpu.Native.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="RedTriangle.wgsl" Pack="True" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+    <Copy SourceFiles="..\..\native\wgpu-native\$(RuntimeIdentifier)\lib\wgpu_native.dll"
+          DestinationFiles="$(OutDir)wgpu_native.dll"
+          Condition="'$(RuntimeIdentifier)' != ''" />
+  </Target>
+</Project>

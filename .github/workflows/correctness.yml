@@ -1,0 +1,154 @@
+name: Correctness
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+  ETCH_SOFTWARE_GPU: '1'
+
+jobs:
+  lavapipe-linux:
+    name: Lavapipe (Linux)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Install Lavapipe
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mesa-vulkan-drivers
+          echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json" >> "$GITHUB_ENV"
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
+      - name: Build
+        run: dotnet build Etch.sln -c Release --no-restore
+
+      - name: Run detector test
+        run: dotnet run --project tests/Etch.Testing.Tests/Etch.Testing.Tests.csproj -c Release --no-build
+
+      - name: Run clip-blend-gradient tests (10-scene corpus)
+        run: dotnet run --project tests/Etch.ClipBlendGradient.Tests/Etch.ClipBlendGradient.Tests.csproj -c Release --no-build
+
+      - name: Run pixel-parity tests
+        run: dotnet run --project tests/Etch.PixelParity.Tests/Etch.PixelParity.Tests.csproj -c Release --no-build
+
+      - name: Run tiling tests
+        run: dotnet run --project tests/Etch.Tiling.Tests/Etch.Tiling.Tests.csproj -c Release --no-build
+
+      - name: Run raster CPU tests
+        run: dotnet run --project tests/Etch.Raster.Cpu.Tests/Etch.Raster.Cpu.Tests.csproj -c Release --no-build
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: correctness-lavapipe
+          path: TestResults/
+
+  swiftshader-windows:
+    name: SwiftShader (Windows)
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Install SwiftShader
+        run: |
+          $url = "https://github.com/google/swiftshader/releases/download/v4.1.0/SwiftShader-Windows-x64.zip"
+          $zip = "$env:TEMP\swiftshader.zip"
+          $out = "$env:TEMP\swiftshader"
+          Invoke-WebRequest -Uri $url -OutFile $zip -ErrorAction SilentlyContinue
+          if (Test-Path $zip) {
+            Expand-Archive -Path $zip -DestinationPath $out -Force
+            $icd = Get-ChildItem -Path $out -Recurse -Filter "vk_swiftshader_icd.json" | Select-Object -First 1
+            if ($icd) {
+              Write-Output "VK_ICD_FILENAMES=$($icd.FullName)" >> "$env:GITHUB_ENV"
+            }
+          }
+          # If download fails, ETCH_SOFTWARE_GPU=1 still triggers software mode
+        shell: pwsh
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
+      - name: Build
+        run: dotnet build Etch.sln -c Release --no-restore
+
+      - name: Run detector test
+        run: dotnet run --project tests/Etch.Testing.Tests/Etch.Testing.Tests.csproj -c Release --no-build
+
+      - name: Run clip-blend-gradient tests (10-scene corpus)
+        run: dotnet run --project tests/Etch.ClipBlendGradient.Tests/Etch.ClipBlendGradient.Tests.csproj -c Release --no-build
+
+      - name: Run pixel-parity tests
+        run: dotnet run --project tests/Etch.PixelParity.Tests/Etch.PixelParity.Tests.csproj -c Release --no-build
+
+      - name: Run tiling tests
+        run: dotnet run --project tests/Etch.Tiling.Tests/Etch.Tiling.Tests.csproj -c Release --no-build
+
+      - name: Run raster CPU tests
+        run: dotnet run --project tests/Etch.Raster.Cpu.Tests/Etch.Raster.Cpu.Tests.csproj -c Release --no-build
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: correctness-swiftshader
+          path: TestResults/
+
+  aot-publish:
+    name: AOT Publish
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64]
+    runs-on: ${{ matrix.rid == 'win-x64' && 'windows-2022' || 'ubuntu-24.04' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Publish AOT
+        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true 2>&1 | tee publish.log
+        shell: pwsh
+
+      - name: Check AOT warnings
+        run: ./tools/ci/check-aot-warnings.ps1 -Log publish.log -Namespace Etch
+        shell: pwsh
+
+      - name: Upload publish logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aot-logs-${{ matrix.rid }}
+          path: publish.log

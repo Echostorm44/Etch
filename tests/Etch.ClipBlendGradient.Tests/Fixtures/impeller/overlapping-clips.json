@@ -1,0 +1,7 @@
+{
+  "scenePath": "overlapping-clips.etsc",
+  "goldenPath": "overlapping-clips.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

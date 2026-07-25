@@ -1,0 +1,580 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Flatten.FlattenSink
+  commentId: T:Etch.Geometry.Flatten.FlattenSink
+  id: FlattenSink
+  parent: Etch.Geometry.Flatten
+  children:
+  - Etch.Geometry.Flatten.FlattenSink.#ctor(System.Span{Etch.Geometry.Point},System.Boolean)
+  - Etch.Geometry.Flatten.FlattenSink.Accept(Etch.Geometry.Point)
+  - Etch.Geometry.Flatten.FlattenSink.Autoflush
+  - Etch.Geometry.Flatten.FlattenSink.Count
+  - Etch.Geometry.Flatten.FlattenSink.IsFull
+  - Etch.Geometry.Flatten.FlattenSink.Reset
+  - Etch.Geometry.Flatten.FlattenSink.Written
+  langs:
+  - csharp
+  - vb
+  name: FlattenSink
+  nameWithType: FlattenSink
+  fullName: Etch.Geometry.Flatten.FlattenSink
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public ref struct FlattenSink
+    content.vb: Public Structure FlattenSink
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Flatten.FlattenSink.Autoflush
+  commentId: F:Etch.Geometry.Flatten.FlattenSink.Autoflush
+  id: Autoflush
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Autoflush
+  nameWithType: FlattenSink.Autoflush
+  fullName: Etch.Geometry.Flatten.FlattenSink.Autoflush
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public readonly bool Autoflush
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Autoflush As Boolean
+- uid: Etch.Geometry.Flatten.FlattenSink.#ctor(System.Span{Etch.Geometry.Point},System.Boolean)
+  commentId: M:Etch.Geometry.Flatten.FlattenSink.#ctor(System.Span{Etch.Geometry.Point},System.Boolean)
+  id: '#ctor(System.Span{Etch.Geometry.Point},System.Boolean)'
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: FlattenSink(Span<Point>, bool)
+  nameWithType: FlattenSink.FlattenSink(Span<Point>, bool)
+  fullName: Etch.Geometry.Flatten.FlattenSink.FlattenSink(System.Span<Etch.Geometry.Point>, bool)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public FlattenSink(Span<Point> buffer, bool autoflush = false)
+    parameters:
+    - id: buffer
+      type: System.Span{Etch.Geometry.Point}
+    - id: autoflush
+      type: System.Boolean
+    content.vb: Public Sub New(buffer As Span(Of Point), autoflush As Boolean = False)
+  overload: Etch.Geometry.Flatten.FlattenSink.#ctor*
+  nameWithType.vb: FlattenSink.New(Span(Of Point), Boolean)
+  fullName.vb: Etch.Geometry.Flatten.FlattenSink.New(System.Span(Of Etch.Geometry.Point), Boolean)
+  name.vb: New(Span(Of Point), Boolean)
+- uid: Etch.Geometry.Flatten.FlattenSink.Count
+  commentId: P:Etch.Geometry.Flatten.FlattenSink.Count
+  id: Count
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: FlattenSink.Count
+  fullName: Etch.Geometry.Flatten.FlattenSink.Count
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public readonly int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Etch.Geometry.Flatten.FlattenSink.Count*
+- uid: Etch.Geometry.Flatten.FlattenSink.IsFull
+  commentId: P:Etch.Geometry.Flatten.FlattenSink.IsFull
+  id: IsFull
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: IsFull
+  nameWithType: FlattenSink.IsFull
+  fullName: Etch.Geometry.Flatten.FlattenSink.IsFull
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public readonly bool IsFull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFull As Boolean
+  overload: Etch.Geometry.Flatten.FlattenSink.IsFull*
+- uid: Etch.Geometry.Flatten.FlattenSink.Accept(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Flatten.FlattenSink.Accept(Etch.Geometry.Point)
+  id: Accept(Etch.Geometry.Point)
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Accept(Point)
+  nameWithType: FlattenSink.Accept(Point)
+  fullName: Etch.Geometry.Flatten.FlattenSink.Accept(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public void Accept(Point point)
+    parameters:
+    - id: point
+      type: Etch.Geometry.Point
+    content.vb: Public Sub Accept(point As Point)
+  overload: Etch.Geometry.Flatten.FlattenSink.Accept*
+- uid: Etch.Geometry.Flatten.FlattenSink.Reset
+  commentId: M:Etch.Geometry.Flatten.FlattenSink.Reset
+  id: Reset
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: FlattenSink.Reset()
+  fullName: Etch.Geometry.Flatten.FlattenSink.Reset()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Etch.Geometry.Flatten.FlattenSink.Reset*
+- uid: Etch.Geometry.Flatten.FlattenSink.Written
+  commentId: P:Etch.Geometry.Flatten.FlattenSink.Written
+  id: Written
+  parent: Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Written
+  nameWithType: FlattenSink.Written
+  fullName: Etch.Geometry.Flatten.FlattenSink.Written
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry.Flatten
+  syntax:
+    content: public readonly Span<Point> Written { get; }
+    parameters: []
+    return:
+      type: System.Span{Etch.Geometry.Point}
+    content.vb: Public ReadOnly Property Written As Span(Of Point)
+  overload: Etch.Geometry.Flatten.FlattenSink.Written*
+references:
+- uid: Etch.Geometry.Flatten
+  commentId: N:Etch.Geometry.Flatten
+  href: Etch.html
+  name: Etch.Geometry.Flatten
+  nameWithType: Etch.Geometry.Flatten
+  fullName: Etch.Geometry.Flatten
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  - name: .
+  - uid: Etch.Geometry.Flatten
+    name: Flatten
+    href: Etch.Geometry.Flatten.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  - name: .
+  - uid: Etch.Geometry.Flatten
+    name: Flatten
+    href: Etch.Geometry.Flatten.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Flatten.FlattenSink.#ctor*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.#ctor
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink__ctor_System_Span_Etch_Geometry_Point__System_Boolean_
+  name: FlattenSink
+  nameWithType: FlattenSink.FlattenSink
+  fullName: Etch.Geometry.Flatten.FlattenSink.FlattenSink
+  nameWithType.vb: FlattenSink.New
+  fullName.vb: Etch.Geometry.Flatten.FlattenSink.New
+  name.vb: New
+- uid: System.Span{Etch.Geometry.Point}
+  commentId: T:System.Span{Etch.Geometry.Point}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<Point>
+  nameWithType: Span<Point>
+  fullName: System.Span<Etch.Geometry.Point>
+  nameWithType.vb: Span(Of Point)
+  fullName.vb: System.Span(Of Etch.Geometry.Point)
+  name.vb: Span(Of Point)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Geometry.Flatten.FlattenSink.Count*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.Count
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink_Count
+  name: Count
+  nameWithType: FlattenSink.Count
+  fullName: Etch.Geometry.Flatten.FlattenSink.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Geometry.Flatten.FlattenSink.IsFull*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.IsFull
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink_IsFull
+  name: IsFull
+  nameWithType: FlattenSink.IsFull
+  fullName: Etch.Geometry.Flatten.FlattenSink.IsFull
+- uid: Etch.Geometry.Flatten.FlattenSink.Accept*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.Accept
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink_Accept_Etch_Geometry_Point_
+  name: Accept
+  nameWithType: FlattenSink.Accept
+  fullName: Etch.Geometry.Flatten.FlattenSink.Accept
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: Etch.Geometry.Flatten.FlattenSink.Reset*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.Reset
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink_Reset
+  name: Reset
+  nameWithType: FlattenSink.Reset
+  fullName: Etch.Geometry.Flatten.FlattenSink.Reset
+- uid: Etch.Geometry.Flatten.FlattenSink.Written*
+  commentId: Overload:Etch.Geometry.Flatten.FlattenSink.Written
+  href: Etch.Geometry.Flatten.FlattenSink.html#Etch_Geometry_Flatten_FlattenSink_Written
+  name: Written
+  nameWithType: FlattenSink.Written
+  fullName: Etch.Geometry.Flatten.FlattenSink.Written

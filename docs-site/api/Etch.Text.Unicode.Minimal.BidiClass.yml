@@ -1,0 +1,554 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode.Minimal.BidiClass
+  commentId: T:Etch.Text.Unicode.Minimal.BidiClass
+  id: BidiClass
+  parent: Etch.Text.Unicode.Minimal
+  children:
+  - Etch.Text.Unicode.Minimal.BidiClass.AL
+  - Etch.Text.Unicode.Minimal.BidiClass.AN
+  - Etch.Text.Unicode.Minimal.BidiClass.B
+  - Etch.Text.Unicode.Minimal.BidiClass.BN
+  - Etch.Text.Unicode.Minimal.BidiClass.CS
+  - Etch.Text.Unicode.Minimal.BidiClass.EN
+  - Etch.Text.Unicode.Minimal.BidiClass.ES
+  - Etch.Text.Unicode.Minimal.BidiClass.ET
+  - Etch.Text.Unicode.Minimal.BidiClass.FSI
+  - Etch.Text.Unicode.Minimal.BidiClass.L
+  - Etch.Text.Unicode.Minimal.BidiClass.LRE
+  - Etch.Text.Unicode.Minimal.BidiClass.LRI
+  - Etch.Text.Unicode.Minimal.BidiClass.LRO
+  - Etch.Text.Unicode.Minimal.BidiClass.NSM
+  - Etch.Text.Unicode.Minimal.BidiClass.ON
+  - Etch.Text.Unicode.Minimal.BidiClass.PDF
+  - Etch.Text.Unicode.Minimal.BidiClass.PDI
+  - Etch.Text.Unicode.Minimal.BidiClass.R
+  - Etch.Text.Unicode.Minimal.BidiClass.RLE
+  - Etch.Text.Unicode.Minimal.BidiClass.RLI
+  - Etch.Text.Unicode.Minimal.BidiClass.RLO
+  - Etch.Text.Unicode.Minimal.BidiClass.S
+  - Etch.Text.Unicode.Minimal.BidiClass.WS
+  langs:
+  - csharp
+  - vb
+  name: BidiClass
+  nameWithType: BidiClass
+  fullName: Etch.Text.Unicode.Minimal.BidiClass
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: >-
+    Unicode Bidi_Class property values per UAX #9.
+
+    Only values needed for the core algorithm are included.
+  example: []
+  syntax:
+    content: 'public enum BidiClass : byte'
+    content.vb: Public Enum BidiClass As Byte
+- uid: Etch.Text.Unicode.Minimal.BidiClass.L
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.L
+  id: L
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: L
+  nameWithType: BidiClass.L
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.L
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Left-to-Right — strong LTR (Latin, CJK, etc.)
+  example: []
+  syntax:
+    content: L = 0
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.R
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.R
+  id: R
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: BidiClass.R
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.R
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Right-to-Left — strong RTL (Hebrew, etc.)
+  example: []
+  syntax:
+    content: R = 1
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.AL
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.AL
+  id: AL
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: AL
+  nameWithType: BidiClass.AL
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.AL
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Arabic Letter — strong RTL (Arabic, Syriac, etc.)
+  example: []
+  syntax:
+    content: AL = 2
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.EN
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.EN
+  id: EN
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: EN
+  nameWithType: BidiClass.EN
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.EN
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: European Number — weak EN
+  example: []
+  syntax:
+    content: EN = 3
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.ES
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.ES
+  id: ES
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: ES
+  nameWithType: BidiClass.ES
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.ES
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: European Number Separator — weak ES
+  example: []
+  syntax:
+    content: ES = 4
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.ET
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.ET
+  id: ET
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: ET
+  nameWithType: BidiClass.ET
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.ET
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: European Number Terminator — weak ET
+  example: []
+  syntax:
+    content: ET = 5
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.AN
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.AN
+  id: AN
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: AN
+  nameWithType: BidiClass.AN
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.AN
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Arabic Number — weak AN
+  example: []
+  syntax:
+    content: AN = 6
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.CS
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.CS
+  id: CS
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: CS
+  nameWithType: BidiClass.CS
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.CS
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Common Number Separator — weak CS
+  example: []
+  syntax:
+    content: CS = 7
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.NSM
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.NSM
+  id: NSM
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: NSM
+  nameWithType: BidiClass.NSM
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.NSM
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Nonspacing Mark — weak NSM
+  example: []
+  syntax:
+    content: NSM = 8
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.BN
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.BN
+  id: BN
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: BN
+  nameWithType: BidiClass.BN
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.BN
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Boundary Neutral — weak BN
+  example: []
+  syntax:
+    content: BN = 9
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.B
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.B
+  id: B
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: BidiClass.B
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.B
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Paragraph Separator — neutral B
+  example: []
+  syntax:
+    content: B = 10
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.S
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.S
+  id: S
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: S
+  nameWithType: BidiClass.S
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.S
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Segment Separator — neutral S
+  example: []
+  syntax:
+    content: S = 11
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.WS
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.WS
+  id: WS
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: WS
+  nameWithType: BidiClass.WS
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.WS
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Whitespace — neutral WS
+  example: []
+  syntax:
+    content: WS = 12
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.ON
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.ON
+  id: ON
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: ON
+  nameWithType: BidiClass.ON
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.ON
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Other Neutral — neutral ON
+  example: []
+  syntax:
+    content: ON = 13
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.LRE
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.LRE
+  id: LRE
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: LRE
+  nameWithType: BidiClass.LRE
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.LRE
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Left-to-Right Embedding — explicit LRE
+  example: []
+  syntax:
+    content: LRE = 14
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.LRO
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.LRO
+  id: LRO
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: LRO
+  nameWithType: BidiClass.LRO
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.LRO
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Left-to-Right Override — explicit LRO
+  example: []
+  syntax:
+    content: LRO = 15
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.RLE
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.RLE
+  id: RLE
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: RLE
+  nameWithType: BidiClass.RLE
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.RLE
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Right-to-Left Embedding — explicit RLE
+  example: []
+  syntax:
+    content: RLE = 16
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.RLO
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.RLO
+  id: RLO
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: RLO
+  nameWithType: BidiClass.RLO
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.RLO
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Right-to-Left Override — explicit RLO
+  example: []
+  syntax:
+    content: RLO = 17
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.PDF
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.PDF
+  id: PDF
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: PDF
+  nameWithType: BidiClass.PDF
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.PDF
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Pop Directional Format — explicit PDF
+  example: []
+  syntax:
+    content: PDF = 18
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.LRI
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.LRI
+  id: LRI
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: LRI
+  nameWithType: BidiClass.LRI
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.LRI
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Left-to-Right Isolate — explicit LRI
+  example: []
+  syntax:
+    content: LRI = 19
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.RLI
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.RLI
+  id: RLI
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: RLI
+  nameWithType: BidiClass.RLI
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.RLI
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Right-to-Left Isolate — explicit RLI
+  example: []
+  syntax:
+    content: RLI = 20
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.FSI
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.FSI
+  id: FSI
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: FSI
+  nameWithType: BidiClass.FSI
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.FSI
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: First Strong Isolate — explicit FSI
+  example: []
+  syntax:
+    content: FSI = 21
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+- uid: Etch.Text.Unicode.Minimal.BidiClass.PDI
+  commentId: F:Etch.Text.Unicode.Minimal.BidiClass.PDI
+  id: PDI
+  parent: Etch.Text.Unicode.Minimal.BidiClass
+  langs:
+  - csharp
+  - vb
+  name: PDI
+  nameWithType: BidiClass.PDI
+  fullName: Etch.Text.Unicode.Minimal.BidiClass.PDI
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Pop Directional Isolate — explicit PDI
+  example: []
+  syntax:
+    content: PDI = 22
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiClass
+references:
+- uid: Etch.Text.Unicode.Minimal
+  commentId: N:Etch.Text.Unicode.Minimal
+  href: Etch.html
+  name: Etch.Text.Unicode.Minimal
+  nameWithType: Etch.Text.Unicode.Minimal
+  fullName: Etch.Text.Unicode.Minimal
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+- uid: Etch.Text.Unicode.Minimal.BidiClass
+  commentId: T:Etch.Text.Unicode.Minimal.BidiClass
+  parent: Etch.Text.Unicode.Minimal
+  href: Etch.Text.Unicode.Minimal.BidiClass.html
+  name: BidiClass
+  nameWithType: BidiClass
+  fullName: Etch.Text.Unicode.Minimal.BidiClass

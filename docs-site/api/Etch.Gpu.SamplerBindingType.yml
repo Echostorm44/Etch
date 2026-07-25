@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SamplerBindingType
+  commentId: T:Etch.Gpu.SamplerBindingType
+  id: SamplerBindingType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.SamplerBindingType.BindingNotUsed
+  - Etch.Gpu.SamplerBindingType.Comparison
+  - Etch.Gpu.SamplerBindingType.Filtering
+  - Etch.Gpu.SamplerBindingType.NonFiltering
+  - Etch.Gpu.SamplerBindingType.Undefined
+  langs:
+  - csharp
+  - vb
+  name: SamplerBindingType
+  nameWithType: SamplerBindingType
+  fullName: Etch.Gpu.SamplerBindingType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum SamplerBindingType : uint'
+    content.vb: Public Enum SamplerBindingType As UInteger
+- uid: Etch.Gpu.SamplerBindingType.BindingNotUsed
+  commentId: F:Etch.Gpu.SamplerBindingType.BindingNotUsed
+  id: BindingNotUsed
+  parent: Etch.Gpu.SamplerBindingType
+  langs:
+  - csharp
+  - vb
+  name: BindingNotUsed
+  nameWithType: SamplerBindingType.BindingNotUsed
+  fullName: Etch.Gpu.SamplerBindingType.BindingNotUsed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: BindingNotUsed = 0
+    return:
+      type: Etch.Gpu.SamplerBindingType
+- uid: Etch.Gpu.SamplerBindingType.Undefined
+  commentId: F:Etch.Gpu.SamplerBindingType.Undefined
+  id: Undefined
+  parent: Etch.Gpu.SamplerBindingType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: SamplerBindingType.Undefined
+  fullName: Etch.Gpu.SamplerBindingType.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 1
+    return:
+      type: Etch.Gpu.SamplerBindingType
+- uid: Etch.Gpu.SamplerBindingType.Filtering
+  commentId: F:Etch.Gpu.SamplerBindingType.Filtering
+  id: Filtering
+  parent: Etch.Gpu.SamplerBindingType
+  langs:
+  - csharp
+  - vb
+  name: Filtering
+  nameWithType: SamplerBindingType.Filtering
+  fullName: Etch.Gpu.SamplerBindingType.Filtering
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Filtering = 2
+    return:
+      type: Etch.Gpu.SamplerBindingType
+- uid: Etch.Gpu.SamplerBindingType.NonFiltering
+  commentId: F:Etch.Gpu.SamplerBindingType.NonFiltering
+  id: NonFiltering
+  parent: Etch.Gpu.SamplerBindingType
+  langs:
+  - csharp
+  - vb
+  name: NonFiltering
+  nameWithType: SamplerBindingType.NonFiltering
+  fullName: Etch.Gpu.SamplerBindingType.NonFiltering
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: NonFiltering = 3
+    return:
+      type: Etch.Gpu.SamplerBindingType
+- uid: Etch.Gpu.SamplerBindingType.Comparison
+  commentId: F:Etch.Gpu.SamplerBindingType.Comparison
+  id: Comparison
+  parent: Etch.Gpu.SamplerBindingType
+  langs:
+  - csharp
+  - vb
+  name: Comparison
+  nameWithType: SamplerBindingType.Comparison
+  fullName: Etch.Gpu.SamplerBindingType.Comparison
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Comparison = 4
+    return:
+      type: Etch.Gpu.SamplerBindingType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.SamplerBindingType
+  commentId: T:Etch.Gpu.SamplerBindingType
+  parent: Etch.Gpu
+  href: Etch.Gpu.SamplerBindingType.html
+  name: SamplerBindingType
+  nameWithType: SamplerBindingType
+  fullName: Etch.Gpu.SamplerBindingType

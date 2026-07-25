@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.ErrorType
+  commentId: T:Etch.Gpu.ErrorType
+  id: ErrorType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.ErrorType.Internal
+  - Etch.Gpu.ErrorType.NoError
+  - Etch.Gpu.ErrorType.OutOfMemory
+  - Etch.Gpu.ErrorType.Unknown
+  - Etch.Gpu.ErrorType.Validation
+  langs:
+  - csharp
+  - vb
+  name: ErrorType
+  nameWithType: ErrorType
+  fullName: Etch.Gpu.ErrorType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum ErrorType : uint'
+    content.vb: Public Enum ErrorType As UInteger
+- uid: Etch.Gpu.ErrorType.NoError
+  commentId: F:Etch.Gpu.ErrorType.NoError
+  id: NoError
+  parent: Etch.Gpu.ErrorType
+  langs:
+  - csharp
+  - vb
+  name: NoError
+  nameWithType: ErrorType.NoError
+  fullName: Etch.Gpu.ErrorType.NoError
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: NoError = 1
+    return:
+      type: Etch.Gpu.ErrorType
+- uid: Etch.Gpu.ErrorType.Validation
+  commentId: F:Etch.Gpu.ErrorType.Validation
+  id: Validation
+  parent: Etch.Gpu.ErrorType
+  langs:
+  - csharp
+  - vb
+  name: Validation
+  nameWithType: ErrorType.Validation
+  fullName: Etch.Gpu.ErrorType.Validation
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Validation = 2
+    return:
+      type: Etch.Gpu.ErrorType
+- uid: Etch.Gpu.ErrorType.OutOfMemory
+  commentId: F:Etch.Gpu.ErrorType.OutOfMemory
+  id: OutOfMemory
+  parent: Etch.Gpu.ErrorType
+  langs:
+  - csharp
+  - vb
+  name: OutOfMemory
+  nameWithType: ErrorType.OutOfMemory
+  fullName: Etch.Gpu.ErrorType.OutOfMemory
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OutOfMemory = 3
+    return:
+      type: Etch.Gpu.ErrorType
+- uid: Etch.Gpu.ErrorType.Internal
+  commentId: F:Etch.Gpu.ErrorType.Internal
+  id: Internal
+  parent: Etch.Gpu.ErrorType
+  langs:
+  - csharp
+  - vb
+  name: Internal
+  nameWithType: ErrorType.Internal
+  fullName: Etch.Gpu.ErrorType.Internal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Internal = 4
+    return:
+      type: Etch.Gpu.ErrorType
+- uid: Etch.Gpu.ErrorType.Unknown
+  commentId: F:Etch.Gpu.ErrorType.Unknown
+  id: Unknown
+  parent: Etch.Gpu.ErrorType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ErrorType.Unknown
+  fullName: Etch.Gpu.ErrorType.Unknown
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unknown = 5
+    return:
+      type: Etch.Gpu.ErrorType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.ErrorType
+  commentId: T:Etch.Gpu.ErrorType
+  parent: Etch.Gpu
+  href: Etch.Gpu.ErrorType.html
+  name: ErrorType
+  nameWithType: ErrorType
+  fullName: Etch.Gpu.ErrorType

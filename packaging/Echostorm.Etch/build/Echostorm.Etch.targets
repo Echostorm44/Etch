@@ -1,0 +1,21 @@
+<!--
+  Echostorm.Etch.targets — delivers the bundled cross-platform native binaries
+  (wgpu / FreeType / HarfBuzz) to a package consumer's output.
+
+  The shared NativeLibraryResolver probes runtimes/<rid>/native/ relative to the app
+  base directory first, so copying the whole runtimes/ tree there is sufficient — no
+  output-root copy is needed. Only fires for NuGet consumers (build/assets ships inside
+  the package; the Exists guard is false for Etch's own in-repo build, which gets natives
+  via the project references).
+-->
+<Project>
+
+  <ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)assets')">
+    <None Include="$(MSBuildThisFileDirectory)assets\runtimes\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>runtimes\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+
+</Project>

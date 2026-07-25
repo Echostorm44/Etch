@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.CullMode
+  commentId: T:Etch.Gpu.CullMode
+  id: CullMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.CullMode.Back
+  - Etch.Gpu.CullMode.Front
+  - Etch.Gpu.CullMode.None
+  - Etch.Gpu.CullMode.Undefined
+  langs:
+  - csharp
+  - vb
+  name: CullMode
+  nameWithType: CullMode
+  fullName: Etch.Gpu.CullMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum CullMode : uint'
+    content.vb: Public Enum CullMode As UInteger
+- uid: Etch.Gpu.CullMode.Undefined
+  commentId: F:Etch.Gpu.CullMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.CullMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: CullMode.Undefined
+  fullName: Etch.Gpu.CullMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.CullMode
+- uid: Etch.Gpu.CullMode.None
+  commentId: F:Etch.Gpu.CullMode.None
+  id: None
+  parent: Etch.Gpu.CullMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CullMode.None
+  fullName: Etch.Gpu.CullMode.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 1
+    return:
+      type: Etch.Gpu.CullMode
+- uid: Etch.Gpu.CullMode.Front
+  commentId: F:Etch.Gpu.CullMode.Front
+  id: Front
+  parent: Etch.Gpu.CullMode
+  langs:
+  - csharp
+  - vb
+  name: Front
+  nameWithType: CullMode.Front
+  fullName: Etch.Gpu.CullMode.Front
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Front = 2
+    return:
+      type: Etch.Gpu.CullMode
+- uid: Etch.Gpu.CullMode.Back
+  commentId: F:Etch.Gpu.CullMode.Back
+  id: Back
+  parent: Etch.Gpu.CullMode
+  langs:
+  - csharp
+  - vb
+  name: Back
+  nameWithType: CullMode.Back
+  fullName: Etch.Gpu.CullMode.Back
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Back = 3
+    return:
+      type: Etch.Gpu.CullMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.CullMode
+  commentId: T:Etch.Gpu.CullMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.CullMode.html
+  name: CullMode
+  nameWithType: CullMode
+  fullName: Etch.Gpu.CullMode

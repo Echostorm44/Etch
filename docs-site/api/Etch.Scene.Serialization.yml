@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.Serialization
+  commentId: N:Etch.Scene.Serialization
+  id: Etch.Scene.Serialization
+  children:
+  - Etch.Scene.Serialization.SceneReader
+  - Etch.Scene.Serialization.SceneWriter
+  langs:
+  - csharp
+  - vb
+  name: Etch.Scene.Serialization
+  nameWithType: Etch.Scene.Serialization
+  fullName: Etch.Scene.Serialization
+  type: Namespace
+  assemblies:
+  - Etch.Scene
+references:
+- uid: Etch.Scene.Serialization.SceneReader
+  commentId: T:Etch.Scene.Serialization.SceneReader
+  href: Etch.Scene.Serialization.SceneReader.html
+  name: SceneReader
+  nameWithType: SceneReader
+  fullName: Etch.Scene.Serialization.SceneReader
+- uid: Etch.Scene.Serialization.SceneWriter
+  commentId: T:Etch.Scene.Serialization.SceneWriter
+  href: Etch.Scene.Serialization.SceneWriter.html
+  name: SceneWriter
+  nameWithType: SceneWriter
+  fullName: Etch.Scene.Serialization.SceneWriter

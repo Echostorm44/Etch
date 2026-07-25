@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  id: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.BlendPipeline
+  - Etch.Gpu.Pipelines.BlurPipeline
+  - Etch.Gpu.Pipelines.ExtendMode
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  - Etch.Gpu.Pipelines.GradientKind
+  - Etch.Gpu.Pipelines.GradientPipeline
+  - Etch.Gpu.Pipelines.ImagePipeline
+  - Etch.Gpu.Pipelines.SampleMode
+  - Etch.Gpu.Pipelines.SolidFillPipeline
+  - Etch.Gpu.Pipelines.SpecializedPipelineCache
+  - Etch.Gpu.Pipelines.StripCoveragePipeline
+  - Etch.Gpu.Pipelines.SubpixelMode
+  - Etch.Gpu.Pipelines.TileInfo
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.Pipelines.BlendPipeline
+  commentId: T:Etch.Gpu.Pipelines.BlendPipeline
+  href: Etch.Gpu.Pipelines.BlendPipeline.html
+  name: BlendPipeline
+  nameWithType: BlendPipeline
+  fullName: Etch.Gpu.Pipelines.BlendPipeline
+- uid: Etch.Gpu.Pipelines.BlurPipeline
+  commentId: T:Etch.Gpu.Pipelines.BlurPipeline
+  href: Etch.Gpu.Pipelines.BlurPipeline.html
+  name: BlurPipeline
+  nameWithType: BlurPipeline
+  fullName: Etch.Gpu.Pipelines.BlurPipeline
+- uid: Etch.Gpu.Pipelines.SubpixelMode
+  commentId: T:Etch.Gpu.Pipelines.SubpixelMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.SubpixelMode.html
+  name: SubpixelMode
+  nameWithType: SubpixelMode
+  fullName: Etch.Gpu.Pipelines.SubpixelMode
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  commentId: T:Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html
+  name: GlyphAtlasPipeline
+  nameWithType: GlyphAtlasPipeline
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+- uid: Etch.Gpu.Pipelines.GradientKind
+  commentId: T:Etch.Gpu.Pipelines.GradientKind
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.GradientKind.html
+  name: GradientKind
+  nameWithType: GradientKind
+  fullName: Etch.Gpu.Pipelines.GradientKind
+- uid: Etch.Gpu.Pipelines.ExtendMode
+  commentId: T:Etch.Gpu.Pipelines.ExtendMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.ExtendMode.html
+  name: ExtendMode
+  nameWithType: ExtendMode
+  fullName: Etch.Gpu.Pipelines.ExtendMode
+- uid: Etch.Gpu.Pipelines.GradientPipeline
+  commentId: T:Etch.Gpu.Pipelines.GradientPipeline
+  href: Etch.Gpu.Pipelines.GradientPipeline.html
+  name: GradientPipeline
+  nameWithType: GradientPipeline
+  fullName: Etch.Gpu.Pipelines.GradientPipeline
+- uid: Etch.Gpu.Pipelines.SampleMode
+  commentId: T:Etch.Gpu.Pipelines.SampleMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.SampleMode.html
+  name: SampleMode
+  nameWithType: SampleMode
+  fullName: Etch.Gpu.Pipelines.SampleMode
+- uid: Etch.Gpu.Pipelines.ImagePipeline
+  commentId: T:Etch.Gpu.Pipelines.ImagePipeline
+  href: Etch.Gpu.Pipelines.ImagePipeline.html
+  name: ImagePipeline
+  nameWithType: ImagePipeline
+  fullName: Etch.Gpu.Pipelines.ImagePipeline
+- uid: Etch.Gpu.Pipelines.SolidFillPipeline
+  commentId: T:Etch.Gpu.Pipelines.SolidFillPipeline
+  href: Etch.Gpu.Pipelines.SolidFillPipeline.html
+  name: SolidFillPipeline
+  nameWithType: SolidFillPipeline
+  fullName: Etch.Gpu.Pipelines.SolidFillPipeline
+- uid: Etch.Gpu.Pipelines.SpecializedPipelineCache
+  commentId: T:Etch.Gpu.Pipelines.SpecializedPipelineCache
+  href: Etch.Gpu.Pipelines.SpecializedPipelineCache.html
+  name: SpecializedPipelineCache
+  nameWithType: SpecializedPipelineCache
+  fullName: Etch.Gpu.Pipelines.SpecializedPipelineCache
+- uid: Etch.Gpu.Pipelines.TileInfo
+  commentId: T:Etch.Gpu.Pipelines.TileInfo
+  href: Etch.Gpu.Pipelines.TileInfo.html
+  name: TileInfo
+  nameWithType: TileInfo
+  fullName: Etch.Gpu.Pipelines.TileInfo
+- uid: Etch.Gpu.Pipelines.StripCoveragePipeline
+  commentId: T:Etch.Gpu.Pipelines.StripCoveragePipeline
+  href: Etch.Gpu.Pipelines.StripCoveragePipeline.html
+  name: StripCoveragePipeline
+  nameWithType: StripCoveragePipeline
+  fullName: Etch.Gpu.Pipelines.StripCoveragePipeline
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html

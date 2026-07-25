@@ -1,0 +1,480 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SurfaceFactory
+  commentId: T:Etch.Gpu.SurfaceFactory
+  id: SurfaceFactory
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer(Etch.Gpu.Instance,System.IntPtr,System.String)
+  - Etch.Gpu.SurfaceFactory.CreateFromWayland(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  - Etch.Gpu.SurfaceFactory.CreateFromWin32(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  - Etch.Gpu.SurfaceFactory.CreateFromXlib(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  langs:
+  - csharp
+  - vb
+  name: SurfaceFactory
+  nameWithType: SurfaceFactory
+  fullName: Etch.Gpu.SurfaceFactory
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static class SurfaceFactory
+    content.vb: Public Module SurfaceFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer(Etch.Gpu.Instance,System.IntPtr,System.String)
+  commentId: M:Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer(Etch.Gpu.Instance,System.IntPtr,System.String)
+  id: CreateFromCaMetalLayer(Etch.Gpu.Instance,System.IntPtr,System.String)
+  parent: Etch.Gpu.SurfaceFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateFromCaMetalLayer(Instance, nint, string?)
+  nameWithType: SurfaceFactory.CreateFromCaMetalLayer(Instance, nint, string?)
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer(Etch.Gpu.Instance, nint, string?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static Surface CreateFromCaMetalLayer(Instance instance, nint metalLayer, string? label = null)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: metalLayer
+      type: System.IntPtr
+    - id: label
+      type: System.String
+    return:
+      type: Etch.Gpu.Surface
+    content.vb: Public Shared Function CreateFromCaMetalLayer(instance As Instance, metalLayer As IntPtr, label As String = Nothing) As Surface
+  overload: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer*
+  nameWithType.vb: SurfaceFactory.CreateFromCaMetalLayer(Instance, IntPtr, String)
+  fullName.vb: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer(Etch.Gpu.Instance, System.IntPtr, String)
+  name.vb: CreateFromCaMetalLayer(Instance, IntPtr, String)
+- uid: Etch.Gpu.SurfaceFactory.CreateFromXlib(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  commentId: M:Etch.Gpu.SurfaceFactory.CreateFromXlib(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  id: CreateFromXlib(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  parent: Etch.Gpu.SurfaceFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateFromXlib(Instance, nint, nint, string?)
+  nameWithType: SurfaceFactory.CreateFromXlib(Instance, nint, nint, string?)
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromXlib(Etch.Gpu.Instance, nint, nint, string?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static Surface CreateFromXlib(Instance instance, nint display, nint window, string? label = null)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: display
+      type: System.IntPtr
+    - id: window
+      type: System.IntPtr
+    - id: label
+      type: System.String
+    return:
+      type: Etch.Gpu.Surface
+    content.vb: Public Shared Function CreateFromXlib(instance As Instance, display As IntPtr, window As IntPtr, label As String = Nothing) As Surface
+  overload: Etch.Gpu.SurfaceFactory.CreateFromXlib*
+  nameWithType.vb: SurfaceFactory.CreateFromXlib(Instance, IntPtr, IntPtr, String)
+  fullName.vb: Etch.Gpu.SurfaceFactory.CreateFromXlib(Etch.Gpu.Instance, System.IntPtr, System.IntPtr, String)
+  name.vb: CreateFromXlib(Instance, IntPtr, IntPtr, String)
+- uid: Etch.Gpu.SurfaceFactory.CreateFromWayland(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  commentId: M:Etch.Gpu.SurfaceFactory.CreateFromWayland(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  id: CreateFromWayland(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  parent: Etch.Gpu.SurfaceFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateFromWayland(Instance, nint, nint, string?)
+  nameWithType: SurfaceFactory.CreateFromWayland(Instance, nint, nint, string?)
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromWayland(Etch.Gpu.Instance, nint, nint, string?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static Surface CreateFromWayland(Instance instance, nint wlDisplay, nint wlSurface, string? label = null)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: wlDisplay
+      type: System.IntPtr
+    - id: wlSurface
+      type: System.IntPtr
+    - id: label
+      type: System.String
+    return:
+      type: Etch.Gpu.Surface
+    content.vb: Public Shared Function CreateFromWayland(instance As Instance, wlDisplay As IntPtr, wlSurface As IntPtr, label As String = Nothing) As Surface
+  overload: Etch.Gpu.SurfaceFactory.CreateFromWayland*
+  nameWithType.vb: SurfaceFactory.CreateFromWayland(Instance, IntPtr, IntPtr, String)
+  fullName.vb: Etch.Gpu.SurfaceFactory.CreateFromWayland(Etch.Gpu.Instance, System.IntPtr, System.IntPtr, String)
+  name.vb: CreateFromWayland(Instance, IntPtr, IntPtr, String)
+- uid: Etch.Gpu.SurfaceFactory.CreateFromWin32(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  commentId: M:Etch.Gpu.SurfaceFactory.CreateFromWin32(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  id: CreateFromWin32(Etch.Gpu.Instance,System.IntPtr,System.IntPtr,System.String)
+  parent: Etch.Gpu.SurfaceFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateFromWin32(Instance, nint, nint, string?)
+  nameWithType: SurfaceFactory.CreateFromWin32(Instance, nint, nint, string?)
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromWin32(Etch.Gpu.Instance, nint, nint, string?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public static Surface CreateFromWin32(Instance instance, nint hwnd, nint hinstance, string? label = null)
+    parameters:
+    - id: instance
+      type: Etch.Gpu.Instance
+    - id: hwnd
+      type: System.IntPtr
+    - id: hinstance
+      type: System.IntPtr
+    - id: label
+      type: System.String
+    return:
+      type: Etch.Gpu.Surface
+    content.vb: Public Shared Function CreateFromWin32(instance As Instance, hwnd As IntPtr, hinstance As IntPtr, label As String = Nothing) As Surface
+  overload: Etch.Gpu.SurfaceFactory.CreateFromWin32*
+  nameWithType.vb: SurfaceFactory.CreateFromWin32(Instance, IntPtr, IntPtr, String)
+  fullName.vb: Etch.Gpu.SurfaceFactory.CreateFromWin32(Etch.Gpu.Instance, System.IntPtr, System.IntPtr, String)
+  name.vb: CreateFromWin32(Instance, IntPtr, IntPtr, String)
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer*
+  commentId: Overload:Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer
+  href: Etch.Gpu.SurfaceFactory.html#Etch_Gpu_SurfaceFactory_CreateFromCaMetalLayer_Etch_Gpu_Instance_System_IntPtr_System_String_
+  name: CreateFromCaMetalLayer
+  nameWithType: SurfaceFactory.CreateFromCaMetalLayer
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromCaMetalLayer
+- uid: Etch.Gpu.Instance
+  commentId: T:Etch.Gpu.Instance
+  parent: Etch.Gpu
+  href: Etch.Gpu.Instance.html
+  name: Instance
+  nameWithType: Instance
+  fullName: Etch.Gpu.Instance
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Gpu.Surface
+  commentId: T:Etch.Gpu.Surface
+  parent: Etch.Gpu
+  href: Etch.Gpu.Surface.html
+  name: Surface
+  nameWithType: Surface
+  fullName: Etch.Gpu.Surface
+- uid: Etch.Gpu.SurfaceFactory.CreateFromXlib*
+  commentId: Overload:Etch.Gpu.SurfaceFactory.CreateFromXlib
+  href: Etch.Gpu.SurfaceFactory.html#Etch_Gpu_SurfaceFactory_CreateFromXlib_Etch_Gpu_Instance_System_IntPtr_System_IntPtr_System_String_
+  name: CreateFromXlib
+  nameWithType: SurfaceFactory.CreateFromXlib
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromXlib
+- uid: Etch.Gpu.SurfaceFactory.CreateFromWayland*
+  commentId: Overload:Etch.Gpu.SurfaceFactory.CreateFromWayland
+  href: Etch.Gpu.SurfaceFactory.html#Etch_Gpu_SurfaceFactory_CreateFromWayland_Etch_Gpu_Instance_System_IntPtr_System_IntPtr_System_String_
+  name: CreateFromWayland
+  nameWithType: SurfaceFactory.CreateFromWayland
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromWayland
+- uid: Etch.Gpu.SurfaceFactory.CreateFromWin32*
+  commentId: Overload:Etch.Gpu.SurfaceFactory.CreateFromWin32
+  href: Etch.Gpu.SurfaceFactory.html#Etch_Gpu_SurfaceFactory_CreateFromWin32_Etch_Gpu_Instance_System_IntPtr_System_IntPtr_System_String_
+  name: CreateFromWin32
+  nameWithType: SurfaceFactory.CreateFromWin32
+  fullName: Etch.Gpu.SurfaceFactory.CreateFromWin32

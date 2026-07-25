@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Strokes
+  commentId: N:Etch.Strokes
+  id: Etch.Strokes
+  children:
+  - Etch.Strokes.CapEmitter
+  - Etch.Strokes.CapStyle
+  - Etch.Strokes.DashPattern
+  - Etch.Strokes.Dasher
+  - Etch.Strokes.JoinEmitter
+  - Etch.Strokes.JoinStyle
+  - Etch.Strokes.StrokeExpander
+  - Etch.Strokes.StrokeStyle
+  - Etch.Strokes.StrokeToFill
+  langs:
+  - csharp
+  - vb
+  name: Etch.Strokes
+  nameWithType: Etch.Strokes
+  fullName: Etch.Strokes
+  type: Namespace
+  assemblies:
+  - Etch.Strokes
+references:
+- uid: Etch.Strokes.CapEmitter
+  commentId: T:Etch.Strokes.CapEmitter
+  href: Etch.Strokes.CapEmitter.html
+  name: CapEmitter
+  nameWithType: CapEmitter
+  fullName: Etch.Strokes.CapEmitter
+- uid: Etch.Strokes.Dasher
+  commentId: T:Etch.Strokes.Dasher
+  href: Etch.Strokes.Dasher.html
+  name: Dasher
+  nameWithType: Dasher
+  fullName: Etch.Strokes.Dasher
+- uid: Etch.Strokes.DashPattern
+  commentId: T:Etch.Strokes.DashPattern
+  parent: Etch.Strokes
+  href: Etch.Strokes.DashPattern.html
+  name: DashPattern
+  nameWithType: DashPattern
+  fullName: Etch.Strokes.DashPattern
+- uid: Etch.Strokes.JoinEmitter
+  commentId: T:Etch.Strokes.JoinEmitter
+  href: Etch.Strokes.JoinEmitter.html
+  name: JoinEmitter
+  nameWithType: JoinEmitter
+  fullName: Etch.Strokes.JoinEmitter
+- uid: Etch.Strokes.StrokeExpander
+  commentId: T:Etch.Strokes.StrokeExpander
+  href: Etch.Strokes.StrokeExpander.html
+  name: StrokeExpander
+  nameWithType: StrokeExpander
+  fullName: Etch.Strokes.StrokeExpander
+- uid: Etch.Strokes.JoinStyle
+  commentId: T:Etch.Strokes.JoinStyle
+  parent: Etch.Strokes
+  href: Etch.Strokes.JoinStyle.html
+  name: JoinStyle
+  nameWithType: JoinStyle
+  fullName: Etch.Strokes.JoinStyle
+- uid: Etch.Strokes.CapStyle
+  commentId: T:Etch.Strokes.CapStyle
+  parent: Etch.Strokes
+  href: Etch.Strokes.CapStyle.html
+  name: CapStyle
+  nameWithType: CapStyle
+  fullName: Etch.Strokes.CapStyle
+- uid: Etch.Strokes.StrokeStyle
+  commentId: T:Etch.Strokes.StrokeStyle
+  parent: Etch.Strokes
+  href: Etch.Strokes.StrokeStyle.html
+  name: StrokeStyle
+  nameWithType: StrokeStyle
+  fullName: Etch.Strokes.StrokeStyle
+- uid: Etch.Strokes.StrokeToFill
+  commentId: T:Etch.Strokes.StrokeToFill
+  href: Etch.Strokes.StrokeToFill.html
+  name: StrokeToFill
+  nameWithType: StrokeToFill
+  fullName: Etch.Strokes.StrokeToFill
+- uid: Etch.Strokes
+  commentId: N:Etch.Strokes
+  href: Etch.html
+  name: Etch.Strokes
+  nameWithType: Etch.Strokes
+  fullName: Etch.Strokes
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html

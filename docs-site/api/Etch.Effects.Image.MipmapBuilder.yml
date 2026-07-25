@@ -1,0 +1,588 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Image.MipmapBuilder
+  commentId: T:Etch.Effects.Image.MipmapBuilder
+  id: MipmapBuilder
+  parent: Etch.Effects.Image
+  children:
+  - Etch.Effects.Image.MipmapBuilder.Build(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Effects.Image.ImageFormat,System.Span{System.Byte})
+  - Etch.Effects.Image.MipmapBuilder.GetMipLevelCount(System.Int32,System.Int32)
+  - Etch.Effects.Image.MipmapBuilder.GetMipSize(System.Int32,System.Int32)
+  - Etch.Effects.Image.MipmapBuilder.GetTotalBytes(System.Int32,System.Int32,Etch.Effects.Image.ImageFormat)
+  langs:
+  - csharp
+  - vb
+  name: MipmapBuilder
+  nameWithType: MipmapBuilder
+  fullName: Etch.Effects.Image.MipmapBuilder
+  type: Class
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static class MipmapBuilder
+    content.vb: Public Module MipmapBuilder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount(System.Int32,System.Int32)
+  commentId: M:Etch.Effects.Image.MipmapBuilder.GetMipLevelCount(System.Int32,System.Int32)
+  id: GetMipLevelCount(System.Int32,System.Int32)
+  parent: Etch.Effects.Image.MipmapBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetMipLevelCount(int, int)
+  nameWithType: MipmapBuilder.GetMipLevelCount(int, int)
+  fullName: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount(int, int)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static int GetMipLevelCount(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetMipLevelCount(width As Integer, height As Integer) As Integer
+  overload: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount*
+  nameWithType.vb: MipmapBuilder.GetMipLevelCount(Integer, Integer)
+  fullName.vb: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount(Integer, Integer)
+  name.vb: GetMipLevelCount(Integer, Integer)
+- uid: Etch.Effects.Image.MipmapBuilder.GetMipSize(System.Int32,System.Int32)
+  commentId: M:Etch.Effects.Image.MipmapBuilder.GetMipSize(System.Int32,System.Int32)
+  id: GetMipSize(System.Int32,System.Int32)
+  parent: Etch.Effects.Image.MipmapBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetMipSize(int, int)
+  nameWithType: MipmapBuilder.GetMipSize(int, int)
+  fullName: Etch.Effects.Image.MipmapBuilder.GetMipSize(int, int)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static int GetMipSize(int baseSize, int level)
+    parameters:
+    - id: baseSize
+      type: System.Int32
+    - id: level
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetMipSize(baseSize As Integer, level As Integer) As Integer
+  overload: Etch.Effects.Image.MipmapBuilder.GetMipSize*
+  nameWithType.vb: MipmapBuilder.GetMipSize(Integer, Integer)
+  fullName.vb: Etch.Effects.Image.MipmapBuilder.GetMipSize(Integer, Integer)
+  name.vb: GetMipSize(Integer, Integer)
+- uid: Etch.Effects.Image.MipmapBuilder.GetTotalBytes(System.Int32,System.Int32,Etch.Effects.Image.ImageFormat)
+  commentId: M:Etch.Effects.Image.MipmapBuilder.GetTotalBytes(System.Int32,System.Int32,Etch.Effects.Image.ImageFormat)
+  id: GetTotalBytes(System.Int32,System.Int32,Etch.Effects.Image.ImageFormat)
+  parent: Etch.Effects.Image.MipmapBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetTotalBytes(int, int, ImageFormat)
+  nameWithType: MipmapBuilder.GetTotalBytes(int, int, ImageFormat)
+  fullName: Etch.Effects.Image.MipmapBuilder.GetTotalBytes(int, int, Etch.Effects.Image.ImageFormat)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static int GetTotalBytes(int width, int height, ImageFormat fmt)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: fmt
+      type: Etch.Effects.Image.ImageFormat
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetTotalBytes(width As Integer, height As Integer, fmt As ImageFormat) As Integer
+  overload: Etch.Effects.Image.MipmapBuilder.GetTotalBytes*
+  nameWithType.vb: MipmapBuilder.GetTotalBytes(Integer, Integer, ImageFormat)
+  fullName.vb: Etch.Effects.Image.MipmapBuilder.GetTotalBytes(Integer, Integer, Etch.Effects.Image.ImageFormat)
+  name.vb: GetTotalBytes(Integer, Integer, ImageFormat)
+- uid: Etch.Effects.Image.MipmapBuilder.Build(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Effects.Image.ImageFormat,System.Span{System.Byte})
+  commentId: M:Etch.Effects.Image.MipmapBuilder.Build(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Effects.Image.ImageFormat,System.Span{System.Byte})
+  id: Build(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,Etch.Effects.Image.ImageFormat,System.Span{System.Byte})
+  parent: Etch.Effects.Image.MipmapBuilder
+  langs:
+  - csharp
+  - vb
+  name: Build(ReadOnlySpan<byte>, int, int, ImageFormat, Span<byte>)
+  nameWithType: MipmapBuilder.Build(ReadOnlySpan<byte>, int, int, ImageFormat, Span<byte>)
+  fullName: Etch.Effects.Image.MipmapBuilder.Build(System.ReadOnlySpan<byte>, int, int, Etch.Effects.Image.ImageFormat, System.Span<byte>)
+  type: Method
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: public static void Build(ReadOnlySpan<byte> l0, int w, int h, ImageFormat fmt, Span<byte> destAll)
+    parameters:
+    - id: l0
+      type: System.ReadOnlySpan{System.Byte}
+    - id: w
+      type: System.Int32
+    - id: h
+      type: System.Int32
+    - id: fmt
+      type: Etch.Effects.Image.ImageFormat
+    - id: destAll
+      type: System.Span{System.Byte}
+    content.vb: Public Shared Sub Build(l0 As ReadOnlySpan(Of Byte), w As Integer, h As Integer, fmt As ImageFormat, destAll As Span(Of Byte))
+  overload: Etch.Effects.Image.MipmapBuilder.Build*
+  nameWithType.vb: MipmapBuilder.Build(ReadOnlySpan(Of Byte), Integer, Integer, ImageFormat, Span(Of Byte))
+  fullName.vb: Etch.Effects.Image.MipmapBuilder.Build(System.ReadOnlySpan(Of Byte), Integer, Integer, Etch.Effects.Image.ImageFormat, System.Span(Of Byte))
+  name.vb: Build(ReadOnlySpan(Of Byte), Integer, Integer, ImageFormat, Span(Of Byte))
+references:
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  href: Etch.html
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount*
+  commentId: Overload:Etch.Effects.Image.MipmapBuilder.GetMipLevelCount
+  href: Etch.Effects.Image.MipmapBuilder.html#Etch_Effects_Image_MipmapBuilder_GetMipLevelCount_System_Int32_System_Int32_
+  name: GetMipLevelCount
+  nameWithType: MipmapBuilder.GetMipLevelCount
+  fullName: Etch.Effects.Image.MipmapBuilder.GetMipLevelCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Effects.Image.MipmapBuilder.GetMipSize*
+  commentId: Overload:Etch.Effects.Image.MipmapBuilder.GetMipSize
+  href: Etch.Effects.Image.MipmapBuilder.html#Etch_Effects_Image_MipmapBuilder_GetMipSize_System_Int32_System_Int32_
+  name: GetMipSize
+  nameWithType: MipmapBuilder.GetMipSize
+  fullName: Etch.Effects.Image.MipmapBuilder.GetMipSize
+- uid: Etch.Effects.Image.MipmapBuilder.GetTotalBytes*
+  commentId: Overload:Etch.Effects.Image.MipmapBuilder.GetTotalBytes
+  href: Etch.Effects.Image.MipmapBuilder.html#Etch_Effects_Image_MipmapBuilder_GetTotalBytes_System_Int32_System_Int32_Etch_Effects_Image_ImageFormat_
+  name: GetTotalBytes
+  nameWithType: MipmapBuilder.GetTotalBytes
+  fullName: Etch.Effects.Image.MipmapBuilder.GetTotalBytes
+- uid: Etch.Effects.Image.ImageFormat
+  commentId: T:Etch.Effects.Image.ImageFormat
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageFormat.html
+  name: ImageFormat
+  nameWithType: ImageFormat
+  fullName: Etch.Effects.Image.ImageFormat
+- uid: Etch.Effects.Image.MipmapBuilder.Build*
+  commentId: Overload:Etch.Effects.Image.MipmapBuilder.Build
+  href: Etch.Effects.Image.MipmapBuilder.html#Etch_Effects_Image_MipmapBuilder_Build_System_ReadOnlySpan_System_Byte__System_Int32_System_Int32_Etch_Effects_Image_ImageFormat_System_Span_System_Byte__
+  name: Build
+  nameWithType: MipmapBuilder.Build
+  fullName: Etch.Effects.Image.MipmapBuilder.Build
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

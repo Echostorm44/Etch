@@ -1,0 +1,839 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  id: Buffer
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.Buffer.#ctor(Etch.Gpu.Native.BufferHandle)
+  - Etch.Gpu.Buffer.Dispose
+  - Etch.Gpu.Buffer.GetConstMappedRange(System.UInt64,System.UInt64)
+  - Etch.Gpu.Buffer.GetMappedRange(System.UInt64,System.UInt64)
+  - Etch.Gpu.Buffer.Handle
+  - Etch.Gpu.Buffer.IsInvalid
+  - Etch.Gpu.Buffer.MapAsync(Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.IntPtr)
+  - Etch.Gpu.Buffer.MapSync(Etch.Gpu.Device,Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.Int32)
+  - Etch.Gpu.Buffer.Unmap
+  langs:
+  - csharp
+  - vb
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public readonly struct Buffer : IDisposable'
+    content.vb: Public Structure Buffer Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Buffer.#ctor(Etch.Gpu.Native.BufferHandle)
+  commentId: M:Etch.Gpu.Buffer.#ctor(Etch.Gpu.Native.BufferHandle)
+  id: '#ctor(Etch.Gpu.Native.BufferHandle)'
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: Buffer(BufferHandle)
+  nameWithType: Buffer.Buffer(BufferHandle)
+  fullName: Etch.Gpu.Buffer.Buffer(Etch.Gpu.Native.BufferHandle)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Buffer(BufferHandle handle)
+    parameters:
+    - id: handle
+      type: Etch.Gpu.Native.BufferHandle
+    content.vb: Public Sub New(handle As BufferHandle)
+  overload: Etch.Gpu.Buffer.#ctor*
+  nameWithType.vb: Buffer.New(BufferHandle)
+  fullName.vb: Etch.Gpu.Buffer.New(Etch.Gpu.Native.BufferHandle)
+  name.vb: New(BufferHandle)
+- uid: Etch.Gpu.Buffer.Handle
+  commentId: P:Etch.Gpu.Buffer.Handle
+  id: Handle
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: Buffer.Handle
+  fullName: Etch.Gpu.Buffer.Handle
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public BufferHandle Handle { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Native.BufferHandle
+    content.vb: Public ReadOnly Property Handle As BufferHandle
+  overload: Etch.Gpu.Buffer.Handle*
+- uid: Etch.Gpu.Buffer.IsInvalid
+  commentId: P:Etch.Gpu.Buffer.IsInvalid
+  id: IsInvalid
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: Buffer.IsInvalid
+  fullName: Etch.Gpu.Buffer.IsInvalid
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInvalid As Boolean
+  overload: Etch.Gpu.Buffer.IsInvalid*
+- uid: Etch.Gpu.Buffer.Dispose
+  commentId: M:Etch.Gpu.Buffer.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Buffer.Dispose()
+  fullName: Etch.Gpu.Buffer.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Buffer.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Etch.Gpu.Buffer.Unmap
+  commentId: M:Etch.Gpu.Buffer.Unmap
+  id: Unmap
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: Unmap()
+  nameWithType: Buffer.Unmap()
+  fullName: Etch.Gpu.Buffer.Unmap()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void Unmap()
+    content.vb: Public Sub Unmap()
+  overload: Etch.Gpu.Buffer.Unmap*
+- uid: Etch.Gpu.Buffer.MapAsync(Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.IntPtr)
+  commentId: M:Etch.Gpu.Buffer.MapAsync(Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.IntPtr)
+  id: MapAsync(Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.IntPtr)
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: MapAsync(MapMode, ulong, ulong, nint)
+  nameWithType: Buffer.MapAsync(MapMode, ulong, ulong, nint)
+  fullName: Etch.Gpu.Buffer.MapAsync(Etch.Gpu.MapMode, ulong, ulong, nint)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void MapAsync(MapMode mode, ulong offset, ulong size, nint callback)
+    parameters:
+    - id: mode
+      type: Etch.Gpu.MapMode
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    - id: callback
+      type: System.IntPtr
+    content.vb: Public Sub MapAsync(mode As MapMode, offset As ULong, size As ULong, callback As IntPtr)
+  overload: Etch.Gpu.Buffer.MapAsync*
+  nameWithType.vb: Buffer.MapAsync(MapMode, ULong, ULong, IntPtr)
+  fullName.vb: Etch.Gpu.Buffer.MapAsync(Etch.Gpu.MapMode, ULong, ULong, System.IntPtr)
+  name.vb: MapAsync(MapMode, ULong, ULong, IntPtr)
+- uid: Etch.Gpu.Buffer.GetConstMappedRange(System.UInt64,System.UInt64)
+  commentId: M:Etch.Gpu.Buffer.GetConstMappedRange(System.UInt64,System.UInt64)
+  id: GetConstMappedRange(System.UInt64,System.UInt64)
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: GetConstMappedRange(ulong, ulong)
+  nameWithType: Buffer.GetConstMappedRange(ulong, ulong)
+  fullName: Etch.Gpu.Buffer.GetConstMappedRange(ulong, ulong)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public ReadOnlySpan<byte> GetConstMappedRange(ulong offset, ulong size)
+    parameters:
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    return:
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Function GetConstMappedRange(offset As ULong, size As ULong) As ReadOnlySpan(Of Byte)
+  overload: Etch.Gpu.Buffer.GetConstMappedRange*
+  nameWithType.vb: Buffer.GetConstMappedRange(ULong, ULong)
+  fullName.vb: Etch.Gpu.Buffer.GetConstMappedRange(ULong, ULong)
+  name.vb: GetConstMappedRange(ULong, ULong)
+- uid: Etch.Gpu.Buffer.GetMappedRange(System.UInt64,System.UInt64)
+  commentId: M:Etch.Gpu.Buffer.GetMappedRange(System.UInt64,System.UInt64)
+  id: GetMappedRange(System.UInt64,System.UInt64)
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: GetMappedRange(ulong, ulong)
+  nameWithType: Buffer.GetMappedRange(ulong, ulong)
+  fullName: Etch.Gpu.Buffer.GetMappedRange(ulong, ulong)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Span<byte> GetMappedRange(ulong offset, ulong size)
+    parameters:
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    return:
+      type: System.Span{System.Byte}
+    content.vb: Public Function GetMappedRange(offset As ULong, size As ULong) As Span(Of Byte)
+  overload: Etch.Gpu.Buffer.GetMappedRange*
+  nameWithType.vb: Buffer.GetMappedRange(ULong, ULong)
+  fullName.vb: Etch.Gpu.Buffer.GetMappedRange(ULong, ULong)
+  name.vb: GetMappedRange(ULong, ULong)
+- uid: Etch.Gpu.Buffer.MapSync(Etch.Gpu.Device,Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.Int32)
+  commentId: M:Etch.Gpu.Buffer.MapSync(Etch.Gpu.Device,Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.Int32)
+  id: MapSync(Etch.Gpu.Device,Etch.Gpu.MapMode,System.UInt64,System.UInt64,System.Int32)
+  parent: Etch.Gpu.Buffer
+  langs:
+  - csharp
+  - vb
+  name: MapSync(Device, MapMode, ulong, ulong, int)
+  nameWithType: Buffer.MapSync(Device, MapMode, ulong, ulong, int)
+  fullName: Etch.Gpu.Buffer.MapSync(Etch.Gpu.Device, Etch.Gpu.MapMode, ulong, ulong, int)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: >-
+    Synchronously maps the buffer, spinning on <xref href="Etch.Gpu.Device.Poll(System.Boolean)" data-throw-if-not-resolved="false"></xref> until the
+
+    callback fires or the timeout elapses. Returns true on success.
+  example: []
+  syntax:
+    content: public bool MapSync(Device device, MapMode mode, ulong offset = 0, ulong size = 18446744073709551615, int timeoutMilliseconds = 5000)
+    parameters:
+    - id: device
+      type: Etch.Gpu.Device
+    - id: mode
+      type: Etch.Gpu.MapMode
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    - id: timeoutMilliseconds
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function MapSync(device As Device, mode As MapMode, offset As ULong = 0, size As ULong = 18446744073709551615, timeoutMilliseconds As Integer = 5000) As Boolean
+  overload: Etch.Gpu.Buffer.MapSync*
+  nameWithType.vb: Buffer.MapSync(Device, MapMode, ULong, ULong, Integer)
+  fullName.vb: Etch.Gpu.Buffer.MapSync(Etch.Gpu.Device, Etch.Gpu.MapMode, ULong, ULong, Integer)
+  name.vb: MapSync(Device, MapMode, ULong, ULong, Integer)
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Gpu.Buffer.#ctor*
+  commentId: Overload:Etch.Gpu.Buffer.#ctor
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer__ctor_Etch_Gpu_Native_BufferHandle_
+  name: Buffer
+  nameWithType: Buffer.Buffer
+  fullName: Etch.Gpu.Buffer.Buffer
+  nameWithType.vb: Buffer.New
+  fullName.vb: Etch.Gpu.Buffer.New
+  name.vb: New
+- uid: Etch.Gpu.Native.BufferHandle
+  commentId: T:Etch.Gpu.Native.BufferHandle
+  parent: Etch.Gpu.Native
+  name: BufferHandle
+  nameWithType: BufferHandle
+  fullName: Etch.Gpu.Native.BufferHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.Buffer.Handle*
+  commentId: Overload:Etch.Gpu.Buffer.Handle
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_Handle
+  name: Handle
+  nameWithType: Buffer.Handle
+  fullName: Etch.Gpu.Buffer.Handle
+- uid: Etch.Gpu.Buffer.IsInvalid*
+  commentId: Overload:Etch.Gpu.Buffer.IsInvalid
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_IsInvalid
+  name: IsInvalid
+  nameWithType: Buffer.IsInvalid
+  fullName: Etch.Gpu.Buffer.IsInvalid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Gpu.Buffer.Dispose*
+  commentId: Overload:Etch.Gpu.Buffer.Dispose
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_Dispose
+  name: Dispose
+  nameWithType: Buffer.Dispose
+  fullName: Etch.Gpu.Buffer.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Etch.Gpu.Buffer.Unmap*
+  commentId: Overload:Etch.Gpu.Buffer.Unmap
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_Unmap
+  name: Unmap
+  nameWithType: Buffer.Unmap
+  fullName: Etch.Gpu.Buffer.Unmap
+- uid: Etch.Gpu.Buffer.MapAsync*
+  commentId: Overload:Etch.Gpu.Buffer.MapAsync
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_MapAsync_Etch_Gpu_MapMode_System_UInt64_System_UInt64_System_IntPtr_
+  name: MapAsync
+  nameWithType: Buffer.MapAsync
+  fullName: Etch.Gpu.Buffer.MapAsync
+- uid: Etch.Gpu.MapMode
+  commentId: T:Etch.Gpu.MapMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.MapMode.html
+  name: MapMode
+  nameWithType: MapMode
+  fullName: Etch.Gpu.MapMode
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: Etch.Gpu.Buffer.GetConstMappedRange*
+  commentId: Overload:Etch.Gpu.Buffer.GetConstMappedRange
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_GetConstMappedRange_System_UInt64_System_UInt64_
+  name: GetConstMappedRange
+  nameWithType: Buffer.GetConstMappedRange
+  fullName: Etch.Gpu.Buffer.GetConstMappedRange
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Buffer.GetMappedRange*
+  commentId: Overload:Etch.Gpu.Buffer.GetMappedRange
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_GetMappedRange_System_UInt64_System_UInt64_
+  name: GetMappedRange
+  nameWithType: Buffer.GetMappedRange
+  fullName: Etch.Gpu.Buffer.GetMappedRange
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Device.Poll(System.Boolean)
+  commentId: M:Etch.Gpu.Device.Poll(System.Boolean)
+  isExternal: true
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_Poll_System_Boolean_
+  name: Poll(bool)
+  nameWithType: Device.Poll(bool)
+  fullName: Etch.Gpu.Device.Poll(bool)
+  nameWithType.vb: Device.Poll(Boolean)
+  fullName.vb: Etch.Gpu.Device.Poll(Boolean)
+  name.vb: Poll(Boolean)
+  spec.csharp:
+  - uid: Etch.Gpu.Device.Poll(System.Boolean)
+    name: Poll
+    href: Etch.Gpu.Device.html#Etch_Gpu_Device_Poll_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Etch.Gpu.Device.Poll(System.Boolean)
+    name: Poll
+    href: Etch.Gpu.Device.html#Etch_Gpu_Device_Poll_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Etch.Gpu.Buffer.MapSync*
+  commentId: Overload:Etch.Gpu.Buffer.MapSync
+  href: Etch.Gpu.Buffer.html#Etch_Gpu_Buffer_MapSync_Etch_Gpu_Device_Etch_Gpu_MapMode_System_UInt64_System_UInt64_System_Int32_
+  name: MapSync
+  nameWithType: Buffer.MapSync
+  fullName: Etch.Gpu.Buffer.MapSync
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  parent: Etch.Gpu
+  href: Etch.Gpu.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

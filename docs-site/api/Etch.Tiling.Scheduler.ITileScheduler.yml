@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Scheduler.ITileScheduler
+  commentId: T:Etch.Tiling.Scheduler.ITileScheduler
+  id: ITileScheduler
+  parent: Etch.Tiling.Scheduler
+  children:
+  - Etch.Tiling.Scheduler.ITileScheduler.ParallelFor``1(System.Int32,``0@,)
+  langs:
+  - csharp
+  - vb
+  name: ITileScheduler
+  nameWithType: ITileScheduler
+  fullName: Etch.Tiling.Scheduler.ITileScheduler
+  type: Interface
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Scheduler
+  syntax:
+    content: 'public interface ITileScheduler : IDisposable'
+    content.vb: Public Interface ITileScheduler Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor``1(System.Int32,``0@,)
+  commentId: M:Etch.Tiling.Scheduler.ITileScheduler.ParallelFor``1(System.Int32,``0@,)
+  id: ParallelFor``1(System.Int32,``0@,)
+  parent: Etch.Tiling.Scheduler.ITileScheduler
+  langs:
+  - csharp
+  - vb
+  name: ParallelFor<TContext>(int, ref TContext, delegate*<int, ref TContext, ref ClassificationAccumulator, void>)
+  nameWithType: ITileScheduler.ParallelFor<TContext>(int, ref TContext, delegate*<int, ref TContext, ref ClassificationAccumulator, void>)
+  fullName: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor<TContext>(int, ref TContext, delegate*<int, ref TContext, ref Etch.Tiling.Classify.ClassificationAccumulator, void>)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Scheduler
+  syntax:
+    content: 'void ParallelFor<TContext>(int count, ref TContext context, delegate*<int, ref TContext, ref ClassificationAccumulator, void> work) where TContext : struct'
+    parameters:
+    - id: count
+      type: System.Int32
+    - id: context
+      type: '{TContext}'
+    - id: work
+      type: delegate*<int, ref TContext, ref Etch.Tiling.Classify.ClassificationAccumulator, void>
+    typeParameters:
+    - id: TContext
+    content.vb: Sub ParallelFor(Of TContext As Structure)(count As Integer, context As TContext, work As )
+  overload: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor*
+  nameWithType.vb: ITileScheduler.ParallelFor(Of TContext)(Integer, TContext, )
+  fullName.vb: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor(Of TContext)(Integer, TContext, )
+  name.vb: ParallelFor(Of TContext)(Integer, TContext, )
+references:
+- uid: Etch.Tiling.Scheduler
+  commentId: N:Etch.Tiling.Scheduler
+  href: Etch.html
+  name: Etch.Tiling.Scheduler
+  nameWithType: Etch.Tiling.Scheduler
+  fullName: Etch.Tiling.Scheduler
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor*
+  commentId: Overload:Etch.Tiling.Scheduler.ITileScheduler.ParallelFor
+  href: Etch.Tiling.Scheduler.ITileScheduler.html#Etch_Tiling_Scheduler_ITileScheduler_ParallelFor__1_System_Int32___0___
+  name: ParallelFor
+  nameWithType: ITileScheduler.ParallelFor
+  fullName: Etch.Tiling.Scheduler.ITileScheduler.ParallelFor
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: '{TContext}'
+  commentId: '!:TContext'
+  definition: TContext
+  name: TContext
+  nameWithType: TContext
+  fullName: TContext
+- uid: delegate*<int, ref TContext, ref Etch.Tiling.Classify.ClassificationAccumulator, void>
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: delegate*<int, ref TContext, ref ClassificationAccumulator, void>
+  nameWithType: delegate*<int, ref TContext, ref ClassificationAccumulator, void>
+  fullName: delegate*<int, ref TContext, ref Etch.Tiling.Classify.ClassificationAccumulator, void>
+  spec.csharp:
+  - name: delegate
+  - name: '*'
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - name: TContext
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: Etch.Tiling.Classify.ClassificationAccumulator
+    name: ClassificationAccumulator
+    href: Etch.Tiling.Classify.ClassificationAccumulator.html
+  - name: ','
+  - name: " "
+  - uid: System.Void
+    name: void
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.void
+  - name: '>'
+- uid: TContext
+  name: TContext
+  nameWithType: TContext
+  fullName: TContext

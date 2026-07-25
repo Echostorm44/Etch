@@ -1,0 +1,1233 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  id: Point
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Point.#ctor(System.Double,System.Double)
+  - Etch.Geometry.Point.Add(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  - Etch.Geometry.Point.DistanceSquaredTo(Etch.Geometry.Point)
+  - Etch.Geometry.Point.DistanceTo(Etch.Geometry.Point)
+  - Etch.Geometry.Point.Equals(Etch.Geometry.Point)
+  - Etch.Geometry.Point.Equals(System.Object)
+  - Etch.Geometry.Point.GetHashCode
+  - Etch.Geometry.Point.IsFinite
+  - Etch.Geometry.Point.Lerp(Etch.Geometry.Point,Etch.Geometry.Point,System.Double)
+  - Etch.Geometry.Point.Multiply(Etch.Geometry.Point,System.Double)
+  - Etch.Geometry.Point.Multiply(System.Double,Etch.Geometry.Point)
+  - Etch.Geometry.Point.NaN
+  - Etch.Geometry.Point.Origin
+  - Etch.Geometry.Point.Subtract(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  - Etch.Geometry.Point.ToString
+  - Etch.Geometry.Point.X
+  - Etch.Geometry.Point.Y
+  - Etch.Geometry.Point.op_Addition(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  - Etch.Geometry.Point.op_Equality(Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.Point.op_Inequality(Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.Point.op_Multiply(Etch.Geometry.Point,System.Double)
+  - Etch.Geometry.Point.op_Multiply(System.Double,Etch.Geometry.Point)
+  - Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  langs:
+  - csharp
+  - vb
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Point : IEquatable<Point>'
+    content.vb: Public Structure Point Implements IEquatable(Of Point)
+  implements:
+  - System.IEquatable{Etch.Geometry.Point}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Point.X
+  commentId: F:Etch.Geometry.Point.X
+  id: X
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Point.X
+  fullName: Etch.Geometry.Point.X
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double X
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly X As Double
+- uid: Etch.Geometry.Point.Y
+  commentId: F:Etch.Geometry.Point.Y
+  id: Y
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Point.Y
+  fullName: Etch.Geometry.Point.Y
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double Y
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Y As Double
+- uid: Etch.Geometry.Point.#ctor(System.Double,System.Double)
+  commentId: M:Etch.Geometry.Point.#ctor(System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double)'
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Point(double, double)
+  nameWithType: Point.Point(double, double)
+  fullName: Etch.Geometry.Point.Point(double, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    content.vb: Public Sub New(x As Double, y As Double)
+  overload: Etch.Geometry.Point.#ctor*
+  nameWithType.vb: Point.New(Double, Double)
+  fullName.vb: Etch.Geometry.Point.New(Double, Double)
+  name.vb: New(Double, Double)
+- uid: Etch.Geometry.Point.Origin
+  commentId: P:Etch.Geometry.Point.Origin
+  id: Origin
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Origin
+  nameWithType: Point.Origin
+  fullName: Etch.Geometry.Point.Origin
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Origin { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared ReadOnly Property Origin As Point
+  overload: Etch.Geometry.Point.Origin*
+- uid: Etch.Geometry.Point.NaN
+  commentId: P:Etch.Geometry.Point.NaN
+  id: NaN
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: NaN
+  nameWithType: Point.NaN
+  fullName: Etch.Geometry.Point.NaN
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point NaN { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared ReadOnly Property NaN As Point
+  overload: Etch.Geometry.Point.NaN*
+- uid: Etch.Geometry.Point.IsFinite
+  commentId: P:Etch.Geometry.Point.IsFinite
+  id: IsFinite
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: IsFinite
+  nameWithType: Point.IsFinite
+  fullName: Etch.Geometry.Point.IsFinite
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool IsFinite { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFinite As Boolean
+  overload: Etch.Geometry.Point.IsFinite*
+- uid: Etch.Geometry.Point.op_Addition(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Point.op_Addition(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  id: op_Addition(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator +(Point, Vec2)
+  nameWithType: Point.operator +(Point, Vec2)
+  fullName: Etch.Geometry.Point.operator +(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point operator +(Point p, Vec2 v)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Operator +(p As Point, v As Vec2) As Point
+  overload: Etch.Geometry.Point.op_Addition*
+  nameWithType.vb: Point.+(Point, Vec2)
+  fullName.vb: Etch.Geometry.Point.+(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  name.vb: +(Point, Vec2)
+- uid: Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Point)
+  id: op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator -(Point, Point)
+  nameWithType: Point.operator -(Point, Point)
+  fullName: Etch.Geometry.Point.operator -(Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Vec2 operator -(Point a, Point b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Point
+    - id: b
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Shared Operator -(a As Point, b As Point) As Vec2
+  overload: Etch.Geometry.Point.op_Subtraction*
+  nameWithType.vb: Point.-(Point, Point)
+  fullName.vb: Etch.Geometry.Point.-(Etch.Geometry.Point, Etch.Geometry.Point)
+  name.vb: -(Point, Point)
+- uid: Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Point.op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  id: op_Subtraction(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator -(Point, Vec2)
+  nameWithType: Point.operator -(Point, Vec2)
+  fullName: Etch.Geometry.Point.operator -(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point operator -(Point p, Vec2 v)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Operator -(p As Point, v As Vec2) As Point
+  overload: Etch.Geometry.Point.op_Subtraction*
+  nameWithType.vb: Point.-(Point, Vec2)
+  fullName.vb: Etch.Geometry.Point.-(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  name.vb: -(Point, Vec2)
+- uid: Etch.Geometry.Point.op_Multiply(Etch.Geometry.Point,System.Double)
+  commentId: M:Etch.Geometry.Point.op_Multiply(Etch.Geometry.Point,System.Double)
+  id: op_Multiply(Etch.Geometry.Point,System.Double)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator *(Point, double)
+  nameWithType: Point.operator *(Point, double)
+  fullName: Etch.Geometry.Point.operator *(Etch.Geometry.Point, double)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point operator *(Point p, double scalar)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: scalar
+      type: System.Double
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Operator *(p As Point, scalar As Double) As Point
+  overload: Etch.Geometry.Point.op_Multiply*
+  nameWithType.vb: Point.*(Point, Double)
+  fullName.vb: Etch.Geometry.Point.*(Etch.Geometry.Point, Double)
+  name.vb: '*(Point, Double)'
+- uid: Etch.Geometry.Point.op_Multiply(System.Double,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.op_Multiply(System.Double,Etch.Geometry.Point)
+  id: op_Multiply(System.Double,Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator *(double, Point)
+  nameWithType: Point.operator *(double, Point)
+  fullName: Etch.Geometry.Point.operator *(double, Etch.Geometry.Point)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point operator *(double scalar, Point p)
+    parameters:
+    - id: scalar
+      type: System.Double
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Operator *(scalar As Double, p As Point) As Point
+  overload: Etch.Geometry.Point.op_Multiply*
+  nameWithType.vb: Point.*(Double, Point)
+  fullName.vb: Etch.Geometry.Point.*(Double, Etch.Geometry.Point)
+  name.vb: '*(Double, Point)'
+- uid: Etch.Geometry.Point.op_Equality(Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.op_Equality(Etch.Geometry.Point,Etch.Geometry.Point)
+  id: op_Equality(Etch.Geometry.Point,Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Point, Point)
+  nameWithType: Point.operator ==(Point, Point)
+  fullName: Etch.Geometry.Point.operator ==(Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Point left, Point right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Point
+    - id: right
+      type: Etch.Geometry.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Point, right As Point) As Boolean
+  overload: Etch.Geometry.Point.op_Equality*
+  nameWithType.vb: Point.=(Point, Point)
+  fullName.vb: Etch.Geometry.Point.=(Etch.Geometry.Point, Etch.Geometry.Point)
+  name.vb: =(Point, Point)
+- uid: Etch.Geometry.Point.op_Inequality(Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.op_Inequality(Etch.Geometry.Point,Etch.Geometry.Point)
+  id: op_Inequality(Etch.Geometry.Point,Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Point, Point)
+  nameWithType: Point.operator !=(Point, Point)
+  fullName: Etch.Geometry.Point.operator !=(Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Point left, Point right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Point
+    - id: right
+      type: Etch.Geometry.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Point, right As Point) As Boolean
+  overload: Etch.Geometry.Point.op_Inequality*
+  nameWithType.vb: Point.<>(Point, Point)
+  fullName.vb: Etch.Geometry.Point.<>(Etch.Geometry.Point, Etch.Geometry.Point)
+  name.vb: <>(Point, Point)
+- uid: Etch.Geometry.Point.Add(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Point.Add(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  id: Add(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Add(Point, Vec2)
+  nameWithType: Point.Add(Point, Vec2)
+  fullName: Etch.Geometry.Point.Add(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Add(Point p, Vec2 v)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Add(p As Point, v As Vec2) As Point
+  overload: Etch.Geometry.Point.Add*
+- uid: Etch.Geometry.Point.Subtract(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Point.Subtract(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  id: Subtract(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Point, Vec2)
+  nameWithType: Point.Subtract(Point, Vec2)
+  fullName: Etch.Geometry.Point.Subtract(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Subtract(Point p, Vec2 v)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: v
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Subtract(p As Point, v As Vec2) As Point
+  overload: Etch.Geometry.Point.Subtract*
+- uid: Etch.Geometry.Point.Multiply(Etch.Geometry.Point,System.Double)
+  commentId: M:Etch.Geometry.Point.Multiply(Etch.Geometry.Point,System.Double)
+  id: Multiply(Etch.Geometry.Point,System.Double)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Point, double)
+  nameWithType: Point.Multiply(Point, double)
+  fullName: Etch.Geometry.Point.Multiply(Etch.Geometry.Point, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Multiply(Point p, double scalar)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    - id: scalar
+      type: System.Double
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Multiply(p As Point, scalar As Double) As Point
+  overload: Etch.Geometry.Point.Multiply*
+  nameWithType.vb: Point.Multiply(Point, Double)
+  fullName.vb: Etch.Geometry.Point.Multiply(Etch.Geometry.Point, Double)
+  name.vb: Multiply(Point, Double)
+- uid: Etch.Geometry.Point.Multiply(System.Double,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.Multiply(System.Double,Etch.Geometry.Point)
+  id: Multiply(System.Double,Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Multiply(double, Point)
+  nameWithType: Point.Multiply(double, Point)
+  fullName: Etch.Geometry.Point.Multiply(double, Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Multiply(double scalar, Point p)
+    parameters:
+    - id: scalar
+      type: System.Double
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Multiply(scalar As Double, p As Point) As Point
+  overload: Etch.Geometry.Point.Multiply*
+  nameWithType.vb: Point.Multiply(Double, Point)
+  fullName.vb: Etch.Geometry.Point.Multiply(Double, Etch.Geometry.Point)
+  name.vb: Multiply(Double, Point)
+- uid: Etch.Geometry.Point.DistanceSquaredTo(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.DistanceSquaredTo(Etch.Geometry.Point)
+  id: DistanceSquaredTo(Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquaredTo(Point)
+  nameWithType: Point.DistanceSquaredTo(Point)
+  fullName: Etch.Geometry.Point.DistanceSquaredTo(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double DistanceSquaredTo(Point other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Point
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquaredTo(other As Point) As Double
+  overload: Etch.Geometry.Point.DistanceSquaredTo*
+- uid: Etch.Geometry.Point.DistanceTo(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.DistanceTo(Etch.Geometry.Point)
+  id: DistanceTo(Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: DistanceTo(Point)
+  nameWithType: Point.DistanceTo(Point)
+  fullName: Etch.Geometry.Point.DistanceTo(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double DistanceTo(Point other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Point
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceTo(other As Point) As Double
+  overload: Etch.Geometry.Point.DistanceTo*
+- uid: Etch.Geometry.Point.Lerp(Etch.Geometry.Point,Etch.Geometry.Point,System.Double)
+  commentId: M:Etch.Geometry.Point.Lerp(Etch.Geometry.Point,Etch.Geometry.Point,System.Double)
+  id: Lerp(Etch.Geometry.Point,Etch.Geometry.Point,System.Double)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Point, Point, double)
+  nameWithType: Point.Lerp(Point, Point, double)
+  fullName: Etch.Geometry.Point.Lerp(Etch.Geometry.Point, Etch.Geometry.Point, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Point Lerp(Point a, Point b, double t)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Point
+    - id: b
+      type: Etch.Geometry.Point
+    - id: t
+      type: System.Double
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Shared Function Lerp(a As Point, b As Point, t As Double) As Point
+  overload: Etch.Geometry.Point.Lerp*
+  nameWithType.vb: Point.Lerp(Point, Point, Double)
+  fullName.vb: Etch.Geometry.Point.Lerp(Etch.Geometry.Point, Etch.Geometry.Point, Double)
+  name.vb: Lerp(Point, Point, Double)
+- uid: Etch.Geometry.Point.Equals(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Point.Equals(Etch.Geometry.Point)
+  id: Equals(Etch.Geometry.Point)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Equals(Point)
+  nameWithType: Point.Equals(Point)
+  fullName: Etch.Geometry.Point.Equals(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Point other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Point
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Point) As Boolean
+  overload: Etch.Geometry.Point.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Point}.Equals(Etch.Geometry.Point)
+- uid: Etch.Geometry.Point.Equals(System.Object)
+  commentId: M:Etch.Geometry.Point.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Point.Equals(object?)
+  fullName: Etch.Geometry.Point.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Point.Equals*
+  nameWithType.vb: Point.Equals(Object)
+  fullName.vb: Etch.Geometry.Point.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Point.GetHashCode
+  commentId: M:Etch.Geometry.Point.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Point.GetHashCode()
+  fullName: Etch.Geometry.Point.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Point.GetHashCode*
+- uid: Etch.Geometry.Point.ToString
+  commentId: M:Etch.Geometry.Point.ToString
+  id: ToString
+  parent: Etch.Geometry.Point
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Point.ToString()
+  fullName: Etch.Geometry.Point.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Point.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Point}
+  commentId: T:System.IEquatable{Etch.Geometry.Point}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Point>
+  nameWithType: IEquatable<Point>
+  fullName: System.IEquatable<Etch.Geometry.Point>
+  nameWithType.vb: IEquatable(Of Point)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Point)
+  name.vb: IEquatable(Of Point)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Point.#ctor*
+  commentId: Overload:Etch.Geometry.Point.#ctor
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point__ctor_System_Double_System_Double_
+  name: Point
+  nameWithType: Point.Point
+  fullName: Etch.Geometry.Point.Point
+  nameWithType.vb: Point.New
+  fullName.vb: Etch.Geometry.Point.New
+  name.vb: New
+- uid: Etch.Geometry.Point.Origin*
+  commentId: Overload:Etch.Geometry.Point.Origin
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Origin
+  name: Origin
+  nameWithType: Point.Origin
+  fullName: Etch.Geometry.Point.Origin
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.Point.NaN*
+  commentId: Overload:Etch.Geometry.Point.NaN
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_NaN
+  name: NaN
+  nameWithType: Point.NaN
+  fullName: Etch.Geometry.Point.NaN
+- uid: Etch.Geometry.Point.IsFinite*
+  commentId: Overload:Etch.Geometry.Point.IsFinite
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_IsFinite
+  name: IsFinite
+  nameWithType: Point.IsFinite
+  fullName: Etch.Geometry.Point.IsFinite
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Point.op_Addition*
+  commentId: Overload:Etch.Geometry.Point.op_Addition
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Addition_Etch_Geometry_Point_Etch_Geometry_Vec2_
+  name: operator +
+  nameWithType: Point.operator +
+  fullName: Etch.Geometry.Point.operator +
+  nameWithType.vb: Point.+
+  fullName.vb: Etch.Geometry.Point.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Point.op_Addition*
+    name: +
+    href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Addition_Etch_Geometry_Point_Etch_Geometry_Vec2_
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry.Point.op_Subtraction*
+  commentId: Overload:Etch.Geometry.Point.op_Subtraction
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Subtraction_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: operator -
+  nameWithType: Point.operator -
+  fullName: Etch.Geometry.Point.operator -
+  nameWithType.vb: Point.-
+  fullName.vb: Etch.Geometry.Point.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Point.op_Subtraction*
+    name: '-'
+    href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Subtraction_Etch_Geometry_Point_Etch_Geometry_Point_
+- uid: Etch.Geometry.Point.op_Multiply*
+  commentId: Overload:Etch.Geometry.Point.op_Multiply
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Multiply_Etch_Geometry_Point_System_Double_
+  name: operator *
+  nameWithType: Point.operator *
+  fullName: Etch.Geometry.Point.operator *
+  nameWithType.vb: Point.*
+  fullName.vb: Etch.Geometry.Point.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Point.op_Multiply*
+    name: '*'
+    href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Multiply_Etch_Geometry_Point_System_Double_
+- uid: Etch.Geometry.Point.op_Equality*
+  commentId: Overload:Etch.Geometry.Point.op_Equality
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Equality_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: operator ==
+  nameWithType: Point.operator ==
+  fullName: Etch.Geometry.Point.operator ==
+  nameWithType.vb: Point.=
+  fullName.vb: Etch.Geometry.Point.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Point.op_Equality*
+    name: ==
+    href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Equality_Etch_Geometry_Point_Etch_Geometry_Point_
+- uid: Etch.Geometry.Point.op_Inequality*
+  commentId: Overload:Etch.Geometry.Point.op_Inequality
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Inequality_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: operator !=
+  nameWithType: Point.operator !=
+  fullName: Etch.Geometry.Point.operator !=
+  nameWithType.vb: Point.<>
+  fullName.vb: Etch.Geometry.Point.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Point.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Point.html#Etch_Geometry_Point_op_Inequality_Etch_Geometry_Point_Etch_Geometry_Point_
+- uid: Etch.Geometry.Point.Add*
+  commentId: Overload:Etch.Geometry.Point.Add
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Add_Etch_Geometry_Point_Etch_Geometry_Vec2_
+  name: Add
+  nameWithType: Point.Add
+  fullName: Etch.Geometry.Point.Add
+- uid: Etch.Geometry.Point.Subtract*
+  commentId: Overload:Etch.Geometry.Point.Subtract
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Subtract_Etch_Geometry_Point_Etch_Geometry_Vec2_
+  name: Subtract
+  nameWithType: Point.Subtract
+  fullName: Etch.Geometry.Point.Subtract
+- uid: Etch.Geometry.Point.Multiply*
+  commentId: Overload:Etch.Geometry.Point.Multiply
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Multiply_Etch_Geometry_Point_System_Double_
+  name: Multiply
+  nameWithType: Point.Multiply
+  fullName: Etch.Geometry.Point.Multiply
+- uid: Etch.Geometry.Point.DistanceSquaredTo*
+  commentId: Overload:Etch.Geometry.Point.DistanceSquaredTo
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_DistanceSquaredTo_Etch_Geometry_Point_
+  name: DistanceSquaredTo
+  nameWithType: Point.DistanceSquaredTo
+  fullName: Etch.Geometry.Point.DistanceSquaredTo
+- uid: Etch.Geometry.Point.DistanceTo*
+  commentId: Overload:Etch.Geometry.Point.DistanceTo
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_DistanceTo_Etch_Geometry_Point_
+  name: DistanceTo
+  nameWithType: Point.DistanceTo
+  fullName: Etch.Geometry.Point.DistanceTo
+- uid: Etch.Geometry.Point.Lerp*
+  commentId: Overload:Etch.Geometry.Point.Lerp
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Lerp_Etch_Geometry_Point_Etch_Geometry_Point_System_Double_
+  name: Lerp
+  nameWithType: Point.Lerp
+  fullName: Etch.Geometry.Point.Lerp
+- uid: Etch.Geometry.Point.Equals*
+  commentId: Overload:Etch.Geometry.Point.Equals
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_Equals_Etch_Geometry_Point_
+  name: Equals
+  nameWithType: Point.Equals
+  fullName: Etch.Geometry.Point.Equals
+- uid: System.IEquatable{Etch.Geometry.Point}.Equals(Etch.Geometry.Point)
+  commentId: M:System.IEquatable{Etch.Geometry.Point}.Equals(Etch.Geometry.Point)
+  parent: System.IEquatable{Etch.Geometry.Point}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Point)
+  nameWithType: IEquatable<Point>.Equals(Point)
+  fullName: System.IEquatable<Etch.Geometry.Point>.Equals(Etch.Geometry.Point)
+  nameWithType.vb: IEquatable(Of Point).Equals(Point)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Point).Equals(Etch.Geometry.Point)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Point}.Equals(Etch.Geometry.Point)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Point}.Equals(Etch.Geometry.Point)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Point
+    name: Point
+    href: Etch.Geometry.Point.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Point.GetHashCode*
+  commentId: Overload:Etch.Geometry.Point.GetHashCode
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_GetHashCode
+  name: GetHashCode
+  nameWithType: Point.GetHashCode
+  fullName: Etch.Geometry.Point.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Point.ToString*
+  commentId: Overload:Etch.Geometry.Point.ToString
+  href: Etch.Geometry.Point.html#Etch_Geometry_Point_ToString
+  name: ToString
+  nameWithType: Point.ToString
+  fullName: Etch.Geometry.Point.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

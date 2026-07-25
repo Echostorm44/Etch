@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.VertexStepMode
+  commentId: T:Etch.Gpu.VertexStepMode
+  id: VertexStepMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.VertexStepMode.Instance
+  - Etch.Gpu.VertexStepMode.Undefined
+  - Etch.Gpu.VertexStepMode.Vertex
+  langs:
+  - csharp
+  - vb
+  name: VertexStepMode
+  nameWithType: VertexStepMode
+  fullName: Etch.Gpu.VertexStepMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum VertexStepMode : uint'
+    content.vb: Public Enum VertexStepMode As UInteger
+- uid: Etch.Gpu.VertexStepMode.Undefined
+  commentId: F:Etch.Gpu.VertexStepMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.VertexStepMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: VertexStepMode.Undefined
+  fullName: Etch.Gpu.VertexStepMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.VertexStepMode
+- uid: Etch.Gpu.VertexStepMode.Vertex
+  commentId: F:Etch.Gpu.VertexStepMode.Vertex
+  id: Vertex
+  parent: Etch.Gpu.VertexStepMode
+  langs:
+  - csharp
+  - vb
+  name: Vertex
+  nameWithType: VertexStepMode.Vertex
+  fullName: Etch.Gpu.VertexStepMode.Vertex
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Vertex = 1
+    return:
+      type: Etch.Gpu.VertexStepMode
+- uid: Etch.Gpu.VertexStepMode.Instance
+  commentId: F:Etch.Gpu.VertexStepMode.Instance
+  id: Instance
+  parent: Etch.Gpu.VertexStepMode
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: VertexStepMode.Instance
+  fullName: Etch.Gpu.VertexStepMode.Instance
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Instance = 2
+    return:
+      type: Etch.Gpu.VertexStepMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.VertexStepMode
+  commentId: T:Etch.Gpu.VertexStepMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.VertexStepMode.html
+  name: VertexStepMode
+  nameWithType: VertexStepMode
+  fullName: Etch.Gpu.VertexStepMode

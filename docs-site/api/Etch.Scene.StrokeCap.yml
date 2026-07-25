@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.StrokeCap
+  commentId: T:Etch.Scene.StrokeCap
+  id: StrokeCap
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.StrokeCap.Butt
+  - Etch.Scene.StrokeCap.Round
+  - Etch.Scene.StrokeCap.Square
+  langs:
+  - csharp
+  - vb
+  name: StrokeCap
+  nameWithType: StrokeCap
+  fullName: Etch.Scene.StrokeCap
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public enum StrokeCap
+    content.vb: Public Enum StrokeCap
+- uid: Etch.Scene.StrokeCap.Butt
+  commentId: F:Etch.Scene.StrokeCap.Butt
+  id: Butt
+  parent: Etch.Scene.StrokeCap
+  langs:
+  - csharp
+  - vb
+  name: Butt
+  nameWithType: StrokeCap.Butt
+  fullName: Etch.Scene.StrokeCap.Butt
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Butt = 0
+    return:
+      type: Etch.Scene.StrokeCap
+- uid: Etch.Scene.StrokeCap.Round
+  commentId: F:Etch.Scene.StrokeCap.Round
+  id: Round
+  parent: Etch.Scene.StrokeCap
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: StrokeCap.Round
+  fullName: Etch.Scene.StrokeCap.Round
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Round = 1
+    return:
+      type: Etch.Scene.StrokeCap
+- uid: Etch.Scene.StrokeCap.Square
+  commentId: F:Etch.Scene.StrokeCap.Square
+  id: Square
+  parent: Etch.Scene.StrokeCap
+  langs:
+  - csharp
+  - vb
+  name: Square
+  nameWithType: StrokeCap.Square
+  fullName: Etch.Scene.StrokeCap.Square
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Square = 2
+    return:
+      type: Etch.Scene.StrokeCap
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.StrokeCap
+  commentId: T:Etch.Scene.StrokeCap
+  parent: Etch.Scene
+  href: Etch.Scene.StrokeCap.html
+  name: StrokeCap
+  nameWithType: StrokeCap
+  fullName: Etch.Scene.StrokeCap

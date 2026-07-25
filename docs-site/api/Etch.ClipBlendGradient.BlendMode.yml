@@ -1,0 +1,354 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.BlendMode
+  commentId: T:Etch.ClipBlendGradient.BlendMode
+  id: BlendMode
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.BlendMode.Color
+  - Etch.ClipBlendGradient.BlendMode.ColorBurn
+  - Etch.ClipBlendGradient.BlendMode.ColorDodge
+  - Etch.ClipBlendGradient.BlendMode.Darken
+  - Etch.ClipBlendGradient.BlendMode.Difference
+  - Etch.ClipBlendGradient.BlendMode.Exclusion
+  - Etch.ClipBlendGradient.BlendMode.HardLight
+  - Etch.ClipBlendGradient.BlendMode.Hue
+  - Etch.ClipBlendGradient.BlendMode.Lighten
+  - Etch.ClipBlendGradient.BlendMode.Luminosity
+  - Etch.ClipBlendGradient.BlendMode.Multiply
+  - Etch.ClipBlendGradient.BlendMode.Normal
+  - Etch.ClipBlendGradient.BlendMode.Overlay
+  - Etch.ClipBlendGradient.BlendMode.Saturation
+  - Etch.ClipBlendGradient.BlendMode.Screen
+  - Etch.ClipBlendGradient.BlendMode.SoftLight
+  langs:
+  - csharp
+  - vb
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.ClipBlendGradient.BlendMode
+  type: Enum
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: 'public enum BlendMode : byte'
+    content.vb: Public Enum BlendMode As Byte
+- uid: Etch.ClipBlendGradient.BlendMode.Normal
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Normal
+  id: Normal
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: BlendMode.Normal
+  fullName: Etch.ClipBlendGradient.BlendMode.Normal
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Normal = 0
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Multiply
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Multiply
+  id: Multiply
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Multiply
+  nameWithType: BlendMode.Multiply
+  fullName: Etch.ClipBlendGradient.BlendMode.Multiply
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Multiply = 1
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Screen
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Screen
+  id: Screen
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Screen
+  nameWithType: BlendMode.Screen
+  fullName: Etch.ClipBlendGradient.BlendMode.Screen
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Screen = 2
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Overlay
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Overlay
+  id: Overlay
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Overlay
+  nameWithType: BlendMode.Overlay
+  fullName: Etch.ClipBlendGradient.BlendMode.Overlay
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Overlay = 3
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Darken
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Darken
+  id: Darken
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Darken
+  nameWithType: BlendMode.Darken
+  fullName: Etch.ClipBlendGradient.BlendMode.Darken
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Darken = 4
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Lighten
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Lighten
+  id: Lighten
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Lighten
+  nameWithType: BlendMode.Lighten
+  fullName: Etch.ClipBlendGradient.BlendMode.Lighten
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Lighten = 5
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.ColorDodge
+  commentId: F:Etch.ClipBlendGradient.BlendMode.ColorDodge
+  id: ColorDodge
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: ColorDodge
+  nameWithType: BlendMode.ColorDodge
+  fullName: Etch.ClipBlendGradient.BlendMode.ColorDodge
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: ColorDodge = 6
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.ColorBurn
+  commentId: F:Etch.ClipBlendGradient.BlendMode.ColorBurn
+  id: ColorBurn
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: ColorBurn
+  nameWithType: BlendMode.ColorBurn
+  fullName: Etch.ClipBlendGradient.BlendMode.ColorBurn
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: ColorBurn = 7
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.HardLight
+  commentId: F:Etch.ClipBlendGradient.BlendMode.HardLight
+  id: HardLight
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: HardLight
+  nameWithType: BlendMode.HardLight
+  fullName: Etch.ClipBlendGradient.BlendMode.HardLight
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: HardLight = 8
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.SoftLight
+  commentId: F:Etch.ClipBlendGradient.BlendMode.SoftLight
+  id: SoftLight
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: SoftLight
+  nameWithType: BlendMode.SoftLight
+  fullName: Etch.ClipBlendGradient.BlendMode.SoftLight
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: SoftLight = 9
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Difference
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Difference
+  id: Difference
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Difference
+  nameWithType: BlendMode.Difference
+  fullName: Etch.ClipBlendGradient.BlendMode.Difference
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Difference = 10
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Exclusion
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Exclusion
+  id: Exclusion
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Exclusion
+  nameWithType: BlendMode.Exclusion
+  fullName: Etch.ClipBlendGradient.BlendMode.Exclusion
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Exclusion = 11
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Hue
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Hue
+  id: Hue
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Hue
+  nameWithType: BlendMode.Hue
+  fullName: Etch.ClipBlendGradient.BlendMode.Hue
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Hue = 12
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Saturation
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Saturation
+  id: Saturation
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Saturation
+  nameWithType: BlendMode.Saturation
+  fullName: Etch.ClipBlendGradient.BlendMode.Saturation
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Saturation = 13
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Color
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Color
+  id: Color
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: BlendMode.Color
+  fullName: Etch.ClipBlendGradient.BlendMode.Color
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Color = 14
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+- uid: Etch.ClipBlendGradient.BlendMode.Luminosity
+  commentId: F:Etch.ClipBlendGradient.BlendMode.Luminosity
+  id: Luminosity
+  parent: Etch.ClipBlendGradient.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Luminosity
+  nameWithType: BlendMode.Luminosity
+  fullName: Etch.ClipBlendGradient.BlendMode.Luminosity
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Luminosity = 15
+    return:
+      type: Etch.ClipBlendGradient.BlendMode
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: Etch.ClipBlendGradient.BlendMode
+  commentId: T:Etch.ClipBlendGradient.BlendMode
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.ClipBlendGradient.BlendMode

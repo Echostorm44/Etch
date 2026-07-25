@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Etch.Text.Tests</RootNamespace>
+    <AssemblyName>Etch.Text.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1815;CA1051;CA1724;CA1861;TUnitAssertions0005;CA2007;CA2234;CA1515;ET0105;CA1802;IDE0055;CA1707</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TUnit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
+    <ProjectReference Include="..\..\src\Etch.SkiaRef\Etch.SkiaRef.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+  </ItemGroup>
+</Project>

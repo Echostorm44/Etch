@@ -1,0 +1,742 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.TileGrid`1
+  commentId: T:Etch.Tiling.TileGrid`1
+  id: TileGrid`1
+  parent: Etch.Tiling
+  children:
+  - Etch.Tiling.TileGrid`1.#ctor(System.Int32,System.Int32)
+  - Etch.Tiling.TileGrid`1.IsValidTile(System.Int32,System.Int32)
+  - Etch.Tiling.TileGrid`1.SurfaceHeight
+  - Etch.Tiling.TileGrid`1.SurfaceWidth
+  - Etch.Tiling.TileGrid`1.TileBounds(System.Int32,System.Int32)
+  - Etch.Tiling.TileGrid`1.TileCountX
+  - Etch.Tiling.TileGrid`1.TileCountY
+  - Etch.Tiling.TileGrid`1.TileIndex(System.Int32,System.Int32)
+  - Etch.Tiling.TileGrid`1.TileXY(System.Int32)
+  - Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect(Etch.Geometry.Rect,System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  - Etch.Tiling.TileGrid`1.TotalTiles
+  langs:
+  - csharp
+  - vb
+  name: TileGrid<TTile>
+  nameWithType: TileGrid<TTile>
+  fullName: Etch.Tiling.TileGrid<TTile>
+  type: Struct
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: 'public readonly struct TileGrid<TTile> where TTile : struct, ITileSize'
+    typeParameters:
+    - id: TTile
+    content.vb: Public Structure TileGrid(Of TTile As {Structure, ITileSize})
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: TileGrid(Of TTile)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile)
+  name.vb: TileGrid(Of TTile)
+- uid: Etch.Tiling.TileGrid`1.SurfaceWidth
+  commentId: F:Etch.Tiling.TileGrid`1.SurfaceWidth
+  id: SurfaceWidth
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: SurfaceWidth
+  nameWithType: TileGrid<TTile>.SurfaceWidth
+  fullName: Etch.Tiling.TileGrid<TTile>.SurfaceWidth
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public readonly int SurfaceWidth
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly SurfaceWidth As Integer
+  nameWithType.vb: TileGrid(Of TTile).SurfaceWidth
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).SurfaceWidth
+- uid: Etch.Tiling.TileGrid`1.SurfaceHeight
+  commentId: F:Etch.Tiling.TileGrid`1.SurfaceHeight
+  id: SurfaceHeight
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: SurfaceHeight
+  nameWithType: TileGrid<TTile>.SurfaceHeight
+  fullName: Etch.Tiling.TileGrid<TTile>.SurfaceHeight
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public readonly int SurfaceHeight
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly SurfaceHeight As Integer
+  nameWithType.vb: TileGrid(Of TTile).SurfaceHeight
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).SurfaceHeight
+- uid: Etch.Tiling.TileGrid`1.TileCountX
+  commentId: F:Etch.Tiling.TileGrid`1.TileCountX
+  id: TileCountX
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileCountX
+  nameWithType: TileGrid<TTile>.TileCountX
+  fullName: Etch.Tiling.TileGrid<TTile>.TileCountX
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public readonly int TileCountX
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly TileCountX As Integer
+  nameWithType.vb: TileGrid(Of TTile).TileCountX
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileCountX
+- uid: Etch.Tiling.TileGrid`1.TileCountY
+  commentId: F:Etch.Tiling.TileGrid`1.TileCountY
+  id: TileCountY
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileCountY
+  nameWithType: TileGrid<TTile>.TileCountY
+  fullName: Etch.Tiling.TileGrid<TTile>.TileCountY
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public readonly int TileCountY
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly TileCountY As Integer
+  nameWithType.vb: TileGrid(Of TTile).TileCountY
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileCountY
+- uid: Etch.Tiling.TileGrid`1.TotalTiles
+  commentId: P:Etch.Tiling.TileGrid`1.TotalTiles
+  id: TotalTiles
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TotalTiles
+  nameWithType: TileGrid<TTile>.TotalTiles
+  fullName: Etch.Tiling.TileGrid<TTile>.TotalTiles
+  type: Property
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public int TotalTiles { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TotalTiles As Integer
+  overload: Etch.Tiling.TileGrid`1.TotalTiles*
+  nameWithType.vb: TileGrid(Of TTile).TotalTiles
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TotalTiles
+- uid: Etch.Tiling.TileGrid`1.#ctor(System.Int32,System.Int32)
+  commentId: M:Etch.Tiling.TileGrid`1.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileGrid(int, int)
+  nameWithType: TileGrid<TTile>.TileGrid(int, int)
+  fullName: Etch.Tiling.TileGrid<TTile>.TileGrid(int, int)
+  type: Constructor
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public TileGrid(int surfaceWidth, int surfaceHeight)
+    parameters:
+    - id: surfaceWidth
+      type: System.Int32
+    - id: surfaceHeight
+      type: System.Int32
+    content.vb: Public Sub New(surfaceWidth As Integer, surfaceHeight As Integer)
+  overload: Etch.Tiling.TileGrid`1.#ctor*
+  nameWithType.vb: TileGrid(Of TTile).New(Integer, Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).New(Integer, Integer)
+  name.vb: New(Integer, Integer)
+- uid: Etch.Tiling.TileGrid`1.TileIndex(System.Int32,System.Int32)
+  commentId: M:Etch.Tiling.TileGrid`1.TileIndex(System.Int32,System.Int32)
+  id: TileIndex(System.Int32,System.Int32)
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileIndex(int, int)
+  nameWithType: TileGrid<TTile>.TileIndex(int, int)
+  fullName: Etch.Tiling.TileGrid<TTile>.TileIndex(int, int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public int TileIndex(int tileX, int tileY)
+    parameters:
+    - id: tileX
+      type: System.Int32
+    - id: tileY
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function TileIndex(tileX As Integer, tileY As Integer) As Integer
+  overload: Etch.Tiling.TileGrid`1.TileIndex*
+  nameWithType.vb: TileGrid(Of TTile).TileIndex(Integer, Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileIndex(Integer, Integer)
+  name.vb: TileIndex(Integer, Integer)
+- uid: Etch.Tiling.TileGrid`1.TileXY(System.Int32)
+  commentId: M:Etch.Tiling.TileGrid`1.TileXY(System.Int32)
+  id: TileXY(System.Int32)
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileXY(int)
+  nameWithType: TileGrid<TTile>.TileXY(int)
+  fullName: Etch.Tiling.TileGrid<TTile>.TileXY(int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public (int x, int y) TileXY(int tileIndex)
+    parameters:
+    - id: tileIndex
+      type: System.Int32
+    return:
+      type: System.ValueTuple{System.Int32,System.Int32}
+    content.vb: Public Function TileXY(tileIndex As Integer) As (x As Integer, y As Integer)
+  overload: Etch.Tiling.TileGrid`1.TileXY*
+  nameWithType.vb: TileGrid(Of TTile).TileXY(Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileXY(Integer)
+  name.vb: TileXY(Integer)
+- uid: Etch.Tiling.TileGrid`1.TileBounds(System.Int32,System.Int32)
+  commentId: M:Etch.Tiling.TileGrid`1.TileBounds(System.Int32,System.Int32)
+  id: TileBounds(System.Int32,System.Int32)
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TileBounds(int, int)
+  nameWithType: TileGrid<TTile>.TileBounds(int, int)
+  fullName: Etch.Tiling.TileGrid<TTile>.TileBounds(int, int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public Rect TileBounds(int tileX, int tileY)
+    parameters:
+    - id: tileX
+      type: System.Int32
+    - id: tileY
+      type: System.Int32
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function TileBounds(tileX As Integer, tileY As Integer) As Rect
+  overload: Etch.Tiling.TileGrid`1.TileBounds*
+  nameWithType.vb: TileGrid(Of TTile).TileBounds(Integer, Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileBounds(Integer, Integer)
+  name.vb: TileBounds(Integer, Integer)
+- uid: Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect(Etch.Geometry.Rect,System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect(Etch.Geometry.Rect,System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  id: TilesOverlappingPixelRect(Etch.Geometry.Rect,System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: TilesOverlappingPixelRect(Rect, out int, out int, out int, out int)
+  nameWithType: TileGrid<TTile>.TilesOverlappingPixelRect(Rect, out int, out int, out int, out int)
+  fullName: Etch.Tiling.TileGrid<TTile>.TilesOverlappingPixelRect(Etch.Geometry.Rect, out int, out int, out int, out int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public void TilesOverlappingPixelRect(Rect pixelRect, out int minTileX, out int minTileY, out int maxTileX, out int maxTileY)
+    parameters:
+    - id: pixelRect
+      type: Etch.Geometry.Rect
+    - id: minTileX
+      type: System.Int32
+    - id: minTileY
+      type: System.Int32
+    - id: maxTileX
+      type: System.Int32
+    - id: maxTileY
+      type: System.Int32
+    content.vb: Public Sub TilesOverlappingPixelRect(pixelRect As Rect, minTileX As Integer, minTileY As Integer, maxTileX As Integer, maxTileY As Integer)
+  overload: Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect*
+  nameWithType.vb: TileGrid(Of TTile).TilesOverlappingPixelRect(Rect, Integer, Integer, Integer, Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TilesOverlappingPixelRect(Etch.Geometry.Rect, Integer, Integer, Integer, Integer)
+  name.vb: TilesOverlappingPixelRect(Rect, Integer, Integer, Integer, Integer)
+- uid: Etch.Tiling.TileGrid`1.IsValidTile(System.Int32,System.Int32)
+  commentId: M:Etch.Tiling.TileGrid`1.IsValidTile(System.Int32,System.Int32)
+  id: IsValidTile(System.Int32,System.Int32)
+  parent: Etch.Tiling.TileGrid`1
+  langs:
+  - csharp
+  - vb
+  name: IsValidTile(int, int)
+  nameWithType: TileGrid<TTile>.IsValidTile(int, int)
+  fullName: Etch.Tiling.TileGrid<TTile>.IsValidTile(int, int)
+  type: Method
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling
+  syntax:
+    content: public bool IsValidTile(int tileX, int tileY)
+    parameters:
+    - id: tileX
+      type: System.Int32
+    - id: tileY
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsValidTile(tileX As Integer, tileY As Integer) As Boolean
+  overload: Etch.Tiling.TileGrid`1.IsValidTile*
+  nameWithType.vb: TileGrid(Of TTile).IsValidTile(Integer, Integer)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).IsValidTile(Integer, Integer)
+  name.vb: IsValidTile(Integer, Integer)
+references:
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  href: Etch.html
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Tiling.TileGrid`1.TotalTiles*
+  commentId: Overload:Etch.Tiling.TileGrid`1.TotalTiles
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_TotalTiles
+  name: TotalTiles
+  nameWithType: TileGrid<TTile>.TotalTiles
+  fullName: Etch.Tiling.TileGrid<TTile>.TotalTiles
+  nameWithType.vb: TileGrid(Of TTile).TotalTiles
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TotalTiles
+- uid: Etch.Tiling.TileGrid`1.#ctor*
+  commentId: Overload:Etch.Tiling.TileGrid`1.#ctor
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1__ctor_System_Int32_System_Int32_
+  name: TileGrid
+  nameWithType: TileGrid<TTile>.TileGrid
+  fullName: Etch.Tiling.TileGrid<TTile>.TileGrid
+  nameWithType.vb: TileGrid(Of TTile).New
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).New
+  name.vb: New
+- uid: Etch.Tiling.TileGrid`1.TileIndex*
+  commentId: Overload:Etch.Tiling.TileGrid`1.TileIndex
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_TileIndex_System_Int32_System_Int32_
+  name: TileIndex
+  nameWithType: TileGrid<TTile>.TileIndex
+  fullName: Etch.Tiling.TileGrid<TTile>.TileIndex
+  nameWithType.vb: TileGrid(Of TTile).TileIndex
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileIndex
+- uid: Etch.Tiling.TileGrid`1.TileXY*
+  commentId: Overload:Etch.Tiling.TileGrid`1.TileXY
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_TileXY_System_Int32_
+  name: TileXY
+  nameWithType: TileGrid<TTile>.TileXY
+  fullName: Etch.Tiling.TileGrid<TTile>.TileXY
+  nameWithType.vb: TileGrid(Of TTile).TileXY
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileXY
+- uid: System.ValueTuple{System.Int32,System.Int32}
+  commentId: T:System.ValueTuple{System.Int32,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int x, int y)
+  nameWithType: (int x, int y)
+  fullName: (int x, int y)
+  nameWithType.vb: (x As Integer, y As Integer)
+  fullName.vb: (x As Integer, y As Integer)
+  name.vb: (x As Integer, y As Integer)
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.x
+    name: x
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.x
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.y
+    name: y
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.y
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Int32,System.Int32}.x
+    name: x
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.x
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.y
+    name: y
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.y
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Etch.Tiling.TileGrid`1.TileBounds*
+  commentId: Overload:Etch.Tiling.TileGrid`1.TileBounds
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_TileBounds_System_Int32_System_Int32_
+  name: TileBounds
+  nameWithType: TileGrid<TTile>.TileBounds
+  fullName: Etch.Tiling.TileGrid<TTile>.TileBounds
+  nameWithType.vb: TileGrid(Of TTile).TileBounds
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TileBounds
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect*
+  commentId: Overload:Etch.Tiling.TileGrid`1.TilesOverlappingPixelRect
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_TilesOverlappingPixelRect_Etch_Geometry_Rect_System_Int32__System_Int32__System_Int32__System_Int32__
+  name: TilesOverlappingPixelRect
+  nameWithType: TileGrid<TTile>.TilesOverlappingPixelRect
+  fullName: Etch.Tiling.TileGrid<TTile>.TilesOverlappingPixelRect
+  nameWithType.vb: TileGrid(Of TTile).TilesOverlappingPixelRect
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).TilesOverlappingPixelRect
+- uid: Etch.Tiling.TileGrid`1.IsValidTile*
+  commentId: Overload:Etch.Tiling.TileGrid`1.IsValidTile
+  href: Etch.Tiling.TileGrid-1.html#Etch_Tiling_TileGrid_1_IsValidTile_System_Int32_System_Int32_
+  name: IsValidTile
+  nameWithType: TileGrid<TTile>.IsValidTile
+  fullName: Etch.Tiling.TileGrid<TTile>.IsValidTile
+  nameWithType.vb: TileGrid(Of TTile).IsValidTile
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile).IsValidTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

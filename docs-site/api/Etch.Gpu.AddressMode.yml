@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.AddressMode
+  commentId: T:Etch.Gpu.AddressMode
+  id: AddressMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.AddressMode.ClampToEdge
+  - Etch.Gpu.AddressMode.MirrorRepeat
+  - Etch.Gpu.AddressMode.Repeat
+  - Etch.Gpu.AddressMode.Undefined
+  langs:
+  - csharp
+  - vb
+  name: AddressMode
+  nameWithType: AddressMode
+  fullName: Etch.Gpu.AddressMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum AddressMode : uint'
+    content.vb: Public Enum AddressMode As UInteger
+- uid: Etch.Gpu.AddressMode.Undefined
+  commentId: F:Etch.Gpu.AddressMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.AddressMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: AddressMode.Undefined
+  fullName: Etch.Gpu.AddressMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.AddressMode
+- uid: Etch.Gpu.AddressMode.ClampToEdge
+  commentId: F:Etch.Gpu.AddressMode.ClampToEdge
+  id: ClampToEdge
+  parent: Etch.Gpu.AddressMode
+  langs:
+  - csharp
+  - vb
+  name: ClampToEdge
+  nameWithType: AddressMode.ClampToEdge
+  fullName: Etch.Gpu.AddressMode.ClampToEdge
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: ClampToEdge = 1
+    return:
+      type: Etch.Gpu.AddressMode
+- uid: Etch.Gpu.AddressMode.Repeat
+  commentId: F:Etch.Gpu.AddressMode.Repeat
+  id: Repeat
+  parent: Etch.Gpu.AddressMode
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: AddressMode.Repeat
+  fullName: Etch.Gpu.AddressMode.Repeat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Repeat = 2
+    return:
+      type: Etch.Gpu.AddressMode
+- uid: Etch.Gpu.AddressMode.MirrorRepeat
+  commentId: F:Etch.Gpu.AddressMode.MirrorRepeat
+  id: MirrorRepeat
+  parent: Etch.Gpu.AddressMode
+  langs:
+  - csharp
+  - vb
+  name: MirrorRepeat
+  nameWithType: AddressMode.MirrorRepeat
+  fullName: Etch.Gpu.AddressMode.MirrorRepeat
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: MirrorRepeat = 3
+    return:
+      type: Etch.Gpu.AddressMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.AddressMode
+  commentId: T:Etch.Gpu.AddressMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.AddressMode.html
+  name: AddressMode
+  nameWithType: AddressMode
+  fullName: Etch.Gpu.AddressMode

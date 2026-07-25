@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.ClipMode
+  commentId: T:Etch.Scene.ClipMode
+  id: ClipMode
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.ClipMode.Difference
+  - Etch.Scene.ClipMode.Intersect
+  langs:
+  - csharp
+  - vb
+  name: ClipMode
+  nameWithType: ClipMode
+  fullName: Etch.Scene.ClipMode
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: 'public enum ClipMode : byte'
+    content.vb: Public Enum ClipMode As Byte
+- uid: Etch.Scene.ClipMode.Intersect
+  commentId: F:Etch.Scene.ClipMode.Intersect
+  id: Intersect
+  parent: Etch.Scene.ClipMode
+  langs:
+  - csharp
+  - vb
+  name: Intersect
+  nameWithType: ClipMode.Intersect
+  fullName: Etch.Scene.ClipMode.Intersect
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Intersect = 0
+    return:
+      type: Etch.Scene.ClipMode
+- uid: Etch.Scene.ClipMode.Difference
+  commentId: F:Etch.Scene.ClipMode.Difference
+  id: Difference
+  parent: Etch.Scene.ClipMode
+  langs:
+  - csharp
+  - vb
+  name: Difference
+  nameWithType: ClipMode.Difference
+  fullName: Etch.Scene.ClipMode.Difference
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Difference = 1
+    return:
+      type: Etch.Scene.ClipMode
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.ClipMode
+  commentId: T:Etch.Scene.ClipMode
+  parent: Etch.Scene
+  href: Etch.Scene.ClipMode.html
+  name: ClipMode
+  nameWithType: ClipMode
+  fullName: Etch.Scene.ClipMode

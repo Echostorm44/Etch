@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SwapChains
+  commentId: N:Etch.Gpu.SwapChains
+  id: Etch.Gpu.SwapChains
+  children:
+  - Etch.Gpu.SwapChains.SurfaceTexture
+  - Etch.Gpu.SwapChains.SurfaceTextureResult
+  - Etch.Gpu.SwapChains.SwapChain
+  - Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.SwapChains
+  nameWithType: Etch.Gpu.SwapChains
+  fullName: Etch.Gpu.SwapChains
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.SwapChains.SurfaceTexture
+  commentId: T:Etch.Gpu.SwapChains.SurfaceTexture
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SurfaceTexture.html
+  name: SurfaceTexture
+  nameWithType: SurfaceTexture
+  fullName: Etch.Gpu.SwapChains.SurfaceTexture
+- uid: Etch.Gpu.SwapChains.SwapChain
+  commentId: T:Etch.Gpu.SwapChains.SwapChain
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SwapChain.html
+  name: SwapChain
+  nameWithType: SwapChain
+  fullName: Etch.Gpu.SwapChains.SwapChain
+- uid: Etch.Gpu.SwapChains.SwapChainConfig
+  commentId: T:Etch.Gpu.SwapChains.SwapChainConfig
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html
+  name: SwapChainConfig
+  nameWithType: SwapChainConfig
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig
+- uid: Etch.Gpu.SwapChains.SurfaceTextureResult
+  commentId: T:Etch.Gpu.SwapChains.SurfaceTextureResult
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SurfaceTextureResult.html
+  name: SurfaceTextureResult
+  nameWithType: SurfaceTextureResult
+  fullName: Etch.Gpu.SwapChains.SurfaceTextureResult
+- uid: Etch.Gpu.SwapChains
+  commentId: N:Etch.Gpu.SwapChains
+  href: Etch.html
+  name: Etch.Gpu.SwapChains
+  nameWithType: Etch.Gpu.SwapChains
+  fullName: Etch.Gpu.SwapChains
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html

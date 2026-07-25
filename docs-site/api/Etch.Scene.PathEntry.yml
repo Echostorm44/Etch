@@ -1,0 +1,398 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.PathEntry
+  commentId: T:Etch.Scene.PathEntry
+  id: PathEntry
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.PathEntry.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Etch.Scene.PathEntry.ByteLength
+  - Etch.Scene.PathEntry.ByteOffset
+  - Etch.Scene.PathEntry.CoordCount
+  - Etch.Scene.PathEntry.VerbCount
+  langs:
+  - csharp
+  - vb
+  name: PathEntry
+  nameWithType: PathEntry
+  fullName: Etch.Scene.PathEntry
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly struct PathEntry
+    content.vb: Public Structure PathEntry
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.PathEntry.ByteOffset
+  commentId: F:Etch.Scene.PathEntry.ByteOffset
+  id: ByteOffset
+  parent: Etch.Scene.PathEntry
+  langs:
+  - csharp
+  - vb
+  name: ByteOffset
+  nameWithType: PathEntry.ByteOffset
+  fullName: Etch.Scene.PathEntry.ByteOffset
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly int ByteOffset
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly ByteOffset As Integer
+- uid: Etch.Scene.PathEntry.ByteLength
+  commentId: F:Etch.Scene.PathEntry.ByteLength
+  id: ByteLength
+  parent: Etch.Scene.PathEntry
+  langs:
+  - csharp
+  - vb
+  name: ByteLength
+  nameWithType: PathEntry.ByteLength
+  fullName: Etch.Scene.PathEntry.ByteLength
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly int ByteLength
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly ByteLength As Integer
+- uid: Etch.Scene.PathEntry.VerbCount
+  commentId: F:Etch.Scene.PathEntry.VerbCount
+  id: VerbCount
+  parent: Etch.Scene.PathEntry
+  langs:
+  - csharp
+  - vb
+  name: VerbCount
+  nameWithType: PathEntry.VerbCount
+  fullName: Etch.Scene.PathEntry.VerbCount
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly int VerbCount
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly VerbCount As Integer
+- uid: Etch.Scene.PathEntry.CoordCount
+  commentId: F:Etch.Scene.PathEntry.CoordCount
+  id: CoordCount
+  parent: Etch.Scene.PathEntry
+  langs:
+  - csharp
+  - vb
+  name: CoordCount
+  nameWithType: PathEntry.CoordCount
+  fullName: Etch.Scene.PathEntry.CoordCount
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly int CoordCount
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly CoordCount As Integer
+- uid: Etch.Scene.PathEntry.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Etch.Scene.PathEntry.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32,System.Int32)'
+  parent: Etch.Scene.PathEntry
+  langs:
+  - csharp
+  - vb
+  name: PathEntry(int, int, int, int)
+  nameWithType: PathEntry.PathEntry(int, int, int, int)
+  fullName: Etch.Scene.PathEntry.PathEntry(int, int, int, int)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public PathEntry(int byteOffset, int byteLength, int verbCount, int coordCount)
+    parameters:
+    - id: byteOffset
+      type: System.Int32
+    - id: byteLength
+      type: System.Int32
+    - id: verbCount
+      type: System.Int32
+    - id: coordCount
+      type: System.Int32
+    content.vb: Public Sub New(byteOffset As Integer, byteLength As Integer, verbCount As Integer, coordCount As Integer)
+  overload: Etch.Scene.PathEntry.#ctor*
+  nameWithType.vb: PathEntry.New(Integer, Integer, Integer, Integer)
+  fullName.vb: Etch.Scene.PathEntry.New(Integer, Integer, Integer, Integer)
+  name.vb: New(Integer, Integer, Integer, Integer)
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Scene.PathEntry.#ctor*
+  commentId: Overload:Etch.Scene.PathEntry.#ctor
+  href: Etch.Scene.PathEntry.html#Etch_Scene_PathEntry__ctor_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: PathEntry
+  nameWithType: PathEntry.PathEntry
+  fullName: Etch.Scene.PathEntry.PathEntry
+  nameWithType.vb: PathEntry.New
+  fullName.vb: Etch.Scene.PathEntry.New
+  name.vb: New

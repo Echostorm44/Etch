@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Gradients
+  commentId: N:Etch.Raster.Cpu.Gradients
+  id: Etch.Raster.Cpu.Gradients
+  children:
+  - Etch.Raster.Cpu.Gradients.ConicGradientRenderer
+  - Etch.Raster.Cpu.Gradients.ExtendHelpers
+  - Etch.Raster.Cpu.Gradients.FastAtan2
+  - Etch.Raster.Cpu.Gradients.LinearGradientRenderer
+  - Etch.Raster.Cpu.Gradients.RadialGradientRenderer
+  - Etch.Raster.Cpu.Gradients.SweepGradientRenderer
+  langs:
+  - csharp
+  - vb
+  name: Etch.Raster.Cpu.Gradients
+  nameWithType: Etch.Raster.Cpu.Gradients
+  fullName: Etch.Raster.Cpu.Gradients
+  type: Namespace
+  assemblies:
+  - Etch.Raster.Cpu
+references:
+- uid: Etch.Raster.Cpu.Gradients.ConicGradientRenderer
+  commentId: T:Etch.Raster.Cpu.Gradients.ConicGradientRenderer
+  href: Etch.Raster.Cpu.Gradients.ConicGradientRenderer.html
+  name: ConicGradientRenderer
+  nameWithType: ConicGradientRenderer
+  fullName: Etch.Raster.Cpu.Gradients.ConicGradientRenderer
+- uid: Etch.Raster.Cpu.Gradients.ExtendHelpers
+  commentId: T:Etch.Raster.Cpu.Gradients.ExtendHelpers
+  href: Etch.Raster.Cpu.Gradients.ExtendHelpers.html
+  name: ExtendHelpers
+  nameWithType: ExtendHelpers
+  fullName: Etch.Raster.Cpu.Gradients.ExtendHelpers
+- uid: Etch.Raster.Cpu.Gradients.FastAtan2
+  commentId: T:Etch.Raster.Cpu.Gradients.FastAtan2
+  href: Etch.Raster.Cpu.Gradients.FastAtan2.html
+  name: FastAtan2
+  nameWithType: FastAtan2
+  fullName: Etch.Raster.Cpu.Gradients.FastAtan2
+- uid: Etch.Raster.Cpu.Gradients.LinearGradientRenderer
+  commentId: T:Etch.Raster.Cpu.Gradients.LinearGradientRenderer
+  href: Etch.Raster.Cpu.Gradients.LinearGradientRenderer.html
+  name: LinearGradientRenderer
+  nameWithType: LinearGradientRenderer
+  fullName: Etch.Raster.Cpu.Gradients.LinearGradientRenderer
+- uid: Etch.Raster.Cpu.Gradients.RadialGradientRenderer
+  commentId: T:Etch.Raster.Cpu.Gradients.RadialGradientRenderer
+  href: Etch.Raster.Cpu.Gradients.RadialGradientRenderer.html
+  name: RadialGradientRenderer
+  nameWithType: RadialGradientRenderer
+  fullName: Etch.Raster.Cpu.Gradients.RadialGradientRenderer
+- uid: Etch.Raster.Cpu.Gradients.SweepGradientRenderer
+  commentId: T:Etch.Raster.Cpu.Gradients.SweepGradientRenderer
+  href: Etch.Raster.Cpu.Gradients.SweepGradientRenderer.html
+  name: SweepGradientRenderer
+  nameWithType: SweepGradientRenderer
+  fullName: Etch.Raster.Cpu.Gradients.SweepGradientRenderer

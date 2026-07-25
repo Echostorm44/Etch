@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  id: Etch.Tiling
+  children:
+  - Etch.Tiling.Defaults
+  - Etch.Tiling.ITileSize
+  - Etch.Tiling.TTile16
+  - Etch.Tiling.TTile32
+  - Etch.Tiling.TTile8
+  - Etch.Tiling.TileGrid`1
+  - Etch.Tiling.TileQuad
+  - Etch.Tiling.TileQuadBuilder
+  - Etch.Tiling.TileQuadList
+  langs:
+  - csharp
+  - vb
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  type: Namespace
+  assemblies:
+  - Etch.Tiling
+references:
+- uid: Etch.Tiling.Defaults
+  commentId: T:Etch.Tiling.Defaults
+  href: Etch.Tiling.Defaults.html
+  name: Defaults
+  nameWithType: Defaults
+  fullName: Etch.Tiling.Defaults
+- uid: Etch.Tiling.ITileSize
+  commentId: T:Etch.Tiling.ITileSize
+  parent: Etch.Tiling
+  href: Etch.Tiling.ITileSize.html
+  name: ITileSize
+  nameWithType: ITileSize
+  fullName: Etch.Tiling.ITileSize
+- uid: Etch.Tiling.TileGrid`1
+  commentId: T:Etch.Tiling.TileGrid`1
+  href: Etch.Tiling.TileGrid-1.html
+  name: TileGrid<TTile>
+  nameWithType: TileGrid<TTile>
+  fullName: Etch.Tiling.TileGrid<TTile>
+  nameWithType.vb: TileGrid(Of TTile)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile)
+  name.vb: TileGrid(Of TTile)
+  spec.csharp:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: <
+  - name: TTile
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTile
+  - name: )
+- uid: Etch.Tiling.TileQuad
+  commentId: T:Etch.Tiling.TileQuad
+  href: Etch.Tiling.TileQuad.html
+  name: TileQuad
+  nameWithType: TileQuad
+  fullName: Etch.Tiling.TileQuad
+- uid: Etch.Tiling.TileQuadBuilder
+  commentId: T:Etch.Tiling.TileQuadBuilder
+  href: Etch.Tiling.TileQuadBuilder.html
+  name: TileQuadBuilder
+  nameWithType: TileQuadBuilder
+  fullName: Etch.Tiling.TileQuadBuilder
+- uid: Etch.Tiling.TileQuadList
+  commentId: T:Etch.Tiling.TileQuadList
+  parent: Etch.Tiling
+  href: Etch.Tiling.TileQuadList.html
+  name: TileQuadList
+  nameWithType: TileQuadList
+  fullName: Etch.Tiling.TileQuadList
+- uid: Etch.Tiling.TTile8
+  commentId: T:Etch.Tiling.TTile8
+  href: Etch.Tiling.TTile8.html
+  name: TTile8
+  nameWithType: TTile8
+  fullName: Etch.Tiling.TTile8
+- uid: Etch.Tiling.TTile16
+  commentId: T:Etch.Tiling.TTile16
+  href: Etch.Tiling.TTile16.html
+  name: TTile16
+  nameWithType: TTile16
+  fullName: Etch.Tiling.TTile16
+- uid: Etch.Tiling.TTile32
+  commentId: T:Etch.Tiling.TTile32
+  href: Etch.Tiling.TTile32.html
+  name: TTile32
+  nameWithType: TTile32
+  fullName: Etch.Tiling.TTile32
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  href: Etch.html
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html

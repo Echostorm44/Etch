@@ -1,0 +1,567 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.ParallelStripRenderer
+  commentId: T:Etch.Raster.Cpu.ParallelStripRenderer
+  id: ParallelStripRenderer
+  parent: Etch.Raster.Cpu
+  children:
+  - Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler)
+  - Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler,Etch.Raster.Cpu.ClipMask)
+  langs:
+  - csharp
+  - vb
+  name: ParallelStripRenderer
+  nameWithType: ParallelStripRenderer
+  fullName: Etch.Raster.Cpu.ParallelStripRenderer
+  type: Class
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static class ParallelStripRenderer
+    content.vb: Public Module ParallelStripRenderer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler)
+  commentId: M:Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler)
+  id: Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler)
+  parent: Etch.Raster.Cpu.ParallelStripRenderer
+  langs:
+  - csharp
+  - vb
+  name: Render<TTile>(SceneBuffer, StripBuffer, TileGrid<TTile>, Framebuffer, ITileScheduler)
+  nameWithType: ParallelStripRenderer.Render<TTile>(SceneBuffer, StripBuffer, TileGrid<TTile>, Framebuffer, ITileScheduler)
+  fullName: Etch.Raster.Cpu.ParallelStripRenderer.Render<TTile>(Etch.Scene.SceneBuffer, Etch.Tiling.Strips.StripBuffer, Etch.Tiling.TileGrid<TTile>, Etch.Raster.Cpu.Framebuffer, Etch.Tiling.Scheduler.ITileScheduler)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: 'public static void Render<TTile>(SceneBuffer scene, StripBuffer strips, TileGrid<TTile> grid, Framebuffer target, ITileScheduler scheduler) where TTile : struct, ITileSize'
+    parameters:
+    - id: scene
+      type: Etch.Scene.SceneBuffer
+    - id: strips
+      type: Etch.Tiling.Strips.StripBuffer
+    - id: grid
+      type: Etch.Tiling.TileGrid{{TTile}}
+    - id: target
+      type: Etch.Raster.Cpu.Framebuffer
+    - id: scheduler
+      type: Etch.Tiling.Scheduler.ITileScheduler
+    typeParameters:
+    - id: TTile
+    content.vb: Public Shared Sub Render(Of TTile As {Structure, ITileSize})(scene As SceneBuffer, strips As StripBuffer, grid As TileGrid(Of TTile), target As Framebuffer, scheduler As ITileScheduler)
+  overload: Etch.Raster.Cpu.ParallelStripRenderer.Render*
+  nameWithType.vb: ParallelStripRenderer.Render(Of TTile)(SceneBuffer, StripBuffer, TileGrid(Of TTile), Framebuffer, ITileScheduler)
+  fullName.vb: Etch.Raster.Cpu.ParallelStripRenderer.Render(Of TTile)(Etch.Scene.SceneBuffer, Etch.Tiling.Strips.StripBuffer, Etch.Tiling.TileGrid(Of TTile), Etch.Raster.Cpu.Framebuffer, Etch.Tiling.Scheduler.ITileScheduler)
+  name.vb: Render(Of TTile)(SceneBuffer, StripBuffer, TileGrid(Of TTile), Framebuffer, ITileScheduler)
+- uid: Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler,Etch.Raster.Cpu.ClipMask)
+  commentId: M:Etch.Raster.Cpu.ParallelStripRenderer.Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler,Etch.Raster.Cpu.ClipMask)
+  id: Render``1(Etch.Scene.SceneBuffer,Etch.Tiling.Strips.StripBuffer,Etch.Tiling.TileGrid{``0},Etch.Raster.Cpu.Framebuffer,Etch.Tiling.Scheduler.ITileScheduler,Etch.Raster.Cpu.ClipMask)
+  parent: Etch.Raster.Cpu.ParallelStripRenderer
+  langs:
+  - csharp
+  - vb
+  name: Render<TTile>(SceneBuffer, StripBuffer, TileGrid<TTile>, Framebuffer, ITileScheduler, ClipMask)
+  nameWithType: ParallelStripRenderer.Render<TTile>(SceneBuffer, StripBuffer, TileGrid<TTile>, Framebuffer, ITileScheduler, ClipMask)
+  fullName: Etch.Raster.Cpu.ParallelStripRenderer.Render<TTile>(Etch.Scene.SceneBuffer, Etch.Tiling.Strips.StripBuffer, Etch.Tiling.TileGrid<TTile>, Etch.Raster.Cpu.Framebuffer, Etch.Tiling.Scheduler.ITileScheduler, Etch.Raster.Cpu.ClipMask)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: 'public static void Render<TTile>(SceneBuffer scene, StripBuffer strips, TileGrid<TTile> grid, Framebuffer target, ITileScheduler scheduler, ClipMask clipMask) where TTile : struct, ITileSize'
+    parameters:
+    - id: scene
+      type: Etch.Scene.SceneBuffer
+    - id: strips
+      type: Etch.Tiling.Strips.StripBuffer
+    - id: grid
+      type: Etch.Tiling.TileGrid{{TTile}}
+    - id: target
+      type: Etch.Raster.Cpu.Framebuffer
+    - id: scheduler
+      type: Etch.Tiling.Scheduler.ITileScheduler
+    - id: clipMask
+      type: Etch.Raster.Cpu.ClipMask
+    typeParameters:
+    - id: TTile
+    content.vb: Public Shared Sub Render(Of TTile As {Structure, ITileSize})(scene As SceneBuffer, strips As StripBuffer, grid As TileGrid(Of TTile), target As Framebuffer, scheduler As ITileScheduler, clipMask As ClipMask)
+  overload: Etch.Raster.Cpu.ParallelStripRenderer.Render*
+  nameWithType.vb: ParallelStripRenderer.Render(Of TTile)(SceneBuffer, StripBuffer, TileGrid(Of TTile), Framebuffer, ITileScheduler, ClipMask)
+  fullName.vb: Etch.Raster.Cpu.ParallelStripRenderer.Render(Of TTile)(Etch.Scene.SceneBuffer, Etch.Tiling.Strips.StripBuffer, Etch.Tiling.TileGrid(Of TTile), Etch.Raster.Cpu.Framebuffer, Etch.Tiling.Scheduler.ITileScheduler, Etch.Raster.Cpu.ClipMask)
+  name.vb: Render(Of TTile)(SceneBuffer, StripBuffer, TileGrid(Of TTile), Framebuffer, ITileScheduler, ClipMask)
+references:
+- uid: Etch.Raster.Cpu
+  commentId: N:Etch.Raster.Cpu
+  href: Etch.html
+  name: Etch.Raster.Cpu
+  nameWithType: Etch.Raster.Cpu
+  fullName: Etch.Raster.Cpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Raster.Cpu.ParallelStripRenderer.Render*
+  commentId: Overload:Etch.Raster.Cpu.ParallelStripRenderer.Render
+  href: Etch.Raster.Cpu.ParallelStripRenderer.html#Etch_Raster_Cpu_ParallelStripRenderer_Render__1_Etch_Scene_SceneBuffer_Etch_Tiling_Strips_StripBuffer_Etch_Tiling_TileGrid___0__Etch_Raster_Cpu_Framebuffer_Etch_Tiling_Scheduler_ITileScheduler_
+  name: Render
+  nameWithType: ParallelStripRenderer.Render
+  fullName: Etch.Raster.Cpu.ParallelStripRenderer.Render
+- uid: Etch.Scene.SceneBuffer
+  commentId: T:Etch.Scene.SceneBuffer
+  parent: Etch.Scene
+  href: Etch.Scene.SceneBuffer.html
+  name: SceneBuffer
+  nameWithType: SceneBuffer
+  fullName: Etch.Scene.SceneBuffer
+- uid: Etch.Tiling.Strips.StripBuffer
+  commentId: T:Etch.Tiling.Strips.StripBuffer
+  parent: Etch.Tiling.Strips
+  href: Etch.Tiling.Strips.StripBuffer.html
+  name: StripBuffer
+  nameWithType: StripBuffer
+  fullName: Etch.Tiling.Strips.StripBuffer
+- uid: Etch.Tiling.TileGrid{{TTile}}
+  commentId: T:Etch.Tiling.TileGrid{``0}
+  parent: Etch.Tiling
+  definition: Etch.Tiling.TileGrid`1
+  href: Etch.Tiling.TileGrid-1.html
+  name: TileGrid<TTile>
+  nameWithType: TileGrid<TTile>
+  fullName: Etch.Tiling.TileGrid<TTile>
+  nameWithType.vb: TileGrid(Of TTile)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile)
+  name.vb: TileGrid(Of TTile)
+  spec.csharp:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: <
+  - name: TTile
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTile
+  - name: )
+- uid: Etch.Raster.Cpu.Framebuffer
+  commentId: T:Etch.Raster.Cpu.Framebuffer
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.Framebuffer.html
+  name: Framebuffer
+  nameWithType: Framebuffer
+  fullName: Etch.Raster.Cpu.Framebuffer
+- uid: Etch.Tiling.Scheduler.ITileScheduler
+  commentId: T:Etch.Tiling.Scheduler.ITileScheduler
+  parent: Etch.Tiling.Scheduler
+  href: Etch.Tiling.Scheduler.ITileScheduler.html
+  name: ITileScheduler
+  nameWithType: ITileScheduler
+  fullName: Etch.Tiling.Scheduler.ITileScheduler
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Tiling.Strips
+  commentId: N:Etch.Tiling.Strips
+  href: Etch.html
+  name: Etch.Tiling.Strips
+  nameWithType: Etch.Tiling.Strips
+  fullName: Etch.Tiling.Strips
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Strips
+    name: Strips
+    href: Etch.Tiling.Strips.html
+- uid: Etch.Tiling.TileGrid`1
+  commentId: T:Etch.Tiling.TileGrid`1
+  href: Etch.Tiling.TileGrid-1.html
+  name: TileGrid<TTile>
+  nameWithType: TileGrid<TTile>
+  fullName: Etch.Tiling.TileGrid<TTile>
+  nameWithType.vb: TileGrid(Of TTile)
+  fullName.vb: Etch.Tiling.TileGrid(Of TTile)
+  name.vb: TileGrid(Of TTile)
+  spec.csharp:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: <
+  - name: TTile
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid
+    href: Etch.Tiling.TileGrid-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTile
+  - name: )
+- uid: Etch.Tiling
+  commentId: N:Etch.Tiling
+  href: Etch.html
+  name: Etch.Tiling
+  nameWithType: Etch.Tiling
+  fullName: Etch.Tiling
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+- uid: Etch.Tiling.Scheduler
+  commentId: N:Etch.Tiling.Scheduler
+  href: Etch.html
+  name: Etch.Tiling.Scheduler
+  nameWithType: Etch.Tiling.Scheduler
+  fullName: Etch.Tiling.Scheduler
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html
+- uid: Etch.Raster.Cpu.ClipMask
+  commentId: T:Etch.Raster.Cpu.ClipMask
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.ClipMask.html
+  name: ClipMask
+  nameWithType: ClipMask
+  fullName: Etch.Raster.Cpu.ClipMask

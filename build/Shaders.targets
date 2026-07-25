@@ -1,0 +1,32 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)NagaCli.props" />
+
+  <PropertyGroup>
+    <_ShaderSourceRoot>$(MSBuildThisFileDirectory)..</_ShaderSourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <WgslShader Include="$(_ShaderSourceRoot)/shaders/**/*.wgsl" />
+  </ItemGroup>
+
+  <Target Name="CreateShaderValidationDir" BeforeTargets="ValidateWgslShaders">
+    <MakeDir Directories="$(IntermediateOutputPath)ShadersValidation" />
+  </Target>
+
+  <Target Name="ValidateWgslShaders"
+          BeforeTargets="CoreCompile"
+          Inputs="@(WgslShader)"
+          Outputs="$(IntermediateOutputPath)ShadersValidation\%(WgslShader.Filename).nagareport.txt">
+
+    <Message Importance="high" Text="Validating shader: %(WgslShader.FullPath)" />
+
+    <Exec Command="&quot;$(NagaCliPath)&quot; &quot;%(WgslShader.FullPath)&quot;"
+          CustomErrorRegularExpression="^error: (.+) .┌─ (.+):([0-9]+):([0-9]+)" />
+
+    <Exec Command="echo Validation complete &gt; &quot;$(IntermediateOutputPath)ShadersValidation\%(WgslShader.Filename).nagareport.txt&quot;" />
+
+    <ItemGroup>
+      <FileWrites Include="$(IntermediateOutputPath)ShadersValidation\%(WgslShader.Filename).nagareport.txt" />
+    </ItemGroup>
+  </Target>
+</Project>

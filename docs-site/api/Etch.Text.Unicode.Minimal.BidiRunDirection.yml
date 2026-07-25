@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode.Minimal.BidiRunDirection
+  commentId: T:Etch.Text.Unicode.Minimal.BidiRunDirection
+  id: BidiRunDirection
+  parent: Etch.Text.Unicode.Minimal
+  children:
+  - Etch.Text.Unicode.Minimal.BidiRunDirection.Ltr
+  - Etch.Text.Unicode.Minimal.BidiRunDirection.Rtl
+  langs:
+  - csharp
+  - vb
+  name: BidiRunDirection
+  nameWithType: BidiRunDirection
+  fullName: Etch.Text.Unicode.Minimal.BidiRunDirection
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: The resolved direction of a BiDi run.
+  example: []
+  syntax:
+    content: 'public enum BidiRunDirection : byte'
+    content.vb: Public Enum BidiRunDirection As Byte
+- uid: Etch.Text.Unicode.Minimal.BidiRunDirection.Ltr
+  commentId: F:Etch.Text.Unicode.Minimal.BidiRunDirection.Ltr
+  id: Ltr
+  parent: Etch.Text.Unicode.Minimal.BidiRunDirection
+  langs:
+  - csharp
+  - vb
+  name: Ltr
+  nameWithType: BidiRunDirection.Ltr
+  fullName: Etch.Text.Unicode.Minimal.BidiRunDirection.Ltr
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Left-to-right (even embedding level).
+  example: []
+  syntax:
+    content: Ltr = 0
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiRunDirection
+- uid: Etch.Text.Unicode.Minimal.BidiRunDirection.Rtl
+  commentId: F:Etch.Text.Unicode.Minimal.BidiRunDirection.Rtl
+  id: Rtl
+  parent: Etch.Text.Unicode.Minimal.BidiRunDirection
+  langs:
+  - csharp
+  - vb
+  name: Rtl
+  nameWithType: BidiRunDirection.Rtl
+  fullName: Etch.Text.Unicode.Minimal.BidiRunDirection.Rtl
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode.Minimal
+  summary: Right-to-left (odd embedding level).
+  example: []
+  syntax:
+    content: Rtl = 1
+    return:
+      type: Etch.Text.Unicode.Minimal.BidiRunDirection
+references:
+- uid: Etch.Text.Unicode.Minimal
+  commentId: N:Etch.Text.Unicode.Minimal
+  href: Etch.html
+  name: Etch.Text.Unicode.Minimal
+  nameWithType: Etch.Text.Unicode.Minimal
+  fullName: Etch.Text.Unicode.Minimal
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  - name: .
+  - uid: Etch.Text.Unicode.Minimal
+    name: Minimal
+    href: Etch.Text.Unicode.Minimal.html
+- uid: Etch.Text.Unicode.Minimal.BidiRunDirection
+  commentId: T:Etch.Text.Unicode.Minimal.BidiRunDirection
+  parent: Etch.Text.Unicode.Minimal
+  href: Etch.Text.Unicode.Minimal.BidiRunDirection.html
+  name: BidiRunDirection
+  nameWithType: BidiRunDirection
+  fullName: Etch.Text.Unicode.Minimal.BidiRunDirection

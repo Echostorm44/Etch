@@ -1,0 +1,424 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Shadow.ShadowParams
+  commentId: T:Etch.Effects.Shadow.ShadowParams
+  id: ShadowParams
+  parent: Etch.Effects.Shadow
+  children:
+  - Etch.Effects.Shadow.ShadowParams.#ctor(Etch.Geometry.Vec2,System.Single,System.UInt32)
+  - Etch.Effects.Shadow.ShadowParams.BlurRadius
+  - Etch.Effects.Shadow.ShadowParams.Offset
+  - Etch.Effects.Shadow.ShadowParams.ShadowColor
+  langs:
+  - csharp
+  - vb
+  name: ShadowParams
+  nameWithType: ShadowParams
+  fullName: Etch.Effects.Shadow.ShadowParams
+  type: Struct
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Shadow
+  syntax:
+    content: public readonly struct ShadowParams
+    content.vb: Public Structure ShadowParams
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Effects.Shadow.ShadowParams.Offset
+  commentId: F:Etch.Effects.Shadow.ShadowParams.Offset
+  id: Offset
+  parent: Etch.Effects.Shadow.ShadowParams
+  langs:
+  - csharp
+  - vb
+  name: Offset
+  nameWithType: ShadowParams.Offset
+  fullName: Etch.Effects.Shadow.ShadowParams.Offset
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Shadow
+  syntax:
+    content: public readonly Vec2 Offset
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public ReadOnly Offset As Vec2
+- uid: Etch.Effects.Shadow.ShadowParams.BlurRadius
+  commentId: F:Etch.Effects.Shadow.ShadowParams.BlurRadius
+  id: BlurRadius
+  parent: Etch.Effects.Shadow.ShadowParams
+  langs:
+  - csharp
+  - vb
+  name: BlurRadius
+  nameWithType: ShadowParams.BlurRadius
+  fullName: Etch.Effects.Shadow.ShadowParams.BlurRadius
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Shadow
+  syntax:
+    content: public readonly float BlurRadius
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly BlurRadius As Single
+- uid: Etch.Effects.Shadow.ShadowParams.ShadowColor
+  commentId: F:Etch.Effects.Shadow.ShadowParams.ShadowColor
+  id: ShadowColor
+  parent: Etch.Effects.Shadow.ShadowParams
+  langs:
+  - csharp
+  - vb
+  name: ShadowColor
+  nameWithType: ShadowParams.ShadowColor
+  fullName: Etch.Effects.Shadow.ShadowParams.ShadowColor
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Shadow
+  syntax:
+    content: public readonly uint ShadowColor
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly ShadowColor As UInteger
+- uid: Etch.Effects.Shadow.ShadowParams.#ctor(Etch.Geometry.Vec2,System.Single,System.UInt32)
+  commentId: M:Etch.Effects.Shadow.ShadowParams.#ctor(Etch.Geometry.Vec2,System.Single,System.UInt32)
+  id: '#ctor(Etch.Geometry.Vec2,System.Single,System.UInt32)'
+  parent: Etch.Effects.Shadow.ShadowParams
+  langs:
+  - csharp
+  - vb
+  name: ShadowParams(Vec2, float, uint)
+  nameWithType: ShadowParams.ShadowParams(Vec2, float, uint)
+  fullName: Etch.Effects.Shadow.ShadowParams.ShadowParams(Etch.Geometry.Vec2, float, uint)
+  type: Constructor
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Shadow
+  syntax:
+    content: public ShadowParams(Vec2 offset, float blurRadius, uint shadowColor = 1073741824)
+    parameters:
+    - id: offset
+      type: Etch.Geometry.Vec2
+    - id: blurRadius
+      type: System.Single
+    - id: shadowColor
+      type: System.UInt32
+    content.vb: Public Sub New(offset As Vec2, blurRadius As Single, shadowColor As UInteger = 1073741824)
+  overload: Etch.Effects.Shadow.ShadowParams.#ctor*
+  nameWithType.vb: ShadowParams.New(Vec2, Single, UInteger)
+  fullName.vb: Etch.Effects.Shadow.ShadowParams.New(Etch.Geometry.Vec2, Single, UInteger)
+  name.vb: New(Vec2, Single, UInteger)
+references:
+- uid: Etch.Effects.Shadow
+  commentId: N:Etch.Effects.Shadow
+  href: Etch.html
+  name: Etch.Effects.Shadow
+  nameWithType: Etch.Effects.Shadow
+  fullName: Etch.Effects.Shadow
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Shadow
+    name: Shadow
+    href: Etch.Effects.Shadow.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Shadow
+    name: Shadow
+    href: Etch.Effects.Shadow.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Effects.Shadow.ShadowParams.#ctor*
+  commentId: Overload:Etch.Effects.Shadow.ShadowParams.#ctor
+  href: Etch.Effects.Shadow.ShadowParams.html#Etch_Effects_Shadow_ShadowParams__ctor_Etch_Geometry_Vec2_System_Single_System_UInt32_
+  name: ShadowParams
+  nameWithType: ShadowParams.ShadowParams
+  fullName: Etch.Effects.Shadow.ShadowParams.ShadowParams
+  nameWithType.vb: ShadowParams.New
+  fullName.vb: Etch.Effects.Shadow.ShadowParams.New
+  name.vb: New

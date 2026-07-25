@@ -1,0 +1,539 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SwapChains.SwapChainConfig
+  commentId: T:Etch.Gpu.SwapChains.SwapChainConfig
+  id: SwapChainConfig
+  parent: Etch.Gpu.SwapChains
+  children:
+  - Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+  - Etch.Gpu.SwapChains.SwapChainConfig.Default
+  - Etch.Gpu.SwapChains.SwapChainConfig.Format
+  - Etch.Gpu.SwapChains.SwapChainConfig.Height
+  - Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+  - Etch.Gpu.SwapChains.SwapChainConfig.Usage
+  - Etch.Gpu.SwapChains.SwapChainConfig.Width
+  langs:
+  - csharp
+  - vb
+  name: SwapChainConfig
+  nameWithType: SwapChainConfig
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public struct SwapChainConfig
+    content.vb: Public Structure SwapChainConfig
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Format
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.Format
+  id: Format
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Format
+  nameWithType: SwapChainConfig.Format
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Format
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public TextureFormat Format { readonly get; init; }
+    parameters: []
+    return:
+      type: Etch.Gpu.TextureFormat
+    content.vb: Public Property Format As TextureFormat
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.Format*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Width
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.Width
+  id: Width
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: SwapChainConfig.Width
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Width
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public uint Width { readonly get; init; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property Width As UInteger
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.Width*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Height
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.Height
+  id: Height
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: SwapChainConfig.Height
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Height
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public uint Height { readonly get; init; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property Height As UInteger
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.Height*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+  id: PresentMode
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: PresentMode
+  nameWithType: SwapChainConfig.PresentMode
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public PresentMode PresentMode { readonly get; init; }
+    parameters: []
+    return:
+      type: Etch.Gpu.PresentMode
+    content.vb: Public Property PresentMode As PresentMode
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.PresentMode*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+  id: AlphaMode
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: AlphaMode
+  nameWithType: SwapChainConfig.AlphaMode
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public CompositeAlphaMode AlphaMode { readonly get; init; }
+    parameters: []
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+    content.vb: Public Property AlphaMode As CompositeAlphaMode
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Usage
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.Usage
+  id: Usage
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Usage
+  nameWithType: SwapChainConfig.Usage
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Usage
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public TextureUsage Usage { readonly get; init; }
+    parameters: []
+    return:
+      type: Etch.Gpu.TextureUsage
+    content.vb: Public Property Usage As TextureUsage
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.Usage*
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Default
+  commentId: P:Etch.Gpu.SwapChains.SwapChainConfig.Default
+  id: Default
+  parent: Etch.Gpu.SwapChains.SwapChainConfig
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: SwapChainConfig.Default
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Default
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.SwapChains
+  syntax:
+    content: public static SwapChainConfig Default { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.SwapChains.SwapChainConfig
+    content.vb: Public Shared ReadOnly Property [Default] As SwapChainConfig
+  overload: Etch.Gpu.SwapChains.SwapChainConfig.Default*
+references:
+- uid: Etch.Gpu.SwapChains
+  commentId: N:Etch.Gpu.SwapChains
+  href: Etch.html
+  name: Etch.Gpu.SwapChains
+  nameWithType: Etch.Gpu.SwapChains
+  fullName: Etch.Gpu.SwapChains
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.SwapChains
+    name: SwapChains
+    href: Etch.Gpu.SwapChains.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Format*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.Format
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_Format
+  name: Format
+  nameWithType: SwapChainConfig.Format
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Format
+- uid: Etch.Gpu.TextureFormat
+  commentId: T:Etch.Gpu.TextureFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureFormat.html
+  name: TextureFormat
+  nameWithType: TextureFormat
+  fullName: Etch.Gpu.TextureFormat
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Width*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.Width
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_Width
+  name: Width
+  nameWithType: SwapChainConfig.Width
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Width
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Height*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.Height
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_Height
+  name: Height
+  nameWithType: SwapChainConfig.Height
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Height
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.PresentMode*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_PresentMode
+  name: PresentMode
+  nameWithType: SwapChainConfig.PresentMode
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.PresentMode
+- uid: Etch.Gpu.PresentMode
+  commentId: T:Etch.Gpu.PresentMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.PresentMode.html
+  name: PresentMode
+  nameWithType: PresentMode
+  fullName: Etch.Gpu.PresentMode
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_AlphaMode
+  name: AlphaMode
+  nameWithType: SwapChainConfig.AlphaMode
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.AlphaMode
+- uid: Etch.Gpu.CompositeAlphaMode
+  commentId: T:Etch.Gpu.CompositeAlphaMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.CompositeAlphaMode.html
+  name: CompositeAlphaMode
+  nameWithType: CompositeAlphaMode
+  fullName: Etch.Gpu.CompositeAlphaMode
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Usage*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.Usage
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_Usage
+  name: Usage
+  nameWithType: SwapChainConfig.Usage
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Usage
+- uid: Etch.Gpu.TextureUsage
+  commentId: T:Etch.Gpu.TextureUsage
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureUsage.html
+  name: TextureUsage
+  nameWithType: TextureUsage
+  fullName: Etch.Gpu.TextureUsage
+- uid: Etch.Gpu.SwapChains.SwapChainConfig.Default*
+  commentId: Overload:Etch.Gpu.SwapChains.SwapChainConfig.Default
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html#Etch_Gpu_SwapChains_SwapChainConfig_Default
+  name: Default
+  nameWithType: SwapChainConfig.Default
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig.Default
+- uid: Etch.Gpu.SwapChains.SwapChainConfig
+  commentId: T:Etch.Gpu.SwapChains.SwapChainConfig
+  parent: Etch.Gpu.SwapChains
+  href: Etch.Gpu.SwapChains.SwapChainConfig.html
+  name: SwapChainConfig
+  nameWithType: SwapChainConfig
+  fullName: Etch.Gpu.SwapChains.SwapChainConfig

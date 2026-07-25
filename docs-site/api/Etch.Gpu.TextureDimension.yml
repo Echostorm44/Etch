@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureDimension
+  commentId: T:Etch.Gpu.TextureDimension
+  id: TextureDimension
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureDimension.D1
+  - Etch.Gpu.TextureDimension.D2
+  - Etch.Gpu.TextureDimension.D3
+  - Etch.Gpu.TextureDimension.Undefined
+  langs:
+  - csharp
+  - vb
+  name: TextureDimension
+  nameWithType: TextureDimension
+  fullName: Etch.Gpu.TextureDimension
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum TextureDimension : uint'
+    content.vb: Public Enum TextureDimension As UInteger
+- uid: Etch.Gpu.TextureDimension.Undefined
+  commentId: F:Etch.Gpu.TextureDimension.Undefined
+  id: Undefined
+  parent: Etch.Gpu.TextureDimension
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TextureDimension.Undefined
+  fullName: Etch.Gpu.TextureDimension.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.TextureDimension
+- uid: Etch.Gpu.TextureDimension.D1
+  commentId: F:Etch.Gpu.TextureDimension.D1
+  id: D1
+  parent: Etch.Gpu.TextureDimension
+  langs:
+  - csharp
+  - vb
+  name: D1
+  nameWithType: TextureDimension.D1
+  fullName: Etch.Gpu.TextureDimension.D1
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D1 = 1
+    return:
+      type: Etch.Gpu.TextureDimension
+- uid: Etch.Gpu.TextureDimension.D2
+  commentId: F:Etch.Gpu.TextureDimension.D2
+  id: D2
+  parent: Etch.Gpu.TextureDimension
+  langs:
+  - csharp
+  - vb
+  name: D2
+  nameWithType: TextureDimension.D2
+  fullName: Etch.Gpu.TextureDimension.D2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D2 = 2
+    return:
+      type: Etch.Gpu.TextureDimension
+- uid: Etch.Gpu.TextureDimension.D3
+  commentId: F:Etch.Gpu.TextureDimension.D3
+  id: D3
+  parent: Etch.Gpu.TextureDimension
+  langs:
+  - csharp
+  - vb
+  name: D3
+  nameWithType: TextureDimension.D3
+  fullName: Etch.Gpu.TextureDimension.D3
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D3 = 3
+    return:
+      type: Etch.Gpu.TextureDimension
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureDimension
+  commentId: T:Etch.Gpu.TextureDimension
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureDimension.html
+  name: TextureDimension
+  nameWithType: TextureDimension
+  fullName: Etch.Gpu.TextureDimension

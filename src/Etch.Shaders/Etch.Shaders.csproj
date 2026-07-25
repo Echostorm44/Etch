@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);CS1591;CA1812;CA0067;IDE0055;CA1003;CS0067</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Etch.Shaders</RootNamespace>
+    <AssemblyName>Etch.Shaders</AssemblyName>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <WarningsNotAsErrors>CA0067;CA1003;CS0067</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)..\..\shaders\**\*.wgsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src-gen\Etch.Shader.Generator\Etch.Shader.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\Etch.Abstractions\Etch.Abstractions.csproj" />
+  </ItemGroup>
+</Project>

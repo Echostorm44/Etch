@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  # TODO: FFI-003 will fill in the NuGet pack step once wgpu-native packaging is defined.
+  release:
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64, osx-arm64]
+        include:
+          - rid: win-x64
+            os: windows-2022
+          - rid: linux-x64
+            os: ubuntu-24.04
+          - rid: osx-arm64
+            os: macos-14
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Build
+        run: dotnet build Etch.sln -c Release --no-restore
+
+      - name: Run tests
+        run: ./tests/Etch.Abstractions.Tests/bin/Release/net10.0/Etch.Abstractions.Tests.exe
+
+      - name: Publish AOT
+        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true -o ./release-out/${{ matrix.rid }}
+
+      - name: Check AOT warnings
+        run: ./tools/ci/check-aot-warnings.ps1 -Log publish.log -Namespace Etch
+        shell: pwsh

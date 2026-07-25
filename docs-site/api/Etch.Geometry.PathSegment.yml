@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.PathSegment
+  commentId: T:Etch.Geometry.PathSegment
+  id: PathSegment
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.PathSegment.#ctor(System.Byte,System.Int32,System.Int32,System.Double[],Etch.Geometry.Point)
+  - Etch.Geometry.PathSegment.Control0
+  - Etch.Geometry.PathSegment.Control1
+  - Etch.Geometry.PathSegment.End
+  - Etch.Geometry.PathSegment.Start
+  - Etch.Geometry.PathSegment.Verb
+  langs:
+  - csharp
+  - vb
+  name: PathSegment
+  nameWithType: PathSegment
+  fullName: Etch.Geometry.PathSegment
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly struct PathSegment
+    content.vb: Public Structure PathSegment
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.PathSegment.#ctor(System.Byte,System.Int32,System.Int32,System.Double[],Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.PathSegment.#ctor(System.Byte,System.Int32,System.Int32,System.Double[],Etch.Geometry.Point)
+  id: '#ctor(System.Byte,System.Int32,System.Int32,System.Double[],Etch.Geometry.Point)'
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: PathSegment(byte, int, int, double[], Point)
+  nameWithType: PathSegment.PathSegment(byte, int, int, double[], Point)
+  fullName: Etch.Geometry.PathSegment.PathSegment(byte, int, int, double[], Etch.Geometry.Point)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public PathSegment(byte verb, int verbIndex, int startCoordIdx, double[] coords, Point startPoint)
+    parameters:
+    - id: verb
+      type: System.Byte
+    - id: verbIndex
+      type: System.Int32
+    - id: startCoordIdx
+      type: System.Int32
+    - id: coords
+      type: System.Double[]
+    - id: startPoint
+      type: Etch.Geometry.Point
+    content.vb: Public Sub New(verb As Byte, verbIndex As Integer, startCoordIdx As Integer, coords As Double(), startPoint As Point)
+  overload: Etch.Geometry.PathSegment.#ctor*
+  nameWithType.vb: PathSegment.New(Byte, Integer, Integer, Double(), Point)
+  fullName.vb: Etch.Geometry.PathSegment.New(Byte, Integer, Integer, Double(), Etch.Geometry.Point)
+  name.vb: New(Byte, Integer, Integer, Double(), Point)
+- uid: Etch.Geometry.PathSegment.Verb
+  commentId: P:Etch.Geometry.PathSegment.Verb
+  id: Verb
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: Verb
+  nameWithType: PathSegment.Verb
+  fullName: Etch.Geometry.PathSegment.Verb
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public PathVerb Verb { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.PathVerb
+    content.vb: Public ReadOnly Property Verb As PathVerb
+  overload: Etch.Geometry.PathSegment.Verb*
+- uid: Etch.Geometry.PathSegment.Start
+  commentId: P:Etch.Geometry.PathSegment.Start
+  id: Start
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: PathSegment.Start
+  fullName: Etch.Geometry.PathSegment.Start
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Start { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Property Start As Point
+  overload: Etch.Geometry.PathSegment.Start*
+- uid: Etch.Geometry.PathSegment.End
+  commentId: P:Etch.Geometry.PathSegment.End
+  id: End
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: PathSegment.End
+  fullName: Etch.Geometry.PathSegment.End
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point End { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Property [End] As Point
+  overload: Etch.Geometry.PathSegment.End*
+- uid: Etch.Geometry.PathSegment.Control0
+  commentId: P:Etch.Geometry.PathSegment.Control0
+  id: Control0
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: Control0
+  nameWithType: PathSegment.Control0
+  fullName: Etch.Geometry.PathSegment.Control0
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Control0 { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Property Control0 As Point
+  overload: Etch.Geometry.PathSegment.Control0*
+- uid: Etch.Geometry.PathSegment.Control1
+  commentId: P:Etch.Geometry.PathSegment.Control1
+  id: Control1
+  parent: Etch.Geometry.PathSegment
+  langs:
+  - csharp
+  - vb
+  name: Control1
+  nameWithType: PathSegment.Control1
+  fullName: Etch.Geometry.PathSegment.Control1
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Control1 { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Property Control1 As Point
+  overload: Etch.Geometry.PathSegment.Control1*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Geometry.PathSegment.#ctor*
+  commentId: Overload:Etch.Geometry.PathSegment.#ctor
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment__ctor_System_Byte_System_Int32_System_Int32_System_Double___Etch_Geometry_Point_
+  name: PathSegment
+  nameWithType: PathSegment.PathSegment
+  fullName: Etch.Geometry.PathSegment.PathSegment
+  nameWithType.vb: PathSegment.New
+  fullName.vb: Etch.Geometry.PathSegment.New
+  name.vb: New
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Double[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double[]
+  nameWithType: double[]
+  fullName: double[]
+  nameWithType.vb: Double()
+  fullName.vb: Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.PathSegment.Verb*
+  commentId: Overload:Etch.Geometry.PathSegment.Verb
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment_Verb
+  name: Verb
+  nameWithType: PathSegment.Verb
+  fullName: Etch.Geometry.PathSegment.Verb
+- uid: Etch.Geometry.PathVerb
+  commentId: T:Etch.Geometry.PathVerb
+  parent: Etch.Geometry
+  href: Etch.Geometry.PathVerb.html
+  name: PathVerb
+  nameWithType: PathVerb
+  fullName: Etch.Geometry.PathVerb
+- uid: Etch.Geometry.PathSegment.Start*
+  commentId: Overload:Etch.Geometry.PathSegment.Start
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment_Start
+  name: Start
+  nameWithType: PathSegment.Start
+  fullName: Etch.Geometry.PathSegment.Start
+- uid: Etch.Geometry.PathSegment.End*
+  commentId: Overload:Etch.Geometry.PathSegment.End
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment_End
+  name: End
+  nameWithType: PathSegment.End
+  fullName: Etch.Geometry.PathSegment.End
+- uid: Etch.Geometry.PathSegment.Control0*
+  commentId: Overload:Etch.Geometry.PathSegment.Control0
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment_Control0
+  name: Control0
+  nameWithType: PathSegment.Control0
+  fullName: Etch.Geometry.PathSegment.Control0
+- uid: Etch.Geometry.PathSegment.Control1*
+  commentId: Overload:Etch.Geometry.PathSegment.Control1
+  href: Etch.Geometry.PathSegment.html#Etch_Geometry_PathSegment_Control1
+  name: Control1
+  nameWithType: PathSegment.Control1
+  fullName: Etch.Geometry.PathSegment.Control1

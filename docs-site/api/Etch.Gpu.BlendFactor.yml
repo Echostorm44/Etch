@@ -1,0 +1,392 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.BlendFactor
+  commentId: T:Etch.Gpu.BlendFactor
+  id: BlendFactor
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.BlendFactor.Constant
+  - Etch.Gpu.BlendFactor.Dst
+  - Etch.Gpu.BlendFactor.DstAlpha
+  - Etch.Gpu.BlendFactor.One
+  - Etch.Gpu.BlendFactor.OneMinusConstant
+  - Etch.Gpu.BlendFactor.OneMinusDst
+  - Etch.Gpu.BlendFactor.OneMinusDstAlpha
+  - Etch.Gpu.BlendFactor.OneMinusSrc
+  - Etch.Gpu.BlendFactor.OneMinusSrc1
+  - Etch.Gpu.BlendFactor.OneMinusSrc1Alpha
+  - Etch.Gpu.BlendFactor.OneMinusSrcAlpha
+  - Etch.Gpu.BlendFactor.Src
+  - Etch.Gpu.BlendFactor.Src1
+  - Etch.Gpu.BlendFactor.Src1Alpha
+  - Etch.Gpu.BlendFactor.SrcAlpha
+  - Etch.Gpu.BlendFactor.SrcAlphaSaturated
+  - Etch.Gpu.BlendFactor.Undefined
+  - Etch.Gpu.BlendFactor.Zero
+  langs:
+  - csharp
+  - vb
+  name: BlendFactor
+  nameWithType: BlendFactor
+  fullName: Etch.Gpu.BlendFactor
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum BlendFactor : uint'
+    content.vb: Public Enum BlendFactor As UInteger
+- uid: Etch.Gpu.BlendFactor.Undefined
+  commentId: F:Etch.Gpu.BlendFactor.Undefined
+  id: Undefined
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: BlendFactor.Undefined
+  fullName: Etch.Gpu.BlendFactor.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Zero
+  commentId: F:Etch.Gpu.BlendFactor.Zero
+  id: Zero
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: BlendFactor.Zero
+  fullName: Etch.Gpu.BlendFactor.Zero
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Zero = 1
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.One
+  commentId: F:Etch.Gpu.BlendFactor.One
+  id: One
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: BlendFactor.One
+  fullName: Etch.Gpu.BlendFactor.One
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: One = 2
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Src
+  commentId: F:Etch.Gpu.BlendFactor.Src
+  id: Src
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Src
+  nameWithType: BlendFactor.Src
+  fullName: Etch.Gpu.BlendFactor.Src
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Src = 3
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusSrc
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusSrc
+  id: OneMinusSrc
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusSrc
+  nameWithType: BlendFactor.OneMinusSrc
+  fullName: Etch.Gpu.BlendFactor.OneMinusSrc
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusSrc = 4
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.SrcAlpha
+  commentId: F:Etch.Gpu.BlendFactor.SrcAlpha
+  id: SrcAlpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: SrcAlpha
+  nameWithType: BlendFactor.SrcAlpha
+  fullName: Etch.Gpu.BlendFactor.SrcAlpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: SrcAlpha = 5
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusSrcAlpha
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusSrcAlpha
+  id: OneMinusSrcAlpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusSrcAlpha
+  nameWithType: BlendFactor.OneMinusSrcAlpha
+  fullName: Etch.Gpu.BlendFactor.OneMinusSrcAlpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusSrcAlpha = 6
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Dst
+  commentId: F:Etch.Gpu.BlendFactor.Dst
+  id: Dst
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Dst
+  nameWithType: BlendFactor.Dst
+  fullName: Etch.Gpu.BlendFactor.Dst
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Dst = 7
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusDst
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusDst
+  id: OneMinusDst
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusDst
+  nameWithType: BlendFactor.OneMinusDst
+  fullName: Etch.Gpu.BlendFactor.OneMinusDst
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusDst = 8
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.DstAlpha
+  commentId: F:Etch.Gpu.BlendFactor.DstAlpha
+  id: DstAlpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: DstAlpha
+  nameWithType: BlendFactor.DstAlpha
+  fullName: Etch.Gpu.BlendFactor.DstAlpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DstAlpha = 9
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusDstAlpha
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusDstAlpha
+  id: OneMinusDstAlpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusDstAlpha
+  nameWithType: BlendFactor.OneMinusDstAlpha
+  fullName: Etch.Gpu.BlendFactor.OneMinusDstAlpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusDstAlpha = 10
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.SrcAlphaSaturated
+  commentId: F:Etch.Gpu.BlendFactor.SrcAlphaSaturated
+  id: SrcAlphaSaturated
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: SrcAlphaSaturated
+  nameWithType: BlendFactor.SrcAlphaSaturated
+  fullName: Etch.Gpu.BlendFactor.SrcAlphaSaturated
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: SrcAlphaSaturated = 11
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Constant
+  commentId: F:Etch.Gpu.BlendFactor.Constant
+  id: Constant
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Constant
+  nameWithType: BlendFactor.Constant
+  fullName: Etch.Gpu.BlendFactor.Constant
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Constant = 12
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusConstant
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusConstant
+  id: OneMinusConstant
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusConstant
+  nameWithType: BlendFactor.OneMinusConstant
+  fullName: Etch.Gpu.BlendFactor.OneMinusConstant
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusConstant = 13
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Src1
+  commentId: F:Etch.Gpu.BlendFactor.Src1
+  id: Src1
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Src1
+  nameWithType: BlendFactor.Src1
+  fullName: Etch.Gpu.BlendFactor.Src1
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Src1 = 14
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusSrc1
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusSrc1
+  id: OneMinusSrc1
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusSrc1
+  nameWithType: BlendFactor.OneMinusSrc1
+  fullName: Etch.Gpu.BlendFactor.OneMinusSrc1
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusSrc1 = 15
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.Src1Alpha
+  commentId: F:Etch.Gpu.BlendFactor.Src1Alpha
+  id: Src1Alpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: Src1Alpha
+  nameWithType: BlendFactor.Src1Alpha
+  fullName: Etch.Gpu.BlendFactor.Src1Alpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Src1Alpha = 16
+    return:
+      type: Etch.Gpu.BlendFactor
+- uid: Etch.Gpu.BlendFactor.OneMinusSrc1Alpha
+  commentId: F:Etch.Gpu.BlendFactor.OneMinusSrc1Alpha
+  id: OneMinusSrc1Alpha
+  parent: Etch.Gpu.BlendFactor
+  langs:
+  - csharp
+  - vb
+  name: OneMinusSrc1Alpha
+  nameWithType: BlendFactor.OneMinusSrc1Alpha
+  fullName: Etch.Gpu.BlendFactor.OneMinusSrc1Alpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OneMinusSrc1Alpha = 17
+    return:
+      type: Etch.Gpu.BlendFactor
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.BlendFactor
+  commentId: T:Etch.Gpu.BlendFactor
+  parent: Etch.Gpu
+  href: Etch.Gpu.BlendFactor.html
+  name: BlendFactor
+  nameWithType: BlendFactor
+  fullName: Etch.Gpu.BlendFactor

@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.DeviceLostReason
+  commentId: T:Etch.Gpu.DeviceLostReason
+  id: DeviceLostReason
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.DeviceLostReason.CallbackCancelled
+  - Etch.Gpu.DeviceLostReason.Destroyed
+  - Etch.Gpu.DeviceLostReason.FailedCreation
+  - Etch.Gpu.DeviceLostReason.Unknown
+  langs:
+  - csharp
+  - vb
+  name: DeviceLostReason
+  nameWithType: DeviceLostReason
+  fullName: Etch.Gpu.DeviceLostReason
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum DeviceLostReason : uint'
+    content.vb: Public Enum DeviceLostReason As UInteger
+- uid: Etch.Gpu.DeviceLostReason.Unknown
+  commentId: F:Etch.Gpu.DeviceLostReason.Unknown
+  id: Unknown
+  parent: Etch.Gpu.DeviceLostReason
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DeviceLostReason.Unknown
+  fullName: Etch.Gpu.DeviceLostReason.Unknown
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unknown = 1
+    return:
+      type: Etch.Gpu.DeviceLostReason
+- uid: Etch.Gpu.DeviceLostReason.Destroyed
+  commentId: F:Etch.Gpu.DeviceLostReason.Destroyed
+  id: Destroyed
+  parent: Etch.Gpu.DeviceLostReason
+  langs:
+  - csharp
+  - vb
+  name: Destroyed
+  nameWithType: DeviceLostReason.Destroyed
+  fullName: Etch.Gpu.DeviceLostReason.Destroyed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Destroyed = 2
+    return:
+      type: Etch.Gpu.DeviceLostReason
+- uid: Etch.Gpu.DeviceLostReason.CallbackCancelled
+  commentId: F:Etch.Gpu.DeviceLostReason.CallbackCancelled
+  id: CallbackCancelled
+  parent: Etch.Gpu.DeviceLostReason
+  langs:
+  - csharp
+  - vb
+  name: CallbackCancelled
+  nameWithType: DeviceLostReason.CallbackCancelled
+  fullName: Etch.Gpu.DeviceLostReason.CallbackCancelled
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CallbackCancelled = 3
+    return:
+      type: Etch.Gpu.DeviceLostReason
+- uid: Etch.Gpu.DeviceLostReason.FailedCreation
+  commentId: F:Etch.Gpu.DeviceLostReason.FailedCreation
+  id: FailedCreation
+  parent: Etch.Gpu.DeviceLostReason
+  langs:
+  - csharp
+  - vb
+  name: FailedCreation
+  nameWithType: DeviceLostReason.FailedCreation
+  fullName: Etch.Gpu.DeviceLostReason.FailedCreation
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: FailedCreation = 4
+    return:
+      type: Etch.Gpu.DeviceLostReason
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.DeviceLostReason
+  commentId: T:Etch.Gpu.DeviceLostReason
+  parent: Etch.Gpu
+  href: Etch.Gpu.DeviceLostReason.html
+  name: DeviceLostReason
+  nameWithType: DeviceLostReason
+  fullName: Etch.Gpu.DeviceLostReason

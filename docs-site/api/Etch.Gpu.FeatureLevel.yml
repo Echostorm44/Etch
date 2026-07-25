@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.FeatureLevel
+  commentId: T:Etch.Gpu.FeatureLevel
+  id: FeatureLevel
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.FeatureLevel.Compatibility
+  - Etch.Gpu.FeatureLevel.Core
+  - Etch.Gpu.FeatureLevel.Undefined
+  langs:
+  - csharp
+  - vb
+  name: FeatureLevel
+  nameWithType: FeatureLevel
+  fullName: Etch.Gpu.FeatureLevel
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum FeatureLevel : uint'
+    content.vb: Public Enum FeatureLevel As UInteger
+- uid: Etch.Gpu.FeatureLevel.Undefined
+  commentId: F:Etch.Gpu.FeatureLevel.Undefined
+  id: Undefined
+  parent: Etch.Gpu.FeatureLevel
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: FeatureLevel.Undefined
+  fullName: Etch.Gpu.FeatureLevel.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.FeatureLevel
+- uid: Etch.Gpu.FeatureLevel.Compatibility
+  commentId: F:Etch.Gpu.FeatureLevel.Compatibility
+  id: Compatibility
+  parent: Etch.Gpu.FeatureLevel
+  langs:
+  - csharp
+  - vb
+  name: Compatibility
+  nameWithType: FeatureLevel.Compatibility
+  fullName: Etch.Gpu.FeatureLevel.Compatibility
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Compatibility = 1
+    return:
+      type: Etch.Gpu.FeatureLevel
+- uid: Etch.Gpu.FeatureLevel.Core
+  commentId: F:Etch.Gpu.FeatureLevel.Core
+  id: Core
+  parent: Etch.Gpu.FeatureLevel
+  langs:
+  - csharp
+  - vb
+  name: Core
+  nameWithType: FeatureLevel.Core
+  fullName: Etch.Gpu.FeatureLevel.Core
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Core = 2
+    return:
+      type: Etch.Gpu.FeatureLevel
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.FeatureLevel
+  commentId: T:Etch.Gpu.FeatureLevel
+  parent: Etch.Gpu
+  href: Etch.Gpu.FeatureLevel.html
+  name: FeatureLevel
+  nameWithType: FeatureLevel
+  fullName: Etch.Gpu.FeatureLevel

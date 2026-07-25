@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.PowerPreference
+  commentId: T:Etch.Gpu.PowerPreference
+  id: PowerPreference
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.PowerPreference.HighPerformance
+  - Etch.Gpu.PowerPreference.LowPower
+  - Etch.Gpu.PowerPreference.Undefined
+  langs:
+  - csharp
+  - vb
+  name: PowerPreference
+  nameWithType: PowerPreference
+  fullName: Etch.Gpu.PowerPreference
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum PowerPreference : uint'
+    content.vb: Public Enum PowerPreference As UInteger
+- uid: Etch.Gpu.PowerPreference.Undefined
+  commentId: F:Etch.Gpu.PowerPreference.Undefined
+  id: Undefined
+  parent: Etch.Gpu.PowerPreference
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: PowerPreference.Undefined
+  fullName: Etch.Gpu.PowerPreference.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.PowerPreference
+- uid: Etch.Gpu.PowerPreference.LowPower
+  commentId: F:Etch.Gpu.PowerPreference.LowPower
+  id: LowPower
+  parent: Etch.Gpu.PowerPreference
+  langs:
+  - csharp
+  - vb
+  name: LowPower
+  nameWithType: PowerPreference.LowPower
+  fullName: Etch.Gpu.PowerPreference.LowPower
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: LowPower = 1
+    return:
+      type: Etch.Gpu.PowerPreference
+- uid: Etch.Gpu.PowerPreference.HighPerformance
+  commentId: F:Etch.Gpu.PowerPreference.HighPerformance
+  id: HighPerformance
+  parent: Etch.Gpu.PowerPreference
+  langs:
+  - csharp
+  - vb
+  name: HighPerformance
+  nameWithType: PowerPreference.HighPerformance
+  fullName: Etch.Gpu.PowerPreference.HighPerformance
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: HighPerformance = 2
+    return:
+      type: Etch.Gpu.PowerPreference
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.PowerPreference
+  commentId: T:Etch.Gpu.PowerPreference
+  parent: Etch.Gpu
+  href: Etch.Gpu.PowerPreference.html
+  name: PowerPreference
+  nameWithType: PowerPreference
+  fullName: Etch.Gpu.PowerPreference

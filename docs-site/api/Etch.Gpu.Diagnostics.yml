@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  id: Etch.Gpu.Diagnostics
+  children:
+  - Etch.Gpu.Diagnostics.AdapterInfo
+  - Etch.Gpu.Diagnostics.CrashDump
+  - Etch.Gpu.Diagnostics.DecodedValidationEntry
+  - Etch.Gpu.Diagnostics.GpuSceneReproducer
+  - Etch.Gpu.Diagnostics.SurfaceConfigInfo
+  - Etch.Gpu.Diagnostics.ValidationEntry
+  - Etch.Gpu.Diagnostics.ValidationLogRing
+  - Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.Diagnostics.AdapterInfo
+  commentId: T:Etch.Gpu.Diagnostics.AdapterInfo
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html
+  name: AdapterInfo
+  nameWithType: AdapterInfo
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo
+- uid: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+  commentId: T:Etch.Gpu.Diagnostics.SurfaceConfigInfo
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.SurfaceConfigInfo.html
+  name: SurfaceConfigInfo
+  nameWithType: SurfaceConfigInfo
+  fullName: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+- uid: Etch.Gpu.Diagnostics.CrashDump
+  commentId: T:Etch.Gpu.Diagnostics.CrashDump
+  href: Etch.Gpu.Diagnostics.CrashDump.html
+  name: CrashDump
+  nameWithType: CrashDump
+  fullName: Etch.Gpu.Diagnostics.CrashDump
+- uid: Etch.Gpu.Diagnostics.GpuSceneReproducer
+  commentId: T:Etch.Gpu.Diagnostics.GpuSceneReproducer
+  href: Etch.Gpu.Diagnostics.GpuSceneReproducer.html
+  name: GpuSceneReproducer
+  nameWithType: GpuSceneReproducer
+  fullName: Etch.Gpu.Diagnostics.GpuSceneReproducer
+- uid: Etch.Gpu.Diagnostics.ValidationEntry
+  commentId: T:Etch.Gpu.Diagnostics.ValidationEntry
+  href: Etch.Gpu.Diagnostics.ValidationEntry.html
+  name: ValidationEntry
+  nameWithType: ValidationEntry
+  fullName: Etch.Gpu.Diagnostics.ValidationEntry
+- uid: Etch.Gpu.Diagnostics.ValidationLogRing
+  commentId: T:Etch.Gpu.Diagnostics.ValidationLogRing
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.ValidationLogRing.html
+  name: ValidationLogRing
+  nameWithType: ValidationLogRing
+  fullName: Etch.Gpu.Diagnostics.ValidationLogRing
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  commentId: T:Etch.Gpu.Diagnostics.DecodedValidationEntry
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  name: DecodedValidationEntry
+  nameWithType: DecodedValidationEntry
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  commentId: T:Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.ValidationLogSnapshot.html
+  name: ValidationLogSnapshot
+  nameWithType: ValidationLogSnapshot
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  href: Etch.html
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html

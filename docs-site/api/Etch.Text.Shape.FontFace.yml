@@ -1,0 +1,679 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Shape.FontFace
+  commentId: T:Etch.Text.Shape.FontFace
+  id: FontFace
+  parent: Etch.Text.Shape
+  children:
+  - Etch.Text.Shape.FontFace.Dispose
+  - Etch.Text.Shape.FontFace.Handle
+  - Etch.Text.Shape.FontFace.Id
+  - Etch.Text.Shape.FontFace.Load(System.ReadOnlySpan{System.Byte},System.Int32,System.Single)
+  - Etch.Text.Shape.FontFace.PointSize
+  - Etch.Text.Shape.FontFace.UnitsPerEm
+  langs:
+  - csharp
+  - vb
+  name: FontFace
+  nameWithType: FontFace
+  fullName: Etch.Text.Shape.FontFace
+  type: Class
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: 'public sealed class FontFace : IDisposable'
+    content.vb: Public NotInheritable Class FontFace Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Etch.Text.Shape.FontFace.Etch.Text.Atlas.FontFaceExtensions.GetFaceId
+- uid: Etch.Text.Shape.FontFace.Load(System.ReadOnlySpan{System.Byte},System.Int32,System.Single)
+  commentId: M:Etch.Text.Shape.FontFace.Load(System.ReadOnlySpan{System.Byte},System.Int32,System.Single)
+  id: Load(System.ReadOnlySpan{System.Byte},System.Int32,System.Single)
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: Load(ReadOnlySpan<byte>, int, float)
+  nameWithType: FontFace.Load(ReadOnlySpan<byte>, int, float)
+  fullName: Etch.Text.Shape.FontFace.Load(System.ReadOnlySpan<byte>, int, float)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public static FontFace Load(ReadOnlySpan<byte> fontBlob, int unitsPerEm, float pointSize)
+    parameters:
+    - id: fontBlob
+      type: System.ReadOnlySpan{System.Byte}
+    - id: unitsPerEm
+      type: System.Int32
+    - id: pointSize
+      type: System.Single
+    return:
+      type: Etch.Text.Shape.FontFace
+    content.vb: Public Shared Function Load(fontBlob As ReadOnlySpan(Of Byte), unitsPerEm As Integer, pointSize As Single) As FontFace
+  overload: Etch.Text.Shape.FontFace.Load*
+  nameWithType.vb: FontFace.Load(ReadOnlySpan(Of Byte), Integer, Single)
+  fullName.vb: Etch.Text.Shape.FontFace.Load(System.ReadOnlySpan(Of Byte), Integer, Single)
+  name.vb: Load(ReadOnlySpan(Of Byte), Integer, Single)
+- uid: Etch.Text.Shape.FontFace.Handle
+  commentId: P:Etch.Text.Shape.FontFace.Handle
+  id: Handle
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: FontFace.Handle
+  fullName: Etch.Text.Shape.FontFace.Handle
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public Font Handle { get; }
+    parameters: []
+    return:
+      type: HarfBuzzSharp.Font
+    content.vb: Public ReadOnly Property Handle As Font
+  overload: Etch.Text.Shape.FontFace.Handle*
+- uid: Etch.Text.Shape.FontFace.Id
+  commentId: P:Etch.Text.Shape.FontFace.Id
+  id: Id
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: FontFace.Id
+  fullName: Etch.Text.Shape.FontFace.Id
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Id As Integer
+  overload: Etch.Text.Shape.FontFace.Id*
+- uid: Etch.Text.Shape.FontFace.UnitsPerEm
+  commentId: P:Etch.Text.Shape.FontFace.UnitsPerEm
+  id: UnitsPerEm
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: UnitsPerEm
+  nameWithType: FontFace.UnitsPerEm
+  fullName: Etch.Text.Shape.FontFace.UnitsPerEm
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public int UnitsPerEm { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property UnitsPerEm As Integer
+  overload: Etch.Text.Shape.FontFace.UnitsPerEm*
+- uid: Etch.Text.Shape.FontFace.PointSize
+  commentId: P:Etch.Text.Shape.FontFace.PointSize
+  id: PointSize
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: PointSize
+  nameWithType: FontFace.PointSize
+  fullName: Etch.Text.Shape.FontFace.PointSize
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public float PointSize { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property PointSize As Single
+  overload: Etch.Text.Shape.FontFace.PointSize*
+- uid: Etch.Text.Shape.FontFace.Dispose
+  commentId: M:Etch.Text.Shape.FontFace.Dispose
+  id: Dispose
+  parent: Etch.Text.Shape.FontFace
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: FontFace.Dispose()
+  fullName: Etch.Text.Shape.FontFace.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Text.Shape.FontFace.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  href: Etch.html
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Etch.Text.Shape.FontFace.Etch.Text.Atlas.FontFaceExtensions.GetFaceId
+  commentId: M:Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  parent: Etch.Text.Atlas.FontFaceExtensions
+  definition: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  name: GetFaceId(FontFace)
+  nameWithType: FontFaceExtensions.GetFaceId(FontFace)
+  fullName: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  spec.csharp:
+  - uid: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+    name: GetFaceId
+    href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  - name: (
+  - uid: Etch.Text.Shape.FontFace
+    name: FontFace
+    href: Etch.Text.Shape.FontFace.html
+  - name: )
+  spec.vb:
+  - uid: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+    name: GetFaceId
+    href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  - name: (
+  - uid: Etch.Text.Shape.FontFace
+    name: FontFace
+    href: Etch.Text.Shape.FontFace.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  commentId: M:Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  name: GetFaceId(FontFace)
+  nameWithType: FontFaceExtensions.GetFaceId(FontFace)
+  fullName: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+  spec.csharp:
+  - uid: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+    name: GetFaceId
+    href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  - name: (
+  - uid: Etch.Text.Shape.FontFace
+    name: FontFace
+    href: Etch.Text.Shape.FontFace.html
+  - name: )
+  spec.vb:
+  - uid: Etch.Text.Atlas.FontFaceExtensions.GetFaceId(Etch.Text.Shape.FontFace)
+    name: GetFaceId
+    href: Etch.Text.Atlas.FontFaceExtensions.html#Etch_Text_Atlas_FontFaceExtensions_GetFaceId_Etch_Text_Shape_FontFace_
+  - name: (
+  - uid: Etch.Text.Shape.FontFace
+    name: FontFace
+    href: Etch.Text.Shape.FontFace.html
+  - name: )
+- uid: Etch.Text.Atlas.FontFaceExtensions
+  commentId: T:Etch.Text.Atlas.FontFaceExtensions
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.FontFaceExtensions.html
+  name: FontFaceExtensions
+  nameWithType: FontFaceExtensions
+  fullName: Etch.Text.Atlas.FontFaceExtensions
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: Etch.Text.Shape.FontFace.Load*
+  commentId: Overload:Etch.Text.Shape.FontFace.Load
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_Load_System_ReadOnlySpan_System_Byte__System_Int32_System_Single_
+  name: Load
+  nameWithType: FontFace.Load
+  fullName: Etch.Text.Shape.FontFace.Load
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Text.Shape.FontFace
+  commentId: T:Etch.Text.Shape.FontFace
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.FontFace.html
+  name: FontFace
+  nameWithType: FontFace
+  fullName: Etch.Text.Shape.FontFace
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Text.Shape.FontFace.Handle*
+  commentId: Overload:Etch.Text.Shape.FontFace.Handle
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_Handle
+  name: Handle
+  nameWithType: FontFace.Handle
+  fullName: Etch.Text.Shape.FontFace.Handle
+- uid: HarfBuzzSharp.Font
+  commentId: T:HarfBuzzSharp.Font
+  parent: HarfBuzzSharp
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/harfbuzzsharp.font
+  name: Font
+  nameWithType: Font
+  fullName: HarfBuzzSharp.Font
+- uid: HarfBuzzSharp
+  commentId: N:HarfBuzzSharp
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/harfbuzzsharp
+  name: HarfBuzzSharp
+  nameWithType: HarfBuzzSharp
+  fullName: HarfBuzzSharp
+- uid: Etch.Text.Shape.FontFace.Id*
+  commentId: Overload:Etch.Text.Shape.FontFace.Id
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_Id
+  name: Id
+  nameWithType: FontFace.Id
+  fullName: Etch.Text.Shape.FontFace.Id
+- uid: Etch.Text.Shape.FontFace.UnitsPerEm*
+  commentId: Overload:Etch.Text.Shape.FontFace.UnitsPerEm
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_UnitsPerEm
+  name: UnitsPerEm
+  nameWithType: FontFace.UnitsPerEm
+  fullName: Etch.Text.Shape.FontFace.UnitsPerEm
+- uid: Etch.Text.Shape.FontFace.PointSize*
+  commentId: Overload:Etch.Text.Shape.FontFace.PointSize
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_PointSize
+  name: PointSize
+  nameWithType: FontFace.PointSize
+  fullName: Etch.Text.Shape.FontFace.PointSize
+- uid: Etch.Text.Shape.FontFace.Dispose*
+  commentId: Overload:Etch.Text.Shape.FontFace.Dispose
+  href: Etch.Text.Shape.FontFace.html#Etch_Text_Shape_FontFace_Dispose
+  name: Dispose
+  nameWithType: FontFace.Dispose
+  fullName: Etch.Text.Shape.FontFace.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

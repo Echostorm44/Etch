@@ -1,0 +1,503 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  commentId: T:Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  id: RenderPipelineDescriptor
+  parent: Etch.Gpu.Descriptors
+  children:
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.DepthStencil
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Fragment
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Label
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Layout
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Multisample
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.NextInChain
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Primitive
+  - Etch.Gpu.Descriptors.RenderPipelineDescriptor.Vertex
+  langs:
+  - csharp
+  - vb
+  name: RenderPipelineDescriptor
+  nameWithType: RenderPipelineDescriptor
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public struct RenderPipelineDescriptor
+    content.vb: Public Structure RenderPipelineDescriptor
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.NextInChain
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.NextInChain
+  id: NextInChain
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: NextInChain
+  nameWithType: RenderPipelineDescriptor.NextInChain
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.NextInChain
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public nint NextInChain
+    return:
+      type: System.IntPtr
+    content.vb: Public NextInChain As IntPtr
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Label
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Label
+  id: Label
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: RenderPipelineDescriptor.Label
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Label
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public StringView Label
+    return:
+      type: Etch.Gpu.Descriptors.StringView
+    content.vb: Public Label As StringView
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Layout
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Layout
+  id: Layout
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Layout
+  nameWithType: RenderPipelineDescriptor.Layout
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Layout
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public PipelineLayoutHandle Layout
+    return:
+      type: Etch.Gpu.Native.PipelineLayoutHandle
+    content.vb: Public Layout As PipelineLayoutHandle
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Vertex
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Vertex
+  id: Vertex
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Vertex
+  nameWithType: RenderPipelineDescriptor.Vertex
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Vertex
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public VertexState Vertex
+    return:
+      type: Etch.Gpu.Descriptors.VertexState
+    content.vb: Public Vertex As VertexState
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Primitive
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Primitive
+  id: Primitive
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Primitive
+  nameWithType: RenderPipelineDescriptor.Primitive
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Primitive
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public PrimitiveState Primitive
+    return:
+      type: Etch.Gpu.Descriptors.PrimitiveState
+    content.vb: Public Primitive As PrimitiveState
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.DepthStencil
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.DepthStencil
+  id: DepthStencil
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: DepthStencil
+  nameWithType: RenderPipelineDescriptor.DepthStencil
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.DepthStencil
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public nint DepthStencil
+    return:
+      type: System.IntPtr
+    content.vb: Public DepthStencil As IntPtr
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Multisample
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Multisample
+  id: Multisample
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Multisample
+  nameWithType: RenderPipelineDescriptor.Multisample
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Multisample
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public MultisampleState Multisample
+    return:
+      type: Etch.Gpu.Descriptors.MultisampleState
+    content.vb: Public Multisample As MultisampleState
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Fragment
+  commentId: F:Etch.Gpu.Descriptors.RenderPipelineDescriptor.Fragment
+  id: Fragment
+  parent: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Fragment
+  nameWithType: RenderPipelineDescriptor.Fragment
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor.Fragment
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Descriptors
+  syntax:
+    content: public nint Fragment
+    return:
+      type: System.IntPtr
+    content.vb: Public Fragment As IntPtr
+references:
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: Etch.Gpu.Descriptors.StringView
+  commentId: T:Etch.Gpu.Descriptors.StringView
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.StringView.html
+  name: StringView
+  nameWithType: StringView
+  fullName: Etch.Gpu.Descriptors.StringView
+- uid: Etch.Gpu.Native.PipelineLayoutHandle
+  commentId: T:Etch.Gpu.Native.PipelineLayoutHandle
+  parent: Etch.Gpu.Native
+  name: PipelineLayoutHandle
+  nameWithType: PipelineLayoutHandle
+  fullName: Etch.Gpu.Native.PipelineLayoutHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.Descriptors.VertexState
+  commentId: T:Etch.Gpu.Descriptors.VertexState
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.VertexState.html
+  name: VertexState
+  nameWithType: VertexState
+  fullName: Etch.Gpu.Descriptors.VertexState
+- uid: Etch.Gpu.Descriptors.PrimitiveState
+  commentId: T:Etch.Gpu.Descriptors.PrimitiveState
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.PrimitiveState.html
+  name: PrimitiveState
+  nameWithType: PrimitiveState
+  fullName: Etch.Gpu.Descriptors.PrimitiveState
+- uid: Etch.Gpu.Descriptors.MultisampleState
+  commentId: T:Etch.Gpu.Descriptors.MultisampleState
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.MultisampleState.html
+  name: MultisampleState
+  nameWithType: MultisampleState
+  fullName: Etch.Gpu.Descriptors.MultisampleState

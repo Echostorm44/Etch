@@ -1,0 +1,7 @@
+{
+  "scenePath": "8-level-nesting.etsc",
+  "goldenPath": "8-level-nesting.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

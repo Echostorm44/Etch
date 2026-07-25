@@ -1,0 +1,7 @@
+{
+  "scenePath": "clip-then-translate.etsc",
+  "goldenPath": "clip-then-translate.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

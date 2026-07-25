@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Flatten
+  commentId: N:Etch.Geometry.Flatten
+  id: Etch.Geometry.Flatten
+  children:
+  - Etch.Geometry.Flatten.CurveFlattener
+  - Etch.Geometry.Flatten.FlattenSink
+  langs:
+  - csharp
+  - vb
+  name: Etch.Geometry.Flatten
+  nameWithType: Etch.Geometry.Flatten
+  fullName: Etch.Geometry.Flatten
+  type: Namespace
+  assemblies:
+  - Etch.Geometry
+references:
+- uid: Etch.Geometry.Flatten.CurveFlattener
+  commentId: T:Etch.Geometry.Flatten.CurveFlattener
+  href: Etch.Geometry.Flatten.CurveFlattener.html
+  name: CurveFlattener
+  nameWithType: CurveFlattener
+  fullName: Etch.Geometry.Flatten.CurveFlattener
+- uid: Etch.Geometry.Flatten.FlattenSink
+  commentId: T:Etch.Geometry.Flatten.FlattenSink
+  parent: Etch.Geometry.Flatten
+  href: Etch.Geometry.Flatten.FlattenSink.html
+  name: FlattenSink
+  nameWithType: FlattenSink
+  fullName: Etch.Geometry.Flatten.FlattenSink
+- uid: Etch.Geometry.Flatten
+  commentId: N:Etch.Geometry.Flatten
+  href: Etch.html
+  name: Etch.Geometry.Flatten
+  nameWithType: Etch.Geometry.Flatten
+  fullName: Etch.Geometry.Flatten
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  - name: .
+  - uid: Etch.Geometry.Flatten
+    name: Flatten
+    href: Etch.Geometry.Flatten.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  - name: .
+  - uid: Etch.Geometry.Flatten
+    name: Flatten
+    href: Etch.Geometry.Flatten.html

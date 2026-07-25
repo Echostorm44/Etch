@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.GradientInterpolationSpace
+  commentId: T:Etch.ClipBlendGradient.GradientInterpolationSpace
+  id: GradientInterpolationSpace
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.GradientInterpolationSpace.LinearLight
+  - Etch.ClipBlendGradient.GradientInterpolationSpace.Srgb
+  langs:
+  - csharp
+  - vb
+  name: GradientInterpolationSpace
+  nameWithType: GradientInterpolationSpace
+  fullName: Etch.ClipBlendGradient.GradientInterpolationSpace
+  type: Enum
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: 'public enum GradientInterpolationSpace : byte'
+    content.vb: Public Enum GradientInterpolationSpace As Byte
+- uid: Etch.ClipBlendGradient.GradientInterpolationSpace.LinearLight
+  commentId: F:Etch.ClipBlendGradient.GradientInterpolationSpace.LinearLight
+  id: LinearLight
+  parent: Etch.ClipBlendGradient.GradientInterpolationSpace
+  langs:
+  - csharp
+  - vb
+  name: LinearLight
+  nameWithType: GradientInterpolationSpace.LinearLight
+  fullName: Etch.ClipBlendGradient.GradientInterpolationSpace.LinearLight
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  summary: >-
+    Linear-light interpolation (default). Colors are converted to linear space before
+
+    interpolating, then converted back to the output space. Produces perceptually
+
+    correct gradients especially for bright colors and long gradients.
+  example: []
+  syntax:
+    content: LinearLight = 0
+    return:
+      type: Etch.ClipBlendGradient.GradientInterpolationSpace
+- uid: Etch.ClipBlendGradient.GradientInterpolationSpace.Srgb
+  commentId: F:Etch.ClipBlendGradient.GradientInterpolationSpace.Srgb
+  id: Srgb
+  parent: Etch.ClipBlendGradient.GradientInterpolationSpace
+  langs:
+  - csharp
+  - vb
+  name: Srgb
+  nameWithType: GradientInterpolationSpace.Srgb
+  fullName: Etch.ClipBlendGradient.GradientInterpolationSpace.Srgb
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  summary: >-
+    sRGB interpolation. Matches legacy CSS 3 behaviour — colors are interpolated
+
+    directly in sRGB space without linearization.
+  remarks: >-
+    WARNING: sRGB interpolation produces muddy midtones in red-to-green and similar
+
+    gradients where both channels are changing significantly. Prefer LinearLight for
+
+    new work. This option is provided only for legacy authoring compatibility.
+  example: []
+  syntax:
+    content: Srgb = 1
+    return:
+      type: Etch.ClipBlendGradient.GradientInterpolationSpace
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: Etch.ClipBlendGradient.GradientInterpolationSpace
+  commentId: T:Etch.ClipBlendGradient.GradientInterpolationSpace
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.GradientInterpolationSpace.html
+  name: GradientInterpolationSpace
+  nameWithType: GradientInterpolationSpace
+  fullName: Etch.ClipBlendGradient.GradientInterpolationSpace

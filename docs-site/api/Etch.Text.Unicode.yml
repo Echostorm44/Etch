@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode
+  commentId: N:Etch.Text.Unicode
+  id: Etch.Text.Unicode
+  children:
+  - Etch.Text.Unicode.LineBreakIterator
+  - Etch.Text.Unicode.LineBreakKind
+  - Etch.Text.Unicode.UnicodeData
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Unicode
+  nameWithType: Etch.Text.Unicode
+  fullName: Etch.Text.Unicode
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Unicode.LineBreakKind
+  commentId: T:Etch.Text.Unicode.LineBreakKind
+  parent: Etch.Text.Unicode
+  href: Etch.Text.Unicode.LineBreakKind.html
+  name: LineBreakKind
+  nameWithType: LineBreakKind
+  fullName: Etch.Text.Unicode.LineBreakKind
+- uid: Etch.Text.Unicode.LineBreakIterator
+  commentId: T:Etch.Text.Unicode.LineBreakIterator
+  href: Etch.Text.Unicode.LineBreakIterator.html
+  name: LineBreakIterator
+  nameWithType: LineBreakIterator
+  fullName: Etch.Text.Unicode.LineBreakIterator
+- uid: Etch.Text.Unicode.UnicodeData
+  commentId: T:Etch.Text.Unicode.UnicodeData
+  href: Etch.Text.Unicode.UnicodeData.html
+  name: UnicodeData
+  nameWithType: UnicodeData
+  fullName: Etch.Text.Unicode.UnicodeData
+- uid: Etch.Text.Unicode
+  commentId: N:Etch.Text.Unicode
+  href: Etch.html
+  name: Etch.Text.Unicode
+  nameWithType: Etch.Text.Unicode
+  fullName: Etch.Text.Unicode
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html

@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Unicode.LineBreakKind
+  commentId: T:Etch.Text.Unicode.LineBreakKind
+  id: LineBreakKind
+  parent: Etch.Text.Unicode
+  children:
+  - Etch.Text.Unicode.LineBreakKind.Hard
+  - Etch.Text.Unicode.LineBreakKind.Soft
+  langs:
+  - csharp
+  - vb
+  name: LineBreakKind
+  nameWithType: LineBreakKind
+  fullName: Etch.Text.Unicode.LineBreakKind
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode
+  summary: The kind of line break returned by <xref href="Etch.Text.Unicode.LineBreakIterator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public enum LineBreakKind : byte'
+    content.vb: Public Enum LineBreakKind As Byte
+- uid: Etch.Text.Unicode.LineBreakKind.Soft
+  commentId: F:Etch.Text.Unicode.LineBreakKind.Soft
+  id: Soft
+  parent: Etch.Text.Unicode.LineBreakKind
+  langs:
+  - csharp
+  - vb
+  name: Soft
+  nameWithType: LineBreakKind.Soft
+  fullName: Etch.Text.Unicode.LineBreakKind.Soft
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode
+  summary: A soft break — text may wrap here.
+  example: []
+  syntax:
+    content: Soft = 0
+    return:
+      type: Etch.Text.Unicode.LineBreakKind
+- uid: Etch.Text.Unicode.LineBreakKind.Hard
+  commentId: F:Etch.Text.Unicode.LineBreakKind.Hard
+  id: Hard
+  parent: Etch.Text.Unicode.LineBreakKind
+  langs:
+  - csharp
+  - vb
+  name: Hard
+  nameWithType: LineBreakKind.Hard
+  fullName: Etch.Text.Unicode.LineBreakKind.Hard
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Unicode
+  summary: A hard break — forced line ending (\n, \r\n, LS, PS).
+  example: []
+  syntax:
+    content: Hard = 1
+    return:
+      type: Etch.Text.Unicode.LineBreakKind
+references:
+- uid: Etch.Text.Unicode.LineBreakIterator
+  commentId: T:Etch.Text.Unicode.LineBreakIterator
+  href: Etch.Text.Unicode.LineBreakIterator.html
+  name: LineBreakIterator
+  nameWithType: LineBreakIterator
+  fullName: Etch.Text.Unicode.LineBreakIterator
+- uid: Etch.Text.Unicode
+  commentId: N:Etch.Text.Unicode
+  href: Etch.html
+  name: Etch.Text.Unicode
+  nameWithType: Etch.Text.Unicode
+  fullName: Etch.Text.Unicode
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Unicode
+    name: Unicode
+    href: Etch.Text.Unicode.html
+- uid: Etch.Text.Unicode.LineBreakKind
+  commentId: T:Etch.Text.Unicode.LineBreakKind
+  parent: Etch.Text.Unicode
+  href: Etch.Text.Unicode.LineBreakKind.html
+  name: LineBreakKind
+  nameWithType: LineBreakKind
+  fullName: Etch.Text.Unicode.LineBreakKind

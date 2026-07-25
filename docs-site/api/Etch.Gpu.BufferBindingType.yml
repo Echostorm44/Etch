@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.BufferBindingType
+  commentId: T:Etch.Gpu.BufferBindingType
+  id: BufferBindingType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.BufferBindingType.BindingNotUsed
+  - Etch.Gpu.BufferBindingType.ReadOnlyStorage
+  - Etch.Gpu.BufferBindingType.Storage
+  - Etch.Gpu.BufferBindingType.Undefined
+  - Etch.Gpu.BufferBindingType.Uniform
+  langs:
+  - csharp
+  - vb
+  name: BufferBindingType
+  nameWithType: BufferBindingType
+  fullName: Etch.Gpu.BufferBindingType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum BufferBindingType : uint'
+    content.vb: Public Enum BufferBindingType As UInteger
+- uid: Etch.Gpu.BufferBindingType.BindingNotUsed
+  commentId: F:Etch.Gpu.BufferBindingType.BindingNotUsed
+  id: BindingNotUsed
+  parent: Etch.Gpu.BufferBindingType
+  langs:
+  - csharp
+  - vb
+  name: BindingNotUsed
+  nameWithType: BufferBindingType.BindingNotUsed
+  fullName: Etch.Gpu.BufferBindingType.BindingNotUsed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: BindingNotUsed = 0
+    return:
+      type: Etch.Gpu.BufferBindingType
+- uid: Etch.Gpu.BufferBindingType.Undefined
+  commentId: F:Etch.Gpu.BufferBindingType.Undefined
+  id: Undefined
+  parent: Etch.Gpu.BufferBindingType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: BufferBindingType.Undefined
+  fullName: Etch.Gpu.BufferBindingType.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 1
+    return:
+      type: Etch.Gpu.BufferBindingType
+- uid: Etch.Gpu.BufferBindingType.Uniform
+  commentId: F:Etch.Gpu.BufferBindingType.Uniform
+  id: Uniform
+  parent: Etch.Gpu.BufferBindingType
+  langs:
+  - csharp
+  - vb
+  name: Uniform
+  nameWithType: BufferBindingType.Uniform
+  fullName: Etch.Gpu.BufferBindingType.Uniform
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uniform = 2
+    return:
+      type: Etch.Gpu.BufferBindingType
+- uid: Etch.Gpu.BufferBindingType.Storage
+  commentId: F:Etch.Gpu.BufferBindingType.Storage
+  id: Storage
+  parent: Etch.Gpu.BufferBindingType
+  langs:
+  - csharp
+  - vb
+  name: Storage
+  nameWithType: BufferBindingType.Storage
+  fullName: Etch.Gpu.BufferBindingType.Storage
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Storage = 3
+    return:
+      type: Etch.Gpu.BufferBindingType
+- uid: Etch.Gpu.BufferBindingType.ReadOnlyStorage
+  commentId: F:Etch.Gpu.BufferBindingType.ReadOnlyStorage
+  id: ReadOnlyStorage
+  parent: Etch.Gpu.BufferBindingType
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyStorage
+  nameWithType: BufferBindingType.ReadOnlyStorage
+  fullName: Etch.Gpu.BufferBindingType.ReadOnlyStorage
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: ReadOnlyStorage = 4
+    return:
+      type: Etch.Gpu.BufferBindingType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.BufferBindingType
+  commentId: T:Etch.Gpu.BufferBindingType
+  parent: Etch.Gpu
+  href: Etch.Gpu.BufferBindingType.html
+  name: BufferBindingType
+  nameWithType: BufferBindingType
+  fullName: Etch.Gpu.BufferBindingType

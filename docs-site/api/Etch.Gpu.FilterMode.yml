@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.FilterMode
+  commentId: T:Etch.Gpu.FilterMode
+  id: FilterMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.FilterMode.Linear
+  - Etch.Gpu.FilterMode.Nearest
+  - Etch.Gpu.FilterMode.Undefined
+  langs:
+  - csharp
+  - vb
+  name: FilterMode
+  nameWithType: FilterMode
+  fullName: Etch.Gpu.FilterMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum FilterMode : uint'
+    content.vb: Public Enum FilterMode As UInteger
+- uid: Etch.Gpu.FilterMode.Undefined
+  commentId: F:Etch.Gpu.FilterMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.FilterMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: FilterMode.Undefined
+  fullName: Etch.Gpu.FilterMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.FilterMode
+- uid: Etch.Gpu.FilterMode.Nearest
+  commentId: F:Etch.Gpu.FilterMode.Nearest
+  id: Nearest
+  parent: Etch.Gpu.FilterMode
+  langs:
+  - csharp
+  - vb
+  name: Nearest
+  nameWithType: FilterMode.Nearest
+  fullName: Etch.Gpu.FilterMode.Nearest
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Nearest = 1
+    return:
+      type: Etch.Gpu.FilterMode
+- uid: Etch.Gpu.FilterMode.Linear
+  commentId: F:Etch.Gpu.FilterMode.Linear
+  id: Linear
+  parent: Etch.Gpu.FilterMode
+  langs:
+  - csharp
+  - vb
+  name: Linear
+  nameWithType: FilterMode.Linear
+  fullName: Etch.Gpu.FilterMode.Linear
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Linear = 2
+    return:
+      type: Etch.Gpu.FilterMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.FilterMode
+  commentId: T:Etch.Gpu.FilterMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.FilterMode.html
+  name: FilterMode
+  nameWithType: FilterMode
+  fullName: Etch.Gpu.FilterMode

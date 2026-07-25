@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  id: Etch.Text.Shape
+  children:
+  - Etch.Text.Shape.BiDiLevel
+  - Etch.Text.Shape.FontFace
+  - Etch.Text.Shape.GlyphInfo
+  - Etch.Text.Shape.ShapeRequest
+  - Etch.Text.Shape.ShapedRun
+  - Etch.Text.Shape.Shaper
+  - Etch.Text.Shape.ShapingCache
+  - Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.Shape.FontFace
+  commentId: T:Etch.Text.Shape.FontFace
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.FontFace.html
+  name: FontFace
+  nameWithType: FontFace
+  fullName: Etch.Text.Shape.FontFace
+- uid: Etch.Text.Shape.GlyphInfo
+  commentId: T:Etch.Text.Shape.GlyphInfo
+  href: Etch.Text.Shape.GlyphInfo.html
+  name: GlyphInfo
+  nameWithType: GlyphInfo
+  fullName: Etch.Text.Shape.GlyphInfo
+- uid: Etch.Text.Shape.ShapedRun
+  commentId: T:Etch.Text.Shape.ShapedRun
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.ShapedRun.html
+  name: ShapedRun
+  nameWithType: ShapedRun
+  fullName: Etch.Text.Shape.ShapedRun
+- uid: Etch.Text.Shape.BiDiLevel
+  commentId: T:Etch.Text.Shape.BiDiLevel
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.BiDiLevel.html
+  name: BiDiLevel
+  nameWithType: BiDiLevel
+  fullName: Etch.Text.Shape.BiDiLevel
+- uid: Etch.Text.Shape.ShapeRequest
+  commentId: T:Etch.Text.Shape.ShapeRequest
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.ShapeRequest.html
+  name: ShapeRequest
+  nameWithType: ShapeRequest
+  fullName: Etch.Text.Shape.ShapeRequest
+- uid: Etch.Text.Shape.Shaper
+  commentId: T:Etch.Text.Shape.Shaper
+  href: Etch.Text.Shape.Shaper.html
+  name: Shaper
+  nameWithType: Shaper
+  fullName: Etch.Text.Shape.Shaper
+- uid: Etch.Text.Shape.ShapingCache
+  commentId: T:Etch.Text.Shape.ShapingCache
+  href: Etch.Text.Shape.ShapingCache.html
+  name: ShapingCache
+  nameWithType: ShapingCache
+  fullName: Etch.Text.Shape.ShapingCache
+- uid: Etch.Text.Shape.ShapingKey
+  commentId: T:Etch.Text.Shape.ShapingKey
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.ShapingKey.html
+  name: ShapingKey
+  nameWithType: ShapingKey
+  fullName: Etch.Text.Shape.ShapingKey
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  href: Etch.html
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html

@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.PaintKind
+  commentId: T:Etch.Scene.PaintKind
+  id: PaintKind
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.PaintKind.Image
+  - Etch.Scene.PaintKind.LinearGradient
+  - Etch.Scene.PaintKind.RadialGradient
+  - Etch.Scene.PaintKind.Solid
+  langs:
+  - csharp
+  - vb
+  name: PaintKind
+  nameWithType: PaintKind
+  fullName: Etch.Scene.PaintKind
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: 'public enum PaintKind : byte'
+    content.vb: Public Enum PaintKind As Byte
+- uid: Etch.Scene.PaintKind.Solid
+  commentId: F:Etch.Scene.PaintKind.Solid
+  id: Solid
+  parent: Etch.Scene.PaintKind
+  langs:
+  - csharp
+  - vb
+  name: Solid
+  nameWithType: PaintKind.Solid
+  fullName: Etch.Scene.PaintKind.Solid
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Solid = 0
+    return:
+      type: Etch.Scene.PaintKind
+- uid: Etch.Scene.PaintKind.LinearGradient
+  commentId: F:Etch.Scene.PaintKind.LinearGradient
+  id: LinearGradient
+  parent: Etch.Scene.PaintKind
+  langs:
+  - csharp
+  - vb
+  name: LinearGradient
+  nameWithType: PaintKind.LinearGradient
+  fullName: Etch.Scene.PaintKind.LinearGradient
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: LinearGradient = 1
+    return:
+      type: Etch.Scene.PaintKind
+- uid: Etch.Scene.PaintKind.RadialGradient
+  commentId: F:Etch.Scene.PaintKind.RadialGradient
+  id: RadialGradient
+  parent: Etch.Scene.PaintKind
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient
+  nameWithType: PaintKind.RadialGradient
+  fullName: Etch.Scene.PaintKind.RadialGradient
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: RadialGradient = 2
+    return:
+      type: Etch.Scene.PaintKind
+- uid: Etch.Scene.PaintKind.Image
+  commentId: F:Etch.Scene.PaintKind.Image
+  id: Image
+  parent: Etch.Scene.PaintKind
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: PaintKind.Image
+  fullName: Etch.Scene.PaintKind.Image
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Image = 3
+    return:
+      type: Etch.Scene.PaintKind
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.PaintKind
+  commentId: T:Etch.Scene.PaintKind
+  parent: Etch.Scene
+  href: Etch.Scene.PaintKind.html
+  name: PaintKind
+  nameWithType: PaintKind
+  fullName: Etch.Scene.PaintKind

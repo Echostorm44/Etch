@@ -1,0 +1,895 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Diagnostics.AdapterInfo
+  commentId: T:Etch.Gpu.Diagnostics.AdapterInfo
+  id: AdapterInfo
+  parent: Etch.Gpu.Diagnostics
+  children:
+  - Etch.Gpu.Diagnostics.AdapterInfo.#ctor(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt64,System.String,System.String,System.String)
+  - Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+  - Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+  - Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+  - Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+  - Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+  - Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+  - Etch.Gpu.Diagnostics.AdapterInfo.Encode(System.Span{System.Byte})
+  - Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+  - Etch.Gpu.Diagnostics.AdapterInfo.MaxBackendNameBytes
+  - Etch.Gpu.Diagnostics.AdapterInfo.MaxDeviceNameBytes
+  - Etch.Gpu.Diagnostics.AdapterInfo.MaxDriverDescBytes
+  - Etch.Gpu.Diagnostics.AdapterInfo.MaxEncodedSize
+  - Etch.Gpu.Diagnostics.AdapterInfo.TryDecode(System.ReadOnlySpan{System.Byte},Etch.Gpu.Diagnostics.AdapterInfo@)
+  - Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+  langs:
+  - csharp
+  - vb
+  name: AdapterInfo
+  nameWithType: AdapterInfo
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public readonly struct AdapterInfo
+    content.vb: Public Structure AdapterInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+  id: BackendType
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: BackendType
+  nameWithType: AdapterInfo.BackendType
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public uint BackendType { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property BackendType As UInteger
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.BackendType*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+  id: AdapterType
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: AdapterType
+  nameWithType: AdapterInfo.AdapterType
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public uint AdapterType { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property AdapterType As UInteger
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.AdapterType*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+  id: VendorId
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: VendorId
+  nameWithType: AdapterInfo.VendorId
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public uint VendorId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property VendorId As UInteger
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.VendorId*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+  id: DeviceId
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: DeviceId
+  nameWithType: AdapterInfo.DeviceId
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public uint DeviceId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property DeviceId As UInteger
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.DeviceId*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+  id: FeaturesBitmask
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: FeaturesBitmask
+  nameWithType: AdapterInfo.FeaturesBitmask
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public ulong FeaturesBitmask { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property FeaturesBitmask As ULong
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+  id: DeviceName
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: DeviceName
+  nameWithType: AdapterInfo.DeviceName
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public string DeviceName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DeviceName As String
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.DeviceName*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+  id: DriverDescription
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: DriverDescription
+  nameWithType: AdapterInfo.DriverDescription
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public string DriverDescription { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DriverDescription As String
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+  commentId: P:Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+  id: BackendName
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: BackendName
+  nameWithType: AdapterInfo.BackendName
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public string BackendName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property BackendName As String
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.BackendName*
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.#ctor(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt64,System.String,System.String,System.String)
+  commentId: M:Etch.Gpu.Diagnostics.AdapterInfo.#ctor(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt64,System.String,System.String,System.String)
+  id: '#ctor(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt64,System.String,System.String,System.String)'
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: AdapterInfo(uint, uint, uint, uint, ulong, string, string, string)
+  nameWithType: AdapterInfo.AdapterInfo(uint, uint, uint, uint, ulong, string, string, string)
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.AdapterInfo(uint, uint, uint, uint, ulong, string, string, string)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public AdapterInfo(uint backendType, uint adapterType, uint vendorId, uint deviceId, ulong featuresBitmask, string deviceName, string driverDescription, string backendName)
+    parameters:
+    - id: backendType
+      type: System.UInt32
+    - id: adapterType
+      type: System.UInt32
+    - id: vendorId
+      type: System.UInt32
+    - id: deviceId
+      type: System.UInt32
+    - id: featuresBitmask
+      type: System.UInt64
+    - id: deviceName
+      type: System.String
+    - id: driverDescription
+      type: System.String
+    - id: backendName
+      type: System.String
+    content.vb: Public Sub New(backendType As UInteger, adapterType As UInteger, vendorId As UInteger, deviceId As UInteger, featuresBitmask As ULong, deviceName As String, driverDescription As String, backendName As String)
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.#ctor*
+  nameWithType.vb: AdapterInfo.New(UInteger, UInteger, UInteger, UInteger, ULong, String, String, String)
+  fullName.vb: Etch.Gpu.Diagnostics.AdapterInfo.New(UInteger, UInteger, UInteger, UInteger, ULong, String, String, String)
+  name.vb: New(UInteger, UInteger, UInteger, UInteger, ULong, String, String, String)
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.MaxDeviceNameBytes
+  commentId: F:Etch.Gpu.Diagnostics.AdapterInfo.MaxDeviceNameBytes
+  id: MaxDeviceNameBytes
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: MaxDeviceNameBytes
+  nameWithType: AdapterInfo.MaxDeviceNameBytes
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.MaxDeviceNameBytes
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public const int MaxDeviceNameBytes = 256
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxDeviceNameBytes As Integer = 256
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.MaxDriverDescBytes
+  commentId: F:Etch.Gpu.Diagnostics.AdapterInfo.MaxDriverDescBytes
+  id: MaxDriverDescBytes
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: MaxDriverDescBytes
+  nameWithType: AdapterInfo.MaxDriverDescBytes
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.MaxDriverDescBytes
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public const int MaxDriverDescBytes = 256
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxDriverDescBytes As Integer = 256
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.MaxBackendNameBytes
+  commentId: F:Etch.Gpu.Diagnostics.AdapterInfo.MaxBackendNameBytes
+  id: MaxBackendNameBytes
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: MaxBackendNameBytes
+  nameWithType: AdapterInfo.MaxBackendNameBytes
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.MaxBackendNameBytes
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public const int MaxBackendNameBytes = 64
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxBackendNameBytes As Integer = 64
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.MaxEncodedSize
+  commentId: F:Etch.Gpu.Diagnostics.AdapterInfo.MaxEncodedSize
+  id: MaxEncodedSize
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: MaxEncodedSize
+  nameWithType: AdapterInfo.MaxEncodedSize
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.MaxEncodedSize
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  summary: >-
+    Upper-bound envelope size for a freshly built adapter info. Caller-supplied
+
+    destination must be at least this large to avoid truncation.
+  example: []
+  syntax:
+    content: public const int MaxEncodedSize = 606
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxEncodedSize As Integer = 606
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.Encode(System.Span{System.Byte})
+  commentId: M:Etch.Gpu.Diagnostics.AdapterInfo.Encode(System.Span{System.Byte})
+  id: Encode(System.Span{System.Byte})
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: Encode(Span<byte>)
+  nameWithType: AdapterInfo.Encode(Span<byte>)
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.Encode(System.Span<byte>)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  summary: >-
+    Encodes this adapter info into a little-endian byte blob. Returns the number of
+
+    bytes written. Strings that exceed their budget are truncated at a UTF-8 boundary
+
+    (never in the middle of a code point).
+  example: []
+  syntax:
+    content: public int Encode(Span<byte> destination)
+    parameters:
+    - id: destination
+      type: System.Span{System.Byte}
+    return:
+      type: System.Int32
+    content.vb: Public Function Encode(destination As Span(Of Byte)) As Integer
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.Encode*
+  nameWithType.vb: AdapterInfo.Encode(Span(Of Byte))
+  fullName.vb: Etch.Gpu.Diagnostics.AdapterInfo.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode(System.ReadOnlySpan{System.Byte},Etch.Gpu.Diagnostics.AdapterInfo@)
+  commentId: M:Etch.Gpu.Diagnostics.AdapterInfo.TryDecode(System.ReadOnlySpan{System.Byte},Etch.Gpu.Diagnostics.AdapterInfo@)
+  id: TryDecode(System.ReadOnlySpan{System.Byte},Etch.Gpu.Diagnostics.AdapterInfo@)
+  parent: Etch.Gpu.Diagnostics.AdapterInfo
+  langs:
+  - csharp
+  - vb
+  name: TryDecode(ReadOnlySpan<byte>, out AdapterInfo)
+  nameWithType: AdapterInfo.TryDecode(ReadOnlySpan<byte>, out AdapterInfo)
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode(System.ReadOnlySpan<byte>, out Etch.Gpu.Diagnostics.AdapterInfo)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public static bool TryDecode(ReadOnlySpan<byte> source, out AdapterInfo info)
+    parameters:
+    - id: source
+      type: System.ReadOnlySpan{System.Byte}
+    - id: info
+      type: Etch.Gpu.Diagnostics.AdapterInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryDecode(source As ReadOnlySpan(Of Byte), info As AdapterInfo) As Boolean
+  overload: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode*
+  nameWithType.vb: AdapterInfo.TryDecode(ReadOnlySpan(Of Byte), AdapterInfo)
+  fullName.vb: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode(System.ReadOnlySpan(Of Byte), Etch.Gpu.Diagnostics.AdapterInfo)
+  name.vb: TryDecode(ReadOnlySpan(Of Byte), AdapterInfo)
+references:
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  href: Etch.html
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.BackendType*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_BackendType
+  name: BackendType
+  nameWithType: AdapterInfo.BackendType
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.BackendType
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.AdapterType*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_AdapterType
+  name: AdapterType
+  nameWithType: AdapterInfo.AdapterType
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.AdapterType
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.VendorId*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_VendorId
+  name: VendorId
+  nameWithType: AdapterInfo.VendorId
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.VendorId
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DeviceId*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_DeviceId
+  name: DeviceId
+  nameWithType: AdapterInfo.DeviceId
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DeviceId
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_FeaturesBitmask
+  name: FeaturesBitmask
+  nameWithType: AdapterInfo.FeaturesBitmask
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.FeaturesBitmask
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DeviceName*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_DeviceName
+  name: DeviceName
+  nameWithType: AdapterInfo.DeviceName
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DeviceName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_DriverDescription
+  name: DriverDescription
+  nameWithType: AdapterInfo.DriverDescription
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.DriverDescription
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.BackendName*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_BackendName
+  name: BackendName
+  nameWithType: AdapterInfo.BackendName
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.BackendName
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.#ctor*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.#ctor
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo__ctor_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt64_System_String_System_String_System_String_
+  name: AdapterInfo
+  nameWithType: AdapterInfo.AdapterInfo
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.AdapterInfo
+  nameWithType.vb: AdapterInfo.New
+  fullName.vb: Etch.Gpu.Diagnostics.AdapterInfo.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.Encode*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.Encode
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_Encode_System_Span_System_Byte__
+  name: Encode
+  nameWithType: AdapterInfo.Encode
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.Encode
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode*
+  commentId: Overload:Etch.Gpu.Diagnostics.AdapterInfo.TryDecode
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html#Etch_Gpu_Diagnostics_AdapterInfo_TryDecode_System_ReadOnlySpan_System_Byte__Etch_Gpu_Diagnostics_AdapterInfo__
+  name: TryDecode
+  nameWithType: AdapterInfo.TryDecode
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo.TryDecode
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: Etch.Gpu.Diagnostics.AdapterInfo
+  commentId: T:Etch.Gpu.Diagnostics.AdapterInfo
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.AdapterInfo.html
+  name: AdapterInfo
+  nameWithType: AdapterInfo
+  fullName: Etch.Gpu.Diagnostics.AdapterInfo
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

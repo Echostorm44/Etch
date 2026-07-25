@@ -1,0 +1,828 @@
+### YamlMime:TableOfContent
+items:
+- uid: Etch.ClipBlendGradient
+  name: Etch.ClipBlendGradient
+  items:
+  - uid: Etch.ClipBlendGradient.BlendMode
+    name: BlendMode
+  - uid: Etch.ClipBlendGradient.BlendReference
+    name: BlendReference
+  - uid: Etch.ClipBlendGradient.ClipComposer
+    name: ClipComposer
+  - uid: Etch.ClipBlendGradient.ClipMaskBuffer
+    name: ClipMaskBuffer
+  - uid: Etch.ClipBlendGradient.ClipMaskBuilder
+    name: ClipMaskBuilder
+  - uid: Etch.ClipBlendGradient.ClipStrip
+    name: ClipStrip
+  - uid: Etch.ClipBlendGradient.ClipStripRange
+    name: ClipStripRange
+  - uid: Etch.ClipBlendGradient.ConicGradient
+    name: ConicGradient
+  - uid: Etch.ClipBlendGradient.GradientExtend
+    name: GradientExtend
+  - uid: Etch.ClipBlendGradient.GradientInterpolationSpace
+    name: GradientInterpolationSpace
+  - uid: Etch.ClipBlendGradient.GradientLutBuilder
+    name: GradientLutBuilder
+  - uid: Etch.ClipBlendGradient.GradientStop
+    name: GradientStop
+  - uid: Etch.ClipBlendGradient.LinearColor
+    name: LinearColor
+  - uid: Etch.ClipBlendGradient.LinearGradient
+    name: LinearGradient
+  - uid: Etch.ClipBlendGradient.RadialGradient
+    name: RadialGradient
+  - uid: Etch.ClipBlendGradient.Rgba16f
+    name: Rgba16f
+  - uid: Etch.ClipBlendGradient.SrcOverReference
+    name: SrcOverReference
+  - uid: Etch.ClipBlendGradient.SweepGradient
+    name: SweepGradient
+- uid: Etch.Effects
+  name: Etch.Effects
+  items:
+  - uid: Etch.Effects.StagingBufferUploader
+    name: StagingBufferUploader
+- uid: Etch.Effects.Blur
+  name: Etch.Effects.Blur
+  items:
+  - uid: Etch.Effects.Blur.BlurEdge
+    name: BlurEdge
+  - uid: Etch.Effects.Blur.BlurParams
+    name: BlurParams
+  - uid: Etch.Effects.Blur.DualFilterBlur
+    name: DualFilterBlur
+- uid: Etch.Effects.Image
+  name: Etch.Effects.Image
+  items:
+  - uid: Etch.Effects.Image.ImageBrush
+    name: ImageBrush
+  - uid: Etch.Effects.Image.ImageDecodeOptions
+    name: ImageDecodeOptions
+  - uid: Etch.Effects.Image.ImageExtend
+    name: ImageExtend
+  - uid: Etch.Effects.Image.ImageFilter
+    name: ImageFilter
+  - uid: Etch.Effects.Image.ImageFormat
+    name: ImageFormat
+  - uid: Etch.Effects.Image.ImageSource
+    name: ImageSource
+  - uid: Etch.Effects.Image.MipmapBuilder
+    name: MipmapBuilder
+  - uid: Etch.Effects.Image.MitchellNetravali
+    name: MitchellNetravali
+- uid: Etch.Effects.Shadow
+  name: Etch.Effects.Shadow
+  items:
+  - uid: Etch.Effects.Shadow.DropShadow
+    name: DropShadow
+  - uid: Etch.Effects.Shadow.DropShadowRenderer
+    name: DropShadowRenderer
+  - uid: Etch.Effects.Shadow.ShadowParams
+    name: ShadowParams
+- uid: Etch.Geometry
+  name: Etch.Geometry
+  items:
+  - uid: Etch.Geometry.Affine
+    name: Affine
+  - uid: Etch.Geometry.BatchAabb
+    name: BatchAabb
+  - uid: Etch.Geometry.BatchTransform
+    name: BatchTransform
+  - uid: Etch.Geometry.BezPath
+    name: BezPath
+  - uid: Etch.Geometry.BezPathBuilder
+    name: BezPathBuilder
+  - uid: Etch.Geometry.BezPathEnumerator
+    name: BezPathEnumerator
+  - uid: Etch.Geometry.Circle
+    name: Circle
+  - uid: Etch.Geometry.CubicBez
+    name: CubicBez
+  - uid: Etch.Geometry.GeometryConstants
+    name: GeometryConstants
+  - uid: Etch.Geometry.Line
+    name: Line
+  - uid: Etch.Geometry.PathArithmetic
+    name: PathArithmetic
+  - uid: Etch.Geometry.PathSegment
+    name: PathSegment
+  - uid: Etch.Geometry.PathVerb
+    name: PathVerb
+  - uid: Etch.Geometry.PathVerbData
+    name: PathVerbData
+  - uid: Etch.Geometry.Point
+    name: Point
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+  - uid: Etch.Geometry.Rect
+    name: Rect
+  - uid: Etch.Geometry.Vec2
+    name: Vec2
+- uid: Etch.Geometry.Flatten
+  name: Etch.Geometry.Flatten
+  items:
+  - uid: Etch.Geometry.Flatten.CurveFlattener
+    name: CurveFlattener
+  - uid: Etch.Geometry.Flatten.FlattenSink
+    name: FlattenSink
+- uid: Etch.Gpu
+  name: Etch.Gpu
+  items:
+  - uid: Etch.Gpu.Adapter
+    name: Adapter
+  - uid: Etch.Gpu.AdapterType
+    name: AdapterType
+  - uid: Etch.Gpu.AddressMode
+    name: AddressMode
+  - uid: Etch.Gpu.AsyncRequest
+    name: AsyncRequest
+  - uid: Etch.Gpu.BackendType
+    name: BackendType
+  - uid: Etch.Gpu.BindGroup
+    name: BindGroup
+  - uid: Etch.Gpu.BindGroupLayout
+    name: BindGroupLayout
+  - uid: Etch.Gpu.BlendFactor
+    name: BlendFactor
+  - uid: Etch.Gpu.BlendOperation
+    name: BlendOperation
+  - uid: Etch.Gpu.Buffer
+    name: Buffer
+  - uid: Etch.Gpu.BufferBindingType
+    name: BufferBindingType
+  - uid: Etch.Gpu.BufferUsage
+    name: BufferUsage
+  - uid: Etch.Gpu.CallbackMode
+    name: CallbackMode
+  - uid: Etch.Gpu.ColorWriteMask
+    name: ColorWriteMask
+  - uid: Etch.Gpu.CommandBuffer
+    name: CommandBuffer
+  - uid: Etch.Gpu.CommandEncoder
+    name: CommandEncoder
+  - uid: Etch.Gpu.CompareFunction
+    name: CompareFunction
+  - uid: Etch.Gpu.CompositeAlphaMode
+    name: CompositeAlphaMode
+  - uid: Etch.Gpu.CullMode
+    name: CullMode
+  - uid: Etch.Gpu.Device
+    name: Device
+  - uid: Etch.Gpu.DeviceLostReason
+    name: DeviceLostReason
+  - uid: Etch.Gpu.ErrorType
+    name: ErrorType
+  - uid: Etch.Gpu.Errors
+    name: Errors
+  - uid: Etch.Gpu.FeatureLevel
+    name: FeatureLevel
+  - uid: Etch.Gpu.FilterMode
+    name: FilterMode
+  - uid: Etch.Gpu.FrontFace
+    name: FrontFace
+  - uid: Etch.Gpu.IndexFormat
+    name: IndexFormat
+  - uid: Etch.Gpu.Instance
+    name: Instance
+  - uid: Etch.Gpu.InstanceBackend
+    name: InstanceBackend
+  - uid: Etch.Gpu.InstanceFlag
+    name: InstanceFlag
+  - uid: Etch.Gpu.Labels
+    name: Labels
+  - uid: Etch.Gpu.LoadOp
+    name: LoadOp
+  - uid: Etch.Gpu.MapMode
+    name: MapMode
+  - uid: Etch.Gpu.MipmapFilterMode
+    name: MipmapFilterMode
+  - uid: Etch.Gpu.PipelineLayout
+    name: PipelineLayout
+  - uid: Etch.Gpu.PowerPreference
+    name: PowerPreference
+  - uid: Etch.Gpu.PresentMode
+    name: PresentMode
+  - uid: Etch.Gpu.PrimitiveTopology
+    name: PrimitiveTopology
+  - uid: Etch.Gpu.Queue
+    name: Queue
+  - uid: Etch.Gpu.RenderPass
+    name: RenderPass
+  - uid: Etch.Gpu.RenderPipeline
+    name: RenderPipeline
+  - uid: Etch.Gpu.RequestAdapterStatus
+    name: RequestAdapterStatus
+  - uid: Etch.Gpu.RequestDeviceStatus
+    name: RequestDeviceStatus
+  - uid: Etch.Gpu.Sampler
+    name: Sampler
+  - uid: Etch.Gpu.SamplerBindingType
+    name: SamplerBindingType
+  - uid: Etch.Gpu.ShaderModule
+    name: ShaderModule
+  - uid: Etch.Gpu.ShaderStage
+    name: ShaderStage
+  - uid: Etch.Gpu.StorageTextureAccess
+    name: StorageTextureAccess
+  - uid: Etch.Gpu.StoreOp
+    name: StoreOp
+  - uid: Etch.Gpu.Surface
+    name: Surface
+  - uid: Etch.Gpu.SurfaceFactory
+    name: SurfaceFactory
+  - uid: Etch.Gpu.SurfaceGetCurrentTextureStatus
+    name: SurfaceGetCurrentTextureStatus
+  - uid: Etch.Gpu.Texture
+    name: Texture
+  - uid: Etch.Gpu.TextureAspect
+    name: TextureAspect
+  - uid: Etch.Gpu.TextureDimension
+    name: TextureDimension
+  - uid: Etch.Gpu.TextureFormat
+    name: TextureFormat
+  - uid: Etch.Gpu.TextureSampleType
+    name: TextureSampleType
+  - uid: Etch.Gpu.TextureUsage
+    name: TextureUsage
+  - uid: Etch.Gpu.TextureView
+    name: TextureView
+  - uid: Etch.Gpu.TextureViewDimension
+    name: TextureViewDimension
+  - uid: Etch.Gpu.TimestampQuerySet
+    name: TimestampQuerySet
+  - uid: Etch.Gpu.VertexFormat
+    name: VertexFormat
+  - uid: Etch.Gpu.VertexStepMode
+    name: VertexStepMode
+- uid: Etch.Gpu.Descriptors
+  name: Etch.Gpu.Descriptors
+  items:
+  - uid: Etch.Gpu.Descriptors.AdapterOptions
+    name: AdapterOptions
+  - uid: Etch.Gpu.Descriptors.BindGroupDescriptor
+    name: BindGroupDescriptor
+  - uid: Etch.Gpu.Descriptors.BindGroupEntry
+    name: BindGroupEntry
+  - uid: Etch.Gpu.Descriptors.BindGroupLayoutDescriptor
+    name: BindGroupLayoutDescriptor
+  - uid: Etch.Gpu.Descriptors.BindGroupLayoutEntry
+    name: BindGroupLayoutEntry
+  - uid: Etch.Gpu.Descriptors.BlendComponent
+    name: BlendComponent
+  - uid: Etch.Gpu.Descriptors.BlendState
+    name: BlendState
+  - uid: Etch.Gpu.Descriptors.BufferBindingLayout
+    name: BufferBindingLayout
+  - uid: Etch.Gpu.Descriptors.BufferDescriptor
+    name: BufferDescriptor
+  - uid: Etch.Gpu.Descriptors.ChainedStruct
+    name: ChainedStruct
+  - uid: Etch.Gpu.Descriptors.Color
+    name: Color
+  - uid: Etch.Gpu.Descriptors.ColorTargetState
+    name: ColorTargetState
+  - uid: Etch.Gpu.Descriptors.CommandBufferDescriptor
+    name: CommandBufferDescriptor
+  - uid: Etch.Gpu.Descriptors.CommandEncoderDescriptor
+    name: CommandEncoderDescriptor
+  - uid: Etch.Gpu.Descriptors.ConstantEntry
+    name: ConstantEntry
+  - uid: Etch.Gpu.Descriptors.DepthStencilState
+    name: DepthStencilState
+  - uid: Etch.Gpu.Descriptors.DeviceDescriptor
+    name: DeviceDescriptor
+  - uid: Etch.Gpu.Descriptors.DeviceLostCallbackInfo
+    name: DeviceLostCallbackInfo
+  - uid: Etch.Gpu.Descriptors.Extent3D
+    name: Extent3D
+  - uid: Etch.Gpu.Descriptors.FragmentState
+    name: FragmentState
+  - uid: Etch.Gpu.Descriptors.InstanceCapabilities
+    name: InstanceCapabilities
+  - uid: Etch.Gpu.Descriptors.InstanceDescriptor
+    name: InstanceDescriptor
+  - uid: Etch.Gpu.Descriptors.MultisampleState
+    name: MultisampleState
+  - uid: Etch.Gpu.Descriptors.PipelineLayoutDescriptor
+    name: PipelineLayoutDescriptor
+  - uid: Etch.Gpu.Descriptors.PrimitiveState
+    name: PrimitiveState
+  - uid: Etch.Gpu.Descriptors.QueueDescriptor
+    name: QueueDescriptor
+  - uid: Etch.Gpu.Descriptors.RenderPassColorAttachment
+    name: RenderPassColorAttachment
+  - uid: Etch.Gpu.Descriptors.RenderPassDepthStencilAttachment
+    name: RenderPassDepthStencilAttachment
+  - uid: Etch.Gpu.Descriptors.RenderPassDescriptor
+    name: RenderPassDescriptor
+  - uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+    name: RenderPipelineDescriptor
+  - uid: Etch.Gpu.Descriptors.RequestAdapterCallbackInfo
+    name: RequestAdapterCallbackInfo
+  - uid: Etch.Gpu.Descriptors.RequestDeviceCallbackInfo
+    name: RequestDeviceCallbackInfo
+  - uid: Etch.Gpu.Descriptors.SamplerBindingLayout
+    name: SamplerBindingLayout
+  - uid: Etch.Gpu.Descriptors.SamplerDescriptor
+    name: SamplerDescriptor
+  - uid: Etch.Gpu.Descriptors.ShaderModuleDescriptor
+    name: ShaderModuleDescriptor
+  - uid: Etch.Gpu.Descriptors.ShaderSourceWGSL
+    name: ShaderSourceWGSL
+  - uid: Etch.Gpu.Descriptors.StencilFaceState
+    name: StencilFaceState
+  - uid: Etch.Gpu.Descriptors.StencilOperation
+    name: StencilOperation
+  - uid: Etch.Gpu.Descriptors.StorageTextureBindingLayout
+    name: StorageTextureBindingLayout
+  - uid: Etch.Gpu.Descriptors.StringView
+    name: StringView
+  - uid: Etch.Gpu.Descriptors.TextureBindingLayout
+    name: TextureBindingLayout
+  - uid: Etch.Gpu.Descriptors.TextureDescriptor
+    name: TextureDescriptor
+  - uid: Etch.Gpu.Descriptors.TextureViewDescriptor
+    name: TextureViewDescriptor
+  - uid: Etch.Gpu.Descriptors.UncapturedErrorCallbackInfo
+    name: UncapturedErrorCallbackInfo
+  - uid: Etch.Gpu.Descriptors.VertexAttribute
+    name: VertexAttribute
+  - uid: Etch.Gpu.Descriptors.VertexBufferLayout
+    name: VertexBufferLayout
+  - uid: Etch.Gpu.Descriptors.VertexState
+    name: VertexState
+- uid: Etch.Gpu.Diagnostics
+  name: Etch.Gpu.Diagnostics
+  items:
+  - uid: Etch.Gpu.Diagnostics.AdapterInfo
+    name: AdapterInfo
+  - uid: Etch.Gpu.Diagnostics.CrashDump
+    name: CrashDump
+  - uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    name: DecodedValidationEntry
+  - uid: Etch.Gpu.Diagnostics.GpuSceneReproducer
+    name: GpuSceneReproducer
+  - uid: Etch.Gpu.Diagnostics.SurfaceConfigInfo
+    name: SurfaceConfigInfo
+  - uid: Etch.Gpu.Diagnostics.ValidationEntry
+    name: ValidationEntry
+  - uid: Etch.Gpu.Diagnostics.ValidationLogRing
+    name: ValidationLogRing
+  - uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+    name: ValidationLogSnapshot
+- uid: Etch.Gpu.Pipelines
+  name: Etch.Gpu.Pipelines
+  items:
+  - uid: Etch.Gpu.Pipelines.BlendPipeline
+    name: BlendPipeline
+  - uid: Etch.Gpu.Pipelines.BlurPipeline
+    name: BlurPipeline
+  - uid: Etch.Gpu.Pipelines.ExtendMode
+    name: ExtendMode
+  - uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+    name: GlyphAtlasPipeline
+  - uid: Etch.Gpu.Pipelines.GradientKind
+    name: GradientKind
+  - uid: Etch.Gpu.Pipelines.GradientPipeline
+    name: GradientPipeline
+  - uid: Etch.Gpu.Pipelines.ImagePipeline
+    name: ImagePipeline
+  - uid: Etch.Gpu.Pipelines.SampleMode
+    name: SampleMode
+  - uid: Etch.Gpu.Pipelines.SolidFillPipeline
+    name: SolidFillPipeline
+  - uid: Etch.Gpu.Pipelines.SpecializedPipelineCache
+    name: SpecializedPipelineCache
+  - uid: Etch.Gpu.Pipelines.StripCoveragePipeline
+    name: StripCoveragePipeline
+  - uid: Etch.Gpu.Pipelines.SubpixelMode
+    name: SubpixelMode
+  - uid: Etch.Gpu.Pipelines.TileInfo
+    name: TileInfo
+- uid: Etch.Gpu.Surfaces
+  name: Etch.Gpu.Surfaces
+  items:
+  - uid: Etch.Gpu.Surfaces.SurfaceDescriptor
+    name: SurfaceDescriptor
+- uid: Etch.Gpu.Surfaces.Cocoa
+  name: Etch.Gpu.Surfaces.Cocoa
+  items:
+  - uid: Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter
+    name: MetalLayerAdapter
+  - uid: Etch.Gpu.Surfaces.Cocoa.MetalLayerType
+    name: MetalLayerType
+- uid: Etch.Gpu.SwapChains
+  name: Etch.Gpu.SwapChains
+  items:
+  - uid: Etch.Gpu.SwapChains.SurfaceTexture
+    name: SurfaceTexture
+  - uid: Etch.Gpu.SwapChains.SurfaceTextureResult
+    name: SurfaceTextureResult
+  - uid: Etch.Gpu.SwapChains.SwapChain
+    name: SwapChain
+  - uid: Etch.Gpu.SwapChains.SwapChainConfig
+    name: SwapChainConfig
+- uid: Etch.Gpu.Validation
+  name: Etch.Gpu.Validation
+  items:
+  - uid: Etch.Gpu.Validation.ErrorFilter
+    name: ErrorFilter
+  - uid: Etch.Gpu.Validation.ErrorScope
+    name: ErrorScope
+  - uid: Etch.Gpu.Validation.GpuError
+    name: GpuError
+  - uid: Etch.Gpu.Validation.GpuErrorType
+    name: GpuErrorType
+  - uid: Etch.Gpu.Validation.ValidationBridge
+    name: ValidationBridge
+- uid: Etch.Primitives
+  name: Etch.Primitives
+  items:
+  - uid: Etch.Primitives.AllocAssert
+    name: AllocAssert
+  - uid: Etch.Primitives.AllocGuard
+    name: AllocGuard
+  - uid: Etch.Primitives.Endian
+    name: Endian
+  - uid: Etch.Primitives.MemoryBudget
+    name: MemoryBudget
+  - uid: Etch.Primitives.PooledBuffer`1
+    name: PooledBuffer<T>
+  - uid: Etch.Primitives.SpanReader
+    name: SpanReader
+  - uid: Etch.Primitives.SpanWriter
+    name: SpanWriter
+  - uid: Etch.Primitives.StackBuffer128`1
+    name: StackBuffer128<T>
+  - uid: Etch.Primitives.StackBuffer16`1
+    name: StackBuffer16<T>
+  - uid: Etch.Primitives.StackBuffer256`1
+    name: StackBuffer256<T>
+  - uid: Etch.Primitives.StackBuffer32`1
+    name: StackBuffer32<T>
+  - uid: Etch.Primitives.StackBuffer64`1
+    name: StackBuffer64<T>
+- uid: Etch.Raster.Cpu
+  name: Etch.Raster.Cpu
+  items:
+  - uid: Etch.Raster.Cpu.BlendModeDispatch
+    name: BlendModeDispatch
+  - uid: Etch.Raster.Cpu.ClipBlender
+    name: ClipBlender
+  - uid: Etch.Raster.Cpu.ClipMask
+    name: ClipMask
+  - uid: Etch.Raster.Cpu.ColorBlender
+    name: ColorBlender
+  - uid: Etch.Raster.Cpu.ColorBurnBlender
+    name: ColorBurnBlender
+  - uid: Etch.Raster.Cpu.ColorDodgeBlender
+    name: ColorDodgeBlender
+  - uid: Etch.Raster.Cpu.DarkenBlender
+    name: DarkenBlender
+  - uid: Etch.Raster.Cpu.DifferenceBlender
+    name: DifferenceBlender
+  - uid: Etch.Raster.Cpu.ExclusionBlender
+    name: ExclusionBlender
+  - uid: Etch.Raster.Cpu.Framebuffer
+    name: Framebuffer
+  - uid: Etch.Raster.Cpu.FramebufferPool
+    name: FramebufferPool
+  - uid: Etch.Raster.Cpu.HardLightBlender
+    name: HardLightBlender
+  - uid: Etch.Raster.Cpu.HueBlender
+    name: HueBlender
+  - uid: Etch.Raster.Cpu.LightenBlender
+    name: LightenBlender
+  - uid: Etch.Raster.Cpu.LuminosityBlender
+    name: LuminosityBlender
+  - uid: Etch.Raster.Cpu.MultiplyBlender
+    name: MultiplyBlender
+  - uid: Etch.Raster.Cpu.NormalBlender
+    name: NormalBlender
+  - uid: Etch.Raster.Cpu.OverlayBlender
+    name: OverlayBlender
+  - uid: Etch.Raster.Cpu.ParallelStripRenderer
+    name: ParallelStripRenderer
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+  - uid: Etch.Raster.Cpu.SaturationBlender
+    name: SaturationBlender
+  - uid: Etch.Raster.Cpu.ScreenBlender
+    name: ScreenBlender
+  - uid: Etch.Raster.Cpu.SoftLightBlender
+    name: SoftLightBlender
+  - uid: Etch.Raster.Cpu.SolidFillRenderer
+    name: SolidFillRenderer
+  - uid: Etch.Raster.Cpu.Srgb
+    name: Srgb
+  - uid: Etch.Raster.Cpu.SrgbOutputView
+    name: SrgbOutputView
+  - uid: Etch.Raster.Cpu.StripRenderer
+    name: StripRenderer
+- uid: Etch.Raster.Cpu.Blur
+  name: Etch.Raster.Cpu.Blur
+  items:
+  - uid: Etch.Raster.Cpu.Blur.BjorgeBlur
+    name: BjorgeBlur
+  - uid: Etch.Raster.Cpu.Blur.BlurTaps
+    name: BlurTaps
+- uid: Etch.Raster.Cpu.Gradients
+  name: Etch.Raster.Cpu.Gradients
+  items:
+  - uid: Etch.Raster.Cpu.Gradients.ConicGradientRenderer
+    name: ConicGradientRenderer
+  - uid: Etch.Raster.Cpu.Gradients.ExtendHelpers
+    name: ExtendHelpers
+  - uid: Etch.Raster.Cpu.Gradients.FastAtan2
+    name: FastAtan2
+  - uid: Etch.Raster.Cpu.Gradients.LinearGradientRenderer
+    name: LinearGradientRenderer
+  - uid: Etch.Raster.Cpu.Gradients.RadialGradientRenderer
+    name: RadialGradientRenderer
+  - uid: Etch.Raster.Cpu.Gradients.SweepGradientRenderer
+    name: SweepGradientRenderer
+- uid: Etch.Raster.Cpu.Image
+  name: Etch.Raster.Cpu.Image
+  items:
+  - uid: Etch.Raster.Cpu.Image.BicubicSampler
+    name: BicubicSampler
+  - uid: Etch.Raster.Cpu.Image.BilinearSampler
+    name: BilinearSampler
+  - uid: Etch.Raster.Cpu.Image.Extend
+    name: Extend
+  - uid: Etch.Raster.Cpu.Image.ImageExtendMode
+    name: ImageExtendMode
+- uid: Etch.Scene
+  name: Etch.Scene
+  items:
+  - uid: Etch.Scene.BeginFramePayload
+    name: BeginFramePayload
+  - uid: Etch.Scene.BlendMode
+    name: BlendMode
+  - uid: Etch.Scene.ClipMode
+    name: ClipMode
+  - uid: Etch.Scene.DrawGlyphRunPayload
+    name: DrawGlyphRunPayload
+  - uid: Etch.Scene.DrawImagePayload
+    name: DrawImagePayload
+  - uid: Etch.Scene.DrawShadowPayload
+    name: DrawShadowPayload
+  - uid: Etch.Scene.EndFramePayload
+    name: EndFramePayload
+  - uid: Etch.Scene.FillPathPayload
+    name: FillPathPayload
+  - uid: Etch.Scene.FillRectPayload
+    name: FillRectPayload
+  - uid: Etch.Scene.FillRule
+    name: FillRule
+  - uid: Etch.Scene.GradientStops
+    name: GradientStops
+  - uid: Etch.Scene.LayerFlags
+    name: LayerFlags
+  - uid: Etch.Scene.NoopPayload
+    name: NoopPayload
+  - uid: Etch.Scene.Paint
+    name: Paint
+  - uid: Etch.Scene.PaintKind
+    name: PaintKind
+  - uid: Etch.Scene.PathData
+    name: PathData
+  - uid: Etch.Scene.PathEntry
+    name: PathEntry
+  - uid: Etch.Scene.PopClipPayload
+    name: PopClipPayload
+  - uid: Etch.Scene.PopLayerPayload
+    name: PopLayerPayload
+  - uid: Etch.Scene.PushClipPayload
+    name: PushClipPayload
+  - uid: Etch.Scene.PushLayerPayload
+    name: PushLayerPayload
+  - uid: Etch.Scene.SceneBuffer
+    name: SceneBuffer
+  - uid: Etch.Scene.SceneBuilder
+    name: SceneBuilder
+  - uid: Etch.Scene.SceneCommand
+    name: SceneCommand
+  - uid: Etch.Scene.SceneOpcode
+    name: SceneOpcode
+  - uid: Etch.Scene.SceneValidationError
+    name: SceneValidationError
+  - uid: Etch.Scene.SceneValidationErrorCode
+    name: SceneValidationErrorCode
+  - uid: Etch.Scene.SceneValidationReport
+    name: SceneValidationReport
+  - uid: Etch.Scene.SceneValidator
+    name: SceneValidator
+  - uid: Etch.Scene.SetBlendModePayload
+    name: SetBlendModePayload
+  - uid: Etch.Scene.SetTransformPayload
+    name: SetTransformPayload
+  - uid: Etch.Scene.StrokeCap
+    name: StrokeCap
+  - uid: Etch.Scene.StrokeJoin
+    name: StrokeJoin
+  - uid: Etch.Scene.StrokePathPayload
+    name: StrokePathPayload
+  - uid: Etch.Scene.StrokeStyle
+    name: StrokeStyle
+- uid: Etch.Scene.Damage
+  name: Etch.Scene.Damage
+  items:
+  - uid: Etch.Scene.Damage.DamageMode
+    name: DamageMode
+  - uid: Etch.Scene.Damage.DamageResult
+    name: DamageResult
+  - uid: Etch.Scene.Damage.DamageTracker
+    name: DamageTracker
+  - uid: Etch.Scene.Damage.ScrollDetector
+    name: ScrollDetector
+  - uid: Etch.Scene.Damage.ScrollHint
+    name: ScrollHint
+  - uid: Etch.Scene.Damage.SubpixelDamageTracker
+    name: SubpixelDamageTracker
+- uid: Etch.Scene.Serialization
+  name: Etch.Scene.Serialization
+  items:
+  - uid: Etch.Scene.Serialization.SceneReader
+    name: SceneReader
+  - uid: Etch.Scene.Serialization.SceneWriter
+    name: SceneWriter
+- uid: Etch.Strokes
+  name: Etch.Strokes
+  items:
+  - uid: Etch.Strokes.CapEmitter
+    name: CapEmitter
+  - uid: Etch.Strokes.CapStyle
+    name: CapStyle
+  - uid: Etch.Strokes.DashPattern
+    name: DashPattern
+  - uid: Etch.Strokes.Dasher
+    name: Dasher
+  - uid: Etch.Strokes.JoinEmitter
+    name: JoinEmitter
+  - uid: Etch.Strokes.JoinStyle
+    name: JoinStyle
+  - uid: Etch.Strokes.StrokeExpander
+    name: StrokeExpander
+  - uid: Etch.Strokes.StrokeStyle
+    name: StrokeStyle
+  - uid: Etch.Strokes.StrokeToFill
+    name: StrokeToFill
+- uid: Etch.Text
+  name: Etch.Text
+  items:
+  - uid: Etch.Text.QuantizedSubpixel
+    name: QuantizedSubpixel
+  - uid: Etch.Text.SubpixelOrientation
+    name: SubpixelOrientation
+  - uid: Etch.Text.SubpixelQuant
+    name: SubpixelQuant
+  - uid: Etch.Text.SurfaceInfo
+    name: SurfaceInfo
+- uid: Etch.Text.Atlas
+  name: Etch.Text.Atlas
+  items:
+  - uid: Etch.Text.Atlas.AtlasRegion
+    name: AtlasRegion
+  - uid: Etch.Text.Atlas.FontFaceExtensions
+    name: FontFaceExtensions
+  - uid: Etch.Text.Atlas.GlyphAtlas
+    name: GlyphAtlas
+  - uid: Etch.Text.Atlas.GlyphCacheKey
+    name: GlyphCacheKey
+  - uid: Etch.Text.Atlas.ISliceStrategy
+    name: ISliceStrategy
+  - uid: Etch.Text.Atlas.ShelfPacker
+    name: ShelfPacker
+- uid: Etch.Text.Outline
+  name: Etch.Text.Outline
+  items:
+  - uid: Etch.Text.Outline.GlyphOutlineBuilder
+    name: GlyphOutlineBuilder
+- uid: Etch.Text.Rasterize
+  name: Etch.Text.Rasterize
+  items:
+  - uid: Etch.Text.Rasterize.GlyphRasterizer
+    name: GlyphRasterizer
+  - uid: Etch.Text.Rasterize.RgbFilter
+    name: RgbFilter
+  - uid: Etch.Text.Rasterize.SubpixelRgbRasterizer
+    name: SubpixelRgbRasterizer
+- uid: Etch.Text.Shape
+  name: Etch.Text.Shape
+  items:
+  - uid: Etch.Text.Shape.BiDiLevel
+    name: BiDiLevel
+  - uid: Etch.Text.Shape.FontFace
+    name: FontFace
+  - uid: Etch.Text.Shape.GlyphInfo
+    name: GlyphInfo
+  - uid: Etch.Text.Shape.ShapeRequest
+    name: ShapeRequest
+  - uid: Etch.Text.Shape.ShapedRun
+    name: ShapedRun
+  - uid: Etch.Text.Shape.Shaper
+    name: Shaper
+  - uid: Etch.Text.Shape.ShapingCache
+    name: ShapingCache
+  - uid: Etch.Text.Shape.ShapingKey
+    name: ShapingKey
+- uid: Etch.Text.Unicode
+  name: Etch.Text.Unicode
+  items:
+  - uid: Etch.Text.Unicode.LineBreakIterator
+    name: LineBreakIterator
+  - uid: Etch.Text.Unicode.LineBreakKind
+    name: LineBreakKind
+  - uid: Etch.Text.Unicode.UnicodeData
+    name: UnicodeData
+- uid: Etch.Text.Unicode.Minimal
+  name: Etch.Text.Unicode.Minimal
+  items:
+  - uid: Etch.Text.Unicode.Minimal.BidiAlgorithm
+    name: BidiAlgorithm
+  - uid: Etch.Text.Unicode.Minimal.BidiClass
+    name: BidiClass
+  - uid: Etch.Text.Unicode.Minimal.BidiClassTable
+    name: BidiClassTable
+  - uid: Etch.Text.Unicode.Minimal.BidiParagraphResult
+    name: BidiParagraphResult
+  - uid: Etch.Text.Unicode.Minimal.BidiRun
+    name: BidiRun
+  - uid: Etch.Text.Unicode.Minimal.BidiRunDirection
+    name: BidiRunDirection
+- uid: Etch.Tiling
+  name: Etch.Tiling
+  items:
+  - uid: Etch.Tiling.Defaults
+    name: Defaults
+  - uid: Etch.Tiling.ITileSize
+    name: ITileSize
+  - uid: Etch.Tiling.TTile16
+    name: TTile16
+  - uid: Etch.Tiling.TTile32
+    name: TTile32
+  - uid: Etch.Tiling.TTile8
+    name: TTile8
+  - uid: Etch.Tiling.TileGrid`1
+    name: TileGrid<TTile>
+  - uid: Etch.Tiling.TileQuad
+    name: TileQuad
+  - uid: Etch.Tiling.TileQuadBuilder
+    name: TileQuadBuilder
+  - uid: Etch.Tiling.TileQuadList
+    name: TileQuadList
+- uid: Etch.Tiling.Classify
+  name: Etch.Tiling.Classify
+  items:
+  - uid: Etch.Tiling.Classify.AccumulatorPool
+    name: AccumulatorPool
+  - uid: Etch.Tiling.Classify.BBoxClassifier
+    name: BBoxClassifier
+  - uid: Etch.Tiling.Classify.ClassificationAccumulator
+    name: ClassificationAccumulator
+  - uid: Etch.Tiling.Classify.ClassificationEntry
+    name: ClassificationEntry
+  - uid: Etch.Tiling.Classify.ClassificationKind
+    name: ClassificationKind
+  - uid: Etch.Tiling.Classify.ClassificationMerge
+    name: ClassificationMerge
+  - uid: Etch.Tiling.Classify.ClassifiedScene
+    name: ClassifiedScene
+  - uid: Etch.Tiling.Classify.CoveragePayload
+    name: CoveragePayload
+  - uid: Etch.Tiling.Classify.LineWalkClassifier
+    name: LineWalkClassifier
+  - uid: Etch.Tiling.Classify.ParallelClassifier
+    name: ParallelClassifier
+  - uid: Etch.Tiling.Classify.SupercoverDda
+    name: SupercoverDda
+- uid: Etch.Tiling.Scheduler
+  name: Etch.Tiling.Scheduler
+  items:
+  - uid: Etch.Tiling.Scheduler.ITileScheduler
+    name: ITileScheduler
+  - uid: Etch.Tiling.Scheduler.SingleThreadedTileScheduler
+    name: SingleThreadedTileScheduler
+  - uid: Etch.Tiling.Scheduler.WorkStealingTileScheduler
+    name: WorkStealingTileScheduler
+- uid: Etch.Tiling.Strips
+  name: Etch.Tiling.Strips
+  items:
+  - uid: Etch.Tiling.Strips.AnalyticCoverage
+    name: AnalyticCoverage
+  - uid: Etch.Tiling.Strips.Strip
+    name: Strip
+  - uid: Etch.Tiling.Strips.StripBuffer
+    name: StripBuffer
+  - uid: Etch.Tiling.Strips.StripEmitter
+    name: StripEmitter
+  - uid: Etch.Tiling.Strips.StripRange
+    name: StripRange
+  - uid: Etch.Tiling.Strips.StripsBuilder
+    name: StripsBuilder
+  - uid: Etch.Tiling.Strips.TileEdgeClipper
+    name: TileEdgeClipper
+memberLayout: SamePage

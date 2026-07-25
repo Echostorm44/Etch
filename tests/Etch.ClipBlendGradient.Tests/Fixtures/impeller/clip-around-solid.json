@@ -1,0 +1,7 @@
+{
+  "scenePath": "clip-around-solid.etsc",
+  "goldenPath": "clip-around-solid.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

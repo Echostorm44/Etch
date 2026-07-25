@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.RequestDeviceStatus
+  commentId: T:Etch.Gpu.RequestDeviceStatus
+  id: RequestDeviceStatus
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.RequestDeviceStatus.CallbackCancelled
+  - Etch.Gpu.RequestDeviceStatus.Error
+  - Etch.Gpu.RequestDeviceStatus.Success
+  langs:
+  - csharp
+  - vb
+  name: RequestDeviceStatus
+  nameWithType: RequestDeviceStatus
+  fullName: Etch.Gpu.RequestDeviceStatus
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum RequestDeviceStatus : uint'
+    content.vb: Public Enum RequestDeviceStatus As UInteger
+- uid: Etch.Gpu.RequestDeviceStatus.Success
+  commentId: F:Etch.Gpu.RequestDeviceStatus.Success
+  id: Success
+  parent: Etch.Gpu.RequestDeviceStatus
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: RequestDeviceStatus.Success
+  fullName: Etch.Gpu.RequestDeviceStatus.Success
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Success = 1
+    return:
+      type: Etch.Gpu.RequestDeviceStatus
+- uid: Etch.Gpu.RequestDeviceStatus.CallbackCancelled
+  commentId: F:Etch.Gpu.RequestDeviceStatus.CallbackCancelled
+  id: CallbackCancelled
+  parent: Etch.Gpu.RequestDeviceStatus
+  langs:
+  - csharp
+  - vb
+  name: CallbackCancelled
+  nameWithType: RequestDeviceStatus.CallbackCancelled
+  fullName: Etch.Gpu.RequestDeviceStatus.CallbackCancelled
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CallbackCancelled = 2
+    return:
+      type: Etch.Gpu.RequestDeviceStatus
+- uid: Etch.Gpu.RequestDeviceStatus.Error
+  commentId: F:Etch.Gpu.RequestDeviceStatus.Error
+  id: Error
+  parent: Etch.Gpu.RequestDeviceStatus
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: RequestDeviceStatus.Error
+  fullName: Etch.Gpu.RequestDeviceStatus.Error
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Error = 3
+    return:
+      type: Etch.Gpu.RequestDeviceStatus
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.RequestDeviceStatus
+  commentId: T:Etch.Gpu.RequestDeviceStatus
+  parent: Etch.Gpu
+  href: Etch.Gpu.RequestDeviceStatus.html
+  name: RequestDeviceStatus
+  nameWithType: RequestDeviceStatus
+  fullName: Etch.Gpu.RequestDeviceStatus

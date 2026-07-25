@@ -1,0 +1,499 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.HueBlender
+  commentId: T:Etch.Raster.Cpu.HueBlender
+  id: HueBlender
+  parent: Etch.Raster.Cpu
+  children:
+  - Etch.Raster.Cpu.HueBlender.Blend(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  - Etch.Raster.Cpu.HueBlender.BlendScalar(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  langs:
+  - csharp
+  - vb
+  name: HueBlender
+  nameWithType: HueBlender
+  fullName: Etch.Raster.Cpu.HueBlender
+  type: Class
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static class HueBlender
+    content.vb: Public Module HueBlender
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Raster.Cpu.HueBlender.Blend(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  commentId: M:Etch.Raster.Cpu.HueBlender.Blend(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  id: Blend(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  parent: Etch.Raster.Cpu.HueBlender
+  langs:
+  - csharp
+  - vb
+  name: Blend(ReadOnlySpan<byte>, Rgba16f, Span<Rgba16f>)
+  nameWithType: HueBlender.Blend(ReadOnlySpan<byte>, Rgba16f, Span<Rgba16f>)
+  fullName: Etch.Raster.Cpu.HueBlender.Blend(System.ReadOnlySpan<byte>, Etch.Raster.Cpu.Rgba16f, System.Span<Etch.Raster.Cpu.Rgba16f>)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static void Blend(ReadOnlySpan<byte> coverage, Rgba16f paint, Span<Rgba16f> row)
+    parameters:
+    - id: coverage
+      type: System.ReadOnlySpan{System.Byte}
+    - id: paint
+      type: Etch.Raster.Cpu.Rgba16f
+    - id: row
+      type: System.Span{Etch.Raster.Cpu.Rgba16f}
+    content.vb: Public Shared Sub Blend(coverage As ReadOnlySpan(Of Byte), paint As Rgba16f, row As Span(Of Rgba16f))
+  overload: Etch.Raster.Cpu.HueBlender.Blend*
+  nameWithType.vb: HueBlender.Blend(ReadOnlySpan(Of Byte), Rgba16f, Span(Of Rgba16f))
+  fullName.vb: Etch.Raster.Cpu.HueBlender.Blend(System.ReadOnlySpan(Of Byte), Etch.Raster.Cpu.Rgba16f, System.Span(Of Etch.Raster.Cpu.Rgba16f))
+  name.vb: Blend(ReadOnlySpan(Of Byte), Rgba16f, Span(Of Rgba16f))
+- uid: Etch.Raster.Cpu.HueBlender.BlendScalar(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  commentId: M:Etch.Raster.Cpu.HueBlender.BlendScalar(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  id: BlendScalar(System.ReadOnlySpan{System.Byte},Etch.Raster.Cpu.Rgba16f,System.Span{Etch.Raster.Cpu.Rgba16f})
+  parent: Etch.Raster.Cpu.HueBlender
+  langs:
+  - csharp
+  - vb
+  name: BlendScalar(ReadOnlySpan<byte>, Rgba16f, Span<Rgba16f>)
+  nameWithType: HueBlender.BlendScalar(ReadOnlySpan<byte>, Rgba16f, Span<Rgba16f>)
+  fullName: Etch.Raster.Cpu.HueBlender.BlendScalar(System.ReadOnlySpan<byte>, Etch.Raster.Cpu.Rgba16f, System.Span<Etch.Raster.Cpu.Rgba16f>)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static void BlendScalar(ReadOnlySpan<byte> coverage, Rgba16f paint, Span<Rgba16f> row)
+    parameters:
+    - id: coverage
+      type: System.ReadOnlySpan{System.Byte}
+    - id: paint
+      type: Etch.Raster.Cpu.Rgba16f
+    - id: row
+      type: System.Span{Etch.Raster.Cpu.Rgba16f}
+    content.vb: Public Shared Sub BlendScalar(coverage As ReadOnlySpan(Of Byte), paint As Rgba16f, row As Span(Of Rgba16f))
+  overload: Etch.Raster.Cpu.HueBlender.BlendScalar*
+  nameWithType.vb: HueBlender.BlendScalar(ReadOnlySpan(Of Byte), Rgba16f, Span(Of Rgba16f))
+  fullName.vb: Etch.Raster.Cpu.HueBlender.BlendScalar(System.ReadOnlySpan(Of Byte), Etch.Raster.Cpu.Rgba16f, System.Span(Of Etch.Raster.Cpu.Rgba16f))
+  name.vb: BlendScalar(ReadOnlySpan(Of Byte), Rgba16f, Span(Of Rgba16f))
+references:
+- uid: Etch.Raster.Cpu
+  commentId: N:Etch.Raster.Cpu
+  href: Etch.html
+  name: Etch.Raster.Cpu
+  nameWithType: Etch.Raster.Cpu
+  fullName: Etch.Raster.Cpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Raster.Cpu.HueBlender.Blend*
+  commentId: Overload:Etch.Raster.Cpu.HueBlender.Blend
+  href: Etch.Raster.Cpu.HueBlender.html#Etch_Raster_Cpu_HueBlender_Blend_System_ReadOnlySpan_System_Byte__Etch_Raster_Cpu_Rgba16f_System_Span_Etch_Raster_Cpu_Rgba16f__
+  name: Blend
+  nameWithType: HueBlender.Blend
+  fullName: Etch.Raster.Cpu.HueBlender.Blend
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: Etch.Raster.Cpu.Rgba16f
+  commentId: T:Etch.Raster.Cpu.Rgba16f
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.Rgba16f.html
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.Raster.Cpu.Rgba16f
+- uid: System.Span{Etch.Raster.Cpu.Rgba16f}
+  commentId: T:System.Span{Etch.Raster.Cpu.Rgba16f}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<Rgba16f>
+  nameWithType: Span<Rgba16f>
+  fullName: System.Span<Etch.Raster.Cpu.Rgba16f>
+  nameWithType.vb: Span(Of Rgba16f)
+  fullName.vb: System.Span(Of Etch.Raster.Cpu.Rgba16f)
+  name.vb: Span(Of Rgba16f)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Raster.Cpu.HueBlender.BlendScalar*
+  commentId: Overload:Etch.Raster.Cpu.HueBlender.BlendScalar
+  href: Etch.Raster.Cpu.HueBlender.html#Etch_Raster_Cpu_HueBlender_BlendScalar_System_ReadOnlySpan_System_Byte__Etch_Raster_Cpu_Rgba16f_System_Span_Etch_Raster_Cpu_Rgba16f__
+  name: BlendScalar
+  nameWithType: HueBlender.BlendScalar
+  fullName: Etch.Raster.Cpu.HueBlender.BlendScalar

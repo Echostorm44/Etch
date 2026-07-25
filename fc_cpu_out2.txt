@@ -1,0 +1,10 @@
+CPU render
+Center pixel: R=FF G=00 B=00 A=FF
+CPU render
+Center pixel: R=FF G=00 B=00 A=FF
+CPU render
+Center pixel: R=FF G=00 B=00 A=FF
+CPU render
+Center pixel: R=FF G=00 B=00 A=FF
+CPU render
+Center pixel: R=FF G=00 B=00 A=FF

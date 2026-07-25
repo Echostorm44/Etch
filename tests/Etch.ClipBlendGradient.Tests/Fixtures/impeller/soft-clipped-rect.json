@@ -1,0 +1,7 @@
+{
+  "scenePath": "soft-clipped-rect.etsc",
+  "goldenPath": "soft-clipped-rect.png",
+  "toleranceMean": 1,
+  "toleranceMax": 4,
+  "notes": null
+}

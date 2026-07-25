@@ -1,0 +1,85 @@
+name: Flaky Watch
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * *'  # 02:00 UTC daily
+  workflow_dispatch:
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  flaky-watch:
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64]
+        include:
+          - rid: win-x64
+            os: windows-2022
+          - rid: linux-x64
+            os: ubuntu-24.04
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
+      - name: Build
+        run: dotnet build Etch.sln -c Release --no-restore
+
+      # TUnit on .NET 10 requires dotnet run; category filtering at the CLI
+      # level is not yet supported. Flaky tests should be isolated in a
+      # dedicated project (e.g. tests/Etch.Flaky.Tests) so this lane can
+      # run only that project. Until then, this lane serves as a template.
+      - name: Run quarantined tests
+        run: |
+          echo "No dedicated flaky test project exists yet."
+          echo "Create tests/Etch.Flaky.Tests and update this step."
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flaky-watch-${{ matrix.rid }}
+          path: TestResults/
+
+  flake-detector:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore detector
+        run: dotnet restore tools/etch-flake-detector/Etch.FlakeDetector.csproj
+
+      - name: Build detector
+        run: dotnet build tools/etch-flake-detector/Etch.FlakeDetector.csproj -c Release --no-restore
+
+      - name: Scan CI history
+        run: dotnet run --project tools/etch-flake-detector/Etch.FlakeDetector.csproj -c Release --no-build -- scan --days 30
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flake-detector-report
+          path: flake-report.json

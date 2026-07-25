@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.TextureViewDimension
+  commentId: T:Etch.Gpu.TextureViewDimension
+  id: TextureViewDimension
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.TextureViewDimension.Cube
+  - Etch.Gpu.TextureViewDimension.CubeArray
+  - Etch.Gpu.TextureViewDimension.D1
+  - Etch.Gpu.TextureViewDimension.D2
+  - Etch.Gpu.TextureViewDimension.D2Array
+  - Etch.Gpu.TextureViewDimension.D3
+  - Etch.Gpu.TextureViewDimension.Undefined
+  langs:
+  - csharp
+  - vb
+  name: TextureViewDimension
+  nameWithType: TextureViewDimension
+  fullName: Etch.Gpu.TextureViewDimension
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum TextureViewDimension : uint'
+    content.vb: Public Enum TextureViewDimension As UInteger
+- uid: Etch.Gpu.TextureViewDimension.Undefined
+  commentId: F:Etch.Gpu.TextureViewDimension.Undefined
+  id: Undefined
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: TextureViewDimension.Undefined
+  fullName: Etch.Gpu.TextureViewDimension.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.D1
+  commentId: F:Etch.Gpu.TextureViewDimension.D1
+  id: D1
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: D1
+  nameWithType: TextureViewDimension.D1
+  fullName: Etch.Gpu.TextureViewDimension.D1
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D1 = 1
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.D2
+  commentId: F:Etch.Gpu.TextureViewDimension.D2
+  id: D2
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: D2
+  nameWithType: TextureViewDimension.D2
+  fullName: Etch.Gpu.TextureViewDimension.D2
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D2 = 2
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.D2Array
+  commentId: F:Etch.Gpu.TextureViewDimension.D2Array
+  id: D2Array
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: D2Array
+  nameWithType: TextureViewDimension.D2Array
+  fullName: Etch.Gpu.TextureViewDimension.D2Array
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D2Array = 3
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.Cube
+  commentId: F:Etch.Gpu.TextureViewDimension.Cube
+  id: Cube
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: Cube
+  nameWithType: TextureViewDimension.Cube
+  fullName: Etch.Gpu.TextureViewDimension.Cube
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Cube = 4
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.CubeArray
+  commentId: F:Etch.Gpu.TextureViewDimension.CubeArray
+  id: CubeArray
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: CubeArray
+  nameWithType: TextureViewDimension.CubeArray
+  fullName: Etch.Gpu.TextureViewDimension.CubeArray
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: CubeArray = 5
+    return:
+      type: Etch.Gpu.TextureViewDimension
+- uid: Etch.Gpu.TextureViewDimension.D3
+  commentId: F:Etch.Gpu.TextureViewDimension.D3
+  id: D3
+  parent: Etch.Gpu.TextureViewDimension
+  langs:
+  - csharp
+  - vb
+  name: D3
+  nameWithType: TextureViewDimension.D3
+  fullName: Etch.Gpu.TextureViewDimension.D3
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D3 = 6
+    return:
+      type: Etch.Gpu.TextureViewDimension
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.TextureViewDimension
+  commentId: T:Etch.Gpu.TextureViewDimension
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureViewDimension.html
+  name: TextureViewDimension
+  nameWithType: TextureViewDimension
+  fullName: Etch.Gpu.TextureViewDimension

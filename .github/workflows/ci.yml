@@ -1,0 +1,212 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  push:
+    branches: [main]
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64, osx-arm64]
+        include:
+          - rid: win-x64
+            os: windows-2022
+          - rid: linux-x64
+            os: ubuntu-24.04
+          - rid: osx-arm64
+            os: macos-14
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
+      - name: Build
+        run: dotnet build Etch.sln -c Release --no-restore
+
+      - name: Run tests (excluding Flaky)
+        run: |
+          dotnet run --project tests/Etch.Abstractions.Tests/Etch.Abstractions.Tests.csproj -c Release --no-build
+          dotnet run --project tests/Etch.Testing.Tests/Etch.Testing.Tests.csproj -c Release --no-build
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.rid }}
+          path: TestResults/
+
+  aot-publish:
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64, osx-arm64]
+        include:
+          - rid: win-x64
+            os: windows-2022
+          - rid: linux-x64
+            os: ubuntu-24.04
+          - rid: osx-arm64
+            os: macos-14
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Publish AOT
+        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true 2>&1 | tee publish.log
+        shell: pwsh
+
+      - name: Check AOT warnings
+        run: ./tools/ci/check-aot-warnings.ps1 -Log publish.log -Namespace Etch
+        shell: pwsh
+
+      - name: Upload publish logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-logs-${{ matrix.rid }}
+          path: publish.log
+
+  analyzer-gate:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore Etch.sln
+
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
+      - name: Build with analyzers
+        run: dotnet build Etch.sln -c Release -p:RunAnalyzersDuringBuild=true -p:TreatWarningsAsErrors=true --no-restore
+
+  shader-validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install naga
+        run: ./tools/ci/install-naga.sh
+        shell: bash
+
+      - name: Validate shaders
+        run: |
+          for f in shaders/**/*.wgsl; do
+            naga "$f" --validate || exit 1
+          done
+        shell: bash
+
+      - name: Cross-compile to SPIR-V
+        run: |
+          for f in shaders/**/*.wgsl; do
+            naga "$f" "/tmp/test_$${RANDOM}.spv" || exit 1
+          done
+        shell: bash
+
+      - name: Cross-compile to Metal
+        run: |
+          for f in shaders/**/*.wgsl; do
+            naga "$f" "/tmp/test_$${RANDOM}.metal" || exit 1
+          done
+        shell: bash
+
+      - name: Cross-compile to HLSL
+        run: |
+          for f in shaders/**/*.wgsl; do
+            naga "$f" "/tmp/test_$${RANDOM}.hlsl" || exit 1
+          done
+        shell: bash
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore tests/Etch.Shaders.Tests/Etch.Shaders.Tests.csproj
+
+      - name: Build shader tests
+        run: dotnet build tests/Etch.Shaders.Tests/Etch.Shaders.Tests.csproj -c Release --no-restore
+
+      - name: Run shader validation tests
+        run: dotnet run --project tests/Etch.Shaders.Tests/Etch.Shaders.Tests.csproj -c Release --no-build
+        shell: bash
+
+  sbom:
+    needs: [aot-publish]
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, linux-x64, osx-arm64]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Publish for SBOM
+        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true -o ./sbom-out/${{ matrix.rid }}
+
+      - name: Generate SBOM
+        run: ./tools/ci/generate-sbom.ps1 -OutputPath ./sbom-out/${{ matrix.rid }}/Etch.Abstractions.spdx.json
+        shell: pwsh
+
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ matrix.rid }}
+          path: sbom-out/${{ matrix.rid }}/Etch.Abstractions.spdx.json
+          retention-days: 90
+
+  flake-lane:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Run flaky tests
+        run: |
+          # TUnit on .NET 10 requires dotnet run. When a dedicated flaky test
+          # project is created, run it here. For now, this lane is a template.
+          echo "Flaky-test lane active (no dedicated flaky project yet)."

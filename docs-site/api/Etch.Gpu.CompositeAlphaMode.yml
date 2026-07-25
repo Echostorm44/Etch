@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.CompositeAlphaMode
+  commentId: T:Etch.Gpu.CompositeAlphaMode
+  id: CompositeAlphaMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.CompositeAlphaMode.Auto
+  - Etch.Gpu.CompositeAlphaMode.Inherit
+  - Etch.Gpu.CompositeAlphaMode.Opaque
+  - Etch.Gpu.CompositeAlphaMode.Premultiplied
+  - Etch.Gpu.CompositeAlphaMode.Unpremultiplied
+  langs:
+  - csharp
+  - vb
+  name: CompositeAlphaMode
+  nameWithType: CompositeAlphaMode
+  fullName: Etch.Gpu.CompositeAlphaMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum CompositeAlphaMode : uint'
+    content.vb: Public Enum CompositeAlphaMode As UInteger
+- uid: Etch.Gpu.CompositeAlphaMode.Auto
+  commentId: F:Etch.Gpu.CompositeAlphaMode.Auto
+  id: Auto
+  parent: Etch.Gpu.CompositeAlphaMode
+  langs:
+  - csharp
+  - vb
+  name: Auto
+  nameWithType: CompositeAlphaMode.Auto
+  fullName: Etch.Gpu.CompositeAlphaMode.Auto
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Auto = 0
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+- uid: Etch.Gpu.CompositeAlphaMode.Opaque
+  commentId: F:Etch.Gpu.CompositeAlphaMode.Opaque
+  id: Opaque
+  parent: Etch.Gpu.CompositeAlphaMode
+  langs:
+  - csharp
+  - vb
+  name: Opaque
+  nameWithType: CompositeAlphaMode.Opaque
+  fullName: Etch.Gpu.CompositeAlphaMode.Opaque
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Opaque = 1
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+- uid: Etch.Gpu.CompositeAlphaMode.Premultiplied
+  commentId: F:Etch.Gpu.CompositeAlphaMode.Premultiplied
+  id: Premultiplied
+  parent: Etch.Gpu.CompositeAlphaMode
+  langs:
+  - csharp
+  - vb
+  name: Premultiplied
+  nameWithType: CompositeAlphaMode.Premultiplied
+  fullName: Etch.Gpu.CompositeAlphaMode.Premultiplied
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Premultiplied = 2
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+- uid: Etch.Gpu.CompositeAlphaMode.Unpremultiplied
+  commentId: F:Etch.Gpu.CompositeAlphaMode.Unpremultiplied
+  id: Unpremultiplied
+  parent: Etch.Gpu.CompositeAlphaMode
+  langs:
+  - csharp
+  - vb
+  name: Unpremultiplied
+  nameWithType: CompositeAlphaMode.Unpremultiplied
+  fullName: Etch.Gpu.CompositeAlphaMode.Unpremultiplied
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Unpremultiplied = 3
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+- uid: Etch.Gpu.CompositeAlphaMode.Inherit
+  commentId: F:Etch.Gpu.CompositeAlphaMode.Inherit
+  id: Inherit
+  parent: Etch.Gpu.CompositeAlphaMode
+  langs:
+  - csharp
+  - vb
+  name: Inherit
+  nameWithType: CompositeAlphaMode.Inherit
+  fullName: Etch.Gpu.CompositeAlphaMode.Inherit
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Inherit = 4
+    return:
+      type: Etch.Gpu.CompositeAlphaMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.CompositeAlphaMode
+  commentId: T:Etch.Gpu.CompositeAlphaMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.CompositeAlphaMode.html
+  name: CompositeAlphaMode
+  nameWithType: CompositeAlphaMode
+  fullName: Etch.Gpu.CompositeAlphaMode

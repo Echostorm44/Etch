@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Classify
+  commentId: N:Etch.Tiling.Classify
+  id: Etch.Tiling.Classify
+  children:
+  - Etch.Tiling.Classify.AccumulatorPool
+  - Etch.Tiling.Classify.BBoxClassifier
+  - Etch.Tiling.Classify.ClassificationAccumulator
+  - Etch.Tiling.Classify.ClassificationEntry
+  - Etch.Tiling.Classify.ClassificationKind
+  - Etch.Tiling.Classify.ClassificationMerge
+  - Etch.Tiling.Classify.ClassifiedScene
+  - Etch.Tiling.Classify.CoveragePayload
+  - Etch.Tiling.Classify.LineWalkClassifier
+  - Etch.Tiling.Classify.ParallelClassifier
+  - Etch.Tiling.Classify.SupercoverDda
+  langs:
+  - csharp
+  - vb
+  name: Etch.Tiling.Classify
+  nameWithType: Etch.Tiling.Classify
+  fullName: Etch.Tiling.Classify
+  type: Namespace
+  assemblies:
+  - Etch.Tiling
+references:
+- uid: Etch.Tiling.Classify.AccumulatorPool
+  commentId: T:Etch.Tiling.Classify.AccumulatorPool
+  href: Etch.Tiling.Classify.AccumulatorPool.html
+  name: AccumulatorPool
+  nameWithType: AccumulatorPool
+  fullName: Etch.Tiling.Classify.AccumulatorPool
+- uid: Etch.Tiling.Classify.BBoxClassifier
+  commentId: T:Etch.Tiling.Classify.BBoxClassifier
+  href: Etch.Tiling.Classify.BBoxClassifier.html
+  name: BBoxClassifier
+  nameWithType: BBoxClassifier
+  fullName: Etch.Tiling.Classify.BBoxClassifier
+- uid: Etch.Tiling.Classify.ClassificationAccumulator
+  commentId: T:Etch.Tiling.Classify.ClassificationAccumulator
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassificationAccumulator.html
+  name: ClassificationAccumulator
+  nameWithType: ClassificationAccumulator
+  fullName: Etch.Tiling.Classify.ClassificationAccumulator
+- uid: Etch.Tiling.Classify.ClassificationEntry
+  commentId: T:Etch.Tiling.Classify.ClassificationEntry
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassificationEntry.html
+  name: ClassificationEntry
+  nameWithType: ClassificationEntry
+  fullName: Etch.Tiling.Classify.ClassificationEntry
+- uid: Etch.Tiling.Classify.ClassificationKind
+  commentId: T:Etch.Tiling.Classify.ClassificationKind
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassificationKind.html
+  name: ClassificationKind
+  nameWithType: ClassificationKind
+  fullName: Etch.Tiling.Classify.ClassificationKind
+- uid: Etch.Tiling.Classify.ClassificationMerge
+  commentId: T:Etch.Tiling.Classify.ClassificationMerge
+  href: Etch.Tiling.Classify.ClassificationMerge.html
+  name: ClassificationMerge
+  nameWithType: ClassificationMerge
+  fullName: Etch.Tiling.Classify.ClassificationMerge
+- uid: Etch.Tiling.Classify.ClassifiedScene
+  commentId: T:Etch.Tiling.Classify.ClassifiedScene
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassifiedScene.html
+  name: ClassifiedScene
+  nameWithType: ClassifiedScene
+  fullName: Etch.Tiling.Classify.ClassifiedScene
+- uid: Etch.Tiling.Classify.CoveragePayload
+  commentId: T:Etch.Tiling.Classify.CoveragePayload
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.CoveragePayload.html
+  name: CoveragePayload
+  nameWithType: CoveragePayload
+  fullName: Etch.Tiling.Classify.CoveragePayload
+- uid: Etch.Tiling.Classify.LineWalkClassifier
+  commentId: T:Etch.Tiling.Classify.LineWalkClassifier
+  href: Etch.Tiling.Classify.LineWalkClassifier.html
+  name: LineWalkClassifier
+  nameWithType: LineWalkClassifier
+  fullName: Etch.Tiling.Classify.LineWalkClassifier
+- uid: Etch.Tiling.Classify.ParallelClassifier
+  commentId: T:Etch.Tiling.Classify.ParallelClassifier
+  href: Etch.Tiling.Classify.ParallelClassifier.html
+  name: ParallelClassifier
+  nameWithType: ParallelClassifier
+  fullName: Etch.Tiling.Classify.ParallelClassifier
+- uid: Etch.Tiling.Classify.SupercoverDda
+  commentId: T:Etch.Tiling.Classify.SupercoverDda
+  href: Etch.Tiling.Classify.SupercoverDda.html
+  name: SupercoverDda
+  nameWithType: SupercoverDda
+  fullName: Etch.Tiling.Classify.SupercoverDda
+- uid: Etch.Tiling.Classify
+  commentId: N:Etch.Tiling.Classify
+  href: Etch.html
+  name: Etch.Tiling.Classify
+  nameWithType: Etch.Tiling.Classify
+  fullName: Etch.Tiling.Classify
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html

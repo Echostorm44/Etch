@@ -1,0 +1,787 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Primitives.SpanWriter
+  commentId: T:Etch.Primitives.SpanWriter
+  id: SpanWriter
+  parent: Etch.Primitives
+  children:
+  - Etch.Primitives.SpanWriter.#ctor(System.Span{System.Byte})
+  - Etch.Primitives.SpanWriter.Position
+  - Etch.Primitives.SpanWriter.Remaining
+  - Etch.Primitives.SpanWriter.WriteByte(System.Byte)
+  - Etch.Primitives.SpanWriter.WriteF32LE(System.Single)
+  - Etch.Primitives.SpanWriter.WriteF64LE(System.Double)
+  - Etch.Primitives.SpanWriter.WriteI32LE(System.Int32)
+  - Etch.Primitives.SpanWriter.WriteI64LE(System.Int64)
+  - Etch.Primitives.SpanWriter.WriteU32LE(System.UInt32)
+  - Etch.Primitives.SpanWriter.WriteU64LE(System.UInt64)
+  - Etch.Primitives.SpanWriter.WriteUtf8(System.String)
+  - Etch.Primitives.SpanWriter.WriteVarInt(System.UInt64)
+  langs:
+  - csharp
+  - vb
+  name: SpanWriter
+  nameWithType: SpanWriter
+  fullName: Etch.Primitives.SpanWriter
+  type: Struct
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public ref struct SpanWriter
+    content.vb: Public Structure SpanWriter
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Primitives.SpanWriter.#ctor(System.Span{System.Byte})
+  commentId: M:Etch.Primitives.SpanWriter.#ctor(System.Span{System.Byte})
+  id: '#ctor(System.Span{System.Byte})'
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: SpanWriter(Span<byte>)
+  nameWithType: SpanWriter.SpanWriter(Span<byte>)
+  fullName: Etch.Primitives.SpanWriter.SpanWriter(System.Span<byte>)
+  type: Constructor
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public SpanWriter(Span<byte> span)
+    parameters:
+    - id: span
+      type: System.Span{System.Byte}
+    content.vb: Public Sub New(span As Span(Of Byte))
+  overload: Etch.Primitives.SpanWriter.#ctor*
+  nameWithType.vb: SpanWriter.New(Span(Of Byte))
+  fullName.vb: Etch.Primitives.SpanWriter.New(System.Span(Of Byte))
+  name.vb: New(Span(Of Byte))
+- uid: Etch.Primitives.SpanWriter.Position
+  commentId: P:Etch.Primitives.SpanWriter.Position
+  id: Position
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: SpanWriter.Position
+  fullName: Etch.Primitives.SpanWriter.Position
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int Position { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Position As Integer
+  overload: Etch.Primitives.SpanWriter.Position*
+- uid: Etch.Primitives.SpanWriter.Remaining
+  commentId: P:Etch.Primitives.SpanWriter.Remaining
+  id: Remaining
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: Remaining
+  nameWithType: SpanWriter.Remaining
+  fullName: Etch.Primitives.SpanWriter.Remaining
+  type: Property
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public int Remaining { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Remaining As Integer
+  overload: Etch.Primitives.SpanWriter.Remaining*
+- uid: Etch.Primitives.SpanWriter.WriteByte(System.Byte)
+  commentId: M:Etch.Primitives.SpanWriter.WriteByte(System.Byte)
+  id: WriteByte(System.Byte)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteByte(byte)
+  nameWithType: SpanWriter.WriteByte(byte)
+  fullName: Etch.Primitives.SpanWriter.WriteByte(byte)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteByte(byte value)
+    parameters:
+    - id: value
+      type: System.Byte
+    content.vb: Public Sub WriteByte(value As Byte)
+  overload: Etch.Primitives.SpanWriter.WriteByte*
+  nameWithType.vb: SpanWriter.WriteByte(Byte)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteByte(Byte)
+  name.vb: WriteByte(Byte)
+- uid: Etch.Primitives.SpanWriter.WriteU32LE(System.UInt32)
+  commentId: M:Etch.Primitives.SpanWriter.WriteU32LE(System.UInt32)
+  id: WriteU32LE(System.UInt32)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteU32LE(uint)
+  nameWithType: SpanWriter.WriteU32LE(uint)
+  fullName: Etch.Primitives.SpanWriter.WriteU32LE(uint)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteU32LE(uint value)
+    parameters:
+    - id: value
+      type: System.UInt32
+    content.vb: Public Sub WriteU32LE(value As UInteger)
+  overload: Etch.Primitives.SpanWriter.WriteU32LE*
+  nameWithType.vb: SpanWriter.WriteU32LE(UInteger)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteU32LE(UInteger)
+  name.vb: WriteU32LE(UInteger)
+- uid: Etch.Primitives.SpanWriter.WriteI32LE(System.Int32)
+  commentId: M:Etch.Primitives.SpanWriter.WriteI32LE(System.Int32)
+  id: WriteI32LE(System.Int32)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteI32LE(int)
+  nameWithType: SpanWriter.WriteI32LE(int)
+  fullName: Etch.Primitives.SpanWriter.WriteI32LE(int)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteI32LE(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+    content.vb: Public Sub WriteI32LE(value As Integer)
+  overload: Etch.Primitives.SpanWriter.WriteI32LE*
+  nameWithType.vb: SpanWriter.WriteI32LE(Integer)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteI32LE(Integer)
+  name.vb: WriteI32LE(Integer)
+- uid: Etch.Primitives.SpanWriter.WriteU64LE(System.UInt64)
+  commentId: M:Etch.Primitives.SpanWriter.WriteU64LE(System.UInt64)
+  id: WriteU64LE(System.UInt64)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteU64LE(ulong)
+  nameWithType: SpanWriter.WriteU64LE(ulong)
+  fullName: Etch.Primitives.SpanWriter.WriteU64LE(ulong)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteU64LE(ulong value)
+    parameters:
+    - id: value
+      type: System.UInt64
+    content.vb: Public Sub WriteU64LE(value As ULong)
+  overload: Etch.Primitives.SpanWriter.WriteU64LE*
+  nameWithType.vb: SpanWriter.WriteU64LE(ULong)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteU64LE(ULong)
+  name.vb: WriteU64LE(ULong)
+- uid: Etch.Primitives.SpanWriter.WriteI64LE(System.Int64)
+  commentId: M:Etch.Primitives.SpanWriter.WriteI64LE(System.Int64)
+  id: WriteI64LE(System.Int64)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteI64LE(long)
+  nameWithType: SpanWriter.WriteI64LE(long)
+  fullName: Etch.Primitives.SpanWriter.WriteI64LE(long)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteI64LE(long value)
+    parameters:
+    - id: value
+      type: System.Int64
+    content.vb: Public Sub WriteI64LE(value As Long)
+  overload: Etch.Primitives.SpanWriter.WriteI64LE*
+  nameWithType.vb: SpanWriter.WriteI64LE(Long)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteI64LE(Long)
+  name.vb: WriteI64LE(Long)
+- uid: Etch.Primitives.SpanWriter.WriteF32LE(System.Single)
+  commentId: M:Etch.Primitives.SpanWriter.WriteF32LE(System.Single)
+  id: WriteF32LE(System.Single)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteF32LE(float)
+  nameWithType: SpanWriter.WriteF32LE(float)
+  fullName: Etch.Primitives.SpanWriter.WriteF32LE(float)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteF32LE(float value)
+    parameters:
+    - id: value
+      type: System.Single
+    content.vb: Public Sub WriteF32LE(value As Single)
+  overload: Etch.Primitives.SpanWriter.WriteF32LE*
+  nameWithType.vb: SpanWriter.WriteF32LE(Single)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteF32LE(Single)
+  name.vb: WriteF32LE(Single)
+- uid: Etch.Primitives.SpanWriter.WriteF64LE(System.Double)
+  commentId: M:Etch.Primitives.SpanWriter.WriteF64LE(System.Double)
+  id: WriteF64LE(System.Double)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteF64LE(double)
+  nameWithType: SpanWriter.WriteF64LE(double)
+  fullName: Etch.Primitives.SpanWriter.WriteF64LE(double)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteF64LE(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub WriteF64LE(value As Double)
+  overload: Etch.Primitives.SpanWriter.WriteF64LE*
+  nameWithType.vb: SpanWriter.WriteF64LE(Double)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteF64LE(Double)
+  name.vb: WriteF64LE(Double)
+- uid: Etch.Primitives.SpanWriter.WriteVarInt(System.UInt64)
+  commentId: M:Etch.Primitives.SpanWriter.WriteVarInt(System.UInt64)
+  id: WriteVarInt(System.UInt64)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteVarInt(ulong)
+  nameWithType: SpanWriter.WriteVarInt(ulong)
+  fullName: Etch.Primitives.SpanWriter.WriteVarInt(ulong)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteVarInt(ulong value)
+    parameters:
+    - id: value
+      type: System.UInt64
+    content.vb: Public Sub WriteVarInt(value As ULong)
+  overload: Etch.Primitives.SpanWriter.WriteVarInt*
+  nameWithType.vb: SpanWriter.WriteVarInt(ULong)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteVarInt(ULong)
+  name.vb: WriteVarInt(ULong)
+- uid: Etch.Primitives.SpanWriter.WriteUtf8(System.String)
+  commentId: M:Etch.Primitives.SpanWriter.WriteUtf8(System.String)
+  id: WriteUtf8(System.String)
+  parent: Etch.Primitives.SpanWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteUtf8(string)
+  nameWithType: SpanWriter.WriteUtf8(string)
+  fullName: Etch.Primitives.SpanWriter.WriteUtf8(string)
+  type: Method
+  assemblies:
+  - Etch.Primitives
+  namespace: Etch.Primitives
+  syntax:
+    content: public void WriteUtf8(string value)
+    parameters:
+    - id: value
+      type: System.String
+    content.vb: Public Sub WriteUtf8(value As String)
+  overload: Etch.Primitives.SpanWriter.WriteUtf8*
+  nameWithType.vb: SpanWriter.WriteUtf8(String)
+  fullName.vb: Etch.Primitives.SpanWriter.WriteUtf8(String)
+  name.vb: WriteUtf8(String)
+references:
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  href: Etch.html
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Primitives.SpanWriter.#ctor*
+  commentId: Overload:Etch.Primitives.SpanWriter.#ctor
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter__ctor_System_Span_System_Byte__
+  name: SpanWriter
+  nameWithType: SpanWriter.SpanWriter
+  fullName: Etch.Primitives.SpanWriter.SpanWriter
+  nameWithType.vb: SpanWriter.New
+  fullName.vb: Etch.Primitives.SpanWriter.New
+  name.vb: New
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.SpanWriter.Position*
+  commentId: Overload:Etch.Primitives.SpanWriter.Position
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_Position
+  name: Position
+  nameWithType: SpanWriter.Position
+  fullName: Etch.Primitives.SpanWriter.Position
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Primitives.SpanWriter.Remaining*
+  commentId: Overload:Etch.Primitives.SpanWriter.Remaining
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_Remaining
+  name: Remaining
+  nameWithType: SpanWriter.Remaining
+  fullName: Etch.Primitives.SpanWriter.Remaining
+- uid: Etch.Primitives.SpanWriter.WriteByte*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteByte
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteByte_System_Byte_
+  name: WriteByte
+  nameWithType: SpanWriter.WriteByte
+  fullName: Etch.Primitives.SpanWriter.WriteByte
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Primitives.SpanWriter.WriteU32LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteU32LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteU32LE_System_UInt32_
+  name: WriteU32LE
+  nameWithType: SpanWriter.WriteU32LE
+  fullName: Etch.Primitives.SpanWriter.WriteU32LE
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Primitives.SpanWriter.WriteI32LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteI32LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteI32LE_System_Int32_
+  name: WriteI32LE
+  nameWithType: SpanWriter.WriteI32LE
+  fullName: Etch.Primitives.SpanWriter.WriteI32LE
+- uid: Etch.Primitives.SpanWriter.WriteU64LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteU64LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteU64LE_System_UInt64_
+  name: WriteU64LE
+  nameWithType: SpanWriter.WriteU64LE
+  fullName: Etch.Primitives.SpanWriter.WriteU64LE
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Etch.Primitives.SpanWriter.WriteI64LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteI64LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteI64LE_System_Int64_
+  name: WriteI64LE
+  nameWithType: SpanWriter.WriteI64LE
+  fullName: Etch.Primitives.SpanWriter.WriteI64LE
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Etch.Primitives.SpanWriter.WriteF32LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteF32LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteF32LE_System_Single_
+  name: WriteF32LE
+  nameWithType: SpanWriter.WriteF32LE
+  fullName: Etch.Primitives.SpanWriter.WriteF32LE
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Primitives.SpanWriter.WriteF64LE*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteF64LE
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteF64LE_System_Double_
+  name: WriteF64LE
+  nameWithType: SpanWriter.WriteF64LE
+  fullName: Etch.Primitives.SpanWriter.WriteF64LE
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Primitives.SpanWriter.WriteVarInt*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteVarInt
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteVarInt_System_UInt64_
+  name: WriteVarInt
+  nameWithType: SpanWriter.WriteVarInt
+  fullName: Etch.Primitives.SpanWriter.WriteVarInt
+- uid: Etch.Primitives.SpanWriter.WriteUtf8*
+  commentId: Overload:Etch.Primitives.SpanWriter.WriteUtf8
+  href: Etch.Primitives.SpanWriter.html#Etch_Primitives_SpanWriter_WriteUtf8_System_String_
+  name: WriteUtf8
+  nameWithType: SpanWriter.WriteUtf8
+  fullName: Etch.Primitives.SpanWriter.WriteUtf8
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.MapMode
+  commentId: T:Etch.Gpu.MapMode
+  id: MapMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.MapMode.None
+  - Etch.Gpu.MapMode.Read
+  - Etch.Gpu.MapMode.Write
+  langs:
+  - csharp
+  - vb
+  name: MapMode
+  nameWithType: MapMode
+  fullName: Etch.Gpu.MapMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum MapMode : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum MapMode As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.MapMode.None
+  commentId: F:Etch.Gpu.MapMode.None
+  id: None
+  parent: Etch.Gpu.MapMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MapMode.None
+  fullName: Etch.Gpu.MapMode.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.MapMode
+- uid: Etch.Gpu.MapMode.Read
+  commentId: F:Etch.Gpu.MapMode.Read
+  id: Read
+  parent: Etch.Gpu.MapMode
+  langs:
+  - csharp
+  - vb
+  name: Read
+  nameWithType: MapMode.Read
+  fullName: Etch.Gpu.MapMode.Read
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Read = 1
+    return:
+      type: Etch.Gpu.MapMode
+- uid: Etch.Gpu.MapMode.Write
+  commentId: F:Etch.Gpu.MapMode.Write
+  id: Write
+  parent: Etch.Gpu.MapMode
+  langs:
+  - csharp
+  - vb
+  name: Write
+  nameWithType: MapMode.Write
+  fullName: Etch.Gpu.MapMode.Write
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Write = 2
+    return:
+      type: Etch.Gpu.MapMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.MapMode
+  commentId: T:Etch.Gpu.MapMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.MapMode.html
+  name: MapMode
+  nameWithType: MapMode
+  fullName: Etch.Gpu.MapMode

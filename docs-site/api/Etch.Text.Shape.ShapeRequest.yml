@@ -1,0 +1,515 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Shape.ShapeRequest
+  commentId: T:Etch.Text.Shape.ShapeRequest
+  id: ShapeRequest
+  parent: Etch.Text.Shape
+  children:
+  - Etch.Text.Shape.ShapeRequest.#ctor(System.ReadOnlySpan{System.Char},Etch.Text.Shape.FontFace,Etch.Text.Shape.BiDiLevel,System.String)
+  - Etch.Text.Shape.ShapeRequest.BiDiLevel
+  - Etch.Text.Shape.ShapeRequest.Face
+  - Etch.Text.Shape.ShapeRequest.ScriptTag
+  - Etch.Text.Shape.ShapeRequest.Text
+  langs:
+  - csharp
+  - vb
+  name: ShapeRequest
+  nameWithType: ShapeRequest
+  fullName: Etch.Text.Shape.ShapeRequest
+  type: Struct
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public readonly ref struct ShapeRequest
+    content.vb: Public Structure ShapeRequest
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Text.Shape.ShapeRequest.Text
+  commentId: P:Etch.Text.Shape.ShapeRequest.Text
+  id: Text
+  parent: Etch.Text.Shape.ShapeRequest
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ShapeRequest.Text
+  fullName: Etch.Text.Shape.ShapeRequest.Text
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ReadOnlySpan<char> Text { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{System.Char}
+    content.vb: Public ReadOnly Property Text As ReadOnlySpan(Of Char)
+  overload: Etch.Text.Shape.ShapeRequest.Text*
+- uid: Etch.Text.Shape.ShapeRequest.Face
+  commentId: P:Etch.Text.Shape.ShapeRequest.Face
+  id: Face
+  parent: Etch.Text.Shape.ShapeRequest
+  langs:
+  - csharp
+  - vb
+  name: Face
+  nameWithType: ShapeRequest.Face
+  fullName: Etch.Text.Shape.ShapeRequest.Face
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public FontFace Face { get; }
+    parameters: []
+    return:
+      type: Etch.Text.Shape.FontFace
+    content.vb: Public ReadOnly Property Face As FontFace
+  overload: Etch.Text.Shape.ShapeRequest.Face*
+- uid: Etch.Text.Shape.ShapeRequest.BiDiLevel
+  commentId: P:Etch.Text.Shape.ShapeRequest.BiDiLevel
+  id: BiDiLevel
+  parent: Etch.Text.Shape.ShapeRequest
+  langs:
+  - csharp
+  - vb
+  name: BiDiLevel
+  nameWithType: ShapeRequest.BiDiLevel
+  fullName: Etch.Text.Shape.ShapeRequest.BiDiLevel
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public BiDiLevel BiDiLevel { get; }
+    parameters: []
+    return:
+      type: Etch.Text.Shape.BiDiLevel
+    content.vb: Public ReadOnly Property BiDiLevel As BiDiLevel
+  overload: Etch.Text.Shape.ShapeRequest.BiDiLevel*
+- uid: Etch.Text.Shape.ShapeRequest.ScriptTag
+  commentId: P:Etch.Text.Shape.ShapeRequest.ScriptTag
+  id: ScriptTag
+  parent: Etch.Text.Shape.ShapeRequest
+  langs:
+  - csharp
+  - vb
+  name: ScriptTag
+  nameWithType: ShapeRequest.ScriptTag
+  fullName: Etch.Text.Shape.ShapeRequest.ScriptTag
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public string ScriptTag { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ScriptTag As String
+  overload: Etch.Text.Shape.ShapeRequest.ScriptTag*
+- uid: Etch.Text.Shape.ShapeRequest.#ctor(System.ReadOnlySpan{System.Char},Etch.Text.Shape.FontFace,Etch.Text.Shape.BiDiLevel,System.String)
+  commentId: M:Etch.Text.Shape.ShapeRequest.#ctor(System.ReadOnlySpan{System.Char},Etch.Text.Shape.FontFace,Etch.Text.Shape.BiDiLevel,System.String)
+  id: '#ctor(System.ReadOnlySpan{System.Char},Etch.Text.Shape.FontFace,Etch.Text.Shape.BiDiLevel,System.String)'
+  parent: Etch.Text.Shape.ShapeRequest
+  langs:
+  - csharp
+  - vb
+  name: ShapeRequest(ReadOnlySpan<char>, FontFace, BiDiLevel, string)
+  nameWithType: ShapeRequest.ShapeRequest(ReadOnlySpan<char>, FontFace, BiDiLevel, string)
+  fullName: Etch.Text.Shape.ShapeRequest.ShapeRequest(System.ReadOnlySpan<char>, Etch.Text.Shape.FontFace, Etch.Text.Shape.BiDiLevel, string)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ShapeRequest(ReadOnlySpan<char> text, FontFace face, BiDiLevel biDiLevel, string scriptTag)
+    parameters:
+    - id: text
+      type: System.ReadOnlySpan{System.Char}
+    - id: face
+      type: Etch.Text.Shape.FontFace
+    - id: biDiLevel
+      type: Etch.Text.Shape.BiDiLevel
+    - id: scriptTag
+      type: System.String
+    content.vb: Public Sub New(text As ReadOnlySpan(Of Char), face As FontFace, biDiLevel As BiDiLevel, scriptTag As String)
+  overload: Etch.Text.Shape.ShapeRequest.#ctor*
+  nameWithType.vb: ShapeRequest.New(ReadOnlySpan(Of Char), FontFace, BiDiLevel, String)
+  fullName.vb: Etch.Text.Shape.ShapeRequest.New(System.ReadOnlySpan(Of Char), Etch.Text.Shape.FontFace, Etch.Text.Shape.BiDiLevel, String)
+  name.vb: New(ReadOnlySpan(Of Char), FontFace, BiDiLevel, String)
+references:
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  href: Etch.html
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Shape.ShapeRequest.Text*
+  commentId: Overload:Etch.Text.Shape.ShapeRequest.Text
+  href: Etch.Text.Shape.ShapeRequest.html#Etch_Text_Shape_ShapeRequest_Text
+  name: Text
+  nameWithType: ShapeRequest.Text
+  fullName: Etch.Text.Shape.ShapeRequest.Text
+- uid: System.ReadOnlySpan{System.Char}
+  commentId: T:System.ReadOnlySpan{System.Char}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<char>
+  nameWithType: ReadOnlySpan<char>
+  fullName: System.ReadOnlySpan<char>
+  nameWithType.vb: ReadOnlySpan(Of Char)
+  fullName.vb: System.ReadOnlySpan(Of Char)
+  name.vb: ReadOnlySpan(Of Char)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Text.Shape.ShapeRequest.Face*
+  commentId: Overload:Etch.Text.Shape.ShapeRequest.Face
+  href: Etch.Text.Shape.ShapeRequest.html#Etch_Text_Shape_ShapeRequest_Face
+  name: Face
+  nameWithType: ShapeRequest.Face
+  fullName: Etch.Text.Shape.ShapeRequest.Face
+- uid: Etch.Text.Shape.FontFace
+  commentId: T:Etch.Text.Shape.FontFace
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.FontFace.html
+  name: FontFace
+  nameWithType: FontFace
+  fullName: Etch.Text.Shape.FontFace
+- uid: Etch.Text.Shape.ShapeRequest.BiDiLevel*
+  commentId: Overload:Etch.Text.Shape.ShapeRequest.BiDiLevel
+  href: Etch.Text.Shape.ShapeRequest.html#Etch_Text_Shape_ShapeRequest_BiDiLevel
+  name: BiDiLevel
+  nameWithType: ShapeRequest.BiDiLevel
+  fullName: Etch.Text.Shape.ShapeRequest.BiDiLevel
+- uid: Etch.Text.Shape.BiDiLevel
+  commentId: T:Etch.Text.Shape.BiDiLevel
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.BiDiLevel.html
+  name: BiDiLevel
+  nameWithType: BiDiLevel
+  fullName: Etch.Text.Shape.BiDiLevel
+- uid: Etch.Text.Shape.ShapeRequest.ScriptTag*
+  commentId: Overload:Etch.Text.Shape.ShapeRequest.ScriptTag
+  href: Etch.Text.Shape.ShapeRequest.html#Etch_Text_Shape_ShapeRequest_ScriptTag
+  name: ScriptTag
+  nameWithType: ShapeRequest.ScriptTag
+  fullName: Etch.Text.Shape.ShapeRequest.ScriptTag
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Text.Shape.ShapeRequest.#ctor*
+  commentId: Overload:Etch.Text.Shape.ShapeRequest.#ctor
+  href: Etch.Text.Shape.ShapeRequest.html#Etch_Text_Shape_ShapeRequest__ctor_System_ReadOnlySpan_System_Char__Etch_Text_Shape_FontFace_Etch_Text_Shape_BiDiLevel_System_String_
+  name: ShapeRequest
+  nameWithType: ShapeRequest.ShapeRequest
+  fullName: Etch.Text.Shape.ShapeRequest.ShapeRequest
+  nameWithType.vb: ShapeRequest.New
+  fullName.vb: Etch.Text.Shape.ShapeRequest.New
+  name.vb: New

@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects
+  commentId: N:Etch.Effects
+  id: Etch.Effects
+  children:
+  - Etch.Effects.StagingBufferUploader
+  langs:
+  - csharp
+  - vb
+  name: Etch.Effects
+  nameWithType: Etch.Effects
+  fullName: Etch.Effects
+  type: Namespace
+  assemblies:
+  - Etch.Effects
+references:
+- uid: Etch.Effects.StagingBufferUploader
+  commentId: T:Etch.Effects.StagingBufferUploader
+  parent: Etch.Effects
+  href: Etch.Effects.StagingBufferUploader.html
+  name: StagingBufferUploader
+  nameWithType: StagingBufferUploader
+  fullName: Etch.Effects.StagingBufferUploader
+- uid: Etch.Effects
+  commentId: N:Etch.Effects
+  href: Etch.html
+  name: Etch.Effects
+  nameWithType: Etch.Effects
+  fullName: Etch.Effects
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html

@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Image.ImageExtend
+  commentId: T:Etch.Effects.Image.ImageExtend
+  id: ImageExtend
+  parent: Etch.Effects.Image
+  children:
+  - Etch.Effects.Image.ImageExtend.Clamp
+  - Etch.Effects.Image.ImageExtend.Mirror
+  - Etch.Effects.Image.ImageExtend.Pad
+  - Etch.Effects.Image.ImageExtend.Repeat
+  langs:
+  - csharp
+  - vb
+  name: ImageExtend
+  nameWithType: ImageExtend
+  fullName: Etch.Effects.Image.ImageExtend
+  type: Enum
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: 'public enum ImageExtend : uint'
+    content.vb: Public Enum ImageExtend As UInteger
+- uid: Etch.Effects.Image.ImageExtend.Clamp
+  commentId: F:Etch.Effects.Image.ImageExtend.Clamp
+  id: Clamp
+  parent: Etch.Effects.Image.ImageExtend
+  langs:
+  - csharp
+  - vb
+  name: Clamp
+  nameWithType: ImageExtend.Clamp
+  fullName: Etch.Effects.Image.ImageExtend.Clamp
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Clamp = 0
+    return:
+      type: Etch.Effects.Image.ImageExtend
+- uid: Etch.Effects.Image.ImageExtend.Repeat
+  commentId: F:Etch.Effects.Image.ImageExtend.Repeat
+  id: Repeat
+  parent: Etch.Effects.Image.ImageExtend
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: ImageExtend.Repeat
+  fullName: Etch.Effects.Image.ImageExtend.Repeat
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Repeat = 1
+    return:
+      type: Etch.Effects.Image.ImageExtend
+- uid: Etch.Effects.Image.ImageExtend.Mirror
+  commentId: F:Etch.Effects.Image.ImageExtend.Mirror
+  id: Mirror
+  parent: Etch.Effects.Image.ImageExtend
+  langs:
+  - csharp
+  - vb
+  name: Mirror
+  nameWithType: ImageExtend.Mirror
+  fullName: Etch.Effects.Image.ImageExtend.Mirror
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Mirror = 2
+    return:
+      type: Etch.Effects.Image.ImageExtend
+- uid: Etch.Effects.Image.ImageExtend.Pad
+  commentId: F:Etch.Effects.Image.ImageExtend.Pad
+  id: Pad
+  parent: Etch.Effects.Image.ImageExtend
+  langs:
+  - csharp
+  - vb
+  name: Pad
+  nameWithType: ImageExtend.Pad
+  fullName: Etch.Effects.Image.ImageExtend.Pad
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Image
+  syntax:
+    content: Pad = 3
+    return:
+      type: Etch.Effects.Image.ImageExtend
+references:
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  href: Etch.html
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+- uid: Etch.Effects.Image.ImageExtend
+  commentId: T:Etch.Effects.Image.ImageExtend
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageExtend.html
+  name: ImageExtend
+  nameWithType: ImageExtend
+  fullName: Etch.Effects.Image.ImageExtend

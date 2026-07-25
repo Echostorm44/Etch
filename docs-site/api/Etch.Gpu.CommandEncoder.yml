@@ -1,0 +1,694 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.CommandEncoder
+  commentId: T:Etch.Gpu.CommandEncoder
+  id: CommandEncoder
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.CommandEncoder.#ctor(Etch.Gpu.Native.CommandEncoderHandle)
+  - Etch.Gpu.CommandEncoder.BeginRenderPass(Etch.Gpu.Descriptors.RenderPassDescriptor)
+  - Etch.Gpu.CommandEncoder.CopyTextureToBuffer(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Buffer,Etch.Gpu.Native.WGPUTexelCopyBufferLayout,Etch.Gpu.Descriptors.Extent3D)
+  - Etch.Gpu.CommandEncoder.CopyTextureToTexture(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Descriptors.Extent3D)
+  - Etch.Gpu.CommandEncoder.Dispose
+  - Etch.Gpu.CommandEncoder.Finish
+  - Etch.Gpu.CommandEncoder.Handle
+  - Etch.Gpu.CommandEncoder.IsInvalid
+  langs:
+  - csharp
+  - vb
+  name: CommandEncoder
+  nameWithType: CommandEncoder
+  fullName: Etch.Gpu.CommandEncoder
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public readonly struct CommandEncoder : IDisposable'
+    content.vb: Public Structure CommandEncoder Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.CommandEncoder.#ctor(Etch.Gpu.Native.CommandEncoderHandle)
+  commentId: M:Etch.Gpu.CommandEncoder.#ctor(Etch.Gpu.Native.CommandEncoderHandle)
+  id: '#ctor(Etch.Gpu.Native.CommandEncoderHandle)'
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: CommandEncoder(CommandEncoderHandle)
+  nameWithType: CommandEncoder.CommandEncoder(CommandEncoderHandle)
+  fullName: Etch.Gpu.CommandEncoder.CommandEncoder(Etch.Gpu.Native.CommandEncoderHandle)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public CommandEncoder(CommandEncoderHandle handle)
+    parameters:
+    - id: handle
+      type: Etch.Gpu.Native.CommandEncoderHandle
+    content.vb: Public Sub New(handle As CommandEncoderHandle)
+  overload: Etch.Gpu.CommandEncoder.#ctor*
+  nameWithType.vb: CommandEncoder.New(CommandEncoderHandle)
+  fullName.vb: Etch.Gpu.CommandEncoder.New(Etch.Gpu.Native.CommandEncoderHandle)
+  name.vb: New(CommandEncoderHandle)
+- uid: Etch.Gpu.CommandEncoder.Handle
+  commentId: P:Etch.Gpu.CommandEncoder.Handle
+  id: Handle
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: CommandEncoder.Handle
+  fullName: Etch.Gpu.CommandEncoder.Handle
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public CommandEncoderHandle Handle { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Native.CommandEncoderHandle
+    content.vb: Public ReadOnly Property Handle As CommandEncoderHandle
+  overload: Etch.Gpu.CommandEncoder.Handle*
+- uid: Etch.Gpu.CommandEncoder.IsInvalid
+  commentId: P:Etch.Gpu.CommandEncoder.IsInvalid
+  id: IsInvalid
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: CommandEncoder.IsInvalid
+  fullName: Etch.Gpu.CommandEncoder.IsInvalid
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInvalid As Boolean
+  overload: Etch.Gpu.CommandEncoder.IsInvalid*
+- uid: Etch.Gpu.CommandEncoder.Dispose
+  commentId: M:Etch.Gpu.CommandEncoder.Dispose
+  id: Dispose
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: CommandEncoder.Dispose()
+  fullName: Etch.Gpu.CommandEncoder.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.CommandEncoder.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Etch.Gpu.CommandEncoder.Finish
+  commentId: M:Etch.Gpu.CommandEncoder.Finish
+  id: Finish
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: Finish()
+  nameWithType: CommandEncoder.Finish()
+  fullName: Etch.Gpu.CommandEncoder.Finish()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public CommandBuffer Finish()
+    return:
+      type: Etch.Gpu.CommandBuffer
+    content.vb: Public Function Finish() As CommandBuffer
+  overload: Etch.Gpu.CommandEncoder.Finish*
+- uid: Etch.Gpu.CommandEncoder.BeginRenderPass(Etch.Gpu.Descriptors.RenderPassDescriptor)
+  commentId: M:Etch.Gpu.CommandEncoder.BeginRenderPass(Etch.Gpu.Descriptors.RenderPassDescriptor)
+  id: BeginRenderPass(Etch.Gpu.Descriptors.RenderPassDescriptor)
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: BeginRenderPass(RenderPassDescriptor)
+  nameWithType: CommandEncoder.BeginRenderPass(RenderPassDescriptor)
+  fullName: Etch.Gpu.CommandEncoder.BeginRenderPass(Etch.Gpu.Descriptors.RenderPassDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public RenderPass BeginRenderPass(RenderPassDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.RenderPassDescriptor
+    return:
+      type: Etch.Gpu.RenderPass
+    content.vb: Public Function BeginRenderPass(descriptor As RenderPassDescriptor) As RenderPass
+  overload: Etch.Gpu.CommandEncoder.BeginRenderPass*
+- uid: Etch.Gpu.CommandEncoder.CopyTextureToTexture(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Descriptors.Extent3D)
+  commentId: M:Etch.Gpu.CommandEncoder.CopyTextureToTexture(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Descriptors.Extent3D)
+  id: CopyTextureToTexture(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Descriptors.Extent3D)
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: CopyTextureToTexture(Texture, uint, WGPUOrigin3D, Texture, uint, WGPUOrigin3D, Extent3D)
+  nameWithType: CommandEncoder.CopyTextureToTexture(Texture, uint, WGPUOrigin3D, Texture, uint, WGPUOrigin3D, Extent3D)
+  fullName: Etch.Gpu.CommandEncoder.CopyTextureToTexture(Etch.Gpu.Texture, uint, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Texture, uint, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Descriptors.Extent3D)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void CopyTextureToTexture(Texture source, uint srcMipLevel, WGPUOrigin3D srcOrigin, Texture destination, uint dstMipLevel, WGPUOrigin3D dstOrigin, Extent3D copySize)
+    parameters:
+    - id: source
+      type: Etch.Gpu.Texture
+    - id: srcMipLevel
+      type: System.UInt32
+    - id: srcOrigin
+      type: Etch.Gpu.Native.WGPUOrigin3D
+    - id: destination
+      type: Etch.Gpu.Texture
+    - id: dstMipLevel
+      type: System.UInt32
+    - id: dstOrigin
+      type: Etch.Gpu.Native.WGPUOrigin3D
+    - id: copySize
+      type: Etch.Gpu.Descriptors.Extent3D
+    content.vb: Public Sub CopyTextureToTexture(source As Texture, srcMipLevel As UInteger, srcOrigin As WGPUOrigin3D, destination As Texture, dstMipLevel As UInteger, dstOrigin As WGPUOrigin3D, copySize As Extent3D)
+  overload: Etch.Gpu.CommandEncoder.CopyTextureToTexture*
+  nameWithType.vb: CommandEncoder.CopyTextureToTexture(Texture, UInteger, WGPUOrigin3D, Texture, UInteger, WGPUOrigin3D, Extent3D)
+  fullName.vb: Etch.Gpu.CommandEncoder.CopyTextureToTexture(Etch.Gpu.Texture, UInteger, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Texture, UInteger, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Descriptors.Extent3D)
+  name.vb: CopyTextureToTexture(Texture, UInteger, WGPUOrigin3D, Texture, UInteger, WGPUOrigin3D, Extent3D)
+- uid: Etch.Gpu.CommandEncoder.CopyTextureToBuffer(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Buffer,Etch.Gpu.Native.WGPUTexelCopyBufferLayout,Etch.Gpu.Descriptors.Extent3D)
+  commentId: M:Etch.Gpu.CommandEncoder.CopyTextureToBuffer(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Buffer,Etch.Gpu.Native.WGPUTexelCopyBufferLayout,Etch.Gpu.Descriptors.Extent3D)
+  id: CopyTextureToBuffer(Etch.Gpu.Texture,System.UInt32,Etch.Gpu.Native.WGPUOrigin3D,Etch.Gpu.Buffer,Etch.Gpu.Native.WGPUTexelCopyBufferLayout,Etch.Gpu.Descriptors.Extent3D)
+  parent: Etch.Gpu.CommandEncoder
+  langs:
+  - csharp
+  - vb
+  name: CopyTextureToBuffer(Texture, uint, WGPUOrigin3D, Buffer, WGPUTexelCopyBufferLayout, Extent3D)
+  nameWithType: CommandEncoder.CopyTextureToBuffer(Texture, uint, WGPUOrigin3D, Buffer, WGPUTexelCopyBufferLayout, Extent3D)
+  fullName: Etch.Gpu.CommandEncoder.CopyTextureToBuffer(Etch.Gpu.Texture, uint, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Buffer, Etch.Gpu.Native.WGPUTexelCopyBufferLayout, Etch.Gpu.Descriptors.Extent3D)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void CopyTextureToBuffer(Texture source, uint srcMipLevel, WGPUOrigin3D srcOrigin, Buffer destination, WGPUTexelCopyBufferLayout layout, Extent3D copySize)
+    parameters:
+    - id: source
+      type: Etch.Gpu.Texture
+    - id: srcMipLevel
+      type: System.UInt32
+    - id: srcOrigin
+      type: Etch.Gpu.Native.WGPUOrigin3D
+    - id: destination
+      type: Etch.Gpu.Buffer
+    - id: layout
+      type: Etch.Gpu.Native.WGPUTexelCopyBufferLayout
+    - id: copySize
+      type: Etch.Gpu.Descriptors.Extent3D
+    content.vb: Public Sub CopyTextureToBuffer(source As Texture, srcMipLevel As UInteger, srcOrigin As WGPUOrigin3D, destination As Buffer, layout As WGPUTexelCopyBufferLayout, copySize As Extent3D)
+  overload: Etch.Gpu.CommandEncoder.CopyTextureToBuffer*
+  nameWithType.vb: CommandEncoder.CopyTextureToBuffer(Texture, UInteger, WGPUOrigin3D, Buffer, WGPUTexelCopyBufferLayout, Extent3D)
+  fullName.vb: Etch.Gpu.CommandEncoder.CopyTextureToBuffer(Etch.Gpu.Texture, UInteger, Etch.Gpu.Native.WGPUOrigin3D, Etch.Gpu.Buffer, Etch.Gpu.Native.WGPUTexelCopyBufferLayout, Etch.Gpu.Descriptors.Extent3D)
+  name.vb: CopyTextureToBuffer(Texture, UInteger, WGPUOrigin3D, Buffer, WGPUTexelCopyBufferLayout, Extent3D)
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Gpu.CommandEncoder.#ctor*
+  commentId: Overload:Etch.Gpu.CommandEncoder.#ctor
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder__ctor_Etch_Gpu_Native_CommandEncoderHandle_
+  name: CommandEncoder
+  nameWithType: CommandEncoder.CommandEncoder
+  fullName: Etch.Gpu.CommandEncoder.CommandEncoder
+  nameWithType.vb: CommandEncoder.New
+  fullName.vb: Etch.Gpu.CommandEncoder.New
+  name.vb: New
+- uid: Etch.Gpu.Native.CommandEncoderHandle
+  commentId: T:Etch.Gpu.Native.CommandEncoderHandle
+  parent: Etch.Gpu.Native
+  name: CommandEncoderHandle
+  nameWithType: CommandEncoderHandle
+  fullName: Etch.Gpu.Native.CommandEncoderHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.CommandEncoder.Handle*
+  commentId: Overload:Etch.Gpu.CommandEncoder.Handle
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_Handle
+  name: Handle
+  nameWithType: CommandEncoder.Handle
+  fullName: Etch.Gpu.CommandEncoder.Handle
+- uid: Etch.Gpu.CommandEncoder.IsInvalid*
+  commentId: Overload:Etch.Gpu.CommandEncoder.IsInvalid
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_IsInvalid
+  name: IsInvalid
+  nameWithType: CommandEncoder.IsInvalid
+  fullName: Etch.Gpu.CommandEncoder.IsInvalid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Gpu.CommandEncoder.Dispose*
+  commentId: Overload:Etch.Gpu.CommandEncoder.Dispose
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_Dispose
+  name: Dispose
+  nameWithType: CommandEncoder.Dispose
+  fullName: Etch.Gpu.CommandEncoder.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Etch.Gpu.CommandEncoder.Finish*
+  commentId: Overload:Etch.Gpu.CommandEncoder.Finish
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_Finish
+  name: Finish
+  nameWithType: CommandEncoder.Finish
+  fullName: Etch.Gpu.CommandEncoder.Finish
+- uid: Etch.Gpu.CommandBuffer
+  commentId: T:Etch.Gpu.CommandBuffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.CommandBuffer.html
+  name: CommandBuffer
+  nameWithType: CommandBuffer
+  fullName: Etch.Gpu.CommandBuffer
+- uid: Etch.Gpu.CommandEncoder.BeginRenderPass*
+  commentId: Overload:Etch.Gpu.CommandEncoder.BeginRenderPass
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_BeginRenderPass_Etch_Gpu_Descriptors_RenderPassDescriptor_
+  name: BeginRenderPass
+  nameWithType: CommandEncoder.BeginRenderPass
+  fullName: Etch.Gpu.CommandEncoder.BeginRenderPass
+- uid: Etch.Gpu.Descriptors.RenderPassDescriptor
+  commentId: T:Etch.Gpu.Descriptors.RenderPassDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.RenderPassDescriptor.html
+  name: RenderPassDescriptor
+  nameWithType: RenderPassDescriptor
+  fullName: Etch.Gpu.Descriptors.RenderPassDescriptor
+- uid: Etch.Gpu.RenderPass
+  commentId: T:Etch.Gpu.RenderPass
+  parent: Etch.Gpu
+  href: Etch.Gpu.RenderPass.html
+  name: RenderPass
+  nameWithType: RenderPass
+  fullName: Etch.Gpu.RenderPass
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: Etch.Gpu.CommandEncoder.CopyTextureToTexture*
+  commentId: Overload:Etch.Gpu.CommandEncoder.CopyTextureToTexture
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_CopyTextureToTexture_Etch_Gpu_Texture_System_UInt32_Etch_Gpu_Native_WGPUOrigin3D_Etch_Gpu_Texture_System_UInt32_Etch_Gpu_Native_WGPUOrigin3D_Etch_Gpu_Descriptors_Extent3D_
+  name: CopyTextureToTexture
+  nameWithType: CommandEncoder.CopyTextureToTexture
+  fullName: Etch.Gpu.CommandEncoder.CopyTextureToTexture
+- uid: Etch.Gpu.Texture
+  commentId: T:Etch.Gpu.Texture
+  parent: Etch.Gpu
+  href: Etch.Gpu.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: Etch.Gpu.Texture
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Gpu.Native.WGPUOrigin3D
+  commentId: T:Etch.Gpu.Native.WGPUOrigin3D
+  parent: Etch.Gpu.Native
+  name: WGPUOrigin3D
+  nameWithType: WGPUOrigin3D
+  fullName: Etch.Gpu.Native.WGPUOrigin3D
+- uid: Etch.Gpu.Descriptors.Extent3D
+  commentId: T:Etch.Gpu.Descriptors.Extent3D
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.Extent3D.html
+  name: Extent3D
+  nameWithType: Extent3D
+  fullName: Etch.Gpu.Descriptors.Extent3D
+- uid: Etch.Gpu.CommandEncoder.CopyTextureToBuffer*
+  commentId: Overload:Etch.Gpu.CommandEncoder.CopyTextureToBuffer
+  href: Etch.Gpu.CommandEncoder.html#Etch_Gpu_CommandEncoder_CopyTextureToBuffer_Etch_Gpu_Texture_System_UInt32_Etch_Gpu_Native_WGPUOrigin3D_Etch_Gpu_Buffer_Etch_Gpu_Native_WGPUTexelCopyBufferLayout_Etch_Gpu_Descriptors_Extent3D_
+  name: CopyTextureToBuffer
+  nameWithType: CommandEncoder.CopyTextureToBuffer
+  fullName: Etch.Gpu.CommandEncoder.CopyTextureToBuffer
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.Buffer.html
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+- uid: Etch.Gpu.Native.WGPUTexelCopyBufferLayout
+  commentId: T:Etch.Gpu.Native.WGPUTexelCopyBufferLayout
+  parent: Etch.Gpu.Native
+  name: WGPUTexelCopyBufferLayout
+  nameWithType: WGPUTexelCopyBufferLayout
+  fullName: Etch.Gpu.Native.WGPUTexelCopyBufferLayout

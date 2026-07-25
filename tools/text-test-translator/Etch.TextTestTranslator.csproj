@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.TextTestTranslator</RootNamespace>
+    <AssemblyName>Etch.TextTestTranslator</AssemblyName>
+    <Description>text-rendering.org HTML-to-Scene translator for COR-005</Description>
+    <NoWarn>$(NoWarn);CS1591;CA1515;CA1062;CA1303;CA1307;CA1308;CA1031;CA1849;ET0105;IDE0055;CA1802;CA1707</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
+  </ItemGroup>
+</Project>

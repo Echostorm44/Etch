@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Etch.Geometry.Oracle</RootNamespace>
+    <AssemblyName>Etch.Geometry.Oracle</AssemblyName>
+    <Description>Kurbo differential oracle — test only, not shipped</Description>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>$(NoWarn);CS1591;CA1815;CA1707;CA1062;CA5392;CA1515</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="runtimes/**/native/*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>runtimes/%(RecursiveDir)native/%(Filename)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+</Project>

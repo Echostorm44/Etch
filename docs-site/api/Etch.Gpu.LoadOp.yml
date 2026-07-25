@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.LoadOp
+  commentId: T:Etch.Gpu.LoadOp
+  id: LoadOp
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.LoadOp.Clear
+  - Etch.Gpu.LoadOp.Load
+  - Etch.Gpu.LoadOp.Undefined
+  langs:
+  - csharp
+  - vb
+  name: LoadOp
+  nameWithType: LoadOp
+  fullName: Etch.Gpu.LoadOp
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum LoadOp : uint'
+    content.vb: Public Enum LoadOp As UInteger
+- uid: Etch.Gpu.LoadOp.Undefined
+  commentId: F:Etch.Gpu.LoadOp.Undefined
+  id: Undefined
+  parent: Etch.Gpu.LoadOp
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: LoadOp.Undefined
+  fullName: Etch.Gpu.LoadOp.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.LoadOp
+- uid: Etch.Gpu.LoadOp.Load
+  commentId: F:Etch.Gpu.LoadOp.Load
+  id: Load
+  parent: Etch.Gpu.LoadOp
+  langs:
+  - csharp
+  - vb
+  name: Load
+  nameWithType: LoadOp.Load
+  fullName: Etch.Gpu.LoadOp.Load
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Load = 1
+    return:
+      type: Etch.Gpu.LoadOp
+- uid: Etch.Gpu.LoadOp.Clear
+  commentId: F:Etch.Gpu.LoadOp.Clear
+  id: Clear
+  parent: Etch.Gpu.LoadOp
+  langs:
+  - csharp
+  - vb
+  name: Clear
+  nameWithType: LoadOp.Clear
+  fullName: Etch.Gpu.LoadOp.Clear
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Clear = 2
+    return:
+      type: Etch.Gpu.LoadOp
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.LoadOp
+  commentId: T:Etch.Gpu.LoadOp
+  parent: Etch.Gpu
+  href: Etch.Gpu.LoadOp.html
+  name: LoadOp
+  nameWithType: LoadOp
+  fullName: Etch.Gpu.LoadOp

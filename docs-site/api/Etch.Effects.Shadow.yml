@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Shadow
+  commentId: N:Etch.Effects.Shadow
+  id: Etch.Effects.Shadow
+  children:
+  - Etch.Effects.Shadow.DropShadow
+  - Etch.Effects.Shadow.DropShadowRenderer
+  - Etch.Effects.Shadow.ShadowParams
+  langs:
+  - csharp
+  - vb
+  name: Etch.Effects.Shadow
+  nameWithType: Etch.Effects.Shadow
+  fullName: Etch.Effects.Shadow
+  type: Namespace
+  assemblies:
+  - Etch.Effects
+references:
+- uid: Etch.Effects.Shadow.DropShadow
+  commentId: T:Etch.Effects.Shadow.DropShadow
+  href: Etch.Effects.Shadow.DropShadow.html
+  name: DropShadow
+  nameWithType: DropShadow
+  fullName: Etch.Effects.Shadow.DropShadow
+- uid: Etch.Effects.Shadow.DropShadowRenderer
+  commentId: T:Etch.Effects.Shadow.DropShadowRenderer
+  href: Etch.Effects.Shadow.DropShadowRenderer.html
+  name: DropShadowRenderer
+  nameWithType: DropShadowRenderer
+  fullName: Etch.Effects.Shadow.DropShadowRenderer
+- uid: Etch.Effects.Shadow.ShadowParams
+  commentId: T:Etch.Effects.Shadow.ShadowParams
+  parent: Etch.Effects.Shadow
+  href: Etch.Effects.Shadow.ShadowParams.html
+  name: ShadowParams
+  nameWithType: ShadowParams
+  fullName: Etch.Effects.Shadow.ShadowParams
+- uid: Etch.Effects.Shadow
+  commentId: N:Etch.Effects.Shadow
+  href: Etch.html
+  name: Etch.Effects.Shadow
+  nameWithType: Etch.Effects.Shadow
+  fullName: Etch.Effects.Shadow
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Shadow
+    name: Shadow
+    href: Etch.Effects.Shadow.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Shadow
+    name: Shadow
+    href: Etch.Effects.Shadow.html

@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.IndexFormat
+  commentId: T:Etch.Gpu.IndexFormat
+  id: IndexFormat
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.IndexFormat.Uint16
+  - Etch.Gpu.IndexFormat.Uint32
+  - Etch.Gpu.IndexFormat.Undefined
+  langs:
+  - csharp
+  - vb
+  name: IndexFormat
+  nameWithType: IndexFormat
+  fullName: Etch.Gpu.IndexFormat
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum IndexFormat : uint'
+    content.vb: Public Enum IndexFormat As UInteger
+- uid: Etch.Gpu.IndexFormat.Undefined
+  commentId: F:Etch.Gpu.IndexFormat.Undefined
+  id: Undefined
+  parent: Etch.Gpu.IndexFormat
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: IndexFormat.Undefined
+  fullName: Etch.Gpu.IndexFormat.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.IndexFormat
+- uid: Etch.Gpu.IndexFormat.Uint16
+  commentId: F:Etch.Gpu.IndexFormat.Uint16
+  id: Uint16
+  parent: Etch.Gpu.IndexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint16
+  nameWithType: IndexFormat.Uint16
+  fullName: Etch.Gpu.IndexFormat.Uint16
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint16 = 1
+    return:
+      type: Etch.Gpu.IndexFormat
+- uid: Etch.Gpu.IndexFormat.Uint32
+  commentId: F:Etch.Gpu.IndexFormat.Uint32
+  id: Uint32
+  parent: Etch.Gpu.IndexFormat
+  langs:
+  - csharp
+  - vb
+  name: Uint32
+  nameWithType: IndexFormat.Uint32
+  fullName: Etch.Gpu.IndexFormat.Uint32
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Uint32 = 2
+    return:
+      type: Etch.Gpu.IndexFormat
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.IndexFormat
+  commentId: T:Etch.Gpu.IndexFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.IndexFormat.html
+  name: IndexFormat
+  nameWithType: IndexFormat
+  fullName: Etch.Gpu.IndexFormat

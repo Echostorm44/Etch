@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.ImagePipeline
+  commentId: T:Etch.Gpu.Pipelines.ImagePipeline
+  id: ImagePipeline
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.ImagePipeline.#ctor(Etch.Gpu.Device)
+  - Etch.Gpu.Pipelines.ImagePipeline.Dispose
+  - Etch.Gpu.Pipelines.ImagePipeline.Record(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single})
+  - Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize(System.Single,System.Single)
+  - Etch.Gpu.Pipelines.ImagePipeline.SetTransform(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: ImagePipeline
+  nameWithType: ImagePipeline
+  fullName: Etch.Gpu.Pipelines.ImagePipeline
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public sealed class ImagePipeline : IDisposable'
+    content.vb: Public NotInheritable Class ImagePipeline Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.Pipelines.ImagePipeline.#ctor(Etch.Gpu.Device)
+  commentId: M:Etch.Gpu.Pipelines.ImagePipeline.#ctor(Etch.Gpu.Device)
+  id: '#ctor(Etch.Gpu.Device)'
+  parent: Etch.Gpu.Pipelines.ImagePipeline
+  langs:
+  - csharp
+  - vb
+  name: ImagePipeline(Device)
+  nameWithType: ImagePipeline.ImagePipeline(Device)
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.ImagePipeline(Etch.Gpu.Device)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public ImagePipeline(Device device)
+    parameters:
+    - id: device
+      type: Etch.Gpu.Device
+    content.vb: Public Sub New(device As Device)
+  overload: Etch.Gpu.Pipelines.ImagePipeline.#ctor*
+  nameWithType.vb: ImagePipeline.New(Device)
+  fullName.vb: Etch.Gpu.Pipelines.ImagePipeline.New(Etch.Gpu.Device)
+  name.vb: New(Device)
+- uid: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize(System.Single,System.Single)
+  commentId: M:Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize(System.Single,System.Single)
+  id: SetSurfaceSize(System.Single,System.Single)
+  parent: Etch.Gpu.Pipelines.ImagePipeline
+  langs:
+  - csharp
+  - vb
+  name: SetSurfaceSize(float, float)
+  nameWithType: ImagePipeline.SetSurfaceSize(float, float)
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize(float, float)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void SetSurfaceSize(float width, float height)
+    parameters:
+    - id: width
+      type: System.Single
+    - id: height
+      type: System.Single
+    content.vb: Public Sub SetSurfaceSize(width As Single, height As Single)
+  overload: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize*
+  nameWithType.vb: ImagePipeline.SetSurfaceSize(Single, Single)
+  fullName.vb: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize(Single, Single)
+  name.vb: SetSurfaceSize(Single, Single)
+- uid: Etch.Gpu.Pipelines.ImagePipeline.SetTransform(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Etch.Gpu.Pipelines.ImagePipeline.SetTransform(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: SetTransform(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  parent: Etch.Gpu.Pipelines.ImagePipeline
+  langs:
+  - csharp
+  - vb
+  name: SetTransform(float, float, float, float, float, float, float, float, float)
+  nameWithType: ImagePipeline.SetTransform(float, float, float, float, float, float, float, float, float)
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.SetTransform(float, float, float, float, float, float, float, float, float)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void SetTransform(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22)
+    parameters:
+    - id: m00
+      type: System.Single
+    - id: m01
+      type: System.Single
+    - id: m02
+      type: System.Single
+    - id: m10
+      type: System.Single
+    - id: m11
+      type: System.Single
+    - id: m12
+      type: System.Single
+    - id: m20
+      type: System.Single
+    - id: m21
+      type: System.Single
+    - id: m22
+      type: System.Single
+    content.vb: Public Sub SetTransform(m00 As Single, m01 As Single, m02 As Single, m10 As Single, m11 As Single, m12 As Single, m20 As Single, m21 As Single, m22 As Single)
+  overload: Etch.Gpu.Pipelines.ImagePipeline.SetTransform*
+  nameWithType.vb: ImagePipeline.SetTransform(Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  fullName.vb: Etch.Gpu.Pipelines.ImagePipeline.SetTransform(Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  name.vb: SetTransform(Single, Single, Single, Single, Single, Single, Single, Single, Single)
+- uid: Etch.Gpu.Pipelines.ImagePipeline.Record(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single})
+  commentId: M:Etch.Gpu.Pipelines.ImagePipeline.Record(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single})
+  id: Record(Etch.Gpu.CommandEncoder,Etch.Gpu.TextureView,System.ReadOnlySpan{System.Single})
+  parent: Etch.Gpu.Pipelines.ImagePipeline
+  langs:
+  - csharp
+  - vb
+  name: Record(CommandEncoder, TextureView, ReadOnlySpan<float>)
+  nameWithType: ImagePipeline.Record(CommandEncoder, TextureView, ReadOnlySpan<float>)
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.Record(Etch.Gpu.CommandEncoder, Etch.Gpu.TextureView, System.ReadOnlySpan<float>)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void Record(CommandEncoder encoder, TextureView renderTarget, ReadOnlySpan<float> quadVerticesXY)
+    parameters:
+    - id: encoder
+      type: Etch.Gpu.CommandEncoder
+    - id: renderTarget
+      type: Etch.Gpu.TextureView
+    - id: quadVerticesXY
+      type: System.ReadOnlySpan{System.Single}
+    content.vb: Public Sub Record(encoder As CommandEncoder, renderTarget As TextureView, quadVerticesXY As ReadOnlySpan(Of Single))
+  overload: Etch.Gpu.Pipelines.ImagePipeline.Record*
+  nameWithType.vb: ImagePipeline.Record(CommandEncoder, TextureView, ReadOnlySpan(Of Single))
+  fullName.vb: Etch.Gpu.Pipelines.ImagePipeline.Record(Etch.Gpu.CommandEncoder, Etch.Gpu.TextureView, System.ReadOnlySpan(Of Single))
+  name.vb: Record(CommandEncoder, TextureView, ReadOnlySpan(Of Single))
+- uid: Etch.Gpu.Pipelines.ImagePipeline.Dispose
+  commentId: M:Etch.Gpu.Pipelines.ImagePipeline.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Pipelines.ImagePipeline
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ImagePipeline.Dispose()
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Pipelines.ImagePipeline.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Pipelines.ImagePipeline.#ctor*
+  commentId: Overload:Etch.Gpu.Pipelines.ImagePipeline.#ctor
+  href: Etch.Gpu.Pipelines.ImagePipeline.html#Etch_Gpu_Pipelines_ImagePipeline__ctor_Etch_Gpu_Device_
+  name: ImagePipeline
+  nameWithType: ImagePipeline.ImagePipeline
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.ImagePipeline
+  nameWithType.vb: ImagePipeline.New
+  fullName.vb: Etch.Gpu.Pipelines.ImagePipeline.New
+  name.vb: New
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  parent: Etch.Gpu
+  href: Etch.Gpu.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize*
+  commentId: Overload:Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize
+  href: Etch.Gpu.Pipelines.ImagePipeline.html#Etch_Gpu_Pipelines_ImagePipeline_SetSurfaceSize_System_Single_System_Single_
+  name: SetSurfaceSize
+  nameWithType: ImagePipeline.SetSurfaceSize
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.SetSurfaceSize
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Gpu.Pipelines.ImagePipeline.SetTransform*
+  commentId: Overload:Etch.Gpu.Pipelines.ImagePipeline.SetTransform
+  href: Etch.Gpu.Pipelines.ImagePipeline.html#Etch_Gpu_Pipelines_ImagePipeline_SetTransform_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
+  name: SetTransform
+  nameWithType: ImagePipeline.SetTransform
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.SetTransform
+- uid: Etch.Gpu.Pipelines.ImagePipeline.Record*
+  commentId: Overload:Etch.Gpu.Pipelines.ImagePipeline.Record
+  href: Etch.Gpu.Pipelines.ImagePipeline.html#Etch_Gpu_Pipelines_ImagePipeline_Record_Etch_Gpu_CommandEncoder_Etch_Gpu_TextureView_System_ReadOnlySpan_System_Single__
+  name: Record
+  nameWithType: ImagePipeline.Record
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.Record
+- uid: Etch.Gpu.CommandEncoder
+  commentId: T:Etch.Gpu.CommandEncoder
+  parent: Etch.Gpu
+  href: Etch.Gpu.CommandEncoder.html
+  name: CommandEncoder
+  nameWithType: CommandEncoder
+  fullName: Etch.Gpu.CommandEncoder
+- uid: Etch.Gpu.TextureView
+  commentId: T:Etch.Gpu.TextureView
+  parent: Etch.Gpu
+  href: Etch.Gpu.TextureView.html
+  name: TextureView
+  nameWithType: TextureView
+  fullName: Etch.Gpu.TextureView
+- uid: System.ReadOnlySpan{System.Single}
+  commentId: T:System.ReadOnlySpan{System.Single}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<float>
+  nameWithType: ReadOnlySpan<float>
+  fullName: System.ReadOnlySpan<float>
+  nameWithType.vb: ReadOnlySpan(Of Single)
+  fullName.vb: System.ReadOnlySpan(Of Single)
+  name.vb: ReadOnlySpan(Of Single)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Pipelines.ImagePipeline.Dispose*
+  commentId: Overload:Etch.Gpu.Pipelines.ImagePipeline.Dispose
+  href: Etch.Gpu.Pipelines.ImagePipeline.html#Etch_Gpu_Pipelines_ImagePipeline_Dispose
+  name: Dispose
+  nameWithType: ImagePipeline.Dispose
+  fullName: Etch.Gpu.Pipelines.ImagePipeline.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

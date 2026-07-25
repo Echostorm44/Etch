@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  id: Etch.Effects.Image
+  children:
+  - Etch.Effects.Image.ImageBrush
+  - Etch.Effects.Image.ImageDecodeOptions
+  - Etch.Effects.Image.ImageExtend
+  - Etch.Effects.Image.ImageFilter
+  - Etch.Effects.Image.ImageFormat
+  - Etch.Effects.Image.ImageSource
+  - Etch.Effects.Image.MipmapBuilder
+  - Etch.Effects.Image.MitchellNetravali
+  langs:
+  - csharp
+  - vb
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  type: Namespace
+  assemblies:
+  - Etch.Effects
+references:
+- uid: Etch.Effects.Image.ImageFilter
+  commentId: T:Etch.Effects.Image.ImageFilter
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageFilter.html
+  name: ImageFilter
+  nameWithType: ImageFilter
+  fullName: Etch.Effects.Image.ImageFilter
+- uid: Etch.Effects.Image.ImageExtend
+  commentId: T:Etch.Effects.Image.ImageExtend
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageExtend.html
+  name: ImageExtend
+  nameWithType: ImageExtend
+  fullName: Etch.Effects.Image.ImageExtend
+- uid: Etch.Effects.Image.ImageBrush
+  commentId: T:Etch.Effects.Image.ImageBrush
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageBrush.html
+  name: ImageBrush
+  nameWithType: ImageBrush
+  fullName: Etch.Effects.Image.ImageBrush
+- uid: Etch.Effects.Image.ImageDecodeOptions
+  commentId: T:Etch.Effects.Image.ImageDecodeOptions
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageDecodeOptions.html
+  name: ImageDecodeOptions
+  nameWithType: ImageDecodeOptions
+  fullName: Etch.Effects.Image.ImageDecodeOptions
+- uid: Etch.Effects.Image.ImageFormat
+  commentId: T:Etch.Effects.Image.ImageFormat
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageFormat.html
+  name: ImageFormat
+  nameWithType: ImageFormat
+  fullName: Etch.Effects.Image.ImageFormat
+- uid: Etch.Effects.Image.ImageSource
+  commentId: T:Etch.Effects.Image.ImageSource
+  parent: Etch.Effects.Image
+  href: Etch.Effects.Image.ImageSource.html
+  name: ImageSource
+  nameWithType: ImageSource
+  fullName: Etch.Effects.Image.ImageSource
+- uid: Etch.Effects.Image.MipmapBuilder
+  commentId: T:Etch.Effects.Image.MipmapBuilder
+  href: Etch.Effects.Image.MipmapBuilder.html
+  name: MipmapBuilder
+  nameWithType: MipmapBuilder
+  fullName: Etch.Effects.Image.MipmapBuilder
+- uid: Etch.Effects.Image.MitchellNetravali
+  commentId: T:Etch.Effects.Image.MitchellNetravali
+  href: Etch.Effects.Image.MitchellNetravali.html
+  name: MitchellNetravali
+  nameWithType: MitchellNetravali
+  fullName: Etch.Effects.Image.MitchellNetravali
+- uid: Etch.Effects.Image
+  commentId: N:Etch.Effects.Image
+  href: Etch.html
+  name: Etch.Effects.Image
+  nameWithType: Etch.Effects.Image
+  fullName: Etch.Effects.Image
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Image
+    name: Image
+    href: Etch.Effects.Image.html

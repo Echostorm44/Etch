@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Surfaces
+  commentId: N:Etch.Gpu.Surfaces
+  id: Etch.Gpu.Surfaces
+  children:
+  - Etch.Gpu.Surfaces.SurfaceDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.Surfaces
+  nameWithType: Etch.Gpu.Surfaces
+  fullName: Etch.Gpu.Surfaces
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.Surfaces.SurfaceDescriptor
+  commentId: T:Etch.Gpu.Surfaces.SurfaceDescriptor
+  href: Etch.Gpu.Surfaces.SurfaceDescriptor.html
+  name: SurfaceDescriptor
+  nameWithType: SurfaceDescriptor
+  fullName: Etch.Gpu.Surfaces.SurfaceDescriptor

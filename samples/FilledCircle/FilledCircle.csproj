@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>FilledCircle</AssemblyName>
+    <Description>Filled circle sample — aliased solid-red circle via Etch scene API (M2 gate)</Description>
+    <PublishAot>true</PublishAot>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>$(NoWarn);CA1303;CA1852;CA2007;CA1849;ET0105;CA5392;CS4004;CA1515;CA1815;IDE0055;CA1416;CA1806;CA5394;CA1031</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu.Native\Etch.Gpu.Native.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+  </ItemGroup>
+  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+    <Copy SourceFiles="..\..\native\wgpu-native\win-x64\lib\wgpu_native.dll"
+          DestinationFiles="$(OutDir)wgpu_native.dll"
+          Condition="'$(RuntimeIdentifier)' != ''" />
+  </Target>
+</Project>

@@ -1,0 +1,202 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  commentId: T:Etch.Gpu.SurfaceGetCurrentTextureStatus
+  id: SurfaceGetCurrentTextureStatus
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.DeviceLost
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.Error
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.Lost
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.OutOfMemory
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.Outdated
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessOptimal
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessSuboptimal
+  - Etch.Gpu.SurfaceGetCurrentTextureStatus.Timeout
+  langs:
+  - csharp
+  - vb
+  name: SurfaceGetCurrentTextureStatus
+  nameWithType: SurfaceGetCurrentTextureStatus
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum SurfaceGetCurrentTextureStatus : uint'
+    content.vb: Public Enum SurfaceGetCurrentTextureStatus As UInteger
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessOptimal
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessOptimal
+  id: SuccessOptimal
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: SuccessOptimal
+  nameWithType: SurfaceGetCurrentTextureStatus.SuccessOptimal
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessOptimal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: SuccessOptimal = 1
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessSuboptimal
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessSuboptimal
+  id: SuccessSuboptimal
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: SuccessSuboptimal
+  nameWithType: SurfaceGetCurrentTextureStatus.SuccessSuboptimal
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.SuccessSuboptimal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: SuccessSuboptimal = 2
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.Timeout
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.Timeout
+  id: Timeout
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: Timeout
+  nameWithType: SurfaceGetCurrentTextureStatus.Timeout
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.Timeout
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Timeout = 3
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.Outdated
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.Outdated
+  id: Outdated
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: Outdated
+  nameWithType: SurfaceGetCurrentTextureStatus.Outdated
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.Outdated
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Outdated = 4
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.Lost
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.Lost
+  id: Lost
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: Lost
+  nameWithType: SurfaceGetCurrentTextureStatus.Lost
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.Lost
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Lost = 5
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.OutOfMemory
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.OutOfMemory
+  id: OutOfMemory
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: OutOfMemory
+  nameWithType: SurfaceGetCurrentTextureStatus.OutOfMemory
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.OutOfMemory
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OutOfMemory = 6
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.DeviceLost
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.DeviceLost
+  id: DeviceLost
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: DeviceLost
+  nameWithType: SurfaceGetCurrentTextureStatus.DeviceLost
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.DeviceLost
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DeviceLost = 7
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus.Error
+  commentId: F:Etch.Gpu.SurfaceGetCurrentTextureStatus.Error
+  id: Error
+  parent: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: SurfaceGetCurrentTextureStatus.Error
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus.Error
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Error = 8
+    return:
+      type: Etch.Gpu.SurfaceGetCurrentTextureStatus
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.SurfaceGetCurrentTextureStatus
+  commentId: T:Etch.Gpu.SurfaceGetCurrentTextureStatus
+  parent: Etch.Gpu
+  href: Etch.Gpu.SurfaceGetCurrentTextureStatus.html
+  name: SurfaceGetCurrentTextureStatus
+  nameWithType: SurfaceGetCurrentTextureStatus
+  fullName: Etch.Gpu.SurfaceGetCurrentTextureStatus

@@ -1,0 +1,638 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  commentId: T:Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  id: GlyphAtlasPipeline
+  parent: Etch.Gpu.Pipelines
+  children:
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor(Etch.Gpu.Device)
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline(Etch.Gpu.Pipelines.SubpixelMode)
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize(System.Single,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: GlyphAtlasPipeline
+  nameWithType: GlyphAtlasPipeline
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  type: Class
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: 'public sealed class GlyphAtlasPipeline : IDisposable'
+    content.vb: Public NotInheritable Class GlyphAtlasPipeline Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor(Etch.Gpu.Device)
+  commentId: M:Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor(Etch.Gpu.Device)
+  id: '#ctor(Etch.Gpu.Device)'
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: GlyphAtlasPipeline(Device)
+  nameWithType: GlyphAtlasPipeline.GlyphAtlasPipeline(Device)
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GlyphAtlasPipeline(Etch.Gpu.Device)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public GlyphAtlasPipeline(Device device)
+    parameters:
+    - id: device
+      type: Etch.Gpu.Device
+    content.vb: Public Sub New(device As Device)
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor*
+  nameWithType.vb: GlyphAtlasPipeline.New(Device)
+  fullName.vb: Etch.Gpu.Pipelines.GlyphAtlasPipeline.New(Etch.Gpu.Device)
+  name.vb: New(Device)
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline(Etch.Gpu.Pipelines.SubpixelMode)
+  commentId: M:Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline(Etch.Gpu.Pipelines.SubpixelMode)
+  id: GetPipeline(Etch.Gpu.Pipelines.SubpixelMode)
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: GetPipeline(SubpixelMode)
+  nameWithType: GlyphAtlasPipeline.GetPipeline(SubpixelMode)
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline(Etch.Gpu.Pipelines.SubpixelMode)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public RenderPipeline GetPipeline(SubpixelMode mode)
+    parameters:
+    - id: mode
+      type: Etch.Gpu.Pipelines.SubpixelMode
+    return:
+      type: Etch.Gpu.RenderPipeline
+    content.vb: Public Function GetPipeline(mode As SubpixelMode) As RenderPipeline
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline*
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize(System.Single,System.Single)
+  commentId: M:Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize(System.Single,System.Single)
+  id: SetSurfaceSize(System.Single,System.Single)
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: SetSurfaceSize(float, float)
+  nameWithType: GlyphAtlasPipeline.SetSurfaceSize(float, float)
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize(float, float)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void SetSurfaceSize(float width, float height)
+    parameters:
+    - id: width
+      type: System.Single
+    - id: height
+      type: System.Single
+    content.vb: Public Sub SetSurfaceSize(width As Single, height As Single)
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize*
+  nameWithType.vb: GlyphAtlasPipeline.SetSurfaceSize(Single, Single)
+  fullName.vb: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize(Single, Single)
+  name.vb: SetSurfaceSize(Single, Single)
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: SetPerDraw(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: SetPerDraw(float, float, float, float, float, float, float, float, float, float, float, float, float)
+  nameWithType: GlyphAtlasPipeline.SetPerDraw(float, float, float, float, float, float, float, float, float, float, float, float, float)
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw(float, float, float, float, float, float, float, float, float, float, float, float, float)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public void SetPerDraw(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22, float r, float g, float b, float a)
+    parameters:
+    - id: m00
+      type: System.Single
+    - id: m01
+      type: System.Single
+    - id: m02
+      type: System.Single
+    - id: m10
+      type: System.Single
+    - id: m11
+      type: System.Single
+    - id: m12
+      type: System.Single
+    - id: m20
+      type: System.Single
+    - id: m21
+      type: System.Single
+    - id: m22
+      type: System.Single
+    - id: r
+      type: System.Single
+    - id: g
+      type: System.Single
+    - id: b
+      type: System.Single
+    - id: a
+      type: System.Single
+    content.vb: Public Sub SetPerDraw(m00 As Single, m01 As Single, m02 As Single, m10 As Single, m11 As Single, m12 As Single, m20 As Single, m21 As Single, m22 As Single, r As Single, g As Single, b As Single, a As Single)
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw*
+  nameWithType.vb: GlyphAtlasPipeline.SetPerDraw(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  fullName.vb: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  name.vb: SetPerDraw(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+  commentId: P:Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+  id: PerFrameBuffer
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: PerFrameBuffer
+  nameWithType: GlyphAtlasPipeline.PerFrameBuffer
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public Buffer PerFrameBuffer { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Buffer
+    content.vb: Public ReadOnly Property PerFrameBuffer As Buffer
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer*
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+  commentId: P:Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+  id: PerDrawBuffer
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: PerDrawBuffer
+  nameWithType: GlyphAtlasPipeline.PerDrawBuffer
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public Buffer PerDrawBuffer { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Buffer
+    content.vb: Public ReadOnly Property PerDrawBuffer As Buffer
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer*
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+  commentId: P:Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+  id: Layout
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: Layout
+  nameWithType: GlyphAtlasPipeline.Layout
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  syntax:
+    content: public PipelineLayout Layout { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.PipelineLayout
+    content.vb: Public ReadOnly Property Layout As PipelineLayout
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout*
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose
+  commentId: M:Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Pipelines.GlyphAtlasPipeline
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: GlyphAtlasPipeline.Dispose()
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Pipelines
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Etch.Gpu.Pipelines
+  commentId: N:Etch.Gpu.Pipelines
+  href: Etch.html
+  name: Etch.Gpu.Pipelines
+  nameWithType: Etch.Gpu.Pipelines
+  fullName: Etch.Gpu.Pipelines
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Pipelines
+    name: Pipelines
+    href: Etch.Gpu.Pipelines.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.#ctor
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline__ctor_Etch_Gpu_Device_
+  name: GlyphAtlasPipeline
+  nameWithType: GlyphAtlasPipeline.GlyphAtlasPipeline
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GlyphAtlasPipeline
+  nameWithType.vb: GlyphAtlasPipeline.New
+  fullName.vb: Etch.Gpu.Pipelines.GlyphAtlasPipeline.New
+  name.vb: New
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  parent: Etch.Gpu
+  href: Etch.Gpu.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_GetPipeline_Etch_Gpu_Pipelines_SubpixelMode_
+  name: GetPipeline
+  nameWithType: GlyphAtlasPipeline.GetPipeline
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.GetPipeline
+- uid: Etch.Gpu.Pipelines.SubpixelMode
+  commentId: T:Etch.Gpu.Pipelines.SubpixelMode
+  parent: Etch.Gpu.Pipelines
+  href: Etch.Gpu.Pipelines.SubpixelMode.html
+  name: SubpixelMode
+  nameWithType: SubpixelMode
+  fullName: Etch.Gpu.Pipelines.SubpixelMode
+- uid: Etch.Gpu.RenderPipeline
+  commentId: T:Etch.Gpu.RenderPipeline
+  parent: Etch.Gpu
+  href: Etch.Gpu.RenderPipeline.html
+  name: RenderPipeline
+  nameWithType: RenderPipeline
+  fullName: Etch.Gpu.RenderPipeline
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_SetSurfaceSize_System_Single_System_Single_
+  name: SetSurfaceSize
+  nameWithType: GlyphAtlasPipeline.SetSurfaceSize
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetSurfaceSize
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_SetPerDraw_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
+  name: SetPerDraw
+  nameWithType: GlyphAtlasPipeline.SetPerDraw
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.SetPerDraw
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_PerFrameBuffer
+  name: PerFrameBuffer
+  nameWithType: GlyphAtlasPipeline.PerFrameBuffer
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerFrameBuffer
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.Buffer.html
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_PerDrawBuffer
+  name: PerDrawBuffer
+  nameWithType: GlyphAtlasPipeline.PerDrawBuffer
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.PerDrawBuffer
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_Layout
+  name: Layout
+  nameWithType: GlyphAtlasPipeline.Layout
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Layout
+- uid: Etch.Gpu.PipelineLayout
+  commentId: T:Etch.Gpu.PipelineLayout
+  parent: Etch.Gpu
+  href: Etch.Gpu.PipelineLayout.html
+  name: PipelineLayout
+  nameWithType: PipelineLayout
+  fullName: Etch.Gpu.PipelineLayout
+- uid: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose*
+  commentId: Overload:Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose
+  href: Etch.Gpu.Pipelines.GlyphAtlasPipeline.html#Etch_Gpu_Pipelines_GlyphAtlasPipeline_Dispose
+  name: Dispose
+  nameWithType: GlyphAtlasPipeline.Dispose
+  fullName: Etch.Gpu.Pipelines.GlyphAtlasPipeline.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

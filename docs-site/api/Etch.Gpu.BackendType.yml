@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.BackendType
+  commentId: T:Etch.Gpu.BackendType
+  id: BackendType
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.BackendType.D3D11
+  - Etch.Gpu.BackendType.D3D12
+  - Etch.Gpu.BackendType.Metal
+  - Etch.Gpu.BackendType.Null
+  - Etch.Gpu.BackendType.OpenGL
+  - Etch.Gpu.BackendType.OpenGLES
+  - Etch.Gpu.BackendType.Undefined
+  - Etch.Gpu.BackendType.Vulkan
+  - Etch.Gpu.BackendType.WebGPU
+  langs:
+  - csharp
+  - vb
+  name: BackendType
+  nameWithType: BackendType
+  fullName: Etch.Gpu.BackendType
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum BackendType : uint'
+    content.vb: Public Enum BackendType As UInteger
+- uid: Etch.Gpu.BackendType.Undefined
+  commentId: F:Etch.Gpu.BackendType.Undefined
+  id: Undefined
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: BackendType.Undefined
+  fullName: Etch.Gpu.BackendType.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.Null
+  commentId: F:Etch.Gpu.BackendType.Null
+  id: "Null"
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: BackendType.Null
+  fullName: Etch.Gpu.BackendType.Null
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Null = 1
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.WebGPU
+  commentId: F:Etch.Gpu.BackendType.WebGPU
+  id: WebGPU
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: WebGPU
+  nameWithType: BackendType.WebGPU
+  fullName: Etch.Gpu.BackendType.WebGPU
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: WebGPU = 2
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.D3D11
+  commentId: F:Etch.Gpu.BackendType.D3D11
+  id: D3D11
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: D3D11
+  nameWithType: BackendType.D3D11
+  fullName: Etch.Gpu.BackendType.D3D11
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D3D11 = 3
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.D3D12
+  commentId: F:Etch.Gpu.BackendType.D3D12
+  id: D3D12
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: D3D12
+  nameWithType: BackendType.D3D12
+  fullName: Etch.Gpu.BackendType.D3D12
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: D3D12 = 4
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.Metal
+  commentId: F:Etch.Gpu.BackendType.Metal
+  id: Metal
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: Metal
+  nameWithType: BackendType.Metal
+  fullName: Etch.Gpu.BackendType.Metal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Metal = 5
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.Vulkan
+  commentId: F:Etch.Gpu.BackendType.Vulkan
+  id: Vulkan
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: Vulkan
+  nameWithType: BackendType.Vulkan
+  fullName: Etch.Gpu.BackendType.Vulkan
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Vulkan = 6
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.OpenGL
+  commentId: F:Etch.Gpu.BackendType.OpenGL
+  id: OpenGL
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: OpenGL
+  nameWithType: BackendType.OpenGL
+  fullName: Etch.Gpu.BackendType.OpenGL
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OpenGL = 7
+    return:
+      type: Etch.Gpu.BackendType
+- uid: Etch.Gpu.BackendType.OpenGLES
+  commentId: F:Etch.Gpu.BackendType.OpenGLES
+  id: OpenGLES
+  parent: Etch.Gpu.BackendType
+  langs:
+  - csharp
+  - vb
+  name: OpenGLES
+  nameWithType: BackendType.OpenGLES
+  fullName: Etch.Gpu.BackendType.OpenGLES
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: OpenGLES = 8
+    return:
+      type: Etch.Gpu.BackendType
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.BackendType
+  commentId: T:Etch.Gpu.BackendType
+  parent: Etch.Gpu
+  href: Etch.Gpu.BackendType.html
+  name: BackendType
+  nameWithType: BackendType
+  fullName: Etch.Gpu.BackendType

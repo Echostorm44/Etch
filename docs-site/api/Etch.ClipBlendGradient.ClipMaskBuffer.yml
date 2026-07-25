@@ -1,0 +1,748 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer
+  commentId: T:Etch.ClipBlendGradient.ClipMaskBuffer
+  id: ClipMaskBuffer
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.ClipMaskBuffer.#ctor(Etch.ClipBlendGradient.ClipStrip[],System.Int32[],System.Byte[],System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+  - Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip(Etch.ClipBlendGradient.ClipStrip@)
+  - Etch.ClipBlendGradient.ClipMaskBuffer.Popcount(System.UInt16)
+  - Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile(System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+  - Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+  - Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile(System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+  langs:
+  - csharp
+  - vb
+  name: ClipMaskBuffer
+  nameWithType: ClipMaskBuffer
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer
+  type: Class
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public sealed class ClipMaskBuffer
+    content.vb: Public NotInheritable Class ClipMaskBuffer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.#ctor(Etch.ClipBlendGradient.ClipStrip[],System.Int32[],System.Byte[],System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuffer.#ctor(Etch.ClipBlendGradient.ClipStrip[],System.Int32[],System.Byte[],System.Int32)
+  id: '#ctor(Etch.ClipBlendGradient.ClipStrip[],System.Int32[],System.Byte[],System.Int32)'
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: ClipMaskBuffer(ClipStrip[], int[], byte[], int)
+  nameWithType: ClipMaskBuffer.ClipMaskBuffer(ClipStrip[], int[], byte[], int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.ClipMaskBuffer(Etch.ClipBlendGradient.ClipStrip[], int[], byte[], int)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ClipMaskBuffer(ClipStrip[] strips, int[] tileOffsets, byte[] coverageBytes, int tileCount)
+    parameters:
+    - id: strips
+      type: Etch.ClipBlendGradient.ClipStrip[]
+    - id: tileOffsets
+      type: System.Int32[]
+    - id: coverageBytes
+      type: System.Byte[]
+    - id: tileCount
+      type: System.Int32
+    content.vb: Public Sub New(strips As ClipStrip(), tileOffsets As Integer(), coverageBytes As Byte(), tileCount As Integer)
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.#ctor*
+  nameWithType.vb: ClipMaskBuffer.New(ClipStrip(), Integer(), Byte(), Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.New(Etch.ClipBlendGradient.ClipStrip(), Integer(), Byte(), Integer)
+  name.vb: New(ClipStrip(), Integer(), Byte(), Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+  commentId: P:Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+  id: TileCount
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: TileCount
+  nameWithType: ClipMaskBuffer.TileCount
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public int TileCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TileCount As Integer
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.TileCount*
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+  commentId: P:Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+  id: StripCount
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: StripCount
+  nameWithType: ClipMaskBuffer.StripCount
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public int StripCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property StripCount As Integer
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.StripCount*
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+  commentId: P:Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+  id: Strips
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: Strips
+  nameWithType: ClipMaskBuffer.Strips
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ReadOnlySpan<ClipStrip> Strips { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{Etch.ClipBlendGradient.ClipStrip}
+    content.vb: Public ReadOnly Property Strips As ReadOnlySpan(Of ClipStrip)
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.Strips*
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+  commentId: P:Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+  id: CoverageBytes
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: CoverageBytes
+  nameWithType: ClipMaskBuffer.CoverageBytes
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+  type: Property
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ReadOnlySpan<byte> CoverageBytes { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public ReadOnly Property CoverageBytes As ReadOnlySpan(Of Byte)
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes*
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile(System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile(System.Int32)
+  id: StripsForTile(System.Int32)
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: StripsForTile(int)
+  nameWithType: ClipMaskBuffer.StripsForTile(int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile(int)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ReadOnlySpan<ClipStrip> StripsForTile(int tileIndex)
+    parameters:
+    - id: tileIndex
+      type: System.Int32
+    return:
+      type: System.ReadOnlySpan{Etch.ClipBlendGradient.ClipStrip}
+    content.vb: Public Function StripsForTile(tileIndex As Integer) As ReadOnlySpan(Of ClipStrip)
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile*
+  nameWithType.vb: ClipMaskBuffer.StripsForTile(Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile(Integer)
+  name.vb: StripsForTile(Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile(System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile(System.Int32)
+  id: RangeForTile(System.Int32)
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: RangeForTile(int)
+  nameWithType: ClipMaskBuffer.RangeForTile(int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile(int)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ClipStripRange RangeForTile(int tileIndex)
+    parameters:
+    - id: tileIndex
+      type: System.Int32
+    return:
+      type: Etch.ClipBlendGradient.ClipStripRange
+    content.vb: Public Function RangeForTile(tileIndex As Integer) As ClipStripRange
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile*
+  nameWithType.vb: ClipMaskBuffer.RangeForTile(Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile(Integer)
+  name.vb: RangeForTile(Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip(Etch.ClipBlendGradient.ClipStrip@)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip(Etch.ClipBlendGradient.ClipStrip@)
+  id: CoverageForStrip(Etch.ClipBlendGradient.ClipStrip@)
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: CoverageForStrip(in ClipStrip)
+  nameWithType: ClipMaskBuffer.CoverageForStrip(in ClipStrip)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip(in Etch.ClipBlendGradient.ClipStrip)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ReadOnlySpan<byte> CoverageForStrip(in ClipStrip strip)
+    parameters:
+    - id: strip
+      type: Etch.ClipBlendGradient.ClipStrip
+    return:
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Function CoverageForStrip(strip As ClipStrip) As ReadOnlySpan(Of Byte)
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip*
+  nameWithType.vb: ClipMaskBuffer.CoverageForStrip(ClipStrip)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip(Etch.ClipBlendGradient.ClipStrip)
+  name.vb: CoverageForStrip(ClipStrip)
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount(System.UInt16)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuffer.Popcount(System.UInt16)
+  id: Popcount(System.UInt16)
+  parent: Etch.ClipBlendGradient.ClipMaskBuffer
+  langs:
+  - csharp
+  - vb
+  name: Popcount(ushort)
+  nameWithType: ClipMaskBuffer.Popcount(ushort)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount(ushort)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public static int Popcount(ushort value)
+    parameters:
+    - id: value
+      type: System.UInt16
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Popcount(value As UShort) As Integer
+  overload: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount*
+  nameWithType.vb: ClipMaskBuffer.Popcount(UShort)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount(UShort)
+  name.vb: Popcount(UShort)
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.#ctor*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.#ctor
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer__ctor_Etch_ClipBlendGradient_ClipStrip___System_Int32___System_Byte___System_Int32_
+  name: ClipMaskBuffer
+  nameWithType: ClipMaskBuffer.ClipMaskBuffer
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.ClipMaskBuffer
+  nameWithType.vb: ClipMaskBuffer.New
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuffer.New
+  name.vb: New
+- uid: Etch.ClipBlendGradient.ClipStrip[]
+  isExternal: true
+  href: Etch.ClipBlendGradient.ClipStrip.html
+  name: ClipStrip[]
+  nameWithType: ClipStrip[]
+  fullName: Etch.ClipBlendGradient.ClipStrip[]
+  nameWithType.vb: ClipStrip()
+  fullName.vb: Etch.ClipBlendGradient.ClipStrip()
+  name.vb: ClipStrip()
+  spec.csharp:
+  - uid: Etch.ClipBlendGradient.ClipStrip
+    name: ClipStrip
+    href: Etch.ClipBlendGradient.ClipStrip.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.ClipBlendGradient.ClipStrip
+    name: ClipStrip
+    href: Etch.ClipBlendGradient.ClipStrip.html
+  - name: (
+  - name: )
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.TileCount*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_TileCount
+  name: TileCount
+  nameWithType: ClipMaskBuffer.TileCount
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.TileCount
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.StripCount*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_StripCount
+  name: StripCount
+  nameWithType: ClipMaskBuffer.StripCount
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.StripCount
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.Strips*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_Strips
+  name: Strips
+  nameWithType: ClipMaskBuffer.Strips
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.Strips
+- uid: System.ReadOnlySpan{Etch.ClipBlendGradient.ClipStrip}
+  commentId: T:System.ReadOnlySpan{Etch.ClipBlendGradient.ClipStrip}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<ClipStrip>
+  nameWithType: ReadOnlySpan<ClipStrip>
+  fullName: System.ReadOnlySpan<Etch.ClipBlendGradient.ClipStrip>
+  nameWithType.vb: ReadOnlySpan(Of ClipStrip)
+  fullName.vb: System.ReadOnlySpan(Of Etch.ClipBlendGradient.ClipStrip)
+  name.vb: ReadOnlySpan(Of ClipStrip)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: Etch.ClipBlendGradient.ClipStrip
+    name: ClipStrip
+    href: Etch.ClipBlendGradient.ClipStrip.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.ClipBlendGradient.ClipStrip
+    name: ClipStrip
+    href: Etch.ClipBlendGradient.ClipStrip.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_CoverageBytes
+  name: CoverageBytes
+  nameWithType: ClipMaskBuffer.CoverageBytes
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageBytes
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_StripsForTile_System_Int32_
+  name: StripsForTile
+  nameWithType: ClipMaskBuffer.StripsForTile
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.StripsForTile
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_RangeForTile_System_Int32_
+  name: RangeForTile
+  nameWithType: ClipMaskBuffer.RangeForTile
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.RangeForTile
+- uid: Etch.ClipBlendGradient.ClipStripRange
+  commentId: T:Etch.ClipBlendGradient.ClipStripRange
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.ClipStripRange.html
+  name: ClipStripRange
+  nameWithType: ClipStripRange
+  fullName: Etch.ClipBlendGradient.ClipStripRange
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_CoverageForStrip_Etch_ClipBlendGradient_ClipStrip__
+  name: CoverageForStrip
+  nameWithType: ClipMaskBuffer.CoverageForStrip
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.CoverageForStrip
+- uid: Etch.ClipBlendGradient.ClipStrip
+  commentId: T:Etch.ClipBlendGradient.ClipStrip
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.ClipStrip.html
+  name: ClipStrip
+  nameWithType: ClipStrip
+  fullName: Etch.ClipBlendGradient.ClipStrip
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuffer.Popcount
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html#Etch_ClipBlendGradient_ClipMaskBuffer_Popcount_System_UInt16_
+  name: Popcount
+  nameWithType: ClipMaskBuffer.Popcount
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer.Popcount
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort

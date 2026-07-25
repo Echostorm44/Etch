@@ -1,0 +1,21 @@
+# SVG 1.1 test suite ignore list
+# Format: <test-name-or-pattern>  <rationale>
+
+# Unsupported features (v1)
+*arc*               SVG arc commands (A/a) not supported in BezPath
+*text*              Text rendering requires full HarfBuzz/ICU pipeline (TXT-001..014)
+*tspan*             Text rendering requires full HarfBuzz/ICU pipeline
+*image*             Image element decoding deferred to EFF-001
+*filter*            SVG filter primitives beyond blur/shadow are v2
+*mask*              Masking not in v1 scene surface
+*clipPath*          Clip paths partially supported; complex clip tests skipped
+*pattern*           Pattern fills not in v1 scene surface
+*marker*            Marker symbols not in v1 scene surface
+*symbol*            Symbol/use requires resource resolution deferred
+*animate*           SMIL animation never in scope
+
+# Stroke features with partial support
+*dasharray*         Scene.StrokePath does not yet expose dash pattern
+
+# Reference capture pending
+*chromium-ref*      Reference PNGs not yet captured from Chromium

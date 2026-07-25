@@ -1,0 +1,1126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneBuilder
+  commentId: T:Etch.Scene.SceneBuilder
+  id: SceneBuilder
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneBuilder.AddGradientStops(Etch.Scene.GradientStops)
+  - Etch.Scene.SceneBuilder.AddPaint(Etch.Scene.Paint)
+  - Etch.Scene.SceneBuilder.AddPath(Etch.Geometry.BezPath)
+  - Etch.Scene.SceneBuilder.AddTransform(Etch.Geometry.Affine)
+  - Etch.Scene.SceneBuilder.Begin(System.Int32)
+  - Etch.Scene.SceneBuilder.BeginFrame
+  - Etch.Scene.SceneBuilder.Dispose
+  - Etch.Scene.SceneBuilder.DrawGlyphRun(System.Int32,System.Int32,System.Int32)
+  - Etch.Scene.SceneBuilder.DrawImage(System.Int32,System.Int32,System.Int32)
+  - Etch.Scene.SceneBuilder.DrawShadow(System.Int32,System.Int32,System.Int32,Etch.Geometry.Vec2,System.Single,System.UInt32)
+  - Etch.Scene.SceneBuilder.End
+  - Etch.Scene.SceneBuilder.EndFrame
+  - Etch.Scene.SceneBuilder.FillPath(System.Int32,System.Int32,System.Int32,Etch.Scene.FillRule)
+  - Etch.Scene.SceneBuilder.FillRect(Etch.Geometry.Rect,System.Int32,System.Int32)
+  - Etch.Scene.SceneBuilder.PopClip
+  - Etch.Scene.SceneBuilder.PopLayer
+  - Etch.Scene.SceneBuilder.PushClip(System.Int32,Etch.Scene.FillRule,Etch.Scene.ClipMode)
+  - Etch.Scene.SceneBuilder.PushLayer(Etch.Geometry.Rect,System.Single,Etch.Scene.BlendMode,Etch.Scene.LayerFlags)
+  - Etch.Scene.SceneBuilder.SetBlendMode(Etch.Scene.BlendMode)
+  - Etch.Scene.SceneBuilder.SetTransform(System.Int32)
+  - Etch.Scene.SceneBuilder.StrokePath(System.Int32,System.Int32,System.Int32,System.Single,Etch.Scene.StrokeStyle)
+  langs:
+  - csharp
+  - vb
+  name: SceneBuilder
+  nameWithType: SceneBuilder
+  fullName: Etch.Scene.SceneBuilder
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  summary: >-
+    A ref-struct builder for constructing <xref href="Etch.Scene.SceneBuffer" data-throw-if-not-resolved="false"></xref> instances.
+
+    Uses <xref href="System.Buffers.ArrayPool%601" data-throw-if-not-resolved="false"></xref> internally for zero-allocation
+
+    warm paths. Must be disposed after <xref href="Etch.Scene.SceneBuilder.End" data-throw-if-not-resolved="false"></xref> or on error.
+  example: []
+  syntax:
+    content: public ref struct SceneBuilder
+    content.vb: Public Structure SceneBuilder
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.SceneBuilder.Begin(System.Int32)
+  commentId: M:Etch.Scene.SceneBuilder.Begin(System.Int32)
+  id: Begin(System.Int32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: Begin(int)
+  nameWithType: SceneBuilder.Begin(int)
+  fullName: Etch.Scene.SceneBuilder.Begin(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  summary: Starts a new scene builder with the given command capacity.
+  example: []
+  syntax:
+    content: public static SceneBuilder Begin(int estimatedCommands = 256)
+    parameters:
+    - id: estimatedCommands
+      type: System.Int32
+    return:
+      type: Etch.Scene.SceneBuilder
+    content.vb: Public Shared Function Begin(estimatedCommands As Integer = 256) As SceneBuilder
+  overload: Etch.Scene.SceneBuilder.Begin*
+  nameWithType.vb: SceneBuilder.Begin(Integer)
+  fullName.vb: Etch.Scene.SceneBuilder.Begin(Integer)
+  name.vb: Begin(Integer)
+- uid: Etch.Scene.SceneBuilder.BeginFrame
+  commentId: M:Etch.Scene.SceneBuilder.BeginFrame
+  id: BeginFrame
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: BeginFrame()
+  nameWithType: SceneBuilder.BeginFrame()
+  fullName: Etch.Scene.SceneBuilder.BeginFrame()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void BeginFrame()
+    content.vb: Public Sub BeginFrame()
+  overload: Etch.Scene.SceneBuilder.BeginFrame*
+- uid: Etch.Scene.SceneBuilder.EndFrame
+  commentId: M:Etch.Scene.SceneBuilder.EndFrame
+  id: EndFrame
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: EndFrame()
+  nameWithType: SceneBuilder.EndFrame()
+  fullName: Etch.Scene.SceneBuilder.EndFrame()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void EndFrame()
+    content.vb: Public Sub EndFrame()
+  overload: Etch.Scene.SceneBuilder.EndFrame*
+- uid: Etch.Scene.SceneBuilder.AddPath(Etch.Geometry.BezPath)
+  commentId: M:Etch.Scene.SceneBuilder.AddPath(Etch.Geometry.BezPath)
+  id: AddPath(Etch.Geometry.BezPath)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddPath(BezPath)
+  nameWithType: SceneBuilder.AddPath(BezPath)
+  fullName: Etch.Scene.SceneBuilder.AddPath(Etch.Geometry.BezPath)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int AddPath(BezPath path)
+    parameters:
+    - id: path
+      type: Etch.Geometry.BezPath
+    return:
+      type: System.Int32
+    content.vb: Public Function AddPath(path As BezPath) As Integer
+  overload: Etch.Scene.SceneBuilder.AddPath*
+- uid: Etch.Scene.SceneBuilder.AddPaint(Etch.Scene.Paint)
+  commentId: M:Etch.Scene.SceneBuilder.AddPaint(Etch.Scene.Paint)
+  id: AddPaint(Etch.Scene.Paint)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddPaint(Paint)
+  nameWithType: SceneBuilder.AddPaint(Paint)
+  fullName: Etch.Scene.SceneBuilder.AddPaint(Etch.Scene.Paint)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int AddPaint(Paint paint)
+    parameters:
+    - id: paint
+      type: Etch.Scene.Paint
+    return:
+      type: System.Int32
+    content.vb: Public Function AddPaint(paint As Paint) As Integer
+  overload: Etch.Scene.SceneBuilder.AddPaint*
+- uid: Etch.Scene.SceneBuilder.AddTransform(Etch.Geometry.Affine)
+  commentId: M:Etch.Scene.SceneBuilder.AddTransform(Etch.Geometry.Affine)
+  id: AddTransform(Etch.Geometry.Affine)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddTransform(Affine)
+  nameWithType: SceneBuilder.AddTransform(Affine)
+  fullName: Etch.Scene.SceneBuilder.AddTransform(Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int AddTransform(Affine transform)
+    parameters:
+    - id: transform
+      type: Etch.Geometry.Affine
+    return:
+      type: System.Int32
+    content.vb: Public Function AddTransform(transform As Affine) As Integer
+  overload: Etch.Scene.SceneBuilder.AddTransform*
+- uid: Etch.Scene.SceneBuilder.AddGradientStops(Etch.Scene.GradientStops)
+  commentId: M:Etch.Scene.SceneBuilder.AddGradientStops(Etch.Scene.GradientStops)
+  id: AddGradientStops(Etch.Scene.GradientStops)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddGradientStops(GradientStops)
+  nameWithType: SceneBuilder.AddGradientStops(GradientStops)
+  fullName: Etch.Scene.SceneBuilder.AddGradientStops(Etch.Scene.GradientStops)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int AddGradientStops(GradientStops gradientStops)
+    parameters:
+    - id: gradientStops
+      type: Etch.Scene.GradientStops
+    return:
+      type: System.Int32
+    content.vb: Public Function AddGradientStops(gradientStops As GradientStops) As Integer
+  overload: Etch.Scene.SceneBuilder.AddGradientStops*
+- uid: Etch.Scene.SceneBuilder.PushLayer(Etch.Geometry.Rect,System.Single,Etch.Scene.BlendMode,Etch.Scene.LayerFlags)
+  commentId: M:Etch.Scene.SceneBuilder.PushLayer(Etch.Geometry.Rect,System.Single,Etch.Scene.BlendMode,Etch.Scene.LayerFlags)
+  id: PushLayer(Etch.Geometry.Rect,System.Single,Etch.Scene.BlendMode,Etch.Scene.LayerFlags)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: PushLayer(Rect, float, BlendMode, LayerFlags)
+  nameWithType: SceneBuilder.PushLayer(Rect, float, BlendMode, LayerFlags)
+  fullName: Etch.Scene.SceneBuilder.PushLayer(Etch.Geometry.Rect, float, Etch.Scene.BlendMode, Etch.Scene.LayerFlags)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void PushLayer(Rect bounds, float opacity, BlendMode blend, LayerFlags flags = LayerFlags.None)
+    parameters:
+    - id: bounds
+      type: Etch.Geometry.Rect
+    - id: opacity
+      type: System.Single
+    - id: blend
+      type: Etch.Scene.BlendMode
+    - id: flags
+      type: Etch.Scene.LayerFlags
+    content.vb: Public Sub PushLayer(bounds As Rect, opacity As Single, blend As BlendMode, flags As LayerFlags = LayerFlags.None)
+  overload: Etch.Scene.SceneBuilder.PushLayer*
+  nameWithType.vb: SceneBuilder.PushLayer(Rect, Single, BlendMode, LayerFlags)
+  fullName.vb: Etch.Scene.SceneBuilder.PushLayer(Etch.Geometry.Rect, Single, Etch.Scene.BlendMode, Etch.Scene.LayerFlags)
+  name.vb: PushLayer(Rect, Single, BlendMode, LayerFlags)
+- uid: Etch.Scene.SceneBuilder.PopLayer
+  commentId: M:Etch.Scene.SceneBuilder.PopLayer
+  id: PopLayer
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: PopLayer()
+  nameWithType: SceneBuilder.PopLayer()
+  fullName: Etch.Scene.SceneBuilder.PopLayer()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void PopLayer()
+    content.vb: Public Sub PopLayer()
+  overload: Etch.Scene.SceneBuilder.PopLayer*
+- uid: Etch.Scene.SceneBuilder.PushClip(System.Int32,Etch.Scene.FillRule,Etch.Scene.ClipMode)
+  commentId: M:Etch.Scene.SceneBuilder.PushClip(System.Int32,Etch.Scene.FillRule,Etch.Scene.ClipMode)
+  id: PushClip(System.Int32,Etch.Scene.FillRule,Etch.Scene.ClipMode)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: PushClip(int, FillRule, ClipMode)
+  nameWithType: SceneBuilder.PushClip(int, FillRule, ClipMode)
+  fullName: Etch.Scene.SceneBuilder.PushClip(int, Etch.Scene.FillRule, Etch.Scene.ClipMode)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void PushClip(int pathId, FillRule rule, ClipMode clipMode = ClipMode.Intersect)
+    parameters:
+    - id: pathId
+      type: System.Int32
+    - id: rule
+      type: Etch.Scene.FillRule
+    - id: clipMode
+      type: Etch.Scene.ClipMode
+    content.vb: Public Sub PushClip(pathId As Integer, rule As FillRule, clipMode As ClipMode = ClipMode.Intersect)
+  overload: Etch.Scene.SceneBuilder.PushClip*
+  nameWithType.vb: SceneBuilder.PushClip(Integer, FillRule, ClipMode)
+  fullName.vb: Etch.Scene.SceneBuilder.PushClip(Integer, Etch.Scene.FillRule, Etch.Scene.ClipMode)
+  name.vb: PushClip(Integer, FillRule, ClipMode)
+- uid: Etch.Scene.SceneBuilder.PopClip
+  commentId: M:Etch.Scene.SceneBuilder.PopClip
+  id: PopClip
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: PopClip()
+  nameWithType: SceneBuilder.PopClip()
+  fullName: Etch.Scene.SceneBuilder.PopClip()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void PopClip()
+    content.vb: Public Sub PopClip()
+  overload: Etch.Scene.SceneBuilder.PopClip*
+- uid: Etch.Scene.SceneBuilder.SetTransform(System.Int32)
+  commentId: M:Etch.Scene.SceneBuilder.SetTransform(System.Int32)
+  id: SetTransform(System.Int32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetTransform(int)
+  nameWithType: SceneBuilder.SetTransform(int)
+  fullName: Etch.Scene.SceneBuilder.SetTransform(int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void SetTransform(int transformId)
+    parameters:
+    - id: transformId
+      type: System.Int32
+    content.vb: Public Sub SetTransform(transformId As Integer)
+  overload: Etch.Scene.SceneBuilder.SetTransform*
+  nameWithType.vb: SceneBuilder.SetTransform(Integer)
+  fullName.vb: Etch.Scene.SceneBuilder.SetTransform(Integer)
+  name.vb: SetTransform(Integer)
+- uid: Etch.Scene.SceneBuilder.FillPath(System.Int32,System.Int32,System.Int32,Etch.Scene.FillRule)
+  commentId: M:Etch.Scene.SceneBuilder.FillPath(System.Int32,System.Int32,System.Int32,Etch.Scene.FillRule)
+  id: FillPath(System.Int32,System.Int32,System.Int32,Etch.Scene.FillRule)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: FillPath(int, int, int, FillRule)
+  nameWithType: SceneBuilder.FillPath(int, int, int, FillRule)
+  fullName: Etch.Scene.SceneBuilder.FillPath(int, int, int, Etch.Scene.FillRule)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void FillPath(int pathId, int paintId, int transformId, FillRule rule)
+    parameters:
+    - id: pathId
+      type: System.Int32
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    - id: rule
+      type: Etch.Scene.FillRule
+    content.vb: Public Sub FillPath(pathId As Integer, paintId As Integer, transformId As Integer, rule As FillRule)
+  overload: Etch.Scene.SceneBuilder.FillPath*
+  nameWithType.vb: SceneBuilder.FillPath(Integer, Integer, Integer, FillRule)
+  fullName.vb: Etch.Scene.SceneBuilder.FillPath(Integer, Integer, Integer, Etch.Scene.FillRule)
+  name.vb: FillPath(Integer, Integer, Integer, FillRule)
+- uid: Etch.Scene.SceneBuilder.StrokePath(System.Int32,System.Int32,System.Int32,System.Single,Etch.Scene.StrokeStyle)
+  commentId: M:Etch.Scene.SceneBuilder.StrokePath(System.Int32,System.Int32,System.Int32,System.Single,Etch.Scene.StrokeStyle)
+  id: StrokePath(System.Int32,System.Int32,System.Int32,System.Single,Etch.Scene.StrokeStyle)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: StrokePath(int, int, int, float, StrokeStyle)
+  nameWithType: SceneBuilder.StrokePath(int, int, int, float, StrokeStyle)
+  fullName: Etch.Scene.SceneBuilder.StrokePath(int, int, int, float, Etch.Scene.StrokeStyle)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void StrokePath(int pathId, int paintId, int transformId, float width, StrokeStyle style)
+    parameters:
+    - id: pathId
+      type: System.Int32
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    - id: width
+      type: System.Single
+    - id: style
+      type: Etch.Scene.StrokeStyle
+    content.vb: Public Sub StrokePath(pathId As Integer, paintId As Integer, transformId As Integer, width As Single, style As StrokeStyle)
+  overload: Etch.Scene.SceneBuilder.StrokePath*
+  nameWithType.vb: SceneBuilder.StrokePath(Integer, Integer, Integer, Single, StrokeStyle)
+  fullName.vb: Etch.Scene.SceneBuilder.StrokePath(Integer, Integer, Integer, Single, Etch.Scene.StrokeStyle)
+  name.vb: StrokePath(Integer, Integer, Integer, Single, StrokeStyle)
+- uid: Etch.Scene.SceneBuilder.FillRect(Etch.Geometry.Rect,System.Int32,System.Int32)
+  commentId: M:Etch.Scene.SceneBuilder.FillRect(Etch.Geometry.Rect,System.Int32,System.Int32)
+  id: FillRect(Etch.Geometry.Rect,System.Int32,System.Int32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: FillRect(Rect, int, int)
+  nameWithType: SceneBuilder.FillRect(Rect, int, int)
+  fullName: Etch.Scene.SceneBuilder.FillRect(Etch.Geometry.Rect, int, int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void FillRect(Rect r, int paintId, int transformId)
+    parameters:
+    - id: r
+      type: Etch.Geometry.Rect
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    content.vb: Public Sub FillRect(r As Rect, paintId As Integer, transformId As Integer)
+  overload: Etch.Scene.SceneBuilder.FillRect*
+  nameWithType.vb: SceneBuilder.FillRect(Rect, Integer, Integer)
+  fullName.vb: Etch.Scene.SceneBuilder.FillRect(Etch.Geometry.Rect, Integer, Integer)
+  name.vb: FillRect(Rect, Integer, Integer)
+- uid: Etch.Scene.SceneBuilder.DrawImage(System.Int32,System.Int32,System.Int32)
+  commentId: M:Etch.Scene.SceneBuilder.DrawImage(System.Int32,System.Int32,System.Int32)
+  id: DrawImage(System.Int32,System.Int32,System.Int32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: DrawImage(int, int, int)
+  nameWithType: SceneBuilder.DrawImage(int, int, int)
+  fullName: Etch.Scene.SceneBuilder.DrawImage(int, int, int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void DrawImage(int imageId, int paintId, int transformId)
+    parameters:
+    - id: imageId
+      type: System.Int32
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    content.vb: Public Sub DrawImage(imageId As Integer, paintId As Integer, transformId As Integer)
+  overload: Etch.Scene.SceneBuilder.DrawImage*
+  nameWithType.vb: SceneBuilder.DrawImage(Integer, Integer, Integer)
+  fullName.vb: Etch.Scene.SceneBuilder.DrawImage(Integer, Integer, Integer)
+  name.vb: DrawImage(Integer, Integer, Integer)
+- uid: Etch.Scene.SceneBuilder.DrawGlyphRun(System.Int32,System.Int32,System.Int32)
+  commentId: M:Etch.Scene.SceneBuilder.DrawGlyphRun(System.Int32,System.Int32,System.Int32)
+  id: DrawGlyphRun(System.Int32,System.Int32,System.Int32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: DrawGlyphRun(int, int, int)
+  nameWithType: SceneBuilder.DrawGlyphRun(int, int, int)
+  fullName: Etch.Scene.SceneBuilder.DrawGlyphRun(int, int, int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void DrawGlyphRun(int glyphRunId, int paintId, int transformId)
+    parameters:
+    - id: glyphRunId
+      type: System.Int32
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    content.vb: Public Sub DrawGlyphRun(glyphRunId As Integer, paintId As Integer, transformId As Integer)
+  overload: Etch.Scene.SceneBuilder.DrawGlyphRun*
+  nameWithType.vb: SceneBuilder.DrawGlyphRun(Integer, Integer, Integer)
+  fullName.vb: Etch.Scene.SceneBuilder.DrawGlyphRun(Integer, Integer, Integer)
+  name.vb: DrawGlyphRun(Integer, Integer, Integer)
+- uid: Etch.Scene.SceneBuilder.DrawShadow(System.Int32,System.Int32,System.Int32,Etch.Geometry.Vec2,System.Single,System.UInt32)
+  commentId: M:Etch.Scene.SceneBuilder.DrawShadow(System.Int32,System.Int32,System.Int32,Etch.Geometry.Vec2,System.Single,System.UInt32)
+  id: DrawShadow(System.Int32,System.Int32,System.Int32,Etch.Geometry.Vec2,System.Single,System.UInt32)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: DrawShadow(int, int, int, Vec2, float, uint)
+  nameWithType: SceneBuilder.DrawShadow(int, int, int, Vec2, float, uint)
+  fullName: Etch.Scene.SceneBuilder.DrawShadow(int, int, int, Etch.Geometry.Vec2, float, uint)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void DrawShadow(int pathId, int paintId, int transformId, Vec2 offset, float blurRadius, uint shadowColor)
+    parameters:
+    - id: pathId
+      type: System.Int32
+    - id: paintId
+      type: System.Int32
+    - id: transformId
+      type: System.Int32
+    - id: offset
+      type: Etch.Geometry.Vec2
+    - id: blurRadius
+      type: System.Single
+    - id: shadowColor
+      type: System.UInt32
+    content.vb: Public Sub DrawShadow(pathId As Integer, paintId As Integer, transformId As Integer, offset As Vec2, blurRadius As Single, shadowColor As UInteger)
+  overload: Etch.Scene.SceneBuilder.DrawShadow*
+  nameWithType.vb: SceneBuilder.DrawShadow(Integer, Integer, Integer, Vec2, Single, UInteger)
+  fullName.vb: Etch.Scene.SceneBuilder.DrawShadow(Integer, Integer, Integer, Etch.Geometry.Vec2, Single, UInteger)
+  name.vb: DrawShadow(Integer, Integer, Integer, Vec2, Single, UInteger)
+- uid: Etch.Scene.SceneBuilder.SetBlendMode(Etch.Scene.BlendMode)
+  commentId: M:Etch.Scene.SceneBuilder.SetBlendMode(Etch.Scene.BlendMode)
+  id: SetBlendMode(Etch.Scene.BlendMode)
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetBlendMode(BlendMode)
+  nameWithType: SceneBuilder.SetBlendMode(BlendMode)
+  fullName: Etch.Scene.SceneBuilder.SetBlendMode(Etch.Scene.BlendMode)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void SetBlendMode(BlendMode mode)
+    parameters:
+    - id: mode
+      type: Etch.Scene.BlendMode
+    content.vb: Public Sub SetBlendMode(mode As BlendMode)
+  overload: Etch.Scene.SceneBuilder.SetBlendMode*
+- uid: Etch.Scene.SceneBuilder.End
+  commentId: M:Etch.Scene.SceneBuilder.End
+  id: End
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: End()
+  nameWithType: SceneBuilder.End()
+  fullName: Etch.Scene.SceneBuilder.End()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneBuffer End()
+    return:
+      type: Etch.Scene.SceneBuffer
+    content.vb: Public Function [End]() As SceneBuffer
+  overload: Etch.Scene.SceneBuilder.End*
+- uid: Etch.Scene.SceneBuilder.Dispose
+  commentId: M:Etch.Scene.SceneBuilder.Dispose
+  id: Dispose
+  parent: Etch.Scene.SceneBuilder
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: SceneBuilder.Dispose()
+  fullName: Etch.Scene.SceneBuilder.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Scene.SceneBuilder.Dispose*
+references:
+- uid: Etch.Scene.SceneBuffer
+  commentId: T:Etch.Scene.SceneBuffer
+  parent: Etch.Scene
+  href: Etch.Scene.SceneBuffer.html
+  name: SceneBuffer
+  nameWithType: SceneBuffer
+  fullName: Etch.Scene.SceneBuffer
+- uid: System.Buffers.ArrayPool`1
+  commentId: T:System.Buffers.ArrayPool`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.buffers.arraypool-1
+  name: ArrayPool<T>
+  nameWithType: ArrayPool<T>
+  fullName: System.Buffers.ArrayPool<T>
+  nameWithType.vb: ArrayPool(Of T)
+  fullName.vb: System.Buffers.ArrayPool(Of T)
+  name.vb: ArrayPool(Of T)
+  spec.csharp:
+  - uid: System.Buffers.ArrayPool`1
+    name: ArrayPool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.buffers.arraypool-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Buffers.ArrayPool`1
+    name: ArrayPool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.buffers.arraypool-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Scene.SceneBuilder.End
+  commentId: M:Etch.Scene.SceneBuilder.End
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_End
+  name: End()
+  nameWithType: SceneBuilder.End()
+  fullName: Etch.Scene.SceneBuilder.End()
+  spec.csharp:
+  - uid: Etch.Scene.SceneBuilder.End
+    name: End
+    href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_End
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Etch.Scene.SceneBuilder.End
+    name: End
+    href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_End
+  - name: (
+  - name: )
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Scene.SceneBuilder.Begin*
+  commentId: Overload:Etch.Scene.SceneBuilder.Begin
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_Begin_System_Int32_
+  name: Begin
+  nameWithType: SceneBuilder.Begin
+  fullName: Etch.Scene.SceneBuilder.Begin
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Scene.SceneBuilder
+  commentId: T:Etch.Scene.SceneBuilder
+  parent: Etch.Scene
+  href: Etch.Scene.SceneBuilder.html
+  name: SceneBuilder
+  nameWithType: SceneBuilder
+  fullName: Etch.Scene.SceneBuilder
+- uid: Etch.Scene.SceneBuilder.BeginFrame*
+  commentId: Overload:Etch.Scene.SceneBuilder.BeginFrame
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_BeginFrame
+  name: BeginFrame
+  nameWithType: SceneBuilder.BeginFrame
+  fullName: Etch.Scene.SceneBuilder.BeginFrame
+- uid: Etch.Scene.SceneBuilder.EndFrame*
+  commentId: Overload:Etch.Scene.SceneBuilder.EndFrame
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_EndFrame
+  name: EndFrame
+  nameWithType: SceneBuilder.EndFrame
+  fullName: Etch.Scene.SceneBuilder.EndFrame
+- uid: Etch.Scene.SceneBuilder.AddPath*
+  commentId: Overload:Etch.Scene.SceneBuilder.AddPath
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_AddPath_Etch_Geometry_BezPath_
+  name: AddPath
+  nameWithType: SceneBuilder.AddPath
+  fullName: Etch.Scene.SceneBuilder.AddPath
+- uid: Etch.Geometry.BezPath
+  commentId: T:Etch.Geometry.BezPath
+  parent: Etch.Geometry
+  href: Etch.Geometry.BezPath.html
+  name: BezPath
+  nameWithType: BezPath
+  fullName: Etch.Geometry.BezPath
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: Etch.Scene.SceneBuilder.AddPaint*
+  commentId: Overload:Etch.Scene.SceneBuilder.AddPaint
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_AddPaint_Etch_Scene_Paint_
+  name: AddPaint
+  nameWithType: SceneBuilder.AddPaint
+  fullName: Etch.Scene.SceneBuilder.AddPaint
+- uid: Etch.Scene.Paint
+  commentId: T:Etch.Scene.Paint
+  parent: Etch.Scene
+  href: Etch.Scene.Paint.html
+  name: Paint
+  nameWithType: Paint
+  fullName: Etch.Scene.Paint
+- uid: Etch.Scene.SceneBuilder.AddTransform*
+  commentId: Overload:Etch.Scene.SceneBuilder.AddTransform
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_AddTransform_Etch_Geometry_Affine_
+  name: AddTransform
+  nameWithType: SceneBuilder.AddTransform
+  fullName: Etch.Scene.SceneBuilder.AddTransform
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Scene.SceneBuilder.AddGradientStops*
+  commentId: Overload:Etch.Scene.SceneBuilder.AddGradientStops
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_AddGradientStops_Etch_Scene_GradientStops_
+  name: AddGradientStops
+  nameWithType: SceneBuilder.AddGradientStops
+  fullName: Etch.Scene.SceneBuilder.AddGradientStops
+- uid: Etch.Scene.GradientStops
+  commentId: T:Etch.Scene.GradientStops
+  parent: Etch.Scene
+  href: Etch.Scene.GradientStops.html
+  name: GradientStops
+  nameWithType: GradientStops
+  fullName: Etch.Scene.GradientStops
+- uid: Etch.Scene.SceneBuilder.PushLayer*
+  commentId: Overload:Etch.Scene.SceneBuilder.PushLayer
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_PushLayer_Etch_Geometry_Rect_System_Single_Etch_Scene_BlendMode_Etch_Scene_LayerFlags_
+  name: PushLayer
+  nameWithType: SceneBuilder.PushLayer
+  fullName: Etch.Scene.SceneBuilder.PushLayer
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Scene.BlendMode
+  commentId: T:Etch.Scene.BlendMode
+  parent: Etch.Scene
+  href: Etch.Scene.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.Scene.BlendMode
+- uid: Etch.Scene.LayerFlags
+  commentId: T:Etch.Scene.LayerFlags
+  parent: Etch.Scene
+  href: Etch.Scene.LayerFlags.html
+  name: LayerFlags
+  nameWithType: LayerFlags
+  fullName: Etch.Scene.LayerFlags
+- uid: Etch.Scene.SceneBuilder.PopLayer*
+  commentId: Overload:Etch.Scene.SceneBuilder.PopLayer
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_PopLayer
+  name: PopLayer
+  nameWithType: SceneBuilder.PopLayer
+  fullName: Etch.Scene.SceneBuilder.PopLayer
+- uid: Etch.Scene.SceneBuilder.PushClip*
+  commentId: Overload:Etch.Scene.SceneBuilder.PushClip
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_PushClip_System_Int32_Etch_Scene_FillRule_Etch_Scene_ClipMode_
+  name: PushClip
+  nameWithType: SceneBuilder.PushClip
+  fullName: Etch.Scene.SceneBuilder.PushClip
+- uid: Etch.Scene.FillRule
+  commentId: T:Etch.Scene.FillRule
+  parent: Etch.Scene
+  href: Etch.Scene.FillRule.html
+  name: FillRule
+  nameWithType: FillRule
+  fullName: Etch.Scene.FillRule
+- uid: Etch.Scene.ClipMode
+  commentId: T:Etch.Scene.ClipMode
+  parent: Etch.Scene
+  href: Etch.Scene.ClipMode.html
+  name: ClipMode
+  nameWithType: ClipMode
+  fullName: Etch.Scene.ClipMode
+- uid: Etch.Scene.SceneBuilder.PopClip*
+  commentId: Overload:Etch.Scene.SceneBuilder.PopClip
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_PopClip
+  name: PopClip
+  nameWithType: SceneBuilder.PopClip
+  fullName: Etch.Scene.SceneBuilder.PopClip
+- uid: Etch.Scene.SceneBuilder.SetTransform*
+  commentId: Overload:Etch.Scene.SceneBuilder.SetTransform
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_SetTransform_System_Int32_
+  name: SetTransform
+  nameWithType: SceneBuilder.SetTransform
+  fullName: Etch.Scene.SceneBuilder.SetTransform
+- uid: Etch.Scene.SceneBuilder.FillPath*
+  commentId: Overload:Etch.Scene.SceneBuilder.FillPath
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_FillPath_System_Int32_System_Int32_System_Int32_Etch_Scene_FillRule_
+  name: FillPath
+  nameWithType: SceneBuilder.FillPath
+  fullName: Etch.Scene.SceneBuilder.FillPath
+- uid: Etch.Scene.SceneBuilder.StrokePath*
+  commentId: Overload:Etch.Scene.SceneBuilder.StrokePath
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_StrokePath_System_Int32_System_Int32_System_Int32_System_Single_Etch_Scene_StrokeStyle_
+  name: StrokePath
+  nameWithType: SceneBuilder.StrokePath
+  fullName: Etch.Scene.SceneBuilder.StrokePath
+- uid: Etch.Scene.StrokeStyle
+  commentId: T:Etch.Scene.StrokeStyle
+  parent: Etch.Scene
+  href: Etch.Scene.StrokeStyle.html
+  name: StrokeStyle
+  nameWithType: StrokeStyle
+  fullName: Etch.Scene.StrokeStyle
+- uid: Etch.Scene.SceneBuilder.FillRect*
+  commentId: Overload:Etch.Scene.SceneBuilder.FillRect
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_FillRect_Etch_Geometry_Rect_System_Int32_System_Int32_
+  name: FillRect
+  nameWithType: SceneBuilder.FillRect
+  fullName: Etch.Scene.SceneBuilder.FillRect
+- uid: Etch.Scene.SceneBuilder.DrawImage*
+  commentId: Overload:Etch.Scene.SceneBuilder.DrawImage
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_DrawImage_System_Int32_System_Int32_System_Int32_
+  name: DrawImage
+  nameWithType: SceneBuilder.DrawImage
+  fullName: Etch.Scene.SceneBuilder.DrawImage
+- uid: Etch.Scene.SceneBuilder.DrawGlyphRun*
+  commentId: Overload:Etch.Scene.SceneBuilder.DrawGlyphRun
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_DrawGlyphRun_System_Int32_System_Int32_System_Int32_
+  name: DrawGlyphRun
+  nameWithType: SceneBuilder.DrawGlyphRun
+  fullName: Etch.Scene.SceneBuilder.DrawGlyphRun
+- uid: Etch.Scene.SceneBuilder.DrawShadow*
+  commentId: Overload:Etch.Scene.SceneBuilder.DrawShadow
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_DrawShadow_System_Int32_System_Int32_System_Int32_Etch_Geometry_Vec2_System_Single_System_UInt32_
+  name: DrawShadow
+  nameWithType: SceneBuilder.DrawShadow
+  fullName: Etch.Scene.SceneBuilder.DrawShadow
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Scene.SceneBuilder.SetBlendMode*
+  commentId: Overload:Etch.Scene.SceneBuilder.SetBlendMode
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_SetBlendMode_Etch_Scene_BlendMode_
+  name: SetBlendMode
+  nameWithType: SceneBuilder.SetBlendMode
+  fullName: Etch.Scene.SceneBuilder.SetBlendMode
+- uid: Etch.Scene.SceneBuilder.End*
+  commentId: Overload:Etch.Scene.SceneBuilder.End
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_End
+  name: End
+  nameWithType: SceneBuilder.End
+  fullName: Etch.Scene.SceneBuilder.End
+- uid: Etch.Scene.SceneBuilder.Dispose*
+  commentId: Overload:Etch.Scene.SceneBuilder.Dispose
+  href: Etch.Scene.SceneBuilder.html#Etch_Scene_SceneBuilder_Dispose
+  name: Dispose
+  nameWithType: SceneBuilder.Dispose
+  fullName: Etch.Scene.SceneBuilder.Dispose

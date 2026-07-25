@@ -1,0 +1,678 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Framebuffer
+  commentId: T:Etch.Raster.Cpu.Framebuffer
+  id: Framebuffer
+  parent: Etch.Raster.Cpu
+  children:
+  - Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,Etch.Raster.Cpu.Rgba16f[])
+  - Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,System.Memory{Etch.Raster.Cpu.Rgba16f})
+  - Etch.Raster.Cpu.Framebuffer.ComputeStride(System.Int32)
+  - Etch.Raster.Cpu.Framebuffer.Height
+  - Etch.Raster.Cpu.Framebuffer.Pixels
+  - Etch.Raster.Cpu.Framebuffer.RowSpan(System.Int32)
+  - Etch.Raster.Cpu.Framebuffer.Stride
+  - Etch.Raster.Cpu.Framebuffer.Width
+  langs:
+  - csharp
+  - vb
+  name: Framebuffer
+  nameWithType: Framebuffer
+  fullName: Etch.Raster.Cpu.Framebuffer
+  type: Struct
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly struct Framebuffer
+    content.vb: Public Structure Framebuffer
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Raster.Cpu.Framebuffer.Width
+  commentId: P:Etch.Raster.Cpu.Framebuffer.Width
+  id: Width
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Framebuffer.Width
+  fullName: Etch.Raster.Cpu.Framebuffer.Width
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public int Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Width As Integer
+  overload: Etch.Raster.Cpu.Framebuffer.Width*
+- uid: Etch.Raster.Cpu.Framebuffer.Height
+  commentId: P:Etch.Raster.Cpu.Framebuffer.Height
+  id: Height
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Framebuffer.Height
+  fullName: Etch.Raster.Cpu.Framebuffer.Height
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public int Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Height As Integer
+  overload: Etch.Raster.Cpu.Framebuffer.Height*
+- uid: Etch.Raster.Cpu.Framebuffer.Stride
+  commentId: P:Etch.Raster.Cpu.Framebuffer.Stride
+  id: Stride
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Stride
+  nameWithType: Framebuffer.Stride
+  fullName: Etch.Raster.Cpu.Framebuffer.Stride
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public int Stride { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Stride As Integer
+  overload: Etch.Raster.Cpu.Framebuffer.Stride*
+- uid: Etch.Raster.Cpu.Framebuffer.Pixels
+  commentId: P:Etch.Raster.Cpu.Framebuffer.Pixels
+  id: Pixels
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Pixels
+  nameWithType: Framebuffer.Pixels
+  fullName: Etch.Raster.Cpu.Framebuffer.Pixels
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Memory<Rgba16f> Pixels { get; }
+    parameters: []
+    return:
+      type: System.Memory{Etch.Raster.Cpu.Rgba16f}
+    content.vb: Public ReadOnly Property Pixels As Memory(Of Rgba16f)
+  overload: Etch.Raster.Cpu.Framebuffer.Pixels*
+- uid: Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,System.Memory{Etch.Raster.Cpu.Rgba16f})
+  commentId: M:Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,System.Memory{Etch.Raster.Cpu.Rgba16f})
+  id: '#ctor(System.Int32,System.Int32,System.Int32,System.Memory{Etch.Raster.Cpu.Rgba16f})'
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Framebuffer(int, int, int, Memory<Rgba16f>)
+  nameWithType: Framebuffer.Framebuffer(int, int, int, Memory<Rgba16f>)
+  fullName: Etch.Raster.Cpu.Framebuffer.Framebuffer(int, int, int, System.Memory<Etch.Raster.Cpu.Rgba16f>)
+  type: Constructor
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Framebuffer(int width, int height, int stride, Memory<Rgba16f> pixels)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: stride
+      type: System.Int32
+    - id: pixels
+      type: System.Memory{Etch.Raster.Cpu.Rgba16f}
+    content.vb: Public Sub New(width As Integer, height As Integer, stride As Integer, pixels As Memory(Of Rgba16f))
+  overload: Etch.Raster.Cpu.Framebuffer.#ctor*
+  nameWithType.vb: Framebuffer.New(Integer, Integer, Integer, Memory(Of Rgba16f))
+  fullName.vb: Etch.Raster.Cpu.Framebuffer.New(Integer, Integer, Integer, System.Memory(Of Etch.Raster.Cpu.Rgba16f))
+  name.vb: New(Integer, Integer, Integer, Memory(Of Rgba16f))
+- uid: Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,Etch.Raster.Cpu.Rgba16f[])
+  commentId: M:Etch.Raster.Cpu.Framebuffer.#ctor(System.Int32,System.Int32,System.Int32,Etch.Raster.Cpu.Rgba16f[])
+  id: '#ctor(System.Int32,System.Int32,System.Int32,Etch.Raster.Cpu.Rgba16f[])'
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: Framebuffer(int, int, int, Rgba16f[])
+  nameWithType: Framebuffer.Framebuffer(int, int, int, Rgba16f[])
+  fullName: Etch.Raster.Cpu.Framebuffer.Framebuffer(int, int, int, Etch.Raster.Cpu.Rgba16f[])
+  type: Constructor
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Framebuffer(int width, int height, int stride, Rgba16f[] array)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: stride
+      type: System.Int32
+    - id: array
+      type: Etch.Raster.Cpu.Rgba16f[]
+    content.vb: Public Sub New(width As Integer, height As Integer, stride As Integer, array As Rgba16f())
+  overload: Etch.Raster.Cpu.Framebuffer.#ctor*
+  nameWithType.vb: Framebuffer.New(Integer, Integer, Integer, Rgba16f())
+  fullName.vb: Etch.Raster.Cpu.Framebuffer.New(Integer, Integer, Integer, Etch.Raster.Cpu.Rgba16f())
+  name.vb: New(Integer, Integer, Integer, Rgba16f())
+- uid: Etch.Raster.Cpu.Framebuffer.RowSpan(System.Int32)
+  commentId: M:Etch.Raster.Cpu.Framebuffer.RowSpan(System.Int32)
+  id: RowSpan(System.Int32)
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: RowSpan(int)
+  nameWithType: Framebuffer.RowSpan(int)
+  fullName: Etch.Raster.Cpu.Framebuffer.RowSpan(int)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Span<Rgba16f> RowSpan(int y)
+    parameters:
+    - id: y
+      type: System.Int32
+    return:
+      type: System.Span{Etch.Raster.Cpu.Rgba16f}
+    content.vb: Public Function RowSpan(y As Integer) As Span(Of Rgba16f)
+  overload: Etch.Raster.Cpu.Framebuffer.RowSpan*
+  nameWithType.vb: Framebuffer.RowSpan(Integer)
+  fullName.vb: Etch.Raster.Cpu.Framebuffer.RowSpan(Integer)
+  name.vb: RowSpan(Integer)
+- uid: Etch.Raster.Cpu.Framebuffer.ComputeStride(System.Int32)
+  commentId: M:Etch.Raster.Cpu.Framebuffer.ComputeStride(System.Int32)
+  id: ComputeStride(System.Int32)
+  parent: Etch.Raster.Cpu.Framebuffer
+  langs:
+  - csharp
+  - vb
+  name: ComputeStride(int)
+  nameWithType: Framebuffer.ComputeStride(int)
+  fullName: Etch.Raster.Cpu.Framebuffer.ComputeStride(int)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static int ComputeStride(int width)
+    parameters:
+    - id: width
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function ComputeStride(width As Integer) As Integer
+  overload: Etch.Raster.Cpu.Framebuffer.ComputeStride*
+  nameWithType.vb: Framebuffer.ComputeStride(Integer)
+  fullName.vb: Etch.Raster.Cpu.Framebuffer.ComputeStride(Integer)
+  name.vb: ComputeStride(Integer)
+references:
+- uid: Etch.Raster.Cpu
+  commentId: N:Etch.Raster.Cpu
+  href: Etch.html
+  name: Etch.Raster.Cpu
+  nameWithType: Etch.Raster.Cpu
+  fullName: Etch.Raster.Cpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Raster.Cpu.Framebuffer.Width*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.Width
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_Width
+  name: Width
+  nameWithType: Framebuffer.Width
+  fullName: Etch.Raster.Cpu.Framebuffer.Width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Raster.Cpu.Framebuffer.Height*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.Height
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_Height
+  name: Height
+  nameWithType: Framebuffer.Height
+  fullName: Etch.Raster.Cpu.Framebuffer.Height
+- uid: Etch.Raster.Cpu.Framebuffer.Stride*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.Stride
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_Stride
+  name: Stride
+  nameWithType: Framebuffer.Stride
+  fullName: Etch.Raster.Cpu.Framebuffer.Stride
+- uid: Etch.Raster.Cpu.Framebuffer.Pixels*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.Pixels
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_Pixels
+  name: Pixels
+  nameWithType: Framebuffer.Pixels
+  fullName: Etch.Raster.Cpu.Framebuffer.Pixels
+- uid: System.Memory{Etch.Raster.Cpu.Rgba16f}
+  commentId: T:System.Memory{Etch.Raster.Cpu.Rgba16f}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<Rgba16f>
+  nameWithType: Memory<Rgba16f>
+  fullName: System.Memory<Etch.Raster.Cpu.Rgba16f>
+  nameWithType.vb: Memory(Of Rgba16f)
+  fullName.vb: System.Memory(Of Etch.Raster.Cpu.Rgba16f)
+  name.vb: Memory(Of Rgba16f)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: )
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Raster.Cpu.Framebuffer.#ctor*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.#ctor
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer__ctor_System_Int32_System_Int32_System_Int32_System_Memory_Etch_Raster_Cpu_Rgba16f__
+  name: Framebuffer
+  nameWithType: Framebuffer.Framebuffer
+  fullName: Etch.Raster.Cpu.Framebuffer.Framebuffer
+  nameWithType.vb: Framebuffer.New
+  fullName.vb: Etch.Raster.Cpu.Framebuffer.New
+  name.vb: New
+- uid: Etch.Raster.Cpu.Rgba16f[]
+  isExternal: true
+  href: Etch.Raster.Cpu.Rgba16f.html
+  name: Rgba16f[]
+  nameWithType: Rgba16f[]
+  fullName: Etch.Raster.Cpu.Rgba16f[]
+  nameWithType.vb: Rgba16f()
+  fullName.vb: Etch.Raster.Cpu.Rgba16f()
+  name.vb: Rgba16f()
+  spec.csharp:
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: (
+  - name: )
+- uid: Etch.Raster.Cpu.Framebuffer.RowSpan*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.RowSpan
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_RowSpan_System_Int32_
+  name: RowSpan
+  nameWithType: Framebuffer.RowSpan
+  fullName: Etch.Raster.Cpu.Framebuffer.RowSpan
+- uid: System.Span{Etch.Raster.Cpu.Rgba16f}
+  commentId: T:System.Span{Etch.Raster.Cpu.Rgba16f}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<Rgba16f>
+  nameWithType: Span<Rgba16f>
+  fullName: System.Span<Etch.Raster.Cpu.Rgba16f>
+  nameWithType.vb: Span(Of Rgba16f)
+  fullName.vb: System.Span(Of Etch.Raster.Cpu.Rgba16f)
+  name.vb: Span(Of Rgba16f)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Raster.Cpu.Rgba16f
+    name: Rgba16f
+    href: Etch.Raster.Cpu.Rgba16f.html
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Raster.Cpu.Framebuffer.ComputeStride*
+  commentId: Overload:Etch.Raster.Cpu.Framebuffer.ComputeStride
+  href: Etch.Raster.Cpu.Framebuffer.html#Etch_Raster_Cpu_Framebuffer_ComputeStride_System_Int32_
+  name: ComputeStride
+  nameWithType: Framebuffer.ComputeStride
+  fullName: Etch.Raster.Cpu.Framebuffer.ComputeStride

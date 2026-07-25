@@ -1,0 +1,562 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.Paint
+  commentId: T:Etch.Scene.Paint
+  id: Paint
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.Paint.#ctor(Etch.Scene.PaintKind,System.UInt32,System.Byte)
+  - Etch.Scene.Paint.BlendModeId
+  - Etch.Scene.Paint.Color
+  - Etch.Scene.Paint.ColorOrGradientId
+  - Etch.Scene.Paint.GradientId
+  - Etch.Scene.Paint.Kind
+  - Etch.Scene.Paint.LinearGradient(System.UInt32,System.Byte)
+  - Etch.Scene.Paint.RadialGradient(System.UInt32,System.Byte)
+  - Etch.Scene.Paint.Solid(System.UInt32,System.Byte)
+  langs:
+  - csharp
+  - vb
+  name: Paint
+  nameWithType: Paint
+  fullName: Etch.Scene.Paint
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly struct Paint
+    content.vb: Public Structure Paint
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.Paint.Kind
+  commentId: F:Etch.Scene.Paint.Kind
+  id: Kind
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: Paint.Kind
+  fullName: Etch.Scene.Paint.Kind
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly PaintKind Kind
+    return:
+      type: Etch.Scene.PaintKind
+    content.vb: Public ReadOnly Kind As PaintKind
+- uid: Etch.Scene.Paint.BlendModeId
+  commentId: F:Etch.Scene.Paint.BlendModeId
+  id: BlendModeId
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: BlendModeId
+  nameWithType: Paint.BlendModeId
+  fullName: Etch.Scene.Paint.BlendModeId
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly byte BlendModeId
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly BlendModeId As Byte
+- uid: Etch.Scene.Paint.ColorOrGradientId
+  commentId: F:Etch.Scene.Paint.ColorOrGradientId
+  id: ColorOrGradientId
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: ColorOrGradientId
+  nameWithType: Paint.ColorOrGradientId
+  fullName: Etch.Scene.Paint.ColorOrGradientId
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public readonly uint ColorOrGradientId
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly ColorOrGradientId As UInteger
+- uid: Etch.Scene.Paint.#ctor(Etch.Scene.PaintKind,System.UInt32,System.Byte)
+  commentId: M:Etch.Scene.Paint.#ctor(Etch.Scene.PaintKind,System.UInt32,System.Byte)
+  id: '#ctor(Etch.Scene.PaintKind,System.UInt32,System.Byte)'
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: Paint(PaintKind, uint, byte)
+  nameWithType: Paint.Paint(PaintKind, uint, byte)
+  fullName: Etch.Scene.Paint.Paint(Etch.Scene.PaintKind, uint, byte)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public Paint(PaintKind kind, uint colorOrGradientId, byte blendModeId = 0)
+    parameters:
+    - id: kind
+      type: Etch.Scene.PaintKind
+    - id: colorOrGradientId
+      type: System.UInt32
+    - id: blendModeId
+      type: System.Byte
+    content.vb: Public Sub New(kind As PaintKind, colorOrGradientId As UInteger, blendModeId As Byte = 0)
+  overload: Etch.Scene.Paint.#ctor*
+  nameWithType.vb: Paint.New(PaintKind, UInteger, Byte)
+  fullName.vb: Etch.Scene.Paint.New(Etch.Scene.PaintKind, UInteger, Byte)
+  name.vb: New(PaintKind, UInteger, Byte)
+- uid: Etch.Scene.Paint.Solid(System.UInt32,System.Byte)
+  commentId: M:Etch.Scene.Paint.Solid(System.UInt32,System.Byte)
+  id: Solid(System.UInt32,System.Byte)
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: Solid(uint, byte)
+  nameWithType: Paint.Solid(uint, byte)
+  fullName: Etch.Scene.Paint.Solid(uint, byte)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public static Paint Solid(uint argb, byte blendModeId = 0)
+    parameters:
+    - id: argb
+      type: System.UInt32
+    - id: blendModeId
+      type: System.Byte
+    return:
+      type: Etch.Scene.Paint
+    content.vb: Public Shared Function Solid(argb As UInteger, blendModeId As Byte = 0) As Paint
+  overload: Etch.Scene.Paint.Solid*
+  nameWithType.vb: Paint.Solid(UInteger, Byte)
+  fullName.vb: Etch.Scene.Paint.Solid(UInteger, Byte)
+  name.vb: Solid(UInteger, Byte)
+- uid: Etch.Scene.Paint.LinearGradient(System.UInt32,System.Byte)
+  commentId: M:Etch.Scene.Paint.LinearGradient(System.UInt32,System.Byte)
+  id: LinearGradient(System.UInt32,System.Byte)
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: LinearGradient(uint, byte)
+  nameWithType: Paint.LinearGradient(uint, byte)
+  fullName: Etch.Scene.Paint.LinearGradient(uint, byte)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public static Paint LinearGradient(uint gradientId, byte blendModeId = 0)
+    parameters:
+    - id: gradientId
+      type: System.UInt32
+    - id: blendModeId
+      type: System.Byte
+    return:
+      type: Etch.Scene.Paint
+    content.vb: Public Shared Function LinearGradient(gradientId As UInteger, blendModeId As Byte = 0) As Paint
+  overload: Etch.Scene.Paint.LinearGradient*
+  nameWithType.vb: Paint.LinearGradient(UInteger, Byte)
+  fullName.vb: Etch.Scene.Paint.LinearGradient(UInteger, Byte)
+  name.vb: LinearGradient(UInteger, Byte)
+- uid: Etch.Scene.Paint.RadialGradient(System.UInt32,System.Byte)
+  commentId: M:Etch.Scene.Paint.RadialGradient(System.UInt32,System.Byte)
+  id: RadialGradient(System.UInt32,System.Byte)
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient(uint, byte)
+  nameWithType: Paint.RadialGradient(uint, byte)
+  fullName: Etch.Scene.Paint.RadialGradient(uint, byte)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public static Paint RadialGradient(uint gradientId, byte blendModeId = 0)
+    parameters:
+    - id: gradientId
+      type: System.UInt32
+    - id: blendModeId
+      type: System.Byte
+    return:
+      type: Etch.Scene.Paint
+    content.vb: Public Shared Function RadialGradient(gradientId As UInteger, blendModeId As Byte = 0) As Paint
+  overload: Etch.Scene.Paint.RadialGradient*
+  nameWithType.vb: Paint.RadialGradient(UInteger, Byte)
+  fullName.vb: Etch.Scene.Paint.RadialGradient(UInteger, Byte)
+  name.vb: RadialGradient(UInteger, Byte)
+- uid: Etch.Scene.Paint.Color
+  commentId: P:Etch.Scene.Paint.Color
+  id: Color
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: Paint.Color
+  fullName: Etch.Scene.Paint.Color
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public uint Color { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property Color As UInteger
+  overload: Etch.Scene.Paint.Color*
+- uid: Etch.Scene.Paint.GradientId
+  commentId: P:Etch.Scene.Paint.GradientId
+  id: GradientId
+  parent: Etch.Scene.Paint
+  langs:
+  - csharp
+  - vb
+  name: GradientId
+  nameWithType: Paint.GradientId
+  fullName: Etch.Scene.Paint.GradientId
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public uint GradientId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property GradientId As UInteger
+  overload: Etch.Scene.Paint.GradientId*
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Scene.PaintKind
+  commentId: T:Etch.Scene.PaintKind
+  parent: Etch.Scene
+  href: Etch.Scene.PaintKind.html
+  name: PaintKind
+  nameWithType: PaintKind
+  fullName: Etch.Scene.PaintKind
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Scene.Paint.#ctor*
+  commentId: Overload:Etch.Scene.Paint.#ctor
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint__ctor_Etch_Scene_PaintKind_System_UInt32_System_Byte_
+  name: Paint
+  nameWithType: Paint.Paint
+  fullName: Etch.Scene.Paint.Paint
+  nameWithType.vb: Paint.New
+  fullName.vb: Etch.Scene.Paint.New
+  name.vb: New
+- uid: Etch.Scene.Paint.Solid*
+  commentId: Overload:Etch.Scene.Paint.Solid
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint_Solid_System_UInt32_System_Byte_
+  name: Solid
+  nameWithType: Paint.Solid
+  fullName: Etch.Scene.Paint.Solid
+- uid: Etch.Scene.Paint
+  commentId: T:Etch.Scene.Paint
+  parent: Etch.Scene
+  href: Etch.Scene.Paint.html
+  name: Paint
+  nameWithType: Paint
+  fullName: Etch.Scene.Paint
+- uid: Etch.Scene.Paint.LinearGradient*
+  commentId: Overload:Etch.Scene.Paint.LinearGradient
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint_LinearGradient_System_UInt32_System_Byte_
+  name: LinearGradient
+  nameWithType: Paint.LinearGradient
+  fullName: Etch.Scene.Paint.LinearGradient
+- uid: Etch.Scene.Paint.RadialGradient*
+  commentId: Overload:Etch.Scene.Paint.RadialGradient
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint_RadialGradient_System_UInt32_System_Byte_
+  name: RadialGradient
+  nameWithType: Paint.RadialGradient
+  fullName: Etch.Scene.Paint.RadialGradient
+- uid: Etch.Scene.Paint.Color*
+  commentId: Overload:Etch.Scene.Paint.Color
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint_Color
+  name: Color
+  nameWithType: Paint.Color
+  fullName: Etch.Scene.Paint.Color
+- uid: Etch.Scene.Paint.GradientId*
+  commentId: Overload:Etch.Scene.Paint.GradientId
+  href: Etch.Scene.Paint.html#Etch_Scene_Paint_GradientId
+  name: GradientId
+  nameWithType: Paint.GradientId
+  fullName: Etch.Scene.Paint.GradientId

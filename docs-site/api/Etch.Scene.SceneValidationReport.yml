@@ -1,0 +1,573 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.SceneValidationReport
+  commentId: T:Etch.Scene.SceneValidationReport
+  id: SceneValidationReport
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.SceneValidationReport.#ctor(System.Span{Etch.Scene.SceneValidationError})
+  - Etch.Scene.SceneValidationReport.Add(Etch.PanicCode,System.Int32)
+  - Etch.Scene.SceneValidationReport.Count
+  - Etch.Scene.SceneValidationReport.Errors
+  - Etch.Scene.SceneValidationReport.IsFull
+  langs:
+  - csharp
+  - vb
+  name: SceneValidationReport
+  nameWithType: SceneValidationReport
+  fullName: Etch.Scene.SceneValidationReport
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public ref struct SceneValidationReport
+    content.vb: Public Structure SceneValidationReport
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.SceneValidationReport.#ctor(System.Span{Etch.Scene.SceneValidationError})
+  commentId: M:Etch.Scene.SceneValidationReport.#ctor(System.Span{Etch.Scene.SceneValidationError})
+  id: '#ctor(System.Span{Etch.Scene.SceneValidationError})'
+  parent: Etch.Scene.SceneValidationReport
+  langs:
+  - csharp
+  - vb
+  name: SceneValidationReport(Span<SceneValidationError>)
+  nameWithType: SceneValidationReport.SceneValidationReport(Span<SceneValidationError>)
+  fullName: Etch.Scene.SceneValidationReport.SceneValidationReport(System.Span<Etch.Scene.SceneValidationError>)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public SceneValidationReport(Span<SceneValidationError> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{Etch.Scene.SceneValidationError}
+    content.vb: Public Sub New(buffer As Span(Of SceneValidationError))
+  overload: Etch.Scene.SceneValidationReport.#ctor*
+  nameWithType.vb: SceneValidationReport.New(Span(Of SceneValidationError))
+  fullName.vb: Etch.Scene.SceneValidationReport.New(System.Span(Of Etch.Scene.SceneValidationError))
+  name.vb: New(Span(Of SceneValidationError))
+- uid: Etch.Scene.SceneValidationReport.Count
+  commentId: P:Etch.Scene.SceneValidationReport.Count
+  id: Count
+  parent: Etch.Scene.SceneValidationReport
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: SceneValidationReport.Count
+  fullName: Etch.Scene.SceneValidationReport.Count
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Etch.Scene.SceneValidationReport.Count*
+- uid: Etch.Scene.SceneValidationReport.IsFull
+  commentId: P:Etch.Scene.SceneValidationReport.IsFull
+  id: IsFull
+  parent: Etch.Scene.SceneValidationReport
+  langs:
+  - csharp
+  - vb
+  name: IsFull
+  nameWithType: SceneValidationReport.IsFull
+  fullName: Etch.Scene.SceneValidationReport.IsFull
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public bool IsFull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFull As Boolean
+  overload: Etch.Scene.SceneValidationReport.IsFull*
+- uid: Etch.Scene.SceneValidationReport.Add(Etch.PanicCode,System.Int32)
+  commentId: M:Etch.Scene.SceneValidationReport.Add(Etch.PanicCode,System.Int32)
+  id: Add(Etch.PanicCode,System.Int32)
+  parent: Etch.Scene.SceneValidationReport
+  langs:
+  - csharp
+  - vb
+  name: Add(PanicCode, int)
+  nameWithType: SceneValidationReport.Add(PanicCode, int)
+  fullName: Etch.Scene.SceneValidationReport.Add(Etch.PanicCode, int)
+  type: Method
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public void Add(PanicCode code, int commandIndex)
+    parameters:
+    - id: code
+      type: Etch.PanicCode
+    - id: commandIndex
+      type: System.Int32
+    content.vb: Public Sub Add(code As PanicCode, commandIndex As Integer)
+  overload: Etch.Scene.SceneValidationReport.Add*
+  nameWithType.vb: SceneValidationReport.Add(PanicCode, Integer)
+  fullName.vb: Etch.Scene.SceneValidationReport.Add(Etch.PanicCode, Integer)
+  name.vb: Add(PanicCode, Integer)
+- uid: Etch.Scene.SceneValidationReport.Errors
+  commentId: P:Etch.Scene.SceneValidationReport.Errors
+  id: Errors
+  parent: Etch.Scene.SceneValidationReport
+  langs:
+  - csharp
+  - vb
+  name: Errors
+  nameWithType: SceneValidationReport.Errors
+  fullName: Etch.Scene.SceneValidationReport.Errors
+  type: Property
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public ReadOnlySpan<SceneValidationError> Errors { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{Etch.Scene.SceneValidationError}
+    content.vb: Public ReadOnly Property Errors As ReadOnlySpan(Of SceneValidationError)
+  overload: Etch.Scene.SceneValidationReport.Errors*
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Scene.SceneValidationReport.#ctor*
+  commentId: Overload:Etch.Scene.SceneValidationReport.#ctor
+  href: Etch.Scene.SceneValidationReport.html#Etch_Scene_SceneValidationReport__ctor_System_Span_Etch_Scene_SceneValidationError__
+  name: SceneValidationReport
+  nameWithType: SceneValidationReport.SceneValidationReport
+  fullName: Etch.Scene.SceneValidationReport.SceneValidationReport
+  nameWithType.vb: SceneValidationReport.New
+  fullName.vb: Etch.Scene.SceneValidationReport.New
+  name.vb: New
+- uid: System.Span{Etch.Scene.SceneValidationError}
+  commentId: T:System.Span{Etch.Scene.SceneValidationError}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<SceneValidationError>
+  nameWithType: Span<SceneValidationError>
+  fullName: System.Span<Etch.Scene.SceneValidationError>
+  nameWithType.vb: Span(Of SceneValidationError)
+  fullName.vb: System.Span(Of Etch.Scene.SceneValidationError)
+  name.vb: Span(Of SceneValidationError)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: Etch.Scene.SceneValidationError
+    name: SceneValidationError
+    href: Etch.Scene.SceneValidationError.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Scene.SceneValidationError
+    name: SceneValidationError
+    href: Etch.Scene.SceneValidationError.html
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Scene.SceneValidationReport.Count*
+  commentId: Overload:Etch.Scene.SceneValidationReport.Count
+  href: Etch.Scene.SceneValidationReport.html#Etch_Scene_SceneValidationReport_Count
+  name: Count
+  nameWithType: SceneValidationReport.Count
+  fullName: Etch.Scene.SceneValidationReport.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Scene.SceneValidationReport.IsFull*
+  commentId: Overload:Etch.Scene.SceneValidationReport.IsFull
+  href: Etch.Scene.SceneValidationReport.html#Etch_Scene_SceneValidationReport_IsFull
+  name: IsFull
+  nameWithType: SceneValidationReport.IsFull
+  fullName: Etch.Scene.SceneValidationReport.IsFull
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Scene.SceneValidationReport.Add*
+  commentId: Overload:Etch.Scene.SceneValidationReport.Add
+  href: Etch.Scene.SceneValidationReport.html#Etch_Scene_SceneValidationReport_Add_Etch_PanicCode_System_Int32_
+  name: Add
+  nameWithType: SceneValidationReport.Add
+  fullName: Etch.Scene.SceneValidationReport.Add
+- uid: Etch.PanicCode
+  commentId: T:Etch.PanicCode
+  parent: Etch
+  name: PanicCode
+  nameWithType: PanicCode
+  fullName: Etch.PanicCode
+- uid: Etch
+  commentId: N:Etch
+  name: Etch
+  nameWithType: Etch
+  fullName: Etch
+- uid: Etch.Scene.SceneValidationReport.Errors*
+  commentId: Overload:Etch.Scene.SceneValidationReport.Errors
+  href: Etch.Scene.SceneValidationReport.html#Etch_Scene_SceneValidationReport_Errors
+  name: Errors
+  nameWithType: SceneValidationReport.Errors
+  fullName: Etch.Scene.SceneValidationReport.Errors
+- uid: System.ReadOnlySpan{Etch.Scene.SceneValidationError}
+  commentId: T:System.ReadOnlySpan{Etch.Scene.SceneValidationError}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<SceneValidationError>
+  nameWithType: ReadOnlySpan<SceneValidationError>
+  fullName: System.ReadOnlySpan<Etch.Scene.SceneValidationError>
+  nameWithType.vb: ReadOnlySpan(Of SceneValidationError)
+  fullName.vb: System.ReadOnlySpan(Of Etch.Scene.SceneValidationError)
+  name.vb: ReadOnlySpan(Of SceneValidationError)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: Etch.Scene.SceneValidationError
+    name: SceneValidationError
+    href: Etch.Scene.SceneValidationError.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Scene.SceneValidationError
+    name: SceneValidationError
+    href: Etch.Scene.SceneValidationError.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

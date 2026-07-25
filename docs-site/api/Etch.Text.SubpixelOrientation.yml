@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.SubpixelOrientation
+  commentId: T:Etch.Text.SubpixelOrientation
+  id: SubpixelOrientation
+  parent: Etch.Text
+  children:
+  - Etch.Text.SubpixelOrientation.Grayscale
+  - Etch.Text.SubpixelOrientation.RgbHorizontal
+  langs:
+  - csharp
+  - vb
+  name: SubpixelOrientation
+  nameWithType: SubpixelOrientation
+  fullName: Etch.Text.SubpixelOrientation
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  summary: LCD subpixel orientation for a text rendering surface.
+  example: []
+  syntax:
+    content: 'public enum SubpixelOrientation : byte'
+    content.vb: Public Enum SubpixelOrientation As Byte
+- uid: Etch.Text.SubpixelOrientation.Grayscale
+  commentId: F:Etch.Text.SubpixelOrientation.Grayscale
+  id: Grayscale
+  parent: Etch.Text.SubpixelOrientation
+  langs:
+  - csharp
+  - vb
+  name: Grayscale
+  nameWithType: SubpixelOrientation.Grayscale
+  fullName: Etch.Text.SubpixelOrientation.Grayscale
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  summary: Standard grayscale anti-aliasing (default).
+  example: []
+  syntax:
+    content: Grayscale = 0
+    return:
+      type: Etch.Text.SubpixelOrientation
+- uid: Etch.Text.SubpixelOrientation.RgbHorizontal
+  commentId: F:Etch.Text.SubpixelOrientation.RgbHorizontal
+  id: RgbHorizontal
+  parent: Etch.Text.SubpixelOrientation
+  langs:
+  - csharp
+  - vb
+  name: RgbHorizontal
+  nameWithType: SubpixelOrientation.RgbHorizontal
+  fullName: Etch.Text.SubpixelOrientation.RgbHorizontal
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  summary: Horizontal RGB stripe order (standard Windows LCD).
+  example: []
+  syntax:
+    content: RgbHorizontal = 1
+    return:
+      type: Etch.Text.SubpixelOrientation
+references:
+- uid: Etch.Text
+  commentId: N:Etch.Text
+  href: Etch.html
+  name: Etch.Text
+  nameWithType: Etch.Text
+  fullName: Etch.Text
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+- uid: Etch.Text.SubpixelOrientation
+  commentId: T:Etch.Text.SubpixelOrientation
+  parent: Etch.Text
+  href: Etch.Text.SubpixelOrientation.html
+  name: SubpixelOrientation
+  nameWithType: SubpixelOrientation
+  fullName: Etch.Text.SubpixelOrientation

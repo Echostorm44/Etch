@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Classify.ClassificationKind
+  commentId: T:Etch.Tiling.Classify.ClassificationKind
+  id: ClassificationKind
+  parent: Etch.Tiling.Classify
+  children:
+  - Etch.Tiling.Classify.ClassificationKind.DrawGlyphRun
+  - Etch.Tiling.Classify.ClassificationKind.DrawImage
+  - Etch.Tiling.Classify.ClassificationKind.FillPath
+  - Etch.Tiling.Classify.ClassificationKind.FillRect
+  - Etch.Tiling.Classify.ClassificationKind.StrokePath
+  langs:
+  - csharp
+  - vb
+  name: ClassificationKind
+  nameWithType: ClassificationKind
+  fullName: Etch.Tiling.Classify.ClassificationKind
+  type: Enum
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: 'public enum ClassificationKind : byte'
+    content.vb: Public Enum ClassificationKind As Byte
+- uid: Etch.Tiling.Classify.ClassificationKind.FillPath
+  commentId: F:Etch.Tiling.Classify.ClassificationKind.FillPath
+  id: FillPath
+  parent: Etch.Tiling.Classify.ClassificationKind
+  langs:
+  - csharp
+  - vb
+  name: FillPath
+  nameWithType: ClassificationKind.FillPath
+  fullName: Etch.Tiling.Classify.ClassificationKind.FillPath
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: FillPath = 0
+    return:
+      type: Etch.Tiling.Classify.ClassificationKind
+- uid: Etch.Tiling.Classify.ClassificationKind.StrokePath
+  commentId: F:Etch.Tiling.Classify.ClassificationKind.StrokePath
+  id: StrokePath
+  parent: Etch.Tiling.Classify.ClassificationKind
+  langs:
+  - csharp
+  - vb
+  name: StrokePath
+  nameWithType: ClassificationKind.StrokePath
+  fullName: Etch.Tiling.Classify.ClassificationKind.StrokePath
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: StrokePath = 1
+    return:
+      type: Etch.Tiling.Classify.ClassificationKind
+- uid: Etch.Tiling.Classify.ClassificationKind.FillRect
+  commentId: F:Etch.Tiling.Classify.ClassificationKind.FillRect
+  id: FillRect
+  parent: Etch.Tiling.Classify.ClassificationKind
+  langs:
+  - csharp
+  - vb
+  name: FillRect
+  nameWithType: ClassificationKind.FillRect
+  fullName: Etch.Tiling.Classify.ClassificationKind.FillRect
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: FillRect = 2
+    return:
+      type: Etch.Tiling.Classify.ClassificationKind
+- uid: Etch.Tiling.Classify.ClassificationKind.DrawImage
+  commentId: F:Etch.Tiling.Classify.ClassificationKind.DrawImage
+  id: DrawImage
+  parent: Etch.Tiling.Classify.ClassificationKind
+  langs:
+  - csharp
+  - vb
+  name: DrawImage
+  nameWithType: ClassificationKind.DrawImage
+  fullName: Etch.Tiling.Classify.ClassificationKind.DrawImage
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: DrawImage = 3
+    return:
+      type: Etch.Tiling.Classify.ClassificationKind
+- uid: Etch.Tiling.Classify.ClassificationKind.DrawGlyphRun
+  commentId: F:Etch.Tiling.Classify.ClassificationKind.DrawGlyphRun
+  id: DrawGlyphRun
+  parent: Etch.Tiling.Classify.ClassificationKind
+  langs:
+  - csharp
+  - vb
+  name: DrawGlyphRun
+  nameWithType: ClassificationKind.DrawGlyphRun
+  fullName: Etch.Tiling.Classify.ClassificationKind.DrawGlyphRun
+  type: Field
+  assemblies:
+  - Etch.Tiling
+  namespace: Etch.Tiling.Classify
+  syntax:
+    content: DrawGlyphRun = 4
+    return:
+      type: Etch.Tiling.Classify.ClassificationKind
+references:
+- uid: Etch.Tiling.Classify
+  commentId: N:Etch.Tiling.Classify
+  href: Etch.html
+  name: Etch.Tiling.Classify
+  nameWithType: Etch.Tiling.Classify
+  fullName: Etch.Tiling.Classify
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Classify
+    name: Classify
+    href: Etch.Tiling.Classify.html
+- uid: Etch.Tiling.Classify.ClassificationKind
+  commentId: T:Etch.Tiling.Classify.ClassificationKind
+  parent: Etch.Tiling.Classify
+  href: Etch.Tiling.Classify.ClassificationKind.html
+  name: ClassificationKind
+  nameWithType: ClassificationKind
+  fullName: Etch.Tiling.Classify.ClassificationKind

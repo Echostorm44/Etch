@@ -1,0 +1,538 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Rgba16f
+  commentId: T:Etch.Raster.Cpu.Rgba16f
+  id: Rgba16f
+  parent: Etch.Raster.Cpu
+  children:
+  - Etch.Raster.Cpu.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  - Etch.Raster.Cpu.Rgba16f.A
+  - Etch.Raster.Cpu.Rgba16f.B
+  - Etch.Raster.Cpu.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  - Etch.Raster.Cpu.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  - Etch.Raster.Cpu.Rgba16f.G
+  - Etch.Raster.Cpu.Rgba16f.R
+  - Etch.Raster.Cpu.Rgba16f.Zero
+  langs:
+  - csharp
+  - vb
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.Raster.Cpu.Rgba16f
+  type: Struct
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly struct Rgba16f
+    content.vb: Public Structure Rgba16f
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Raster.Cpu.Rgba16f.R
+  commentId: F:Etch.Raster.Cpu.Rgba16f.R
+  id: R
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: Rgba16f.R
+  fullName: Etch.Raster.Cpu.Rgba16f.R
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly Half R
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly R As Half
+- uid: Etch.Raster.Cpu.Rgba16f.G
+  commentId: F:Etch.Raster.Cpu.Rgba16f.G
+  id: G
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: G
+  nameWithType: Rgba16f.G
+  fullName: Etch.Raster.Cpu.Rgba16f.G
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly Half G
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly G As Half
+- uid: Etch.Raster.Cpu.Rgba16f.B
+  commentId: F:Etch.Raster.Cpu.Rgba16f.B
+  id: B
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: Rgba16f.B
+  fullName: Etch.Raster.Cpu.Rgba16f.B
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly Half B
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly B As Half
+- uid: Etch.Raster.Cpu.Rgba16f.A
+  commentId: F:Etch.Raster.Cpu.Rgba16f.A
+  id: A
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: Rgba16f.A
+  fullName: Etch.Raster.Cpu.Rgba16f.A
+  type: Field
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public readonly Half A
+    return:
+      type: System.Half
+    content.vb: Public ReadOnly A As Half
+- uid: Etch.Raster.Cpu.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  commentId: M:Etch.Raster.Cpu.Rgba16f.#ctor(System.Half,System.Half,System.Half,System.Half)
+  id: '#ctor(System.Half,System.Half,System.Half,System.Half)'
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: Rgba16f(Half, Half, Half, Half)
+  nameWithType: Rgba16f.Rgba16f(Half, Half, Half, Half)
+  fullName: Etch.Raster.Cpu.Rgba16f.Rgba16f(System.Half, System.Half, System.Half, System.Half)
+  type: Constructor
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public Rgba16f(Half r, Half g, Half b, Half a)
+    parameters:
+    - id: r
+      type: System.Half
+    - id: g
+      type: System.Half
+    - id: b
+      type: System.Half
+    - id: a
+      type: System.Half
+    content.vb: Public Sub New(r As Half, g As Half, b As Half, a As Half)
+  overload: Etch.Raster.Cpu.Rgba16f.#ctor*
+  nameWithType.vb: Rgba16f.New(Half, Half, Half, Half)
+  fullName.vb: Etch.Raster.Cpu.Rgba16f.New(System.Half, System.Half, System.Half, System.Half)
+  name.vb: New(Half, Half, Half, Half)
+- uid: Etch.Raster.Cpu.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Etch.Raster.Cpu.Rgba16f.From(System.Single,System.Single,System.Single,System.Single)
+  id: From(System.Single,System.Single,System.Single,System.Single)
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: From(float, float, float, float)
+  nameWithType: Rgba16f.From(float, float, float, float)
+  fullName: Etch.Raster.Cpu.Rgba16f.From(float, float, float, float)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static Rgba16f From(float r, float g, float b, float a)
+    parameters:
+    - id: r
+      type: System.Single
+    - id: g
+      type: System.Single
+    - id: b
+      type: System.Single
+    - id: a
+      type: System.Single
+    return:
+      type: Etch.Raster.Cpu.Rgba16f
+    content.vb: Public Shared Function From(r As Single, g As Single, b As Single, a As Single) As Rgba16f
+  overload: Etch.Raster.Cpu.Rgba16f.From*
+  nameWithType.vb: Rgba16f.From(Single, Single, Single, Single)
+  fullName.vb: Etch.Raster.Cpu.Rgba16f.From(Single, Single, Single, Single)
+  name.vb: From(Single, Single, Single, Single)
+- uid: Etch.Raster.Cpu.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  commentId: M:Etch.Raster.Cpu.Rgba16f.FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  id: FromLinearBytes(System.Byte,System.Byte,System.Byte,System.Byte)
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: FromLinearBytes(byte, byte, byte, byte)
+  nameWithType: Rgba16f.FromLinearBytes(byte, byte, byte, byte)
+  fullName: Etch.Raster.Cpu.Rgba16f.FromLinearBytes(byte, byte, byte, byte)
+  type: Method
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static Rgba16f FromLinearBytes(byte rByte, byte gByte, byte bByte, byte aByte)
+    parameters:
+    - id: rByte
+      type: System.Byte
+    - id: gByte
+      type: System.Byte
+    - id: bByte
+      type: System.Byte
+    - id: aByte
+      type: System.Byte
+    return:
+      type: Etch.Raster.Cpu.Rgba16f
+    content.vb: Public Shared Function FromLinearBytes(rByte As Byte, gByte As Byte, bByte As Byte, aByte As Byte) As Rgba16f
+  overload: Etch.Raster.Cpu.Rgba16f.FromLinearBytes*
+  nameWithType.vb: Rgba16f.FromLinearBytes(Byte, Byte, Byte, Byte)
+  fullName.vb: Etch.Raster.Cpu.Rgba16f.FromLinearBytes(Byte, Byte, Byte, Byte)
+  name.vb: FromLinearBytes(Byte, Byte, Byte, Byte)
+- uid: Etch.Raster.Cpu.Rgba16f.Zero
+  commentId: P:Etch.Raster.Cpu.Rgba16f.Zero
+  id: Zero
+  parent: Etch.Raster.Cpu.Rgba16f
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Rgba16f.Zero
+  fullName: Etch.Raster.Cpu.Rgba16f.Zero
+  type: Property
+  assemblies:
+  - Etch.Raster.Cpu
+  namespace: Etch.Raster.Cpu
+  syntax:
+    content: public static Rgba16f Zero { get; }
+    parameters: []
+    return:
+      type: Etch.Raster.Cpu.Rgba16f
+    content.vb: Public Shared ReadOnly Property Zero As Rgba16f
+  overload: Etch.Raster.Cpu.Rgba16f.Zero*
+references:
+- uid: Etch.Raster.Cpu
+  commentId: N:Etch.Raster.Cpu
+  href: Etch.html
+  name: Etch.Raster.Cpu
+  nameWithType: Etch.Raster.Cpu
+  fullName: Etch.Raster.Cpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Raster
+    name: Raster
+    href: Etch.Raster.html
+  - name: .
+  - uid: Etch.Raster.Cpu
+    name: Cpu
+    href: Etch.Raster.Cpu.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Half
+  commentId: T:System.Half
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.half
+  name: Half
+  nameWithType: Half
+  fullName: System.Half
+- uid: Etch.Raster.Cpu.Rgba16f.#ctor*
+  commentId: Overload:Etch.Raster.Cpu.Rgba16f.#ctor
+  href: Etch.Raster.Cpu.Rgba16f.html#Etch_Raster_Cpu_Rgba16f__ctor_System_Half_System_Half_System_Half_System_Half_
+  name: Rgba16f
+  nameWithType: Rgba16f.Rgba16f
+  fullName: Etch.Raster.Cpu.Rgba16f.Rgba16f
+  nameWithType.vb: Rgba16f.New
+  fullName.vb: Etch.Raster.Cpu.Rgba16f.New
+  name.vb: New
+- uid: Etch.Raster.Cpu.Rgba16f.From*
+  commentId: Overload:Etch.Raster.Cpu.Rgba16f.From
+  href: Etch.Raster.Cpu.Rgba16f.html#Etch_Raster_Cpu_Rgba16f_From_System_Single_System_Single_System_Single_System_Single_
+  name: From
+  nameWithType: Rgba16f.From
+  fullName: Etch.Raster.Cpu.Rgba16f.From
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Raster.Cpu.Rgba16f
+  commentId: T:Etch.Raster.Cpu.Rgba16f
+  parent: Etch.Raster.Cpu
+  href: Etch.Raster.Cpu.Rgba16f.html
+  name: Rgba16f
+  nameWithType: Rgba16f
+  fullName: Etch.Raster.Cpu.Rgba16f
+- uid: Etch.Raster.Cpu.Rgba16f.FromLinearBytes*
+  commentId: Overload:Etch.Raster.Cpu.Rgba16f.FromLinearBytes
+  href: Etch.Raster.Cpu.Rgba16f.html#Etch_Raster_Cpu_Rgba16f_FromLinearBytes_System_Byte_System_Byte_System_Byte_System_Byte_
+  name: FromLinearBytes
+  nameWithType: Rgba16f.FromLinearBytes
+  fullName: Etch.Raster.Cpu.Rgba16f.FromLinearBytes
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Raster.Cpu.Rgba16f.Zero*
+  commentId: Overload:Etch.Raster.Cpu.Rgba16f.Zero
+  href: Etch.Raster.Cpu.Rgba16f.html#Etch_Raster_Cpu_Rgba16f_Zero
+  name: Zero
+  nameWithType: Rgba16f.Zero
+  fullName: Etch.Raster.Cpu.Rgba16f.Zero

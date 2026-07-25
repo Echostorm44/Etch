@@ -1,0 +1,827 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas.GlyphCacheKey
+  commentId: T:Etch.Text.Atlas.GlyphCacheKey
+  id: GlyphCacheKey
+  parent: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.GlyphCacheKey.#ctor(System.Int32,System.UInt16,System.UInt16,System.Byte)
+  - Etch.Text.Atlas.GlyphCacheKey.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  - Etch.Text.Atlas.GlyphCacheKey.Equals(System.Object)
+  - Etch.Text.Atlas.GlyphCacheKey.FaceId
+  - Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel(System.Single,System.Int32,System.UInt16,System.Byte)
+  - Etch.Text.Atlas.GlyphCacheKey.GetHashCode
+  - Etch.Text.Atlas.GlyphCacheKey.GlyphId
+  - Etch.Text.Atlas.GlyphCacheKey.SizeOf
+  - Etch.Text.Atlas.GlyphCacheKey.SizeQuantUnits
+  - Etch.Text.Atlas.GlyphCacheKey.SubpixelX
+  - Etch.Text.Atlas.GlyphCacheKey.op_Equality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  - Etch.Text.Atlas.GlyphCacheKey.op_Inequality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  langs:
+  - csharp
+  - vb
+  name: GlyphCacheKey
+  nameWithType: GlyphCacheKey
+  fullName: Etch.Text.Atlas.GlyphCacheKey
+  type: Struct
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: 'public readonly struct GlyphCacheKey : IEquatable<GlyphCacheKey>'
+    content.vb: Public Structure GlyphCacheKey Implements IEquatable(Of GlyphCacheKey)
+  implements:
+  - System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Text.Atlas.GlyphCacheKey.SizeOf
+  commentId: P:Etch.Text.Atlas.GlyphCacheKey.SizeOf
+  id: SizeOf
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: SizeOf
+  nameWithType: GlyphCacheKey.SizeOf
+  fullName: Etch.Text.Atlas.GlyphCacheKey.SizeOf
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public static int SizeOf { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property SizeOf As Integer
+  overload: Etch.Text.Atlas.GlyphCacheKey.SizeOf*
+- uid: Etch.Text.Atlas.GlyphCacheKey.FaceId
+  commentId: F:Etch.Text.Atlas.GlyphCacheKey.FaceId
+  id: FaceId
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: FaceId
+  nameWithType: GlyphCacheKey.FaceId
+  fullName: Etch.Text.Atlas.GlyphCacheKey.FaceId
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly int FaceId
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly FaceId As Integer
+- uid: Etch.Text.Atlas.GlyphCacheKey.SizeQuantUnits
+  commentId: F:Etch.Text.Atlas.GlyphCacheKey.SizeQuantUnits
+  id: SizeQuantUnits
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: SizeQuantUnits
+  nameWithType: GlyphCacheKey.SizeQuantUnits
+  fullName: Etch.Text.Atlas.GlyphCacheKey.SizeQuantUnits
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort SizeQuantUnits
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly SizeQuantUnits As UShort
+- uid: Etch.Text.Atlas.GlyphCacheKey.GlyphId
+  commentId: F:Etch.Text.Atlas.GlyphCacheKey.GlyphId
+  id: GlyphId
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: GlyphId
+  nameWithType: GlyphCacheKey.GlyphId
+  fullName: Etch.Text.Atlas.GlyphCacheKey.GlyphId
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly ushort GlyphId
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly GlyphId As UShort
+- uid: Etch.Text.Atlas.GlyphCacheKey.SubpixelX
+  commentId: F:Etch.Text.Atlas.GlyphCacheKey.SubpixelX
+  id: SubpixelX
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: SubpixelX
+  nameWithType: GlyphCacheKey.SubpixelX
+  fullName: Etch.Text.Atlas.GlyphCacheKey.SubpixelX
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public readonly byte SubpixelX
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly SubpixelX As Byte
+- uid: Etch.Text.Atlas.GlyphCacheKey.#ctor(System.Int32,System.UInt16,System.UInt16,System.Byte)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.#ctor(System.Int32,System.UInt16,System.UInt16,System.Byte)
+  id: '#ctor(System.Int32,System.UInt16,System.UInt16,System.Byte)'
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: GlyphCacheKey(int, ushort, ushort, byte)
+  nameWithType: GlyphCacheKey.GlyphCacheKey(int, ushort, ushort, byte)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.GlyphCacheKey(int, ushort, ushort, byte)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public GlyphCacheKey(int faceId, ushort sizeQuantUnits, ushort glyphId, byte subpixelX)
+    parameters:
+    - id: faceId
+      type: System.Int32
+    - id: sizeQuantUnits
+      type: System.UInt16
+    - id: glyphId
+      type: System.UInt16
+    - id: subpixelX
+      type: System.Byte
+    content.vb: Public Sub New(faceId As Integer, sizeQuantUnits As UShort, glyphId As UShort, subpixelX As Byte)
+  overload: Etch.Text.Atlas.GlyphCacheKey.#ctor*
+  nameWithType.vb: GlyphCacheKey.New(Integer, UShort, UShort, Byte)
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.New(Integer, UShort, UShort, Byte)
+  name.vb: New(Integer, UShort, UShort, Byte)
+- uid: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel(System.Single,System.Int32,System.UInt16,System.Byte)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel(System.Single,System.Int32,System.UInt16,System.Byte)
+  id: FromSizeAndSubpixel(System.Single,System.Int32,System.UInt16,System.Byte)
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: FromSizeAndSubpixel(float, int, ushort, byte)
+  nameWithType: GlyphCacheKey.FromSizeAndSubpixel(float, int, ushort, byte)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel(float, int, ushort, byte)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public static GlyphCacheKey FromSizeAndSubpixel(float pointSize, int faceId, ushort glyphId, byte subpixelX)
+    parameters:
+    - id: pointSize
+      type: System.Single
+    - id: faceId
+      type: System.Int32
+    - id: glyphId
+      type: System.UInt16
+    - id: subpixelX
+      type: System.Byte
+    return:
+      type: Etch.Text.Atlas.GlyphCacheKey
+    content.vb: Public Shared Function FromSizeAndSubpixel(pointSize As Single, faceId As Integer, glyphId As UShort, subpixelX As Byte) As GlyphCacheKey
+  overload: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel*
+  nameWithType.vb: GlyphCacheKey.FromSizeAndSubpixel(Single, Integer, UShort, Byte)
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel(Single, Integer, UShort, Byte)
+  name.vb: FromSizeAndSubpixel(Single, Integer, UShort, Byte)
+- uid: Etch.Text.Atlas.GlyphCacheKey.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  id: Equals(Etch.Text.Atlas.GlyphCacheKey)
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(GlyphCacheKey)
+  nameWithType: GlyphCacheKey.Equals(GlyphCacheKey)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(GlyphCacheKey other)
+    parameters:
+    - id: other
+      type: Etch.Text.Atlas.GlyphCacheKey
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As GlyphCacheKey) As Boolean
+  overload: Etch.Text.Atlas.GlyphCacheKey.Equals*
+  implements:
+  - System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}.Equals(Etch.Text.Atlas.GlyphCacheKey)
+- uid: Etch.Text.Atlas.GlyphCacheKey.Equals(System.Object)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: GlyphCacheKey.Equals(object?)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Text.Atlas.GlyphCacheKey.Equals*
+  nameWithType.vb: GlyphCacheKey.Equals(Object)
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Text.Atlas.GlyphCacheKey.GetHashCode
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.GetHashCode
+  id: GetHashCode
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: GlyphCacheKey.GetHashCode()
+  fullName: Etch.Text.Atlas.GlyphCacheKey.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Text.Atlas.GlyphCacheKey.GetHashCode*
+- uid: Etch.Text.Atlas.GlyphCacheKey.op_Equality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.op_Equality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  id: op_Equality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: operator ==(GlyphCacheKey, GlyphCacheKey)
+  nameWithType: GlyphCacheKey.operator ==(GlyphCacheKey, GlyphCacheKey)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.operator ==(Etch.Text.Atlas.GlyphCacheKey, Etch.Text.Atlas.GlyphCacheKey)
+  type: Operator
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public static bool operator ==(GlyphCacheKey left, GlyphCacheKey right)
+    parameters:
+    - id: left
+      type: Etch.Text.Atlas.GlyphCacheKey
+    - id: right
+      type: Etch.Text.Atlas.GlyphCacheKey
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As GlyphCacheKey, right As GlyphCacheKey) As Boolean
+  overload: Etch.Text.Atlas.GlyphCacheKey.op_Equality*
+  nameWithType.vb: GlyphCacheKey.=(GlyphCacheKey, GlyphCacheKey)
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.=(Etch.Text.Atlas.GlyphCacheKey, Etch.Text.Atlas.GlyphCacheKey)
+  name.vb: =(GlyphCacheKey, GlyphCacheKey)
+- uid: Etch.Text.Atlas.GlyphCacheKey.op_Inequality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  commentId: M:Etch.Text.Atlas.GlyphCacheKey.op_Inequality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  id: op_Inequality(Etch.Text.Atlas.GlyphCacheKey,Etch.Text.Atlas.GlyphCacheKey)
+  parent: Etch.Text.Atlas.GlyphCacheKey
+  langs:
+  - csharp
+  - vb
+  name: operator !=(GlyphCacheKey, GlyphCacheKey)
+  nameWithType: GlyphCacheKey.operator !=(GlyphCacheKey, GlyphCacheKey)
+  fullName: Etch.Text.Atlas.GlyphCacheKey.operator !=(Etch.Text.Atlas.GlyphCacheKey, Etch.Text.Atlas.GlyphCacheKey)
+  type: Operator
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public static bool operator !=(GlyphCacheKey left, GlyphCacheKey right)
+    parameters:
+    - id: left
+      type: Etch.Text.Atlas.GlyphCacheKey
+    - id: right
+      type: Etch.Text.Atlas.GlyphCacheKey
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As GlyphCacheKey, right As GlyphCacheKey) As Boolean
+  overload: Etch.Text.Atlas.GlyphCacheKey.op_Inequality*
+  nameWithType.vb: GlyphCacheKey.<>(GlyphCacheKey, GlyphCacheKey)
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.<>(Etch.Text.Atlas.GlyphCacheKey, Etch.Text.Atlas.GlyphCacheKey)
+  name.vb: <>(GlyphCacheKey, GlyphCacheKey)
+references:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}
+  commentId: T:System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<GlyphCacheKey>
+  nameWithType: IEquatable<GlyphCacheKey>
+  fullName: System.IEquatable<Etch.Text.Atlas.GlyphCacheKey>
+  nameWithType.vb: IEquatable(Of GlyphCacheKey)
+  fullName.vb: System.IEquatable(Of Etch.Text.Atlas.GlyphCacheKey)
+  name.vb: IEquatable(Of GlyphCacheKey)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Text.Atlas.GlyphCacheKey
+    name: GlyphCacheKey
+    href: Etch.Text.Atlas.GlyphCacheKey.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Text.Atlas.GlyphCacheKey
+    name: GlyphCacheKey
+    href: Etch.Text.Atlas.GlyphCacheKey.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Text.Atlas.GlyphCacheKey.SizeOf*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.SizeOf
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_SizeOf
+  name: SizeOf
+  nameWithType: GlyphCacheKey.SizeOf
+  fullName: Etch.Text.Atlas.GlyphCacheKey.SizeOf
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Text.Atlas.GlyphCacheKey.#ctor*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.#ctor
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey__ctor_System_Int32_System_UInt16_System_UInt16_System_Byte_
+  name: GlyphCacheKey
+  nameWithType: GlyphCacheKey.GlyphCacheKey
+  fullName: Etch.Text.Atlas.GlyphCacheKey.GlyphCacheKey
+  nameWithType.vb: GlyphCacheKey.New
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.New
+  name.vb: New
+- uid: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_FromSizeAndSubpixel_System_Single_System_Int32_System_UInt16_System_Byte_
+  name: FromSizeAndSubpixel
+  nameWithType: GlyphCacheKey.FromSizeAndSubpixel
+  fullName: Etch.Text.Atlas.GlyphCacheKey.FromSizeAndSubpixel
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Etch.Text.Atlas.GlyphCacheKey
+  commentId: T:Etch.Text.Atlas.GlyphCacheKey
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.GlyphCacheKey.html
+  name: GlyphCacheKey
+  nameWithType: GlyphCacheKey
+  fullName: Etch.Text.Atlas.GlyphCacheKey
+- uid: Etch.Text.Atlas.GlyphCacheKey.Equals*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.Equals
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_Equals_Etch_Text_Atlas_GlyphCacheKey_
+  name: Equals
+  nameWithType: GlyphCacheKey.Equals
+  fullName: Etch.Text.Atlas.GlyphCacheKey.Equals
+- uid: System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  commentId: M:System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  parent: System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(GlyphCacheKey)
+  nameWithType: IEquatable<GlyphCacheKey>.Equals(GlyphCacheKey)
+  fullName: System.IEquatable<Etch.Text.Atlas.GlyphCacheKey>.Equals(Etch.Text.Atlas.GlyphCacheKey)
+  nameWithType.vb: IEquatable(Of GlyphCacheKey).Equals(GlyphCacheKey)
+  fullName.vb: System.IEquatable(Of Etch.Text.Atlas.GlyphCacheKey).Equals(Etch.Text.Atlas.GlyphCacheKey)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}.Equals(Etch.Text.Atlas.GlyphCacheKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Text.Atlas.GlyphCacheKey
+    name: GlyphCacheKey
+    href: Etch.Text.Atlas.GlyphCacheKey.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Text.Atlas.GlyphCacheKey}.Equals(Etch.Text.Atlas.GlyphCacheKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Text.Atlas.GlyphCacheKey
+    name: GlyphCacheKey
+    href: Etch.Text.Atlas.GlyphCacheKey.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Text.Atlas.GlyphCacheKey.GetHashCode*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.GetHashCode
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_GetHashCode
+  name: GetHashCode
+  nameWithType: GlyphCacheKey.GetHashCode
+  fullName: Etch.Text.Atlas.GlyphCacheKey.GetHashCode
+- uid: Etch.Text.Atlas.GlyphCacheKey.op_Equality*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.op_Equality
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_op_Equality_Etch_Text_Atlas_GlyphCacheKey_Etch_Text_Atlas_GlyphCacheKey_
+  name: operator ==
+  nameWithType: GlyphCacheKey.operator ==
+  fullName: Etch.Text.Atlas.GlyphCacheKey.operator ==
+  nameWithType.vb: GlyphCacheKey.=
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Text.Atlas.GlyphCacheKey.op_Equality*
+    name: ==
+    href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_op_Equality_Etch_Text_Atlas_GlyphCacheKey_Etch_Text_Atlas_GlyphCacheKey_
+- uid: Etch.Text.Atlas.GlyphCacheKey.op_Inequality*
+  commentId: Overload:Etch.Text.Atlas.GlyphCacheKey.op_Inequality
+  href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_op_Inequality_Etch_Text_Atlas_GlyphCacheKey_Etch_Text_Atlas_GlyphCacheKey_
+  name: operator !=
+  nameWithType: GlyphCacheKey.operator !=
+  fullName: Etch.Text.Atlas.GlyphCacheKey.operator !=
+  nameWithType.vb: GlyphCacheKey.<>
+  fullName.vb: Etch.Text.Atlas.GlyphCacheKey.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Text.Atlas.GlyphCacheKey.op_Inequality*
+    name: '!='
+    href: Etch.Text.Atlas.GlyphCacheKey.html#Etch_Text_Atlas_GlyphCacheKey_op_Inequality_Etch_Text_Atlas_GlyphCacheKey_Etch_Text_Atlas_GlyphCacheKey_

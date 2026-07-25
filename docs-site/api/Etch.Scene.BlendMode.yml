@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.BlendMode
+  commentId: T:Etch.Scene.BlendMode
+  id: BlendMode
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.BlendMode.Clear
+  - Etch.Scene.BlendMode.Dst
+  - Etch.Scene.BlendMode.DstOver
+  - Etch.Scene.BlendMode.Src
+  - Etch.Scene.BlendMode.SrcOver
+  langs:
+  - csharp
+  - vb
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.Scene.BlendMode
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public enum BlendMode
+    content.vb: Public Enum BlendMode
+- uid: Etch.Scene.BlendMode.SrcOver
+  commentId: F:Etch.Scene.BlendMode.SrcOver
+  id: SrcOver
+  parent: Etch.Scene.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: SrcOver
+  nameWithType: BlendMode.SrcOver
+  fullName: Etch.Scene.BlendMode.SrcOver
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: SrcOver = 0
+    return:
+      type: Etch.Scene.BlendMode
+- uid: Etch.Scene.BlendMode.Src
+  commentId: F:Etch.Scene.BlendMode.Src
+  id: Src
+  parent: Etch.Scene.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Src
+  nameWithType: BlendMode.Src
+  fullName: Etch.Scene.BlendMode.Src
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Src = 1
+    return:
+      type: Etch.Scene.BlendMode
+- uid: Etch.Scene.BlendMode.DstOver
+  commentId: F:Etch.Scene.BlendMode.DstOver
+  id: DstOver
+  parent: Etch.Scene.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: DstOver
+  nameWithType: BlendMode.DstOver
+  fullName: Etch.Scene.BlendMode.DstOver
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: DstOver = 2
+    return:
+      type: Etch.Scene.BlendMode
+- uid: Etch.Scene.BlendMode.Dst
+  commentId: F:Etch.Scene.BlendMode.Dst
+  id: Dst
+  parent: Etch.Scene.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Dst
+  nameWithType: BlendMode.Dst
+  fullName: Etch.Scene.BlendMode.Dst
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Dst = 3
+    return:
+      type: Etch.Scene.BlendMode
+- uid: Etch.Scene.BlendMode.Clear
+  commentId: F:Etch.Scene.BlendMode.Clear
+  id: Clear
+  parent: Etch.Scene.BlendMode
+  langs:
+  - csharp
+  - vb
+  name: Clear
+  nameWithType: BlendMode.Clear
+  fullName: Etch.Scene.BlendMode.Clear
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Clear = 4
+    return:
+      type: Etch.Scene.BlendMode
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.BlendMode
+  commentId: T:Etch.Scene.BlendMode
+  parent: Etch.Scene
+  href: Etch.Scene.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: Etch.Scene.BlendMode

@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.StoreOp
+  commentId: T:Etch.Gpu.StoreOp
+  id: StoreOp
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.StoreOp.Discard
+  - Etch.Gpu.StoreOp.Store
+  - Etch.Gpu.StoreOp.Undefined
+  langs:
+  - csharp
+  - vb
+  name: StoreOp
+  nameWithType: StoreOp
+  fullName: Etch.Gpu.StoreOp
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum StoreOp : uint'
+    content.vb: Public Enum StoreOp As UInteger
+- uid: Etch.Gpu.StoreOp.Undefined
+  commentId: F:Etch.Gpu.StoreOp.Undefined
+  id: Undefined
+  parent: Etch.Gpu.StoreOp
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: StoreOp.Undefined
+  fullName: Etch.Gpu.StoreOp.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.StoreOp
+- uid: Etch.Gpu.StoreOp.Store
+  commentId: F:Etch.Gpu.StoreOp.Store
+  id: Store
+  parent: Etch.Gpu.StoreOp
+  langs:
+  - csharp
+  - vb
+  name: Store
+  nameWithType: StoreOp.Store
+  fullName: Etch.Gpu.StoreOp.Store
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Store = 1
+    return:
+      type: Etch.Gpu.StoreOp
+- uid: Etch.Gpu.StoreOp.Discard
+  commentId: F:Etch.Gpu.StoreOp.Discard
+  id: Discard
+  parent: Etch.Gpu.StoreOp
+  langs:
+  - csharp
+  - vb
+  name: Discard
+  nameWithType: StoreOp.Discard
+  fullName: Etch.Gpu.StoreOp.Discard
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Discard = 2
+    return:
+      type: Etch.Gpu.StoreOp
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.StoreOp
+  commentId: T:Etch.Gpu.StoreOp
+  parent: Etch.Gpu
+  href: Etch.Gpu.StoreOp.html
+  name: StoreOp
+  nameWithType: StoreOp
+  fullName: Etch.Gpu.StoreOp

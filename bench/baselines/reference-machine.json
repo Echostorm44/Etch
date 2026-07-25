@@ -1,0 +1,27 @@
+{
+  "machineProfile": "x64-ci-reference",
+  "cpu": "AMD Ryzen 7 5800X / Intel Core i7-12700K",
+  "os": "Windows 11 / Ubuntu 24.04",
+  "notes": "Baseline measurements from CI reference machine. All values are p95 in microseconds.",
+  "version": "2026-04-30",
+  "benchmarks": {
+    "cpu": [
+      { "name": "Render1080pRedRect", "targetUs": 800, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080p1000SolidRects", "targetUs": 5000, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080p1000AlphaBlendedRects", "targetUs": 8000, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080p500AntiAliasedPaths", "targetUs": 20000, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080pFullScreenAAGradientPlaceholder", "targetUs": 12000, "measuredUs": null, "status": "placeholder" }
+    ],
+    "gpu": [
+      { "name": "Render1080p1000SolidRectsGpu", "targetUs": 1000, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080p5000AAPathsGpu", "targetUs": 4000, "measuredUs": null, "status": "pending" },
+      { "name": "Render4K2000AAPathsGpu", "targetUs": 10000, "measuredUs": null, "status": "pending" },
+      { "name": "Render1080p1000LinearGradientsGpu", "targetUs": 3000, "measuredUs": null, "status": "placeholder" },
+      { "name": "Render1080pFullScreenBlurGpu", "targetUs": 4000, "measuredUs": null, "status": "placeholder" }
+    ]
+  },
+  "regressionThresholds": {
+    "cpu": 0.20,
+    "gpu": 0.30
+  }
+}

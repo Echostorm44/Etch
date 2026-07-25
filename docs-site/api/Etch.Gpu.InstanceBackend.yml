@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.InstanceBackend
+  commentId: T:Etch.Gpu.InstanceBackend
+  id: InstanceBackend
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.InstanceBackend.All
+  - Etch.Gpu.InstanceBackend.BrowserWebGPU
+  - Etch.Gpu.InstanceBackend.DX11
+  - Etch.Gpu.InstanceBackend.DX12
+  - Etch.Gpu.InstanceBackend.GL
+  - Etch.Gpu.InstanceBackend.Metal
+  - Etch.Gpu.InstanceBackend.Primary
+  - Etch.Gpu.InstanceBackend.Secondary
+  - Etch.Gpu.InstanceBackend.Vulkan
+  langs:
+  - csharp
+  - vb
+  name: InstanceBackend
+  nameWithType: InstanceBackend
+  fullName: Etch.Gpu.InstanceBackend
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum InstanceBackend : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum InstanceBackend As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.InstanceBackend.All
+  commentId: F:Etch.Gpu.InstanceBackend.All
+  id: All
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: InstanceBackend.All
+  fullName: Etch.Gpu.InstanceBackend.All
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: All = 0
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.Vulkan
+  commentId: F:Etch.Gpu.InstanceBackend.Vulkan
+  id: Vulkan
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: Vulkan
+  nameWithType: InstanceBackend.Vulkan
+  fullName: Etch.Gpu.InstanceBackend.Vulkan
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Vulkan = 1
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.GL
+  commentId: F:Etch.Gpu.InstanceBackend.GL
+  id: GL
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: GL
+  nameWithType: InstanceBackend.GL
+  fullName: Etch.Gpu.InstanceBackend.GL
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: GL = 2
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.Metal
+  commentId: F:Etch.Gpu.InstanceBackend.Metal
+  id: Metal
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: Metal
+  nameWithType: InstanceBackend.Metal
+  fullName: Etch.Gpu.InstanceBackend.Metal
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Metal = 4
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.DX12
+  commentId: F:Etch.Gpu.InstanceBackend.DX12
+  id: DX12
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: DX12
+  nameWithType: InstanceBackend.DX12
+  fullName: Etch.Gpu.InstanceBackend.DX12
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DX12 = 8
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.DX11
+  commentId: F:Etch.Gpu.InstanceBackend.DX11
+  id: DX11
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: DX11
+  nameWithType: InstanceBackend.DX11
+  fullName: Etch.Gpu.InstanceBackend.DX11
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DX11 = 16
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.BrowserWebGPU
+  commentId: F:Etch.Gpu.InstanceBackend.BrowserWebGPU
+  id: BrowserWebGPU
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: BrowserWebGPU
+  nameWithType: InstanceBackend.BrowserWebGPU
+  fullName: Etch.Gpu.InstanceBackend.BrowserWebGPU
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: BrowserWebGPU = 32
+    return:
+      type: Etch.Gpu.InstanceBackend
+- uid: Etch.Gpu.InstanceBackend.Primary
+  commentId: F:Etch.Gpu.InstanceBackend.Primary
+  id: Primary
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: Primary
+  nameWithType: InstanceBackend.Primary
+  fullName: Etch.Gpu.InstanceBackend.Primary
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Primary = Vulkan | Metal | DX12 | BrowserWebGPU
+    return:
+      type: Etch.Gpu.InstanceBackend
+    content.vb: Primary = Vulkan Or Metal Or DX12 Or BrowserWebGPU
+- uid: Etch.Gpu.InstanceBackend.Secondary
+  commentId: F:Etch.Gpu.InstanceBackend.Secondary
+  id: Secondary
+  parent: Etch.Gpu.InstanceBackend
+  langs:
+  - csharp
+  - vb
+  name: Secondary
+  nameWithType: InstanceBackend.Secondary
+  fullName: Etch.Gpu.InstanceBackend.Secondary
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Secondary = GL | DX11
+    return:
+      type: Etch.Gpu.InstanceBackend
+    content.vb: Secondary = GL Or DX11
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.InstanceBackend
+  commentId: T:Etch.Gpu.InstanceBackend
+  parent: Etch.Gpu
+  href: Etch.Gpu.InstanceBackend.html
+  name: InstanceBackend
+  nameWithType: InstanceBackend
+  fullName: Etch.Gpu.InstanceBackend

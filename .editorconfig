@@ -1,0 +1,53 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+encoding = utf-8
+binary_files = *.dll;*.so;*.dylib;*.png;*.scene;*.ttf;*.otf
+
+[*.cs]
+dotnet_diagnostic.IDE0055.severity = error
+csharp_prefer_readonly_struct = true
+csharp_prefer_readonly_struct_member = true
+
+dotnet_diagnostic.CA1062.severity = error
+dotnet_diagnostic.CS8618.severity = error
+dotnet_diagnostic.CS8597.severity = error
+dotnet_diagnostic.CS8774.severity = error
+dotnet_diagnostic.CS8616.severity = error
+
+dotnet_naming_rule.interface_rule.severity = error
+dotnet_naming_rule.interface_rule.symbols = interface_symbols
+dotnet_naming_rule.interface_rule.style = interface_style
+
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+dotnet_naming_symbols.interface_symbols.applicable_accessibilities = public internal
+dotnet_naming_symbols.interface_symbols.required_modifiers =
+
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
+
+dotnet_naming_rule.camel_case_field_rule.severity = error
+dotnet_naming_rule.camel_case_field_rule.symbols = field_symbols
+dotnet_naming_rule.camel_case_field_rule.style = camel_case_field_style
+
+dotnet_naming_symbols.field_symbols.applicable_kinds = field
+dotnet_naming_symbols.field_symbols.applicable_accessibilities = private internal
+dotnet_naming_symbols.field_symbols.required_modifiers =
+
+dotnet_naming_style.camel_case_field_style.capitalization = camel_case
+
+dotnet_naming_rule.pascal_case_rule.severity = error
+dotnet_naming_rule.pascal_case_rule.symbols = pascal_symbols
+dotnet_naming_rule.pascal_case_rule.style = pascal_case
+
+dotnet_naming_symbols.pascal_symbols.applicable_kinds = method property type local_constant event delegate namespace
+dotnet_naming_symbols.pascal_symbols.applicable_accessibilities = public protected internal private
+dotnet_naming_symbols.pascal_symbols.required_modifiers =
+
+dotnet_naming_style.pascal_case.capitalization = pascal_case

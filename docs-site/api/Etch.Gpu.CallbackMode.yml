@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.CallbackMode
+  commentId: T:Etch.Gpu.CallbackMode
+  id: CallbackMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.CallbackMode.AllowProcessEvents
+  - Etch.Gpu.CallbackMode.AllowSpontaneous
+  - Etch.Gpu.CallbackMode.WaitAnyOnly
+  langs:
+  - csharp
+  - vb
+  name: CallbackMode
+  nameWithType: CallbackMode
+  fullName: Etch.Gpu.CallbackMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum CallbackMode : uint'
+    content.vb: Public Enum CallbackMode As UInteger
+- uid: Etch.Gpu.CallbackMode.WaitAnyOnly
+  commentId: F:Etch.Gpu.CallbackMode.WaitAnyOnly
+  id: WaitAnyOnly
+  parent: Etch.Gpu.CallbackMode
+  langs:
+  - csharp
+  - vb
+  name: WaitAnyOnly
+  nameWithType: CallbackMode.WaitAnyOnly
+  fullName: Etch.Gpu.CallbackMode.WaitAnyOnly
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: WaitAnyOnly = 1
+    return:
+      type: Etch.Gpu.CallbackMode
+- uid: Etch.Gpu.CallbackMode.AllowProcessEvents
+  commentId: F:Etch.Gpu.CallbackMode.AllowProcessEvents
+  id: AllowProcessEvents
+  parent: Etch.Gpu.CallbackMode
+  langs:
+  - csharp
+  - vb
+  name: AllowProcessEvents
+  nameWithType: CallbackMode.AllowProcessEvents
+  fullName: Etch.Gpu.CallbackMode.AllowProcessEvents
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: AllowProcessEvents = 2
+    return:
+      type: Etch.Gpu.CallbackMode
+- uid: Etch.Gpu.CallbackMode.AllowSpontaneous
+  commentId: F:Etch.Gpu.CallbackMode.AllowSpontaneous
+  id: AllowSpontaneous
+  parent: Etch.Gpu.CallbackMode
+  langs:
+  - csharp
+  - vb
+  name: AllowSpontaneous
+  nameWithType: CallbackMode.AllowSpontaneous
+  fullName: Etch.Gpu.CallbackMode.AllowSpontaneous
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: AllowSpontaneous = 3
+    return:
+      type: Etch.Gpu.CallbackMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.CallbackMode
+  commentId: T:Etch.Gpu.CallbackMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.CallbackMode.html
+  name: CallbackMode
+  nameWithType: CallbackMode
+  fullName: Etch.Gpu.CallbackMode

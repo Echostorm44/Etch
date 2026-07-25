@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.StrokeJoin
+  commentId: T:Etch.Scene.StrokeJoin
+  id: StrokeJoin
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.StrokeJoin.Bevel
+  - Etch.Scene.StrokeJoin.Miter
+  - Etch.Scene.StrokeJoin.Round
+  langs:
+  - csharp
+  - vb
+  name: StrokeJoin
+  nameWithType: StrokeJoin
+  fullName: Etch.Scene.StrokeJoin
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: public enum StrokeJoin
+    content.vb: Public Enum StrokeJoin
+- uid: Etch.Scene.StrokeJoin.Miter
+  commentId: F:Etch.Scene.StrokeJoin.Miter
+  id: Miter
+  parent: Etch.Scene.StrokeJoin
+  langs:
+  - csharp
+  - vb
+  name: Miter
+  nameWithType: StrokeJoin.Miter
+  fullName: Etch.Scene.StrokeJoin.Miter
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Miter = 0
+    return:
+      type: Etch.Scene.StrokeJoin
+- uid: Etch.Scene.StrokeJoin.Round
+  commentId: F:Etch.Scene.StrokeJoin.Round
+  id: Round
+  parent: Etch.Scene.StrokeJoin
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: StrokeJoin.Round
+  fullName: Etch.Scene.StrokeJoin.Round
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Round = 1
+    return:
+      type: Etch.Scene.StrokeJoin
+- uid: Etch.Scene.StrokeJoin.Bevel
+  commentId: F:Etch.Scene.StrokeJoin.Bevel
+  id: Bevel
+  parent: Etch.Scene.StrokeJoin
+  langs:
+  - csharp
+  - vb
+  name: Bevel
+  nameWithType: StrokeJoin.Bevel
+  fullName: Etch.Scene.StrokeJoin.Bevel
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Bevel = 2
+    return:
+      type: Etch.Scene.StrokeJoin
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.StrokeJoin
+  commentId: T:Etch.Scene.StrokeJoin
+  parent: Etch.Scene
+  href: Etch.Scene.StrokeJoin.html
+  name: StrokeJoin
+  nameWithType: StrokeJoin
+  fullName: Etch.Scene.StrokeJoin

@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Strokes.JoinStyle
+  commentId: T:Etch.Strokes.JoinStyle
+  id: JoinStyle
+  parent: Etch.Strokes
+  children:
+  - Etch.Strokes.JoinStyle.Bevel
+  - Etch.Strokes.JoinStyle.Miter
+  - Etch.Strokes.JoinStyle.Round
+  langs:
+  - csharp
+  - vb
+  name: JoinStyle
+  nameWithType: JoinStyle
+  fullName: Etch.Strokes.JoinStyle
+  type: Enum
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: 'public enum JoinStyle : byte'
+    content.vb: Public Enum JoinStyle As Byte
+- uid: Etch.Strokes.JoinStyle.Miter
+  commentId: F:Etch.Strokes.JoinStyle.Miter
+  id: Miter
+  parent: Etch.Strokes.JoinStyle
+  langs:
+  - csharp
+  - vb
+  name: Miter
+  nameWithType: JoinStyle.Miter
+  fullName: Etch.Strokes.JoinStyle.Miter
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Miter = 0
+    return:
+      type: Etch.Strokes.JoinStyle
+- uid: Etch.Strokes.JoinStyle.Round
+  commentId: F:Etch.Strokes.JoinStyle.Round
+  id: Round
+  parent: Etch.Strokes.JoinStyle
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: JoinStyle.Round
+  fullName: Etch.Strokes.JoinStyle.Round
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Round = 1
+    return:
+      type: Etch.Strokes.JoinStyle
+- uid: Etch.Strokes.JoinStyle.Bevel
+  commentId: F:Etch.Strokes.JoinStyle.Bevel
+  id: Bevel
+  parent: Etch.Strokes.JoinStyle
+  langs:
+  - csharp
+  - vb
+  name: Bevel
+  nameWithType: JoinStyle.Bevel
+  fullName: Etch.Strokes.JoinStyle.Bevel
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Bevel = 2
+    return:
+      type: Etch.Strokes.JoinStyle
+references:
+- uid: Etch.Strokes
+  commentId: N:Etch.Strokes
+  href: Etch.html
+  name: Etch.Strokes
+  nameWithType: Etch.Strokes
+  fullName: Etch.Strokes
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+- uid: Etch.Strokes.JoinStyle
+  commentId: T:Etch.Strokes.JoinStyle
+  parent: Etch.Strokes
+  href: Etch.Strokes.JoinStyle.html
+  name: JoinStyle
+  nameWithType: JoinStyle
+  fullName: Etch.Strokes.JoinStyle

@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.ColorWriteMask
+  commentId: T:Etch.Gpu.ColorWriteMask
+  id: ColorWriteMask
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.ColorWriteMask.All
+  - Etch.Gpu.ColorWriteMask.Alpha
+  - Etch.Gpu.ColorWriteMask.Blue
+  - Etch.Gpu.ColorWriteMask.Green
+  - Etch.Gpu.ColorWriteMask.None
+  - Etch.Gpu.ColorWriteMask.Red
+  langs:
+  - csharp
+  - vb
+  name: ColorWriteMask
+  nameWithType: ColorWriteMask
+  fullName: Etch.Gpu.ColorWriteMask
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ColorWriteMask : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum ColorWriteMask As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.ColorWriteMask.None
+  commentId: F:Etch.Gpu.ColorWriteMask.None
+  id: None
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ColorWriteMask.None
+  fullName: Etch.Gpu.ColorWriteMask.None
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Gpu.ColorWriteMask
+- uid: Etch.Gpu.ColorWriteMask.Red
+  commentId: F:Etch.Gpu.ColorWriteMask.Red
+  id: Red
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: Red
+  nameWithType: ColorWriteMask.Red
+  fullName: Etch.Gpu.ColorWriteMask.Red
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Red = 1
+    return:
+      type: Etch.Gpu.ColorWriteMask
+- uid: Etch.Gpu.ColorWriteMask.Green
+  commentId: F:Etch.Gpu.ColorWriteMask.Green
+  id: Green
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: Green
+  nameWithType: ColorWriteMask.Green
+  fullName: Etch.Gpu.ColorWriteMask.Green
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Green = 2
+    return:
+      type: Etch.Gpu.ColorWriteMask
+- uid: Etch.Gpu.ColorWriteMask.Blue
+  commentId: F:Etch.Gpu.ColorWriteMask.Blue
+  id: Blue
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: Blue
+  nameWithType: ColorWriteMask.Blue
+  fullName: Etch.Gpu.ColorWriteMask.Blue
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Blue = 4
+    return:
+      type: Etch.Gpu.ColorWriteMask
+- uid: Etch.Gpu.ColorWriteMask.Alpha
+  commentId: F:Etch.Gpu.ColorWriteMask.Alpha
+  id: Alpha
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: ColorWriteMask.Alpha
+  fullName: Etch.Gpu.ColorWriteMask.Alpha
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Alpha = 8
+    return:
+      type: Etch.Gpu.ColorWriteMask
+- uid: Etch.Gpu.ColorWriteMask.All
+  commentId: F:Etch.Gpu.ColorWriteMask.All
+  id: All
+  parent: Etch.Gpu.ColorWriteMask
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: ColorWriteMask.All
+  fullName: Etch.Gpu.ColorWriteMask.All
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: All = Red | Green | Blue | Alpha
+    return:
+      type: Etch.Gpu.ColorWriteMask
+    content.vb: All = Red Or Green Or Blue Or Alpha
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.ColorWriteMask
+  commentId: T:Etch.Gpu.ColorWriteMask
+  parent: Etch.Gpu
+  href: Etch.Gpu.ColorWriteMask.html
+  name: ColorWriteMask
+  nameWithType: ColorWriteMask
+  fullName: Etch.Gpu.ColorWriteMask

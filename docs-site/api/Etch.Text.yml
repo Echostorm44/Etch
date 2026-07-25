@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text
+  commentId: N:Etch.Text
+  id: Etch.Text
+  children:
+  - Etch.Text.QuantizedSubpixel
+  - Etch.Text.SubpixelOrientation
+  - Etch.Text.SubpixelQuant
+  - Etch.Text.SurfaceInfo
+  langs:
+  - csharp
+  - vb
+  name: Etch.Text
+  nameWithType: Etch.Text
+  fullName: Etch.Text
+  type: Namespace
+  assemblies:
+  - Etch.Text
+references:
+- uid: Etch.Text.SubpixelQuant
+  commentId: T:Etch.Text.SubpixelQuant
+  parent: Etch.Text
+  href: Etch.Text.SubpixelQuant.html
+  name: SubpixelQuant
+  nameWithType: SubpixelQuant
+  fullName: Etch.Text.SubpixelQuant
+- uid: Etch.Text.QuantizedSubpixel
+  commentId: T:Etch.Text.QuantizedSubpixel
+  href: Etch.Text.QuantizedSubpixel.html
+  name: QuantizedSubpixel
+  nameWithType: QuantizedSubpixel
+  fullName: Etch.Text.QuantizedSubpixel
+- uid: Etch.Text.SubpixelOrientation
+  commentId: T:Etch.Text.SubpixelOrientation
+  parent: Etch.Text
+  href: Etch.Text.SubpixelOrientation.html
+  name: SubpixelOrientation
+  nameWithType: SubpixelOrientation
+  fullName: Etch.Text.SubpixelOrientation
+- uid: Etch.Text.SurfaceInfo
+  commentId: T:Etch.Text.SurfaceInfo
+  href: Etch.Text.SurfaceInfo.html
+  name: SurfaceInfo
+  nameWithType: SurfaceInfo
+  fullName: Etch.Text.SurfaceInfo
+- uid: Etch.Text
+  commentId: N:Etch.Text
+  href: Etch.html
+  name: Etch.Text
+  nameWithType: Etch.Text
+  fullName: Etch.Text
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html

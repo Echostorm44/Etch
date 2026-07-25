@@ -1,0 +1,1058 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Device
+  commentId: T:Etch.Gpu.Device
+  id: Device
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.Device.#ctor(Etch.Gpu.Native.DeviceHandle)
+  - Etch.Gpu.Device.CreateBindGroup(Etch.Gpu.Descriptors.BindGroupDescriptor)
+  - Etch.Gpu.Device.CreateBindGroupLayout(Etch.Gpu.Descriptors.BindGroupLayoutDescriptor)
+  - Etch.Gpu.Device.CreateBuffer(Etch.Gpu.Descriptors.BufferDescriptor)
+  - Etch.Gpu.Device.CreateCommandEncoder(System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor})
+  - Etch.Gpu.Device.CreatePipelineLayout(Etch.Gpu.Descriptors.PipelineLayoutDescriptor)
+  - Etch.Gpu.Device.CreateRenderPipeline(Etch.Gpu.Descriptors.RenderPipelineDescriptor)
+  - Etch.Gpu.Device.CreateSampler(System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor})
+  - Etch.Gpu.Device.CreateShaderModule(Etch.Gpu.Descriptors.ShaderModuleDescriptor)
+  - Etch.Gpu.Device.CreateShaderModuleWgsl(System.String,System.String)
+  - Etch.Gpu.Device.CreateTexture(Etch.Gpu.Descriptors.TextureDescriptor)
+  - Etch.Gpu.Device.Dispose
+  - Etch.Gpu.Device.Handle
+  - Etch.Gpu.Device.IsInvalid
+  - Etch.Gpu.Device.Poll(System.Boolean)
+  - Etch.Gpu.Device.Queue
+  langs:
+  - csharp
+  - vb
+  name: Device
+  nameWithType: Device
+  fullName: Etch.Gpu.Device
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: >-
+    A handle to a wgpu-native logical device. Created from an <xref href="Etch.Gpu.Adapter" data-throw-if-not-resolved="false"></xref>;
+
+    owns the command queue and is the factory for buffers, textures, pipelines, etc.
+  example: []
+  syntax:
+    content: 'public readonly struct Device : IDisposable'
+    content.vb: Public Structure Device Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Device.#ctor(Etch.Gpu.Native.DeviceHandle)
+  commentId: M:Etch.Gpu.Device.#ctor(Etch.Gpu.Native.DeviceHandle)
+  id: '#ctor(Etch.Gpu.Native.DeviceHandle)'
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: Device(DeviceHandle)
+  nameWithType: Device.Device(DeviceHandle)
+  fullName: Etch.Gpu.Device.Device(Etch.Gpu.Native.DeviceHandle)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Device(DeviceHandle handle)
+    parameters:
+    - id: handle
+      type: Etch.Gpu.Native.DeviceHandle
+    content.vb: Public Sub New(handle As DeviceHandle)
+  overload: Etch.Gpu.Device.#ctor*
+  nameWithType.vb: Device.New(DeviceHandle)
+  fullName.vb: Etch.Gpu.Device.New(Etch.Gpu.Native.DeviceHandle)
+  name.vb: New(DeviceHandle)
+- uid: Etch.Gpu.Device.Handle
+  commentId: P:Etch.Gpu.Device.Handle
+  id: Handle
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: Device.Handle
+  fullName: Etch.Gpu.Device.Handle
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public DeviceHandle Handle { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Native.DeviceHandle
+    content.vb: Public ReadOnly Property Handle As DeviceHandle
+  overload: Etch.Gpu.Device.Handle*
+- uid: Etch.Gpu.Device.Queue
+  commentId: P:Etch.Gpu.Device.Queue
+  id: Queue
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: Queue
+  nameWithType: Device.Queue
+  fullName: Etch.Gpu.Device.Queue
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Queue Queue { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Queue
+    content.vb: Public ReadOnly Property Queue As Queue
+  overload: Etch.Gpu.Device.Queue*
+- uid: Etch.Gpu.Device.IsInvalid
+  commentId: P:Etch.Gpu.Device.IsInvalid
+  id: IsInvalid
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: Device.IsInvalid
+  fullName: Etch.Gpu.Device.IsInvalid
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInvalid As Boolean
+  overload: Etch.Gpu.Device.IsInvalid*
+- uid: Etch.Gpu.Device.Dispose
+  commentId: M:Etch.Gpu.Device.Dispose
+  id: Dispose
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Device.Dispose()
+  fullName: Etch.Gpu.Device.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.Device.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Etch.Gpu.Device.Poll(System.Boolean)
+  commentId: M:Etch.Gpu.Device.Poll(System.Boolean)
+  id: Poll(System.Boolean)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: Poll(bool)
+  nameWithType: Device.Poll(bool)
+  fullName: Etch.Gpu.Device.Poll(bool)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void Poll(bool wait = false)
+    parameters:
+    - id: wait
+      type: System.Boolean
+    content.vb: Public Sub Poll(wait As Boolean = False)
+  overload: Etch.Gpu.Device.Poll*
+  nameWithType.vb: Device.Poll(Boolean)
+  fullName.vb: Etch.Gpu.Device.Poll(Boolean)
+  name.vb: Poll(Boolean)
+- uid: Etch.Gpu.Device.CreateBuffer(Etch.Gpu.Descriptors.BufferDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateBuffer(Etch.Gpu.Descriptors.BufferDescriptor)
+  id: CreateBuffer(Etch.Gpu.Descriptors.BufferDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateBuffer(BufferDescriptor)
+  nameWithType: Device.CreateBuffer(BufferDescriptor)
+  fullName: Etch.Gpu.Device.CreateBuffer(Etch.Gpu.Descriptors.BufferDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Buffer CreateBuffer(BufferDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.BufferDescriptor
+    return:
+      type: Etch.Gpu.Buffer
+    content.vb: Public Function CreateBuffer(descriptor As BufferDescriptor) As Buffer
+  overload: Etch.Gpu.Device.CreateBuffer*
+- uid: Etch.Gpu.Device.CreateShaderModule(Etch.Gpu.Descriptors.ShaderModuleDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateShaderModule(Etch.Gpu.Descriptors.ShaderModuleDescriptor)
+  id: CreateShaderModule(Etch.Gpu.Descriptors.ShaderModuleDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateShaderModule(ShaderModuleDescriptor)
+  nameWithType: Device.CreateShaderModule(ShaderModuleDescriptor)
+  fullName: Etch.Gpu.Device.CreateShaderModule(Etch.Gpu.Descriptors.ShaderModuleDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public ShaderModule CreateShaderModule(ShaderModuleDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.ShaderModuleDescriptor
+    return:
+      type: Etch.Gpu.ShaderModule
+    content.vb: Public Function CreateShaderModule(descriptor As ShaderModuleDescriptor) As ShaderModule
+  overload: Etch.Gpu.Device.CreateShaderModule*
+- uid: Etch.Gpu.Device.CreateShaderModuleWgsl(System.String,System.String)
+  commentId: M:Etch.Gpu.Device.CreateShaderModuleWgsl(System.String,System.String)
+  id: CreateShaderModuleWgsl(System.String,System.String)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateShaderModuleWgsl(string, string?)
+  nameWithType: Device.CreateShaderModuleWgsl(string, string?)
+  fullName: Etch.Gpu.Device.CreateShaderModuleWgsl(string, string?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public ShaderModule CreateShaderModuleWgsl(string wgsl, string? label = null)
+    parameters:
+    - id: wgsl
+      type: System.String
+    - id: label
+      type: System.String
+    return:
+      type: Etch.Gpu.ShaderModule
+    content.vb: Public Function CreateShaderModuleWgsl(wgsl As String, label As String = Nothing) As ShaderModule
+  overload: Etch.Gpu.Device.CreateShaderModuleWgsl*
+  nameWithType.vb: Device.CreateShaderModuleWgsl(String, String)
+  fullName.vb: Etch.Gpu.Device.CreateShaderModuleWgsl(String, String)
+  name.vb: CreateShaderModuleWgsl(String, String)
+- uid: Etch.Gpu.Device.CreateSampler(System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor})
+  commentId: M:Etch.Gpu.Device.CreateSampler(System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor})
+  id: CreateSampler(System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor})
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateSampler(SamplerDescriptor?)
+  nameWithType: Device.CreateSampler(SamplerDescriptor?)
+  fullName: Etch.Gpu.Device.CreateSampler(Etch.Gpu.Descriptors.SamplerDescriptor?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Sampler CreateSampler(SamplerDescriptor? descriptor = null)
+    parameters:
+    - id: descriptor
+      type: System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor}
+    return:
+      type: Etch.Gpu.Sampler
+    content.vb: Public Function CreateSampler(descriptor As SamplerDescriptor? = Nothing) As Sampler
+  overload: Etch.Gpu.Device.CreateSampler*
+- uid: Etch.Gpu.Device.CreateBindGroupLayout(Etch.Gpu.Descriptors.BindGroupLayoutDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateBindGroupLayout(Etch.Gpu.Descriptors.BindGroupLayoutDescriptor)
+  id: CreateBindGroupLayout(Etch.Gpu.Descriptors.BindGroupLayoutDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateBindGroupLayout(BindGroupLayoutDescriptor)
+  nameWithType: Device.CreateBindGroupLayout(BindGroupLayoutDescriptor)
+  fullName: Etch.Gpu.Device.CreateBindGroupLayout(Etch.Gpu.Descriptors.BindGroupLayoutDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public BindGroupLayout CreateBindGroupLayout(BindGroupLayoutDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.BindGroupLayoutDescriptor
+    return:
+      type: Etch.Gpu.BindGroupLayout
+    content.vb: Public Function CreateBindGroupLayout(descriptor As BindGroupLayoutDescriptor) As BindGroupLayout
+  overload: Etch.Gpu.Device.CreateBindGroupLayout*
+- uid: Etch.Gpu.Device.CreatePipelineLayout(Etch.Gpu.Descriptors.PipelineLayoutDescriptor)
+  commentId: M:Etch.Gpu.Device.CreatePipelineLayout(Etch.Gpu.Descriptors.PipelineLayoutDescriptor)
+  id: CreatePipelineLayout(Etch.Gpu.Descriptors.PipelineLayoutDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreatePipelineLayout(PipelineLayoutDescriptor)
+  nameWithType: Device.CreatePipelineLayout(PipelineLayoutDescriptor)
+  fullName: Etch.Gpu.Device.CreatePipelineLayout(Etch.Gpu.Descriptors.PipelineLayoutDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public PipelineLayout CreatePipelineLayout(PipelineLayoutDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.PipelineLayoutDescriptor
+    return:
+      type: Etch.Gpu.PipelineLayout
+    content.vb: Public Function CreatePipelineLayout(descriptor As PipelineLayoutDescriptor) As PipelineLayout
+  overload: Etch.Gpu.Device.CreatePipelineLayout*
+- uid: Etch.Gpu.Device.CreateBindGroup(Etch.Gpu.Descriptors.BindGroupDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateBindGroup(Etch.Gpu.Descriptors.BindGroupDescriptor)
+  id: CreateBindGroup(Etch.Gpu.Descriptors.BindGroupDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateBindGroup(BindGroupDescriptor)
+  nameWithType: Device.CreateBindGroup(BindGroupDescriptor)
+  fullName: Etch.Gpu.Device.CreateBindGroup(Etch.Gpu.Descriptors.BindGroupDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public BindGroup CreateBindGroup(BindGroupDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.BindGroupDescriptor
+    return:
+      type: Etch.Gpu.BindGroup
+    content.vb: Public Function CreateBindGroup(descriptor As BindGroupDescriptor) As BindGroup
+  overload: Etch.Gpu.Device.CreateBindGroup*
+- uid: Etch.Gpu.Device.CreateRenderPipeline(Etch.Gpu.Descriptors.RenderPipelineDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateRenderPipeline(Etch.Gpu.Descriptors.RenderPipelineDescriptor)
+  id: CreateRenderPipeline(Etch.Gpu.Descriptors.RenderPipelineDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateRenderPipeline(RenderPipelineDescriptor)
+  nameWithType: Device.CreateRenderPipeline(RenderPipelineDescriptor)
+  fullName: Etch.Gpu.Device.CreateRenderPipeline(Etch.Gpu.Descriptors.RenderPipelineDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public RenderPipeline CreateRenderPipeline(RenderPipelineDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+    return:
+      type: Etch.Gpu.RenderPipeline
+    content.vb: Public Function CreateRenderPipeline(descriptor As RenderPipelineDescriptor) As RenderPipeline
+  overload: Etch.Gpu.Device.CreateRenderPipeline*
+- uid: Etch.Gpu.Device.CreateCommandEncoder(System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor})
+  commentId: M:Etch.Gpu.Device.CreateCommandEncoder(System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor})
+  id: CreateCommandEncoder(System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor})
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateCommandEncoder(CommandEncoderDescriptor?)
+  nameWithType: Device.CreateCommandEncoder(CommandEncoderDescriptor?)
+  fullName: Etch.Gpu.Device.CreateCommandEncoder(Etch.Gpu.Descriptors.CommandEncoderDescriptor?)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public CommandEncoder CreateCommandEncoder(CommandEncoderDescriptor? descriptor = null)
+    parameters:
+    - id: descriptor
+      type: System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor}
+    return:
+      type: Etch.Gpu.CommandEncoder
+    content.vb: Public Function CreateCommandEncoder(descriptor As CommandEncoderDescriptor? = Nothing) As CommandEncoder
+  overload: Etch.Gpu.Device.CreateCommandEncoder*
+- uid: Etch.Gpu.Device.CreateTexture(Etch.Gpu.Descriptors.TextureDescriptor)
+  commentId: M:Etch.Gpu.Device.CreateTexture(Etch.Gpu.Descriptors.TextureDescriptor)
+  id: CreateTexture(Etch.Gpu.Descriptors.TextureDescriptor)
+  parent: Etch.Gpu.Device
+  langs:
+  - csharp
+  - vb
+  name: CreateTexture(TextureDescriptor)
+  nameWithType: Device.CreateTexture(TextureDescriptor)
+  fullName: Etch.Gpu.Device.CreateTexture(Etch.Gpu.Descriptors.TextureDescriptor)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public Texture CreateTexture(TextureDescriptor descriptor)
+    parameters:
+    - id: descriptor
+      type: Etch.Gpu.Descriptors.TextureDescriptor
+    return:
+      type: Etch.Gpu.Texture
+    content.vb: Public Function CreateTexture(descriptor As TextureDescriptor) As Texture
+  overload: Etch.Gpu.Device.CreateTexture*
+references:
+- uid: Etch.Gpu.Adapter
+  commentId: T:Etch.Gpu.Adapter
+  parent: Etch.Gpu
+  href: Etch.Gpu.Adapter.html
+  name: Adapter
+  nameWithType: Adapter
+  fullName: Etch.Gpu.Adapter
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Gpu.Device.#ctor*
+  commentId: Overload:Etch.Gpu.Device.#ctor
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device__ctor_Etch_Gpu_Native_DeviceHandle_
+  name: Device
+  nameWithType: Device.Device
+  fullName: Etch.Gpu.Device.Device
+  nameWithType.vb: Device.New
+  fullName.vb: Etch.Gpu.Device.New
+  name.vb: New
+- uid: Etch.Gpu.Native.DeviceHandle
+  commentId: T:Etch.Gpu.Native.DeviceHandle
+  parent: Etch.Gpu.Native
+  name: DeviceHandle
+  nameWithType: DeviceHandle
+  fullName: Etch.Gpu.Native.DeviceHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.Device.Handle*
+  commentId: Overload:Etch.Gpu.Device.Handle
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_Handle
+  name: Handle
+  nameWithType: Device.Handle
+  fullName: Etch.Gpu.Device.Handle
+- uid: Etch.Gpu.Device.Queue*
+  commentId: Overload:Etch.Gpu.Device.Queue
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_Queue
+  name: Queue
+  nameWithType: Device.Queue
+  fullName: Etch.Gpu.Device.Queue
+- uid: Etch.Gpu.Queue
+  commentId: T:Etch.Gpu.Queue
+  parent: Etch.Gpu
+  href: Etch.Gpu.Queue.html
+  name: Queue
+  nameWithType: Queue
+  fullName: Etch.Gpu.Queue
+- uid: Etch.Gpu.Device.IsInvalid*
+  commentId: Overload:Etch.Gpu.Device.IsInvalid
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_IsInvalid
+  name: IsInvalid
+  nameWithType: Device.IsInvalid
+  fullName: Etch.Gpu.Device.IsInvalid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Gpu.Device.Dispose*
+  commentId: Overload:Etch.Gpu.Device.Dispose
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_Dispose
+  name: Dispose
+  nameWithType: Device.Dispose
+  fullName: Etch.Gpu.Device.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Etch.Gpu.Device.Poll*
+  commentId: Overload:Etch.Gpu.Device.Poll
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_Poll_System_Boolean_
+  name: Poll
+  nameWithType: Device.Poll
+  fullName: Etch.Gpu.Device.Poll
+- uid: Etch.Gpu.Device.CreateBuffer*
+  commentId: Overload:Etch.Gpu.Device.CreateBuffer
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateBuffer_Etch_Gpu_Descriptors_BufferDescriptor_
+  name: CreateBuffer
+  nameWithType: Device.CreateBuffer
+  fullName: Etch.Gpu.Device.CreateBuffer
+- uid: Etch.Gpu.Descriptors.BufferDescriptor
+  commentId: T:Etch.Gpu.Descriptors.BufferDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.BufferDescriptor.html
+  name: BufferDescriptor
+  nameWithType: BufferDescriptor
+  fullName: Etch.Gpu.Descriptors.BufferDescriptor
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.Buffer.html
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+- uid: Etch.Gpu.Descriptors
+  commentId: N:Etch.Gpu.Descriptors
+  href: Etch.html
+  name: Etch.Gpu.Descriptors
+  nameWithType: Etch.Gpu.Descriptors
+  fullName: Etch.Gpu.Descriptors
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Descriptors
+    name: Descriptors
+    href: Etch.Gpu.Descriptors.html
+- uid: Etch.Gpu.Device.CreateShaderModule*
+  commentId: Overload:Etch.Gpu.Device.CreateShaderModule
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateShaderModule_Etch_Gpu_Descriptors_ShaderModuleDescriptor_
+  name: CreateShaderModule
+  nameWithType: Device.CreateShaderModule
+  fullName: Etch.Gpu.Device.CreateShaderModule
+- uid: Etch.Gpu.Descriptors.ShaderModuleDescriptor
+  commentId: T:Etch.Gpu.Descriptors.ShaderModuleDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.ShaderModuleDescriptor.html
+  name: ShaderModuleDescriptor
+  nameWithType: ShaderModuleDescriptor
+  fullName: Etch.Gpu.Descriptors.ShaderModuleDescriptor
+- uid: Etch.Gpu.ShaderModule
+  commentId: T:Etch.Gpu.ShaderModule
+  parent: Etch.Gpu
+  href: Etch.Gpu.ShaderModule.html
+  name: ShaderModule
+  nameWithType: ShaderModule
+  fullName: Etch.Gpu.ShaderModule
+- uid: Etch.Gpu.Device.CreateShaderModuleWgsl*
+  commentId: Overload:Etch.Gpu.Device.CreateShaderModuleWgsl
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateShaderModuleWgsl_System_String_System_String_
+  name: CreateShaderModuleWgsl
+  nameWithType: Device.CreateShaderModuleWgsl
+  fullName: Etch.Gpu.Device.CreateShaderModuleWgsl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Gpu.Device.CreateSampler*
+  commentId: Overload:Etch.Gpu.Device.CreateSampler
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateSampler_System_Nullable_Etch_Gpu_Descriptors_SamplerDescriptor__
+  name: CreateSampler
+  nameWithType: Device.CreateSampler
+  fullName: Etch.Gpu.Device.CreateSampler
+- uid: System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor}
+  commentId: T:System.Nullable{Etch.Gpu.Descriptors.SamplerDescriptor}
+  parent: System
+  definition: System.Nullable`1
+  href: Etch.Gpu.Descriptors.SamplerDescriptor.html
+  name: SamplerDescriptor?
+  nameWithType: SamplerDescriptor?
+  fullName: Etch.Gpu.Descriptors.SamplerDescriptor?
+  spec.csharp:
+  - uid: Etch.Gpu.Descriptors.SamplerDescriptor
+    name: SamplerDescriptor
+    href: Etch.Gpu.Descriptors.SamplerDescriptor.html
+  - name: '?'
+  spec.vb:
+  - uid: Etch.Gpu.Descriptors.SamplerDescriptor
+    name: SamplerDescriptor
+    href: Etch.Gpu.Descriptors.SamplerDescriptor.html
+  - name: '?'
+- uid: Etch.Gpu.Sampler
+  commentId: T:Etch.Gpu.Sampler
+  parent: Etch.Gpu
+  href: Etch.Gpu.Sampler.html
+  name: Sampler
+  nameWithType: Sampler
+  fullName: Etch.Gpu.Sampler
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Device.CreateBindGroupLayout*
+  commentId: Overload:Etch.Gpu.Device.CreateBindGroupLayout
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateBindGroupLayout_Etch_Gpu_Descriptors_BindGroupLayoutDescriptor_
+  name: CreateBindGroupLayout
+  nameWithType: Device.CreateBindGroupLayout
+  fullName: Etch.Gpu.Device.CreateBindGroupLayout
+- uid: Etch.Gpu.Descriptors.BindGroupLayoutDescriptor
+  commentId: T:Etch.Gpu.Descriptors.BindGroupLayoutDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.BindGroupLayoutDescriptor.html
+  name: BindGroupLayoutDescriptor
+  nameWithType: BindGroupLayoutDescriptor
+  fullName: Etch.Gpu.Descriptors.BindGroupLayoutDescriptor
+- uid: Etch.Gpu.BindGroupLayout
+  commentId: T:Etch.Gpu.BindGroupLayout
+  parent: Etch.Gpu
+  href: Etch.Gpu.BindGroupLayout.html
+  name: BindGroupLayout
+  nameWithType: BindGroupLayout
+  fullName: Etch.Gpu.BindGroupLayout
+- uid: Etch.Gpu.Device.CreatePipelineLayout*
+  commentId: Overload:Etch.Gpu.Device.CreatePipelineLayout
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreatePipelineLayout_Etch_Gpu_Descriptors_PipelineLayoutDescriptor_
+  name: CreatePipelineLayout
+  nameWithType: Device.CreatePipelineLayout
+  fullName: Etch.Gpu.Device.CreatePipelineLayout
+- uid: Etch.Gpu.Descriptors.PipelineLayoutDescriptor
+  commentId: T:Etch.Gpu.Descriptors.PipelineLayoutDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.PipelineLayoutDescriptor.html
+  name: PipelineLayoutDescriptor
+  nameWithType: PipelineLayoutDescriptor
+  fullName: Etch.Gpu.Descriptors.PipelineLayoutDescriptor
+- uid: Etch.Gpu.PipelineLayout
+  commentId: T:Etch.Gpu.PipelineLayout
+  parent: Etch.Gpu
+  href: Etch.Gpu.PipelineLayout.html
+  name: PipelineLayout
+  nameWithType: PipelineLayout
+  fullName: Etch.Gpu.PipelineLayout
+- uid: Etch.Gpu.Device.CreateBindGroup*
+  commentId: Overload:Etch.Gpu.Device.CreateBindGroup
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateBindGroup_Etch_Gpu_Descriptors_BindGroupDescriptor_
+  name: CreateBindGroup
+  nameWithType: Device.CreateBindGroup
+  fullName: Etch.Gpu.Device.CreateBindGroup
+- uid: Etch.Gpu.Descriptors.BindGroupDescriptor
+  commentId: T:Etch.Gpu.Descriptors.BindGroupDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.BindGroupDescriptor.html
+  name: BindGroupDescriptor
+  nameWithType: BindGroupDescriptor
+  fullName: Etch.Gpu.Descriptors.BindGroupDescriptor
+- uid: Etch.Gpu.BindGroup
+  commentId: T:Etch.Gpu.BindGroup
+  parent: Etch.Gpu
+  href: Etch.Gpu.BindGroup.html
+  name: BindGroup
+  nameWithType: BindGroup
+  fullName: Etch.Gpu.BindGroup
+- uid: Etch.Gpu.Device.CreateRenderPipeline*
+  commentId: Overload:Etch.Gpu.Device.CreateRenderPipeline
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateRenderPipeline_Etch_Gpu_Descriptors_RenderPipelineDescriptor_
+  name: CreateRenderPipeline
+  nameWithType: Device.CreateRenderPipeline
+  fullName: Etch.Gpu.Device.CreateRenderPipeline
+- uid: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  commentId: T:Etch.Gpu.Descriptors.RenderPipelineDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.RenderPipelineDescriptor.html
+  name: RenderPipelineDescriptor
+  nameWithType: RenderPipelineDescriptor
+  fullName: Etch.Gpu.Descriptors.RenderPipelineDescriptor
+- uid: Etch.Gpu.RenderPipeline
+  commentId: T:Etch.Gpu.RenderPipeline
+  parent: Etch.Gpu
+  href: Etch.Gpu.RenderPipeline.html
+  name: RenderPipeline
+  nameWithType: RenderPipeline
+  fullName: Etch.Gpu.RenderPipeline
+- uid: Etch.Gpu.Device.CreateCommandEncoder*
+  commentId: Overload:Etch.Gpu.Device.CreateCommandEncoder
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateCommandEncoder_System_Nullable_Etch_Gpu_Descriptors_CommandEncoderDescriptor__
+  name: CreateCommandEncoder
+  nameWithType: Device.CreateCommandEncoder
+  fullName: Etch.Gpu.Device.CreateCommandEncoder
+- uid: System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor}
+  commentId: T:System.Nullable{Etch.Gpu.Descriptors.CommandEncoderDescriptor}
+  parent: System
+  definition: System.Nullable`1
+  href: Etch.Gpu.Descriptors.CommandEncoderDescriptor.html
+  name: CommandEncoderDescriptor?
+  nameWithType: CommandEncoderDescriptor?
+  fullName: Etch.Gpu.Descriptors.CommandEncoderDescriptor?
+  spec.csharp:
+  - uid: Etch.Gpu.Descriptors.CommandEncoderDescriptor
+    name: CommandEncoderDescriptor
+    href: Etch.Gpu.Descriptors.CommandEncoderDescriptor.html
+  - name: '?'
+  spec.vb:
+  - uid: Etch.Gpu.Descriptors.CommandEncoderDescriptor
+    name: CommandEncoderDescriptor
+    href: Etch.Gpu.Descriptors.CommandEncoderDescriptor.html
+  - name: '?'
+- uid: Etch.Gpu.CommandEncoder
+  commentId: T:Etch.Gpu.CommandEncoder
+  parent: Etch.Gpu
+  href: Etch.Gpu.CommandEncoder.html
+  name: CommandEncoder
+  nameWithType: CommandEncoder
+  fullName: Etch.Gpu.CommandEncoder
+- uid: Etch.Gpu.Device.CreateTexture*
+  commentId: Overload:Etch.Gpu.Device.CreateTexture
+  href: Etch.Gpu.Device.html#Etch_Gpu_Device_CreateTexture_Etch_Gpu_Descriptors_TextureDescriptor_
+  name: CreateTexture
+  nameWithType: Device.CreateTexture
+  fullName: Etch.Gpu.Device.CreateTexture
+- uid: Etch.Gpu.Descriptors.TextureDescriptor
+  commentId: T:Etch.Gpu.Descriptors.TextureDescriptor
+  parent: Etch.Gpu.Descriptors
+  href: Etch.Gpu.Descriptors.TextureDescriptor.html
+  name: TextureDescriptor
+  nameWithType: TextureDescriptor
+  fullName: Etch.Gpu.Descriptors.TextureDescriptor
+- uid: Etch.Gpu.Texture
+  commentId: T:Etch.Gpu.Texture
+  parent: Etch.Gpu
+  href: Etch.Gpu.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: Etch.Gpu.Texture

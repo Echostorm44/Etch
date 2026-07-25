@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.PresentMode
+  commentId: T:Etch.Gpu.PresentMode
+  id: PresentMode
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.PresentMode.Fifo
+  - Etch.Gpu.PresentMode.FifoRelaxed
+  - Etch.Gpu.PresentMode.Immediate
+  - Etch.Gpu.PresentMode.Mailbox
+  - Etch.Gpu.PresentMode.Undefined
+  langs:
+  - csharp
+  - vb
+  name: PresentMode
+  nameWithType: PresentMode
+  fullName: Etch.Gpu.PresentMode
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public enum PresentMode : uint'
+    content.vb: Public Enum PresentMode As UInteger
+- uid: Etch.Gpu.PresentMode.Undefined
+  commentId: F:Etch.Gpu.PresentMode.Undefined
+  id: Undefined
+  parent: Etch.Gpu.PresentMode
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: PresentMode.Undefined
+  fullName: Etch.Gpu.PresentMode.Undefined
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Etch.Gpu.PresentMode
+- uid: Etch.Gpu.PresentMode.Fifo
+  commentId: F:Etch.Gpu.PresentMode.Fifo
+  id: Fifo
+  parent: Etch.Gpu.PresentMode
+  langs:
+  - csharp
+  - vb
+  name: Fifo
+  nameWithType: PresentMode.Fifo
+  fullName: Etch.Gpu.PresentMode.Fifo
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Fifo = 1
+    return:
+      type: Etch.Gpu.PresentMode
+- uid: Etch.Gpu.PresentMode.FifoRelaxed
+  commentId: F:Etch.Gpu.PresentMode.FifoRelaxed
+  id: FifoRelaxed
+  parent: Etch.Gpu.PresentMode
+  langs:
+  - csharp
+  - vb
+  name: FifoRelaxed
+  nameWithType: PresentMode.FifoRelaxed
+  fullName: Etch.Gpu.PresentMode.FifoRelaxed
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: FifoRelaxed = 2
+    return:
+      type: Etch.Gpu.PresentMode
+- uid: Etch.Gpu.PresentMode.Immediate
+  commentId: F:Etch.Gpu.PresentMode.Immediate
+  id: Immediate
+  parent: Etch.Gpu.PresentMode
+  langs:
+  - csharp
+  - vb
+  name: Immediate
+  nameWithType: PresentMode.Immediate
+  fullName: Etch.Gpu.PresentMode.Immediate
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Immediate = 3
+    return:
+      type: Etch.Gpu.PresentMode
+- uid: Etch.Gpu.PresentMode.Mailbox
+  commentId: F:Etch.Gpu.PresentMode.Mailbox
+  id: Mailbox
+  parent: Etch.Gpu.PresentMode
+  langs:
+  - csharp
+  - vb
+  name: Mailbox
+  nameWithType: PresentMode.Mailbox
+  fullName: Etch.Gpu.PresentMode.Mailbox
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Mailbox = 4
+    return:
+      type: Etch.Gpu.PresentMode
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.PresentMode
+  commentId: T:Etch.Gpu.PresentMode
+  parent: Etch.Gpu
+  href: Etch.Gpu.PresentMode.html
+  name: PresentMode
+  nameWithType: PresentMode
+  fullName: Etch.Gpu.PresentMode

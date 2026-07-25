@@ -1,0 +1,144 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas.ISliceStrategy
+  commentId: T:Etch.Text.Atlas.ISliceStrategy
+  id: ISliceStrategy
+  parent: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.ISliceStrategy.Reset
+  - Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  langs:
+  - csharp
+  - vb
+  name: ISliceStrategy
+  nameWithType: ISliceStrategy
+  fullName: Etch.Text.Atlas.ISliceStrategy
+  type: Interface
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public interface ISliceStrategy
+    content.vb: Public Interface ISliceStrategy
+- uid: Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  id: TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  parent: Etch.Text.Atlas.ISliceStrategy
+  langs:
+  - csharp
+  - vb
+  name: TryInsert(int, int, out int, out int)
+  nameWithType: ISliceStrategy.TryInsert(int, int, out int, out int)
+  fullName: Etch.Text.Atlas.ISliceStrategy.TryInsert(int, int, out int, out int)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: bool TryInsert(int w, int h, out int u, out int v)
+    parameters:
+    - id: w
+      type: System.Int32
+    - id: h
+      type: System.Int32
+    - id: u
+      type: System.Int32
+    - id: v
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Function TryInsert(w As Integer, h As Integer, u As Integer, v As Integer) As Boolean
+  overload: Etch.Text.Atlas.ISliceStrategy.TryInsert*
+  nameWithType.vb: ISliceStrategy.TryInsert(Integer, Integer, Integer, Integer)
+  fullName.vb: Etch.Text.Atlas.ISliceStrategy.TryInsert(Integer, Integer, Integer, Integer)
+  name.vb: TryInsert(Integer, Integer, Integer, Integer)
+- uid: Etch.Text.Atlas.ISliceStrategy.Reset
+  commentId: M:Etch.Text.Atlas.ISliceStrategy.Reset
+  id: Reset
+  parent: Etch.Text.Atlas.ISliceStrategy
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: ISliceStrategy.Reset()
+  fullName: Etch.Text.Atlas.ISliceStrategy.Reset()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: void Reset()
+    content.vb: Sub Reset()
+  overload: Etch.Text.Atlas.ISliceStrategy.Reset*
+references:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: Etch.Text.Atlas.ISliceStrategy.TryInsert*
+  commentId: Overload:Etch.Text.Atlas.ISliceStrategy.TryInsert
+  href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_TryInsert_System_Int32_System_Int32_System_Int32__System_Int32__
+  name: TryInsert
+  nameWithType: ISliceStrategy.TryInsert
+  fullName: Etch.Text.Atlas.ISliceStrategy.TryInsert
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Atlas.ISliceStrategy.Reset*
+  commentId: Overload:Etch.Text.Atlas.ISliceStrategy.Reset
+  href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_Reset
+  name: Reset
+  nameWithType: ISliceStrategy.Reset
+  fullName: Etch.Text.Atlas.ISliceStrategy.Reset

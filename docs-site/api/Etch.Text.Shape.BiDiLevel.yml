@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Shape.BiDiLevel
+  commentId: T:Etch.Text.Shape.BiDiLevel
+  id: BiDiLevel
+  parent: Etch.Text.Shape
+  children:
+  - Etch.Text.Shape.BiDiLevel.LeftToRight
+  - Etch.Text.Shape.BiDiLevel.Neutral
+  - Etch.Text.Shape.BiDiLevel.RightToLeft
+  langs:
+  - csharp
+  - vb
+  name: BiDiLevel
+  nameWithType: BiDiLevel
+  fullName: Etch.Text.Shape.BiDiLevel
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public enum BiDiLevel
+    content.vb: Public Enum BiDiLevel
+- uid: Etch.Text.Shape.BiDiLevel.Neutral
+  commentId: F:Etch.Text.Shape.BiDiLevel.Neutral
+  id: Neutral
+  parent: Etch.Text.Shape.BiDiLevel
+  langs:
+  - csharp
+  - vb
+  name: Neutral
+  nameWithType: BiDiLevel.Neutral
+  fullName: Etch.Text.Shape.BiDiLevel.Neutral
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: Neutral = 0
+    return:
+      type: Etch.Text.Shape.BiDiLevel
+- uid: Etch.Text.Shape.BiDiLevel.LeftToRight
+  commentId: F:Etch.Text.Shape.BiDiLevel.LeftToRight
+  id: LeftToRight
+  parent: Etch.Text.Shape.BiDiLevel
+  langs:
+  - csharp
+  - vb
+  name: LeftToRight
+  nameWithType: BiDiLevel.LeftToRight
+  fullName: Etch.Text.Shape.BiDiLevel.LeftToRight
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: LeftToRight = 1
+    return:
+      type: Etch.Text.Shape.BiDiLevel
+- uid: Etch.Text.Shape.BiDiLevel.RightToLeft
+  commentId: F:Etch.Text.Shape.BiDiLevel.RightToLeft
+  id: RightToLeft
+  parent: Etch.Text.Shape.BiDiLevel
+  langs:
+  - csharp
+  - vb
+  name: RightToLeft
+  nameWithType: BiDiLevel.RightToLeft
+  fullName: Etch.Text.Shape.BiDiLevel.RightToLeft
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: RightToLeft = 2
+    return:
+      type: Etch.Text.Shape.BiDiLevel
+references:
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  href: Etch.html
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+- uid: Etch.Text.Shape.BiDiLevel
+  commentId: T:Etch.Text.Shape.BiDiLevel
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.BiDiLevel.html
+  name: BiDiLevel
+  nameWithType: BiDiLevel
+  fullName: Etch.Text.Shape.BiDiLevel

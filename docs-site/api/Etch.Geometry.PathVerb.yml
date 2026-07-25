@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.PathVerb
+  commentId: T:Etch.Geometry.PathVerb
+  id: PathVerb
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.PathVerb.Close
+  - Etch.Geometry.PathVerb.CubicTo
+  - Etch.Geometry.PathVerb.LineTo
+  - Etch.Geometry.PathVerb.MoveTo
+  - Etch.Geometry.PathVerb.QuadTo
+  langs:
+  - csharp
+  - vb
+  name: PathVerb
+  nameWithType: PathVerb
+  fullName: Etch.Geometry.PathVerb
+  type: Enum
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public enum PathVerb : byte'
+    content.vb: Public Enum PathVerb As Byte
+- uid: Etch.Geometry.PathVerb.MoveTo
+  commentId: F:Etch.Geometry.PathVerb.MoveTo
+  id: MoveTo
+  parent: Etch.Geometry.PathVerb
+  langs:
+  - csharp
+  - vb
+  name: MoveTo
+  nameWithType: PathVerb.MoveTo
+  fullName: Etch.Geometry.PathVerb.MoveTo
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: MoveTo = 0
+    return:
+      type: Etch.Geometry.PathVerb
+- uid: Etch.Geometry.PathVerb.LineTo
+  commentId: F:Etch.Geometry.PathVerb.LineTo
+  id: LineTo
+  parent: Etch.Geometry.PathVerb
+  langs:
+  - csharp
+  - vb
+  name: LineTo
+  nameWithType: PathVerb.LineTo
+  fullName: Etch.Geometry.PathVerb.LineTo
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: LineTo = 1
+    return:
+      type: Etch.Geometry.PathVerb
+- uid: Etch.Geometry.PathVerb.QuadTo
+  commentId: F:Etch.Geometry.PathVerb.QuadTo
+  id: QuadTo
+  parent: Etch.Geometry.PathVerb
+  langs:
+  - csharp
+  - vb
+  name: QuadTo
+  nameWithType: PathVerb.QuadTo
+  fullName: Etch.Geometry.PathVerb.QuadTo
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: QuadTo = 2
+    return:
+      type: Etch.Geometry.PathVerb
+- uid: Etch.Geometry.PathVerb.CubicTo
+  commentId: F:Etch.Geometry.PathVerb.CubicTo
+  id: CubicTo
+  parent: Etch.Geometry.PathVerb
+  langs:
+  - csharp
+  - vb
+  name: CubicTo
+  nameWithType: PathVerb.CubicTo
+  fullName: Etch.Geometry.PathVerb.CubicTo
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: CubicTo = 3
+    return:
+      type: Etch.Geometry.PathVerb
+- uid: Etch.Geometry.PathVerb.Close
+  commentId: F:Etch.Geometry.PathVerb.Close
+  id: Close
+  parent: Etch.Geometry.PathVerb
+  langs:
+  - csharp
+  - vb
+  name: Close
+  nameWithType: PathVerb.Close
+  fullName: Etch.Geometry.PathVerb.Close
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: Close = 4
+    return:
+      type: Etch.Geometry.PathVerb
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: Etch.Geometry.PathVerb
+  commentId: T:Etch.Geometry.PathVerb
+  parent: Etch.Geometry
+  href: Etch.Geometry.PathVerb.html
+  name: PathVerb
+  nameWithType: PathVerb
+  fullName: Etch.Geometry.PathVerb

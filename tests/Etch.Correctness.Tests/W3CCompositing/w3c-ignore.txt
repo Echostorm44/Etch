@@ -1,0 +1,15 @@
+# W3C Compositing Test Allowlist
+# Each line: <test-pattern> | <rationale>
+#
+# This file gates tests that are known to fail because they depend on
+# features outside the v1 Etch surface.  The target is ≤ 18 entries.
+#
+# Format:
+#   Pattern matches the test method name or W3C test filename.
+#   Lines starting with # are comments.
+#   Blank lines are ignored.
+
+# No entries yet — initial corpus is hand-authored C# tests covering
+# the 16 blend modes.  As the full W3C HTML/SVG corpus is imported
+# (COR-003 continuation), failing tests will be added here with
+# documented rationale.

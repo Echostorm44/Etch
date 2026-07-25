@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <EtchNativePayloadDir>$(MSBuildThisFileDirectory)../native/</EtchNativePayloadDir>
+  </PropertyGroup>
+
+  <Target Name="CopyEtchNativePayload" AfterTargets="Build">
+    <ItemGroup>
+      <_EtchNativePayloadFile Include="$(EtchNativePayloadDir)**/*.bin" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_EtchNativePayloadFile)"
+          DestinationFiles="@(_EtchNativePayloadFile->'$(OutDir)runtimes/%(RecursiveDir)native/%(Filename)%(Extension)')"
+          Condition="@(_EtchNativePayloadFile->Count()) > 0" />
+  </Target>
+
+  <Target Name="CopyEtchNativePayloadToPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <_EtchNativePayloadFile Include="$(EtchNativePayloadDir)**/*.bin" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_EtchNativePayloadFile)"
+          DestinationFiles="@(_EtchNativePayloadFile->'$(PublishDir)runtimes/%(RecursiveDir)native/%(Filename)%(Extension)')"
+          Condition="@(_EtchNativePayloadFile->Count()) > 0" />
+  </Target>
+</Project>

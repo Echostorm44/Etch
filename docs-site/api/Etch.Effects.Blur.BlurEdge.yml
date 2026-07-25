@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Blur.BlurEdge
+  commentId: T:Etch.Effects.Blur.BlurEdge
+  id: BlurEdge
+  parent: Etch.Effects.Blur
+  children:
+  - Etch.Effects.Blur.BlurEdge.Clamp
+  langs:
+  - csharp
+  - vb
+  name: BlurEdge
+  nameWithType: BlurEdge
+  fullName: Etch.Effects.Blur.BlurEdge
+  type: Enum
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Blur
+  syntax:
+    content: public enum BlurEdge
+    content.vb: Public Enum BlurEdge
+- uid: Etch.Effects.Blur.BlurEdge.Clamp
+  commentId: F:Etch.Effects.Blur.BlurEdge.Clamp
+  id: Clamp
+  parent: Etch.Effects.Blur.BlurEdge
+  langs:
+  - csharp
+  - vb
+  name: Clamp
+  nameWithType: BlurEdge.Clamp
+  fullName: Etch.Effects.Blur.BlurEdge.Clamp
+  type: Field
+  assemblies:
+  - Etch.Effects
+  namespace: Etch.Effects.Blur
+  syntax:
+    content: Clamp = 0
+    return:
+      type: Etch.Effects.Blur.BlurEdge
+references:
+- uid: Etch.Effects.Blur
+  commentId: N:Etch.Effects.Blur
+  href: Etch.html
+  name: Etch.Effects.Blur
+  nameWithType: Etch.Effects.Blur
+  fullName: Etch.Effects.Blur
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Blur
+    name: Blur
+    href: Etch.Effects.Blur.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Blur
+    name: Blur
+    href: Etch.Effects.Blur.html
+- uid: Etch.Effects.Blur.BlurEdge
+  commentId: T:Etch.Effects.Blur.BlurEdge
+  parent: Etch.Effects.Blur
+  href: Etch.Effects.Blur.BlurEdge.html
+  name: BlurEdge
+  nameWithType: BlurEdge
+  fullName: Etch.Effects.Blur.BlurEdge

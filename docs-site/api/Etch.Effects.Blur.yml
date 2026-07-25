@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Effects.Blur
+  commentId: N:Etch.Effects.Blur
+  id: Etch.Effects.Blur
+  children:
+  - Etch.Effects.Blur.BlurEdge
+  - Etch.Effects.Blur.BlurParams
+  - Etch.Effects.Blur.DualFilterBlur
+  langs:
+  - csharp
+  - vb
+  name: Etch.Effects.Blur
+  nameWithType: Etch.Effects.Blur
+  fullName: Etch.Effects.Blur
+  type: Namespace
+  assemblies:
+  - Etch.Effects
+references:
+- uid: Etch.Effects.Blur.BlurEdge
+  commentId: T:Etch.Effects.Blur.BlurEdge
+  parent: Etch.Effects.Blur
+  href: Etch.Effects.Blur.BlurEdge.html
+  name: BlurEdge
+  nameWithType: BlurEdge
+  fullName: Etch.Effects.Blur.BlurEdge
+- uid: Etch.Effects.Blur.BlurParams
+  commentId: T:Etch.Effects.Blur.BlurParams
+  parent: Etch.Effects.Blur
+  href: Etch.Effects.Blur.BlurParams.html
+  name: BlurParams
+  nameWithType: BlurParams
+  fullName: Etch.Effects.Blur.BlurParams
+- uid: Etch.Effects.Blur.DualFilterBlur
+  commentId: T:Etch.Effects.Blur.DualFilterBlur
+  href: Etch.Effects.Blur.DualFilterBlur.html
+  name: DualFilterBlur
+  nameWithType: DualFilterBlur
+  fullName: Etch.Effects.Blur.DualFilterBlur
+- uid: Etch.Effects.Blur
+  commentId: N:Etch.Effects.Blur
+  href: Etch.html
+  name: Etch.Effects.Blur
+  nameWithType: Etch.Effects.Blur
+  fullName: Etch.Effects.Blur
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Blur
+    name: Blur
+    href: Etch.Effects.Blur.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Effects
+    name: Effects
+    href: Etch.Effects.html
+  - name: .
+  - uid: Etch.Effects.Blur
+    name: Blur
+    href: Etch.Effects.Blur.html

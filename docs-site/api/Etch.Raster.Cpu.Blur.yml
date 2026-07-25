@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Raster.Cpu.Blur
+  commentId: N:Etch.Raster.Cpu.Blur
+  id: Etch.Raster.Cpu.Blur
+  children:
+  - Etch.Raster.Cpu.Blur.BjorgeBlur
+  - Etch.Raster.Cpu.Blur.BlurTaps
+  langs:
+  - csharp
+  - vb
+  name: Etch.Raster.Cpu.Blur
+  nameWithType: Etch.Raster.Cpu.Blur
+  fullName: Etch.Raster.Cpu.Blur
+  type: Namespace
+  assemblies:
+  - Etch.Raster.Cpu
+references:
+- uid: Etch.Raster.Cpu.Blur.BjorgeBlur
+  commentId: T:Etch.Raster.Cpu.Blur.BjorgeBlur
+  href: Etch.Raster.Cpu.Blur.BjorgeBlur.html
+  name: BjorgeBlur
+  nameWithType: BjorgeBlur
+  fullName: Etch.Raster.Cpu.Blur.BjorgeBlur
+- uid: Etch.Raster.Cpu.Blur.BlurTaps
+  commentId: T:Etch.Raster.Cpu.Blur.BlurTaps
+  href: Etch.Raster.Cpu.Blur.BlurTaps.html
+  name: BlurTaps
+  nameWithType: BlurTaps
+  fullName: Etch.Raster.Cpu.Blur.BlurTaps

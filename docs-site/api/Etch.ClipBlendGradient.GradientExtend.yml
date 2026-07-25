@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.GradientExtend
+  commentId: T:Etch.ClipBlendGradient.GradientExtend
+  id: GradientExtend
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.GradientExtend.Pad
+  - Etch.ClipBlendGradient.GradientExtend.Reflect
+  - Etch.ClipBlendGradient.GradientExtend.Repeat
+  langs:
+  - csharp
+  - vb
+  name: GradientExtend
+  nameWithType: GradientExtend
+  fullName: Etch.ClipBlendGradient.GradientExtend
+  type: Enum
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: 'public enum GradientExtend : byte'
+    content.vb: Public Enum GradientExtend As Byte
+- uid: Etch.ClipBlendGradient.GradientExtend.Pad
+  commentId: F:Etch.ClipBlendGradient.GradientExtend.Pad
+  id: Pad
+  parent: Etch.ClipBlendGradient.GradientExtend
+  langs:
+  - csharp
+  - vb
+  name: Pad
+  nameWithType: GradientExtend.Pad
+  fullName: Etch.ClipBlendGradient.GradientExtend.Pad
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Pad = 0
+    return:
+      type: Etch.ClipBlendGradient.GradientExtend
+- uid: Etch.ClipBlendGradient.GradientExtend.Reflect
+  commentId: F:Etch.ClipBlendGradient.GradientExtend.Reflect
+  id: Reflect
+  parent: Etch.ClipBlendGradient.GradientExtend
+  langs:
+  - csharp
+  - vb
+  name: Reflect
+  nameWithType: GradientExtend.Reflect
+  fullName: Etch.ClipBlendGradient.GradientExtend.Reflect
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Reflect = 1
+    return:
+      type: Etch.ClipBlendGradient.GradientExtend
+- uid: Etch.ClipBlendGradient.GradientExtend.Repeat
+  commentId: F:Etch.ClipBlendGradient.GradientExtend.Repeat
+  id: Repeat
+  parent: Etch.ClipBlendGradient.GradientExtend
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: GradientExtend.Repeat
+  fullName: Etch.ClipBlendGradient.GradientExtend.Repeat
+  type: Field
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: Repeat = 2
+    return:
+      type: Etch.ClipBlendGradient.GradientExtend
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: Etch.ClipBlendGradient.GradientExtend
+  commentId: T:Etch.ClipBlendGradient.GradientExtend
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.GradientExtend.html
+  name: GradientExtend
+  nameWithType: GradientExtend
+  fullName: Etch.ClipBlendGradient.GradientExtend

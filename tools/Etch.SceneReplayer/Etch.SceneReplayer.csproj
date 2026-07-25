@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.SceneReplayer</RootNamespace>
+    <AssemblyName>etch-replay</AssemblyName>
+    <NoWarn>$(NoWarn);CA1515;CA1861;CA1303;CA1308;CA1822;CA1062;CA1305;CA1310;CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Raster.Cpu\Etch.Raster.Cpu.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Primitives\Etch.Primitives.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+  </ItemGroup>
+</Project>

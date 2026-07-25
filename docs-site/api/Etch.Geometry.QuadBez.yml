@@ -1,0 +1,1060 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.QuadBez
+  commentId: T:Etch.Geometry.QuadBez
+  id: QuadBez
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.QuadBez.#ctor(Etch.Geometry.Point,Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.QuadBez.Aabb
+  - Etch.Geometry.QuadBez.Derivative(System.Double)
+  - Etch.Geometry.QuadBez.Elevate
+  - Etch.Geometry.QuadBez.Equals(Etch.Geometry.QuadBez)
+  - Etch.Geometry.QuadBez.Equals(System.Object)
+  - Etch.Geometry.QuadBez.Eval(System.Double)
+  - Etch.Geometry.QuadBez.GetHashCode
+  - Etch.Geometry.QuadBez.P0
+  - Etch.Geometry.QuadBez.P1
+  - Etch.Geometry.QuadBez.P2
+  - Etch.Geometry.QuadBez.Subdivide
+  - Etch.Geometry.QuadBez.Subdivide(System.Double)
+  - Etch.Geometry.QuadBez.ToString
+  - Etch.Geometry.QuadBez.TransformedBy(Etch.Geometry.Affine)
+  - Etch.Geometry.QuadBez.op_Equality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  - Etch.Geometry.QuadBez.op_Inequality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  langs:
+  - csharp
+  - vb
+  name: QuadBez
+  nameWithType: QuadBez
+  fullName: Etch.Geometry.QuadBez
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct QuadBez : IEquatable<QuadBez>'
+    content.vb: Public Structure QuadBez Implements IEquatable(Of QuadBez)
+  implements:
+  - System.IEquatable{Etch.Geometry.QuadBez}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.QuadBez.P0
+  commentId: F:Etch.Geometry.QuadBez.P0
+  id: P0
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: P0
+  nameWithType: QuadBez.P0
+  fullName: Etch.Geometry.QuadBez.P0
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point P0
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly P0 As Point
+- uid: Etch.Geometry.QuadBez.P1
+  commentId: F:Etch.Geometry.QuadBez.P1
+  id: P1
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: P1
+  nameWithType: QuadBez.P1
+  fullName: Etch.Geometry.QuadBez.P1
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point P1
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly P1 As Point
+- uid: Etch.Geometry.QuadBez.P2
+  commentId: F:Etch.Geometry.QuadBez.P2
+  id: P2
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: P2
+  nameWithType: QuadBez.P2
+  fullName: Etch.Geometry.QuadBez.P2
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly Point P2
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly P2 As Point
+- uid: Etch.Geometry.QuadBez.#ctor(Etch.Geometry.Point,Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.QuadBez.#ctor(Etch.Geometry.Point,Etch.Geometry.Point,Etch.Geometry.Point)
+  id: '#ctor(Etch.Geometry.Point,Etch.Geometry.Point,Etch.Geometry.Point)'
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: QuadBez(Point, Point, Point)
+  nameWithType: QuadBez.QuadBez(Point, Point, Point)
+  fullName: Etch.Geometry.QuadBez.QuadBez(Etch.Geometry.Point, Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public QuadBez(Point p0, Point p1, Point p2)
+    parameters:
+    - id: p0
+      type: Etch.Geometry.Point
+    - id: p1
+      type: Etch.Geometry.Point
+    - id: p2
+      type: Etch.Geometry.Point
+    content.vb: Public Sub New(p0 As Point, p1 As Point, p2 As Point)
+  overload: Etch.Geometry.QuadBez.#ctor*
+  nameWithType.vb: QuadBez.New(Point, Point, Point)
+  fullName.vb: Etch.Geometry.QuadBez.New(Etch.Geometry.Point, Etch.Geometry.Point, Etch.Geometry.Point)
+  name.vb: New(Point, Point, Point)
+- uid: Etch.Geometry.QuadBez.Eval(System.Double)
+  commentId: M:Etch.Geometry.QuadBez.Eval(System.Double)
+  id: Eval(System.Double)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Eval(double)
+  nameWithType: QuadBez.Eval(double)
+  fullName: Etch.Geometry.QuadBez.Eval(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Eval(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public Function Eval(t As Double) As Point
+  overload: Etch.Geometry.QuadBez.Eval*
+  nameWithType.vb: QuadBez.Eval(Double)
+  fullName.vb: Etch.Geometry.QuadBez.Eval(Double)
+  name.vb: Eval(Double)
+- uid: Etch.Geometry.QuadBez.Derivative(System.Double)
+  commentId: M:Etch.Geometry.QuadBez.Derivative(System.Double)
+  id: Derivative(System.Double)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Derivative(double)
+  nameWithType: QuadBez.Derivative(double)
+  fullName: Etch.Geometry.QuadBez.Derivative(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Vec2 Derivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: Etch.Geometry.Vec2
+    content.vb: Public Function Derivative(t As Double) As Vec2
+  overload: Etch.Geometry.QuadBez.Derivative*
+  nameWithType.vb: QuadBez.Derivative(Double)
+  fullName.vb: Etch.Geometry.QuadBez.Derivative(Double)
+  name.vb: Derivative(Double)
+- uid: Etch.Geometry.QuadBez.Subdivide(System.Double)
+  commentId: M:Etch.Geometry.QuadBez.Subdivide(System.Double)
+  id: Subdivide(System.Double)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Subdivide(double)
+  nameWithType: QuadBez.Subdivide(double)
+  fullName: Etch.Geometry.QuadBez.Subdivide(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public (QuadBez Left, QuadBez Right) Subdivide(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}
+    content.vb: Public Function Subdivide(t As Double) As (Left As QuadBez, Right As QuadBez)
+  overload: Etch.Geometry.QuadBez.Subdivide*
+  nameWithType.vb: QuadBez.Subdivide(Double)
+  fullName.vb: Etch.Geometry.QuadBez.Subdivide(Double)
+  name.vb: Subdivide(Double)
+- uid: Etch.Geometry.QuadBez.Subdivide
+  commentId: M:Etch.Geometry.QuadBez.Subdivide
+  id: Subdivide
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Subdivide()
+  nameWithType: QuadBez.Subdivide()
+  fullName: Etch.Geometry.QuadBez.Subdivide()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public (QuadBez Left, QuadBez Right) Subdivide()
+    return:
+      type: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}
+    content.vb: Public Function Subdivide() As (Left As QuadBez, Right As QuadBez)
+  overload: Etch.Geometry.QuadBez.Subdivide*
+- uid: Etch.Geometry.QuadBez.Aabb
+  commentId: M:Etch.Geometry.QuadBez.Aabb
+  id: Aabb
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Aabb()
+  nameWithType: QuadBez.Aabb()
+  fullName: Etch.Geometry.QuadBez.Aabb()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Aabb()
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Aabb() As Rect
+  overload: Etch.Geometry.QuadBez.Aabb*
+- uid: Etch.Geometry.QuadBez.Elevate
+  commentId: M:Etch.Geometry.QuadBez.Elevate
+  id: Elevate
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Elevate()
+  nameWithType: QuadBez.Elevate()
+  fullName: Etch.Geometry.QuadBez.Elevate()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public CubicBez Elevate()
+    return:
+      type: Etch.Geometry.CubicBez
+    content.vb: Public Function Elevate() As CubicBez
+  overload: Etch.Geometry.QuadBez.Elevate*
+- uid: Etch.Geometry.QuadBez.TransformedBy(Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.QuadBez.TransformedBy(Etch.Geometry.Affine)
+  id: TransformedBy(Etch.Geometry.Affine)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: TransformedBy(Affine)
+  nameWithType: QuadBez.TransformedBy(Affine)
+  fullName: Etch.Geometry.QuadBez.TransformedBy(Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public QuadBez TransformedBy(Affine a)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    return:
+      type: Etch.Geometry.QuadBez
+    content.vb: Public Function TransformedBy(a As Affine) As QuadBez
+  overload: Etch.Geometry.QuadBez.TransformedBy*
+- uid: Etch.Geometry.QuadBez.Equals(Etch.Geometry.QuadBez)
+  commentId: M:Etch.Geometry.QuadBez.Equals(Etch.Geometry.QuadBez)
+  id: Equals(Etch.Geometry.QuadBez)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Equals(QuadBez)
+  nameWithType: QuadBez.Equals(QuadBez)
+  fullName: Etch.Geometry.QuadBez.Equals(Etch.Geometry.QuadBez)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(QuadBez other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.QuadBez
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As QuadBez) As Boolean
+  overload: Etch.Geometry.QuadBez.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.QuadBez}.Equals(Etch.Geometry.QuadBez)
+- uid: Etch.Geometry.QuadBez.Equals(System.Object)
+  commentId: M:Etch.Geometry.QuadBez.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: QuadBez.Equals(object?)
+  fullName: Etch.Geometry.QuadBez.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.QuadBez.Equals*
+  nameWithType.vb: QuadBez.Equals(Object)
+  fullName.vb: Etch.Geometry.QuadBez.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.QuadBez.op_Equality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  commentId: M:Etch.Geometry.QuadBez.op_Equality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  id: op_Equality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: operator ==(QuadBez, QuadBez)
+  nameWithType: QuadBez.operator ==(QuadBez, QuadBez)
+  fullName: Etch.Geometry.QuadBez.operator ==(Etch.Geometry.QuadBez, Etch.Geometry.QuadBez)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(QuadBez left, QuadBez right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.QuadBez
+    - id: right
+      type: Etch.Geometry.QuadBez
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As QuadBez, right As QuadBez) As Boolean
+  overload: Etch.Geometry.QuadBez.op_Equality*
+  nameWithType.vb: QuadBez.=(QuadBez, QuadBez)
+  fullName.vb: Etch.Geometry.QuadBez.=(Etch.Geometry.QuadBez, Etch.Geometry.QuadBez)
+  name.vb: =(QuadBez, QuadBez)
+- uid: Etch.Geometry.QuadBez.op_Inequality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  commentId: M:Etch.Geometry.QuadBez.op_Inequality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  id: op_Inequality(Etch.Geometry.QuadBez,Etch.Geometry.QuadBez)
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: operator !=(QuadBez, QuadBez)
+  nameWithType: QuadBez.operator !=(QuadBez, QuadBez)
+  fullName: Etch.Geometry.QuadBez.operator !=(Etch.Geometry.QuadBez, Etch.Geometry.QuadBez)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(QuadBez left, QuadBez right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.QuadBez
+    - id: right
+      type: Etch.Geometry.QuadBez
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As QuadBez, right As QuadBez) As Boolean
+  overload: Etch.Geometry.QuadBez.op_Inequality*
+  nameWithType.vb: QuadBez.<>(QuadBez, QuadBez)
+  fullName.vb: Etch.Geometry.QuadBez.<>(Etch.Geometry.QuadBez, Etch.Geometry.QuadBez)
+  name.vb: <>(QuadBez, QuadBez)
+- uid: Etch.Geometry.QuadBez.GetHashCode
+  commentId: M:Etch.Geometry.QuadBez.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: QuadBez.GetHashCode()
+  fullName: Etch.Geometry.QuadBez.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.QuadBez.GetHashCode*
+- uid: Etch.Geometry.QuadBez.ToString
+  commentId: M:Etch.Geometry.QuadBez.ToString
+  id: ToString
+  parent: Etch.Geometry.QuadBez
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: QuadBez.ToString()
+  fullName: Etch.Geometry.QuadBez.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.QuadBez.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.QuadBez}
+  commentId: T:System.IEquatable{Etch.Geometry.QuadBez}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<QuadBez>
+  nameWithType: IEquatable<QuadBez>
+  fullName: System.IEquatable<Etch.Geometry.QuadBez>
+  nameWithType.vb: IEquatable(Of QuadBez)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.QuadBez)
+  name.vb: IEquatable(Of QuadBez)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.QuadBez.#ctor*
+  commentId: Overload:Etch.Geometry.QuadBez.#ctor
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez__ctor_Etch_Geometry_Point_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: QuadBez
+  nameWithType: QuadBez.QuadBez
+  fullName: Etch.Geometry.QuadBez.QuadBez
+  nameWithType.vb: QuadBez.New
+  fullName.vb: Etch.Geometry.QuadBez.New
+  name.vb: New
+- uid: Etch.Geometry.QuadBez.Eval*
+  commentId: Overload:Etch.Geometry.QuadBez.Eval
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Eval_System_Double_
+  name: Eval
+  nameWithType: QuadBez.Eval
+  fullName: Etch.Geometry.QuadBez.Eval
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.QuadBez.Derivative*
+  commentId: Overload:Etch.Geometry.QuadBez.Derivative
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Derivative_System_Double_
+  name: Derivative
+  nameWithType: QuadBez.Derivative
+  fullName: Etch.Geometry.QuadBez.Derivative
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry.QuadBez.Subdivide*
+  commentId: Overload:Etch.Geometry.QuadBez.Subdivide
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Subdivide_System_Double_
+  name: Subdivide
+  nameWithType: QuadBez.Subdivide
+  fullName: Etch.Geometry.QuadBez.Subdivide
+- uid: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}
+  commentId: T:System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}
+  parent: System
+  definition: System.ValueTuple`2
+  href: Etch.Geometry.QuadBez.html
+  name: (QuadBez Left, QuadBez Right)
+  nameWithType: (QuadBez Left, QuadBez Right)
+  fullName: (Etch.Geometry.QuadBez Left, Etch.Geometry.QuadBez Right)
+  nameWithType.vb: (Left As QuadBez, Right As QuadBez)
+  fullName.vb: (Left As Etch.Geometry.QuadBez, Right As Etch.Geometry.QuadBez)
+  name.vb: (Left As QuadBez, Right As QuadBez)
+  spec.csharp:
+  - name: (
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}.Left
+    name: Left
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.geometry.quadbez,etch.geometry.quadbez-.left
+  - name: ','
+  - name: " "
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: " "
+  - uid: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}.Right
+    name: Right
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.geometry.quadbez,etch.geometry.quadbez-.right
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}.Left
+    name: Left
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.geometry.quadbez,etch.geometry.quadbez-.left
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{Etch.Geometry.QuadBez,Etch.Geometry.QuadBez}.Right
+    name: Right
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-etch.geometry.quadbez,etch.geometry.quadbez-.right
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Etch.Geometry.QuadBez.Aabb*
+  commentId: Overload:Etch.Geometry.QuadBez.Aabb
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Aabb
+  name: Aabb
+  nameWithType: QuadBez.Aabb
+  fullName: Etch.Geometry.QuadBez.Aabb
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry.QuadBez.Elevate*
+  commentId: Overload:Etch.Geometry.QuadBez.Elevate
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Elevate
+  name: Elevate
+  nameWithType: QuadBez.Elevate
+  fullName: Etch.Geometry.QuadBez.Elevate
+- uid: Etch.Geometry.CubicBez
+  commentId: T:Etch.Geometry.CubicBez
+  parent: Etch.Geometry
+  href: Etch.Geometry.CubicBez.html
+  name: CubicBez
+  nameWithType: CubicBez
+  fullName: Etch.Geometry.CubicBez
+- uid: Etch.Geometry.QuadBez.TransformedBy*
+  commentId: Overload:Etch.Geometry.QuadBez.TransformedBy
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_TransformedBy_Etch_Geometry_Affine_
+  name: TransformedBy
+  nameWithType: QuadBez.TransformedBy
+  fullName: Etch.Geometry.QuadBez.TransformedBy
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Geometry.QuadBez
+  commentId: T:Etch.Geometry.QuadBez
+  parent: Etch.Geometry
+  href: Etch.Geometry.QuadBez.html
+  name: QuadBez
+  nameWithType: QuadBez
+  fullName: Etch.Geometry.QuadBez
+- uid: Etch.Geometry.QuadBez.Equals*
+  commentId: Overload:Etch.Geometry.QuadBez.Equals
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_Equals_Etch_Geometry_QuadBez_
+  name: Equals
+  nameWithType: QuadBez.Equals
+  fullName: Etch.Geometry.QuadBez.Equals
+- uid: System.IEquatable{Etch.Geometry.QuadBez}.Equals(Etch.Geometry.QuadBez)
+  commentId: M:System.IEquatable{Etch.Geometry.QuadBez}.Equals(Etch.Geometry.QuadBez)
+  parent: System.IEquatable{Etch.Geometry.QuadBez}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(QuadBez)
+  nameWithType: IEquatable<QuadBez>.Equals(QuadBez)
+  fullName: System.IEquatable<Etch.Geometry.QuadBez>.Equals(Etch.Geometry.QuadBez)
+  nameWithType.vb: IEquatable(Of QuadBez).Equals(QuadBez)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.QuadBez).Equals(Etch.Geometry.QuadBez)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.QuadBez}.Equals(Etch.Geometry.QuadBez)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.QuadBez}.Equals(Etch.Geometry.QuadBez)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.QuadBez
+    name: QuadBez
+    href: Etch.Geometry.QuadBez.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: Etch.Geometry.QuadBez.op_Equality*
+  commentId: Overload:Etch.Geometry.QuadBez.op_Equality
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_op_Equality_Etch_Geometry_QuadBez_Etch_Geometry_QuadBez_
+  name: operator ==
+  nameWithType: QuadBez.operator ==
+  fullName: Etch.Geometry.QuadBez.operator ==
+  nameWithType.vb: QuadBez.=
+  fullName.vb: Etch.Geometry.QuadBez.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.QuadBez.op_Equality*
+    name: ==
+    href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_op_Equality_Etch_Geometry_QuadBez_Etch_Geometry_QuadBez_
+- uid: Etch.Geometry.QuadBez.op_Inequality*
+  commentId: Overload:Etch.Geometry.QuadBez.op_Inequality
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_op_Inequality_Etch_Geometry_QuadBez_Etch_Geometry_QuadBez_
+  name: operator !=
+  nameWithType: QuadBez.operator !=
+  fullName: Etch.Geometry.QuadBez.operator !=
+  nameWithType.vb: QuadBez.<>
+  fullName.vb: Etch.Geometry.QuadBez.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.QuadBez.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_op_Inequality_Etch_Geometry_QuadBez_Etch_Geometry_QuadBez_
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.QuadBez.GetHashCode*
+  commentId: Overload:Etch.Geometry.QuadBez.GetHashCode
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_GetHashCode
+  name: GetHashCode
+  nameWithType: QuadBez.GetHashCode
+  fullName: Etch.Geometry.QuadBez.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.QuadBez.ToString*
+  commentId: Overload:Etch.Geometry.QuadBez.ToString
+  href: Etch.Geometry.QuadBez.html#Etch_Geometry_QuadBez_ToString
+  name: ToString
+  nameWithType: QuadBez.ToString
+  fullName: Etch.Geometry.QuadBez.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

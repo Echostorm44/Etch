@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  id: Etch.Primitives
+  children:
+  - Etch.Primitives.AllocAssert
+  - Etch.Primitives.AllocGuard
+  - Etch.Primitives.Endian
+  - Etch.Primitives.MemoryBudget
+  - Etch.Primitives.PooledBuffer`1
+  - Etch.Primitives.SpanReader
+  - Etch.Primitives.SpanWriter
+  - Etch.Primitives.StackBuffer128`1
+  - Etch.Primitives.StackBuffer16`1
+  - Etch.Primitives.StackBuffer256`1
+  - Etch.Primitives.StackBuffer32`1
+  - Etch.Primitives.StackBuffer64`1
+  langs:
+  - csharp
+  - vb
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  type: Namespace
+  assemblies:
+  - Etch.Primitives
+references:
+- uid: Etch.Primitives.AllocGuard
+  commentId: T:Etch.Primitives.AllocGuard
+  parent: Etch.Primitives
+  href: Etch.Primitives.AllocGuard.html
+  name: AllocGuard
+  nameWithType: AllocGuard
+  fullName: Etch.Primitives.AllocGuard
+- uid: Etch.Primitives.AllocAssert
+  commentId: T:Etch.Primitives.AllocAssert
+  href: Etch.Primitives.AllocAssert.html
+  name: AllocAssert
+  nameWithType: AllocAssert
+  fullName: Etch.Primitives.AllocAssert
+- uid: Etch.Primitives.Endian
+  commentId: T:Etch.Primitives.Endian
+  href: Etch.Primitives.Endian.html
+  name: Endian
+  nameWithType: Endian
+  fullName: Etch.Primitives.Endian
+- uid: Etch.Primitives.PooledBuffer`1
+  commentId: T:Etch.Primitives.PooledBuffer`1
+  parent: Etch.Primitives
+  href: Etch.Primitives.PooledBuffer-1.html
+  name: PooledBuffer<T>
+  nameWithType: PooledBuffer<T>
+  fullName: Etch.Primitives.PooledBuffer<T>
+  nameWithType.vb: PooledBuffer(Of T)
+  fullName.vb: Etch.Primitives.PooledBuffer(Of T)
+  name.vb: PooledBuffer(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.PooledBuffer`1
+    name: PooledBuffer
+    href: Etch.Primitives.PooledBuffer-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.PooledBuffer`1
+    name: PooledBuffer
+    href: Etch.Primitives.PooledBuffer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.MemoryBudget
+  commentId: T:Etch.Primitives.MemoryBudget
+  href: Etch.Primitives.MemoryBudget.html
+  name: MemoryBudget
+  nameWithType: MemoryBudget
+  fullName: Etch.Primitives.MemoryBudget
+- uid: Etch.Primitives.SpanWriter
+  commentId: T:Etch.Primitives.SpanWriter
+  href: Etch.Primitives.SpanWriter.html
+  name: SpanWriter
+  nameWithType: SpanWriter
+  fullName: Etch.Primitives.SpanWriter
+- uid: Etch.Primitives.SpanReader
+  commentId: T:Etch.Primitives.SpanReader
+  href: Etch.Primitives.SpanReader.html
+  name: SpanReader
+  nameWithType: SpanReader
+  fullName: Etch.Primitives.SpanReader
+- uid: Etch.Primitives.StackBuffer16`1
+  commentId: T:Etch.Primitives.StackBuffer16`1
+  href: Etch.Primitives.StackBuffer16-1.html
+  name: StackBuffer16<T>
+  nameWithType: StackBuffer16<T>
+  fullName: Etch.Primitives.StackBuffer16<T>
+  nameWithType.vb: StackBuffer16(Of T)
+  fullName.vb: Etch.Primitives.StackBuffer16(Of T)
+  name.vb: StackBuffer16(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.StackBuffer16`1
+    name: StackBuffer16
+    href: Etch.Primitives.StackBuffer16-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.StackBuffer16`1
+    name: StackBuffer16
+    href: Etch.Primitives.StackBuffer16-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.StackBuffer32`1
+  commentId: T:Etch.Primitives.StackBuffer32`1
+  href: Etch.Primitives.StackBuffer32-1.html
+  name: StackBuffer32<T>
+  nameWithType: StackBuffer32<T>
+  fullName: Etch.Primitives.StackBuffer32<T>
+  nameWithType.vb: StackBuffer32(Of T)
+  fullName.vb: Etch.Primitives.StackBuffer32(Of T)
+  name.vb: StackBuffer32(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.StackBuffer32`1
+    name: StackBuffer32
+    href: Etch.Primitives.StackBuffer32-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.StackBuffer32`1
+    name: StackBuffer32
+    href: Etch.Primitives.StackBuffer32-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.StackBuffer64`1
+  commentId: T:Etch.Primitives.StackBuffer64`1
+  href: Etch.Primitives.StackBuffer64-1.html
+  name: StackBuffer64<T>
+  nameWithType: StackBuffer64<T>
+  fullName: Etch.Primitives.StackBuffer64<T>
+  nameWithType.vb: StackBuffer64(Of T)
+  fullName.vb: Etch.Primitives.StackBuffer64(Of T)
+  name.vb: StackBuffer64(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.StackBuffer64`1
+    name: StackBuffer64
+    href: Etch.Primitives.StackBuffer64-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.StackBuffer64`1
+    name: StackBuffer64
+    href: Etch.Primitives.StackBuffer64-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.StackBuffer128`1
+  commentId: T:Etch.Primitives.StackBuffer128`1
+  href: Etch.Primitives.StackBuffer128-1.html
+  name: StackBuffer128<T>
+  nameWithType: StackBuffer128<T>
+  fullName: Etch.Primitives.StackBuffer128<T>
+  nameWithType.vb: StackBuffer128(Of T)
+  fullName.vb: Etch.Primitives.StackBuffer128(Of T)
+  name.vb: StackBuffer128(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.StackBuffer128`1
+    name: StackBuffer128
+    href: Etch.Primitives.StackBuffer128-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.StackBuffer128`1
+    name: StackBuffer128
+    href: Etch.Primitives.StackBuffer128-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives.StackBuffer256`1
+  commentId: T:Etch.Primitives.StackBuffer256`1
+  href: Etch.Primitives.StackBuffer256-1.html
+  name: StackBuffer256<T>
+  nameWithType: StackBuffer256<T>
+  fullName: Etch.Primitives.StackBuffer256<T>
+  nameWithType.vb: StackBuffer256(Of T)
+  fullName.vb: Etch.Primitives.StackBuffer256(Of T)
+  name.vb: StackBuffer256(Of T)
+  spec.csharp:
+  - uid: Etch.Primitives.StackBuffer256`1
+    name: StackBuffer256
+    href: Etch.Primitives.StackBuffer256-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Etch.Primitives.StackBuffer256`1
+    name: StackBuffer256
+    href: Etch.Primitives.StackBuffer256-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Primitives
+  commentId: N:Etch.Primitives
+  href: Etch.html
+  name: Etch.Primitives
+  nameWithType: Etch.Primitives
+  fullName: Etch.Primitives
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Primitives
+    name: Primitives
+    href: Etch.Primitives.html

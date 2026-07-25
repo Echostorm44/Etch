@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Strokes.CapStyle
+  commentId: T:Etch.Strokes.CapStyle
+  id: CapStyle
+  parent: Etch.Strokes
+  children:
+  - Etch.Strokes.CapStyle.Butt
+  - Etch.Strokes.CapStyle.Round
+  - Etch.Strokes.CapStyle.Square
+  langs:
+  - csharp
+  - vb
+  name: CapStyle
+  nameWithType: CapStyle
+  fullName: Etch.Strokes.CapStyle
+  type: Enum
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: 'public enum CapStyle : byte'
+    content.vb: Public Enum CapStyle As Byte
+- uid: Etch.Strokes.CapStyle.Butt
+  commentId: F:Etch.Strokes.CapStyle.Butt
+  id: Butt
+  parent: Etch.Strokes.CapStyle
+  langs:
+  - csharp
+  - vb
+  name: Butt
+  nameWithType: CapStyle.Butt
+  fullName: Etch.Strokes.CapStyle.Butt
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Butt = 0
+    return:
+      type: Etch.Strokes.CapStyle
+- uid: Etch.Strokes.CapStyle.Round
+  commentId: F:Etch.Strokes.CapStyle.Round
+  id: Round
+  parent: Etch.Strokes.CapStyle
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: CapStyle.Round
+  fullName: Etch.Strokes.CapStyle.Round
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Round = 1
+    return:
+      type: Etch.Strokes.CapStyle
+- uid: Etch.Strokes.CapStyle.Square
+  commentId: F:Etch.Strokes.CapStyle.Square
+  id: Square
+  parent: Etch.Strokes.CapStyle
+  langs:
+  - csharp
+  - vb
+  name: Square
+  nameWithType: CapStyle.Square
+  fullName: Etch.Strokes.CapStyle.Square
+  type: Field
+  assemblies:
+  - Etch.Strokes
+  namespace: Etch.Strokes
+  syntax:
+    content: Square = 2
+    return:
+      type: Etch.Strokes.CapStyle
+references:
+- uid: Etch.Strokes
+  commentId: N:Etch.Strokes
+  href: Etch.html
+  name: Etch.Strokes
+  nameWithType: Etch.Strokes
+  fullName: Etch.Strokes
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Strokes
+    name: Strokes
+    href: Etch.Strokes.html
+- uid: Etch.Strokes.CapStyle
+  commentId: T:Etch.Strokes.CapStyle
+  parent: Etch.Strokes
+  href: Etch.Strokes.CapStyle.html
+  name: CapStyle
+  nameWithType: CapStyle
+  fullName: Etch.Strokes.CapStyle

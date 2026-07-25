@@ -1,0 +1,502 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Atlas.ShelfPacker
+  commentId: T:Etch.Text.Atlas.ShelfPacker
+  id: ShelfPacker
+  parent: Etch.Text.Atlas
+  children:
+  - Etch.Text.Atlas.ShelfPacker.#ctor(System.Int32,System.Int32,System.Int32)
+  - Etch.Text.Atlas.ShelfPacker.Reset
+  - Etch.Text.Atlas.ShelfPacker.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  langs:
+  - csharp
+  - vb
+  name: ShelfPacker
+  nameWithType: ShelfPacker
+  fullName: Etch.Text.Atlas.ShelfPacker
+  type: Class
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: 'public sealed class ShelfPacker : ISliceStrategy'
+    content.vb: Public NotInheritable Class ShelfPacker Implements ISliceStrategy
+  inheritance:
+  - System.Object
+  implements:
+  - Etch.Text.Atlas.ISliceStrategy
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Etch.Text.Atlas.ShelfPacker.#ctor(System.Int32,System.Int32,System.Int32)
+  commentId: M:Etch.Text.Atlas.ShelfPacker.#ctor(System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32)'
+  parent: Etch.Text.Atlas.ShelfPacker
+  langs:
+  - csharp
+  - vb
+  name: ShelfPacker(int, int, int)
+  nameWithType: ShelfPacker.ShelfPacker(int, int, int)
+  fullName: Etch.Text.Atlas.ShelfPacker.ShelfPacker(int, int, int)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  syntax:
+    content: public ShelfPacker(int width, int height, int rowHeight)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: rowHeight
+      type: System.Int32
+    content.vb: Public Sub New(width As Integer, height As Integer, rowHeight As Integer)
+  overload: Etch.Text.Atlas.ShelfPacker.#ctor*
+  nameWithType.vb: ShelfPacker.New(Integer, Integer, Integer)
+  fullName.vb: Etch.Text.Atlas.ShelfPacker.New(Integer, Integer, Integer)
+  name.vb: New(Integer, Integer, Integer)
+- uid: Etch.Text.Atlas.ShelfPacker.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Etch.Text.Atlas.ShelfPacker.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  id: TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  parent: Etch.Text.Atlas.ShelfPacker
+  langs:
+  - csharp
+  - vb
+  name: TryInsert(int, int, out int, out int)
+  nameWithType: ShelfPacker.TryInsert(int, int, out int, out int)
+  fullName: Etch.Text.Atlas.ShelfPacker.TryInsert(int, int, out int, out int)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  example: []
+  syntax:
+    content: public bool TryInsert(int w, int h, out int u, out int v)
+    parameters:
+    - id: w
+      type: System.Int32
+    - id: h
+      type: System.Int32
+    - id: u
+      type: System.Int32
+    - id: v
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryInsert(w As Integer, h As Integer, u As Integer, v As Integer) As Boolean
+  overload: Etch.Text.Atlas.ShelfPacker.TryInsert*
+  implements:
+  - Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  nameWithType.vb: ShelfPacker.TryInsert(Integer, Integer, Integer, Integer)
+  fullName.vb: Etch.Text.Atlas.ShelfPacker.TryInsert(Integer, Integer, Integer, Integer)
+  name.vb: TryInsert(Integer, Integer, Integer, Integer)
+- uid: Etch.Text.Atlas.ShelfPacker.Reset
+  commentId: M:Etch.Text.Atlas.ShelfPacker.Reset
+  id: Reset
+  parent: Etch.Text.Atlas.ShelfPacker
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: ShelfPacker.Reset()
+  fullName: Etch.Text.Atlas.ShelfPacker.Reset()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Atlas
+  example: []
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Etch.Text.Atlas.ShelfPacker.Reset*
+  implements:
+  - Etch.Text.Atlas.ISliceStrategy.Reset
+references:
+- uid: Etch.Text.Atlas
+  commentId: N:Etch.Text.Atlas
+  href: Etch.html
+  name: Etch.Text.Atlas
+  nameWithType: Etch.Text.Atlas
+  fullName: Etch.Text.Atlas
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Atlas
+    name: Atlas
+    href: Etch.Text.Atlas.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Text.Atlas.ISliceStrategy
+  commentId: T:Etch.Text.Atlas.ISliceStrategy
+  parent: Etch.Text.Atlas
+  href: Etch.Text.Atlas.ISliceStrategy.html
+  name: ISliceStrategy
+  nameWithType: ISliceStrategy
+  fullName: Etch.Text.Atlas.ISliceStrategy
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Text.Atlas.ShelfPacker.#ctor*
+  commentId: Overload:Etch.Text.Atlas.ShelfPacker.#ctor
+  href: Etch.Text.Atlas.ShelfPacker.html#Etch_Text_Atlas_ShelfPacker__ctor_System_Int32_System_Int32_System_Int32_
+  name: ShelfPacker
+  nameWithType: ShelfPacker.ShelfPacker
+  fullName: Etch.Text.Atlas.ShelfPacker.ShelfPacker
+  nameWithType.vb: ShelfPacker.New
+  fullName.vb: Etch.Text.Atlas.ShelfPacker.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Text.Atlas.ShelfPacker.TryInsert*
+  commentId: Overload:Etch.Text.Atlas.ShelfPacker.TryInsert
+  href: Etch.Text.Atlas.ShelfPacker.html#Etch_Text_Atlas_ShelfPacker_TryInsert_System_Int32_System_Int32_System_Int32__System_Int32__
+  name: TryInsert
+  nameWithType: ShelfPacker.TryInsert
+  fullName: Etch.Text.Atlas.ShelfPacker.TryInsert
+- uid: Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+  parent: Etch.Text.Atlas.ISliceStrategy
+  isExternal: true
+  href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_TryInsert_System_Int32_System_Int32_System_Int32__System_Int32__
+  name: TryInsert(int, int, out int, out int)
+  nameWithType: ISliceStrategy.TryInsert(int, int, out int, out int)
+  fullName: Etch.Text.Atlas.ISliceStrategy.TryInsert(int, int, out int, out int)
+  nameWithType.vb: ISliceStrategy.TryInsert(Integer, Integer, Integer, Integer)
+  fullName.vb: Etch.Text.Atlas.ISliceStrategy.TryInsert(Integer, Integer, Integer, Integer)
+  name.vb: TryInsert(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+    name: TryInsert
+    href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_TryInsert_System_Int32_System_Int32_System_Int32__System_Int32__
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Etch.Text.Atlas.ISliceStrategy.TryInsert(System.Int32,System.Int32,System.Int32@,System.Int32@)
+    name: TryInsert
+    href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_TryInsert_System_Int32_System_Int32_System_Int32__System_Int32__
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Text.Atlas.ShelfPacker.Reset*
+  commentId: Overload:Etch.Text.Atlas.ShelfPacker.Reset
+  href: Etch.Text.Atlas.ShelfPacker.html#Etch_Text_Atlas_ShelfPacker_Reset
+  name: Reset
+  nameWithType: ShelfPacker.Reset
+  fullName: Etch.Text.Atlas.ShelfPacker.Reset
+- uid: Etch.Text.Atlas.ISliceStrategy.Reset
+  commentId: M:Etch.Text.Atlas.ISliceStrategy.Reset
+  parent: Etch.Text.Atlas.ISliceStrategy
+  href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_Reset
+  name: Reset()
+  nameWithType: ISliceStrategy.Reset()
+  fullName: Etch.Text.Atlas.ISliceStrategy.Reset()
+  spec.csharp:
+  - uid: Etch.Text.Atlas.ISliceStrategy.Reset
+    name: Reset
+    href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_Reset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Etch.Text.Atlas.ISliceStrategy.Reset
+    name: Reset
+    href: Etch.Text.Atlas.ISliceStrategy.html#Etch_Text_Atlas_ISliceStrategy_Reset
+  - name: (
+  - name: )

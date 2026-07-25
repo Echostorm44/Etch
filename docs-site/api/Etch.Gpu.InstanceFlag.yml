@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.InstanceFlag
+  commentId: T:Etch.Gpu.InstanceFlag
+  id: InstanceFlag
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.InstanceFlag.Debug
+  - Etch.Gpu.InstanceFlag.Default
+  - Etch.Gpu.InstanceFlag.DiscardHalLabels
+  - Etch.Gpu.InstanceFlag.Validation
+  langs:
+  - csharp
+  - vb
+  name: InstanceFlag
+  nameWithType: InstanceFlag
+  fullName: Etch.Gpu.InstanceFlag
+  type: Enum
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum InstanceFlag : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum InstanceFlag As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Etch.Gpu.InstanceFlag.Default
+  commentId: F:Etch.Gpu.InstanceFlag.Default
+  id: Default
+  parent: Etch.Gpu.InstanceFlag
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: InstanceFlag.Default
+  fullName: Etch.Gpu.InstanceFlag.Default
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Default = 0
+    return:
+      type: Etch.Gpu.InstanceFlag
+- uid: Etch.Gpu.InstanceFlag.Debug
+  commentId: F:Etch.Gpu.InstanceFlag.Debug
+  id: Debug
+  parent: Etch.Gpu.InstanceFlag
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: InstanceFlag.Debug
+  fullName: Etch.Gpu.InstanceFlag.Debug
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Debug = 1
+    return:
+      type: Etch.Gpu.InstanceFlag
+- uid: Etch.Gpu.InstanceFlag.Validation
+  commentId: F:Etch.Gpu.InstanceFlag.Validation
+  id: Validation
+  parent: Etch.Gpu.InstanceFlag
+  langs:
+  - csharp
+  - vb
+  name: Validation
+  nameWithType: InstanceFlag.Validation
+  fullName: Etch.Gpu.InstanceFlag.Validation
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: Validation = 2
+    return:
+      type: Etch.Gpu.InstanceFlag
+- uid: Etch.Gpu.InstanceFlag.DiscardHalLabels
+  commentId: F:Etch.Gpu.InstanceFlag.DiscardHalLabels
+  id: DiscardHalLabels
+  parent: Etch.Gpu.InstanceFlag
+  langs:
+  - csharp
+  - vb
+  name: DiscardHalLabels
+  nameWithType: InstanceFlag.DiscardHalLabels
+  fullName: Etch.Gpu.InstanceFlag.DiscardHalLabels
+  type: Field
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: DiscardHalLabels = 4
+    return:
+      type: Etch.Gpu.InstanceFlag
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: Etch.Gpu.InstanceFlag
+  commentId: T:Etch.Gpu.InstanceFlag
+  parent: Etch.Gpu
+  href: Etch.Gpu.InstanceFlag.html
+  name: InstanceFlag
+  nameWithType: InstanceFlag
+  fullName: Etch.Gpu.InstanceFlag

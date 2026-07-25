@@ -1,0 +1,38 @@
+<Project>
+  <!--
+    NagaCli.props — naga-cli version and path resolution.
+
+    Version is pinned to match wgpu-native (both come from gfx-rs/wgpu repo).
+    The CLI is installed via `cargo install naga-cli` and should be available
+    on PATH, or in the user-local cargo bin directory.
+
+    CI installs via tools/ci/install-naga.ps1 / install-naga.sh.
+    Developers can install manually: cargo install naga-cli
+  -->
+
+  <PropertyGroup>
+    <NagaCliVersion>29.0.0</NagaCliVersion>
+  </PropertyGroup>
+
+  <!--
+    Resolve naga path:
+    1. Try PATH first (developer-installed or CI-installed on PATH)
+    2. Try user-local cargo bin (Windows: %USERPROFILE%\.cargo\bin, Unix: ~/.cargo/bin)
+  -->
+  <PropertyGroup>
+    <_NagaCargoBin Condition="'$(OS)' == 'Windows_NT'">$(USERPROFILE)\.cargo\bin</_NagaCargoBin>
+    <_NagaCargoBin Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.cargo/bin</_NagaCargoBin>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(NagaCliPath)' == ''">
+    <NagaCliPath>$(_NagaCargoBin)\naga.exe</NagaCliPath>
+    <NagaCliPath Condition="'$(OS)' != 'Windows_NT'">$(_NagaCargoBin)/naga</NagaCliPath>
+    <NagaCliPath Condition="Exists('naga')">naga</NagaCliPath>
+    <NagaCliPath Condition="'$(OS)' == 'Windows_NT' and Exists('naga.exe')">naga.exe</NagaCliPath>
+  </PropertyGroup>
+
+  <!--
+    Developer install: cargo install naga-cli -v $(NagaCliVersion)
+    CI uses: tools/ci/install-naga.ps1 or install-naga.sh
+  -->
+</Project>

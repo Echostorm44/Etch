@@ -1,0 +1,865 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.Shape.ShapingKey
+  commentId: T:Etch.Text.Shape.ShapingKey
+  id: ShapingKey
+  parent: Etch.Text.Shape
+  children:
+  - Etch.Text.Shape.ShapingKey.#ctor(System.UInt64,System.Int32,System.UInt16,System.Byte,System.UInt16)
+  - Etch.Text.Shape.ShapingKey.Equals(Etch.Text.Shape.ShapingKey)
+  - Etch.Text.Shape.ShapingKey.Equals(System.Object)
+  - Etch.Text.Shape.ShapingKey.FaceId
+  - Etch.Text.Shape.ShapingKey.GetHashCode
+  - Etch.Text.Shape.ShapingKey.Level
+  - Etch.Text.Shape.ShapingKey.ScriptTag
+  - Etch.Text.Shape.ShapingKey.SizeUnits
+  - Etch.Text.Shape.ShapingKey.TextHash
+  - Etch.Text.Shape.ShapingKey.ToString
+  - Etch.Text.Shape.ShapingKey.op_Equality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  - Etch.Text.Shape.ShapingKey.op_Inequality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  langs:
+  - csharp
+  - vb
+  name: ShapingKey
+  nameWithType: ShapingKey
+  fullName: Etch.Text.Shape.ShapingKey
+  type: Struct
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Immutable key for the shaping cache.
+  example: []
+  syntax:
+    content: 'public readonly struct ShapingKey : IEquatable<ShapingKey>'
+    content.vb: Public Structure ShapingKey Implements IEquatable(Of ShapingKey)
+  implements:
+  - System.IEquatable{Etch.Text.Shape.ShapingKey}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Text.Shape.ShapingKey.TextHash
+  commentId: P:Etch.Text.Shape.ShapingKey.TextHash
+  id: TextHash
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: TextHash
+  nameWithType: ShapingKey.TextHash
+  fullName: Etch.Text.Shape.ShapingKey.TextHash
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ulong TextHash { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property TextHash As ULong
+  overload: Etch.Text.Shape.ShapingKey.TextHash*
+- uid: Etch.Text.Shape.ShapingKey.FaceId
+  commentId: P:Etch.Text.Shape.ShapingKey.FaceId
+  id: FaceId
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: FaceId
+  nameWithType: ShapingKey.FaceId
+  fullName: Etch.Text.Shape.ShapingKey.FaceId
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public int FaceId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property FaceId As Integer
+  overload: Etch.Text.Shape.ShapingKey.FaceId*
+- uid: Etch.Text.Shape.ShapingKey.SizeUnits
+  commentId: P:Etch.Text.Shape.ShapingKey.SizeUnits
+  id: SizeUnits
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: SizeUnits
+  nameWithType: ShapingKey.SizeUnits
+  fullName: Etch.Text.Shape.ShapingKey.SizeUnits
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ushort SizeUnits { get; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly Property SizeUnits As UShort
+  overload: Etch.Text.Shape.ShapingKey.SizeUnits*
+- uid: Etch.Text.Shape.ShapingKey.Level
+  commentId: P:Etch.Text.Shape.ShapingKey.Level
+  id: Level
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: ShapingKey.Level
+  fullName: Etch.Text.Shape.ShapingKey.Level
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public byte Level { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property Level As Byte
+  overload: Etch.Text.Shape.ShapingKey.Level*
+- uid: Etch.Text.Shape.ShapingKey.ScriptTag
+  commentId: P:Etch.Text.Shape.ShapingKey.ScriptTag
+  id: ScriptTag
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: ScriptTag
+  nameWithType: ShapingKey.ScriptTag
+  fullName: Etch.Text.Shape.ShapingKey.ScriptTag
+  type: Property
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ushort ScriptTag { get; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly Property ScriptTag As UShort
+  overload: Etch.Text.Shape.ShapingKey.ScriptTag*
+- uid: Etch.Text.Shape.ShapingKey.#ctor(System.UInt64,System.Int32,System.UInt16,System.Byte,System.UInt16)
+  commentId: M:Etch.Text.Shape.ShapingKey.#ctor(System.UInt64,System.Int32,System.UInt16,System.Byte,System.UInt16)
+  id: '#ctor(System.UInt64,System.Int32,System.UInt16,System.Byte,System.UInt16)'
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: ShapingKey(ulong, int, ushort, byte, ushort)
+  nameWithType: ShapingKey.ShapingKey(ulong, int, ushort, byte, ushort)
+  fullName: Etch.Text.Shape.ShapingKey.ShapingKey(ulong, int, ushort, byte, ushort)
+  type: Constructor
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public ShapingKey(ulong textHash, int faceId, ushort sizeUnits, byte level, ushort scriptTag)
+    parameters:
+    - id: textHash
+      type: System.UInt64
+    - id: faceId
+      type: System.Int32
+    - id: sizeUnits
+      type: System.UInt16
+    - id: level
+      type: System.Byte
+    - id: scriptTag
+      type: System.UInt16
+    content.vb: Public Sub New(textHash As ULong, faceId As Integer, sizeUnits As UShort, level As Byte, scriptTag As UShort)
+  overload: Etch.Text.Shape.ShapingKey.#ctor*
+  nameWithType.vb: ShapingKey.New(ULong, Integer, UShort, Byte, UShort)
+  fullName.vb: Etch.Text.Shape.ShapingKey.New(ULong, Integer, UShort, Byte, UShort)
+  name.vb: New(ULong, Integer, UShort, Byte, UShort)
+- uid: Etch.Text.Shape.ShapingKey.Equals(Etch.Text.Shape.ShapingKey)
+  commentId: M:Etch.Text.Shape.ShapingKey.Equals(Etch.Text.Shape.ShapingKey)
+  id: Equals(Etch.Text.Shape.ShapingKey)
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(ShapingKey)
+  nameWithType: ShapingKey.Equals(ShapingKey)
+  fullName: Etch.Text.Shape.ShapingKey.Equals(Etch.Text.Shape.ShapingKey)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ShapingKey other)
+    parameters:
+    - id: other
+      type: Etch.Text.Shape.ShapingKey
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ShapingKey) As Boolean
+  overload: Etch.Text.Shape.ShapingKey.Equals*
+  implements:
+  - System.IEquatable{Etch.Text.Shape.ShapingKey}.Equals(Etch.Text.Shape.ShapingKey)
+- uid: Etch.Text.Shape.ShapingKey.Equals(System.Object)
+  commentId: M:Etch.Text.Shape.ShapingKey.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: ShapingKey.Equals(object?)
+  fullName: Etch.Text.Shape.ShapingKey.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Text.Shape.ShapingKey.Equals*
+  nameWithType.vb: ShapingKey.Equals(Object)
+  fullName.vb: Etch.Text.Shape.ShapingKey.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Text.Shape.ShapingKey.GetHashCode
+  commentId: M:Etch.Text.Shape.ShapingKey.GetHashCode
+  id: GetHashCode
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ShapingKey.GetHashCode()
+  fullName: Etch.Text.Shape.ShapingKey.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Text.Shape.ShapingKey.GetHashCode*
+- uid: Etch.Text.Shape.ShapingKey.ToString
+  commentId: M:Etch.Text.Shape.ShapingKey.ToString
+  id: ToString
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ShapingKey.ToString()
+  fullName: Etch.Text.Shape.ShapingKey.ToString()
+  type: Method
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Text.Shape.ShapingKey.ToString*
+- uid: Etch.Text.Shape.ShapingKey.op_Equality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  commentId: M:Etch.Text.Shape.ShapingKey.op_Equality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  id: op_Equality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: operator ==(ShapingKey, ShapingKey)
+  nameWithType: ShapingKey.operator ==(ShapingKey, ShapingKey)
+  fullName: Etch.Text.Shape.ShapingKey.operator ==(Etch.Text.Shape.ShapingKey, Etch.Text.Shape.ShapingKey)
+  type: Operator
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public static bool operator ==(ShapingKey left, ShapingKey right)
+    parameters:
+    - id: left
+      type: Etch.Text.Shape.ShapingKey
+    - id: right
+      type: Etch.Text.Shape.ShapingKey
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As ShapingKey, right As ShapingKey) As Boolean
+  overload: Etch.Text.Shape.ShapingKey.op_Equality*
+  nameWithType.vb: ShapingKey.=(ShapingKey, ShapingKey)
+  fullName.vb: Etch.Text.Shape.ShapingKey.=(Etch.Text.Shape.ShapingKey, Etch.Text.Shape.ShapingKey)
+  name.vb: =(ShapingKey, ShapingKey)
+- uid: Etch.Text.Shape.ShapingKey.op_Inequality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  commentId: M:Etch.Text.Shape.ShapingKey.op_Inequality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  id: op_Inequality(Etch.Text.Shape.ShapingKey,Etch.Text.Shape.ShapingKey)
+  parent: Etch.Text.Shape.ShapingKey
+  langs:
+  - csharp
+  - vb
+  name: operator !=(ShapingKey, ShapingKey)
+  nameWithType: ShapingKey.operator !=(ShapingKey, ShapingKey)
+  fullName: Etch.Text.Shape.ShapingKey.operator !=(Etch.Text.Shape.ShapingKey, Etch.Text.Shape.ShapingKey)
+  type: Operator
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text.Shape
+  syntax:
+    content: public static bool operator !=(ShapingKey left, ShapingKey right)
+    parameters:
+    - id: left
+      type: Etch.Text.Shape.ShapingKey
+    - id: right
+      type: Etch.Text.Shape.ShapingKey
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As ShapingKey, right As ShapingKey) As Boolean
+  overload: Etch.Text.Shape.ShapingKey.op_Inequality*
+  nameWithType.vb: ShapingKey.<>(ShapingKey, ShapingKey)
+  fullName.vb: Etch.Text.Shape.ShapingKey.<>(Etch.Text.Shape.ShapingKey, Etch.Text.Shape.ShapingKey)
+  name.vb: <>(ShapingKey, ShapingKey)
+references:
+- uid: Etch.Text.Shape
+  commentId: N:Etch.Text.Shape
+  href: Etch.html
+  name: Etch.Text.Shape
+  nameWithType: Etch.Text.Shape
+  fullName: Etch.Text.Shape
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  - name: .
+  - uid: Etch.Text.Shape
+    name: Shape
+    href: Etch.Text.Shape.html
+- uid: System.IEquatable{Etch.Text.Shape.ShapingKey}
+  commentId: T:System.IEquatable{Etch.Text.Shape.ShapingKey}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ShapingKey>
+  nameWithType: IEquatable<ShapingKey>
+  fullName: System.IEquatable<Etch.Text.Shape.ShapingKey>
+  nameWithType.vb: IEquatable(Of ShapingKey)
+  fullName.vb: System.IEquatable(Of Etch.Text.Shape.ShapingKey)
+  name.vb: IEquatable(Of ShapingKey)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Text.Shape.ShapingKey
+    name: ShapingKey
+    href: Etch.Text.Shape.ShapingKey.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Text.Shape.ShapingKey
+    name: ShapingKey
+    href: Etch.Text.Shape.ShapingKey.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Text.Shape.ShapingKey.TextHash*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.TextHash
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_TextHash
+  name: TextHash
+  nameWithType: ShapingKey.TextHash
+  fullName: Etch.Text.Shape.ShapingKey.TextHash
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Etch.Text.Shape.ShapingKey.FaceId*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.FaceId
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_FaceId
+  name: FaceId
+  nameWithType: ShapingKey.FaceId
+  fullName: Etch.Text.Shape.ShapingKey.FaceId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Text.Shape.ShapingKey.SizeUnits*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.SizeUnits
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_SizeUnits
+  name: SizeUnits
+  nameWithType: ShapingKey.SizeUnits
+  fullName: Etch.Text.Shape.ShapingKey.SizeUnits
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: Etch.Text.Shape.ShapingKey.Level*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.Level
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_Level
+  name: Level
+  nameWithType: ShapingKey.Level
+  fullName: Etch.Text.Shape.ShapingKey.Level
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Etch.Text.Shape.ShapingKey.ScriptTag*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.ScriptTag
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_ScriptTag
+  name: ScriptTag
+  nameWithType: ShapingKey.ScriptTag
+  fullName: Etch.Text.Shape.ShapingKey.ScriptTag
+- uid: Etch.Text.Shape.ShapingKey.#ctor*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.#ctor
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey__ctor_System_UInt64_System_Int32_System_UInt16_System_Byte_System_UInt16_
+  name: ShapingKey
+  nameWithType: ShapingKey.ShapingKey
+  fullName: Etch.Text.Shape.ShapingKey.ShapingKey
+  nameWithType.vb: ShapingKey.New
+  fullName.vb: Etch.Text.Shape.ShapingKey.New
+  name.vb: New
+- uid: Etch.Text.Shape.ShapingKey.Equals*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.Equals
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_Equals_Etch_Text_Shape_ShapingKey_
+  name: Equals
+  nameWithType: ShapingKey.Equals
+  fullName: Etch.Text.Shape.ShapingKey.Equals
+- uid: System.IEquatable{Etch.Text.Shape.ShapingKey}.Equals(Etch.Text.Shape.ShapingKey)
+  commentId: M:System.IEquatable{Etch.Text.Shape.ShapingKey}.Equals(Etch.Text.Shape.ShapingKey)
+  parent: System.IEquatable{Etch.Text.Shape.ShapingKey}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ShapingKey)
+  nameWithType: IEquatable<ShapingKey>.Equals(ShapingKey)
+  fullName: System.IEquatable<Etch.Text.Shape.ShapingKey>.Equals(Etch.Text.Shape.ShapingKey)
+  nameWithType.vb: IEquatable(Of ShapingKey).Equals(ShapingKey)
+  fullName.vb: System.IEquatable(Of Etch.Text.Shape.ShapingKey).Equals(Etch.Text.Shape.ShapingKey)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Text.Shape.ShapingKey}.Equals(Etch.Text.Shape.ShapingKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Text.Shape.ShapingKey
+    name: ShapingKey
+    href: Etch.Text.Shape.ShapingKey.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Text.Shape.ShapingKey}.Equals(Etch.Text.Shape.ShapingKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Text.Shape.ShapingKey
+    name: ShapingKey
+    href: Etch.Text.Shape.ShapingKey.html
+  - name: )
+- uid: Etch.Text.Shape.ShapingKey
+  commentId: T:Etch.Text.Shape.ShapingKey
+  parent: Etch.Text.Shape
+  href: Etch.Text.Shape.ShapingKey.html
+  name: ShapingKey
+  nameWithType: ShapingKey
+  fullName: Etch.Text.Shape.ShapingKey
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Text.Shape.ShapingKey.GetHashCode*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.GetHashCode
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_GetHashCode
+  name: GetHashCode
+  nameWithType: ShapingKey.GetHashCode
+  fullName: Etch.Text.Shape.ShapingKey.GetHashCode
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Text.Shape.ShapingKey.ToString*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.ToString
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_ToString
+  name: ToString
+  nameWithType: ShapingKey.ToString
+  fullName: Etch.Text.Shape.ShapingKey.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Text.Shape.ShapingKey.op_Equality*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.op_Equality
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_op_Equality_Etch_Text_Shape_ShapingKey_Etch_Text_Shape_ShapingKey_
+  name: operator ==
+  nameWithType: ShapingKey.operator ==
+  fullName: Etch.Text.Shape.ShapingKey.operator ==
+  nameWithType.vb: ShapingKey.=
+  fullName.vb: Etch.Text.Shape.ShapingKey.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Text.Shape.ShapingKey.op_Equality*
+    name: ==
+    href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_op_Equality_Etch_Text_Shape_ShapingKey_Etch_Text_Shape_ShapingKey_
+- uid: Etch.Text.Shape.ShapingKey.op_Inequality*
+  commentId: Overload:Etch.Text.Shape.ShapingKey.op_Inequality
+  href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_op_Inequality_Etch_Text_Shape_ShapingKey_Etch_Text_Shape_ShapingKey_
+  name: operator !=
+  nameWithType: ShapingKey.operator !=
+  fullName: Etch.Text.Shape.ShapingKey.operator !=
+  nameWithType.vb: ShapingKey.<>
+  fullName.vb: Etch.Text.Shape.ShapingKey.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Text.Shape.ShapingKey.op_Inequality*
+    name: '!='
+    href: Etch.Text.Shape.ShapingKey.html#Etch_Text_Shape_ShapingKey_op_Inequality_Etch_Text_Shape_ShapingKey_Etch_Text_Shape_ShapingKey_

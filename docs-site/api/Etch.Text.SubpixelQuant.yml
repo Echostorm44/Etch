@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Text.SubpixelQuant
+  commentId: T:Etch.Text.SubpixelQuant
+  id: SubpixelQuant
+  parent: Etch.Text
+  children:
+  - Etch.Text.SubpixelQuant.Eighth
+  - Etch.Text.SubpixelQuant.None
+  - Etch.Text.SubpixelQuant.Quarter
+  langs:
+  - csharp
+  - vb
+  name: SubpixelQuant
+  nameWithType: SubpixelQuant
+  fullName: Etch.Text.SubpixelQuant
+  type: Enum
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  summary: >-
+    Quantizes a fractional pixel X offset to a small finite set of subpixel
+
+    positions. This bounds the glyph-cache key space while preserving smooth
+
+    horizontal spacing.
+  example: []
+  syntax:
+    content: public enum SubpixelQuant
+    content.vb: Public Enum SubpixelQuant
+- uid: Etch.Text.SubpixelQuant.None
+  commentId: F:Etch.Text.SubpixelQuant.None
+  id: None
+  parent: Etch.Text.SubpixelQuant
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SubpixelQuant.None
+  fullName: Etch.Text.SubpixelQuant.None
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Text.SubpixelQuant
+- uid: Etch.Text.SubpixelQuant.Quarter
+  commentId: F:Etch.Text.SubpixelQuant.Quarter
+  id: Quarter
+  parent: Etch.Text.SubpixelQuant
+  langs:
+  - csharp
+  - vb
+  name: Quarter
+  nameWithType: SubpixelQuant.Quarter
+  fullName: Etch.Text.SubpixelQuant.Quarter
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  syntax:
+    content: Quarter = 1
+    return:
+      type: Etch.Text.SubpixelQuant
+- uid: Etch.Text.SubpixelQuant.Eighth
+  commentId: F:Etch.Text.SubpixelQuant.Eighth
+  id: Eighth
+  parent: Etch.Text.SubpixelQuant
+  langs:
+  - csharp
+  - vb
+  name: Eighth
+  nameWithType: SubpixelQuant.Eighth
+  fullName: Etch.Text.SubpixelQuant.Eighth
+  type: Field
+  assemblies:
+  - Etch.Text
+  namespace: Etch.Text
+  syntax:
+    content: Eighth = 2
+    return:
+      type: Etch.Text.SubpixelQuant
+references:
+- uid: Etch.Text
+  commentId: N:Etch.Text
+  href: Etch.html
+  name: Etch.Text
+  nameWithType: Etch.Text
+  fullName: Etch.Text
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Text
+    name: Text
+    href: Etch.Text.html
+- uid: Etch.Text.SubpixelQuant
+  commentId: T:Etch.Text.SubpixelQuant
+  parent: Etch.Text
+  href: Etch.Text.SubpixelQuant.html
+  name: SubpixelQuant
+  nameWithType: SubpixelQuant
+  fullName: Etch.Text.SubpixelQuant

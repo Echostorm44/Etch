@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.LayerFlags
+  commentId: T:Etch.Scene.LayerFlags
+  id: LayerFlags
+  parent: Etch.Scene
+  children:
+  - Etch.Scene.LayerFlags.Isolated
+  - Etch.Scene.LayerFlags.None
+  - Etch.Scene.LayerFlags.Offscreen
+  langs:
+  - csharp
+  - vb
+  name: LayerFlags
+  nameWithType: LayerFlags
+  fullName: Etch.Scene.LayerFlags
+  type: Enum
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: 'public enum LayerFlags : byte'
+    content.vb: Public Enum LayerFlags As Byte
+- uid: Etch.Scene.LayerFlags.None
+  commentId: F:Etch.Scene.LayerFlags.None
+  id: None
+  parent: Etch.Scene.LayerFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LayerFlags.None
+  fullName: Etch.Scene.LayerFlags.None
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: None = 0
+    return:
+      type: Etch.Scene.LayerFlags
+- uid: Etch.Scene.LayerFlags.Isolated
+  commentId: F:Etch.Scene.LayerFlags.Isolated
+  id: Isolated
+  parent: Etch.Scene.LayerFlags
+  langs:
+  - csharp
+  - vb
+  name: Isolated
+  nameWithType: LayerFlags.Isolated
+  fullName: Etch.Scene.LayerFlags.Isolated
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Isolated = 1
+    return:
+      type: Etch.Scene.LayerFlags
+- uid: Etch.Scene.LayerFlags.Offscreen
+  commentId: F:Etch.Scene.LayerFlags.Offscreen
+  id: Offscreen
+  parent: Etch.Scene.LayerFlags
+  langs:
+  - csharp
+  - vb
+  name: Offscreen
+  nameWithType: LayerFlags.Offscreen
+  fullName: Etch.Scene.LayerFlags.Offscreen
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene
+  syntax:
+    content: Offscreen = 2
+    return:
+      type: Etch.Scene.LayerFlags
+references:
+- uid: Etch.Scene
+  commentId: N:Etch.Scene
+  href: Etch.html
+  name: Etch.Scene
+  nameWithType: Etch.Scene
+  fullName: Etch.Scene
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+- uid: Etch.Scene.LayerFlags
+  commentId: T:Etch.Scene.LayerFlags
+  parent: Etch.Scene
+  href: Etch.Scene.LayerFlags.html
+  name: LayerFlags
+  nameWithType: LayerFlags
+  fullName: Etch.Scene.LayerFlags

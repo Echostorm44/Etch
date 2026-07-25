@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Surfaces.Cocoa
+  commentId: N:Etch.Gpu.Surfaces.Cocoa
+  id: Etch.Gpu.Surfaces.Cocoa
+  children:
+  - Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter
+  - Etch.Gpu.Surfaces.Cocoa.MetalLayerType
+  langs:
+  - csharp
+  - vb
+  name: Etch.Gpu.Surfaces.Cocoa
+  nameWithType: Etch.Gpu.Surfaces.Cocoa
+  fullName: Etch.Gpu.Surfaces.Cocoa
+  type: Namespace
+  assemblies:
+  - Etch.Gpu
+references:
+- uid: Etch.Gpu.Surfaces.Cocoa.MetalLayerType
+  commentId: T:Etch.Gpu.Surfaces.Cocoa.MetalLayerType
+  parent: Etch.Gpu.Surfaces.Cocoa
+  href: Etch.Gpu.Surfaces.Cocoa.MetalLayerType.html
+  name: MetalLayerType
+  nameWithType: MetalLayerType
+  fullName: Etch.Gpu.Surfaces.Cocoa.MetalLayerType
+- uid: Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter
+  commentId: T:Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter
+  href: Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter.html
+  name: MetalLayerAdapter
+  nameWithType: MetalLayerAdapter
+  fullName: Etch.Gpu.Surfaces.Cocoa.MetalLayerAdapter
+- uid: Etch.Gpu.Surfaces.Cocoa
+  commentId: N:Etch.Gpu.Surfaces.Cocoa
+  href: Etch.html
+  name: Etch.Gpu.Surfaces.Cocoa
+  nameWithType: Etch.Gpu.Surfaces.Cocoa
+  fullName: Etch.Gpu.Surfaces.Cocoa
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Surfaces
+    name: Surfaces
+    href: Etch.Gpu.Surfaces.html
+  - name: .
+  - uid: Etch.Gpu.Surfaces.Cocoa
+    name: Cocoa
+    href: Etch.Gpu.Surfaces.Cocoa.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Surfaces
+    name: Surfaces
+    href: Etch.Gpu.Surfaces.html
+  - name: .
+  - uid: Etch.Gpu.Surfaces.Cocoa
+    name: Cocoa
+    href: Etch.Gpu.Surfaces.Cocoa.html

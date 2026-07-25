@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Etch.Text</RootNamespace>
+    <AssemblyName>Etch.Text</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1815;CA1051;CA1724;CA1819;CA1062;CA1515;CA1028</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ICU4N" />
+    <PackageReference Include="System.IO.Hashing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Etch.Text.Tests" />
+    <InternalsVisibleTo Include="Etch.Text.Bench" />
+    <!-- Cascade.UI's text-layout engine uses the owned HarfBuzz interop directly (RENDER-005). -->
+    <InternalsVisibleTo Include="Cascade.UI" />
+  </ItemGroup>
+
+  <!-- We own the native FreeType + HarfBuzz binaries (RENDER-004/005): dropped the third-party
+       managed binding packages and their exe-relative loaders. Ship the same upstream natives
+       ourselves under runtimes/<rid>/native, where the shared NativeLibraryResolver's
+       SetDllImportResolver deterministically probes (alongside the app base dir).
+       CopyToOutputDirectory flows these transitively to every consumer's output, matching how the
+       packages' runtime assets used to. The HarfBuzz .pdb is intentionally not shipped. -->
+  <ItemGroup>
+    <None Include="native\win-x64\freetype.dll" Link="runtimes\win-x64\native\freetype.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\win-arm64\freetype.dll" Link="runtimes\win-arm64\native\freetype.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\linux-x64\libfreetype.so" Link="runtimes\linux-x64\native\libfreetype.so" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\osx\libfreetype.dylib" Link="runtimes\osx\native\libfreetype.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\win-x64\harfbuzz.dll" Link="runtimes\win-x64\native\harfbuzz.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\win-arm64\harfbuzz.dll" Link="runtimes\win-arm64\native\harfbuzz.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\linux-x64\libharfbuzz.so" Link="runtimes\linux-x64\native\libharfbuzz.so" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="native\osx\libharfbuzz.dylib" Link="runtimes\osx\native\libharfbuzz.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Etch.Abstractions\Etch.Abstractions.csproj" />
+    <ProjectReference Include="..\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\Etch.Gpu\Etch.Gpu.csproj" />
+  </ItemGroup>
+</Project>

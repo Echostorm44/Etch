@@ -1,0 +1,592 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Scene.Damage.DamageResult
+  commentId: T:Etch.Scene.Damage.DamageResult
+  id: DamageResult
+  parent: Etch.Scene.Damage
+  children:
+  - Etch.Scene.Damage.DamageResult.#ctor(Etch.Geometry.Rect[])
+  - Etch.Scene.Damage.DamageResult.#ctor(Etch.Scene.Damage.ScrollHint,Etch.Geometry.Rect)
+  - Etch.Scene.Damage.DamageResult.#ctor(System.Boolean[],System.Int32)
+  - Etch.Scene.Damage.DamageResult.DirtyCount
+  - Etch.Scene.Damage.DamageResult.DirtyPercent
+  - Etch.Scene.Damage.DamageResult.DirtyRects
+  - Etch.Scene.Damage.DamageResult.DirtyTiles
+  - Etch.Scene.Damage.DamageResult.Mode
+  - Etch.Scene.Damage.DamageResult.TotalTiles
+  langs:
+  - csharp
+  - vb
+  name: DamageResult
+  nameWithType: DamageResult
+  fullName: Etch.Scene.Damage.DamageResult
+  type: Struct
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly struct DamageResult
+    content.vb: Public Structure DamageResult
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Scene.Damage.DamageResult.DirtyTiles
+  commentId: F:Etch.Scene.Damage.DamageResult.DirtyTiles
+  id: DirtyTiles
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DirtyTiles
+  nameWithType: DamageResult.DirtyTiles
+  fullName: Etch.Scene.Damage.DamageResult.DirtyTiles
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly bool[] DirtyTiles
+    return:
+      type: System.Boolean[]
+    content.vb: Public ReadOnly DirtyTiles As Boolean()
+- uid: Etch.Scene.Damage.DamageResult.DirtyCount
+  commentId: F:Etch.Scene.Damage.DamageResult.DirtyCount
+  id: DirtyCount
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DirtyCount
+  nameWithType: DamageResult.DirtyCount
+  fullName: Etch.Scene.Damage.DamageResult.DirtyCount
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly int DirtyCount
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly DirtyCount As Integer
+- uid: Etch.Scene.Damage.DamageResult.TotalTiles
+  commentId: F:Etch.Scene.Damage.DamageResult.TotalTiles
+  id: TotalTiles
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: TotalTiles
+  nameWithType: DamageResult.TotalTiles
+  fullName: Etch.Scene.Damage.DamageResult.TotalTiles
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly int TotalTiles
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly TotalTiles As Integer
+- uid: Etch.Scene.Damage.DamageResult.DirtyPercent
+  commentId: F:Etch.Scene.Damage.DamageResult.DirtyPercent
+  id: DirtyPercent
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DirtyPercent
+  nameWithType: DamageResult.DirtyPercent
+  fullName: Etch.Scene.Damage.DamageResult.DirtyPercent
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly double DirtyPercent
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly DirtyPercent As Double
+- uid: Etch.Scene.Damage.DamageResult.Mode
+  commentId: F:Etch.Scene.Damage.DamageResult.Mode
+  id: Mode
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: Mode
+  nameWithType: DamageResult.Mode
+  fullName: Etch.Scene.Damage.DamageResult.Mode
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly DamageMode Mode
+    return:
+      type: Etch.Scene.Damage.DamageMode
+    content.vb: Public ReadOnly Mode As DamageMode
+- uid: Etch.Scene.Damage.DamageResult.DirtyRects
+  commentId: F:Etch.Scene.Damage.DamageResult.DirtyRects
+  id: DirtyRects
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DirtyRects
+  nameWithType: DamageResult.DirtyRects
+  fullName: Etch.Scene.Damage.DamageResult.DirtyRects
+  type: Field
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public readonly Rect[] DirtyRects
+    return:
+      type: Etch.Geometry.Rect[]
+    content.vb: Public ReadOnly DirtyRects As Rect()
+- uid: Etch.Scene.Damage.DamageResult.#ctor(System.Boolean[],System.Int32)
+  commentId: M:Etch.Scene.Damage.DamageResult.#ctor(System.Boolean[],System.Int32)
+  id: '#ctor(System.Boolean[],System.Int32)'
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DamageResult(bool[], int)
+  nameWithType: DamageResult.DamageResult(bool[], int)
+  fullName: Etch.Scene.Damage.DamageResult.DamageResult(bool[], int)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public DamageResult(bool[] dirtyTiles, int dirtyCount)
+    parameters:
+    - id: dirtyTiles
+      type: System.Boolean[]
+    - id: dirtyCount
+      type: System.Int32
+    content.vb: Public Sub New(dirtyTiles As Boolean(), dirtyCount As Integer)
+  overload: Etch.Scene.Damage.DamageResult.#ctor*
+  nameWithType.vb: DamageResult.New(Boolean(), Integer)
+  fullName.vb: Etch.Scene.Damage.DamageResult.New(Boolean(), Integer)
+  name.vb: New(Boolean(), Integer)
+- uid: Etch.Scene.Damage.DamageResult.#ctor(Etch.Geometry.Rect[])
+  commentId: M:Etch.Scene.Damage.DamageResult.#ctor(Etch.Geometry.Rect[])
+  id: '#ctor(Etch.Geometry.Rect[])'
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DamageResult(Rect[])
+  nameWithType: DamageResult.DamageResult(Rect[])
+  fullName: Etch.Scene.Damage.DamageResult.DamageResult(Etch.Geometry.Rect[])
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public DamageResult(Rect[] dirtyRects)
+    parameters:
+    - id: dirtyRects
+      type: Etch.Geometry.Rect[]
+    content.vb: Public Sub New(dirtyRects As Rect())
+  overload: Etch.Scene.Damage.DamageResult.#ctor*
+  nameWithType.vb: DamageResult.New(Rect())
+  fullName.vb: Etch.Scene.Damage.DamageResult.New(Etch.Geometry.Rect())
+  name.vb: New(Rect())
+- uid: Etch.Scene.Damage.DamageResult.#ctor(Etch.Scene.Damage.ScrollHint,Etch.Geometry.Rect)
+  commentId: M:Etch.Scene.Damage.DamageResult.#ctor(Etch.Scene.Damage.ScrollHint,Etch.Geometry.Rect)
+  id: '#ctor(Etch.Scene.Damage.ScrollHint,Etch.Geometry.Rect)'
+  parent: Etch.Scene.Damage.DamageResult
+  langs:
+  - csharp
+  - vb
+  name: DamageResult(ScrollHint, Rect)
+  nameWithType: DamageResult.DamageResult(ScrollHint, Rect)
+  fullName: Etch.Scene.Damage.DamageResult.DamageResult(Etch.Scene.Damage.ScrollHint, Etch.Geometry.Rect)
+  type: Constructor
+  assemblies:
+  - Etch.Scene
+  namespace: Etch.Scene.Damage
+  syntax:
+    content: public DamageResult(ScrollHint hint, Rect revealedStrip)
+    parameters:
+    - id: hint
+      type: Etch.Scene.Damage.ScrollHint
+    - id: revealedStrip
+      type: Etch.Geometry.Rect
+    content.vb: Public Sub New(hint As ScrollHint, revealedStrip As Rect)
+  overload: Etch.Scene.Damage.DamageResult.#ctor*
+  nameWithType.vb: DamageResult.New(ScrollHint, Rect)
+  fullName.vb: Etch.Scene.Damage.DamageResult.New(Etch.Scene.Damage.ScrollHint, Etch.Geometry.Rect)
+  name.vb: New(ScrollHint, Rect)
+references:
+- uid: Etch.Scene.Damage
+  commentId: N:Etch.Scene.Damage
+  href: Etch.html
+  name: Etch.Scene.Damage
+  nameWithType: Etch.Scene.Damage
+  fullName: Etch.Scene.Damage
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Scene
+    name: Scene
+    href: Etch.Scene.html
+  - name: .
+  - uid: Etch.Scene.Damage
+    name: Damage
+    href: Etch.Scene.Damage.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool[]
+  nameWithType: bool[]
+  fullName: bool[]
+  nameWithType.vb: Boolean()
+  fullName.vb: Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Scene.Damage.DamageMode
+  commentId: T:Etch.Scene.Damage.DamageMode
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.DamageMode.html
+  name: DamageMode
+  nameWithType: DamageMode
+  fullName: Etch.Scene.Damage.DamageMode
+- uid: Etch.Geometry.Rect[]
+  isExternal: true
+  href: Etch.Geometry.Rect.html
+  name: Rect[]
+  nameWithType: Rect[]
+  fullName: Etch.Geometry.Rect[]
+  nameWithType.vb: Rect()
+  fullName.vb: Etch.Geometry.Rect()
+  name.vb: Rect()
+  spec.csharp:
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: (
+  - name: )
+- uid: Etch.Scene.Damage.DamageResult.#ctor*
+  commentId: Overload:Etch.Scene.Damage.DamageResult.#ctor
+  href: Etch.Scene.Damage.DamageResult.html#Etch_Scene_Damage_DamageResult__ctor_System_Boolean___System_Int32_
+  name: DamageResult
+  nameWithType: DamageResult.DamageResult
+  fullName: Etch.Scene.Damage.DamageResult.DamageResult
+  nameWithType.vb: DamageResult.New
+  fullName.vb: Etch.Scene.Damage.DamageResult.New
+  name.vb: New
+- uid: Etch.Scene.Damage.ScrollHint
+  commentId: T:Etch.Scene.Damage.ScrollHint
+  parent: Etch.Scene.Damage
+  href: Etch.Scene.Damage.ScrollHint.html
+  name: ScrollHint
+  nameWithType: ScrollHint
+  fullName: Etch.Scene.Damage.ScrollHint
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html

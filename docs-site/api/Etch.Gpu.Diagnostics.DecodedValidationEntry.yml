@@ -1,0 +1,430 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  commentId: T:Etch.Gpu.Diagnostics.DecodedValidationEntry
+  id: DecodedValidationEntry
+  parent: Etch.Gpu.Diagnostics
+  children:
+  - Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor(System.Int64,System.UInt32,System.String)
+  - Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+  - Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+  - Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+  langs:
+  - csharp
+  - vb
+  name: DecodedValidationEntry
+  nameWithType: DecodedValidationEntry
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public readonly struct DecodedValidationEntry
+    content.vb: Public Structure DecodedValidationEntry
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+  commentId: P:Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+  id: TimestampTicks
+  parent: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  langs:
+  - csharp
+  - vb
+  name: TimestampTicks
+  nameWithType: DecodedValidationEntry.TimestampTicks
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public long TimestampTicks { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property TimestampTicks As Long
+  overload: Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks*
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+  commentId: P:Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+  id: ErrorType
+  parent: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  langs:
+  - csharp
+  - vb
+  name: ErrorType
+  nameWithType: DecodedValidationEntry.ErrorType
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public uint ErrorType { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property ErrorType As UInteger
+  overload: Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType*
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+  commentId: P:Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+  id: Message
+  parent: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: DecodedValidationEntry.Message
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Message As String
+  overload: Etch.Gpu.Diagnostics.DecodedValidationEntry.Message*
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor(System.Int64,System.UInt32,System.String)
+  commentId: M:Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor(System.Int64,System.UInt32,System.String)
+  id: '#ctor(System.Int64,System.UInt32,System.String)'
+  parent: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  langs:
+  - csharp
+  - vb
+  name: DecodedValidationEntry(long, uint, string)
+  nameWithType: DecodedValidationEntry.DecodedValidationEntry(long, uint, string)
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.DecodedValidationEntry(long, uint, string)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public DecodedValidationEntry(long timestampTicks, uint errorType, string message)
+    parameters:
+    - id: timestampTicks
+      type: System.Int64
+    - id: errorType
+      type: System.UInt32
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(timestampTicks As Long, errorType As UInteger, message As String)
+  overload: Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor*
+  nameWithType.vb: DecodedValidationEntry.New(Long, UInteger, String)
+  fullName.vb: Etch.Gpu.Diagnostics.DecodedValidationEntry.New(Long, UInteger, String)
+  name.vb: New(Long, UInteger, String)
+references:
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  href: Etch.html
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks*
+  commentId: Overload:Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html#Etch_Gpu_Diagnostics_DecodedValidationEntry_TimestampTicks
+  name: TimestampTicks
+  nameWithType: DecodedValidationEntry.TimestampTicks
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.TimestampTicks
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType*
+  commentId: Overload:Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html#Etch_Gpu_Diagnostics_DecodedValidationEntry_ErrorType
+  name: ErrorType
+  nameWithType: DecodedValidationEntry.ErrorType
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.ErrorType
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.Message*
+  commentId: Overload:Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html#Etch_Gpu_Diagnostics_DecodedValidationEntry_Message
+  name: Message
+  nameWithType: DecodedValidationEntry.Message
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor*
+  commentId: Overload:Etch.Gpu.Diagnostics.DecodedValidationEntry.#ctor
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html#Etch_Gpu_Diagnostics_DecodedValidationEntry__ctor_System_Int64_System_UInt32_System_String_
+  name: DecodedValidationEntry
+  nameWithType: DecodedValidationEntry.DecodedValidationEntry
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry.DecodedValidationEntry
+  nameWithType.vb: DecodedValidationEntry.New
+  fullName.vb: Etch.Gpu.Diagnostics.DecodedValidationEntry.New
+  name.vb: New

@@ -1,0 +1,553 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder
+  commentId: T:Etch.ClipBlendGradient.ClipMaskBuilder
+  id: ClipMaskBuilder
+  parent: Etch.ClipBlendGradient
+  children:
+  - Etch.ClipBlendGradient.ClipMaskBuilder.#ctor(System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuilder.Append(Etch.ClipBlendGradient.ClipStrip@)
+  - Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile(System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuilder.Finish
+  - Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage(System.Int32)
+  - Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage(System.ReadOnlySpan{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: ClipMaskBuilder
+  nameWithType: ClipMaskBuilder
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder
+  type: Struct
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ref struct ClipMaskBuilder
+    content.vb: Public Structure ClipMaskBuilder
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.#ctor(System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: ClipMaskBuilder(int)
+  nameWithType: ClipMaskBuilder.ClipMaskBuilder(int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.ClipMaskBuilder(int)
+  type: Constructor
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ClipMaskBuilder(int estimatedTiles = 64)
+    parameters:
+    - id: estimatedTiles
+      type: System.Int32
+    content.vb: Public Sub New(estimatedTiles As Integer = 64)
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.#ctor*
+  nameWithType.vb: ClipMaskBuilder.New(Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.New(Integer)
+  name.vb: New(Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile(System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile(System.Int32)
+  id: BeginTile(System.Int32)
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: BeginTile(int)
+  nameWithType: ClipMaskBuilder.BeginTile(int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile(int)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public void BeginTile(int tileIndex)
+    parameters:
+    - id: tileIndex
+      type: System.Int32
+    content.vb: Public Sub BeginTile(tileIndex As Integer)
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile*
+  nameWithType.vb: ClipMaskBuilder.BeginTile(Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile(Integer)
+  name.vb: BeginTile(Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.Append(Etch.ClipBlendGradient.ClipStrip@)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.Append(Etch.ClipBlendGradient.ClipStrip@)
+  id: Append(Etch.ClipBlendGradient.ClipStrip@)
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(in ClipStrip)
+  nameWithType: ClipMaskBuilder.Append(in ClipStrip)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.Append(in Etch.ClipBlendGradient.ClipStrip)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public void Append(in ClipStrip strip)
+    parameters:
+    - id: strip
+      type: Etch.ClipBlendGradient.ClipStrip
+    content.vb: Public Sub Append(strip As ClipStrip)
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.Append*
+  nameWithType.vb: ClipMaskBuilder.Append(ClipStrip)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.Append(Etch.ClipBlendGradient.ClipStrip)
+  name.vb: Append(ClipStrip)
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage(System.Int32)
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage(System.Int32)
+  id: ReserveCoverage(System.Int32)
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: ReserveCoverage(int)
+  nameWithType: ClipMaskBuilder.ReserveCoverage(int)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage(int)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public uint ReserveCoverage(int byteCount)
+    parameters:
+    - id: byteCount
+      type: System.Int32
+    return:
+      type: System.UInt32
+    content.vb: Public Function ReserveCoverage(byteCount As Integer) As UInteger
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage*
+  nameWithType.vb: ClipMaskBuilder.ReserveCoverage(Integer)
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage(Integer)
+  name.vb: ReserveCoverage(Integer)
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage(System.ReadOnlySpan{System.Byte})
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage(System.ReadOnlySpan{System.Byte})
+  id: WriteCoverage(System.ReadOnlySpan{System.Byte})
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: WriteCoverage(ReadOnlySpan<byte>)
+  nameWithType: ClipMaskBuilder.WriteCoverage(ReadOnlySpan<byte>)
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage(System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public void WriteCoverage(ReadOnlySpan<byte> data)
+    parameters:
+    - id: data
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub WriteCoverage(data As ReadOnlySpan(Of Byte))
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage*
+  nameWithType.vb: ClipMaskBuilder.WriteCoverage(ReadOnlySpan(Of Byte))
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage(System.ReadOnlySpan(Of Byte))
+  name.vb: WriteCoverage(ReadOnlySpan(Of Byte))
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.Finish
+  commentId: M:Etch.ClipBlendGradient.ClipMaskBuilder.Finish
+  id: Finish
+  parent: Etch.ClipBlendGradient.ClipMaskBuilder
+  langs:
+  - csharp
+  - vb
+  name: Finish()
+  nameWithType: ClipMaskBuilder.Finish()
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.Finish()
+  type: Method
+  assemblies:
+  - Etch.ClipBlendGradient
+  namespace: Etch.ClipBlendGradient
+  syntax:
+    content: public ClipMaskBuffer Finish()
+    return:
+      type: Etch.ClipBlendGradient.ClipMaskBuffer
+    content.vb: Public Function Finish() As ClipMaskBuffer
+  overload: Etch.ClipBlendGradient.ClipMaskBuilder.Finish*
+references:
+- uid: Etch.ClipBlendGradient
+  commentId: N:Etch.ClipBlendGradient
+  href: Etch.html
+  name: Etch.ClipBlendGradient
+  nameWithType: Etch.ClipBlendGradient
+  fullName: Etch.ClipBlendGradient
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.ClipBlendGradient
+    name: ClipBlendGradient
+    href: Etch.ClipBlendGradient.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.#ctor*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.#ctor
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder__ctor_System_Int32_
+  name: ClipMaskBuilder
+  nameWithType: ClipMaskBuilder.ClipMaskBuilder
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.ClipMaskBuilder
+  nameWithType.vb: ClipMaskBuilder.New
+  fullName.vb: Etch.ClipBlendGradient.ClipMaskBuilder.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder_BeginTile_System_Int32_
+  name: BeginTile
+  nameWithType: ClipMaskBuilder.BeginTile
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.BeginTile
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.Append*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.Append
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder_Append_Etch_ClipBlendGradient_ClipStrip__
+  name: Append
+  nameWithType: ClipMaskBuilder.Append
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.Append
+- uid: Etch.ClipBlendGradient.ClipStrip
+  commentId: T:Etch.ClipBlendGradient.ClipStrip
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.ClipStrip.html
+  name: ClipStrip
+  nameWithType: ClipStrip
+  fullName: Etch.ClipBlendGradient.ClipStrip
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder_ReserveCoverage_System_Int32_
+  name: ReserveCoverage
+  nameWithType: ClipMaskBuilder.ReserveCoverage
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.ReserveCoverage
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder_WriteCoverage_System_ReadOnlySpan_System_Byte__
+  name: WriteCoverage
+  nameWithType: ClipMaskBuilder.WriteCoverage
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.WriteCoverage
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.ClipBlendGradient.ClipMaskBuilder.Finish*
+  commentId: Overload:Etch.ClipBlendGradient.ClipMaskBuilder.Finish
+  href: Etch.ClipBlendGradient.ClipMaskBuilder.html#Etch_ClipBlendGradient_ClipMaskBuilder_Finish
+  name: Finish
+  nameWithType: ClipMaskBuilder.Finish
+  fullName: Etch.ClipBlendGradient.ClipMaskBuilder.Finish
+- uid: Etch.ClipBlendGradient.ClipMaskBuffer
+  commentId: T:Etch.ClipBlendGradient.ClipMaskBuffer
+  parent: Etch.ClipBlendGradient
+  href: Etch.ClipBlendGradient.ClipMaskBuffer.html
+  name: ClipMaskBuffer
+  nameWithType: ClipMaskBuffer
+  fullName: Etch.ClipBlendGradient.ClipMaskBuffer

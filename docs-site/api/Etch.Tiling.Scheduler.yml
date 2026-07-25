@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Tiling.Scheduler
+  commentId: N:Etch.Tiling.Scheduler
+  id: Etch.Tiling.Scheduler
+  children:
+  - Etch.Tiling.Scheduler.ITileScheduler
+  - Etch.Tiling.Scheduler.SingleThreadedTileScheduler
+  - Etch.Tiling.Scheduler.WorkStealingTileScheduler
+  langs:
+  - csharp
+  - vb
+  name: Etch.Tiling.Scheduler
+  nameWithType: Etch.Tiling.Scheduler
+  fullName: Etch.Tiling.Scheduler
+  type: Namespace
+  assemblies:
+  - Etch.Tiling
+references:
+- uid: Etch.Tiling.Scheduler.ITileScheduler
+  commentId: T:Etch.Tiling.Scheduler.ITileScheduler
+  parent: Etch.Tiling.Scheduler
+  href: Etch.Tiling.Scheduler.ITileScheduler.html
+  name: ITileScheduler
+  nameWithType: ITileScheduler
+  fullName: Etch.Tiling.Scheduler.ITileScheduler
+- uid: Etch.Tiling.Scheduler.SingleThreadedTileScheduler
+  commentId: T:Etch.Tiling.Scheduler.SingleThreadedTileScheduler
+  href: Etch.Tiling.Scheduler.SingleThreadedTileScheduler.html
+  name: SingleThreadedTileScheduler
+  nameWithType: SingleThreadedTileScheduler
+  fullName: Etch.Tiling.Scheduler.SingleThreadedTileScheduler
+- uid: Etch.Tiling.Scheduler.WorkStealingTileScheduler
+  commentId: T:Etch.Tiling.Scheduler.WorkStealingTileScheduler
+  href: Etch.Tiling.Scheduler.WorkStealingTileScheduler.html
+  name: WorkStealingTileScheduler
+  nameWithType: WorkStealingTileScheduler
+  fullName: Etch.Tiling.Scheduler.WorkStealingTileScheduler
+- uid: Etch.Tiling.Scheduler
+  commentId: N:Etch.Tiling.Scheduler
+  href: Etch.html
+  name: Etch.Tiling.Scheduler
+  nameWithType: Etch.Tiling.Scheduler
+  fullName: Etch.Tiling.Scheduler
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Tiling
+    name: Tiling
+    href: Etch.Tiling.html
+  - name: .
+  - uid: Etch.Tiling.Scheduler
+    name: Scheduler
+    href: Etch.Tiling.Scheduler.html

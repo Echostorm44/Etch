@@ -1,0 +1,1357 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  id: Rect
+  parent: Etch.Geometry
+  children:
+  - Etch.Geometry.Rect.#ctor(System.Double,System.Double,System.Double,System.Double)
+  - Etch.Geometry.Rect.Area
+  - Etch.Geometry.Rect.Center
+  - Etch.Geometry.Rect.Contains(Etch.Geometry.Point)
+  - Etch.Geometry.Rect.Contains(Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.Empty
+  - Etch.Geometry.Rect.Equals(Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.Equals(System.Object)
+  - Etch.Geometry.Rect.FromLTRB(System.Double,System.Double,System.Double,System.Double)
+  - Etch.Geometry.Rect.FromMinSize(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  - Etch.Geometry.Rect.FromMinSize(System.Double,System.Double,System.Double,System.Double)
+  - Etch.Geometry.Rect.FromPoints(Etch.Geometry.Point,Etch.Geometry.Point)
+  - Etch.Geometry.Rect.GetHashCode
+  - Etch.Geometry.Rect.Height
+  - Etch.Geometry.Rect.Inflate(Etch.Geometry.Vec2)
+  - Etch.Geometry.Rect.Inflate(System.Double)
+  - Etch.Geometry.Rect.Intersect(Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.Intersects(Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.IsEmpty
+  - Etch.Geometry.Rect.MaxX
+  - Etch.Geometry.Rect.MaxY
+  - Etch.Geometry.Rect.MinX
+  - Etch.Geometry.Rect.MinY
+  - Etch.Geometry.Rect.ToString
+  - Etch.Geometry.Rect.Transform(Etch.Geometry.Affine)
+  - Etch.Geometry.Rect.Translated(Etch.Geometry.Vec2)
+  - Etch.Geometry.Rect.Union(Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.Width
+  - Etch.Geometry.Rect.op_Equality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  - Etch.Geometry.Rect.op_Inequality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  langs:
+  - csharp
+  - vb
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+  type: Struct
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: 'public readonly struct Rect : IEquatable<Rect>'
+    content.vb: Public Structure Rect Implements IEquatable(Of Rect)
+  implements:
+  - System.IEquatable{Etch.Geometry.Rect}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Geometry.Rect.MinX
+  commentId: F:Etch.Geometry.Rect.MinX
+  id: MinX
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: MinX
+  nameWithType: Rect.MinX
+  fullName: Etch.Geometry.Rect.MinX
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double MinX
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly MinX As Double
+- uid: Etch.Geometry.Rect.MinY
+  commentId: F:Etch.Geometry.Rect.MinY
+  id: MinY
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: MinY
+  nameWithType: Rect.MinY
+  fullName: Etch.Geometry.Rect.MinY
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double MinY
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly MinY As Double
+- uid: Etch.Geometry.Rect.MaxX
+  commentId: F:Etch.Geometry.Rect.MaxX
+  id: MaxX
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: MaxX
+  nameWithType: Rect.MaxX
+  fullName: Etch.Geometry.Rect.MaxX
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double MaxX
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly MaxX As Double
+- uid: Etch.Geometry.Rect.MaxY
+  commentId: F:Etch.Geometry.Rect.MaxY
+  id: MaxY
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: MaxY
+  nameWithType: Rect.MaxY
+  fullName: Etch.Geometry.Rect.MaxY
+  type: Field
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public readonly double MaxY
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly MaxY As Double
+- uid: Etch.Geometry.Rect.#ctor(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Etch.Geometry.Rect.#ctor(System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double,System.Double)'
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Rect(double, double, double, double)
+  nameWithType: Rect.Rect(double, double, double, double)
+  fullName: Etch.Geometry.Rect.Rect(double, double, double, double)
+  type: Constructor
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect(double minX, double minY, double maxX, double maxY)
+    parameters:
+    - id: minX
+      type: System.Double
+    - id: minY
+      type: System.Double
+    - id: maxX
+      type: System.Double
+    - id: maxY
+      type: System.Double
+    content.vb: Public Sub New(minX As Double, minY As Double, maxX As Double, maxY As Double)
+  overload: Etch.Geometry.Rect.#ctor*
+  nameWithType.vb: Rect.New(Double, Double, Double, Double)
+  fullName.vb: Etch.Geometry.Rect.New(Double, Double, Double, Double)
+  name.vb: New(Double, Double, Double, Double)
+- uid: Etch.Geometry.Rect.Width
+  commentId: P:Etch.Geometry.Rect.Width
+  id: Width
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Rect.Width
+  fullName: Etch.Geometry.Rect.Width
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Width { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Width As Double
+  overload: Etch.Geometry.Rect.Width*
+- uid: Etch.Geometry.Rect.Height
+  commentId: P:Etch.Geometry.Rect.Height
+  id: Height
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Rect.Height
+  fullName: Etch.Geometry.Rect.Height
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Height { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Height As Double
+  overload: Etch.Geometry.Rect.Height*
+- uid: Etch.Geometry.Rect.Area
+  commentId: P:Etch.Geometry.Rect.Area
+  id: Area
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: Rect.Area
+  fullName: Etch.Geometry.Rect.Area
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public double Area { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Area As Double
+  overload: Etch.Geometry.Rect.Area*
+- uid: Etch.Geometry.Rect.Empty
+  commentId: P:Etch.Geometry.Rect.Empty
+  id: Empty
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: Rect.Empty
+  fullName: Etch.Geometry.Rect.Empty
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Rect Empty { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Shared ReadOnly Property Empty As Rect
+  overload: Etch.Geometry.Rect.Empty*
+- uid: Etch.Geometry.Rect.IsEmpty
+  commentId: P:Etch.Geometry.Rect.IsEmpty
+  id: IsEmpty
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: Rect.IsEmpty
+  fullName: Etch.Geometry.Rect.IsEmpty
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool IsEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsEmpty As Boolean
+  overload: Etch.Geometry.Rect.IsEmpty*
+- uid: Etch.Geometry.Rect.Center
+  commentId: P:Etch.Geometry.Rect.Center
+  id: Center
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Rect.Center
+  fullName: Etch.Geometry.Rect.Center
+  type: Property
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Point Center { get; }
+    parameters: []
+    return:
+      type: Etch.Geometry.Point
+    content.vb: Public ReadOnly Property Center As Point
+  overload: Etch.Geometry.Rect.Center*
+- uid: Etch.Geometry.Rect.FromLTRB(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Etch.Geometry.Rect.FromLTRB(System.Double,System.Double,System.Double,System.Double)
+  id: FromLTRB(System.Double,System.Double,System.Double,System.Double)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: FromLTRB(double, double, double, double)
+  nameWithType: Rect.FromLTRB(double, double, double, double)
+  fullName: Etch.Geometry.Rect.FromLTRB(double, double, double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Rect FromLTRB(double left, double top, double right, double bottom)
+    parameters:
+    - id: left
+      type: System.Double
+    - id: top
+      type: System.Double
+    - id: right
+      type: System.Double
+    - id: bottom
+      type: System.Double
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Shared Function FromLTRB(left As Double, top As Double, right As Double, bottom As Double) As Rect
+  overload: Etch.Geometry.Rect.FromLTRB*
+  nameWithType.vb: Rect.FromLTRB(Double, Double, Double, Double)
+  fullName.vb: Etch.Geometry.Rect.FromLTRB(Double, Double, Double, Double)
+  name.vb: FromLTRB(Double, Double, Double, Double)
+- uid: Etch.Geometry.Rect.FromMinSize(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Rect.FromMinSize(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  id: FromMinSize(Etch.Geometry.Point,Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: FromMinSize(Point, Vec2)
+  nameWithType: Rect.FromMinSize(Point, Vec2)
+  fullName: Etch.Geometry.Rect.FromMinSize(Etch.Geometry.Point, Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Rect FromMinSize(Point min, Vec2 size)
+    parameters:
+    - id: min
+      type: Etch.Geometry.Point
+    - id: size
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Shared Function FromMinSize(min As Point, size As Vec2) As Rect
+  overload: Etch.Geometry.Rect.FromMinSize*
+- uid: Etch.Geometry.Rect.FromMinSize(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Etch.Geometry.Rect.FromMinSize(System.Double,System.Double,System.Double,System.Double)
+  id: FromMinSize(System.Double,System.Double,System.Double,System.Double)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: FromMinSize(double, double, double, double)
+  nameWithType: Rect.FromMinSize(double, double, double, double)
+  fullName: Etch.Geometry.Rect.FromMinSize(double, double, double, double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Rect FromMinSize(double minX, double minY, double width, double height)
+    parameters:
+    - id: minX
+      type: System.Double
+    - id: minY
+      type: System.Double
+    - id: width
+      type: System.Double
+    - id: height
+      type: System.Double
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Shared Function FromMinSize(minX As Double, minY As Double, width As Double, height As Double) As Rect
+  overload: Etch.Geometry.Rect.FromMinSize*
+  nameWithType.vb: Rect.FromMinSize(Double, Double, Double, Double)
+  fullName.vb: Etch.Geometry.Rect.FromMinSize(Double, Double, Double, Double)
+  name.vb: FromMinSize(Double, Double, Double, Double)
+- uid: Etch.Geometry.Rect.FromPoints(Etch.Geometry.Point,Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Rect.FromPoints(Etch.Geometry.Point,Etch.Geometry.Point)
+  id: FromPoints(Etch.Geometry.Point,Etch.Geometry.Point)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: FromPoints(Point, Point)
+  nameWithType: Rect.FromPoints(Point, Point)
+  fullName: Etch.Geometry.Rect.FromPoints(Etch.Geometry.Point, Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static Rect FromPoints(Point a, Point b)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Point
+    - id: b
+      type: Etch.Geometry.Point
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Shared Function FromPoints(a As Point, b As Point) As Rect
+  overload: Etch.Geometry.Rect.FromPoints*
+- uid: Etch.Geometry.Rect.Contains(Etch.Geometry.Point)
+  commentId: M:Etch.Geometry.Rect.Contains(Etch.Geometry.Point)
+  id: Contains(Etch.Geometry.Point)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Contains(Point)
+  nameWithType: Rect.Contains(Point)
+  fullName: Etch.Geometry.Rect.Contains(Etch.Geometry.Point)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Contains(Point p)
+    parameters:
+    - id: p
+      type: Etch.Geometry.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(p As Point) As Boolean
+  overload: Etch.Geometry.Rect.Contains*
+- uid: Etch.Geometry.Rect.Contains(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.Contains(Etch.Geometry.Rect)
+  id: Contains(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Contains(Rect)
+  nameWithType: Rect.Contains(Rect)
+  fullName: Etch.Geometry.Rect.Contains(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Contains(Rect other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Rect
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(other As Rect) As Boolean
+  overload: Etch.Geometry.Rect.Contains*
+- uid: Etch.Geometry.Rect.Intersects(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.Intersects(Etch.Geometry.Rect)
+  id: Intersects(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Rect)
+  nameWithType: Rect.Intersects(Rect)
+  fullName: Etch.Geometry.Rect.Intersects(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public bool Intersects(Rect other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Rect
+    return:
+      type: System.Boolean
+    content.vb: Public Function Intersects(other As Rect) As Boolean
+  overload: Etch.Geometry.Rect.Intersects*
+- uid: Etch.Geometry.Rect.Intersect(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.Intersect(Etch.Geometry.Rect)
+  id: Intersect(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Intersect(Rect)
+  nameWithType: Rect.Intersect(Rect)
+  fullName: Etch.Geometry.Rect.Intersect(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Intersect(Rect other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Rect
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Intersect(other As Rect) As Rect
+  overload: Etch.Geometry.Rect.Intersect*
+- uid: Etch.Geometry.Rect.Union(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.Union(Etch.Geometry.Rect)
+  id: Union(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Union(Rect)
+  nameWithType: Rect.Union(Rect)
+  fullName: Etch.Geometry.Rect.Union(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Union(Rect other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Rect
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Union(other As Rect) As Rect
+  overload: Etch.Geometry.Rect.Union*
+- uid: Etch.Geometry.Rect.Inflate(System.Double)
+  commentId: M:Etch.Geometry.Rect.Inflate(System.Double)
+  id: Inflate(System.Double)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Inflate(double)
+  nameWithType: Rect.Inflate(double)
+  fullName: Etch.Geometry.Rect.Inflate(double)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Inflate(double amount)
+    parameters:
+    - id: amount
+      type: System.Double
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Inflate(amount As Double) As Rect
+  overload: Etch.Geometry.Rect.Inflate*
+  nameWithType.vb: Rect.Inflate(Double)
+  fullName.vb: Etch.Geometry.Rect.Inflate(Double)
+  name.vb: Inflate(Double)
+- uid: Etch.Geometry.Rect.Inflate(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Rect.Inflate(Etch.Geometry.Vec2)
+  id: Inflate(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Inflate(Vec2)
+  nameWithType: Rect.Inflate(Vec2)
+  fullName: Etch.Geometry.Rect.Inflate(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Inflate(Vec2 amount)
+    parameters:
+    - id: amount
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Inflate(amount As Vec2) As Rect
+  overload: Etch.Geometry.Rect.Inflate*
+- uid: Etch.Geometry.Rect.Translated(Etch.Geometry.Vec2)
+  commentId: M:Etch.Geometry.Rect.Translated(Etch.Geometry.Vec2)
+  id: Translated(Etch.Geometry.Vec2)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Translated(Vec2)
+  nameWithType: Rect.Translated(Vec2)
+  fullName: Etch.Geometry.Rect.Translated(Etch.Geometry.Vec2)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Translated(Vec2 offset)
+    parameters:
+    - id: offset
+      type: Etch.Geometry.Vec2
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Translated(offset As Vec2) As Rect
+  overload: Etch.Geometry.Rect.Translated*
+- uid: Etch.Geometry.Rect.Transform(Etch.Geometry.Affine)
+  commentId: M:Etch.Geometry.Rect.Transform(Etch.Geometry.Affine)
+  id: Transform(Etch.Geometry.Affine)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Transform(Affine)
+  nameWithType: Rect.Transform(Affine)
+  fullName: Etch.Geometry.Rect.Transform(Etch.Geometry.Affine)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public Rect Transform(Affine a)
+    parameters:
+    - id: a
+      type: Etch.Geometry.Affine
+    return:
+      type: Etch.Geometry.Rect
+    content.vb: Public Function Transform(a As Affine) As Rect
+  overload: Etch.Geometry.Rect.Transform*
+- uid: Etch.Geometry.Rect.Equals(Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.Equals(Etch.Geometry.Rect)
+  id: Equals(Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Equals(Rect)
+  nameWithType: Rect.Equals(Rect)
+  fullName: Etch.Geometry.Rect.Equals(Etch.Geometry.Rect)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Rect other)
+    parameters:
+    - id: other
+      type: Etch.Geometry.Rect
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Rect) As Boolean
+  overload: Etch.Geometry.Rect.Equals*
+  implements:
+  - System.IEquatable{Etch.Geometry.Rect}.Equals(Etch.Geometry.Rect)
+- uid: Etch.Geometry.Rect.Equals(System.Object)
+  commentId: M:Etch.Geometry.Rect.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Rect.Equals(object?)
+  fullName: Etch.Geometry.Rect.Equals(object?)
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Etch.Geometry.Rect.Equals*
+  nameWithType.vb: Rect.Equals(Object)
+  fullName.vb: Etch.Geometry.Rect.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Etch.Geometry.Rect.op_Equality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.op_Equality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  id: op_Equality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Rect, Rect)
+  nameWithType: Rect.operator ==(Rect, Rect)
+  fullName: Etch.Geometry.Rect.operator ==(Etch.Geometry.Rect, Etch.Geometry.Rect)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator ==(Rect left, Rect right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Rect
+    - id: right
+      type: Etch.Geometry.Rect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Rect, right As Rect) As Boolean
+  overload: Etch.Geometry.Rect.op_Equality*
+  nameWithType.vb: Rect.=(Rect, Rect)
+  fullName.vb: Etch.Geometry.Rect.=(Etch.Geometry.Rect, Etch.Geometry.Rect)
+  name.vb: =(Rect, Rect)
+- uid: Etch.Geometry.Rect.op_Inequality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  commentId: M:Etch.Geometry.Rect.op_Inequality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  id: op_Inequality(Etch.Geometry.Rect,Etch.Geometry.Rect)
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Rect, Rect)
+  nameWithType: Rect.operator !=(Rect, Rect)
+  fullName: Etch.Geometry.Rect.operator !=(Etch.Geometry.Rect, Etch.Geometry.Rect)
+  type: Operator
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  syntax:
+    content: public static bool operator !=(Rect left, Rect right)
+    parameters:
+    - id: left
+      type: Etch.Geometry.Rect
+    - id: right
+      type: Etch.Geometry.Rect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Rect, right As Rect) As Boolean
+  overload: Etch.Geometry.Rect.op_Inequality*
+  nameWithType.vb: Rect.<>(Rect, Rect)
+  fullName.vb: Etch.Geometry.Rect.<>(Etch.Geometry.Rect, Etch.Geometry.Rect)
+  name.vb: <>(Rect, Rect)
+- uid: Etch.Geometry.Rect.GetHashCode
+  commentId: M:Etch.Geometry.Rect.GetHashCode
+  id: GetHashCode
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Rect.GetHashCode()
+  fullName: Etch.Geometry.Rect.GetHashCode()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Etch.Geometry.Rect.GetHashCode*
+- uid: Etch.Geometry.Rect.ToString
+  commentId: M:Etch.Geometry.Rect.ToString
+  id: ToString
+  parent: Etch.Geometry.Rect
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Rect.ToString()
+  fullName: Etch.Geometry.Rect.ToString()
+  type: Method
+  assemblies:
+  - Etch.Geometry
+  namespace: Etch.Geometry
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Etch.Geometry.Rect.ToString*
+references:
+- uid: Etch.Geometry
+  commentId: N:Etch.Geometry
+  href: Etch.html
+  name: Etch.Geometry
+  nameWithType: Etch.Geometry
+  fullName: Etch.Geometry
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Geometry
+    name: Geometry
+    href: Etch.Geometry.html
+- uid: System.IEquatable{Etch.Geometry.Rect}
+  commentId: T:System.IEquatable{Etch.Geometry.Rect}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Rect>
+  nameWithType: IEquatable<Rect>
+  fullName: System.IEquatable<Etch.Geometry.Rect>
+  nameWithType.vb: IEquatable(Of Rect)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Rect)
+  name.vb: IEquatable(Of Rect)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Etch.Geometry.Rect.#ctor*
+  commentId: Overload:Etch.Geometry.Rect.#ctor
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect__ctor_System_Double_System_Double_System_Double_System_Double_
+  name: Rect
+  nameWithType: Rect.Rect
+  fullName: Etch.Geometry.Rect.Rect
+  nameWithType.vb: Rect.New
+  fullName.vb: Etch.Geometry.Rect.New
+  name.vb: New
+- uid: Etch.Geometry.Rect.Width*
+  commentId: Overload:Etch.Geometry.Rect.Width
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Width
+  name: Width
+  nameWithType: Rect.Width
+  fullName: Etch.Geometry.Rect.Width
+- uid: Etch.Geometry.Rect.Height*
+  commentId: Overload:Etch.Geometry.Rect.Height
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Height
+  name: Height
+  nameWithType: Rect.Height
+  fullName: Etch.Geometry.Rect.Height
+- uid: Etch.Geometry.Rect.Area*
+  commentId: Overload:Etch.Geometry.Rect.Area
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Area
+  name: Area
+  nameWithType: Rect.Area
+  fullName: Etch.Geometry.Rect.Area
+- uid: Etch.Geometry.Rect.Empty*
+  commentId: Overload:Etch.Geometry.Rect.Empty
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Empty
+  name: Empty
+  nameWithType: Rect.Empty
+  fullName: Etch.Geometry.Rect.Empty
+- uid: Etch.Geometry.Rect
+  commentId: T:Etch.Geometry.Rect
+  parent: Etch.Geometry
+  href: Etch.Geometry.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: Etch.Geometry.Rect
+- uid: Etch.Geometry.Rect.IsEmpty*
+  commentId: Overload:Etch.Geometry.Rect.IsEmpty
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_IsEmpty
+  name: IsEmpty
+  nameWithType: Rect.IsEmpty
+  fullName: Etch.Geometry.Rect.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Geometry.Rect.Center*
+  commentId: Overload:Etch.Geometry.Rect.Center
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Center
+  name: Center
+  nameWithType: Rect.Center
+  fullName: Etch.Geometry.Rect.Center
+- uid: Etch.Geometry.Point
+  commentId: T:Etch.Geometry.Point
+  parent: Etch.Geometry
+  href: Etch.Geometry.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: Etch.Geometry.Point
+- uid: Etch.Geometry.Rect.FromLTRB*
+  commentId: Overload:Etch.Geometry.Rect.FromLTRB
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_FromLTRB_System_Double_System_Double_System_Double_System_Double_
+  name: FromLTRB
+  nameWithType: Rect.FromLTRB
+  fullName: Etch.Geometry.Rect.FromLTRB
+- uid: Etch.Geometry.Rect.FromMinSize*
+  commentId: Overload:Etch.Geometry.Rect.FromMinSize
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_FromMinSize_Etch_Geometry_Point_Etch_Geometry_Vec2_
+  name: FromMinSize
+  nameWithType: Rect.FromMinSize
+  fullName: Etch.Geometry.Rect.FromMinSize
+- uid: Etch.Geometry.Vec2
+  commentId: T:Etch.Geometry.Vec2
+  parent: Etch.Geometry
+  href: Etch.Geometry.Vec2.html
+  name: Vec2
+  nameWithType: Vec2
+  fullName: Etch.Geometry.Vec2
+- uid: Etch.Geometry.Rect.FromPoints*
+  commentId: Overload:Etch.Geometry.Rect.FromPoints
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_FromPoints_Etch_Geometry_Point_Etch_Geometry_Point_
+  name: FromPoints
+  nameWithType: Rect.FromPoints
+  fullName: Etch.Geometry.Rect.FromPoints
+- uid: Etch.Geometry.Rect.Contains*
+  commentId: Overload:Etch.Geometry.Rect.Contains
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Contains_Etch_Geometry_Point_
+  name: Contains
+  nameWithType: Rect.Contains
+  fullName: Etch.Geometry.Rect.Contains
+- uid: Etch.Geometry.Rect.Intersects*
+  commentId: Overload:Etch.Geometry.Rect.Intersects
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Intersects_Etch_Geometry_Rect_
+  name: Intersects
+  nameWithType: Rect.Intersects
+  fullName: Etch.Geometry.Rect.Intersects
+- uid: Etch.Geometry.Rect.Intersect*
+  commentId: Overload:Etch.Geometry.Rect.Intersect
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Intersect_Etch_Geometry_Rect_
+  name: Intersect
+  nameWithType: Rect.Intersect
+  fullName: Etch.Geometry.Rect.Intersect
+- uid: Etch.Geometry.Rect.Union*
+  commentId: Overload:Etch.Geometry.Rect.Union
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Union_Etch_Geometry_Rect_
+  name: Union
+  nameWithType: Rect.Union
+  fullName: Etch.Geometry.Rect.Union
+- uid: Etch.Geometry.Rect.Inflate*
+  commentId: Overload:Etch.Geometry.Rect.Inflate
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Inflate_System_Double_
+  name: Inflate
+  nameWithType: Rect.Inflate
+  fullName: Etch.Geometry.Rect.Inflate
+- uid: Etch.Geometry.Rect.Translated*
+  commentId: Overload:Etch.Geometry.Rect.Translated
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Translated_Etch_Geometry_Vec2_
+  name: Translated
+  nameWithType: Rect.Translated
+  fullName: Etch.Geometry.Rect.Translated
+- uid: Etch.Geometry.Rect.Transform*
+  commentId: Overload:Etch.Geometry.Rect.Transform
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Transform_Etch_Geometry_Affine_
+  name: Transform
+  nameWithType: Rect.Transform
+  fullName: Etch.Geometry.Rect.Transform
+- uid: Etch.Geometry.Affine
+  commentId: T:Etch.Geometry.Affine
+  parent: Etch.Geometry
+  href: Etch.Geometry.Affine.html
+  name: Affine
+  nameWithType: Affine
+  fullName: Etch.Geometry.Affine
+- uid: Etch.Geometry.Rect.Equals*
+  commentId: Overload:Etch.Geometry.Rect.Equals
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_Equals_Etch_Geometry_Rect_
+  name: Equals
+  nameWithType: Rect.Equals
+  fullName: Etch.Geometry.Rect.Equals
+- uid: System.IEquatable{Etch.Geometry.Rect}.Equals(Etch.Geometry.Rect)
+  commentId: M:System.IEquatable{Etch.Geometry.Rect}.Equals(Etch.Geometry.Rect)
+  parent: System.IEquatable{Etch.Geometry.Rect}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Rect)
+  nameWithType: IEquatable<Rect>.Equals(Rect)
+  fullName: System.IEquatable<Etch.Geometry.Rect>.Equals(Etch.Geometry.Rect)
+  nameWithType.vb: IEquatable(Of Rect).Equals(Rect)
+  fullName.vb: System.IEquatable(Of Etch.Geometry.Rect).Equals(Etch.Geometry.Rect)
+  spec.csharp:
+  - uid: System.IEquatable{Etch.Geometry.Rect}.Equals(Etch.Geometry.Rect)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Etch.Geometry.Rect}.Equals(Etch.Geometry.Rect)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Etch.Geometry.Rect
+    name: Rect
+    href: Etch.Geometry.Rect.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: Etch.Geometry.Rect.op_Equality*
+  commentId: Overload:Etch.Geometry.Rect.op_Equality
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_op_Equality_Etch_Geometry_Rect_Etch_Geometry_Rect_
+  name: operator ==
+  nameWithType: Rect.operator ==
+  fullName: Etch.Geometry.Rect.operator ==
+  nameWithType.vb: Rect.=
+  fullName.vb: Etch.Geometry.Rect.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Rect.op_Equality*
+    name: ==
+    href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_op_Equality_Etch_Geometry_Rect_Etch_Geometry_Rect_
+- uid: Etch.Geometry.Rect.op_Inequality*
+  commentId: Overload:Etch.Geometry.Rect.op_Inequality
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_op_Inequality_Etch_Geometry_Rect_Etch_Geometry_Rect_
+  name: operator !=
+  nameWithType: Rect.operator !=
+  fullName: Etch.Geometry.Rect.operator !=
+  nameWithType.vb: Rect.<>
+  fullName.vb: Etch.Geometry.Rect.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Etch.Geometry.Rect.op_Inequality*
+    name: '!='
+    href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_op_Inequality_Etch_Geometry_Rect_Etch_Geometry_Rect_
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Rect.GetHashCode*
+  commentId: Overload:Etch.Geometry.Rect.GetHashCode
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_GetHashCode
+  name: GetHashCode
+  nameWithType: Rect.GetHashCode
+  fullName: Etch.Geometry.Rect.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Etch.Geometry.Rect.ToString*
+  commentId: Overload:Etch.Geometry.Rect.ToString
+  href: Etch.Geometry.Rect.html#Etch_Geometry_Rect_ToString
+  name: ToString
+  nameWithType: Rect.ToString
+  fullName: Etch.Geometry.Rect.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

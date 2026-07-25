@@ -1,0 +1,501 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  commentId: T:Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  id: ValidationLogSnapshot
+  parent: Etch.Gpu.Diagnostics
+  children:
+  - Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor(Etch.Gpu.Diagnostics.DecodedValidationEntry[])
+  - Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+  - Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+  - Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ValidationLogSnapshot
+  nameWithType: ValidationLogSnapshot
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public readonly struct ValidationLogSnapshot
+    content.vb: Public Structure ValidationLogSnapshot
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor(Etch.Gpu.Diagnostics.DecodedValidationEntry[])
+  commentId: M:Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor(Etch.Gpu.Diagnostics.DecodedValidationEntry[])
+  id: '#ctor(Etch.Gpu.Diagnostics.DecodedValidationEntry[])'
+  parent: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  langs:
+  - csharp
+  - vb
+  name: ValidationLogSnapshot(DecodedValidationEntry[])
+  nameWithType: ValidationLogSnapshot.ValidationLogSnapshot(DecodedValidationEntry[])
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.ValidationLogSnapshot(Etch.Gpu.Diagnostics.DecodedValidationEntry[])
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public ValidationLogSnapshot(DecodedValidationEntry[] entries)
+    parameters:
+    - id: entries
+      type: Etch.Gpu.Diagnostics.DecodedValidationEntry[]
+    content.vb: Public Sub New(entries As DecodedValidationEntry())
+  overload: Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor*
+  nameWithType.vb: ValidationLogSnapshot.New(DecodedValidationEntry())
+  fullName.vb: Etch.Gpu.Diagnostics.ValidationLogSnapshot.New(Etch.Gpu.Diagnostics.DecodedValidationEntry())
+  name.vb: New(DecodedValidationEntry())
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+  commentId: P:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+  id: Count
+  parent: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: ValidationLogSnapshot.Count
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count*
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+  commentId: P:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+  id: Entries
+  parent: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Entries
+  nameWithType: ValidationLogSnapshot.Entries
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public ReadOnlySpan<DecodedValidationEntry> Entries { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{Etch.Gpu.Diagnostics.DecodedValidationEntry}
+    content.vb: Public ReadOnly Property Entries As ReadOnlySpan(Of DecodedValidationEntry)
+  overload: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries*
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item(System.Int32)
+  commentId: P:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: Etch.Gpu.Diagnostics.ValidationLogSnapshot
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: ValidationLogSnapshot.this[int]
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.this[int]
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu.Diagnostics
+  syntax:
+    content: public DecodedValidationEntry this[int index] { get; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    content.vb: Public ReadOnly Default Property this[](index As Integer) As DecodedValidationEntry
+  overload: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item*
+  nameWithType.vb: ValidationLogSnapshot.this[](Integer)
+  fullName.vb: Etch.Gpu.Diagnostics.ValidationLogSnapshot.this[](Integer)
+  name.vb: this[](Integer)
+references:
+- uid: Etch.Gpu.Diagnostics
+  commentId: N:Etch.Gpu.Diagnostics
+  href: Etch.html
+  name: Etch.Gpu.Diagnostics
+  nameWithType: Etch.Gpu.Diagnostics
+  fullName: Etch.Gpu.Diagnostics
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  - name: .
+  - uid: Etch.Gpu.Diagnostics
+    name: Diagnostics
+    href: Etch.Gpu.Diagnostics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor*
+  commentId: Overload:Etch.Gpu.Diagnostics.ValidationLogSnapshot.#ctor
+  href: Etch.Gpu.Diagnostics.ValidationLogSnapshot.html#Etch_Gpu_Diagnostics_ValidationLogSnapshot__ctor_Etch_Gpu_Diagnostics_DecodedValidationEntry___
+  name: ValidationLogSnapshot
+  nameWithType: ValidationLogSnapshot.ValidationLogSnapshot
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.ValidationLogSnapshot
+  nameWithType.vb: ValidationLogSnapshot.New
+  fullName.vb: Etch.Gpu.Diagnostics.ValidationLogSnapshot.New
+  name.vb: New
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry[]
+  isExternal: true
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  name: DecodedValidationEntry[]
+  nameWithType: DecodedValidationEntry[]
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry[]
+  nameWithType.vb: DecodedValidationEntry()
+  fullName.vb: Etch.Gpu.Diagnostics.DecodedValidationEntry()
+  name.vb: DecodedValidationEntry()
+  spec.csharp:
+  - uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    name: DecodedValidationEntry
+    href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    name: DecodedValidationEntry
+    href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  - name: (
+  - name: )
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count*
+  commentId: Overload:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+  href: Etch.Gpu.Diagnostics.ValidationLogSnapshot.html#Etch_Gpu_Diagnostics_ValidationLogSnapshot_Count
+  name: Count
+  nameWithType: ValidationLogSnapshot.Count
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries*
+  commentId: Overload:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+  href: Etch.Gpu.Diagnostics.ValidationLogSnapshot.html#Etch_Gpu_Diagnostics_ValidationLogSnapshot_Entries
+  name: Entries
+  nameWithType: ValidationLogSnapshot.Entries
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Entries
+- uid: System.ReadOnlySpan{Etch.Gpu.Diagnostics.DecodedValidationEntry}
+  commentId: T:System.ReadOnlySpan{Etch.Gpu.Diagnostics.DecodedValidationEntry}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<DecodedValidationEntry>
+  nameWithType: ReadOnlySpan<DecodedValidationEntry>
+  fullName: System.ReadOnlySpan<Etch.Gpu.Diagnostics.DecodedValidationEntry>
+  nameWithType.vb: ReadOnlySpan(Of DecodedValidationEntry)
+  fullName.vb: System.ReadOnlySpan(Of Etch.Gpu.Diagnostics.DecodedValidationEntry)
+  name.vb: ReadOnlySpan(Of DecodedValidationEntry)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    name: DecodedValidationEntry
+    href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+    name: DecodedValidationEntry
+    href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item*
+  commentId: Overload:Etch.Gpu.Diagnostics.ValidationLogSnapshot.Item
+  href: Etch.Gpu.Diagnostics.ValidationLogSnapshot.html#Etch_Gpu_Diagnostics_ValidationLogSnapshot_Item_System_Int32_
+  name: this
+  nameWithType: ValidationLogSnapshot.this
+  fullName: Etch.Gpu.Diagnostics.ValidationLogSnapshot.this
+  nameWithType.vb: ValidationLogSnapshot.this[]
+  fullName.vb: Etch.Gpu.Diagnostics.ValidationLogSnapshot.this[]
+  name.vb: this[]
+- uid: Etch.Gpu.Diagnostics.DecodedValidationEntry
+  commentId: T:Etch.Gpu.Diagnostics.DecodedValidationEntry
+  parent: Etch.Gpu.Diagnostics
+  href: Etch.Gpu.Diagnostics.DecodedValidationEntry.html
+  name: DecodedValidationEntry
+  nameWithType: DecodedValidationEntry
+  fullName: Etch.Gpu.Diagnostics.DecodedValidationEntry

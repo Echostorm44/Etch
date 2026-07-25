@@ -1,0 +1,755 @@
+### YamlMime:ManagedReference
+items:
+- uid: Etch.Gpu.RenderPass
+  commentId: T:Etch.Gpu.RenderPass
+  id: RenderPass
+  parent: Etch.Gpu
+  children:
+  - Etch.Gpu.RenderPass.#ctor(Etch.Gpu.Native.RenderPassEncoderHandle)
+  - Etch.Gpu.RenderPass.Dispose
+  - Etch.Gpu.RenderPass.Draw(System.UInt32,System.UInt32,System.UInt32,System.UInt32)
+  - Etch.Gpu.RenderPass.DrawIndexed(System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)
+  - Etch.Gpu.RenderPass.End
+  - Etch.Gpu.RenderPass.Handle
+  - Etch.Gpu.RenderPass.IsInvalid
+  - Etch.Gpu.RenderPass.SetBindGroup(System.UInt32,Etch.Gpu.BindGroup)
+  - Etch.Gpu.RenderPass.SetIndexBuffer(Etch.Gpu.Buffer,Etch.Gpu.IndexFormat,System.UInt64,System.UInt64)
+  - Etch.Gpu.RenderPass.SetPipeline(Etch.Gpu.RenderPipeline)
+  - Etch.Gpu.RenderPass.SetVertexBuffer(System.UInt32,Etch.Gpu.Buffer,System.UInt64,System.UInt64)
+  langs:
+  - csharp
+  - vb
+  name: RenderPass
+  nameWithType: RenderPass
+  fullName: Etch.Gpu.RenderPass
+  type: Struct
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: 'public readonly struct RenderPass : IDisposable'
+    content.vb: Public Structure RenderPass Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Etch.Gpu.RenderPass.#ctor(Etch.Gpu.Native.RenderPassEncoderHandle)
+  commentId: M:Etch.Gpu.RenderPass.#ctor(Etch.Gpu.Native.RenderPassEncoderHandle)
+  id: '#ctor(Etch.Gpu.Native.RenderPassEncoderHandle)'
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: RenderPass(RenderPassEncoderHandle)
+  nameWithType: RenderPass.RenderPass(RenderPassEncoderHandle)
+  fullName: Etch.Gpu.RenderPass.RenderPass(Etch.Gpu.Native.RenderPassEncoderHandle)
+  type: Constructor
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public RenderPass(RenderPassEncoderHandle handle)
+    parameters:
+    - id: handle
+      type: Etch.Gpu.Native.RenderPassEncoderHandle
+    content.vb: Public Sub New(handle As RenderPassEncoderHandle)
+  overload: Etch.Gpu.RenderPass.#ctor*
+  nameWithType.vb: RenderPass.New(RenderPassEncoderHandle)
+  fullName.vb: Etch.Gpu.RenderPass.New(Etch.Gpu.Native.RenderPassEncoderHandle)
+  name.vb: New(RenderPassEncoderHandle)
+- uid: Etch.Gpu.RenderPass.Handle
+  commentId: P:Etch.Gpu.RenderPass.Handle
+  id: Handle
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: RenderPass.Handle
+  fullName: Etch.Gpu.RenderPass.Handle
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public RenderPassEncoderHandle Handle { get; }
+    parameters: []
+    return:
+      type: Etch.Gpu.Native.RenderPassEncoderHandle
+    content.vb: Public ReadOnly Property Handle As RenderPassEncoderHandle
+  overload: Etch.Gpu.RenderPass.Handle*
+- uid: Etch.Gpu.RenderPass.IsInvalid
+  commentId: P:Etch.Gpu.RenderPass.IsInvalid
+  id: IsInvalid
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid
+  nameWithType: RenderPass.IsInvalid
+  fullName: Etch.Gpu.RenderPass.IsInvalid
+  type: Property
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public bool IsInvalid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInvalid As Boolean
+  overload: Etch.Gpu.RenderPass.IsInvalid*
+- uid: Etch.Gpu.RenderPass.Dispose
+  commentId: M:Etch.Gpu.RenderPass.Dispose
+  id: Dispose
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: RenderPass.Dispose()
+  fullName: Etch.Gpu.RenderPass.Dispose()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Etch.Gpu.RenderPass.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Etch.Gpu.RenderPass.Draw(System.UInt32,System.UInt32,System.UInt32,System.UInt32)
+  commentId: M:Etch.Gpu.RenderPass.Draw(System.UInt32,System.UInt32,System.UInt32,System.UInt32)
+  id: Draw(System.UInt32,System.UInt32,System.UInt32,System.UInt32)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: Draw(uint, uint, uint, uint)
+  nameWithType: RenderPass.Draw(uint, uint, uint, uint)
+  fullName: Etch.Gpu.RenderPass.Draw(uint, uint, uint, uint)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void Draw(uint vertexCount, uint instanceCount = 1, uint firstVertex = 0, uint firstInstance = 0)
+    parameters:
+    - id: vertexCount
+      type: System.UInt32
+    - id: instanceCount
+      type: System.UInt32
+    - id: firstVertex
+      type: System.UInt32
+    - id: firstInstance
+      type: System.UInt32
+    content.vb: Public Sub Draw(vertexCount As UInteger, instanceCount As UInteger = 1, firstVertex As UInteger = 0, firstInstance As UInteger = 0)
+  overload: Etch.Gpu.RenderPass.Draw*
+  nameWithType.vb: RenderPass.Draw(UInteger, UInteger, UInteger, UInteger)
+  fullName.vb: Etch.Gpu.RenderPass.Draw(UInteger, UInteger, UInteger, UInteger)
+  name.vb: Draw(UInteger, UInteger, UInteger, UInteger)
+- uid: Etch.Gpu.RenderPass.DrawIndexed(System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)
+  commentId: M:Etch.Gpu.RenderPass.DrawIndexed(System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)
+  id: DrawIndexed(System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: DrawIndexed(uint, uint, uint, int, uint)
+  nameWithType: RenderPass.DrawIndexed(uint, uint, uint, int, uint)
+  fullName: Etch.Gpu.RenderPass.DrawIndexed(uint, uint, uint, int, uint)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void DrawIndexed(uint indexCount, uint instanceCount = 1, uint firstIndex = 0, int baseVertex = 0, uint firstInstance = 0)
+    parameters:
+    - id: indexCount
+      type: System.UInt32
+    - id: instanceCount
+      type: System.UInt32
+    - id: firstIndex
+      type: System.UInt32
+    - id: baseVertex
+      type: System.Int32
+    - id: firstInstance
+      type: System.UInt32
+    content.vb: Public Sub DrawIndexed(indexCount As UInteger, instanceCount As UInteger = 1, firstIndex As UInteger = 0, baseVertex As Integer = 0, firstInstance As UInteger = 0)
+  overload: Etch.Gpu.RenderPass.DrawIndexed*
+  nameWithType.vb: RenderPass.DrawIndexed(UInteger, UInteger, UInteger, Integer, UInteger)
+  fullName.vb: Etch.Gpu.RenderPass.DrawIndexed(UInteger, UInteger, UInteger, Integer, UInteger)
+  name.vb: DrawIndexed(UInteger, UInteger, UInteger, Integer, UInteger)
+- uid: Etch.Gpu.RenderPass.SetPipeline(Etch.Gpu.RenderPipeline)
+  commentId: M:Etch.Gpu.RenderPass.SetPipeline(Etch.Gpu.RenderPipeline)
+  id: SetPipeline(Etch.Gpu.RenderPipeline)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: SetPipeline(RenderPipeline)
+  nameWithType: RenderPass.SetPipeline(RenderPipeline)
+  fullName: Etch.Gpu.RenderPass.SetPipeline(Etch.Gpu.RenderPipeline)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void SetPipeline(RenderPipeline pipeline)
+    parameters:
+    - id: pipeline
+      type: Etch.Gpu.RenderPipeline
+    content.vb: Public Sub SetPipeline(pipeline As RenderPipeline)
+  overload: Etch.Gpu.RenderPass.SetPipeline*
+- uid: Etch.Gpu.RenderPass.SetVertexBuffer(System.UInt32,Etch.Gpu.Buffer,System.UInt64,System.UInt64)
+  commentId: M:Etch.Gpu.RenderPass.SetVertexBuffer(System.UInt32,Etch.Gpu.Buffer,System.UInt64,System.UInt64)
+  id: SetVertexBuffer(System.UInt32,Etch.Gpu.Buffer,System.UInt64,System.UInt64)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: SetVertexBuffer(uint, Buffer, ulong, ulong)
+  nameWithType: RenderPass.SetVertexBuffer(uint, Buffer, ulong, ulong)
+  fullName: Etch.Gpu.RenderPass.SetVertexBuffer(uint, Etch.Gpu.Buffer, ulong, ulong)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void SetVertexBuffer(uint slot, Buffer buffer, ulong offset = 0, ulong size = 18446744073709551615)
+    parameters:
+    - id: slot
+      type: System.UInt32
+    - id: buffer
+      type: Etch.Gpu.Buffer
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    content.vb: Public Sub SetVertexBuffer(slot As UInteger, buffer As Buffer, offset As ULong = 0, size As ULong = 18446744073709551615)
+  overload: Etch.Gpu.RenderPass.SetVertexBuffer*
+  nameWithType.vb: RenderPass.SetVertexBuffer(UInteger, Buffer, ULong, ULong)
+  fullName.vb: Etch.Gpu.RenderPass.SetVertexBuffer(UInteger, Etch.Gpu.Buffer, ULong, ULong)
+  name.vb: SetVertexBuffer(UInteger, Buffer, ULong, ULong)
+- uid: Etch.Gpu.RenderPass.SetIndexBuffer(Etch.Gpu.Buffer,Etch.Gpu.IndexFormat,System.UInt64,System.UInt64)
+  commentId: M:Etch.Gpu.RenderPass.SetIndexBuffer(Etch.Gpu.Buffer,Etch.Gpu.IndexFormat,System.UInt64,System.UInt64)
+  id: SetIndexBuffer(Etch.Gpu.Buffer,Etch.Gpu.IndexFormat,System.UInt64,System.UInt64)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: SetIndexBuffer(Buffer, IndexFormat, ulong, ulong)
+  nameWithType: RenderPass.SetIndexBuffer(Buffer, IndexFormat, ulong, ulong)
+  fullName: Etch.Gpu.RenderPass.SetIndexBuffer(Etch.Gpu.Buffer, Etch.Gpu.IndexFormat, ulong, ulong)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void SetIndexBuffer(Buffer buffer, IndexFormat format, ulong offset = 0, ulong size = 18446744073709551615)
+    parameters:
+    - id: buffer
+      type: Etch.Gpu.Buffer
+    - id: format
+      type: Etch.Gpu.IndexFormat
+    - id: offset
+      type: System.UInt64
+    - id: size
+      type: System.UInt64
+    content.vb: Public Sub SetIndexBuffer(buffer As Buffer, format As IndexFormat, offset As ULong = 0, size As ULong = 18446744073709551615)
+  overload: Etch.Gpu.RenderPass.SetIndexBuffer*
+  nameWithType.vb: RenderPass.SetIndexBuffer(Buffer, IndexFormat, ULong, ULong)
+  fullName.vb: Etch.Gpu.RenderPass.SetIndexBuffer(Etch.Gpu.Buffer, Etch.Gpu.IndexFormat, ULong, ULong)
+  name.vb: SetIndexBuffer(Buffer, IndexFormat, ULong, ULong)
+- uid: Etch.Gpu.RenderPass.SetBindGroup(System.UInt32,Etch.Gpu.BindGroup)
+  commentId: M:Etch.Gpu.RenderPass.SetBindGroup(System.UInt32,Etch.Gpu.BindGroup)
+  id: SetBindGroup(System.UInt32,Etch.Gpu.BindGroup)
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: SetBindGroup(uint, BindGroup)
+  nameWithType: RenderPass.SetBindGroup(uint, BindGroup)
+  fullName: Etch.Gpu.RenderPass.SetBindGroup(uint, Etch.Gpu.BindGroup)
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void SetBindGroup(uint groupIndex, BindGroup bindGroup)
+    parameters:
+    - id: groupIndex
+      type: System.UInt32
+    - id: bindGroup
+      type: Etch.Gpu.BindGroup
+    content.vb: Public Sub SetBindGroup(groupIndex As UInteger, bindGroup As BindGroup)
+  overload: Etch.Gpu.RenderPass.SetBindGroup*
+  nameWithType.vb: RenderPass.SetBindGroup(UInteger, BindGroup)
+  fullName.vb: Etch.Gpu.RenderPass.SetBindGroup(UInteger, Etch.Gpu.BindGroup)
+  name.vb: SetBindGroup(UInteger, BindGroup)
+- uid: Etch.Gpu.RenderPass.End
+  commentId: M:Etch.Gpu.RenderPass.End
+  id: End
+  parent: Etch.Gpu.RenderPass
+  langs:
+  - csharp
+  - vb
+  name: End()
+  nameWithType: RenderPass.End()
+  fullName: Etch.Gpu.RenderPass.End()
+  type: Method
+  assemblies:
+  - Etch.Gpu
+  namespace: Etch.Gpu
+  syntax:
+    content: public void End()
+    content.vb: Public Sub [End]()
+  overload: Etch.Gpu.RenderPass.End*
+references:
+- uid: Etch.Gpu
+  commentId: N:Etch.Gpu
+  href: Etch.html
+  name: Etch.Gpu
+  nameWithType: Etch.Gpu
+  fullName: Etch.Gpu
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+  spec.vb:
+  - uid: Etch
+    name: Etch
+    href: Etch.html
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+    href: Etch.Gpu.html
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Etch.Gpu.RenderPass.#ctor*
+  commentId: Overload:Etch.Gpu.RenderPass.#ctor
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass__ctor_Etch_Gpu_Native_RenderPassEncoderHandle_
+  name: RenderPass
+  nameWithType: RenderPass.RenderPass
+  fullName: Etch.Gpu.RenderPass.RenderPass
+  nameWithType.vb: RenderPass.New
+  fullName.vb: Etch.Gpu.RenderPass.New
+  name.vb: New
+- uid: Etch.Gpu.Native.RenderPassEncoderHandle
+  commentId: T:Etch.Gpu.Native.RenderPassEncoderHandle
+  parent: Etch.Gpu.Native
+  name: RenderPassEncoderHandle
+  nameWithType: RenderPassEncoderHandle
+  fullName: Etch.Gpu.Native.RenderPassEncoderHandle
+- uid: Etch.Gpu.Native
+  commentId: N:Etch.Gpu.Native
+  name: Etch.Gpu.Native
+  nameWithType: Etch.Gpu.Native
+  fullName: Etch.Gpu.Native
+  spec.csharp:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+  spec.vb:
+  - uid: Etch
+    name: Etch
+  - name: .
+  - uid: Etch.Gpu
+    name: Gpu
+  - name: .
+  - uid: Etch.Gpu.Native
+    name: Native
+- uid: Etch.Gpu.RenderPass.Handle*
+  commentId: Overload:Etch.Gpu.RenderPass.Handle
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_Handle
+  name: Handle
+  nameWithType: RenderPass.Handle
+  fullName: Etch.Gpu.RenderPass.Handle
+- uid: Etch.Gpu.RenderPass.IsInvalid*
+  commentId: Overload:Etch.Gpu.RenderPass.IsInvalid
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_IsInvalid
+  name: IsInvalid
+  nameWithType: RenderPass.IsInvalid
+  fullName: Etch.Gpu.RenderPass.IsInvalid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Etch.Gpu.RenderPass.Dispose*
+  commentId: Overload:Etch.Gpu.RenderPass.Dispose
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_Dispose
+  name: Dispose
+  nameWithType: RenderPass.Dispose
+  fullName: Etch.Gpu.RenderPass.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Etch.Gpu.RenderPass.Draw*
+  commentId: Overload:Etch.Gpu.RenderPass.Draw
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_Draw_System_UInt32_System_UInt32_System_UInt32_System_UInt32_
+  name: Draw
+  nameWithType: RenderPass.Draw
+  fullName: Etch.Gpu.RenderPass.Draw
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Etch.Gpu.RenderPass.DrawIndexed*
+  commentId: Overload:Etch.Gpu.RenderPass.DrawIndexed
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_DrawIndexed_System_UInt32_System_UInt32_System_UInt32_System_Int32_System_UInt32_
+  name: DrawIndexed
+  nameWithType: RenderPass.DrawIndexed
+  fullName: Etch.Gpu.RenderPass.DrawIndexed
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Etch.Gpu.RenderPass.SetPipeline*
+  commentId: Overload:Etch.Gpu.RenderPass.SetPipeline
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_SetPipeline_Etch_Gpu_RenderPipeline_
+  name: SetPipeline
+  nameWithType: RenderPass.SetPipeline
+  fullName: Etch.Gpu.RenderPass.SetPipeline
+- uid: Etch.Gpu.RenderPipeline
+  commentId: T:Etch.Gpu.RenderPipeline
+  parent: Etch.Gpu
+  href: Etch.Gpu.RenderPipeline.html
+  name: RenderPipeline
+  nameWithType: RenderPipeline
+  fullName: Etch.Gpu.RenderPipeline
+- uid: Etch.Gpu.RenderPass.SetVertexBuffer*
+  commentId: Overload:Etch.Gpu.RenderPass.SetVertexBuffer
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_SetVertexBuffer_System_UInt32_Etch_Gpu_Buffer_System_UInt64_System_UInt64_
+  name: SetVertexBuffer
+  nameWithType: RenderPass.SetVertexBuffer
+  fullName: Etch.Gpu.RenderPass.SetVertexBuffer
+- uid: Etch.Gpu.Buffer
+  commentId: T:Etch.Gpu.Buffer
+  parent: Etch.Gpu
+  href: Etch.Gpu.Buffer.html
+  name: Buffer
+  nameWithType: Buffer
+  fullName: Etch.Gpu.Buffer
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Etch.Gpu.RenderPass.SetIndexBuffer*
+  commentId: Overload:Etch.Gpu.RenderPass.SetIndexBuffer
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_SetIndexBuffer_Etch_Gpu_Buffer_Etch_Gpu_IndexFormat_System_UInt64_System_UInt64_
+  name: SetIndexBuffer
+  nameWithType: RenderPass.SetIndexBuffer
+  fullName: Etch.Gpu.RenderPass.SetIndexBuffer
+- uid: Etch.Gpu.IndexFormat
+  commentId: T:Etch.Gpu.IndexFormat
+  parent: Etch.Gpu
+  href: Etch.Gpu.IndexFormat.html
+  name: IndexFormat
+  nameWithType: IndexFormat
+  fullName: Etch.Gpu.IndexFormat
+- uid: Etch.Gpu.RenderPass.SetBindGroup*
+  commentId: Overload:Etch.Gpu.RenderPass.SetBindGroup
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_SetBindGroup_System_UInt32_Etch_Gpu_BindGroup_
+  name: SetBindGroup
+  nameWithType: RenderPass.SetBindGroup
+  fullName: Etch.Gpu.RenderPass.SetBindGroup
+- uid: Etch.Gpu.BindGroup
+  commentId: T:Etch.Gpu.BindGroup
+  parent: Etch.Gpu
+  href: Etch.Gpu.BindGroup.html
+  name: BindGroup
+  nameWithType: BindGroup
+  fullName: Etch.Gpu.BindGroup
+- uid: Etch.Gpu.RenderPass.End*
+  commentId: Overload:Etch.Gpu.RenderPass.End
+  href: Etch.Gpu.RenderPass.html#Etch_Gpu_RenderPass_End
+  name: End
+  nameWithType: RenderPass.End
+  fullName: Etch.Gpu.RenderPass.End

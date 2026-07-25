@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Etch.Shaders.Tests</RootNamespace>
+    <AssemblyName>Etch.Shaders.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;ET0105;CA1307;CA1308;CA1310;IL2026</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Shaders\Etch.Shaders.csproj" />
+    <ProjectReference Include="..\..\src-gen\Etch.Shader.Generator\Etch.Shader.Generator.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+  </ItemGroup>
+</Project>
