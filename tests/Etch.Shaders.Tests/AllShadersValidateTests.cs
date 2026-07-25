@@ -6,7 +6,7 @@ internal sealed class AllShadersValidateTests
     public async Task ValidateAllWgslShadersWithNaga()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories);
+        var wgslFiles = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories);
 
         await Assert.That(wgslFiles.Length).IsGreaterThan(0);
 
@@ -21,7 +21,7 @@ internal sealed class AllShadersValidateTests
     public async Task CrossCompileAllShadersToSpv()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories);
+        var wgslFiles = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories);
 
         foreach (var wgslFile in wgslFiles)
         {
@@ -43,14 +43,17 @@ internal sealed class AllShadersValidateTests
     public async Task CrossCompileAllShadersToMsl()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories);
+        var wgslFiles = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories);
 
         foreach (var wgslFile in wgslFiles)
         {
             var tempOutput = Path.Combine(Path.GetTempPath(), $"naga_test_{Guid.NewGuid()}.metal");
             try
             {
-                var result = RunNaga(wgslFile, [tempOutput]);
+                // Target Metal 2.1 (macOS 10.14+/iOS 12+): naga's default MSL version rejects
+                // the instance_index builtin (used by strip_coverage.wgsl). wgpu-native picks a
+                // suitable version at runtime; this only pins the CLI cross-compile check.
+                var result = RunNaga(wgslFile, ["--metal-version", "2.1", tempOutput]);
                 await Assert.That(result.ExitCode).IsEqualTo(0);
             }
             finally
@@ -65,7 +68,7 @@ internal sealed class AllShadersValidateTests
     public async Task CrossCompileAllShadersToHlsl()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories);
+        var wgslFiles = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories);
 
         foreach (var wgslFile in wgslFiles)
         {

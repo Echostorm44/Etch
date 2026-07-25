@@ -132,27 +132,33 @@ internal sealed class SpecializedPipelineCacheTests
         var key2 = new TestSpecKey { GammaMode = 2u, BlendMode = 0u };
         int factoryCallCount = 0;
 
+        // Handles stay Invalid: these are never real GPU pipelines, so Dispose must not try
+        // to release a bogus native pointer. Distinctness is proven by cache behaviour below,
+        // not by comparing handle values.
         RenderPipeline Factory(TestSpecKey k)
         {
             factoryCallCount++;
             return new RenderPipeline(Gpu.Native.RenderPipelineHandle.Invalid);
         }
 
-        var pipeline1 = cache.GetOrCreate(key1, Factory);
-        var pipeline2 = cache.GetOrCreate(key2, Factory);
+        cache.GetOrCreate(key1, Factory);
+        cache.GetOrCreate(key2, Factory);
 
+        // Two distinct keys must each miss and invoke the factory.
         if (factoryCallCount != 2)
         {
             throw new InvalidOperationException($"Factory should be called twice, was called {factoryCallCount} times");
         }
 
-        if (pipeline1.Handle == pipeline2.Handle)
+        // Re-requesting each existing key must hit its own cache entry (no new factory call),
+        // which is only possible if the two keys occupy separate entries.
+        cache.GetOrCreate(key1, Factory);
+        cache.GetOrCreate(key2, Factory);
+        if (factoryCallCount != 2)
         {
-            throw new InvalidOperationException("Different keys should create different pipelines");
+            throw new InvalidOperationException(
+                $"Re-requesting cached keys must hit the cache; factory was called {factoryCallCount} times");
         }
-
-        pipeline1.Dispose();
-        pipeline2.Dispose();
     }
 
     [Test]
@@ -161,12 +167,13 @@ internal sealed class SpecializedPipelineCacheTests
         var cache = new SpecializedPipelineCache();
         var key = new TestSpecKey { GammaMode = 1u, BlendMode = 0u };
 
-        RenderPipeline Factory(TestSpecKey k)
-        {
-            return new RenderPipeline(Gpu.Native.RenderPipelineHandle.Invalid);
-        }
+        // Hoist the factory delegate so its allocation happens once, not per-iteration:
+        // converting a local function to a Func<> allocates a 64-byte delegate each time,
+        // which would otherwise be measured as (false) cache-hit allocation.
+        Func<TestSpecKey, RenderPipeline> factory =
+            static k => new RenderPipeline(Gpu.Native.RenderPipelineHandle.Invalid);
 
-        cache.GetOrCreate(key, Factory);
+        cache.GetOrCreate(key, factory);
 
         GC.Collect();
         GC.WaitForPendingFinalizers();
@@ -175,7 +182,7 @@ internal sealed class SpecializedPipelineCacheTests
 
         for (int i = 0; i < 1000; i++)
         {
-            cache.GetOrCreate(key, Factory);
+            cache.GetOrCreate(key, factory);
         }
 
         long after = GC.GetAllocatedBytesForCurrentThread();

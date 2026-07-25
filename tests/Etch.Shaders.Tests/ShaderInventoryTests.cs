@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Etch.Shaders.Tests;
 
 internal sealed class ShaderInventoryTests
@@ -6,22 +8,17 @@ internal sealed class ShaderInventoryTests
     public async Task EveryWgslFileAppearsInGeneratedShaderResources()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories)
-            .Select(f => Path.GetFileNameWithoutExtension(f))
+        var wgslSlugs = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories)
+            .Select(f => ToSlug(Path.GetFileNameWithoutExtension(f)))
             .ToList();
 
-        await Assert.That(wgslFiles.Count).IsGreaterThan(0);
+        await Assert.That(wgslSlugs.Count).IsGreaterThan(0);
 
-        var generatedTypes = GetType().Assembly.GetTypes()
-            .Where(t => t.Namespace == "Etch.Shaders" && t.Name.EndsWith("Layout"))
-            .Select(t => t.Name.Replace("Layout", "").ToLowerInvariant())
-            .ToHashSet();
+        var generated = GeneratedResourceSlugs();
 
-        foreach (var shaderFile in wgslFiles)
+        foreach (var slug in wgslSlugs)
         {
-            var shaderSlug = ToSlug(shaderFile);
-            var expectedType = $"shader_{shaderSlug}";
-            await Assert.That(generatedTypes.Contains(expectedType)).IsTrue();
+            await Assert.That(generated.Contains(slug)).IsTrue();
         }
     }
 
@@ -29,26 +26,26 @@ internal sealed class ShaderInventoryTests
     public async Task GeneratedShaderResourcesHasNoExtraEntries()
     {
         var shaderDir = Path.Combine(GetRepoRoot(), "shaders");
-        var wgslFiles = Directory.GetFiles(shaderDir, "**/*.wgsl", SearchOption.AllDirectories)
-            .Select(f => Path.GetFileNameWithoutExtension(f))
-            .Select(f => $"shader_{ToSlug(f)}")
-            .ToHashSet();
+        var wgslSlugs = Directory.GetFiles(shaderDir, "*.wgsl", SearchOption.AllDirectories)
+            .Select(f => ToSlug(Path.GetFileNameWithoutExtension(f)))
+            .ToHashSet(StringComparer.Ordinal);
 
-        var generatedTypes = GetType().Assembly.GetTypes()
-            .Where(t => t.Namespace == "Etch.Shaders" && t.Name.EndsWith("Layout"))
-            .Select(t => t.Name.Replace("Layout", "").ToLowerInvariant())
+        var extra = GeneratedResourceSlugs()
+            .Where(slug => !wgslSlugs.Contains(slug))
             .ToList();
 
-        var extraTypes = new List<string>();
-        foreach (var g in generatedTypes)
-        {
-            if (!wgslFiles.Contains(g.ToLowerInvariant()))
-            {
-                extraTypes.Add(g);
-            }
-        }
+        await Assert.That(extra.Count).IsEqualTo(0);
+    }
 
-        await Assert.That(extraTypes.Count).IsEqualTo(0);
+    // The ShaderResourceGenerator emits one `public static ReadOnlySpan<Byte> <slug>` property
+    // per .wgsl file into Etch.Shaders.ShaderResources (in the Etch.Shaders assembly, not this
+    // test assembly). The slug is ToSlug(fileNameWithoutExtension).
+    private static HashSet<string> GeneratedResourceSlugs()
+    {
+        return typeof(global::Etch.Shaders.ShaderResources)
+            .GetProperties(BindingFlags.Public | BindingFlags.Static)
+            .Select(p => p.Name)
+            .ToHashSet(StringComparer.Ordinal);
     }
 
     private static string GetRepoRoot()

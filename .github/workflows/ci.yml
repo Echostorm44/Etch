@@ -140,6 +140,9 @@ jobs:
       - name: Validate shaders
         run: |
           # naga-cli validates a module on load; passing no output file validates only.
+          # globstar makes shaders/**/*.wgsl include top-level shaders too (and the for-loop
+          # runs in the main shell, so exit 1 actually fails the step).
+          shopt -s globstar nullglob
           for f in shaders/**/*.wgsl; do
             naga "$f" || exit 1
           done
@@ -147,6 +150,7 @@ jobs:
 
       - name: Cross-compile to SPIR-V
         run: |
+          shopt -s globstar nullglob
           for f in shaders/**/*.wgsl; do
             naga "$f" "/tmp/test_$${RANDOM}.spv" || exit 1
           done
@@ -154,13 +158,17 @@ jobs:
 
       - name: Cross-compile to Metal
         run: |
+          # Metal 2.1 is required for the instance_index builtin (strip_coverage.wgsl);
+          # naga's default MSL version rejects it.
+          shopt -s globstar nullglob
           for f in shaders/**/*.wgsl; do
-            naga "$f" "/tmp/test_$${RANDOM}.metal" || exit 1
+            naga "$f" --metal-version 2.1 "/tmp/test_$${RANDOM}.metal" || exit 1
           done
         shell: bash
 
       - name: Cross-compile to HLSL
         run: |
+          shopt -s globstar nullglob
           for f in shaders/**/*.wgsl; do
             naga "$f" "/tmp/test_$${RANDOM}.hlsl" || exit 1
           done
