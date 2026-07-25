@@ -81,7 +81,7 @@ public sealed class NoReflectionAnalyzer : DiagnosticAnalyzer
                !filePath.Contains("\\src-gen\\", StringComparison.Ordinal) &&
                !filePath.Contains("/tools/", StringComparison.Ordinal) &&
                !filePath.Contains("\\tools\\", StringComparison.Ordinal) &&
-               filePath.Contains("/src/", StringComparison.Ordinal);
+               (filePath.Contains("/src/", StringComparison.Ordinal) || filePath.Contains("\\src\\", StringComparison.Ordinal));
     }
 
     private static string? GetFullyQualifiedMethodName(InvocationExpressionSyntax invocation)

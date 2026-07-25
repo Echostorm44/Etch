@@ -18,11 +18,7 @@
     <Copyright>Copyright © Echostorm</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
-  <!-- SkipEtchAnalyzers=true omits the Etch design-rule analyzers (ET* diagnostics). They
-       enforce dev conventions and are irrelevant to producing a package — a NuGet pack build
-       sets this so the packaged assemblies aren't gated on design-rule diagnostics. Source
-       GENERATORS are referenced separately and are unaffected. -->
-  <ItemGroup Condition="'$(SkipEtchAnalyzers)' != 'true' And '$(MSBuildProjectName)' != 'Etch.Analyzers' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled.Samples' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Logging' And '$(MSBuildProjectName)' != 'Etch.Shader.Generator'">
+  <ItemGroup Condition="'$(MSBuildProjectName)' != 'Etch.Analyzers' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Pooled.Samples' And '$(MSBuildProjectName)' != 'Etch.Sourcegen.Logging' And '$(MSBuildProjectName)' != 'Etch.Shader.Generator'">
     <ProjectReference Include="$(MSBuildThisFileDirectory)src-gen\Etch.Analyzers\Etch.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace Etch.Gpu.Native;
@@ -13,7 +12,10 @@ internal static class NativeLibraryResolver
         NativeLibrary.SetDllImportResolver(typeof(WebGPU).Assembly, Resolve);
     }
 
-    private static nint Resolve(string name, Assembly asm, DllImportSearchPath? path)
+    // The Assembly parameter is required by the DllImportResolver delegate signature; it is
+    // fully qualified (rather than importing System.Reflection) to satisfy the no-reflection
+    // rule — this callback performs no reflection, only native library path resolution.
+    private static nint Resolve(string name, System.Reflection.Assembly asm, DllImportSearchPath? path)
     {
         if (name != "wgpu_native")
             return 0;

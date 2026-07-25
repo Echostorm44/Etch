@@ -89,7 +89,7 @@ public sealed class NoSingleImplInterfaceAnalyzer : DiagnosticAnalyzer
         }
 
         var filePath = location.SourceTree?.FilePath ?? string.Empty;
-        return filePath.Contains("/src/", StringComparison.Ordinal) &&
+        return (filePath.Contains("/src/", StringComparison.Ordinal) || filePath.Contains("\\src\\", StringComparison.Ordinal)) &&
                !filePath.Contains("/tests/", StringComparison.Ordinal) &&
                !filePath.Contains("\\tests\\", StringComparison.Ordinal) &&
                !filePath.Contains("/src-gen/", StringComparison.Ordinal) &&

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -41,7 +40,9 @@ internal static class NativeLibraryResolver
         NativeLibrary.SetDllImportResolver(typeof(NativeLibraryResolver).Assembly, Resolve);
     }
 
-    private static nint Resolve(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
+    // Assembly is required by the DllImportResolver delegate signature; fully qualified to
+    // satisfy the no-reflection rule — this callback resolves native library paths, not reflection.
+    private static nint Resolve(string libraryName, System.Reflection.Assembly assembly, DllImportSearchPath? searchPath)
     {
         string? fileName = NativeFileName(libraryName);
         if (fileName is null)

@@ -74,7 +74,7 @@ public sealed class PublicMustHaveDocsAnalyzer : DiagnosticAnalyzer
 
     private static bool IsProductionSourcePath(string filePath)
     {
-        bool inSrc = filePath.Contains("/src/", StringComparison.Ordinal) ||
+        bool inSrc = (filePath.Contains("/src/", StringComparison.Ordinal) || filePath.Contains("\\src\\", StringComparison.Ordinal)) ||
                      filePath.Contains("\\src\\", StringComparison.Ordinal);
         bool inTests = filePath.Contains("/tests/", StringComparison.Ordinal) ||
                        filePath.Contains("\\tests\\", StringComparison.Ordinal);

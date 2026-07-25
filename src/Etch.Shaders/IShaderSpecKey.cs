@@ -20,6 +20,7 @@ public readonly struct ConstantEntry : IEquatable<ConstantEntry>
     public static bool operator !=(ConstantEntry left, ConstantEntry right) => !left.Equals(right);
 }
 
+[Etch.Abstractions.EtchExtensionPoint]  // implemented per shader pipeline to key its specialization
 public interface IShaderSpecKey
 {
     int Hash { get; }

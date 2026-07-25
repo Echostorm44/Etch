@@ -67,10 +67,12 @@ jobs:
       - name: Restore
         run: dotnet restore ${{ env.PACKAGE_PROJECT }}
 
-      # A packaging build produces the same assemblies regardless of Etch's dev design-rule
-      # analyzers / warnings-as-errors, so relax both — the pack just needs to emit the DLLs.
+      # SkipShaderValidation: shader validation is a build-time correctness check (it shells
+      # out to naga) that doesn't affect the packaged assemblies — Etch's own shader-CI job
+      # enforces it; the pack just needs to emit the DLLs. No analyzer/warning suppression:
+      # the source is clean under the design-rule analyzers.
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} -c ${{ env.CONFIGURATION }} -p:SkipShaderValidation=true -p:SkipEtchAnalyzers=true -p:TreatWarningsAsErrors=false /p:Version=${{ steps.version.outputs.VERSION }} -o ./artifacts
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} -c ${{ env.CONFIGURATION }} -p:SkipShaderValidation=true /p:Version=${{ steps.version.outputs.VERSION }} -o ./artifacts
 
       - name: NuGet login (OIDC Trusted Publishing)
         uses: NuGet/login@v1

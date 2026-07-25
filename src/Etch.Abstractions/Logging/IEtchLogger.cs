@@ -20,6 +20,7 @@ namespace Etch;
 /// operational diagnostics only, not exception-shaped failures.
 /// </para>
 /// </remarks>
+[Etch.Abstractions.EtchExtensionPoint]  // consumers (e.g. CascadeUI) implement this to bridge their own logger
 public interface IEtchLogger
 {
     /// <summary>Returns <see langword="true"/> if any message at <paramref name="level"/>

@@ -101,6 +101,6 @@ public sealed class NoMvvmAnalyzer : DiagnosticAnalyzer
                !filePath.Contains("\\src-gen\\", StringComparison.Ordinal) &&
                !filePath.Contains("/tools/", StringComparison.Ordinal) &&
                !filePath.Contains("\\tools\\", StringComparison.Ordinal) &&
-               filePath.Contains("/src/", StringComparison.Ordinal);
+               (filePath.Contains("/src/", StringComparison.Ordinal) || filePath.Contains("\\src\\", StringComparison.Ordinal));
     }
 }
