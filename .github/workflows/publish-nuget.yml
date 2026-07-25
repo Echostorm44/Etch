@@ -50,15 +50,12 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      # Building the Etch assemblies compiles/validates the WGSL shaders (Shaders.targets
-      # shells out to `naga`) and needs the wgpu native binaries (fetched, not committed).
-      # Same prerequisites as Etch's own ci.yml.
+      # Building the Etch assemblies needs the wgpu native binaries (fetched, not committed).
+      # Shader validation (which shells out to naga) is skipped at pack time via
+      # SkipShaderValidation — it's a build-time check that doesn't affect the packaged DLLs.
       - name: Fetch wgpu native binaries
         shell: pwsh
         run: ./native/wgpu-native/fetch.ps1 all
-
-      - name: Install naga (WGSL compiler)
-        run: ./tools/ci/install-naga.sh
 
       - name: Derive version from tag
         id: version
@@ -71,7 +68,7 @@ jobs:
         run: dotnet restore ${{ env.PACKAGE_PROJECT }}
 
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} -c ${{ env.CONFIGURATION }} /p:Version=${{ steps.version.outputs.VERSION }} -o ./artifacts
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} -c ${{ env.CONFIGURATION }} -p:SkipShaderValidation=true /p:Version=${{ steps.version.outputs.VERSION }} -o ./artifacts
 
       - name: NuGet login (OIDC Trusted Publishing)
         uses: NuGet/login@v1

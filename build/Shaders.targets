@@ -9,12 +9,19 @@
     <WgslShader Include="$(_ShaderSourceRoot)/shaders/**/*.wgsl" />
   </ItemGroup>
 
-  <Target Name="CreateShaderValidationDir" BeforeTargets="ValidateWgslShaders">
+  <!--
+    Set SkipShaderValidation=true to skip WGSL validation (which shells out to naga).
+    Validation is a build-time correctness check only — it does not affect the compiled
+    assemblies — so packaging/publish builds that don't have naga available can skip it.
+  -->
+  <Target Name="CreateShaderValidationDir" BeforeTargets="ValidateWgslShaders"
+          Condition="'$(SkipShaderValidation)' != 'true'">
     <MakeDir Directories="$(IntermediateOutputPath)ShadersValidation" />
   </Target>
 
   <Target Name="ValidateWgslShaders"
           BeforeTargets="CoreCompile"
+          Condition="'$(SkipShaderValidation)' != 'true'"
           Inputs="@(WgslShader)"
           Outputs="$(IntermediateOutputPath)ShadersValidation\%(WgslShader.Filename).nagareport.txt">
 
