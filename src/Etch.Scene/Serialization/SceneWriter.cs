@@ -111,7 +111,9 @@ public static class SceneWriter
         if (scene.PathCount > 0)
         {
             WriteUInt32(dst[pathArenaOffset..], (uint)scene.PathArenaLength);
-            scene.PathArenaBytes.AsSpan().CopyTo(dst.Slice(pathArenaOffset + 4, scene.PathArenaLength));
+            // PathArenaBytes is the over-allocated backing array; copy only the used prefix
+            // (PathArenaLength), not the full capacity, or the destination slice is too short.
+            scene.PathArenaBytes.AsSpan(0, scene.PathArenaLength).CopyTo(dst.Slice(pathArenaOffset + 4, scene.PathArenaLength));
         }
 
         WritePaintTable(scene, dst, paintTableOffset);
