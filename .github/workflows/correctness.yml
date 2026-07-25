@@ -29,8 +29,13 @@ jobs:
       - name: Install Lavapipe
         run: |
           sudo apt-get update
-          sudo apt-get install -y mesa-vulkan-drivers
+          # libvulkan1 is the Vulkan loader that wgpu dlopen's (libvulkan.so.1); without it
+          # the Vulkan backend segfaults on init. mesa-vulkan-drivers only provides the ICD.
+          sudo apt-get install -y libvulkan1 mesa-vulkan-drivers vulkan-tools
           echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json" >> "$GITHUB_ENV"
+
+      - name: Verify Vulkan (Lavapipe) is loadable
+        run: VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json vulkaninfo --summary || true
 
       - name: Restore
         run: dotnet restore Etch.sln
