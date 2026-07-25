@@ -10,18 +10,21 @@
   </ItemGroup>
 
   <!--
-    Set SkipShaderValidation=true to skip WGSL validation (which shells out to naga).
-    Validation is a build-time correctness check only — it does not affect the compiled
-    assemblies — so packaging/publish builds that don't have naga available can skip it.
+    WGSL validation is OPT-IN (ValidateShaders=true). It shells out to `naga` and is a
+    build-time correctness CHECK that does not affect the compiled assemblies. It used to
+    run on every project's CoreCompile — including analyzer/generator projects that have no
+    shaders — which forced a naga dependency on every build on every OS. Validation is owned
+    by the dedicated CI shader-validate job and Etch.Shaders.Tests; a developer who wants it
+    at build time opts in with -p:ValidateShaders=true.
   -->
   <Target Name="CreateShaderValidationDir" BeforeTargets="ValidateWgslShaders"
-          Condition="'$(SkipShaderValidation)' != 'true'">
+          Condition="'$(ValidateShaders)' == 'true'">
     <MakeDir Directories="$(IntermediateOutputPath)ShadersValidation" />
   </Target>
 
   <Target Name="ValidateWgslShaders"
           BeforeTargets="CoreCompile"
-          Condition="'$(SkipShaderValidation)' != 'true'"
+          Condition="'$(ValidateShaders)' == 'true'"
           Inputs="@(WgslShader)"
           Outputs="$(IntermediateOutputPath)ShadersValidation\%(WgslShader.Filename).nagareport.txt">
 
