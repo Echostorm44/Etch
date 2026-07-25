@@ -1,19 +1,11 @@
-param([string]$Version = "0.22.1", [string]$InstallPath = "$env:LOCALAPPDATA\naga\bin")
-
+# gfx-rs/naga publishes no prebuilt CLI binaries (the old release-download URLs are dead),
+# so install naga-cli from crates.io via cargo. Rust/cargo is preinstalled on GitHub runners
+# and %USERPROFILE%\.cargo\bin is on PATH.
 $ErrorActionPreference = "Stop"
-if (Test-Path "$InstallPath\naga.exe") {
-    Write-Host "naga already installed at $InstallPath"
+if (Get-Command naga -ErrorAction SilentlyContinue) {
+    Write-Host "naga already installed: $((Get-Command naga).Source)"
     exit 0
 }
-$tmp = [System.IO.Path]::GetTempFileName() + ".zip"
-try {
-    $url = "https://github.com/gfx-rs/naga/releases/download/v$Version/naga-v$Version-x86_64-pc-windows-msvc.zip"
-    Write-Host "Downloading $url"
-    Invoke-WebRequest -Uri $url -OutFile $tmp
-    Expand-Archive -Path $tmp -DestinationPath (Split-Path $InstallPath -Parent)
-    New-Item -ItemType Directory -Path $InstallPath -Force | Out-Null
-    Move-Item -Path "$InstallPath\..\naga-v$Version-x86_64-pc-windows-msvc\naga.exe" -Destination $InstallPath -Force
-    Write-Host "naga installed to $InstallPath"
-} finally {
-    Remove-Item $tmp -ErrorAction SilentlyContinue
-}
+Write-Host "Installing naga-cli via cargo..."
+cargo install naga-cli --locked
+Write-Host "naga installed: $((Get-Command naga -ErrorAction SilentlyContinue).Source)"

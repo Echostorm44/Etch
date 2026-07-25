@@ -1,4 +1,8 @@
-* text=lf
+# `text=lf` is invalid (the text attribute has no 'lf' value; EOL is set via eol=).
+# It silently applied nothing, so on Windows runners (autocrlf=true) files checked out
+# as CRLF and IDE0055 flagged them against .editorconfig's end_of_line=lf. Force LF on
+# checkout for all text files on every platform:
+* text=auto eol=lf
 *.dll binary
 *.so binary
 *.dylib binary

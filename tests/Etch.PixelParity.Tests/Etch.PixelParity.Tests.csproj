@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
     <ProjectReference Include="..\..\src\Etch.Primitives\Etch.Primitives.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu.Native\Etch.Gpu.Native.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
