@@ -23,6 +23,10 @@ naga-out/
 !src/Etch.Text/native/osx/libharfbuzz.dylib
 *.png
 *.scene
+# The *.scene rule above case-insensitively matches the Etch.Scene PROJECT directory
+# (on Windows git.core.ignorecase), silently excluding the whole project from the repo.
+# Keep the source project tracked; genuine *.scene data files elsewhere stay ignored.
+!src/Etch.Scene/
 *.ttf
 *.otf
 docs-site/_site/
