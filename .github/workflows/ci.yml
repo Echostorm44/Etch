@@ -45,6 +45,18 @@ jobs:
       - name: Build
         run: dotnet build Etch.sln -c Release --no-restore
 
+      # Provide a software Vulkan driver on Linux so the GPU render tests have a real adapter
+      # instead of segfaulting on a driverless headless runner. macOS uses Metal; Windows CI
+      # has no adapter and the GPU tests skip themselves cleanly.
+      - name: Install Lavapipe (software Vulkan)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mesa-vulkan-drivers
+          echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json" >> "$GITHUB_ENV"
+          echo "ETCH_SOFTWARE_GPU=1" >> "$GITHUB_ENV"
+        shell: bash
+
       - name: Run tests (excluding Flaky)
         run: |
           dotnet run --project tests/Etch.Abstractions.Tests/Etch.Abstractions.Tests.csproj -c Release --no-build
@@ -157,6 +169,10 @@ jobs:
         with:
           global-json-file: global.json
 
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
       - name: Restore
         run: dotnet restore tests/Etch.Shaders.Tests/Etch.Shaders.Tests.csproj
 
@@ -172,8 +188,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rid: [win-x64, linux-x64, osx-arm64]
-    runs-on: ubuntu-24.04
+        include:
+          - rid: win-x64
+            os: windows-2022
+          - rid: linux-x64
+            os: ubuntu-24.04
+          - rid: osx-arm64
+            os: macos-14
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 

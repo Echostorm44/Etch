@@ -6,32 +6,44 @@ namespace Etch.Testing.Tests;
 
 internal sealed class SoftwareGpuDetectorTests
 {
-    [Test]
-    public async Task DetectDriver_NoEnv_ReturnsNone()
+    // The expected driver depends on BOTH VK_ICD_FILENAMES (a specific software ICD like
+    // Lavapipe/SwiftShader) and the ETCH_SOFTWARE_GPU flag — the CI software-GPU jobs set
+    // both, so derive the expectation from the actual environment rather than assuming a
+    // clean one.
+    private static SoftwareGpuDriver ExpectedDriver()
     {
-        // Note: this test assumes VK_ICD_FILENAMES is not set in the test environment.
-        // If it is set, the test will see the real value.
-        var driver = SoftwareGpuDetector.DetectDriver();
-        var expected = Environment.GetEnvironmentVariable("ETCH_SOFTWARE_GPU") == "1"
+        string vkIcd = Environment.GetEnvironmentVariable("VK_ICD_FILENAMES") ?? "";
+        if (vkIcd.Contains("lvp", StringComparison.OrdinalIgnoreCase))
+        {
+            return SoftwareGpuDriver.Lavapipe;
+        }
+        if (vkIcd.Contains("swiftshader", StringComparison.OrdinalIgnoreCase))
+        {
+            return SoftwareGpuDriver.SwiftShader;
+        }
+        return Environment.GetEnvironmentVariable("ETCH_SOFTWARE_GPU") == "1"
             ? SoftwareGpuDriver.Unknown
             : SoftwareGpuDriver.None;
+    }
 
-        await Assert.That(driver).IsEqualTo(expected);
+    private static string ExpectedDriverName() => ExpectedDriver() switch
+    {
+        SoftwareGpuDriver.Lavapipe => "Lavapipe",
+        SoftwareGpuDriver.SwiftShader => "SwiftShader",
+        SoftwareGpuDriver.Unknown => "UnknownSoftware",
+        _ => "hardware",
+    };
+
+    [Test]
+    public async Task DetectDriver_MatchesEnvironment()
+    {
+        await Assert.That(SoftwareGpuDetector.DetectDriver()).IsEqualTo(ExpectedDriver());
     }
 
     [Test]
-    public async Task DriverName_NoEnv_ReturnsHardware()
+    public async Task DriverName_MatchesEnvironment()
     {
-        var name = SoftwareGpuDetector.DriverName();
-
-        if (Environment.GetEnvironmentVariable("ETCH_SOFTWARE_GPU") == "1")
-        {
-            await Assert.That(name).IsEqualTo("UnknownSoftware");
-        }
-        else
-        {
-            await Assert.That(name).IsEqualTo("hardware");
-        }
+        await Assert.That(SoftwareGpuDetector.DriverName()).IsEqualTo(ExpectedDriverName());
     }
 
     [Test]
