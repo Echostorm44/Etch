@@ -75,20 +75,25 @@ jobs:
         with:
           global-json-file: global.json
 
-      - name: Install SwiftShader
+      - name: Install SwiftShader (best-effort; tests fall back to software/CPU)
         run: |
-          $url = "https://github.com/google/swiftshader/releases/download/v4.1.0/SwiftShader-Windows-x64.zip"
-          $zip = "$env:TEMP\swiftshader.zip"
-          $out = "$env:TEMP\swiftshader"
-          Invoke-WebRequest -Uri $url -OutFile $zip -ErrorAction SilentlyContinue
-          if (Test-Path $zip) {
+          # SwiftShader is an optional Vulkan ICD for GPU tests. The download is best-effort:
+          # a broken URL or missing asset must NOT fail the job (Invoke-WebRequest's 404 is a
+          # terminating error even with -ErrorAction SilentlyContinue, so catch it explicitly).
+          try {
+            $url = "https://github.com/google/swiftshader/releases/download/v4.1.0/SwiftShader-Windows-x64.zip"
+            $zip = "$env:TEMP\swiftshader.zip"
+            $out = "$env:TEMP\swiftshader"
+            Invoke-WebRequest -Uri $url -OutFile $zip
             Expand-Archive -Path $zip -DestinationPath $out -Force
             $icd = Get-ChildItem -Path $out -Recurse -Filter "vk_swiftshader_icd.json" | Select-Object -First 1
             if ($icd) {
               Write-Output "VK_ICD_FILENAMES=$($icd.FullName)" >> "$env:GITHUB_ENV"
+              Write-Host "SwiftShader ICD: $($icd.FullName)"
             }
+          } catch {
+            Write-Host "SwiftShader unavailable ($($_.Exception.Message)); tests use the software/CPU fallback."
           }
-          # If download fails, ETCH_SOFTWARE_GPU=1 still triggers software mode
         shell: pwsh
 
       - name: Restore
