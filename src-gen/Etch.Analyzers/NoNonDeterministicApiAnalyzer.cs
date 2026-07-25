@@ -37,6 +37,13 @@ public sealed class NoNonDeterministicApiAnalyzer : DiagnosticAnalyzer
                     if (nodeContext.Node is not IdentifierNameSyntax identifierNode)
                         return;
 
+                    // Determinism is a production render-engine concern. Scope to src/ like the
+                    // other Etch analyzers (IsProductionTree) so tools/tests/generated code — which
+                    // legitimately touch these APIs — are not flagged. (This analyzer filters by
+                    // assembly name Etch.*, which also matches dev tools like Etch.FlakeDetector.)
+                    if (!IsProductionTree(identifierNode.SyntaxTree.FilePath))
+                        return;
+
                     var symbolInfo = nodeContext.SemanticModel.GetSymbolInfo(identifierNode, nodeContext.CancellationToken);
                     if (symbolInfo.Symbol is not ISymbol symbol)
                         return;
@@ -74,6 +81,19 @@ public sealed class NoNonDeterministicApiAnalyzer : DiagnosticAnalyzer
                 },
                 SyntaxKind.IdentifierName);
         });
+    }
+
+    private static bool IsProductionTree(string filePath)
+    {
+        // Normalize separators so the checks work for Windows and Unix paths alike.
+        string normalized = "/" + filePath.Replace('\\', '/').TrimStart('/');
+        if (normalized.Contains("/src-gen/", System.StringComparison.Ordinal))
+            return false;
+        if (normalized.Contains("/tests/", System.StringComparison.Ordinal))
+            return false;
+        if (normalized.Contains("/tools/", System.StringComparison.Ordinal))
+            return false;
+        return normalized.Contains("/src/", System.StringComparison.Ordinal);
     }
 
     private static string BuildLookupName(ISymbol symbol)

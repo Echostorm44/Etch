@@ -20,6 +20,10 @@ jobs:
       - name: Restore tools
         run: dotnet tool restore
 
+      - name: Fetch native binaries
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
+
       - name: Build solution
         run: dotnet build --configuration Release
 

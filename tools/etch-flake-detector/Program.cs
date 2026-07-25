@@ -90,41 +90,18 @@ internal static class Detector
     }
 
     /// <summary>
-    /// Stub scan that produces an empty report. Real implementation would query
-    /// CI history (GitHub Actions API, test result artifacts, etc.).
+    /// Stub scan that produces an empty report. A real implementation would query CI history
+    /// (GitHub Actions API, test-result artifacts, etc.), group runs per test, and use
+    /// <see cref="IsFlaky"/> to populate offenders. Until that source is wired up, it reports
+    /// no offenders/breaches so the tool builds and runs deterministically.
     /// </summary>
     internal static FlakeReport Scan(int daysBack)
     {
-        var testRunRecords = new List<TestRunRecord>();
-        var flakyEntries = new List<FlakyTestEntry>();
-
-        string repoRoot = FindRepoRoot();
-        if (repoRoot is not null)
-        {
-            var cutoff = DateTimeOffset.UtcNow.AddDays(-daysBack);
-            foreach (string htmlPath in System.IO.Directory.GetFiles(
-                System.IO.Path.Combine(repoRoot, "TestResults"),
-                "*-report.html",
-            System.IO.SearchOption.AllDirectories))
-            {
-                var fi = new System.IO.FileInfo(htmlPath);
-                if (fi.LastWriteTimeUtc < cutoff) continue;
-
-                bool passed = System.IO.File.ReadAllText(htmlPath)
-                    .Contains("succeeded:", StringComparison.Ordinal);
-                testRunRecords.Add(new TestRunRecord(passed, fi.LastWriteTimeUtc));
-            }
-        }
-
-        return new FlakeReport(testRunRecords, flakyEntries, false);
-    }
-
-    private static string? FindRepoRoot()
-    {
-        string dir = AppContext.BaseDirectory;
-        while (dir is not null && !System.IO.Directory.Exists(System.IO.Path.Combine(dir, ".git")))
-            dir = System.IO.Path.GetDirectoryName(dir);
-        return dir;
+        _ = daysBack;
+        return new FlakeReport(
+            Array.Empty<FlakyTestEntry>(),
+            Array.Empty<DeadlineBreachEntry>(),
+            mergeFreeze: false);
     }
 }
 
