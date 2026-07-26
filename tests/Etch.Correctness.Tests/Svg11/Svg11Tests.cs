@@ -36,9 +36,10 @@ public class Svg11Tests
         int cy = RenderSize / 2;
         int idx = (cy * RenderSize + cx) * 4;
 
-        byte b = output[idx + 0];
+        // RunCpu returns RGBA byte order (R at index 0), matching SceneWriter/SceneReader.
+        byte r = output[idx + 0];
         byte g = output[idx + 1];
-        byte r = output[idx + 2];
+        byte b = output[idx + 2];
         byte a = output[idx + 3];
 
         await Assert.That((int)r).IsGreaterThan(200);
@@ -146,7 +147,8 @@ public class Svg11Tests
         int cy = RenderSize / 2;
         int idx = (cy * RenderSize + cx) * 4;
 
-        await Assert.That((int)output[idx + 2]).IsGreaterThan(200);
+        // RGBA byte order: red channel is at index 0.
+        await Assert.That((int)output[idx + 0]).IsGreaterThan(200);
     }
 
     private static async Task<Scene.SceneBuffer> TranslateAsync(string filename)

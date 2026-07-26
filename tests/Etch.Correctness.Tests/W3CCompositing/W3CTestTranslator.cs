@@ -104,10 +104,12 @@ public static class W3CTestTranslator
                     result = backdrop;
                 }
 
+                // RGBA byte order (R at index 0), matching SceneRunner.RunCpu output so the
+                // reference and actual buffers are compared channel-for-channel.
                 int idx = (y * width + x) * 4;
-                output[idx + 0] = Srgb.EncodeChannelScalar((float)(result.B * result.A));
+                output[idx + 0] = Srgb.EncodeChannelScalar((float)(result.R * result.A));
                 output[idx + 1] = Srgb.EncodeChannelScalar((float)(result.G * result.A));
-                output[idx + 2] = Srgb.EncodeChannelScalar((float)(result.R * result.A));
+                output[idx + 2] = Srgb.EncodeChannelScalar((float)(result.B * result.A));
                 output[idx + 3] = (byte)Math.Clamp(result.A * 255.0 + 0.5, 0, 255);
             }
         }

@@ -151,13 +151,13 @@ public static class SvgPathParser
                 case 'A':
                     {
                         // Parse arc-to: rx ry x-axis-rotation large-arc sweep x y
-                        float rx = tokenizer.ReadFloat();
-                        float ry = tokenizer.ReadFloat();
-                        float xAxisRotation = tokenizer.ReadFloat();
-                        bool largeArc = tokenizer.ReadFloat() != 0;
-                        bool sweep = tokenizer.ReadFloat() != 0;
-                        float x = tokenizer.ReadFloat();
-                        float y = tokenizer.ReadFloat();
+                        float rx = (float)ReadNumber(ref tokenizer);
+                        float ry = (float)ReadNumber(ref tokenizer);
+                        float xAxisRotation = (float)ReadNumber(ref tokenizer);
+                        bool largeArc = ReadNumber(ref tokenizer) != 0;
+                        bool sweep = ReadNumber(ref tokenizer) != 0;
+                        float x = (float)ReadNumber(ref tokenizer);
+                        float y = (float)ReadNumber(ref tokenizer);
 
                         if (rx <= 0 || ry <= 0)
                         {

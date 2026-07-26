@@ -33,9 +33,10 @@ public class W3CCompositingTests
         byte[] actual = SceneRunner.RunCpu(scene, 64, 64);
         int idx = (32 * 64 + 32) * 4;
 
-        await Assert.That((int)actual[idx + 2]).IsEqualTo(255);
+        // RGBA byte order: R at index 0, B at index 2.
+        await Assert.That((int)actual[idx + 0]).IsEqualTo(255);
         await Assert.That((int)actual[idx + 1]).IsEqualTo(0);
-        await Assert.That((int)actual[idx + 0]).IsEqualTo(0);
+        await Assert.That((int)actual[idx + 2]).IsEqualTo(0);
     }
 
     private static readonly uint[] TestColors = new[]

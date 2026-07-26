@@ -6,7 +6,10 @@
     <IsAotCompatible>true</IsAotCompatible>
     <RootNamespace>Etch.Correctness.Tests</RootNamespace>
     <AssemblyName>Etch.Correctness.Tests</AssemblyName>
-    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515;CA5394</NoWarn>
+    <!-- CA2000: test scenes (SceneBuffer) are ephemeral fixtures passed straight into a
+         consuming helper; CA2000's per-method ownership analysis flags these as false
+         positives. Product code still enforces CA2000. -->
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515;CA5394;CA2000</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
