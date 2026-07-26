@@ -1,8 +1,12 @@
-name: Soak Nightly
+name: Soak (manual)
 
+# Long-running endurance test: renders an animated scene in a loop and watches for
+# memory growth, GC-pause spikes, frame-time drift and panics. It is NOT scheduled —
+# a 24h runner every night is wasteful for an infrequently-updated repo and would be
+# ruinously expensive if this repo were ever made private (Windows minutes bill at 2x).
+# Run it by hand from the Actions tab before a release. The short "smoke" soak tests
+# still run in the Correctness workflow on every push.
 on:
-  schedule:
-    - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,21 +20,22 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.x'
+          global-json-file: global.json
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore Etch.sln
 
       - name: Install wgpu-native
-        run: pwsh tools/ci/fetch.ps1 all
+        run: ./native/wgpu-native/fetch.ps1 all
+        shell: pwsh
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build Etch.sln -c Release --no-restore
 
       - name: Soak Test (24h)
         env:
           ETCH_SOAK_NIGHTLY: '1'
-        run: dotnet run --project tests/Etch.Correctness.Tests/Etch.Correctness.Tests.csproj --configuration Release
+        run: dotnet run --project tests/Etch.Correctness.Tests/Etch.Correctness.Tests.csproj -c Release --no-build
 
       - name: Upload soak report
         if: always()
