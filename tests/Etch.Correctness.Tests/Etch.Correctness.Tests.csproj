@@ -23,7 +23,12 @@
     <ProjectReference Include="..\..\tools\svg-translator\Etch.SvgTranslator.csproj" />
   </ItemGroup>
 
-  <Target Name="CopyKurboOracleNative" AfterTargets="Build">
+  <!-- The kurbo oracle native lib is built/vendored locally and is not committed, so it is
+       absent on a clean checkout (e.g. CI, which builds this project as part of Etch.sln but
+       does not run its differential tests). Guard the copy on the source existing so the build
+       never fails; the Differential/Oracle tests only run where the oracle is present. -->
+  <Target Name="CopyKurboOracleNative" AfterTargets="Build"
+          Condition="Exists('$(MSBuildThisFileDirectory)..\Etch.Geometry.Oracle\runtimes\win-x64\native\etch_kurbo_oracle.dll')">
     <PropertyGroup>
       <_OracleWinDll>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\Etch.Geometry.Oracle\runtimes\win-x64\native\etch_kurbo_oracle.dll'))</_OracleWinDll>
       <_OutWinDir>$([System.IO.Path]::GetFullPath('$(TargetDir)runtimes\win-x64\native'))</_OutWinDir>

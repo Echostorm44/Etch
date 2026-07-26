@@ -393,11 +393,13 @@ public static class SceneGpuRenderer
         private readonly Gpu.Buffer _ubo;
         private readonly uint _bytesPerRow, _alignedRow;
         private readonly List<PerDrawData> _drawCommands = new(256);
+        private readonly byte[] _output;
         private bool _disposed;
 
         internal GpuRenderCache(int width, int height)
         {
             _width = width; _height = height;
+            _output = new byte[width * height * 4];
             _instance = Instance.Create();
             var (s, a) = AsyncRequest.RequestAdapterSync(_instance);
             if (s != RequestAdapterStatus.Success || a.IsInvalid)
@@ -443,7 +445,9 @@ public static class SceneGpuRenderer
             _drawCommands.Clear();
             BuildDrawCommandsInPlace(scene);
 
-            var result = new byte[_width * _height * 4];
+            // Reuse the pre-allocated output buffer so the warm render loop is allocation-free
+            // (matches CpuRenderCache). Callers get the same buffer each frame.
+            var result = _output;
 
             unsafe
             {
