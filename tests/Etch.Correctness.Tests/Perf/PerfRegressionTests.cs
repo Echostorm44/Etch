@@ -14,7 +14,7 @@ public class PerfRegressionTests
     public async Task ParseProjectPlan_PerformanceSection_HasExpectedRows()
     {
         var rows = PerfRegressionParser.ParseProjectPlan(
-            AppContext.BaseDirectory + "/../../../../../../..");
+            TestRepoRoot.Path);
 
         await Assert.That(rows.Count).IsGreaterThanOrEqualTo(10);
     }
@@ -23,7 +23,7 @@ public class PerfRegressionTests
     public async Task ParseProjectPlan_CpuSection_HasFiveRows()
     {
         var rows = PerfRegressionParser.ParseProjectPlan(
-            AppContext.BaseDirectory + "/../../../../../../..");
+            TestRepoRoot.Path);
         var cpuRows = rows.FindAll(r => r.Section == "CPU");
 
         await Assert.That(cpuRows.Count).IsEqualTo(5);
@@ -33,7 +33,7 @@ public class PerfRegressionTests
     public async Task ParseProjectPlan_GpuSection_HasFiveRows()
     {
         var rows = PerfRegressionParser.ParseProjectPlan(
-            AppContext.BaseDirectory + "/../../../../../../..");
+            TestRepoRoot.Path);
         var gpuRows = rows.FindAll(r => r.Section == "GPU");
 
         await Assert.That(gpuRows.Count).IsEqualTo(5);
@@ -42,7 +42,7 @@ public class PerfRegressionTests
     [Test]
     public async Task BaselineJson_ExistsAndIsValid()
     {
-        string path = Path.Combine(AppContext.BaseDirectory, "../../../../../../bench/baselines/reference-machine.json");
+        string path = Path.Combine(TestRepoRoot.Path, "bench", "baselines", "reference-machine.json");
         if (!File.Exists(path))
             return;
 
@@ -78,7 +78,7 @@ public class PerfRegressionTests
     public async Task AllPerfRows_HaveParsableTargets()
     {
         var rows = PerfRegressionParser.ParseProjectPlan(
-            AppContext.BaseDirectory + "/../../../../../../..");
+            TestRepoRoot.Path);
 
         int parseableCount = 0;
         foreach (var row in rows)

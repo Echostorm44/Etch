@@ -84,6 +84,11 @@ internal static class PerfRegressionParser
             if (!line.StartsWith('|') || line.Contains("---|---", StringComparison.Ordinal))
                 continue;
 
+            // The header row of each markdown table is the line immediately followed by the
+            // |---|---| separator; skip it so only data rows are counted.
+            if (i + 1 < lines.Length && lines[i + 1].Contains("---|---", StringComparison.Ordinal))
+                continue;
+
             if (line.Contains("2026-", StringComparison.Ordinal))
                 continue;
 

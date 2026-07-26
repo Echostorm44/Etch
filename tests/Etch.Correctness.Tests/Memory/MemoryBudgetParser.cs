@@ -21,8 +21,11 @@ internal readonly struct MemoryBudgetRow
 
 internal static class MemoryBudgetParser
 {
+    // Scenario cell, then a budget cell like "**< 20 MB** working set" or "**0 bytes**" or
+    // "**< 150 MB renderer-attributable**". Tolerate any trailing text/markup after the unit
+    // up to the next cell delimiter.
     private static readonly Regex s_rowRegex = new(
-        @"^\|\s*(.+?)\s*\|\s*\*{0,2}(?:<\s*)?(\d+(?:,\d{3})*(?:\.\d+)?)\s*(MB|bytes|GB)\s*(?:[^*]*?)\*{0,2}\s*\|",
+        @"^\|\s*(.+?)\s*\|\s*\*{0,2}(?:<\s*)?(\d+(?:,\d{3})*(?:\.\d+)?)\s*(MB|bytes|GB)[^|]*\|",
         RegexOptions.Compiled);
 
     public static List<MemoryBudgetRow> ParseProjectPlan(string projectRoot)

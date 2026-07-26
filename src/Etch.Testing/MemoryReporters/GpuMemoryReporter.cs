@@ -1,46 +1,32 @@
 using System;
-using Etch.Gpu;
-using Etch.Scene;
-using Etch.Testing;
 
 namespace Etch.Testing.MemoryReporters;
 
 public static class GpuMemoryReporter
 {
+    // GPU copies texture rows into a buffer with 256-byte row alignment (WebGPU requirement).
+    private const uint RowAlignment = 256u;
+
+    // The per-draw uniform buffer (PerDrawData) the render path allocates.
+    private const long UniformBufferBytes = 48;
+
     /// <summary>
-    /// Estimates GPU memory used by the render cache for a given scene size.
-    /// Returns the approximate bytes allocated for textures, buffers, and pipelines.
-    /// Returns 0 if GPU is unavailable.
+    /// Estimates the GPU memory the offscreen render path allocates for a WxH render:
+    /// the Rgba8 render-target texture, the 256-byte-row-aligned mappable readback buffer,
+    /// and the per-draw uniform buffer. This is an analytical estimate of the buffer sizes
+    /// (deterministic and GPU-independent) rather than a process-working-set delta, which is
+    /// dominated by JIT/GC/driver noise and is not a meaningful measure of cache memory.
     /// </summary>
     public static long EstimateCacheMemory(int width, int height)
     {
-        try
-        {
-            using var cache = new SceneGpuRenderer.GpuRenderCache(width, height);
-            var workingSetBefore = Environment.WorkingSet;
-            using (var probeScene = CreateProbeScene(width, height))
-            {
-                _ = cache.Render(probeScene);
-            }
-            var workingSetAfter = Environment.WorkingSet;
-            return Math.Max(0, workingSetAfter - workingSetBefore);
-        }
-        catch (EtchException ex) when (ex.Code == Etch.PanicCodes.GpuAdapterUnavailable ||
-                                         ex.Code == Etch.PanicCodes.GpuDeviceCreationFailed)
-        {
+        if (width <= 0 || height <= 0)
             return 0;
-        }
-    }
 
-    private static SceneBuffer CreateProbeScene(int width, int height)
-    {
-        var builder = SceneBuilder.Begin();
-        builder.BeginFrame();
-        int xform = builder.AddTransform(Etch.Geometry.Affine.Identity);
-        var paint = Paint.Solid(0xFFFF0000u);
-        int paintId = builder.AddPaint(paint);
-        builder.FillRect(new Etch.Geometry.Rect(0, 0, width, height), paintId, xform);
-        builder.EndFrame();
-        return builder.End();
+        long renderTarget = (long)width * height * 4L;              // Rgba8Unorm texels
+        uint bytesPerRow = (uint)width * 4u;
+        uint alignedRow = (bytesPerRow + (RowAlignment - 1u)) & ~(RowAlignment - 1u);
+        long readback = (long)alignedRow * height;                  // mappable copy-dst buffer
+
+        return renderTarget + readback + UniformBufferBytes;
     }
 }
