@@ -24,26 +24,26 @@ public class MemoryBudgetTests
         await Assert.That(rows.Count).IsGreaterThanOrEqualTo(5);
     }
 
-    // Documented, not-yet-met goal: a zero-allocation CPU render loop. Today RunCpu allocates
-    // per call (a fresh Rgba16f framebuffer, the returned Rgba8 buffer, and classification
-    // arrays — ~1 MB for a 64x64 frame), so "zero bytes" is impossible until SceneCpuRenderer
-    // gains a render-into-caller-buffer API. Kept (skipped) rather than deleted so the goal
-    // stays visible; unskip it once buffer-reuse rendering lands. The no-leak invariant is
-    // covered by ManagedHeap_BaselineRender_StaysWithinBounds.
+    // The ProjectPlan "0 bytes per-frame" rule applies to the warm-cache render path
+    // (SceneCpuRenderer.CpuRenderCache), which pre-computes classification/strips/masks and
+    // reuses a pooled framebuffer + a pre-allocated output buffer. (The one-shot RunCpu
+    // convenience API necessarily allocates fresh buffers each call.) Measured per-thread so
+    // the result isn't polluted by unrelated GC/JIT activity.
     [Test]
-    [Skip("Zero-alloc CPU rendering needs a buffer-reuse render API (not yet implemented).")]
     public async Task PerFrameManagedAllocations_BaselineScene_ZeroBytesAfterWarmup()
     {
         var scene = CreateSimpleFillScene();
-        long before = GC.GetTotalAllocatedBytes(precise: false);
-        for (int i = 0; i < 100; i++)
-        {
-            _ = SceneRunner.RunCpu(scene, BaselineRenderSize, BaselineRenderSize);
-        }
-        long after = GC.GetTotalAllocatedBytes(precise: false);
-        long delta = after - before;
+        using var cache = new SceneCpuRenderer.CpuRenderCache(scene, BaselineRenderSize, BaselineRenderSize);
 
-        await Assert.That(delta).IsLessThanOrEqualTo(1024);
+        for (int i = 0; i < 10; i++)
+            _ = cache.Render();
+
+        long before = GC.GetAllocatedBytesForCurrentThread();
+        for (int i = 0; i < 100; i++)
+            _ = cache.Render();
+        long delta = GC.GetAllocatedBytesForCurrentThread() - before;
+
+        await Assert.That(delta).IsEqualTo(0L);
     }
 
     [Test]
@@ -121,20 +121,24 @@ public class MemoryBudgetTests
         var rows = MemoryBudgetParser.ParseProjectPlan(
             TestRepoRoot.Path);
 
+        // The per-frame allocation budgets (notably the "0 bytes" hard rule) apply to the
+        // warm-cache render path. Measure it after warmup, per-thread.
         var scene = CreateSimpleFillScene();
-        long before = GC.GetTotalAllocatedBytes(precise: false);
+        using var cache = new SceneCpuRenderer.CpuRenderCache(scene, BaselineRenderSize, BaselineRenderSize);
+
+        for (int i = 0; i < 10; i++)
+            _ = cache.Render();
+
+        long before = GC.GetAllocatedBytesForCurrentThread();
         for (int i = 0; i < 100; i++)
-        {
-            _ = SceneRunner.RunCpu(scene, BaselineRenderSize, BaselineRenderSize);
-        }
-        long after = GC.GetTotalAllocatedBytes(precise: false);
-        long allocatedDelta = after - before;
+            _ = cache.Render();
+        long allocatedDelta = GC.GetAllocatedBytesForCurrentThread() - before;
 
         foreach (var row in rows)
         {
             if (row.BudgetBytes == 0)
             {
-                await Assert.That(allocatedDelta).IsLessThanOrEqualTo(1024);
+                await Assert.That(allocatedDelta).IsEqualTo(0L);
             }
             else
             {
