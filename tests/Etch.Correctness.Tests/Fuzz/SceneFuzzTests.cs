@@ -143,6 +143,12 @@ public class SceneFuzzTests
         {
             return new FuzzResult(FuzzResultKind.Crash, null);
         }
+        finally
+        {
+            // The decoded scene holds pooled/native buffers; dispose it each iteration so a
+            // long fuzz run doesn't accumulate scenes and the GC/finalizer pressure they cause.
+            scene.Dispose();
+        }
     }
 
     private static byte[] GenerateInput(int seed)

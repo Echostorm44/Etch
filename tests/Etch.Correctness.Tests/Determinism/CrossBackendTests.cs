@@ -11,6 +11,10 @@ using CbBlendMode = Etch.ClipBlendGradient.BlendMode;
 
 namespace Etch.Correctness.Tests.Determinism;
 
+// wgpu-native is not thread-safe for concurrent device create/release. TUnit runs tests in
+// parallel, so all GPU-device tests share this constraint key to serialize against each other
+// (an intermittent access violation in DeviceRelease otherwise). Non-GPU tests still run parallel.
+[NotInParallel("EtchGpuDevice")]
 public class CrossBackendTests
 {
     private const int RenderSize = 64;

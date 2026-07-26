@@ -15,6 +15,9 @@ namespace Etch.Correctness.Tests.Fuzz;
 /// zero wgpu validation messages. Any validation failure is saved to
 /// <c>crash-corpus/gpu-validation/</c>.
 /// </summary>
+// Serialized against the other GPU-device tests: wgpu-native is not thread-safe for concurrent
+// device create/release, which TUnit's parallelism otherwise triggers (AV in DeviceRelease).
+[NotInParallel("EtchGpuDevice")]
 public class GpuValidationFuzzTarget
 {
     private const int RenderWidth = 8;
@@ -146,6 +149,13 @@ public class GpuValidationFuzzTarget
         catch (Exception)
         {
             return new GpuFuzzResult(true);
+        }
+        finally
+        {
+            // The decoded scene holds pooled/native buffers; dispose every iteration so a
+            // 10K-iteration fuzz run doesn't leak ~1 scene each (which drove the process to
+            // multiple GB and the GC/finalizer pressure that destabilized wgpu teardown).
+            scene.Dispose();
         }
     }
 

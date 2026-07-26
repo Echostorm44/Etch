@@ -54,6 +54,7 @@ public class AllocRegressionTests
     }
 
     [Test]
+    [NotInParallel("EtchGpuDevice")] // wgpu device create/release is not thread-safe; serialize GPU tests
 #pragma warning disable CA2000 // Dispose ownership is transferred to try-finally below; constructor exceptions have nothing to dispose
 #pragma warning disable CA1508 // Analyzer cannot see that cache is null when constructor throws
     public async Task GpuRenderCache_AfterWarmup_ZeroAlloc()

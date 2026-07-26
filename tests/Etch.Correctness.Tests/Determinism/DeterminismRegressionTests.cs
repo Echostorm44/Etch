@@ -96,6 +96,7 @@ public class DeterminismRegressionTests
         => await RunCpuSingleThreadedTest(CreateLuminosityBlend(), "20-LuminosityBlend");
 
     [Test]
+    [NotInParallel("EtchGpuDevice")] // wgpu device create/release is not thread-safe; serialize GPU tests
 #pragma warning disable CA2000 // Dispose ownership transferred to try-finally
     public void Gpu_AllScenes_ByteIdenticalAcrossRuns()
     {
