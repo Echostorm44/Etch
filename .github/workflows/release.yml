@@ -48,7 +48,7 @@ jobs:
         run: ./tests/Etch.Abstractions.Tests/bin/Release/net10.0/Etch.Abstractions.Tests.exe
 
       - name: Publish AOT
-        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true -o ./release-out/${{ matrix.rid }}
+        run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true -o ./release-out/${{ matrix.rid }} 2>&1 | tee publish.log
 
       - name: Check AOT warnings
         run: ./tools/ci/check-aot-warnings.ps1 -Log publish.log -Namespace Etch
