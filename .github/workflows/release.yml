@@ -45,7 +45,7 @@ jobs:
         run: dotnet build Etch.sln -c Release --no-restore
 
       - name: Run tests
-        run: ./tests/Etch.Abstractions.Tests/bin/Release/net10.0/Etch.Abstractions.Tests.exe
+        run: dotnet run --project tests/Etch.Abstractions.Tests/Etch.Abstractions.Tests.csproj -c Release --no-build
 
       - name: Publish AOT
         run: dotnet publish src/Etch.Abstractions -c Release -r ${{ matrix.rid }} --self-contained -p:PublishAot=true -o ./release-out/${{ matrix.rid }} 2>&1 | tee publish.log
