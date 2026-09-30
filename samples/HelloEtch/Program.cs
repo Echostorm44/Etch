@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Etch.Gpu;
+using Etch.Gpu.Descriptors;
 using Etch.Gpu.Native;
 using Etch.Gpu.SwapChains;
 
@@ -22,7 +23,8 @@ internal static unsafe class Program
     {
         Console.WriteLine("HelloEtch — Red Triangle Sample");
 
-        Instance instance = Instance.Create();
+        // The sample walks every backend, so it asks for all of them rather than the platform default.
+        Instance instance = Instance.Create(InstanceOptions.AllBackends);
         if (instance.IsInvalid)
         {
             Console.WriteLine("Instance creation failed.");

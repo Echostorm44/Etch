@@ -41,17 +41,180 @@ public static class WGPUSType
     public const uint SurfaceSourceWaylandSurface = 0x00000007;
     public const uint SurfaceSourceAndroidNativeWindow = 0x00000008;
     public const uint SurfaceSourceXCBWindow = 0x00000009;
-    // wgpu-native extras (wgpu.h) start at 0x00030000.
-    public const uint InstanceExtras = 0x00030006;
+    // wgpu-native extras (wgpu.h WGPUNativeSType) start at 0x00030000. Renumbered upstream after
+    // v29.0.0.0 (PipelineLayoutExtras was removed); values match the commit pinned in
+    // native/wgpu-native/SOURCE.
     public const uint DeviceExtras = 0x00030001;
     public const uint NativeLimits = 0x00030002;
-    public const uint PipelineLayoutExtras = 0x00030003;
-    public const uint ShaderModuleGLSLDescriptor = 0x00030004;
-    public const uint SupportedLimitsExtras = 0x00030005;
-    public const uint BindGroupEntryExtras = 0x00030007;
-    public const uint BindGroupLayoutEntryExtras = 0x00030008;
-    public const uint QuerySetDescriptorExtras = 0x00030009;
-    public const uint SurfaceConfigurationExtras = 0x0003000A;
+    public const uint ShaderSourceGLSL = 0x00030003;
+    public const uint InstanceExtras = 0x00030004;
+    public const uint BindGroupEntryExtras = 0x00030005;
+    public const uint BindGroupLayoutEntryExtras = 0x00030006;
+    public const uint QuerySetDescriptorExtras = 0x00030007;
+    public const uint SurfaceConfigurationExtras = 0x00030008;
+    public const uint SurfaceSourceSwapChainPanel = 0x00030009;
+    public const uint PrimitiveStateExtras = 0x0003000A;
+    public const uint SamplerDescriptorExtras = 0x0003000B;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Limits (webgpu.h) and wgpu-native instance/device extras (wgpu.h).
+// ═══════════════════════════════════════════════════════════════════════════
+
+// WGPULimits. A u32 field of WGPU_LIMIT_U32_UNDEFINED (and a u64 field of
+// WGPU_LIMIT_U64_UNDEFINED) means "no requirement": wgpu keeps its default for it.
+public unsafe struct WGPULimits
+{
+    public const uint U32Undefined = uint.MaxValue;
+    public const ulong U64Undefined = ulong.MaxValue;
+
+    public WGPUChainedStruct* NextInChain;
+    public uint MaxTextureDimension1D;
+    public uint MaxTextureDimension2D;
+    public uint MaxTextureDimension3D;
+    public uint MaxTextureArrayLayers;
+    public uint MaxBindGroups;
+    public uint MaxBindGroupsPlusVertexBuffers;
+    public uint MaxBindingsPerBindGroup;
+    public uint MaxDynamicUniformBuffersPerPipelineLayout;
+    public uint MaxDynamicStorageBuffersPerPipelineLayout;
+    public uint MaxSampledTexturesPerShaderStage;
+    public uint MaxSamplersPerShaderStage;
+    public uint MaxStorageBuffersPerShaderStage;
+    public uint MaxStorageTexturesPerShaderStage;
+    public uint MaxUniformBuffersPerShaderStage;
+    public ulong MaxUniformBufferBindingSize;
+    public ulong MaxStorageBufferBindingSize;
+    public uint MinUniformBufferOffsetAlignment;
+    public uint MinStorageBufferOffsetAlignment;
+    public uint MaxVertexBuffers;
+    public ulong MaxBufferSize;
+    public uint MaxVertexAttributes;
+    public uint MaxVertexBufferArrayStride;
+    public uint MaxInterStageShaderVariables;
+    public uint MaxColorAttachments;
+    public uint MaxColorAttachmentBytesPerSample;
+    public uint MaxComputeWorkgroupStorageSize;
+    public uint MaxComputeInvocationsPerWorkgroup;
+    public uint MaxComputeWorkgroupSizeX;
+    public uint MaxComputeWorkgroupSizeY;
+    public uint MaxComputeWorkgroupSizeZ;
+    public uint MaxComputeWorkgroupsPerDimension;
+    public uint MaxImmediateSize;
+
+    /// <summary>Every limit set to "undefined", i.e. wgpu's default.</summary>
+    public static WGPULimits Undefined()
+    {
+        WGPULimits limits = default;
+        new Span<byte>(&limits, sizeof(WGPULimits)).Fill(0xFF);
+        limits.NextInChain = null;
+        return limits;
+    }
+}
+
+// WGPUNativeLimits, chained onto WGPULimits. The embedded chain is 16 bytes (8-byte pointer +
+// u32 sType + 4 bytes padding), so the first u32 field sits at offset 16.
+public unsafe struct WGPUNativeLimits
+{
+    public WGPUChainedStruct Chain;
+    public uint MaxNonSamplerBindings;
+    public uint MaxBindingArrayElementsPerShaderStage;
+    public uint MaxBindingArraySamplerElementsPerShaderStage;
+    public uint MaxMultiviewViewCount;
+
+    /// <summary>Every native limit set to "undefined", i.e. wgpu's default.</summary>
+    public static WGPUNativeLimits Undefined()
+    {
+        WGPUNativeLimits limits = default;
+        limits.Chain.SType = WGPUSType.NativeLimits;
+        limits.MaxNonSamplerBindings = WGPULimits.U32Undefined;
+        limits.MaxBindingArrayElementsPerShaderStage = WGPULimits.U32Undefined;
+        limits.MaxBindingArraySamplerElementsPerShaderStage = WGPULimits.U32Undefined;
+        limits.MaxMultiviewViewCount = WGPULimits.U32Undefined;
+        return limits;
+    }
+}
+
+// WGPUInstanceExtras. Zeroed fields select wgpu's defaults; only Backends and Flags are set by Etch.
+public unsafe struct WGPUInstanceExtras
+{
+    public WGPUChainedStruct Chain;
+    public ulong Backends;               // WGPUInstanceBackend (WGPUFlags = u64); 0 = all
+    public ulong Flags;                  // WGPUInstanceFlag (WGPUFlags = u64)
+    public uint Dx12ShaderCompiler;      // WGPUDx12Compiler
+    public uint Gles3MinorVersion;       // WGPUGles3MinorVersion
+    public uint GlFenceBehaviour;        // WGPUGLFenceBehaviour
+    public WGPUStringView DxcPath;
+    public uint DxcMaxShaderModel;       // WGPUDxcMaxShaderModel
+    public uint Dx12PresentationSystem;  // WGPUDx12SwapchainKind
+    public byte* BudgetForDeviceCreation;
+    public byte* BudgetForDeviceLoss;
+    public WGPUNativeDisplayHandle DisplayHandle;
+}
+
+// WGPUNativeDisplayHandle: a u32 type tag followed by a union whose largest member is two pointers
+// (Wayland display, or Xlib display + screen). Etch only ever passes the zeroed "none" handle.
+public unsafe struct WGPUNativeDisplayHandle
+{
+    public uint Type;                    // WGPUNativeDisplayHandleType
+    public void* Data0;
+    public void* Data1;
+}
+
+// WGPUDeviceExtras.
+public struct WGPUDeviceExtras
+{
+    public WGPUChainedStruct Chain;
+    public WGPUStringView TracePath;
+    public WGPUMemoryHints MemoryHints;
+    public ulong SuballocatedDeviceMemoryBlockSizeStart;
+    public ulong SuballocatedDeviceMemoryBlockSizeEnd;
+}
+
+// WGPUAdapterInfo (webgpu.h), 96 bytes.
+public unsafe struct WGPUAdapterInfo
+{
+    public WGPUChainedStruct* NextInChain;
+    public WGPUStringView Vendor;
+    public WGPUStringView Architecture;
+    public WGPUStringView Device;
+    public WGPUStringView Description;
+    public uint BackendType;             // WGPUBackendType
+    public uint AdapterType;             // WGPUAdapterType
+    public uint VendorId;
+    public uint DeviceId;
+    public uint SubgroupMinSize;
+    public uint SubgroupMaxSize;
+}
+
+// WGPUSurfaceCapabilities (webgpu.h), 64 bytes. The arrays belong to wgpu until
+// SurfaceCapabilitiesFreeMembers is called.
+public unsafe struct WGPUSurfaceCapabilities
+{
+    public WGPUChainedStruct* NextInChain;
+    public ulong Usages;                 // WGPUTextureUsage (WGPUFlags = u64)
+    public nuint FormatCount;
+    public uint* Formats;                // WGPUTextureFormat const*
+    public nuint PresentModeCount;
+    public uint* PresentModes;           // WGPUPresentMode const*
+    public nuint AlphaModeCount;
+    public uint* AlphaModes;             // WGPUCompositeAlphaMode const*
+}
+
+// WGPUInstanceEnumerateAdapterOptions (wgpu.h).
+public unsafe struct WGPUInstanceEnumerateAdapterOptions
+{
+    public WGPUChainedStruct* NextInChain;
+    public ulong Backends;               // WGPUInstanceBackend; 0 = every backend the instance enabled
+}
+
+// WGPUMemoryHints (wgpu.h). Undefined maps to wgpu's default, Performance.
+public enum WGPUMemoryHints : uint
+{
+    Undefined = 0x00000000,
+    Performance = 0x00000001,
+    MemoryUsage = 0x00000002,
+    Manual = 0x00000003,
 }
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -72,28 +72,58 @@ public enum MapMode : uint
     Write = 1u << 1,
 }
 
-// wgpu.h native extension flags.
+// wgpu.h native extension flags (WGPUFlags = u64). wgpu has no DX11 backend.
 [Flags]
-public enum InstanceBackend : uint
+public enum InstanceBackend : ulong
 {
     All = 0,
-    Vulkan = 1u << 0,
-    GL = 1u << 1,
-    Metal = 1u << 2,
-    DX12 = 1u << 3,
-    DX11 = 1u << 4,
-    BrowserWebGPU = 1u << 5,
+    Vulkan = 1ul << 0,
+    GL = 1ul << 1,
+    Metal = 1ul << 2,
+    DX12 = 1ul << 3,
+    BrowserWebGPU = 1ul << 5,
     Primary = Vulkan | Metal | DX12 | BrowserWebGPU,
-    Secondary = GL | DX11,
+    Secondary = GL,
 }
 
+// wgpu.h WGPUInstanceFlag. Empty (0) really means "no flags"; Default asks wgpu for its own
+// defaults, which is what an instance created without extras gets.
 [Flags]
-public enum InstanceFlag : uint
+public enum InstanceFlag : ulong
 {
-    Default = 0,
-    Debug = 1u << 0,
-    Validation = 1u << 1,
-    DiscardHalLabels = 1u << 2,
+    Empty = 0,
+    Debug = 1ul << 0,
+    Validation = 1ul << 1,
+    DiscardHalLabels = 1ul << 2,
+    AllowUnderlyingNoncompliantAdapter = 1ul << 3,
+    GpuBasedValidation = 1ul << 4,
+    ValidationIndirectCall = 1ul << 5,
+    AutomaticTimestampNormalization = 1ul << 6,
+    Default = 1ul << 24,
+    Debugging = 1ul << 25,
+    AdvancedDebugging = 1ul << 26,
+    WithEnv = 1ul << 27,
+}
+
+/// <summary>
+/// How wgpu's GPU memory allocator trades memory for allocation speed (wgpu.h WGPUMemoryHints).
+/// </summary>
+public enum MemoryHints : uint
+{
+    /// <summary>wgpu's default, which is <see cref="Performance"/>.</summary>
+    Undefined = 0,
+
+    /// <summary>
+    /// Large suballocation blocks (128 MiB device / 64 MiB host minimum). Suits games streaming
+    /// hundreds of megabytes of resources; commits those blocks up front on the first allocation.
+    /// </summary>
+    Performance = 1,
+
+    /// <summary>Small suballocation blocks (8 MiB device / 4 MiB host minimum) that grow on demand.</summary>
+    MemoryUsage = 2,
+
+    /// <summary>Block sizes given explicitly by the caller.</summary>
+    Manual = 3,
 }
 
 // ─── Plain enums (Undefined = 0) ──────────────────────────────────────────

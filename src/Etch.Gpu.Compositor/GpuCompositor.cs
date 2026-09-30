@@ -251,9 +251,6 @@ public sealed unsafe class GpuCompositor : IDisposable
             var classified = ClassifyScene(scene, grid);
             var stripBuffer = StripEmitter.Emit(scene, classified, grid);
 
-            string debugPath = System.IO.Path.Combine(System.AppContext.BaseDirectory, "compositor-debug.txt");
-            System.IO.File.AppendAllText(debugPath, $"[{DateTime.Now:HH:mm:ss.fff}] sceneCmds={scene.Commands.Length} entries={classified.AllEntries.Length} strips={stripBuffer.StripCount}\n");
-
             var (paintBuffer, gradientBuffer) = BuildPaintBufferWithGradients(scene);
             _cachedPaintBuffer = paintBuffer;
             _cachedGradientBuffer = gradientBuffer;

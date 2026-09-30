@@ -28,24 +28,92 @@ public struct ChainedStruct
 // Instance / Adapter / Device descriptors (v29).
 // ═══════════════════════════════════════════════════════════════════════════
 
-// wgpuCreateInstance takes an optional WGPUInstanceDescriptor*. Field
-// ordering and contents match webgpu.h v29. `Features` and `Capabilities`
-// are pointer-to-sub-struct in v29 but we only need a zeroed descriptor
-// for the red triangle path, so we don't model the sub-structs yet.
+// WGPUInstanceDescriptor (webgpu.h). Backend selection and flags ride in a chained
+// WGPUInstanceExtras; Instance.Create(InstanceOptions) builds that chain.
 [StructLayout(LayoutKind.Sequential)]
 public struct InstanceDescriptor
 {
     public IntPtr NextInChain;           // WGPUChainedStruct const*
-    public InstanceCapabilities Capabilities;
+    public UIntPtr RequiredFeatureCount;
+    public IntPtr RequiredFeatures;      // WGPUInstanceFeatureName const*
+    public IntPtr RequiredLimits;        // WGPUInstanceLimits const* (nullable)
 }
 
-// Matches WGPUInstanceCapabilities (webgpu.h v29).
-[StructLayout(LayoutKind.Sequential)]
-public struct InstanceCapabilities
+/// <summary>
+/// What an <see cref="Instance"/> is created with. <see cref="Default"/> enables only the
+/// platform's primary backend, so an instance never loads driver stacks it will not use.
+/// </summary>
+public struct InstanceOptions
 {
-    public IntPtr NextInChain;
-    public uint TimedWaitAnyEnable;      // WGPUBool
-    public UIntPtr TimedWaitAnyMaxCount;
+    /// <summary>
+    /// Backends wgpu may enumerate. <see cref="InstanceBackend.All"/> loads every available
+    /// driver stack (Vulkan, GL and D3D12 for every GPU on Windows), which costs tens of
+    /// megabytes and start-up time; use it only to compare backends.
+    /// </summary>
+    public InstanceBackend Backends { get; set; }
+
+    /// <summary>Debug/validation flags. <see cref="InstanceFlag.Default"/> is wgpu's own default.</summary>
+    public InstanceFlag Flags { get; set; }
+
+    /// <summary>The platform's primary backend and wgpu's default flags.</summary>
+    public static InstanceOptions Default => new() { Backends = PlatformBackends, Flags = InstanceFlag.Default };
+
+    /// <summary>Every backend wgpu supports on this platform.</summary>
+    public static InstanceOptions AllBackends => new() { Backends = InstanceBackend.All, Flags = InstanceFlag.Default };
+
+    /// <summary>
+    /// D3D12 on Windows (every Windows 10+ machine has it, including the WARP software adapter),
+    /// Metal on macOS, and Vulkan with GL as the fallback on Linux.
+    /// </summary>
+    public static InstanceBackend PlatformBackends
+    {
+        get
+        {
+            if (OperatingSystem.IsWindows())
+            {
+                return InstanceBackend.DX12;
+            }
+            if (OperatingSystem.IsMacOS())
+            {
+                return InstanceBackend.Metal;
+            }
+            return InstanceBackend.Vulkan | InstanceBackend.GL;
+        }
+    }
+}
+
+/// <summary>
+/// What a <see cref="Device"/> is requested with, on top of the caller's
+/// <see cref="DeviceDescriptor"/>. <see cref="Default"/> suits a UI renderer: GPU memory grows
+/// with content instead of being committed up front.
+/// </summary>
+public struct DeviceOptions
+{
+    /// <summary>
+    /// Default cap on live non-sampler bindings. Only D3D12 sizes a shader-visible descriptor heap
+    /// from it (32–64 bytes per entry). wgpu's own default of 1,000,000 commits 30–60 MB for a heap a
+    /// UI never approaches: Cascade keeps one bind group per unique image plus a handful per frame.
+    /// </summary>
+    public const uint DefaultMaxNonSamplerBindings = 65_536;
+
+    /// <summary>Allocator block-size strategy.</summary>
+    public MemoryHints MemoryHints { get; set; }
+
+    /// <summary>
+    /// Cap on live non-sampler bindings, clamped to what the adapter supports.
+    /// 0 keeps wgpu's default (1,000,000 on D3D12).
+    /// </summary>
+    public uint MaxNonSamplerBindings { get; set; }
+
+    /// <summary>Memory-lean allocator blocks and a UI-sized descriptor heap.</summary>
+    public static DeviceOptions Default => new()
+    {
+        MemoryHints = MemoryHints.MemoryUsage,
+        MaxNonSamplerBindings = DefaultMaxNonSamplerBindings,
+    };
+
+    /// <summary>wgpu's own defaults, for comparison and for content that streams very large resources.</summary>
+    public static DeviceOptions WgpuDefaults => new() { MemoryHints = MemoryHints.Performance, MaxNonSamplerBindings = 0 };
 }
 
 // WGPURequestAdapterOptions (webgpu.h v29).

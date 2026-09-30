@@ -44,17 +44,99 @@ public readonly struct Instance : IDisposable
         }
     }
 
-    /// <summary>Creates a new wgpu instance with optional capabilities.</summary>
-    public static unsafe Instance Create(InstanceDescriptor? descriptor = null)
+    /// <summary>
+    /// Creates an instance limited to the platform's primary backend
+    /// (<see cref="InstanceOptions.Default"/>).
+    /// </summary>
+    public static Instance Create() => Create(InstanceOptions.Default);
+
+    /// <summary>Creates an instance with the given backends and flags.</summary>
+    public static unsafe Instance Create(InstanceOptions options)
     {
-        if (!descriptor.HasValue)
+        WGPUInstanceExtras extras = default;
+        extras.Chain.SType = WGPUSType.InstanceExtras;
+        extras.Backends = (ulong)options.Backends;
+        extras.Flags = (ulong)options.Flags;
+
+        InstanceDescriptor descriptor = default;
+        descriptor.NextInChain = (IntPtr)(&extras);
+        return new Instance(WebGPU.CreateInstance((nint)(&descriptor)));
+    }
+
+    /// <summary>
+    /// Creates an instance from a caller-assembled descriptor. Nothing is added to its chain, so
+    /// without a chained WGPUInstanceExtras wgpu enables every backend.
+    /// </summary>
+    public static unsafe Instance CreateRaw(InstanceDescriptor descriptor)
+    {
+        return new Instance(WebGPU.CreateInstance((nint)(&descriptor)));
+    }
+
+    /// <summary>
+    /// Every adapter on the backends this instance enabled, in the platform's enumeration order
+    /// (DXGI's on Windows). The caller owns and must dispose each returned adapter.
+    /// </summary>
+    public unsafe Adapter[] EnumerateAdapters()
+    {
+        if (_handle.IsInvalid)
         {
-            return new Instance(WebGPU.CreateInstance(IntPtr.Zero));
+            return [];
         }
 
-        InstanceDescriptor desc = descriptor.Value;
-        return new Instance(WebGPU.CreateInstance((nint)(&desc)));
+        int count = (int)WebGPU.InstanceEnumerateAdapters(_handle, IntPtr.Zero, IntPtr.Zero);
+        if (count == 0)
+        {
+            return [];
+        }
+
+        Span<nint> handles = count <= 32 ? stackalloc nint[count] : new nint[count];
+        int written;
+        fixed (nint* handlesPtr = handles)
+        {
+            written = (int)WebGPU.InstanceEnumerateAdapters(_handle, IntPtr.Zero, (nint)handlesPtr);
+        }
+        var adapters = new Adapter[Math.Min(count, written)];
+        for (int i = 0; i < adapters.Length; i++)
+        {
+            adapters[i] = new Adapter(new AdapterHandle(handles[i]));
+        }
+        return adapters;
     }
+}
+
+/// <summary>What an adapter is: which GPU, on which backend, of which kind.</summary>
+public readonly struct AdapterDescription
+{
+    public AdapterDescription(BackendType backend, AdapterType type, uint vendorId, uint deviceId, string name, string driver)
+    {
+        Backend = backend;
+        Type = type;
+        VendorId = vendorId;
+        DeviceId = deviceId;
+        Name = name;
+        Driver = driver;
+    }
+
+    public BackendType Backend { get; }
+
+    public AdapterType Type { get; }
+
+    /// <summary>PCI vendor id (0x10DE NVIDIA, 0x1002 AMD, 0x8086 Intel; 0x1414 Microsoft for WARP).</summary>
+    public uint VendorId { get; }
+
+    /// <summary>PCI device id.</summary>
+    public uint DeviceId { get; }
+
+    /// <summary>The adapter's name, e.g. "NVIDIA GeForce RTX 4090".</summary>
+    public string Name { get; }
+
+    /// <summary>Driver description as reported by the backend; may be empty.</summary>
+    public string Driver { get; }
+
+    /// <summary>True for a software rasterizer (WARP, llvmpipe, lavapipe).</summary>
+    public bool IsSoftware => Type == AdapterType.CPU;
+
+    public override string ToString() => $"{Name} ({Type}, {Backend})";
 }
 
 public readonly struct Adapter : IDisposable
@@ -73,6 +155,68 @@ public readonly struct Adapter : IDisposable
         {
             WebGPU.AdapterRelease(_handle);
         }
+    }
+
+    /// <summary>Describes the adapter; a default description when the adapter is invalid or the query fails.</summary>
+    public unsafe AdapterDescription GetDescription()
+    {
+        if (_handle.IsInvalid)
+        {
+            return default;
+        }
+
+        WGPUAdapterInfo info = default;
+        if (WebGPU.AdapterGetInfo(_handle, (nint)(&info)) != 1)
+        {
+            return default;
+        }
+
+        try
+        {
+            return new AdapterDescription(
+                (BackendType)info.BackendType,
+                (AdapterType)info.AdapterType,
+                info.VendorId,
+                info.DeviceId,
+                ReadString(info.Device),
+                ReadString(info.Description));
+        }
+        finally
+        {
+            WebGPU.AdapterInfoFreeMembers(info);
+        }
+    }
+
+    /// <summary>True when this adapter can present to <paramref name="surface"/> with at least one format.</summary>
+    /// <param name="surface">The window surface frames will be presented to.</param>
+    public unsafe bool CanPresentTo(Surface surface)
+    {
+        if (_handle.IsInvalid || !surface.IsValid)
+        {
+            return false;
+        }
+
+        WGPUSurfaceCapabilities capabilities = default;
+        if (WebGPU.SurfaceGetCapabilities(surface.Handle, _handle, (nint)(&capabilities)) != 1)
+        {
+            return false;
+        }
+
+        bool usable = capabilities.FormatCount > 0;
+        WebGPU.SurfaceCapabilitiesFreeMembers(capabilities);
+        return usable;
+    }
+
+    private static unsafe string ReadString(WGPUStringView view)
+    {
+        if (view.Data == null || view.Length == 0)
+        {
+            return string.Empty;
+        }
+        int length = view.Length == WGPUStringView.StrLen
+            ? MemoryMarshal.CreateReadOnlySpanFromNullTerminated(view.Data).Length
+            : (int)Math.Min((ulong)view.Length, int.MaxValue);
+        return Encoding.UTF8.GetString(view.Data, length);
     }
 }
 
@@ -106,9 +250,12 @@ public readonly struct Device : IDisposable
         }
     }
 
-    public void Poll(bool wait = false)
+    /// <summary>Processes completed GPU work; with <paramref name="wait"/>, blocks until the queue drains.</summary>
+    /// <param name="wait">Block until all submitted work has finished.</param>
+    /// <returns>True when no submissions are still in flight.</returns>
+    public bool Poll(bool wait = false)
     {
-        WebGPU.DevicePoll(_handle, wait ? (byte)1 : (byte)0, IntPtr.Zero);
+        return WebGPU.DevicePoll(_handle, wait ? 1u : 0u, IntPtr.Zero) != 0;
     }
 
     public unsafe Buffer CreateBuffer(BufferDescriptor descriptor)

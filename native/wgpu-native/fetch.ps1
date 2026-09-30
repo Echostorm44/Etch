@@ -2,10 +2,11 @@
 #Requires -Version 7
 <#
 .SYNOPSIS
-    Fetches prebuilt wgpu-native binaries for the pinned VERSION.
+    Fetches the wgpu-native binaries for the pinned VERSION.
 
 .DESCRIPTION
-    Downloads prebuilt wgpu-native binaries from GitHub releases, verifies SHA-256
+    Downloads the wgpu-native archives that .github/workflows/wgpu-native.yml built from the commit
+    pinned in SOURCE (release VERSION on this repository), verifies SHA-256
     checksums against CHECKSUMS.txt, and unpacks to native/wgpu-native/<rid>/.
 
 .PARAMETER Rid
@@ -26,7 +27,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $Version = (Get-Content "$PSScriptRoot/VERSION" -Raw).Trim()
-$BaseUrl = "https://github.com/gfx-rs/wgpu-native/releases/download/$Version"
+$BaseUrl = "https://github.com/Echostorm44/Etch/releases/download/$Version"
 $ScriptDir = $PSScriptRoot
 
 $Map = @{

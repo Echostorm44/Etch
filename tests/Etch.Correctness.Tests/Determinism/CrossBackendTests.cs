@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Etch.ClipBlendGradient;
 using Etch.Geometry;
 using Etch.Gpu;
+using Etch.Gpu.Descriptors;
 using Etch.Gpu.Native;
 using Etch.Scene;
 using Etch.Testing;
@@ -89,7 +90,8 @@ public class CrossBackendTests
         var available = new List<BackendType>();
         var candidates = new[] { BackendType.Vulkan, BackendType.D3D12, BackendType.Metal, BackendType.OpenGL };
 
-        using var instance = Instance.Create();
+        // Every backend must be enumerable here; the default instance only loads the platform's primary one.
+        using var instance = Instance.Create(InstanceOptions.AllBackends);
         foreach (var backend in candidates)
         {
             try

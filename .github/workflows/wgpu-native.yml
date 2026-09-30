@@ -1,0 +1,94 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# wgpu-native.yml — build wgpu-native from the commit pinned in native/wgpu-native/SOURCE
+# ─────────────────────────────────────────────────────────────────────────────
+# Why Etch builds wgpu-native itself: design-decisions.md D-015.
+#
+# Triggered by pushing a tag equal to native/wgpu-native/VERSION (pattern wgpu-native-*):
+#
+#   git tag wgpu-native-b83eb64 && git push origin wgpu-native-b83eb64
+#
+# Each RID is built on its own runner by native/wgpu-native/build.ps1, then one job creates the
+# GitHub release named after the tag and attaches the three archives. fetch.ps1 downloads from
+# that release and verifies CHECKSUMS.txt, so after the release exists:
+#   1. download the three archives, 2. update CHECKSUMS.txt, 3. commit.
+#
+# Order matters: publish-nuget.yml runs fetch.ps1, so this release must exist before a v* tag.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Build wgpu-native
+
+on:
+  push:
+    tags:
+      - 'wgpu-native-*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build (${{ matrix.rid }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - rid: win-x64
+            os: windows-latest
+          # Oldest supported Ubuntu runner: the .so links against its glibc, so building on an
+          # older base keeps the binary loadable on more distributions.
+          - rid: linux-x64
+            os: ubuntu-22.04
+          - rid: osx-arm64
+            os: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install libclang (bindgen)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libclang-dev
+
+      - name: Point bindgen at LLVM
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: echo "LIBCLANG_PATH=C:\Program Files\LLVM\bin" >> $env:GITHUB_ENV
+
+      - name: Build
+        shell: pwsh
+        run: ./native/wgpu-native/build.ps1 -OutDir out
+
+      - name: Upload archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: wgpu-native-${{ matrix.rid }}
+          path: out/*.zip
+          if-no-files-found: error
+
+  release:
+    name: Publish release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/wgpu-native-')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download archives
+        uses: actions/download-artifact@v4
+        with:
+          path: archives
+          merge-multiple: true
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          sha256sum archives/*.zip
+          commit=$(sed -n 's/^commit *= *//p' native/wgpu-native/SOURCE)
+          gh release create "$TAG" archives/*.zip \
+            --title "$TAG" \
+            --notes "wgpu-native built from gfx-rs/wgpu-native@${commit} with Etch's feature set (native/wgpu-native/SOURCE). Consumed by native/wgpu-native/fetch.ps1; see design-decisions.md D-015." \
+            --prerelease

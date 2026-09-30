@@ -34,6 +34,37 @@ public static partial class WebGPU
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
     public static partial void AdapterRequestDevice(AdapterHandle adapter, System.IntPtr descriptor, System.IntPtr callbackInfo);
 
+    // Returns WGPUStatus (1 = success). `limits` points at a WGPULimits, optionally chained with
+    // WGPUNativeLimits, which is filled in.
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuAdapterGetLimits")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial uint AdapterGetLimits(AdapterHandle adapter, System.IntPtr limits);
+
+    // Returns WGPUStatus (1 = success). The string views in `info` belong to wgpu until
+    // AdapterInfoFreeMembers is called on the same struct.
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuAdapterGetInfo")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial uint AdapterGetInfo(AdapterHandle adapter, System.IntPtr info);
+
+    // Returns WGPUStatus (1 = success, i.e. the adapter can present to the surface).
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuSurfaceGetCapabilities")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial uint SurfaceGetCapabilities(SurfaceHandle surface, AdapterHandle adapter, System.IntPtr capabilities);
+
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuSurfaceCapabilitiesFreeMembers")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial void SurfaceCapabilitiesFreeMembers(WGPUSurfaceCapabilities capabilities);
+
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuAdapterInfoFreeMembers")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial void AdapterInfoFreeMembers(WGPUAdapterInfo info);
+
+    // wgpu.h: with `adapters` null, returns the count; otherwise fills `adapters` (caller-sized) and
+    // returns how many were written. Each written adapter is owned by the caller.
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuInstanceEnumerateAdapters")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial System.UIntPtr InstanceEnumerateAdapters(InstanceHandle instance, System.IntPtr options, System.IntPtr adapters);
+
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuDeviceReference")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
     public static partial void DeviceReference(DeviceHandle device);
@@ -72,7 +103,7 @@ public static partial class WebGPU
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuDevicePoll")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-    public static partial byte DevicePoll(DeviceHandle device, byte wait, System.IntPtr submissionIndex);
+    public static partial uint DevicePoll(DeviceHandle device, uint wait, System.IntPtr submissionIndex);
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuQueueSubmit")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]

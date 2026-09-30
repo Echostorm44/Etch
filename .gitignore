@@ -38,3 +38,8 @@ frame0.bmp
 docs/
 AGENTS.md
 ProjectPlan.md
+
+# wgpu-native: per-RID libraries come from fetch.ps1 (or build.ps1); only headers + meta are tracked.
+native/wgpu-native/*/lib/
+native/wgpu-native/src/
+native/wgpu-native/out/
