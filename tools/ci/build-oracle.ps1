@@ -28,23 +28,23 @@ foreach ($target in $Targets) {
         "osx-arm64"  { "libetch_kurbo_oracle.dylib" }
     }
 
-    $srcDir = "$RepoRoot\tests\Etch.Geometry.Oracle.Native"
-    $targetDir = "$RepoRoot\tests\Etch.Geometry.Oracle\runtimes\$target\native"
+    $srcDir = "$RepoRoot/tests/Etch.Geometry.Oracle.Native"
+    $targetDir = "$RepoRoot/tests/Etch.Geometry.Oracle/runtimes/$target/native"
 
     if (-not (Test-Path $srcDir)) {
         Write-Error "Oracle native source not found at $srcDir"
     }
 
-    $env:CARGO_TARGET_DIR = "$srcDir\target"
-    cargo build --release --manifest-path "$srcDir\Cargo.toml" --target $cargoTarget 2>&1 | ForEach-Object { Write-Host "  $_" }
+    $env:CARGO_TARGET_DIR = "$srcDir/target"
+    cargo build --release --manifest-path "$srcDir/Cargo.toml" --target $cargoTarget 2>&1 | ForEach-Object { Write-Host "  $_" }
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Cargo build failed for $target"
     }
 
     $srcDll = switch ($target) {
-        "win-x64"    { "$srcDir\target\$cargoTarget\release\$cdylibName" }
-        "linux-x64"  { "$srcDir\target\$cargoTarget\release\$cdylibName" }
-        "osx-arm64"  { "$srcDir\target\$cargoTarget\release\$cdylibName" }
+        "win-x64"    { "$srcDir/target/$cargoTarget/release/$cdylibName" }
+        "linux-x64"  { "$srcDir/target/$cargoTarget/release/$cdylibName" }
+        "osx-arm64"  { "$srcDir/target/$cargoTarget/release/$cdylibName" }
     }
 
     if (-not (Test-Path $srcDll)) {
@@ -52,8 +52,8 @@ foreach ($target in $Targets) {
     }
 
     New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
-    Copy-Item $srcDll "$targetDir\$cdylibName" -Force
-    Write-Host "  Copied to $targetDir\$cdylibName"
+    Copy-Item $srcDll "$targetDir/$cdylibName" -Force
+    Write-Host "  Copied to $targetDir/$cdylibName"
 }
 
 Write-Host "Done."

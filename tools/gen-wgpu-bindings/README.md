@@ -1,10 +1,10 @@
 # Etch.BindingsGen
 
-Generates C# P/Invoke bindings from wgpu-native C headers using ClangSharp.
+Generates the wgpu-native handle types (`WebGPU.Types.cs`) and function bindings (`WebGPU.Generated.cs`) from the table in `BindingsGenerator.cs`. It does not parse the headers: when they change, update the table (and the hand-maintained `src/Etch.Gpu.Native/WebGPU.Structs.cs`) against them, then regenerate and review the diff.
 
 ## Overview
 
-This tool invokes ClangSharpPInvokeGenerator to parse the WebGPU C headers (`webgpu.h` and `wgpu.h`) and generate type-safe C# P/Invoke bindings. The generated bindings use `LibraryImport` (source-generated interop) for AOT compatibility.
+The generated bindings use `LibraryImport` (source-generated interop) for AOT compatibility. Struct layouts are guarded by `tests/Etch.Gpu.Native.Tests/NativeAbiLayoutTests.cs`, whose expected sizes come from bindgen's layout assertions in the wgpu-native build.
 
 ## Usage
 

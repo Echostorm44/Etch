@@ -42,6 +42,11 @@ jobs:
         run: ./native/wgpu-native/fetch.ps1 all
         shell: pwsh
 
+      # The kurbo oracle is a Rust cdylib (not checked in) used by Etch.Geometry.Differential.
+      - name: Build kurbo oracle
+        run: ./tools/ci/build-oracle.ps1 -Targets ${{ matrix.rid }}
+        shell: pwsh
+
       - name: Build
         run: dotnet build Etch.sln -c Release --no-restore
 
@@ -53,10 +58,11 @@ jobs:
         run: echo "ETCH_SOFTWARE_GPU=1" >> "$GITHUB_ENV"
         shell: bash
 
+      # Every suite under tests/. On Windows the GPU suites run on the runner's WARP adapter;
+      # on Linux (software GPU) the device-opening suites are skipped by the script.
       - name: Run tests (excluding Flaky)
-        run: |
-          dotnet run --project tests/Etch.Abstractions.Tests/Etch.Abstractions.Tests.csproj -c Release --no-build
-          dotnet run --project tests/Etch.Testing.Tests/Etch.Testing.Tests.csproj -c Release --no-build
+        run: ./tools/ci/run-all-tests.ps1
+        shell: pwsh
 
       - name: Upload test results
         if: always()
