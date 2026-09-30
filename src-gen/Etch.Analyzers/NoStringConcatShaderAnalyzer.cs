@@ -107,7 +107,11 @@ public sealed class NoStringConcatShaderAnalyzer : DiagnosticAnalyzer
                             return;
                         }
 
-                        if (name == "ToString" && IsStringBuilderChain(invocationExpr.Expression))
+                        // For `receiver.ToString()` the invocation's expression is the member access
+                        // `receiver.ToString`; the builder chain to inspect is its receiver.
+                        if (name == "ToString"
+                            && invocationExpr.Expression is MemberAccessExpressionSyntax toStringAccess
+                            && IsStringBuilderChain(toStringAccess.Expression))
                         {
                             nodeContext.ReportDiagnostic(Diagnostic.Create(
                                 Descriptor,

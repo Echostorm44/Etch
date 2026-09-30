@@ -53,12 +53,19 @@ public sealed class NoComputeShaderAnalyzer : DiagnosticAnalyzer
         });
     }
 
+    // Covers every GPU project under src/: Etch.Gpu itself plus Etch.Gpu.* siblings such as
+    // Etch.Gpu.Compositor and Etch.Gpu.Native. Paths are normalized so Windows separators and
+    // relative paths match too.
     private static bool IsGpuCode(string filePath)
     {
-        return filePath.Contains("/src/Etch.Gpu.", StringComparison.Ordinal) ||
-               filePath.Contains("\\src\\Etch.Gpu.", StringComparison.Ordinal) ||
-               filePath.Contains("/src/Etch.Gpu.Compositor.", StringComparison.Ordinal) ||
-               filePath.Contains("\\src\\Etch.Gpu.Compositor.", StringComparison.Ordinal);
+        if (string.IsNullOrEmpty(filePath))
+        {
+            return false;
+        }
+
+        string normalized = "/" + filePath.Replace('\\', '/').TrimStart('/');
+        return normalized.Contains("/src/Etch.Gpu/", StringComparison.Ordinal) ||
+               normalized.Contains("/src/Etch.Gpu.", StringComparison.Ordinal);
     }
 
     private static bool IsCreateComputePipelineCall(InvocationExpressionSyntax invocation)
