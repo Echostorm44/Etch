@@ -427,6 +427,15 @@ public ref struct SceneBuilder
         }));
     }
 
+    /// <summary>
+    /// Draws a drop shadow of <paramref name="pathId"/>: the shape offset by <paramref name="offset"/>
+    /// (path space, before <paramref name="transformId"/>) and blurred by a Gaussian whose standard
+    /// deviation is <paramref name="blurRadius"/> (it reaches 3× that past the shape, as in
+    /// <c>DropShadow.ComputeShadowBounds</c>; CSS blur radii are 2σ). Draw it before the
+    /// shape it belongs to. Renderers draw it analytically from <see cref="ShadowShape"/>: rects,
+    /// rounded rects and circles are exact, other paths are shadowed by their bounding box.
+    /// <paramref name="shadowColor"/> (ARGB) is the colour; <paramref name="paintId"/> is reserved.
+    /// </summary>
     public void DrawShadow(int pathId, int paintId, int transformId, Etch.Geometry.Vec2 offset, float blurRadius, uint shadowColor)
     {
         EnsureNotEnded();

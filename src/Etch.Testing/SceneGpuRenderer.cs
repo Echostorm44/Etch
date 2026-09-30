@@ -253,10 +253,7 @@ public static class SceneGpuRenderer
     {
         var tl = transform.Transform(new Point(rect.MinX, rect.MinY));
         var br = transform.Transform(new Point(rect.MaxX, rect.MaxY));
-        float a = ((argb >> 24) & 0xFF) / 255.0f;
-        float r = ((argb >> 16) & 0xFF) / 255.0f;
-        float g = ((argb >> 8) & 0xFF) / 255.0f;
-        float b = (argb & 0xFF) / 255.0f;
+        var (r, g, b, a) = PaintColor.ToLinear(argb);
         return new PerDrawData
         {
             RectMinX = (float)Math.Min(tl.X, br.X), RectMinY = (float)Math.Min(tl.Y, br.Y),
@@ -268,10 +265,7 @@ public static class SceneGpuRenderer
     private static PerDrawData BuildCircleData(Point center, float radius, Affine transform, uint argb)
     {
         var tc = transform.Transform(center);
-        float a = ((argb >> 24) & 0xFF) / 255.0f;
-        float cr = ((argb >> 16) & 0xFF) / 255.0f;
-        float cg = ((argb >> 8) & 0xFF) / 255.0f;
-        float cb = (argb & 0xFF) / 255.0f;
+        var (cr, cg, cb, a) = PaintColor.ToLinear(argb);
         return new PerDrawData
         {
             RectMinX = (float)tc.X, RectMinY = (float)tc.Y,

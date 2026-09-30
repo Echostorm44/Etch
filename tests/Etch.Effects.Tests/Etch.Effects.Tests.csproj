@@ -11,5 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Etch.Abstractions\Etch.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Etch.Effects\Etch.Effects.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
   </ItemGroup>
 </Project>

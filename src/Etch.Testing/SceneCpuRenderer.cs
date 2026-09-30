@@ -120,6 +120,22 @@ public static class SceneCpuRenderer
                         break;
                     }
 
+                    case SceneOpcode.DrawShadow:
+                    {
+                        if (scene.TryGetPath(cmd.DrawShadow.PathId, out var shadowPath))
+                        {
+                            var mask = BuildClipMask(scene, clipCommands, scratch);
+                            var xf = currentXform * scene.GetTransform(cmd.DrawShadow.TransformId);
+                            RasterizeShadow(fb, in cmd.DrawShadow, shadowPath.Path, xf, mask);
+                            if (mask.Coverage.Width > 0)
+                            {
+                                var coverage = mask.Coverage;
+                                FramebufferPool.Return(ref coverage);
+                            }
+                        }
+                        break;
+                    }
+
                     case SceneOpcode.FillSector:
                     {
                         // WP-3514: the strip pipeline has no sector primitive, so
@@ -342,6 +358,66 @@ public static class SceneCpuRenderer
     /// convention matches the GPU sector instance: point = center + r·(cos θ, sin θ)
     /// with screen-Y down.
     /// </summary>
+    // Analytic drop shadow (ShadowShape): transform the offset shape to device space, then
+    // blend the closed-form Gaussian coverage over its 3σ-inflated bounds.
+    private static void RasterizeShadow(Framebuffer fb, in Etch.Scene.DrawShadowPayload s, BezPath path, Affine xform, ClipMask mask)
+    {
+        if (!ShadowShape.TryResolve(path, out var local, out double corner))
+        {
+            return;
+        }
+        double scale = Math.Sqrt(Math.Abs(xform.Determinant()));
+        var shifted = new Rect(local.MinX + s.ShadowOffsetX, local.MinY + s.ShadowOffsetY, local.MaxX + s.ShadowOffsetX, local.MaxY + s.ShadowOffsetY);
+        var device = shifted.Transform(xform);
+        double deviceCorner = corner * scale;
+        double sigma = ShadowShape.EffectiveSigma(s.BlurRadius * scale);
+        if (device.IsEmpty)
+        {
+            return;
+        }
+
+        uint color = s.ShadowColor;
+        float rLin = Srgb.DecodeChannelScalar((byte)((color >> 16) & 0xFF));
+        float gLin = Srgb.DecodeChannelScalar((byte)((color >> 8) & 0xFF));
+        float bLin = Srgb.DecodeChannelScalar((byte)(color & 0xFF));
+        float aLin = ((color >> 24) & 0xFF) * (1.0f / 255.0f);
+
+        double extent = ShadowShape.Extent(sigma);
+        int minX = Math.Max(0, (int)Math.Floor(device.MinX - extent));
+        int maxX = Math.Min(fb.Width - 1, (int)Math.Ceiling(device.MaxX + extent));
+        int minY = Math.Max(0, (int)Math.Floor(device.MinY - extent));
+        int maxY = Math.Min(fb.Height - 1, (int)Math.Ceiling(device.MaxY + extent));
+        bool hasMask = mask.Coverage.Width > 0;
+
+        for (int y = minY; y <= maxY; y++)
+        {
+            var row = fb.RowSpan(y);
+            var maskRow = hasMask ? mask.Coverage.RowSpan(y) : default;
+            for (int x = minX; x <= maxX; x++)
+            {
+                double cov = ShadowShape.Coverage(device, deviceCorner, sigma, x + 0.5, y + 0.5);
+                if (hasMask)
+                {
+                    cov *= (double)maskRow[x].R;
+                }
+                if (cov <= 0)
+                {
+                    continue;
+                }
+
+                float alpha = (float)(cov * aLin);
+                float invAlpha = 1.0f - alpha;
+                ref var dst = ref row[x];
+                float dr = (float)dst.R, dg = (float)dst.G, db = (float)dst.B, da = (float)dst.A;
+                dst = Rgba16f.From(
+                    rLin * alpha + dr * invAlpha,
+                    gLin * alpha + dg * invAlpha,
+                    bLin * alpha + db * invAlpha,
+                    alpha + da * invAlpha);
+            }
+        }
+    }
+
     private static void RasterizeSector(Framebuffer fb, in Etch.Scene.FillSectorPayload s, Affine xform, uint color, ClipMask mask)
     {
         var tc = xform.Transform(new Point(s.CenterX, s.CenterY));

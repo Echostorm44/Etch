@@ -77,10 +77,8 @@ public sealed unsafe class GpuCompositor : IDisposable
 
         public static PaintData FromSolid(uint argb)
         {
-            float a = ((argb >> 24) & 0xFF) / 255.0f;
-            float r = ((argb >> 16) & 0xFF) / 255.0f;
-            float g = ((argb >> 8) & 0xFF) / 255.0f;
-            float b = (argb & 0xFF) / 255.0f;
+            // Paint colours are sRGB-encoded; the shader blends into an sRGB target in linear light.
+            var (r, g, b, a) = PaintColor.ToLinear(argb);
             return new PaintData
             {
                 R = r * a,
@@ -366,10 +364,7 @@ public sealed unsafe class GpuCompositor : IDisposable
                 for (int s = 0; s < stops.Count; s++)
                 {
                     var (offset, argb) = stops.GetStop(s);
-                    float a = ((argb >> 24) & 0xFF) / 255.0f;
-                    float r = ((argb >> 16) & 0xFF) / 255.0f;
-                    float green = ((argb >> 8) & 0xFF) / 255.0f;
-                    float blue = (argb & 0xFF) / 255.0f;
+                    var (r, green, blue, a) = PaintColor.ToLinear(argb);
                     gradientFloats.Add(offset);
                     gradientFloats.Add(r * a);
                     gradientFloats.Add(green * a);
