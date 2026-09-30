@@ -23,6 +23,9 @@ public readonly ref struct FrameContext : IDisposable
         _ownsTexture = ownsTexture;
     }
 
+    /// <summary>The frame's command encoder, for passes recorded by helpers that take an encoder.</summary>
+    public CommandEncoder Encoder => _encoder;
+
     public RenderPass BeginRenderPass(RenderPassDescriptor descriptor)
     {
         return _encoder.BeginRenderPass(descriptor);

@@ -42,7 +42,8 @@ public sealed unsafe class BackdropBlurGpuPipeline : IDisposable
 
         var descriptor = new TextureDescriptor
         {
-            Usage = (ulong)(TextureUsage.RenderAttachment | TextureUsage.CopySrc | TextureUsage.CopyDst),
+            // CopyDst for the backdrop copy, TextureBinding because the blur reads it.
+            Usage = (ulong)(TextureUsage.CopySrc | TextureUsage.CopyDst | TextureUsage.TextureBinding),
             Size = new Extent3D
             {
                 Width = (uint)width,

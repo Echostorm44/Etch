@@ -1,200 +1,122 @@
 using System;
+using System.Buffers;
+using System.Numerics;
 using Etch.Effects.Blur;
 
 namespace Etch.Raster.Cpu.Blur;
 
+/// <summary>
+/// Dual-filter blur (Bjørge, SIGGRAPH 2015): downsample through a chain of half-size levels, then
+/// upsample back with a 3x3 tent. The CPU reference for the GPU blur; both use
+/// <see cref="BlurTaps"/> and texel-exact addressing, so they agree to rounding.
+/// </summary>
 public static class BjorgeBlur
 {
-    public static void Blur(Framebuffer src, Framebuffer dst, float radiusPx, Framebuffer scratchPing, Framebuffer scratchPong)
+    /// <summary>Blurs <paramref name="src"/> into <paramref name="dst"/> (same size).</summary>
+    public static void Blur(Framebuffer src, Framebuffer dst, float radiusPx)
     {
-        if (radiusPx <= 0f)
+        if (src.Width != dst.Width || src.Height != dst.Height)
         {
-            if (src.Pixels.Span.Length != dst.Pixels.Span.Length)
-            {
-                Panic.ArgumentOutOfRange(nameof(dst), "dst must be same size as src for identity blur");
-            }
-            src.Pixels.Span.CopyTo(dst.Pixels.Span);
+            Panic.ArgumentOutOfRange(nameof(dst), "dst must be the same size as src");
+        }
+
+        int octaves = EffectiveOctaves(radiusPx, src.Width, src.Height);
+        if (octaves == 0)
+        {
+            CopyRows(src, dst);
             return;
         }
 
-        int octaveCount = DualFilterBlur.OctaveCount(radiusPx);
-        if (octaveCount == 0)
+        // levels[0] is the source; levels[k] is half of levels[k-1]. The down results are consumed
+        // on the way back up, so each up pass writes into the level it lands on.
+        var levels = new Framebuffer[octaves + 1];
+        var rented = new Rgba16f[octaves][];
+        levels[0] = src;
+        try
         {
-            src.Pixels.Span.CopyTo(dst.Pixels.Span);
-            return;
+            for (int k = 1; k <= octaves; k++)
+            {
+                int w = Math.Max(1, levels[k - 1].Width / 2);
+                int h = Math.Max(1, levels[k - 1].Height / 2);
+                rented[k - 1] = ArrayPool<Rgba16f>.Shared.Rent(w * h);
+                levels[k] = new Framebuffer(w, h, w, rented[k - 1].AsMemory(0, w * h));
+                DownsampleLevel(levels[k - 1], levels[k]);
+            }
+
+            for (int k = octaves; k >= 1; k--)
+            {
+                UpsampleLevel(levels[k], k == 1 ? dst : levels[k - 1]);
+            }
         }
-
-        int numPasses = 2 * octaveCount;
-
-        Framebuffer current = src;
-        Framebuffer scratchA = scratchPing;
-        Framebuffer scratchB = scratchPong;
-
-        for (int pass = 0; pass < numPasses; pass++)
+        finally
         {
-            bool isDownPass = pass < octaveCount;
-            bool isLastPass = pass == numPasses - 1;
-            bool useScratchAAsDest = pass % 2 == 0;
-
-            Framebuffer dest;
-            if (isLastPass)
+            foreach (var array in rented)
             {
-                dest = dst;
-            }
-            else if (useScratchAAsDest)
-            {
-                dest = scratchA;
-            }
-            else
-            {
-                dest = scratchB;
-            }
-
-            if (isDownPass)
-            {
-                DownsampleLevel(current, dest);
-            }
-            else
-            {
-                UpsampleLevel(current, dest);
-            }
-
-            if (!isLastPass)
-            {
-                current = dest;
+                if (array is not null)
+                {
+                    ArrayPool<Rgba16f>.Shared.Return(array);
+                }
             }
         }
     }
 
+    /// <summary>Octaves run for <paramref name="radiusPx"/> on a <paramref name="width"/> x <paramref name="height"/> image.</summary>
+    public static int EffectiveOctaves(float radiusPx, int width, int height) => DualFilterBlur.EffectiveOctaves(radiusPx, width, height);
+
+    private static void CopyRows(Framebuffer src, Framebuffer dst)
+    {
+        for (int y = 0; y < src.Height; y++)
+        {
+            src.RowSpan(y).Slice(0, src.Width).CopyTo(dst.RowSpan(y));
+        }
+    }
+
+    // dst[x, y] = average of src[2x..2x+1, 2y..2y+1], clamped at the edge for odd sizes.
     private static void DownsampleLevel(Framebuffer src, Framebuffer dst)
     {
-        int srcW = src.Width;
-        int srcH = src.Height;
-        int dstW = dst.Width;
-        int dstH = dst.Height;
-
-        if (dstW != srcW / 2 || dstH != srcH / 2)
+        int maxX = src.Width - 1;
+        int maxY = src.Height - 1;
+        for (int y = 0; y < dst.Height; y++)
         {
-            Panic.ArgumentOutOfRange(nameof(dst), "downsample destination must be half source size");
-        }
-
-        for (int y = 0; y < dstH; y++)
-        {
-            int srcY0 = y * 2;
-            int srcY1 = Math.Min(srcY0 + 1, srcH - 1);
-            Span<Rgba16f> dstRow = dst.RowSpan(y);
-
-            for (int x = 0; x < dstW; x++)
+            var row0 = src.RowSpan(Math.Min(2 * y, maxY));
+            var row1 = src.RowSpan(Math.Min(2 * y + 1, maxY));
+            var dstRow = dst.RowSpan(y);
+            for (int x = 0; x < dst.Width; x++)
             {
-                int srcX0 = x * 2;
-                int srcX1 = Math.Min(srcX0 + 1, srcW - 1);
-
-                Half cR = src.RowSpan(srcY0)[srcX0].R;
-                Half tlR = src.RowSpan(srcY0)[srcX1].R;
-                Half blR = src.RowSpan(srcY1)[srcX0].R;
-                Half brR = src.RowSpan(srcY1)[srcX1].R;
-
-                Half cG = src.RowSpan(srcY0)[srcX0].G;
-                Half tlG = src.RowSpan(srcY0)[srcX1].G;
-                Half blG = src.RowSpan(srcY1)[srcX0].G;
-                Half brG = src.RowSpan(srcY1)[srcX1].G;
-
-                Half cB = src.RowSpan(srcY0)[srcX0].B;
-                Half tlB = src.RowSpan(srcY0)[srcX1].B;
-                Half blB = src.RowSpan(srcY1)[srcX0].B;
-                Half brB = src.RowSpan(srcY1)[srcX1].B;
-
-                Half cA = src.RowSpan(srcY0)[srcX0].A;
-                Half tlA = src.RowSpan(srcY0)[srcX1].A;
-                Half blA = src.RowSpan(srcY1)[srcX0].A;
-                Half brA = src.RowSpan(srcY1)[srcX1].A;
-
-                float avgR = ((float)cR + (float)tlR + (float)blR + (float)brR) * 0.25f;
-                float avgG = ((float)cG + (float)tlG + (float)blG + (float)brG) * 0.25f;
-                float avgB = ((float)cB + (float)tlB + (float)blB + (float)brB) * 0.25f;
-                float avgA = ((float)cA + (float)tlA + (float)blA + (float)brA) * 0.25f;
-
-                dstRow[x] = Rgba16f.From(avgR, avgG, avgB, avgA);
+                int x0 = Math.Min(2 * x, maxX);
+                int x1 = Math.Min(2 * x + 1, maxX);
+                dstRow[x] = ToPixel((V(row0[x0]) + V(row0[x1]) + V(row1[x0]) + V(row1[x1])) * BlurTaps.DownWeight);
             }
         }
     }
 
+    // dst[x, y] = tent over the 3x3 source texels around src[x/2, y/2], clamped at the edges.
     private static void UpsampleLevel(Framebuffer src, Framebuffer dst)
     {
-        int srcW = src.Width;
-        int srcH = src.Height;
-        int dstW = dst.Width;
-        int dstH = dst.Height;
-
-        if (dstW != srcW * 2 || dstH != srcH * 2)
+        int maxX = src.Width - 1;
+        int maxY = src.Height - 1;
+        for (int y = 0; y < dst.Height; y++)
         {
-            Panic.ArgumentOutOfRange(nameof(dst), "upsample destination must be double source size");
-        }
-
-        float cW = BlurTaps.UpCenterWeight;
-        float eW = BlurTaps.UpEdgeWeight;
-        float cC = BlurTaps.UpCornerWeight;
-
-        for (int y = 0; y < dstH; y++)
-        {
-            int srcY = y / 2;
-            int srcY1 = Math.Min(srcH - 1, srcY + 1);
-            int srcY0 = Math.Max(0, srcY - 1);
-            Span<Rgba16f> dstRow = dst.RowSpan(y);
-
-            for (int x = 0; x < dstW; x++)
+            int sy = Math.Min(y / 2, maxY);
+            var top = src.RowSpan(Math.Max(sy - 1, 0));
+            var mid = src.RowSpan(sy);
+            var bottom = src.RowSpan(Math.Min(sy + 1, maxY));
+            var dstRow = dst.RowSpan(y);
+            for (int x = 0; x < dst.Width; x++)
             {
-                int srcX = x / 2;
-                int srcX1 = Math.Min(srcW - 1, srcX + 1);
-                int srcX0 = Math.Max(0, srcX - 1);
+                int sx = Math.Min(x / 2, maxX);
+                int l = Math.Max(sx - 1, 0);
+                int r = Math.Min(sx + 1, maxX);
 
-                float tlR = (float)src.RowSpan(srcY0)[srcX0].R;
-                float tR = (float)src.RowSpan(srcY0)[srcX].R;
-                float trR = (float)src.RowSpan(srcY0)[srcX1].R;
-                float lR = (float)src.RowSpan(srcY)[srcX0].R;
-                float cR = (float)src.RowSpan(srcY)[srcX].R;
-                float rR = (float)src.RowSpan(srcY)[srcX1].R;
-                float blR = (float)src.RowSpan(srcY1)[srcX0].R;
-                float bR = (float)src.RowSpan(srcY1)[srcX].R;
-                float brR = (float)src.RowSpan(srcY1)[srcX1].R;
-
-                float tlG = (float)src.RowSpan(srcY0)[srcX0].G;
-                float tG = (float)src.RowSpan(srcY0)[srcX].G;
-                float trG = (float)src.RowSpan(srcY0)[srcX1].G;
-                float lG = (float)src.RowSpan(srcY)[srcX0].G;
-                float cG = (float)src.RowSpan(srcY)[srcX].G;
-                float rG = (float)src.RowSpan(srcY)[srcX1].G;
-                float blG = (float)src.RowSpan(srcY1)[srcX0].G;
-                float bG = (float)src.RowSpan(srcY1)[srcX].G;
-                float brG = (float)src.RowSpan(srcY1)[srcX1].G;
-
-                float tlB = (float)src.RowSpan(srcY0)[srcX0].B;
-                float tB = (float)src.RowSpan(srcY0)[srcX].B;
-                float trB = (float)src.RowSpan(srcY0)[srcX1].B;
-                float lB = (float)src.RowSpan(srcY)[srcX0].B;
-                float cB = (float)src.RowSpan(srcY)[srcX].B;
-                float rB = (float)src.RowSpan(srcY)[srcX1].B;
-                float blB = (float)src.RowSpan(srcY1)[srcX0].B;
-                float bB = (float)src.RowSpan(srcY1)[srcX].B;
-                float brB = (float)src.RowSpan(srcY1)[srcX1].B;
-
-                float tlA = (float)src.RowSpan(srcY0)[srcX0].A;
-                float tA = (float)src.RowSpan(srcY0)[srcX].A;
-                float trA = (float)src.RowSpan(srcY0)[srcX1].A;
-                float lA = (float)src.RowSpan(srcY)[srcX0].A;
-                float cA = (float)src.RowSpan(srcY)[srcX].A;
-                float rA = (float)src.RowSpan(srcY)[srcX1].A;
-                float blA = (float)src.RowSpan(srcY1)[srcX0].A;
-                float bA = (float)src.RowSpan(srcY1)[srcX].A;
-                float brA = (float)src.RowSpan(srcY1)[srcX1].A;
-
-                float resultR = (tlR + trR + blR + brR) * cC + (tR + lR + rR + bR) * eW + cR * cW;
-                float resultG = (tlG + trG + blG + brG) * cC + (tG + lG + rG + bG) * eW + cG * cW;
-                float resultB = (tlB + trB + blB + brB) * cC + (tB + lB + rB + bB) * eW + cB * cW;
-                float resultA = (tlA + trA + blA + brA) * cC + (tA + lA + rA + bA) * eW + cA * cW;
-
-                dstRow[x] = Rgba16f.From(resultR, resultG, resultB, resultA);
+                Vector4 corners = V(top[l]) + V(top[r]) + V(bottom[l]) + V(bottom[r]);
+                Vector4 edges = V(top[sx]) + V(mid[l]) + V(mid[r]) + V(bottom[sx]);
+                dstRow[x] = ToPixel(corners * BlurTaps.UpCornerWeight + edges * BlurTaps.UpEdgeWeight + V(mid[sx]) * BlurTaps.UpCenterWeight);
             }
         }
     }
+
+    // Sums are kept in 32-bit float and rounded to half once per texel, like the GPU shaders.
+    private static Vector4 V(Rgba16f p) => new((float)p.R, (float)p.G, (float)p.B, (float)p.A);
+
+    private static Rgba16f ToPixel(Vector4 v) => Rgba16f.From(v.X, v.Y, v.Z, v.W);
 }

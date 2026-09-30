@@ -1,5 +1,5 @@
 using System;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using Etch.Effects.Blur;
 using Etch.Gpu;
 using Etch.Gpu.Descriptors;
@@ -7,197 +7,128 @@ using Etch.Gpu.Pipelines;
 
 namespace Etch.Gpu.Compositor.Pipelines;
 
+/// <summary>
+/// Dual-filter blur on the GPU: downsample through a chain of half-size levels, then upsample back
+/// into the destination. Matches the CPU reference <c>Etch.Raster.Cpu.Blur.BjorgeBlur</c> to rounding.
+/// </summary>
 public sealed unsafe class BlurGpuPipeline : IDisposable
 {
     private readonly Device _device;
     private readonly BlurPipeline _blurPipeline;
-    private Texture _scratchA;
-    private Texture _scratchB;
-    private int _scratchWidth;
-    private int _scratchHeight;
+    private readonly List<(Texture Texture, int Width, int Height)> _levels = new();
     private bool _disposed;
 
-    public BlurGpuPipeline(Device device)
+    /// <param name="device">Device the passes run on.</param>
+    /// <param name="outputFormat">Format of the destination textures passed to <see cref="Record(CommandEncoder, Texture, int, int, float, Texture)"/>.</param>
+    public BlurGpuPipeline(Device device, TextureFormat outputFormat = TextureFormat.Bgra8UnormSrgb)
     {
         _device = device;
-        _blurPipeline = new BlurPipeline(device);
-        _scratchA = new Texture();
-        _scratchB = new Texture();
-        _scratchWidth = 0;
-        _scratchHeight = 0;
-    }
-
-    public void EnsureScratchTextures(int width, int height)
-    {
-        int halfW = Math.Max(1, width / 2);
-        int halfH = Math.Max(1, height / 2);
-
-        if (_scratchWidth == halfW && _scratchHeight == halfH)
-        {
-            return;
-        }
-
-        if (!_scratchA.IsInvalid)
-        {
-            _scratchA.Dispose();
-        }
-        if (!_scratchB.IsInvalid)
-        {
-            _scratchB.Dispose();
-        }
-
-        _scratchA = CreateHalfResTexture(halfW, halfH);
-        _scratchB = CreateHalfResTexture(halfW, halfH);
-        _scratchWidth = halfW;
-        _scratchHeight = halfH;
-    }
-
-    private Texture CreateHalfResTexture(int width, int height)
-    {
-        var descriptor = new TextureDescriptor
-        {
-            Usage = (ulong)(TextureUsage.RenderAttachment | TextureUsage.CopySrc | TextureUsage.CopyDst),
-            Size = new Extent3D
-            {
-                Width = (uint)width,
-                Height = (uint)height,
-                DepthOrArrayLayers = 1
-            },
-            Format = TextureFormat.Bgra8UnormSrgb,
-            SampleCount = 1,
-            MipLevelCount = 1,
-            Dimension = TextureDimension.D2
-        };
-
-        return _device.CreateTexture(descriptor);
+        _blurPipeline = new BlurPipeline(device, outputFormat);
     }
 
     public void SetSurfaceSize(float width, float height)
     {
-        float halfW = Math.Max(1f, width / 2f);
-        float halfH = Math.Max(1f, height / 2f);
-        _blurPipeline.SetSurfaceSize(halfW, halfH);
+        _blurPipeline.SetSurfaceSize(width, height);
     }
 
+    /// <summary>Records the blur into the frame's encoder.</summary>
     public void Record(FrameContext frame, Texture source, int sourceWidth, int sourceHeight, float radiusPx, Texture destination)
+    {
+        Record(frame.Encoder, source, sourceWidth, sourceHeight, radiusPx, destination);
+    }
+
+    /// <summary>
+    /// Blurs <paramref name="source"/> (TextureBinding usage) into <paramref name="destination"/>
+    /// (same size, RenderAttachment usage, the output format). Nothing is recorded when the radius
+    /// yields no octaves; the caller keeps the unblurred source.
+    /// </summary>
+    public void Record(CommandEncoder encoder, Texture source, int sourceWidth, int sourceHeight, float radiusPx, Texture destination)
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
 
-        if (radiusPx <= 0f)
+        int octaves = DualFilterBlur.EffectiveOctaves(radiusPx, sourceWidth, sourceHeight);
+        if (octaves == 0)
         {
             return;
         }
 
-        int octaveCount = DualFilterBlur.OctaveCount(radiusPx);
-        if (octaveCount == 0)
+        EnsureLevels(sourceWidth, sourceHeight, octaves);
+
+        // Views and bind groups must outlive recording; they are released after the encoder records.
+        var transient = new List<IDisposable>(4 * octaves);
+        try
         {
-            return;
+            TextureView previous = source.CreateView();
+            transient.Add(previous);
+
+            for (int k = 1; k <= octaves; k++)
+            {
+                TextureView target = _levels[k - 1].Texture.CreateView();
+                transient.Add(target);
+                BindGroup input = _blurPipeline.CreateTextureBindGroup(previous);
+                transient.Add(input);
+                _blurPipeline.RecordPass(encoder, _blurPipeline.DownPipeline, input, target);
+                previous = target;
+            }
+
+            for (int k = octaves; k >= 1; k--)
+            {
+                bool last = k == 1;
+                TextureView target = last ? destination.CreateView() : _levels[k - 2].Texture.CreateView();
+                transient.Add(target);
+                BindGroup input = _blurPipeline.CreateTextureBindGroup(previous);
+                transient.Add(input);
+                _blurPipeline.RecordPass(encoder, last ? _blurPipeline.OutputUpPipeline : _blurPipeline.UpPipeline, input, target);
+                previous = target;
+            }
         }
-
-        EnsureScratchTextures(sourceWidth, sourceHeight);
-
-        int numPasses = 2 * octaveCount;
-        Texture current = source;
-        Texture scratchA = _scratchA;
-        Texture scratchB = _scratchB;
-
-        for (int pass = 0; pass < numPasses; pass++)
+        finally
         {
-            bool isDownPass = pass < octaveCount;
-            bool isLastPass = pass == numPasses - 1;
-            bool useScratchAAsDest = pass % 2 == 0;
-
-            Texture dest;
-            if (isLastPass)
+            // wgpu keeps recorded resources alive until the work completes; releasing our
+            // references here is safe.
+            foreach (var resource in transient)
             {
-                dest = destination;
-            }
-            else if (useScratchAAsDest)
-            {
-                dest = scratchA;
-            }
-            else
-            {
-                dest = scratchB;
-            }
-
-            if (isDownPass)
-            {
-                RenderDownPass(frame, current, dest);
-            }
-            else
-            {
-                RenderUpPass(frame, current, dest);
-            }
-
-            if (!isLastPass)
-            {
-                current = dest;
+                resource.Dispose();
             }
         }
     }
 
-    private void RenderDownPass(FrameContext frame, Texture source, Texture destination)
+    // Level k (1-based) is half of level k-1; reused across frames while the source size holds.
+    private void EnsureLevels(int width, int height, int octaves)
     {
-        using TextureView srcView = CreateTextureView(source);
-        using TextureView dstView = CreateTextureView(destination);
-
-        var colorAttachment = new RenderPassColorAttachment
+        for (int k = 1; k <= octaves; k++)
         {
-            View = dstView.Handle,
-            LoadOp = LoadOp.Clear,
-            StoreOp = StoreOp.Store,
-            ClearValue = new Color { R = 0, G = 0, B = 0, A = 1 }
-        };
+            width = Math.Max(1, width / 2);
+            height = Math.Max(1, height / 2);
+            if (k <= _levels.Count && _levels[k - 1].Width == width && _levels[k - 1].Height == height)
+            {
+                continue;
+            }
 
-        var pass = frame.BeginRenderPass(new RenderPassDescriptor
-        {
-            ColorAttachmentCount = 1,
-            ColorAttachments = (IntPtr)(&colorAttachment)
-        });
+            if (k <= _levels.Count)
+            {
+                _levels[k - 1].Texture.Dispose();
+            }
 
-        pass.SetPipeline(_blurPipeline.DownPipeline);
-        pass.Draw(4);
-        pass.End();
-    }
+            var texture = _device.CreateTexture(new TextureDescriptor
+            {
+                Usage = (ulong)(TextureUsage.RenderAttachment | TextureUsage.TextureBinding),
+                Size = new Extent3D { Width = (uint)width, Height = (uint)height, DepthOrArrayLayers = 1 },
+                Format = BlurPipeline.IntermediateFormat,
+                SampleCount = 1,
+                MipLevelCount = 1,
+                Dimension = TextureDimension.D2
+            });
 
-    private void RenderUpPass(FrameContext frame, Texture source, Texture destination)
-    {
-        using TextureView srcView = CreateTextureView(source);
-        using TextureView dstView = CreateTextureView(destination);
-
-        var colorAttachment = new RenderPassColorAttachment
-        {
-            View = dstView.Handle,
-            LoadOp = LoadOp.Clear,
-            StoreOp = StoreOp.Store,
-            ClearValue = new Color { R = 0, G = 0, B = 0, A = 1 }
-        };
-
-        var pass = frame.BeginRenderPass(new RenderPassDescriptor
-        {
-            ColorAttachmentCount = 1,
-            ColorAttachments = (IntPtr)(&colorAttachment)
-        });
-
-        pass.SetPipeline(_blurPipeline.UpPipeline);
-        pass.Draw(4);
-        pass.End();
-    }
-
-    private static TextureView CreateTextureView(Texture texture)
-    {
-        var descriptor = new TextureViewDescriptor
-        {
-            Format = TextureFormat.Bgra8UnormSrgb,
-            Dimension = TextureViewDimension.D2,
-            BaseMipLevel = 0,
-            MipLevelCount = 1,
-            BaseArrayLayer = 0,
-            ArrayLayerCount = 1
-        };
-
-        return texture.CreateView(descriptor);
+            if (k <= _levels.Count)
+            {
+                _levels[k - 1] = (texture, width, height);
+            }
+            else
+            {
+                _levels.Add((texture, width, height));
+            }
+        }
     }
 
     public void Dispose()
@@ -208,13 +139,10 @@ public sealed unsafe class BlurGpuPipeline : IDisposable
         }
         _disposed = true;
         _blurPipeline.Dispose();
-        if (!_scratchA.IsInvalid)
+        foreach (var (texture, _, _) in _levels)
         {
-            _scratchA.Dispose();
+            texture.Dispose();
         }
-        if (!_scratchB.IsInvalid)
-        {
-            _scratchB.Dispose();
-        }
+        _levels.Clear();
     }
 }

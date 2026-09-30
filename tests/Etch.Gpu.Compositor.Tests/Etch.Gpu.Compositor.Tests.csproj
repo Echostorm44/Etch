@@ -23,5 +23,7 @@
     <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
     <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
     <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Raster.Cpu\Etch.Raster.Cpu.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Effects\Etch.Effects.csproj" />
   </ItemGroup>
 </Project>
