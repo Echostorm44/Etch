@@ -59,7 +59,8 @@ public static class PixelDiff
         int failingPixels = 0;
 
         int totalChannels = pixelCount * 3;
-        int p95Index = (int)(totalChannels * 0.95);
+        // Nearest-rank 95th percentile: the smallest error that at least 95% of channels do not exceed.
+        int p95Rank = (int)Math.Ceiling(totalChannels * 0.95);
 
         var histogram = ArrayPool<int>.Shared.Rent(256 * 3);
         Array.Clear(histogram, 0, 256 * 3);
@@ -88,10 +89,10 @@ public static class PixelDiff
 
         int cumulative = 0;
         float p95Error = 0;
-        for (int err = 255; err >= 0; err--)
+        for (int err = 0; err < 256; err++)
         {
             cumulative += histogram[err] + histogram[256 + err] + histogram[512 + err];
-            if (cumulative >= p95Index)
+            if (cumulative >= p95Rank)
             {
                 p95Error = err;
                 break;

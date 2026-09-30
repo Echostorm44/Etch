@@ -14,6 +14,6 @@
     <ProjectReference Include="..\..\src\Etch.Tiling\Etch.Tiling.csproj" />
     <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
     <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
-    <ProjectReference Include="..\Etch.Bench.Shared\Etch.Bench.Shared.csproj" />
+    <ProjectReference Include="..\..\bench\Etch.Bench.Shared\Etch.Bench.Shared.csproj" />
   </ItemGroup>
 </Project>

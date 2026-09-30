@@ -82,25 +82,45 @@ public static unsafe partial class KurboOracle
             throw new DllNotFoundException(_loadError ?? "Unknown error loading kurbo oracle");
     }
 
+    // kurbo stores an affine column-major as [a, b, c, d, e, f] with x' = a*x + c*y + e and
+    // y' = b*x + d*y + f, so its b and c are Etch's M10 and M01 respectively.
+    private static void WriteKurboCoefficients(Affine affine, Span<double> coefficients)
+    {
+        coefficients[0] = affine.M00;
+        coefficients[1] = affine.M10;
+        coefficients[2] = affine.M01;
+        coefficients[3] = affine.M11;
+        coefficients[4] = affine.M02;
+        coefficients[5] = affine.M12;
+    }
+
+    private static Affine ReadKurboCoefficients(ReadOnlySpan<double> coefficients)
+    {
+        return new Affine(coefficients[0], coefficients[2], coefficients[1], coefficients[3], coefficients[4], coefficients[5]);
+    }
+
     public static Affine Compose(Affine a, Affine b)
     {
         EnsureLoaded();
-        Span<double> aa = stackalloc double[] { a.M00, a.M01, a.M10, a.M11, a.M02, a.M12 };
-        Span<double> bb = stackalloc double[] { b.M00, b.M01, b.M10, b.M11, b.M02, b.M12 };
+        Span<double> aa = stackalloc double[6];
+        Span<double> bb = stackalloc double[6];
+        WriteKurboCoefficients(a, aa);
+        WriteKurboCoefficients(b, bb);
         Span<double> oo = stackalloc double[6];
         fixed (double* pa = aa, pb = bb, po = oo)
             AffineComposeNative(pa, pb, po);
-        return new Affine(oo[0], oo[1], oo[2], oo[3], oo[4], oo[5]);
+        return ReadKurboCoefficients(oo);
     }
 
     public static Affine Inverse(Affine a)
     {
         EnsureLoaded();
-        Span<double> aa = stackalloc double[] { a.M00, a.M01, a.M10, a.M11, a.M02, a.M12 };
+        Span<double> aa = stackalloc double[6];
+        WriteKurboCoefficients(a, aa);
         Span<double> oo = stackalloc double[6];
         fixed (double* pa = aa, po = oo)
             AffineInverseNative(pa, po);
-        return new Affine(oo[0], oo[1], oo[2], oo[3], oo[4], oo[5]);
+        return ReadKurboCoefficients(oo);
     }
 
     public static void TransformPoints(Affine a, ReadOnlySpan<Point> src, Span<Point> dst)
@@ -117,7 +137,8 @@ public static unsafe partial class KurboOracle
         }
 
         Span<double> dstBuf = stackalloc double[src.Length * 2];
-        Span<double> affineBuf = stackalloc double[] { a.M00, a.M01, a.M10, a.M11, a.M02, a.M12 };
+        Span<double> affineBuf = stackalloc double[6];
+        WriteKurboCoefficients(a, affineBuf);
 
         fixed (double* pa = affineBuf, ps = srcBuf, pd = dstBuf)
             PointTransformNative(pa, ps, (nuint)src.Length, pd);

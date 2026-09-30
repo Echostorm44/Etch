@@ -7,7 +7,7 @@ namespace Etch.Bench.Text;
 
 /// <summary>
 /// Benchmarks for <see cref="GlyphCacheKey"/> hash code and equality performance.
-/// The key grew from 8 bytes (4 fields) to 12 bytes (6 fields + padding) in Phase 3.
+/// The key is 12 bytes: 4 fields plus alignment padding.
 /// </summary>
 [MemoryDiagnoser]
 public class GlyphCacheKeyBench
@@ -35,12 +35,8 @@ public class GlyphCacheKeyBench
             ushort glyphId = (ushort)(state % 600);
             state = state * 1103515245 + 12345;
             byte subpixel = (byte)(state % 16);
-            state = state * 1103515245 + 12345;
-            byte gamma = (byte)(14 + (state % 9));
-            state = state * 1103515245 + 12345;
-            byte lum = (byte)(state % 256);
 
-            _keys[i] = new GlyphCacheKey(faceId, size, glyphId, subpixel, gamma, lum);
+            _keys[i] = new GlyphCacheKey(faceId, size, glyphId, subpixel);
             _dictionary[_keys[i]] = i;
         }
     }
@@ -88,7 +84,7 @@ public class GlyphCacheKeyBench
     public void DictionaryLookupMiss()
     {
         int sum = 0;
-        var missKey = new GlyphCacheKey(999, 999, 999, 99, 99, 99);
+        var missKey = new GlyphCacheKey(999, 999, 999, 99);
         for (int i = 0; i < _keys.Length; i++)
         {
             if (_dictionary.TryGetValue(missKey, out int value))

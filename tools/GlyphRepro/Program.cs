@@ -1,4 +1,5 @@
 using System;
+using System.Buffers.Binary;
 using System.IO;
 using Etch.Text.Rasterize;
 using Etch.Text.Shape;
@@ -40,7 +41,7 @@ if (args.Length > 1 && args[1] == "--gid")
         var ids = new List<string>();
         foreach (char c in "Donut Gauges91452%DiskMemory")
         {
-            face.Handle.TryGetGlyph(c, out uint gid);
+            face.TryGetGlyph(c, out uint gid);
             ids.Add($"'{c}'={gid}");
         }
         Console.WriteLine($"{fontFile}: {string.Join(" ", ids)}");
@@ -66,7 +67,7 @@ foreach (string fontFile in fontFiles)
 
         foreach (char c in chars)
         {
-            if (!face.Handle.TryGetGlyph(c, out uint gid))
+            if (!face.TryGetGlyph(c, out uint gid))
             {
                 continue;
             }
@@ -148,7 +149,7 @@ if (args.Length > 2 && args[1] == "--dump")
     byte[] data = File.ReadAllBytes(path);
     int upem = ReadUnitsPerEm(data);
     using var face = FontFace.Load(data, upem, dumpSize);
-    face.Handle.TryGetGlyph(dumpChar, out uint gid);
+    face.TryGetGlyph(dumpChar, out uint gid);
 
     for (int quant = 0; quant <= 3; quant++)
     {
@@ -185,12 +186,26 @@ static void DumpAscii(byte[] buf, int w, int h)
     Console.WriteLine();
 }
 
-static unsafe int ReadUnitsPerEm(byte[] data)
+// Reads unitsPerEm from the sfnt 'head' table: table directory records start at offset 12,
+// are 16 bytes each (tag, checksum, offset, length), and unitsPerEm sits at byte 18 of 'head'.
+static int ReadUnitsPerEm(byte[] data)
 {
-    fixed (byte* ptr = data)
+    const uint HeadTableTag = 0x68656164;
+    const int TableDirectoryOffset = 12;
+    const int TableRecordSize = 16;
+    const int UnitsPerEmOffsetInHead = 18;
+
+    ReadOnlySpan<byte> font = data;
+    int tableCount = BinaryPrimitives.ReadUInt16BigEndian(font.Slice(4, 2));
+    for (int tableIndex = 0; tableIndex < tableCount; tableIndex++)
     {
-        using var blob = new HarfBuzzSharp.Blob((nint)ptr, data.Length, HarfBuzzSharp.MemoryMode.ReadOnly, null!);
-        using var hbFace = new HarfBuzzSharp.Face(blob, 0);
-        return hbFace.UnitsPerEm;
+        ReadOnlySpan<byte> tableRecord = font.Slice(TableDirectoryOffset + tableIndex * TableRecordSize, TableRecordSize);
+        if (BinaryPrimitives.ReadUInt32BigEndian(tableRecord) != HeadTableTag)
+        {
+            continue;
+        }
+        int headOffset = (int)BinaryPrimitives.ReadUInt32BigEndian(tableRecord.Slice(8, 4));
+        return BinaryPrimitives.ReadUInt16BigEndian(font.Slice(headOffset + UnitsPerEmOffsetInHead, 2));
     }
+    throw new InvalidDataException("Font has no 'head' table; cannot determine unitsPerEm.");
 }

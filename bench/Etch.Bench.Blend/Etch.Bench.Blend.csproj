@@ -13,6 +13,7 @@
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu.Compositor\Etch.Gpu.Compositor.csproj" />
     <ProjectReference Include="..\..\src\Etch.ClipBlendGradient\Etch.ClipBlendGradient.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
     <ProjectReference Include="..\Etch.Bench.Shared\Etch.Bench.Shared.csproj" />
   </ItemGroup>
 </Project>

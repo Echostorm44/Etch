@@ -38,7 +38,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -58,7 +58,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -78,7 +78,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.BeginFrame, beginPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -100,7 +100,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.BeginFrame, beginPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -124,7 +124,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -149,7 +149,7 @@ internal sealed class SceneValidatorTests
         };
 
         var rects = new Geometry.Rect[] { new Geometry.Rect(0, 0, 100, 100) };
-        var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -173,7 +173,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -197,7 +197,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -224,7 +224,7 @@ internal sealed class SceneValidatorTests
         var pathEntry = new PathEntry(0, 16, 1, 2);
         var pathArena = new byte[16];
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, [], [], [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -251,7 +251,7 @@ internal sealed class SceneValidatorTests
         var pathEntry = new PathEntry(0, 16, 1, 2);
         var pathArena = new byte[16];
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, [], [], [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -285,7 +285,7 @@ internal sealed class SceneValidatorTests
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
         var transforms = new Affine[] { Affine.Identity };
-        var scene = new SceneBuffer(commands, [pathEntry], arena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], arena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -322,7 +322,7 @@ internal sealed class SceneValidatorTests
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
         var transforms = new Affine[] { Affine.Identity };
-        var scene = new SceneBuffer(commands, [pathEntry], arena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], arena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -349,7 +349,7 @@ internal sealed class SceneValidatorTests
         };
 
         var rects = new Geometry.Rect[] { new Geometry.Rect(0, 0, 100, 100) };
-        var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -376,7 +376,7 @@ internal sealed class SceneValidatorTests
         };
 
         var rects = new Geometry.Rect[] { new Geometry.Rect(0, 0, 100, 100) };
-        var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], rects, []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -404,7 +404,7 @@ internal sealed class SceneValidatorTests
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
         var transforms = new Affine[] { Affine.Identity };
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -432,7 +432,7 @@ internal sealed class SceneValidatorTests
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
         var transforms = new Affine[] { Affine.Identity };
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -460,7 +460,7 @@ internal sealed class SceneValidatorTests
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
         var transforms = new Affine[] { Affine.Identity };
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -488,7 +488,7 @@ internal sealed class SceneValidatorTests
         };
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -516,7 +516,7 @@ internal sealed class SceneValidatorTests
         };
 
         var paints = new Paint[] { Paint.Solid(0xFFFF0000) };
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -541,7 +541,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [], [], [], [], [], []);
+        using var scene = new SceneBuffer(commands, [], [], [], [], [], []);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -616,7 +616,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -647,7 +647,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -676,7 +676,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -705,7 +705,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -734,7 +734,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);
@@ -763,7 +763,7 @@ internal sealed class SceneValidatorTests
             new SceneCommand(SceneOpcode.EndFrame, endPayload),
         };
 
-        var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
+        using var scene = new SceneBuffer(commands, [pathEntry], pathArena, paints, transforms, [], gradientStops);
 
         var report = new SceneValidationReport(stackalloc SceneValidationError[256]);
         SceneValidator.ValidateAccumulated(scene, ref report);

@@ -15,8 +15,8 @@ internal sealed class DamageTrackerTests
         var tracker = DamageTracker.Create(10, 10);
         tracker.MarkAllDirty();
 
-        var scene1 = CreateSceneWithRect(0, 0, 32, 32);
-        var scene2 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene1 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene2 = CreateSceneWithRect(0, 0, 32, 32);
 
         tracker.Diff(scene1, scene2);
         var result = tracker.Diff(scene1, scene2);
@@ -33,8 +33,8 @@ internal sealed class DamageTrackerTests
         var tracker = DamageTracker.Create(10, 10);
         tracker.MarkAllDirty();
 
-        var scene1 = CreateSceneWithRect(0, 0, 32, 32);
-        var scene2 = CreateSceneWithRect(32, 32, 64, 64);
+        using var scene1 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene2 = CreateSceneWithRect(32, 32, 64, 64);
 
         tracker.Diff(scene1, scene1);
         var result = tracker.Diff(scene2, scene2);
@@ -51,15 +51,15 @@ internal sealed class DamageTrackerTests
         var tracker = DamageTracker.Create(10, 10);
         tracker.MarkAllDirty();
 
-        var scene1 = CreateSceneWithRect(0, 0, 100, 100);
-        var scene2 = CreateSceneWithRect(0, 0, 100, 100);
+        using var scene1 = CreateSceneWithRect(0, 0, 100, 100);
+        using var scene2 = CreateSceneWithRect(0, 0, 100, 100);
 
         tracker.Diff(scene1, scene2);
 
         tracker.Reset();
         tracker.MarkAllDirty();
 
-        var scene3 = CreateSceneWithRect(0, 0, 100, 100);
+        using var scene3 = CreateSceneWithRect(0, 0, 100, 100);
         var result = tracker.Diff(scene2, scene3);
 
         if (result.DirtyCount != 100)
@@ -74,8 +74,8 @@ internal sealed class DamageTrackerTests
         var tracker = DamageTracker.Create(10, 10);
         tracker.MarkAllDirty();
 
-        var scene1 = CreateSceneWithRect(0, 0, 32, 32);
-        var scene2 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene1 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene2 = CreateSceneWithRect(0, 0, 32, 32);
 
         tracker.Diff(scene1, scene2);
 
@@ -93,8 +93,8 @@ internal sealed class DamageTrackerTests
         var tracker = DamageTracker.Create(10, 10);
         tracker.MarkAllDirty();
 
-        var scene1 = CreateSceneWithRect(0, 0, 32, 32);
-        var scene2 = CreateSceneWithDifferentPaintRect(0, 0, 32, 32);
+        using var scene1 = CreateSceneWithRect(0, 0, 32, 32);
+        using var scene2 = CreateSceneWithDifferentPaintRect(0, 0, 32, 32);
 
         tracker.Diff(scene1, scene2);
         var result = tracker.Diff(scene1, scene2);

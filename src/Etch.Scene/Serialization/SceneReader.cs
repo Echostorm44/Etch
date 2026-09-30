@@ -14,6 +14,12 @@ public static class SceneReader
     private const byte Magic3 = 0x43;
     private const ushort SupportedMajorVersion = 1;
     private const int HeaderSize = 64;
+    private const int PathArenaLengthPrefixSize = 4;
+    // Minor 1 repurposed the reserved glyph-run header fields for the mesh gradient table; minor 2
+    // repurposed the reserved flags field as the noise spec count and appended the noise spec and
+    // color filter tables. Earlier minors have none of these tables and must not be read for them.
+    private const ushort FirstMinorVersionWithMeshGradients = 1;
+    private const ushort FirstMinorVersionWithNoiseAndColorFilters = 2;
     private static readonly int SizeOfGradientStops = Unsafe.SizeOf<GradientStops>();
     private const int SizeOfMeshVertex = 80;
     private const int SizeOfMeshGradientHeader = 12;
@@ -35,7 +41,8 @@ public static class SceneReader
             Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatVersionTooNew, $"Scene format major version {majorVersion} is too new");
 
         uint flags = ReadUInt32(src[8..12]);
-        uint noiseSpecCount = flags;
+        bool hasNoiseAndColorFilterTables = minorVersion >= FirstMinorVersionWithNoiseAndColorFilters;
+        uint noiseSpecCount = hasNoiseAndColorFilterTables ? flags : 0;
 
         uint commandCount = ReadUInt32(src[12..16]);
         uint pathArenaOffset = ReadUInt32(src[16..20]);
@@ -51,7 +58,7 @@ public static class SceneReader
         uint rectCount = ReadUInt32(src[56..60]);
         uint gradientStopsCount = ReadUInt32(src[60..64]);
 
-        if (minorVersion == 0)
+        if (minorVersion < FirstMinorVersionWithMeshGradients)
         {
             meshGradientCount = 0;
             meshGradientTableOffset = 0;
@@ -62,10 +69,14 @@ public static class SceneReader
 
         if (pathArenaLength > 0)
         {
-            int pathArenaStart = (int)pathArenaOffset;
+            // The arena is stored behind a u32 copy of its length (see SceneWriter), so the entries
+            // start after that prefix.
+            int pathArenaStart = (int)pathArenaOffset + PathArenaLengthPrefixSize;
             int pathArenaEnd = pathArenaStart + (int)pathArenaLength;
             if (src.Length < pathArenaEnd)
                 Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Scene buffer too short for path arena");
+            if (ReadUInt32(src.Slice((int)pathArenaOffset, PathArenaLengthPrefixSize)) != pathArenaLength)
+                Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Path arena length prefix disagrees with the header");
 
             pathArena = new byte[pathArenaLength];
             src.Slice(pathArenaStart, (int)pathArenaLength).CopyTo(pathArena);
@@ -133,9 +144,12 @@ public static class SceneReader
             meshGradientTableSize = ReadMeshGradientTable(meshDataSlice, meshGradientsCount, meshGradients);
         }
 
+        int gradientStopsTableEnd = gradientStopsTableStart + gradientStopsTableSize;
         int noiseSpecsCount = (int)noiseSpecCount;
-        int noiseTableStart = (int)meshGradientTableOffset + meshGradientTableSize;
+        int noiseTableStart = gradientStopsTableEnd + meshGradientTableSize;
         int noiseTableSize = noiseSpecsCount * NoiseSpecSize;
+        if (noiseSpecsCount < 0 || src.Length < noiseTableStart + (long)noiseSpecsCount * NoiseSpecSize)
+            Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Scene buffer too short for noise spec table");
         NoiseSpec[] noiseSpecs = new NoiseSpec[noiseSpecsCount];
         for (uint i = 0; i < noiseSpecsCount; i++)
         {
@@ -144,18 +158,23 @@ public static class SceneReader
 
         int colorFilterTableStart = noiseTableStart + noiseTableSize;
         int colorFilterCount = 0;
-        if (src.Length > colorFilterTableStart + 4)
+        int colorFilterTableSize = 0;
+        if (hasNoiseAndColorFilterTables)
         {
+            if (src.Length < colorFilterTableStart + 4)
+                Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Scene buffer too short for color filter table");
             colorFilterCount = ReadInt32(src.Slice(colorFilterTableStart, 4));
+            if (colorFilterCount < 0 || src.Length < colorFilterTableStart + 4 + (long)colorFilterCount * ColorFilterSize)
+                Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Scene buffer too short for color filter table");
+            colorFilterTableSize = 4 + colorFilterCount * ColorFilterSize;
         }
-        int colorFilterTableSize = 4 + colorFilterCount * ColorFilterSize;
         ColorFilter[] colorFilters = new ColorFilter[colorFilterCount];
         for (int i = 0; i < colorFilterCount; i++)
         {
             colorFilters[i] = ReadColorFilter(src.Slice(colorFilterTableStart + 4 + i * ColorFilterSize, ColorFilterSize));
         }
 
-        int commandsStart = gradientStopsTableStart + gradientStopsTableSize + meshGradientTableSize + noiseTableSize + colorFilterTableSize;
+        int commandsStart = gradientStopsTableEnd + meshGradientTableSize + noiseTableSize + colorFilterTableSize;
         int commandsSize = (int)commandCount * (int)Unsafe.SizeOf<SceneCommand>();
         if (src.Length < commandsStart + commandsSize)
             Etch.Panic.Invariant(Etch.PanicCodes.SceneFormatTruncated, "Scene buffer too short for commands");

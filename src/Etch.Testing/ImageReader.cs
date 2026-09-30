@@ -26,9 +26,10 @@ public static class ImageReader
                 int srcIdx = x * channels;
                 int dstIdx = dstRowOffset + x * 4;
 
-                result[dstIdx + 0] = (byte)((row[srcIdx + 2] / 65535.0f) * 255.0f + 0.5f);
+                // SharpImage frames store channels in R, G, B(, A) order.
+                result[dstIdx + 0] = (byte)((row[srcIdx + 0] / 65535.0f) * 255.0f + 0.5f);
                 result[dstIdx + 1] = (byte)((row[srcIdx + 1] / 65535.0f) * 255.0f + 0.5f);
-                result[dstIdx + 2] = (byte)((row[srcIdx + 0] / 65535.0f) * 255.0f + 0.5f);
+                result[dstIdx + 2] = (byte)((row[srcIdx + 2] / 65535.0f) * 255.0f + 0.5f);
                 result[dstIdx + 3] = channels >= 4
                     ? (byte)((row[srcIdx + 3] / 65535.0f) * 255.0f + 0.5f)
                     : (byte)255;

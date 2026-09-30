@@ -6,11 +6,16 @@ namespace Etch.Analyzers.Tests;
 
 internal sealed class NoComputeShaderAnalyzerTests
 {
+    // The analyzer flags call sites, so each source both declares and invokes CreateComputePipeline.
     private const string CreateComputePipelineSource = """
         namespace Etch.Gpu;
         internal static class DeviceExtensions
         {
             public static object CreateComputePipeline(this object device) => null!;
+        }
+        internal static class PipelineFactory
+        {
+            public static object Build(object device) => device.CreateComputePipeline();
         }
         """;
 
@@ -19,6 +24,10 @@ internal sealed class NoComputeShaderAnalyzerTests
         internal static class DeviceExtensions
         {
             public static object CreateComputePipeline(this object device) => null!;
+        }
+        internal static class PipelineFactory
+        {
+            public static object Build(object device) => device.CreateComputePipeline();
         }
         """;
 
@@ -43,6 +52,19 @@ internal sealed class NoComputeShaderAnalyzerTests
             CreateComputePipelineInCompositor,
             assemblyName: "Etch.Gpu.Compositor",
             filePath: "/repo/src/Etch.Gpu.Compositor/MyFile.cs");
+
+        bool found = diagnostics.Any(d => d.Id == "ET0801");
+        await Assert.That(found).IsTrue();
+    }
+
+    [Test]
+    public async Task FlagsCreateComputePipelineInsideEtchGpuWithWindowsPath()
+    {
+        ImmutableArray<Diagnostic> diagnostics = AnalyzerHarness.Run(
+            new NoComputeShaderAnalyzer(),
+            CreateComputePipelineSource,
+            assemblyName: "Etch.Gpu",
+            filePath: @"C:\repo\src\Etch.Gpu\Pipelines\MyFile.cs");
 
         bool found = diagnostics.Any(d => d.Id == "ET0801");
         await Assert.That(found).IsTrue();

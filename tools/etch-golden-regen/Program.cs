@@ -20,22 +20,21 @@ if (!Directory.Exists(corpusDir))
 }
 
 int regenCount = 0;
-foreach (var jsonFile in Directory.GetFiles(corpusDir, "*.json", SearchOption.AllDirectories))
+foreach (var sceneFile in Directory.GetFiles(corpusDir, "*.etsc", SearchOption.AllDirectories))
 {
-    string pngPath = Path.ChangeExtension(jsonFile, ".png");
+    string pngPath = Path.ChangeExtension(sceneFile, ".png");
 
     if (dryRun)
     {
-        Console.WriteLine($"  [dry-run] {jsonFile} -> {pngPath}");
+        Console.WriteLine($"  [dry-run] {sceneFile} -> {pngPath}");
         regenCount++;
         continue;
     }
 
     try
     {
-        string json = File.ReadAllText(jsonFile);
-        var serialized = SerializedScene.Deserialize(json);
-        var scene = serialized.ToSceneBuffer();
+        byte[] sceneBytes = File.ReadAllBytes(sceneFile);
+        using var scene = SceneReader.Read(sceneBytes);
 
         byte[] png = SkiaSceneRenderer.Render(scene, 256, 256);
         File.WriteAllBytes(pngPath, png);
@@ -44,7 +43,7 @@ foreach (var jsonFile in Directory.GetFiles(corpusDir, "*.json", SearchOption.Al
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine($"  Error processing {jsonFile}: {ex.Message}");
+        Console.Error.WriteLine($"  Error processing {sceneFile}: {ex.Message}");
     }
 }
 

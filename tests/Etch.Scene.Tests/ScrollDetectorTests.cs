@@ -13,8 +13,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollScene(0, 50);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollScene(0, 50);
 
         var hint = ScrollDetector.Detect(scene1, scene2, viewport);
 
@@ -28,8 +28,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollScene(30, 0);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollScene(30, 0);
 
         var hint = ScrollDetector.Detect(scene1, scene2, viewport);
 
@@ -43,8 +43,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateSceneWithRect(100, 100, 200, 200);
-        var scene2 = CreateSceneWithRect(300, 400, 400, 500);
+        using var scene1 = CreateSceneWithRect(100, 100, 200, 200);
+        using var scene2 = CreateSceneWithRect(300, 400, 400, 500);
 
         var hint = ScrollDetector.Detect(scene1, scene2, viewport);
 
@@ -56,8 +56,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollSceneWithExtra(0, 50);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollSceneWithExtra(0, 50);
 
         var hint = ScrollDetector.Detect(scene1, scene2, viewport);
 
@@ -89,8 +89,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollScene(0, 50);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollScene(0, 50);
 
         ScrollDetector.Detect(scene1, scene2, viewport);
 
@@ -105,8 +105,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollScene(0, 50);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollScene(0, 50);
 
         var hint = ScrollDetector.DetectWithThreshold(scene1, scene2, viewport, 0.60);
 
@@ -118,8 +118,8 @@ internal sealed class ScrollDetectorTests
     {
         var viewport = Rect.FromLTRB(0, 0, 1920, 1080);
 
-        var scene1 = CreateScrollScene(0, 0);
-        var scene2 = CreateScrollScene(0, 50);
+        using var scene1 = CreateScrollScene(0, 0);
+        using var scene2 = CreateScrollScene(0, 50);
 
         var hint = ScrollDetector.DetectWithThreshold(scene1, scene2, viewport, 0.99);
 

@@ -102,10 +102,12 @@ internal sealed class Std140PackerTests
             new WgslTokenizer.StructField("alpha", "f32")
         };
 
+        // WGSL memory layout: vec3<f32> has AlignOf 16 but SizeOf 12, so a following f32 (align 4)
+        // fills the trailing 4 bytes at offset 12. Struct size = roundUp(AlignOf(struct) = 16, 16) = 16.
         int size = Std140Packer.ComputeStructSize(fields);
-        if (size != 32)
+        if (size != 16)
         {
-            throw new InvalidOperationException($"vec3 (16) + padding (12) + f32 (4) + padding (0) = 32, got {size}");
+            throw new InvalidOperationException($"vec3<f32> (12 bytes, align 16) + f32 at offset 12 = 16, got {size}");
         }
     }
 
@@ -123,9 +125,11 @@ internal sealed class Std140PackerTests
         {
             throw new InvalidOperationException($"position offset should be 0, got {offsets["position"]}");
         }
-        if (offsets["alpha"] != 16)
+        // WGSL memory layout: vec3<f32> occupies 12 bytes, and f32 only needs 4-byte alignment, so
+        // it packs directly after the vec3 at offset 12 (the same placement std140 uses).
+        if (offsets["alpha"] != 12)
         {
-            throw new InvalidOperationException($"alpha offset should be 16 (after vec3 padded to 16), got {offsets["alpha"]}");
+            throw new InvalidOperationException($"alpha offset should be 12 (packed into the vec3's trailing 4 bytes), got {offsets["alpha"]}");
         }
     }
 

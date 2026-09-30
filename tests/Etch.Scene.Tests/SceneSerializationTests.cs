@@ -370,6 +370,93 @@ internal sealed class SceneSerializationTests
             throw new InvalidOperationException("Expected panic not thrown");
     }
 
+    [Test]
+    public async Task RoundTrip_MultiplePaths_PreservesPathGeometry()
+    {
+        var sb = SceneBuilder.Begin(8);
+        sb.BeginFrame();
+        int squareId = sb.AddPath(CreateSquarePath());
+        int triangleId = sb.AddPath(CreateTrianglePath());
+        int paintId = sb.AddPaint(Paint.Solid(0xFFFF0000));
+        int transformId = sb.AddTransform(Affine.Identity);
+        sb.FillPath(squareId, paintId, transformId, FillRule.NonZero);
+        sb.FillPath(triangleId, paintId, transformId, FillRule.NonZero);
+        sb.EndFrame();
+        using var original = sb.End();
+
+        using var restored = RoundTrip(original);
+
+        await Assert.That(restored.PathCount).IsEqualTo(original.PathCount);
+        for (int pathId = 0; pathId < original.PathCount; pathId++)
+        {
+            original.TryGetPath(pathId, out var originalPath);
+            await Assert.That(restored.TryGetPath(pathId, out var restoredPath)).IsTrue();
+            await Assert.That(restoredPath.Path.VerbCount).IsEqualTo(originalPath.Path.VerbCount);
+            await Assert.That(restoredPath.Path.Aabb()).IsEqualTo(originalPath.Path.Aabb());
+        }
+    }
+
+    [Test]
+    public async Task Read_MinorVersion0Scene_WithoutNoiseAndColorFilterTables_Loads()
+    {
+        var sb = SceneBuilder.Begin(8);
+        sb.BeginFrame();
+        int pathId = sb.AddPath(CreateTrianglePath());
+        int paintId = sb.AddPaint(Paint.Solid(0xFFFF0000));
+        int transformId = sb.AddTransform(Affine.Identity);
+        sb.FillPath(pathId, paintId, transformId, FillRule.NonZero);
+        sb.EndFrame();
+        using var original = sb.End();
+
+        byte[] version0Bytes = DowngradeToMinorVersion0(original);
+        using var restored = SceneReader.Read(version0Bytes);
+
+        await Assert.That(restored.CommandCount).IsEqualTo(original.CommandCount);
+        await Assert.That(restored.Commands[1].Op).IsEqualTo(SceneOpcode.FillPath);
+        await Assert.That(restored.ColorFilterCount).IsEqualTo(0);
+        await Assert.That(restored.NoiseSpecCount).IsEqualTo(0);
+        await Assert.That(restored.TryGetPath(0, out var restoredPath)).IsTrue();
+        original.TryGetPath(0, out var originalPath);
+        await Assert.That(restoredPath.Path.Aabb()).IsEqualTo(originalPath.Path.Aabb());
+    }
+
+    // A v1.0 scene is the current layout without the minor-1/2 additions: the glyph-run header
+    // fields (offsets 28 and 52) and the flags field are zero, and no color filter count precedes
+    // the commands. Only valid for scenes with no mesh gradients, noise specs or color filters.
+    private static byte[] DowngradeToMinorVersion0(SceneBuffer scene)
+    {
+        const int MinorVersionOffset = 6;
+        const int FlagsOffset = 8;
+        const int MeshGradientCountOffset = 28;
+        const int MeshGradientTableOffsetOffset = 52;
+        const int ColorFilterCountSize = 4;
+
+        byte[] current = new byte[SceneWriter.GetRequiredSize(scene)];
+        int written = SceneWriter.Write(scene, current);
+        int colorFilterCountStart = (int)BitConverter.ToUInt32(current, MeshGradientTableOffsetOffset);
+
+        byte[] version0 = new byte[written - ColorFilterCountSize];
+        current.AsSpan(0, colorFilterCountStart).CopyTo(version0);
+        current.AsSpan(colorFilterCountStart + ColorFilterCountSize, written - colorFilterCountStart - ColorFilterCountSize)
+            .CopyTo(version0.AsSpan(colorFilterCountStart));
+
+        BitConverter.TryWriteBytes(version0.AsSpan(MinorVersionOffset, 2), (ushort)0);
+        BitConverter.TryWriteBytes(version0.AsSpan(FlagsOffset, 4), 0u);
+        BitConverter.TryWriteBytes(version0.AsSpan(MeshGradientCountOffset, 4), 0u);
+        BitConverter.TryWriteBytes(version0.AsSpan(MeshGradientTableOffsetOffset, 4), 0u);
+        return version0;
+    }
+
+    private static BezPath CreateTrianglePath()
+    {
+        var builder = BezPathBuilder.Begin(4);
+        builder.MoveTo(new Point(10, 20));
+        builder.LineTo(new Point(70, 25));
+        builder.LineTo(new Point(40, 90));
+        builder.Close();
+        return builder.Build();
+    }
+
     private static SceneBuffer RoundTrip(SceneBuffer original)
     {
         int size = SceneWriter.GetRequiredSize(original);

@@ -118,36 +118,36 @@ public static class ScrollDetector
         return sig;
     }
 
+    private const double LinearTermTolerance = 0.001;
+
+    // A scroll is a pure integer translation: both transforms must have an identity linear part
+    // (unit scale, no rotation or shear), leaving only the translation terms to differ.
     private static Vec2? GetTransformDelta(Affine prevTransform, Affine currTransform)
     {
+        if (!HasIdentityLinearPart(prevTransform) || !HasIdentityLinearPart(currTransform))
+            return null;
+
         double dx = currTransform.M02 - prevTransform.M02;
         double dy = currTransform.M12 - prevTransform.M12;
 
-        if (Math.Abs(dx) < 0.001 && Math.Abs(dy) < 0.001)
-            return null;
-
-        double cosA = currTransform.M00 - prevTransform.M00;
-        double sinA = currTransform.M10 - prevTransform.M10;
-
-        if (Math.Abs(cosA) > 0.001 || Math.Abs(sinA) > 0.001)
-            return null;
-
-        double cosB = currTransform.M01 - prevTransform.M01;
-        double sinB = currTransform.M11 - prevTransform.M11;
-
-        if (Math.Abs(cosB) > 0.001 || Math.Abs(sinB) > 0.001)
-            return null;
-
-        if (Math.Abs(prevTransform.M00 - 1.0) > 0.001 || Math.Abs(prevTransform.M11) > 0.001)
+        if (Math.Abs(dx) < LinearTermTolerance && Math.Abs(dy) < LinearTermTolerance)
             return null;
 
         int intDx = (int)Math.Round(dx);
         int intDy = (int)Math.Round(dy);
 
-        if (Math.Abs(dx - intDx) > 0.001 || Math.Abs(dy - intDy) > 0.001)
+        if (Math.Abs(dx - intDx) > LinearTermTolerance || Math.Abs(dy - intDy) > LinearTermTolerance)
             return null;
 
         return new Vec2(intDx, intDy);
+    }
+
+    private static bool HasIdentityLinearPart(Affine transform)
+    {
+        return Math.Abs(transform.M00 - 1.0) <= LinearTermTolerance
+            && Math.Abs(transform.M11 - 1.0) <= LinearTermTolerance
+            && Math.Abs(transform.M01) <= LinearTermTolerance
+            && Math.Abs(transform.M10) <= LinearTermTolerance;
     }
 
     private static int GetTransformId(SceneCommand cmd)

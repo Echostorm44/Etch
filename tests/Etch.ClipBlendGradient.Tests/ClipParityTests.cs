@@ -59,17 +59,41 @@ internal sealed class ClipParityTests
         => await RunParityTest("non-convex-clip", ClipFixtureScenes.NonConvexClip()).ConfigureAwait(false);
 
     [Test]
-    public async Task EtscRoundTrip_CommandCountMatches()
+    public async Task CommittedEtscFixtures_LoadAndMatchGeneratedScenes()
     {
-        string etscPath = Path.Combine(FixtureDir, "nested-circles.etsc");
-        if (!File.Exists(etscPath))
-            throw new InvalidOperationException("Fixture not generated yet; run with ETCH_REGEN_GOLDENS=1");
+        (string Name, Func<SceneBuffer> CreateScene)[] fixtures =
+        [
+            ("nested-circles", ClipFixtureScenes.NestedCircles),
+            ("rect-minus-circle", ClipFixtureScenes.RectMinusCircle),
+            ("soft-clipped-rect", ClipFixtureScenes.SoftClippedRect),
+            ("8-level-nesting", ClipFixtureScenes.EightLevelNesting),
+            ("clip-around-solid", ClipFixtureScenes.ClipAroundSolid),
+            ("overlapping-clips", ClipFixtureScenes.OverlappingClips),
+            ("clip-then-translate", ClipFixtureScenes.ClipThenTranslate),
+            ("clip-rotate", ClipFixtureScenes.ClipRotate),
+            ("clip-scale", ClipFixtureScenes.ClipScale),
+            ("non-convex-clip", ClipFixtureScenes.NonConvexClip),
+        ];
 
-        byte[] data = await File.ReadAllBytesAsync(etscPath).ConfigureAwait(false);
-        var scene = SceneReader.Read(data);
+        foreach (var (name, createScene) in fixtures)
+        {
+            string etscPath = Path.Combine(FixtureDir, $"{name}.etsc");
+            if (!File.Exists(etscPath))
+                throw new InvalidOperationException($"Fixture {name}.etsc not generated yet; run with ETCH_REGEN_GOLDENS=1");
 
-        var original = ClipFixtureScenes.NestedCircles();
-        await Assert.That(scene.CommandCount).IsEqualTo(original.CommandCount);
+            byte[] data = await File.ReadAllBytesAsync(etscPath).ConfigureAwait(false);
+            using var loaded = SceneReader.Read(data);
+            using var generated = createScene();
+
+            await Assert.That(loaded.CommandCount).IsEqualTo(generated.CommandCount);
+            await Assert.That(loaded.PathCount).IsEqualTo(generated.PathCount);
+            for (int pathId = 0; pathId < generated.PathCount; pathId++)
+            {
+                generated.TryGetPath(pathId, out var generatedPath);
+                await Assert.That(loaded.TryGetPath(pathId, out var loadedPath)).IsTrue();
+                await Assert.That(loadedPath.Path.Aabb()).IsEqualTo(generatedPath.Path.Aabb());
+            }
+        }
     }
 
     private static async Task RunParityTest(string name, SceneBuffer scene)

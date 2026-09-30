@@ -21,7 +21,7 @@
   <ItemGroup>
     <None Include="runtimes/**/native/*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>runtimes/%(RecursiveDir)native/%(Filename)%(Extension)</Link>
+      <Link>runtimes/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </None>
   </ItemGroup>
 </Project>

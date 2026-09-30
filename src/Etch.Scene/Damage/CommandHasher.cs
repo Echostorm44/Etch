@@ -106,6 +106,59 @@ internal static class CommandHasher
         }
     }
 
+    /// <summary>
+    /// Describes a drawing command by its device-space bounds and a hash of its content, so two
+    /// frames' commands can be compared for change. Returns false for non-drawing commands and for
+    /// commands whose geometry is missing or empty.
+    /// </summary>
+    internal static bool TryDescribeDrawCommand(in SceneCommand cmd, SceneBuffer scene, Affine currentXform, out Rect deviceAabb, out ulong contentHash)
+    {
+        deviceAabb = Rect.Empty;
+        contentHash = 0;
+
+        switch (cmd.Op)
+        {
+            case SceneOpcode.FillPath:
+                {
+                    if (!scene.TryGetPath(cmd.FillPath.PathId, out var pathData))
+                        return false;
+                    var aabb = pathData.Path.Aabb();
+                    if (aabb.IsEmpty)
+                        return false;
+                    deviceAabb = TransformRect(currentXform * scene.GetTransform(cmd.FillPath.TransformId), aabb);
+                    contentHash = HashFillPath(cmd, pathData, scene.GetPaint(cmd.FillPath.PaintId));
+                    return !deviceAabb.IsEmpty;
+                }
+
+            case SceneOpcode.StrokePath:
+                {
+                    if (!scene.TryGetPath(cmd.StrokePath.PathId, out var pathData))
+                        return false;
+                    var aabb = pathData.Path.Aabb();
+                    if (aabb.IsEmpty)
+                        return false;
+                    float halfStroke = cmd.StrokePath.StrokeWidth * 0.5f;
+                    var inflated = new Rect(aabb.MinX - halfStroke, aabb.MinY - halfStroke, aabb.MaxX + halfStroke, aabb.MaxY + halfStroke);
+                    deviceAabb = TransformRect(currentXform * scene.GetTransform(cmd.StrokePath.TransformId), inflated);
+                    contentHash = HashStrokePath(cmd, pathData, scene.GetPaint(cmd.StrokePath.PaintId));
+                    return !deviceAabb.IsEmpty;
+                }
+
+            case SceneOpcode.FillRect:
+                {
+                    var rect = scene.GetRect(cmd.FillRect.RectId);
+                    if (rect.IsEmpty)
+                        return false;
+                    deviceAabb = TransformRect(currentXform * scene.GetTransform(cmd.FillRect.TransformId), rect);
+                    contentHash = HashFillRect(cmd, rect, scene.GetPaint(cmd.FillRect.PaintId));
+                    return !deviceAabb.IsEmpty;
+                }
+
+            default:
+                return false;
+        }
+    }
+
     private static (int minX, int minY, int maxX, int maxY) TileRange(Rect aabb, int tileCountX, int tileCountY)
     {
         int minX = Math.Max(0, (int)Math.Floor(aabb.MinX / TileSize));

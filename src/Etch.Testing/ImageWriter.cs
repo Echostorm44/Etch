@@ -22,9 +22,10 @@ public static class ImageWriter
             {
                 int srcIdx = (y * w + x) * 4;
                 int dstIdx = x * 4;
-                row[dstIdx + 0] = (ushort)(rgba[srcIdx + 2] * 257);
+                // SharpImage frames store channels in R, G, B, A order; 257 maps 8-bit to 16-bit exactly.
+                row[dstIdx + 0] = (ushort)(rgba[srcIdx + 0] * 257);
                 row[dstIdx + 1] = (ushort)(rgba[srcIdx + 1] * 257);
-                row[dstIdx + 2] = (ushort)(rgba[srcIdx + 0] * 257);
+                row[dstIdx + 2] = (ushort)(rgba[srcIdx + 2] * 257);
                 row[dstIdx + 3] = (ushort)(rgba[srcIdx + 3] * 257);
             }
         }

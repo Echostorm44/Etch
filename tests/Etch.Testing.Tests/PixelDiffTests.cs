@@ -184,4 +184,47 @@ internal sealed class PixelDiffTests
 
         await Assert.That(error).IsEqualTo(255);
     }
+
+    [Test]
+    public async Task P95_ErrorsOnMoreThanFivePercentOfChannels_ReportsThatError()
+    {
+        // 10x10 image = 300 RGB channels; 20 channels (6.7%) off by 50 puts the 95th percentile at 50.
+        var (actual, reference) = CreateImagesWithRedChannelErrors(width: 10, height: 10, erroneousPixelCount: 20, errorMagnitude: 50);
+
+        var result = PixelDiff.Compare(actual, reference, 10, 10, new DiffTolerance(float.MaxValue, 3, 255));
+
+        await Assert.That(result.P95Error).IsEqualTo(50);
+        await Assert.That(result.Pass).IsFalse();
+    }
+
+    [Test]
+    public async Task P95_ErrorsOnFewerThanFivePercentOfChannels_ReportsZero()
+    {
+        // 10 of 300 channels (3.3%) differ, so at least 95% of channels have zero error.
+        var (actual, reference) = CreateImagesWithRedChannelErrors(width: 10, height: 10, erroneousPixelCount: 10, errorMagnitude: 50);
+
+        var result = PixelDiff.Compare(actual, reference, 10, 10, new DiffTolerance(float.MaxValue, 3, 255));
+
+        await Assert.That(result.P95Error).IsEqualTo(0);
+        await Assert.That(result.MaxError).IsEqualTo(50);
+        await Assert.That(result.Pass).IsTrue();
+    }
+
+    private static (byte[] Actual, byte[] Reference) CreateImagesWithRedChannelErrors(int width, int height, int erroneousPixelCount, byte errorMagnitude)
+    {
+        var actual = new byte[width * height * 4];
+        var reference = new byte[width * height * 4];
+        for (int i = 0; i < actual.Length; i += 4)
+        {
+            actual[i] = reference[i] = 100;
+            actual[i + 1] = reference[i + 1] = 100;
+            actual[i + 2] = reference[i + 2] = 100;
+            actual[i + 3] = reference[i + 3] = 255;
+        }
+
+        for (int pixel = 0; pixel < erroneousPixelCount; pixel++)
+            actual[pixel * 4] = (byte)(100 + errorMagnitude);
+
+        return (actual, reference);
+    }
 }
