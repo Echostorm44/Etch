@@ -41,7 +41,7 @@ public class SimpleCascadeTests
         for (int x = 0; x < w; x++)
         {
             int idx = (y * w + x) * 4;
-            blueSum += pixels[idx + 0];
+            blueSum += pixels[idx + 2]; // RGBA: byte 2 is blue
         }
         await Assert.That(blueSum).IsGreaterThan(0);
     }
@@ -90,9 +90,9 @@ public class SimpleCascadeTests
         byte[] pixels = Etch.Testing.SceneRunner.RunCpu(scene, 400, 200);
         // Check pixel at center of first white rect (12, 12)
         int idx = (12 * 400 + 12) * 4;
-        await Assert.That((int)pixels[idx + 2]).IsEqualTo(255); // R
+        await Assert.That((int)pixels[idx + 0]).IsEqualTo(255); // R
         await Assert.That((int)pixels[idx + 1]).IsEqualTo(255); // G
-        await Assert.That((int)pixels[idx + 0]).IsEqualTo(255); // B
+        await Assert.That((int)pixels[idx + 2]).IsEqualTo(255); // B
     }
 
     [Test]

@@ -42,7 +42,7 @@ public ref struct StripsBuilder
 
     public int CoverageCount => _coverageCount;
 
-    public void AddStrip(Strip strip, ReadOnlySpan<byte> coverage)
+    public void AddStrip(Strip strip, scoped ReadOnlySpan<byte> coverage)
     {
         if (_stripsArray == null || _coverageArray == null)
             return;

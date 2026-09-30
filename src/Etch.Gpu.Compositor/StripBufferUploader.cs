@@ -70,10 +70,18 @@ public sealed unsafe class StripBufferUploader : IDisposable
             }
             else
             {
-                Span<byte> padded = stackalloc byte[alignedSize];
-                coverageBytes.CopyTo(padded);
-                padded.Slice((int)coverageSize).Clear();
-                _device.Queue.WriteBuffer(coverageBuffer, 0, padded);
+                // Only the last 1-3 bytes need padding: write the aligned prefix straight from the
+                // source and the tail from a 4-byte scratch. (Padding the whole payload on the stack
+                // overflowed it; coverage runs to megabytes at 1080p.)
+                int alignedPrefix = (int)coverageSize & ~3;
+                if (alignedPrefix > 0)
+                {
+                    _device.Queue.WriteBuffer(coverageBuffer, 0, coverageBytes.Slice(0, alignedPrefix));
+                }
+                Span<byte> tail = stackalloc byte[4];
+                tail.Clear();
+                coverageBytes.Slice(alignedPrefix).CopyTo(tail);
+                _device.Queue.WriteBuffer(coverageBuffer, (ulong)alignedPrefix, tail);
             }
         }
 

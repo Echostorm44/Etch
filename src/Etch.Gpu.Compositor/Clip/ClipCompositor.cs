@@ -10,6 +10,7 @@ public sealed class ClipCompositor : IDisposable
     private readonly int[] _freeList;
     private int _currentDepth;
     private int _freeListCount;
+    private int _freeListHead;
     private bool _disposed;
 
     public ClipCompositor(ClipMaskBuffers buffers)
@@ -19,6 +20,7 @@ public sealed class ClipCompositor : IDisposable
         _freeList = new int[ClipMaskBuffers.MaxClipLevels];
         _currentDepth = 0;
         _freeListCount = 0;
+        _freeListHead = 0;
     }
 
     public int PushClip()
@@ -58,11 +60,16 @@ public sealed class ClipCompositor : IDisposable
 
     public ClipMaskBuffers Buffers => _buffers;
 
+    // Freed slots are reused first-freed-first: a popped clip's mask may still be sampled by draws
+    // already recorded this frame, so the slot freed longest ago is the safest one to overwrite.
     private int AllocateSlot()
     {
         if (_freeListCount > 0)
         {
-            return _freeList[--_freeListCount];
+            int slot = _freeList[_freeListHead];
+            _freeListHead = (_freeListHead + 1) % _freeList.Length;
+            _freeListCount--;
+            return slot;
         }
 
         if (_currentDepth + _freeListCount >= ClipMaskBuffers.MaxClipLevels)
@@ -75,9 +82,10 @@ public sealed class ClipCompositor : IDisposable
 
     private void FreeSlot(int slot)
     {
-        if (_freeListCount < ClipMaskBuffers.MaxClipLevels)
+        if (_freeListCount < _freeList.Length)
         {
-            _freeList[_freeListCount++] = slot;
+            _freeList[(_freeListHead + _freeListCount) % _freeList.Length] = slot;
+            _freeListCount++;
         }
     }
 
@@ -85,6 +93,7 @@ public sealed class ClipCompositor : IDisposable
     {
         _currentDepth = 0;
         _freeListCount = 0;
+        _freeListHead = 0;
     }
 
     public void Dispose()

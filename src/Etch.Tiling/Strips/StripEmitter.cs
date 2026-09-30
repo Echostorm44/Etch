@@ -9,8 +9,6 @@ namespace Etch.Tiling.Strips;
 
 public static class StripEmitter
 {
-    private const int MaxClipDepth = 16;
-
     public static StripBuffer Emit<TTile>(SceneBuffer scene, ClassifiedScene classified, TileGrid<TTile> grid)
         where TTile : struct, ITileSize
     {
@@ -26,66 +24,31 @@ public static class StripEmitter
 
         var edges = ArrayPool<(Point, Point)>.Shared.Rent(2048);
         var coverage = new byte[TTile.Width];
+        var commands = scene.Commands;
+#pragma warning restore CA1062
+        var state = CommandState.Resolve(scene, commands);
+        var geometry = new GeometryCache();
 
         try
         {
-            int sceneCursor = 0;
-            var xform = Affine.Identity;
-            var commands = scene.Commands;
-#pragma warning restore CA1062
-
-            Span<Rect> clipStack = stackalloc Rect[MaxClipDepth];
-            int clipDepth = 0;
-
             int numEntries = classified.AllEntries.Length;
             var allEntries = classified.AllEntries;
 
+            // Entries are sorted by tile, not by command, so the transform and clip state each
+            // command sees comes from CommandState rather than a cursor walking the scene.
             for (int i = 0; i < numEntries; i++)
             {
-                int targetOrder = allEntries[i].CommandOrder;
-
-                while (sceneCursor < commands.Length && sceneCursor <= targetOrder)
-                {
-                    ref readonly var cmd = ref commands[sceneCursor];
-                    switch (cmd.Op)
-                    {
-                        case SceneOpcode.SetTransform:
-                            xform = scene.GetTransform(cmd.SetTransform.TransformId);
-                            break;
-                        case SceneOpcode.PushClip:
-                            if (clipDepth < MaxClipDepth &&
-                                scene.TryGetPath(cmd.PushClip.ClipId, out var pathData))
-                            {
-                                var clipAabb = pathData.Path.Aabb();
-                                if (!clipAabb.IsEmpty)
-                                {
-                                    var deviceAabb = TransformRect(xform, clipAabb);
-                                    if (cmd.PushClip.ClipMode == 0)
-                                        clipStack[clipDepth] = deviceAabb;
-                                    else
-                                        clipStack[clipDepth] = Rect.Empty;
-                                }
-                                else
-                                {
-                                    clipStack[clipDepth] = Rect.Empty;
-                                }
-                                clipDepth++;
-                            }
-                            break;
-                        case SceneOpcode.PopClip:
-                            if (clipDepth > 0)
-                                clipDepth--;
-                            break;
-                    }
-                    sceneCursor++;
-                }
-
                 ref readonly var entry = ref allEntries[i];
+                int order = entry.CommandOrder;
+                if ((uint)order >= (uint)commands.Length)
+                    continue;
+
+                var xform = state.TransformAt(order);
                 int tileIndex = entry.TileIndex;
                 var (tileX, tileY) = grid.TileXY(tileIndex);
                 var tileBounds = grid.TileBounds(tileX, tileY);
 
-                if (!TileOverlapsClipStack(tileBounds, clipStack, clipDepth))
+                if (!TileOverlapsClipStack(tileBounds, state.ClipStackAt(order)))
                     continue;
 
                 switch (entry.Kind)
@@ -94,10 +57,10 @@ public static class StripEmitter
                         EmitFillRect(scene, entry, xform, tileX, tileY, tileBounds, grid, ref builder);
                         break;
                     case ClassificationKind.FillPath:
-                        EmitFillPath(scene, entry, xform, grid, tileX, tileY, edges, coverage, ref builder);
+                        EmitFillPath(scene, entry, xform, grid, tileX, tileY, edges, coverage, geometry, ref builder);
                         break;
                     case ClassificationKind.StrokePath:
-                        EmitStrokePath(scene, entry, xform, grid, tileX, tileY, edges, coverage, ref builder);
+                        EmitStrokePath(scene, entry, xform, grid, tileX, tileY, edges, coverage, geometry, ref builder);
                         break;
                     case ClassificationKind.DrawImage:
                     case ClassificationKind.DrawGlyphRun:
@@ -115,17 +78,19 @@ public static class StripEmitter
         finally
         {
             ArrayPool<(Point, Point)>.Shared.Return(edges);
+            state.Dispose();
+            geometry.Dispose();
         }
 
-        return builder.Finish();
+        // Finish copies the result out; the builder's pooled arrays go back to the pool.
+        var result = builder.Finish();
+        builder.Dispose();
+        return result;
     }
 
-    private static bool TileOverlapsClipStack(Rect tileBounds, ReadOnlySpan<Rect> clipStack, int clipDepth)
+    private static bool TileOverlapsClipStack(Rect tileBounds, ReadOnlySpan<Rect> clipStack)
     {
-        if (clipDepth == 0)
-            return true;
-
-        for (int i = 0; i < clipDepth; i++)
+        for (int i = 0; i < clipStack.Length; i++)
         {
             ref readonly var clip = ref clipStack[i];
             if (clip.IsEmpty)
@@ -196,11 +161,11 @@ public static class StripEmitter
         int numCols = x1 - x0 + 1;
         int totalCoverage = numRows * numCols;
 
-        ushort rowMask = (ushort)(((1 << numRows) - 1) << y0);
+        uint rowMask = RowBits(numRows) << y0;
 
-        var coverage = new byte[totalCoverage];
-        for (int i = 0; i < totalCoverage; i++)
-            coverage[i] = 0xFF;
+        // At most one tile's worth of bytes (1 KB for the largest tile, TTile32).
+        Span<byte> coverage = stackalloc byte[totalCoverage];
+        coverage.Fill(0xFF);
 
         var strip = new Strip(
             (uint)grid.TileIndex(tileX, tileY),
@@ -221,6 +186,7 @@ public static class StripEmitter
         int tileY,
         (Point, Point)[] edges,
         byte[] coverage,
+        GeometryCache geometry,
         ref StripsBuilder builder)
         where TTile : struct, ITileSize
     {
@@ -237,23 +203,16 @@ public static class StripEmitter
             ? NonZeroFillStrategy.Instance
             : EvenOddFillStrategy.Instance;
 
-        var flatPoints = ArrayPool<Point>.Shared.Rent(65536);
-        try
+        // Flattened and transformed once per command; a path touches many tiles.
+        ReadOnlySpan<Point> written = geometry.DeviceFill(entry.CommandOrder, in pathData.Path, localXform);
         {
-            FlattenSink flatSink = new FlattenSink(flatPoints.AsSpan(), autoflush: true);
-            CurveFlattener.BezPath(in pathData.Path, 0.05, ref flatSink);
-
-            var written = flatSink.Written;
             if (written.Length < 2)
                 return;
 
             int edgeCount = 0;
             for (int i = 0; i < written.Length - 1 && edgeCount < edges.Length; i++)
             {
-                var start = localXform.Transform(written[i]);
-                var end = localXform.Transform(written[i + 1]);
-
-                var clipped = ClipEdgeToTile(start, end, tileX, tileY, TTile.Width, TTile.Height);
+                var clipped = ClipEdgeToTile(written[i], written[i + 1], tileX, tileY, TTile.Width, TTile.Height);
                 if (clipped.HasValue)
                     edges[edgeCount++] = clipped.Value;
             }
@@ -261,15 +220,12 @@ public static class StripEmitter
             if (edgeCount == 0)
             {
                 // No boundary edges intersect this tile — check if tile center is inside the path
-                if (!IsPointInsidePath(written, localXform, tileX, tileY, TTile.Width, TTile.Height))
+                if (!IsPointInsidePath(written, tileX, tileY, TTile.Width, TTile.Height))
                     return;
 
-                // Interior tile: full coverage for all rows
-                for (int row = 0; row < TTile.Height; row++)
-                {
-                    Array.Fill(coverage, (byte)255, 0, TTile.Width);
-                    EmitRowStrips<TTile>(coverage, grid.TileIndex(tileX, tileY), row, cmd.FillPath.PaintId, ref builder);
-                }
+                // Interior tile: one strip covering every row (the GPU handles multi-row strips, as
+                // FillRect already emits); a strip per row drew the same pixels with 8x the instances.
+                EmitFullCoverage<TTile>(grid.TileIndex(tileX, tileY), cmd.FillPath.PaintId, ref builder);
                 return;
             }
 
@@ -302,7 +258,7 @@ public static class StripEmitter
                     for (int col = 0; col < TTile.Width; col++)
                     {
                         double testX = tileX * TTile.Width + col + 0.5;
-                        if (IsPointInsidePathAt(written, localXform, testX, rowCenterY))
+                        if (IsPointInsidePathAt(written, testX, rowCenterY))
                         {
                             anyInside = true;
                             break;
@@ -346,7 +302,7 @@ public static class StripEmitter
                             for (int s = 0; s < 4; s++)
                             {
                                 double testX = colMinX + (s + 0.5) / 4.0;
-                                if (IsPointInsidePathAt(written, localXform, testX, rowY))
+                                if (IsPointInsidePathAt(written, testX, rowY))
                                     insideCount++;
                             }
                             coverage[col] = (byte)(insideCount * 255 / 4);
@@ -356,10 +312,6 @@ public static class StripEmitter
 
                 EmitRowStrips<TTile>(coverage, grid.TileIndex(tileX, tileY), row, cmd.FillPath.PaintId, ref builder);
             }
-        }
-        finally
-        {
-            ArrayPool<Point>.Shared.Return(flatPoints);
         }
     }
 
@@ -372,6 +324,7 @@ public static class StripEmitter
         int tileY,
         (Point, Point)[] edges,
         byte[] coverage,
+        GeometryCache geometry,
         ref StripsBuilder builder)
         where TTile : struct, ITileSize
     {
@@ -386,64 +339,15 @@ public static class StripEmitter
         var localXform = xform * scene.GetTransform(cmd.StrokePath.TransformId);
         float halfWidth = cmd.StrokePath.StrokeWidth * 0.5f;
 
+        // The stroke outline is built once per command; each tile only clips its edges.
+        ReadOnlySpan<(Point, Point)> outline = geometry.DeviceStrokeOutline(entry.CommandOrder, in pathData.Path, localXform, halfWidth);
         int edgeCount = 0;
-
-        void EmitClipped(Point a, Point b)
+        for (int i = 0; i < outline.Length && edgeCount < edges.Length; i++)
         {
-            var clipped = ClipEdgeToTile(a, b, tileX, tileY, TTile.Width, TTile.Height);
-            if (clipped.HasValue && edgeCount < edges.Length)
+            var clipped = ClipEdgeToTile(outline[i].Item1, outline[i].Item2, tileX, tileY, TTile.Width, TTile.Height);
+            if (clipped.HasValue)
                 edges[edgeCount++] = clipped.Value;
         }
-
-        var subpathBuilder = BezPathBuilder.Begin(64);
-        bool hasMoveTo = false;
-        bool currentClosed = false;
-
-        foreach (var seg in pathData.Path.Iterate())
-        {
-            switch (seg.Verb)
-            {
-                case PathVerb.MoveTo:
-                    if (hasMoveTo)
-                    {
-                        ProcessStrokeSubpath(
-                            subpathBuilder.Build(), localXform, currentClosed,
-                            halfWidth, EmitClipped);
-                        subpathBuilder.Dispose();
-                        subpathBuilder = BezPathBuilder.Begin(64);
-                    }
-                    subpathBuilder.MoveTo(localXform.Transform(seg.End));
-                    hasMoveTo = true;
-                    currentClosed = false;
-                    break;
-                case PathVerb.LineTo:
-                    subpathBuilder.LineTo(localXform.Transform(seg.End));
-                    break;
-                case PathVerb.QuadTo:
-                    subpathBuilder.QuadTo(
-                        localXform.Transform(seg.Control0),
-                        localXform.Transform(seg.End));
-                    break;
-                case PathVerb.CubicTo:
-                    subpathBuilder.CubicTo(
-                        localXform.Transform(seg.Control0),
-                        localXform.Transform(seg.Control1),
-                        localXform.Transform(seg.End));
-                    break;
-                case PathVerb.Close:
-                    subpathBuilder.Close();
-                    currentClosed = true;
-                    break;
-            }
-        }
-
-        if (hasMoveTo)
-        {
-            ProcessStrokeSubpath(
-                subpathBuilder.Build(), localXform, currentClosed,
-                halfWidth, EmitClipped);
-        }
-        subpathBuilder.Dispose();
 
         if (edgeCount == 0)
         {
@@ -534,11 +438,7 @@ public static class StripEmitter
 
             if (minDist <= halfWidth)
             {
-                for (int row = 0; row < TTile.Height; row++)
-                {
-                    Array.Fill(coverage, (byte)255, 0, TTile.Width);
-                    EmitRowStrips<TTile>(coverage, grid.TileIndex(tileX, tileY), row, cmd.StrokePath.PaintId, ref builder);
-                }
+                EmitFullCoverage<TTile>(grid.TileIndex(tileX, tileY), cmd.StrokePath.PaintId, ref builder);
             }
             return;
         }
@@ -559,9 +459,8 @@ public static class StripEmitter
         }
     }
 
-    private static void ProcessStrokeSubpath(
+    internal static void ProcessStrokeSubpath(
         BezPath subpath,
-        Affine xform,
         bool isClosed,
         float halfWidth,
         Action<Point, Point> emitEdge)
@@ -593,11 +492,10 @@ public static class StripEmitter
     private static void EmitFullCoverage<TTile>(int tileIndex, int paintId, ref StripsBuilder builder)
         where TTile : struct, ITileSize
     {
-        ushort rowMask = (ushort)((1 << TTile.Height) - 1);
+        uint rowMask = RowBits(TTile.Height);
         int totalCoverage = TTile.Height * TTile.Width;
-        var coverage = new byte[totalCoverage];
-        for (int i = 0; i < totalCoverage; i++)
-            coverage[i] = 0xFF;
+        Span<byte> coverage = stackalloc byte[totalCoverage];
+        coverage.Fill(0xFF);
 
         var strip = new Strip(
             (uint)tileIndex,
@@ -637,13 +535,10 @@ public static class StripEmitter
         if (x0 > x1)
             return;
 
-        int numCols = x1 - x0 + 1;
-        var stripCoverage = new byte[numCols];
+        // AddStrip copies the bytes, so the row slice is passed straight through.
+        ReadOnlySpan<byte> stripCoverage = coverage.AsSpan(x0, x1 - x0 + 1);
 
-        for (int col = x0; col <= x1; col++)
-            stripCoverage[col - x0] = coverage[col];
-
-        ushort rowMask = (ushort)(1 << row);
+        uint rowMask = 1u << row;
 
         var strip = new Strip(
             (uint)tileIndex,
@@ -654,6 +549,10 @@ public static class StripEmitter
             (uint)paintId);
         builder.AddStrip(strip, stripCoverage);
     }
+
+    // Mask with the low `rows` bits set. Strip.RowMask is 32 bits and 1 << 32 wraps to 1 in C#,
+    // so a full 32-row tile needs the explicit case.
+    private static uint RowBits(int rows) => rows >= 32 ? uint.MaxValue : (1u << rows) - 1;
 
     private const double EdgeEpsilon = 1e-6;
 
@@ -763,7 +662,7 @@ public static class StripEmitter
         return true;
     }
 
-    private static Rect TransformRect(Affine a, Rect r)
+    internal static Rect TransformRect(Affine a, Rect r)
     {
         if (r.IsEmpty)
             return Rect.Empty;
@@ -805,22 +704,23 @@ public static class StripEmitter
         return Rect.FromLTRB(minX, minY, maxX, maxY);
     }
 
-    private static bool IsPointInsidePath(ReadOnlySpan<Point> polyline, Affine xform, int tileX, int tileY, int tileW, int tileH)
+    // Both take the polyline already in device space (see GeometryCache).
+    private static bool IsPointInsidePath(ReadOnlySpan<Point> polyline, int tileX, int tileY, int tileW, int tileH)
     {
         double cx = tileX * tileW + tileW * 0.5;
         double cy = tileY * tileH + tileH * 0.5;
-        return IsPointInsidePathAt(polyline, xform, cx, cy);
+        return IsPointInsidePathAt(polyline, cx, cy);
     }
 
-    private static bool IsPointInsidePathAt(ReadOnlySpan<Point> polyline, Affine xform, double testX, double testY)
+    private static bool IsPointInsidePathAt(ReadOnlySpan<Point> polyline, double testX, double testY)
     {
         var testPoint = new Point(testX, testY);
 
         bool inside = false;
         for (int i = 0, j = polyline.Length - 1; i < polyline.Length; j = i++)
         {
-            var pi = xform.Transform(polyline[i]);
-            var pj = xform.Transform(polyline[j]);
+            var pi = polyline[i];
+            var pj = polyline[j];
 
             if ((pi.Y > testPoint.Y) != (pj.Y > testPoint.Y) &&
                 testPoint.X < (pj.X - pi.X) * (testPoint.Y - pi.Y) / (pj.Y - pi.Y) + pi.X)

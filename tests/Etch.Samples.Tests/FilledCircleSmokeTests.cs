@@ -22,9 +22,10 @@ public class FilledCircleSmokeTests
         byte[] pixels = SceneRunner.RunCpu(scene, Width, Height);
         int idx = (CenterY * Width + CenterX) * 4;
 
-        await Assert.That((int)pixels[idx + 2]).IsEqualTo(255);
+        // RenderToRgba8: bytes are R, G, B, A.
+        await Assert.That((int)pixels[idx + 0]).IsEqualTo(255);
         await Assert.That((int)pixels[idx + 1]).IsEqualTo(0);
-        await Assert.That((int)pixels[idx + 0]).IsEqualTo(0);
+        await Assert.That((int)pixels[idx + 2]).IsEqualTo(0);
     }
 
     [Test]
@@ -51,8 +52,19 @@ public class FilledCircleSmokeTests
     [Test]
     public async Task Gpu_CenterPixel_IsRed()
     {
-        // GPU path requires working GPU driver. Skip if unavailable.
-        await Task.CompletedTask;
+        // CI's Linux runners have no GPU (ETCH_SOFTWARE_GPU=1); there is nothing to check there.
+        if (SceneRunner.IsSoftwareGpu)
+        {
+            return;
+        }
+
+        var scene = BuildScene();
+        byte[] pixels = SceneRunner.RunGpu(scene, Width, Height);
+        int idx = (CenterY * Width + CenterX) * 4;
+
+        await Assert.That((int)pixels[idx + 0]).IsEqualTo(255);
+        await Assert.That((int)pixels[idx + 1]).IsEqualTo(0);
+        await Assert.That((int)pixels[idx + 2]).IsEqualTo(0);
     }
 
     private static SceneBuffer BuildScene()

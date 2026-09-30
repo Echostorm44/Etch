@@ -488,4 +488,71 @@ internal sealed class StripEmitterTests
         builder.Close();
         return builder.Build();
     }
+
+    // Entries are processed in tile order, so the transform a command sees must not depend on which
+    // commands earlier tiles happened to walk past. Before CommandState, tile 0 advanced past the
+    // second SetTransform, and every later tile drew the first fill with that transform (off-screen).
+    [Test]
+    public void Fill_KeepsItsOwnTransformInEveryTile()
+    {
+        var grid = new TileGrid<TTile16>(64, 16);
+        var sb = SceneBuilder.Begin(16);
+        sb.BeginFrame();
+        int identity = sb.AddTransform(Affine.Identity);
+        int shifted = sb.AddTransform(Affine.Translate(1000, 0));
+        int wide = sb.AddPaint(Paint.Solid(0xFFFF0000));
+        int small = sb.AddPaint(Paint.Solid(0xFF00FF00));
+
+        sb.SetTransform(identity);
+        sb.FillRect(new Rect(0, 0, 64, 16), wide, identity);
+        sb.SetTransform(shifted);
+        sb.FillRect(new Rect(-998, 2, 4, 4), small, identity);
+        sb.EndFrame();
+        var scene = sb.End();
+        sb.Dispose();
+
+        var accum = new ClassificationAccumulator(4096);
+        BBoxClassifier.Classify(scene, grid, ref accum);
+        var entries = accum.Finish().ToArray();
+        var classified = ClassificationMerge.Merge([entries], grid);
+
+        var buffer = StripEmitter.Emit(scene, classified, grid);
+
+        for (int tile = 0; tile < buffer.TileCount; tile++)
+        {
+            bool hasWide = false;
+            foreach (var strip in buffer.StripsForTile(tile))
+            {
+                hasWide |= strip.PaintId == (uint)wide;
+            }
+            if (!hasWide)
+                throw new InvalidOperationException($"The full-width fill is missing from tile {tile}");
+        }
+    }
+
+    // Strip.RowMask is 32 bits; 1 << 32 wraps to 1 in C#, which gave 32-row tiles an empty mask.
+    [Test]
+    public void FillRect_FullTile32_RowMaskCoversAll32Rows()
+    {
+        var grid = new TileGrid<TTile32>(32, 32);
+        var sb = SceneBuilder.Begin(4);
+        sb.BeginFrame();
+        int paintId = sb.AddPaint(Paint.Solid(0xFFFF0000));
+        int transformId = sb.AddTransform(Affine.Identity);
+        sb.FillRect(new Rect(0, 0, 32, 32), paintId, transformId);
+        sb.EndFrame();
+        var scene = sb.End();
+        sb.Dispose();
+
+        var accum = new ClassificationAccumulator(4096);
+        BBoxClassifier.Classify(scene, grid, ref accum);
+        var entries = accum.Finish().ToArray();
+        var classified = ClassificationMerge.Merge([entries], grid);
+
+        var buffer = StripEmitter.Emit(scene, classified, grid);
+
+        var strips = buffer.StripsForTile(0);
+        if (strips.Length != 1 || strips[0].RowMask != uint.MaxValue)
+            throw new InvalidOperationException($"Expected one strip with all 32 rows, got {strips.Length} strip(s), mask 0x{(strips.Length > 0 ? strips[0].RowMask : 0):X}");
+    }
 }
