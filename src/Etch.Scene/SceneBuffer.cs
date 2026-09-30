@@ -221,6 +221,9 @@ public sealed class SceneBuffer : IDisposable
     public int NoiseSpecCount => _noiseSpecCount;
     public int ColorFilterCount => _colorFilterCount;
 
+    /// <summary>The sizes this scene needed; pass to <see cref="SceneBuilder.Begin(SceneCapacity)"/> for the next frame.</summary>
+    public SceneCapacity Capacity => new(_commandCount, _pathArenaUsed, _pathCount, _paintCount, _transformCount, _rectCount);
+
     public bool TryGetPath(int pathId, out PathData path)
     {
         if (pathId < 0 || pathId >= _pathCount)

@@ -28,6 +28,12 @@ public ref struct PooledBuffer<T>
         return new PooledBuffer<T>(array, minimumLength);
     }
 
+    /// <summary>
+    /// Hands the rented array to the caller, who then owns returning it to
+    /// <see cref="ArrayPool{T}.Shared"/>. Do not call <see cref="Dispose"/> afterwards.
+    /// </summary>
+    public readonly T[] Detach() => _array;
+
     public void Dispose()
     {
         if (_array != null)

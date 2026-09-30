@@ -95,27 +95,36 @@ public ref struct SceneBuilder
 
     /// <summary>Starts a new scene builder with the given command capacity.</summary>
     public static SceneBuilder Begin(int estimatedCommands = 256)
+        => Begin(new SceneCapacity(estimatedCommands, 0, 0, 0, 0, 0));
+
+    /// <summary>
+    /// Starts a new scene builder sized for <paramref name="capacity"/>. A renderer that passes
+    /// the previous frame's <see cref="SceneBuffer.Capacity"/> builds a steady-state frame without
+    /// growing (and copying) any table.
+    /// </summary>
+    public static SceneBuilder Begin(SceneCapacity capacity)
     {
-        const int InitialPathArenaSize = 4096;
-        const int InitialPathTableSize = 64;
-        const int InitialPaintTableSize = 64;
-        const int InitialTransformTableSize = 64;
-        const int InitialRectTableSize = 64;
+        int estimatedCommands = Math.Max(capacity.Commands, 1);
+        int pathArenaSize = Math.Max(4096, capacity.PathArenaBytes);
+        int pathTableSize = Math.Max(64, capacity.Paths);
+        int paintTableSize = Math.Max(64, capacity.Paints);
+        int transformTableSize = Math.Max(64, capacity.Transforms);
+        int rectTableSize = Math.Max(64, capacity.Rects);
         const int InitialGradientStopsTableSize = 64;
 
         return new SceneBuilder
         {
             _commandBuffer = PooledBuffer<SceneCommand>.Rent(estimatedCommands),
             _commandCount = 0,
-            _pathArena = PooledBuffer<byte>.Rent(InitialPathArenaSize),
+            _pathArena = PooledBuffer<byte>.Rent(pathArenaSize),
             _pathArenaUsed = 0,
-            _pathTable = PooledBuffer<PathEntry>.Rent(InitialPathTableSize),
+            _pathTable = PooledBuffer<PathEntry>.Rent(pathTableSize),
             _pathCount = 0,
-            _paintTable = PooledBuffer<Paint>.Rent(InitialPaintTableSize),
+            _paintTable = PooledBuffer<Paint>.Rent(paintTableSize),
             _paintCount = 0,
-            _transformTable = PooledBuffer<Geometry.Affine>.Rent(InitialTransformTableSize),
+            _transformTable = PooledBuffer<Geometry.Affine>.Rent(transformTableSize),
             _transformCount = 0,
-            _rectTable = PooledBuffer<Geometry.Rect>.Rent(InitialRectTableSize),
+            _rectTable = PooledBuffer<Geometry.Rect>.Rent(rectTableSize),
             _rectCount = 0,
             _gradientStopsTable = PooledBuffer<GradientStops>.Rent(InitialGradientStopsTableSize),
             _gradientStopsCount = 0,
@@ -479,26 +488,22 @@ public ref struct SceneBuilder
         EnsureNotEnded();
         _ended = true;
 
-        var commands = RentAndCopy(_commandBuffer.Span[.._commandCount]);
-        _commandBuffer.Dispose();
+        // The builder's rented arrays become the SceneBuffer's (which returns them on Dispose).
+        // Copying into fresh rented arrays and returning these with clearArray: true cost a full
+        // copy plus a zeroing of every table's capacity, each frame.
+        var commands = _commandBuffer.Detach();
 
-        var paths = RentAndCopy(_pathTable.Span[.._pathCount]);
-        _pathTable.Dispose();
+        var paths = _pathTable.Detach();
 
-        var pathArena = RentAndCopy(_pathArena.Span[.._pathArenaUsed]);
-        _pathArena.Dispose();
+        var pathArena = _pathArena.Detach();
 
-        var paints = RentAndCopy(_paintTable.Span[.._paintCount]);
-        _paintTable.Dispose();
+        var paints = _paintTable.Detach();
 
-        var transforms = RentAndCopy(_transformTable.Span[.._transformCount]);
-        _transformTable.Dispose();
+        var transforms = _transformTable.Detach();
 
-        var rects = RentAndCopy(_rectTable.Span[.._rectCount]);
-        _rectTable.Dispose();
+        var rects = _rectTable.Detach();
 
-        var gradientStops = RentAndCopy(_gradientStopsTable.Span[.._gradientStopsCount]);
-        _gradientStopsTable.Dispose();
+        var gradientStops = _gradientStopsTable.Detach();
 
         MeshGradient[] meshGradients;
         if (_meshGradientCount == 0)
@@ -514,11 +519,9 @@ public ref struct SceneBuilder
             }
         }
 
-        var noiseSpecs = RentAndCopy(_noiseSpecTable.Span[.._noiseSpecCount]);
-        _noiseSpecTable.Dispose();
+        var noiseSpecs = _noiseSpecTable.Detach();
 
-        var colorFilters = RentAndCopy(_colorFilterTable.Span[.._colorFilterCount]);
-        _colorFilterTable.Dispose();
+        var colorFilters = _colorFilterTable.Detach();
 
         var buffer = new SceneBuffer(
             commands, _commandCount,
@@ -538,17 +541,6 @@ public ref struct SceneBuilder
 
 
         return buffer;
-    }
-
-    private static T[] RentAndCopy<T>(ReadOnlySpan<T> source)
-    {
-        if (source.Length == 0)
-        {
-            return Array.Empty<T>();
-        }
-        T[] rented = ArrayPool<T>.Shared.Rent(source.Length);
-        source.CopyTo(rented);
-        return rented;
     }
 
     public void Dispose()

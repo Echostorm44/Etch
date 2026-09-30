@@ -544,6 +544,41 @@ internal sealed class SceneBuilderTests
         }
     }
 
+    [Test]
+    public async Task End_TransfersGrownTables_AndReportsCapacity()
+    {
+        // 200 paths/paints outgrow the initial 64-entry tables, so End() hands over grown arrays.
+        // (The command buffer is fixed-size by design; size it for the frame.)
+        var sb = SceneBuilder.Begin(1024);
+        sb.BeginFrame();
+        int transform = sb.AddTransform(Affine.Identity);
+        for (int i = 0; i < 200; i++)
+        {
+            int path = sb.AddPath(CreateSquarePath());
+            sb.FillPath(path, sb.AddPaint(Paint.Solid(0xFF000000u | (uint)i)), transform, FillRule.NonZero);
+        }
+        sb.EndFrame();
+        using var scene = sb.End();
+
+        var capacity = scene.Capacity;
+        await Assert.That(capacity.Paths).IsEqualTo(200);
+        await Assert.That(capacity.Paints).IsEqualTo(200);
+        await Assert.That(capacity.Transforms).IsEqualTo(1);
+        await Assert.That(capacity.Commands).IsEqualTo(scene.CommandCount);
+        await Assert.That(capacity.PathArenaBytes).IsEqualTo(scene.PathArenaLength);
+        await Assert.That(scene.GetPaint(199).Color).IsEqualTo(0xFF0000C7u);
+        await Assert.That(scene.TryGetPath(199, out var last)).IsTrue();
+        await Assert.That(last.Path.VerbCount).IsEqualTo(5);
+
+        // A builder sized from that capacity produces the same scene.
+        var next = SceneBuilder.Begin(capacity with { Commands = 16 });
+        next.BeginFrame();
+        next.AddTransform(Affine.Identity);
+        next.EndFrame();
+        using var nextScene = next.End();
+        await Assert.That(nextScene.TransformCount).IsEqualTo(1);
+    }
+
     private static BezPath CreateSquarePath()
     {
         var builder = BezPathBuilder.Begin(4);
