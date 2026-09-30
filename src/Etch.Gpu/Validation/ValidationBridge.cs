@@ -90,12 +90,17 @@ public sealed class ErrorScope : IDisposable
 
         WebGPU.DevicePopErrorScope(_device.Handle, callbackInfo);
 
-        int waitedMs = 0;
-        while (System.Threading.Volatile.Read(ref state.Completed) == 0 && waitedMs < timeoutMs)
+        // The callback usually fires on the first pump, so check before sleeping; the deadline is
+        // wall-clock because Thread.Sleep(1) can take a whole scheduler tick.
+        long deadline = System.Diagnostics.Stopwatch.GetTimestamp() + (long)timeoutMs * System.Diagnostics.Stopwatch.Frequency / 1000;
+        while (true)
         {
             WebGPU.InstanceProcessEvents(instance.Handle);
+            if (System.Threading.Volatile.Read(ref state.Completed) != 0 || System.Diagnostics.Stopwatch.GetTimestamp() >= deadline)
+            {
+                break;
+            }
             Thread.Sleep(1);
-            waitedMs++;
         }
 
         if (System.Threading.Volatile.Read(ref state.Completed) == 0)
