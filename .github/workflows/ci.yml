@@ -69,17 +69,20 @@ jobs:
       - name: Build
         run: dotnet build Etch.sln -c Release --no-restore
 
-      # wgpu offscreen rendering segfaults against software Vulkan on headless Linux runners,
-      # so mark this as a software-GPU environment: the GPU render test skips itself here and
-      # the real GPU path is covered by the Windows/macOS matrix legs (real/WARP/Metal adapters).
-      - name: Mark software-GPU environment (Linux)
+      # The Linux runner has no GPU, so the GPU suites run on Lavapipe (Mesa's software Vulkan).
+      # libvulkan1 is the loader wgpu dlopens; mesa-vulkan-drivers provides the lvp ICD. (The GPU
+      # suites used to be skipped here as "segfaulting against software Vulkan"; the crash was the
+      # by-value callback-info ABI bug fixed in Etch.Gpu.Native, not Lavapipe.)
+      - name: Install Lavapipe (Linux)
         if: runner.os == 'Linux'
-        run: echo "ETCH_SOFTWARE_GPU=1" >> "$GITHUB_ENV"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvulkan1 mesa-vulkan-drivers
+          echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json" >> "$GITHUB_ENV"
         shell: bash
 
       # Every suite under tests/, minus the Flaky and Performance categories (see the script header).
-      # On Windows the GPU suites run on the runner's WARP adapter;
-      # on Linux (software GPU) the device-opening suites are skipped by the script.
+      # GPU suites run on WARP (Windows), Lavapipe (Linux) and Metal (macOS).
       - name: Run tests (excluding Flaky and Performance)
         run: ./tools/ci/run-all-tests.ps1
         shell: pwsh

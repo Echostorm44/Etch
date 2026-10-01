@@ -8,12 +8,8 @@
 #                not Etch. They still run in a plain `dotnet run` of their suite on a dev machine;
 #                pass -ExcludeCategories Flaky to include them here.
 #
-# Suites skipped by platform:
-#   - On software-GPU environments (ETCH_SOFTWARE_GPU=1, i.e. headless Linux CI) the suites that
-#     open a wgpu device: wgpu offscreen rendering segfaults against lavapipe there, and the real
-#     GPU path is covered by the Windows (WARP/hardware) and macOS (Metal) legs.
-#   - Off Windows, suites that target a -windows TFM (Etch.Samples.Tests references the win-x64
-#     sample apps, so it cannot load them anywhere else).
+# Off Windows, suites that target a -windows TFM are skipped (Etch.Samples.Tests references the
+# win-x64 sample apps, so it cannot load them anywhere else).
 param(
     [string]$Configuration = "Release",
     [string[]]$Exclude = @(),
@@ -23,23 +19,15 @@ param(
 $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 
-# Suites that need a working wgpu device for most of their tests.
-$gpuDeviceSuites = @(
-    "Etch.Gpu.Tests",
-    "Etch.Gpu.Compositor.Tests",
-    "Etch.PixelParity.Tests"
-)
-
 # Helper libraries that import Test.props but contain no tests of their own.
 $notSuites = @("Etch.Geometry.Oracle")
 
-$softwareGpu = $env:ETCH_SOFTWARE_GPU -eq "1"
 $failed = [System.Collections.Generic.List[string]]::new()
 
-$testArguments = @()
+$treenodeFilter = ""
 if ($ExcludeCategories.Count -gt 0) {
     $conditions = ($ExcludeCategories | ForEach-Object { "(Category!=$_)" }) -join "&"
-    $testArguments = @("--treenode-filter", "/*/*/*/*[$conditions]")
+    $treenodeFilter = "/*/*/*/*[$conditions]"
     Write-Host "Excluding categories: $($ExcludeCategories -join ', ')"
 }
 
@@ -53,11 +41,6 @@ foreach ($project in $projects) {
         continue
     }
 
-    if ($softwareGpu -and $gpuDeviceSuites -contains $name) {
-        Write-Host "::notice::Skipping $name on software-GPU environment"
-        continue
-    }
-
     $targetFramework = (Select-Xml -Path $project.FullName -XPath "//TargetFramework").Node.InnerText
     if (-not $IsWindows -and $targetFramework -like "*-windows*") {
         Write-Host "::notice::Skipping $name (targets $targetFramework) off Windows"
@@ -67,7 +50,15 @@ foreach ($project in $projects) {
     Write-Host "=== $name ==="
     Push-Location $RepoRoot
     try {
-        dotnet run --project $project.FullName -c $Configuration --no-build -- @testArguments
+        # The filter is passed as a quoted string: PowerShell on macOS/Linux globs unquoted native
+        # arguments (even from an array), and "/*/*/*/*[...]" matched real paths on macOS, which
+        # TUnit then rejected ("expects at most 1 arguments", exit code 5).
+        if ($treenodeFilter) {
+            dotnet run --project $project.FullName -c $Configuration --no-build -- --treenode-filter "$treenodeFilter"
+        }
+        else {
+            dotnet run --project $project.FullName -c $Configuration --no-build
+        }
         if ($LASTEXITCODE -ne 0) {
             # A native crash ends the process before TUnit prints anything, so the exit code is
             # the only trace of it (e.g. 139 = SIGSEGV on Unix, -1073741819 = access violation).
