@@ -78,14 +78,16 @@ public readonly struct Buffer : IDisposable
         if (_handle.IsInvalid)
             return false;
 
-        var state = new MapState { StatusValue = 0, Completed = 0 };
+        // Shared with the callback rather than on this stack: after a timeout wgpu still fires the
+        // callback (with an aborted status at the latest when the buffer is released).
+        MapState* state = CallbackState.Allocate<MapState>();
 
         var callbackInfo = new WGPUBufferMapCallbackInfo
         {
             NextInChain = null,
             Mode = (uint)CallbackMode.AllowProcessEvents,
             Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, StringViewRaw, void*, void*, void>)&MapCallback,
-            Userdata1 = (void*)&state
+            Userdata1 = state
         };
 
         WebGPU.BufferMapAsync(_handle, (ulong)mode, offset, size, callbackInfo);
@@ -95,17 +97,19 @@ public readonly struct Buffer : IDisposable
         // (~15.6 ms on Windows): the compositor's 1080p readback measured 14.9 ms on an RTX 4090 and
         // 31.2 ms on an iGPU, i.e. one and two ticks, regardless of the actual GPU time.
         long deadline = Stopwatch.GetTimestamp() + (long)timeoutMilliseconds * Stopwatch.Frequency / 1000;
-        while (state.Completed == 0)
+        while (Volatile.Read(ref state->Completed) == 0)
         {
             device.Poll(wait: true);
-            if (state.Completed != 0 || Stopwatch.GetTimestamp() >= deadline)
+            if (Volatile.Read(ref state->Completed) != 0 || Stopwatch.GetTimestamp() >= deadline)
             {
                 break;
             }
             Thread.Yield();
         }
 
-        return state.Completed != 0 && state.StatusValue == (uint)MapAsyncStatus.Success;
+        bool mapped = Volatile.Read(ref state->Completed) != 0 && state->StatusValue == (uint)MapAsyncStatus.Success;
+        CallbackState.Release(state);
+        return mapped;
     }
 #pragma warning restore CA1508
 
@@ -123,7 +127,8 @@ public readonly struct Buffer : IDisposable
         if (state == null)
             return;
         state->StatusValue = status;
-        state->Completed = 1;
+        Volatile.Write(ref state->Completed, 1u);
+        CallbackState.Release(state);
     }
 
     [StructLayout(LayoutKind.Sequential)]

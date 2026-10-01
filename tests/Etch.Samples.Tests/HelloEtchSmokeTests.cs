@@ -10,12 +10,6 @@ namespace Etch.Samples.Tests;
 /// Headless smoke test for the HelloEtch red-triangle sample (SMP-001).
 /// Renders one frame off-screen and asserts the center pixel is red.
 /// </summary>
-// Serialized with the other wgpu-device test in this suite (FilledCircleSmokeTests.Gpu_CenterPixel_IsRed)
-// under the shared "EtchGpuDevice" key, as in Etch.Correctness.Tests (commit 9bde783): concurrent
-// device create/release crashed with an access violation there, and this suite, with both device tests
-// free to run concurrently, crashed with 0xC0000005 in QueueSubmit on the windows-2022 WARP adapter
-// (CI run 36805208138; not reproduced locally on WARP).
-[NotInParallel("EtchGpuDevice")]
 public class HelloEtchSmokeTests
 {
     private const int Width = 640;

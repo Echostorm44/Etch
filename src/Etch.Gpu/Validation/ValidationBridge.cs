@@ -43,10 +43,25 @@ public readonly struct GpuError
 // hidden pointer, which is why a pointer parameter happened to work there, but SysV x64 and AArch64
 // pass it in two registers, so declaring it as a pointer shifts every later argument by one.
 [StructLayout(LayoutKind.Sequential)]
-internal struct StringViewNative
+internal unsafe struct StringViewNative
 {
     public IntPtr Data;
     public UIntPtr Length;
+
+    // WGPU_STRLEN (SIZE_MAX) marks a null-terminated string. Casting it to int gave -1, which made
+    // the span constructor throw inside an UnmanagedCallersOnly callback: a process crash.
+    public readonly ReadOnlySpan<byte> AsSpan()
+    {
+        if (Data == IntPtr.Zero || Length == 0)
+        {
+            return ReadOnlySpan<byte>.Empty;
+        }
+        if (Length == UIntPtr.MaxValue)
+        {
+            return MemoryMarshal.CreateReadOnlySpanFromNullTerminated((byte*)Data);
+        }
+        return new ReadOnlySpan<byte>((void*)Data, (int)Math.Min((ulong)Length, int.MaxValue));
+    }
 }
 
 [StructLayout(LayoutKind.Sequential)]
@@ -74,7 +89,7 @@ public sealed class ErrorScope : IDisposable
         WebGPU.DevicePushErrorScope(device.Handle, (WGPUErrorFilter)filter);
     }
 
-    public GpuError? Pop(Instance instance, int timeoutMs = 5000)
+    public unsafe GpuError? Pop(Instance instance, int timeoutMs = 5000)
     {
         if (_disposed)
             return null;
@@ -82,21 +97,18 @@ public sealed class ErrorScope : IDisposable
         if (_capturedError.HasValue)
             return _capturedError;
 
-        PopErrorScopeState state = default;
-        state.Completed = 0;
+        // Shared with the callback rather than on this stack: after a timeout wgpu still fires the
+        // callback later, at the latest when the device is released.
+        PopErrorScopeState* state = CallbackState.Allocate<PopErrorScopeState>();
 
-        WGPUPopErrorScopeCallbackInfo callbackInfo;
-        unsafe
+        var callbackInfo = new WGPUPopErrorScopeCallbackInfo
         {
-            callbackInfo = new WGPUPopErrorScopeCallbackInfo
-            {
-                NextInChain = null,
-                Mode = (uint)CallbackMode.AllowProcessEvents,
-                Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, uint, StringViewNative, IntPtr, IntPtr, void>)&PopErrorScopeCallback,
-                Userdata1 = (void*)(&state),
-                Userdata2 = null
-            };
-        }
+            NextInChain = null,
+            Mode = (uint)CallbackMode.AllowProcessEvents,
+            Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, uint, StringViewNative, IntPtr, IntPtr, void>)&PopErrorScopeCallback,
+            Userdata1 = state,
+            Userdata2 = null
+        };
 
         WebGPU.DevicePopErrorScope(_device.Handle, callbackInfo);
 
@@ -105,15 +117,19 @@ public sealed class ErrorScope : IDisposable
         long deadline = System.Diagnostics.Stopwatch.GetTimestamp() + (long)timeoutMs * System.Diagnostics.Stopwatch.Frequency / 1000;
         while (true)
         {
-            WebGPU.InstanceProcessEvents(instance.Handle);
-            if (System.Threading.Volatile.Read(ref state.Completed) != 0 || System.Diagnostics.Stopwatch.GetTimestamp() >= deadline)
+            // wgpu-native polls every device of the instance here, which can retire submissions.
+            using (WarpSerialization.Enter())
+            {
+                WebGPU.InstanceProcessEvents(instance.Handle);
+            }
+            if (System.Threading.Volatile.Read(ref state->Completed) != 0 || System.Diagnostics.Stopwatch.GetTimestamp() >= deadline)
             {
                 break;
             }
             Thread.Sleep(1);
         }
 
-        if (System.Threading.Volatile.Read(ref state.Completed) == 0)
+        if (System.Threading.Volatile.Read(ref state->Completed) == 0)
         {
             _capturedError = new GpuError(GpuErrorType.Unknown, "PopErrorScope timed out");
         }
@@ -122,16 +138,14 @@ public sealed class ErrorScope : IDisposable
             // On Success the message is the captured error's text (empty for NoError); otherwise
             // it says why the pop failed.
             string? message = null;
-            if (state.MessageLength > 0)
+            if (state->MessageLength > 0)
             {
-                unsafe
-                {
-                    message = System.Text.Encoding.UTF8.GetString(state.Message, state.MessageLength);
-                }
+                message = System.Text.Encoding.UTF8.GetString(state->Message, state->MessageLength);
             }
-            _capturedError = new GpuError((GpuErrorType)state.ErrorType, message);
+            _capturedError = new GpuError((GpuErrorType)state->ErrorType, message);
         }
 
+        CallbackState.Release(state);
         return _capturedError;
     }
 
@@ -157,10 +171,12 @@ public sealed class ErrorScope : IDisposable
 
         state->Status = status;
         state->ErrorType = type;
-        int length = message.Data == IntPtr.Zero ? 0 : (int)Math.Min((ulong)message.Length, (ulong)PopErrorScopeState.MessageCapacity);
-        new ReadOnlySpan<byte>((byte*)message.Data, length).CopyTo(new Span<byte>(state->Message, PopErrorScopeState.MessageCapacity));
+        ReadOnlySpan<byte> text = message.AsSpan();
+        int length = Math.Min(text.Length, PopErrorScopeState.MessageCapacity);
+        text.Slice(0, length).CopyTo(new Span<byte>(state->Message, PopErrorScopeState.MessageCapacity));
         state->MessageLength = length;
-        state->Completed = 1;
+        System.Threading.Volatile.Write(ref state->Completed, 1u);
+        CallbackState.Release(state);
     }
 }
 
@@ -269,9 +285,7 @@ public static class ValidationBridge
         void* userdata2)
     {
         // message is a WGPUStringView passed by value (see StringViewNative).
-        ReadOnlySpan<byte> utf8 = message.Data != IntPtr.Zero
-            ? new ReadOnlySpan<byte>((byte*)message.Data, (int)message.Length)
-            : ReadOnlySpan<byte>.Empty;
+        ReadOnlySpan<byte> utf8 = message.AsSpan();
 
         s_ring.Push((ErrorType)errorType, utf8, Stopwatch.GetTimestamp());
         Interlocked.Increment(ref s_deliveredCount);

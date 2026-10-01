@@ -33,9 +33,13 @@ namespace Etch.Gpu;
 // We use the synchronous spin-on-ProcessEvents pattern instead of real Tasks
 // because wgpu-native drives the callbacks from wgpuInstanceProcessEvents on
 // the same thread. Wrapping in a TaskCompletionSource buys us nothing here
-// and forces extra allocations; a stack-scoped spinner is both simpler and
-// zero-alloc on the hot path. The callback's message is only valid during the
-// callback, so it is copied into the stack state.
+// and forces extra managed allocations. The callback's message is only valid
+// during the callback, so it is copied into the request state.
+//
+// The state lives in native memory owned jointly by the waiter and the callback
+// (see CallbackState), not on the waiter's stack: a wait can time out, and wgpu
+// still delivers the callback later (at the latest when the instance, adapter or
+// buffer is released), which would then write into a dead stack frame.
 // ═══════════════════════════════════════════════════════════════════════════
 
 /// <summary>Outcome of <see cref="AsyncRequest.RequestAdapterSync"/>.</summary>
@@ -119,8 +123,8 @@ public static unsafe class AsyncRequest
             return new RequestAdapterResult(RequestAdapterStatus.Error, default, "Instance is invalid.");
         }
 
-        RequestState state = default;
-        state.StatusValue = (uint)RequestAdapterStatus.Error;
+        RequestState* state = CallbackState.Allocate<RequestState>();
+        state->StatusValue = (uint)RequestAdapterStatus.Error;
 
         AdapterOptions options = default;
         options.NextInChain = IntPtr.Zero;
@@ -134,20 +138,22 @@ public static unsafe class AsyncRequest
         {
             Mode = (uint)CallbackMode.AllowProcessEvents,
             Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, AdapterHandle, StringViewRaw, void*, void*, void>)&AdapterCallback,
-            Userdata1 = &state,
+            Userdata1 = state,
         };
 
         WebGPU.InstanceRequestAdapter(instance.Handle, (nint)(&options), callbackInfo);
 
-        if (!WaitForCompletion(instance, &state, timeoutMilliseconds))
+        if (!WaitForCompletion(instance, state, timeoutMilliseconds))
         {
+            CallbackState.Release(state);
             return new RequestAdapterResult(RequestAdapterStatus.Error, default, $"Timed out after {timeoutMilliseconds} ms.");
         }
 
         var result = new RequestAdapterResult(
-            (RequestAdapterStatus)state.StatusValue,
-            new Adapter(new AdapterHandle(state.Handle)),
-            state.ReadMessage());
+            (RequestAdapterStatus)state->StatusValue,
+            new Adapter(new AdapterHandle(state->Handle)),
+            state->ReadMessage());
+        CallbackState.Release(state);
 
         // With no preference wgpu keeps the platform order verbatim, and that order can start with
         // the software adapter (DXGI lists WARP first in some remote sessions). A GPU always wins
@@ -257,27 +263,35 @@ public static unsafe class AsyncRequest
             effective.RequiredLimits = (IntPtr)(&limits);
         }
 
-        RequestState state = default;
-        state.StatusValue = (uint)RequestDeviceStatus.Error;
+        RequestState* state = CallbackState.Allocate<RequestState>();
+        state->StatusValue = (uint)RequestDeviceStatus.Error;
 
         var callbackInfo = new WGPURequestDeviceCallbackInfo
         {
             Mode = (uint)CallbackMode.AllowProcessEvents,
             Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, DeviceHandle, StringViewRaw, void*, void*, void>)&DeviceCallback,
-            Userdata1 = &state,
+            Userdata1 = state,
         };
 
-        WebGPU.AdapterRequestDevice(adapter.Handle, (nint)(&effective), callbackInfo);
-
-        if (!WaitForCompletion(instance, &state, timeoutMilliseconds))
+        // Creating the device creates its D3D12 queue, which WARP's JIT state spans as well.
+        WarpSerialization.ActivateFor(adapter.GetDescription());
+        using (WarpSerialization.Enter())
         {
+            WebGPU.AdapterRequestDevice(adapter.Handle, (nint)(&effective), callbackInfo);
+        }
+
+        if (!WaitForCompletion(instance, state, timeoutMilliseconds))
+        {
+            CallbackState.Release(state);
             return new RequestDeviceResult(RequestDeviceStatus.Error, default, $"Timed out after {timeoutMilliseconds} ms.");
         }
 
-        return new RequestDeviceResult(
-            (RequestDeviceStatus)state.StatusValue,
-            new Device(new DeviceHandle(state.Handle)),
-            state.ReadMessage());
+        var result = new RequestDeviceResult(
+            (RequestDeviceStatus)state->StatusValue,
+            new Device(new DeviceHandle(state->Handle)),
+            state->ReadMessage());
+        CallbackState.Release(state);
+        return result;
     }
 
     // 0 means "leave wgpu's default". Otherwise never ask for more than the adapter offers, or
@@ -309,8 +323,12 @@ public static unsafe class AsyncRequest
         long deadline = Stopwatch.GetTimestamp() + (long)timeoutMilliseconds * Stopwatch.Frequency / 1000;
         while (true)
         {
-            WebGPU.InstanceProcessEvents(instance.Handle);
-            if (state->Completed != 0)
+            // wgpu-native polls every device of the instance here, which can retire submissions.
+            using (WarpSerialization.Enter())
+            {
+                WebGPU.InstanceProcessEvents(instance.Handle);
+            }
+            if (Volatile.Read(ref state->Completed) != 0)
             {
                 return true;
             }
@@ -333,7 +351,8 @@ public static unsafe class AsyncRequest
         state->StatusValue = status;
         state->Handle = (nint)adapter;
         state->CopyMessage(message);
-        state->Completed = 1;
+        Volatile.Write(ref state->Completed, 1);
+        CallbackState.Release(state);
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -347,7 +366,8 @@ public static unsafe class AsyncRequest
         state->StatusValue = status;
         state->Handle = (nint)device;
         state->CopyMessage(message);
-        state->Completed = 1;
+        Volatile.Write(ref state->Completed, 1);
+        CallbackState.Release(state);
     }
 
     // Raw StringView used only in unmanaged callback signatures. Matches
@@ -398,6 +418,38 @@ public static unsafe class AsyncRequest
             {
                 return Encoding.UTF8.GetString(source, MessageLength);
             }
+        }
+    }
+}
+
+/// <summary>
+/// Native memory shared by a waiter and the wgpu callback that completes it. Each side calls
+/// <see cref="Release{T}"/> exactly once and the second one frees the block, so a waiter that
+/// gives up (timeout) can return while the callback is still pending without leaving it a dangling
+/// pointer. A callback that never fires leaks the block; wgpu guarantees one (with an
+/// instance-dropped or aborted status when nothing else).
+/// </summary>
+internal static unsafe class CallbackState
+{
+    // The reference count sits in front of the payload, padded to keep the payload 16-byte aligned.
+    private const int HeaderSize = 16;
+
+    /// <summary>Allocates a zeroed <typeparamref name="T"/> owned by two parties: the waiter and the callback.</summary>
+    public static T* Allocate<T>() where T : unmanaged
+    {
+        byte* block = (byte*)NativeMemory.AlignedAlloc((nuint)(HeaderSize + sizeof(T)), HeaderSize);
+        NativeMemory.Clear(block, (nuint)(HeaderSize + sizeof(T)));
+        *(int*)block = 2;
+        return (T*)(block + HeaderSize);
+    }
+
+    /// <summary>Drops one party's ownership; frees the block when it was the last one.</summary>
+    public static void Release<T>(T* state) where T : unmanaged
+    {
+        byte* block = (byte*)state - HeaderSize;
+        if (Interlocked.Decrement(ref *(int*)block) == 0)
+        {
+            NativeMemory.AlignedFree(block);
         }
     }
 }

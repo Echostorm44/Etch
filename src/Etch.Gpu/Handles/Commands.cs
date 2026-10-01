@@ -17,6 +17,7 @@ public unsafe readonly struct CommandEncoder : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.CommandEncoderRelease(_handle);
         }
     }
@@ -78,6 +79,7 @@ public readonly struct RenderPass : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.RenderPassEncoderRelease(_handle);
         }
     }
@@ -132,6 +134,7 @@ public readonly struct CommandBuffer : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.CommandBufferRelease(_handle);
         }
     }

@@ -16,6 +16,7 @@ public readonly struct ShaderModule : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.ShaderModuleRelease(_handle);
         }
     }
@@ -54,6 +55,7 @@ public readonly struct PipelineLayout : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.PipelineLayoutRelease(_handle);
         }
     }
@@ -92,6 +94,7 @@ public readonly struct RenderPipeline : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.RenderPipelineRelease(_handle);
         }
     }

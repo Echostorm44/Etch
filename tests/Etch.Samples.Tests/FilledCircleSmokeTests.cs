@@ -50,7 +50,6 @@ public class FilledCircleSmokeTests
     }
 
     [Test]
-    [NotInParallel("EtchGpuDevice")] // wgpu device create/release is serialized; see HelloEtchSmokeTests
     public async Task Gpu_CenterPixel_IsRed()
     {
         // CI's Linux runners have no GPU (ETCH_SOFTWARE_GPU=1); there is nothing to check there.

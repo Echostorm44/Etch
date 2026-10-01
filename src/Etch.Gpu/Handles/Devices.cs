@@ -40,6 +40,7 @@ public readonly struct Instance : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.InstanceRelease(_handle);
         }
     }
@@ -245,6 +246,7 @@ public readonly struct Device : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             _queue.Dispose();
             WebGPU.DeviceRelease(_handle);
         }
@@ -255,6 +257,8 @@ public readonly struct Device : IDisposable
     /// <returns>True when no submissions are still in flight.</returns>
     public bool Poll(bool wait = false)
     {
+        // Retiring a submission can destroy pipelines released while it was in flight.
+        using var gate = WarpSerialization.Enter();
         return WebGPU.DevicePoll(_handle, wait ? 1u : 0u, IntPtr.Zero) != 0;
     }
 
@@ -369,6 +373,7 @@ public readonly struct Queue : IDisposable
     {
         if (!_handle.IsInvalid)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.QueueRelease(_handle);
         }
     }
@@ -388,6 +393,7 @@ public readonly struct Queue : IDisposable
 
         fixed (nint* ptr = handles)
         {
+            using var gate = WarpSerialization.Enter();
             WebGPU.QueueSubmit(_handle, (nuint)commands.Length, (nint)ptr);
         }
     }
