@@ -40,7 +40,7 @@
       <Link>wgpu_native.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\native\wgpu-native\win-x64\lib\wgpu_native.pdb" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <None Include="..\..\native\wgpu-native\win-x64\lib\wgpu_native.pdb" Condition="$([MSBuild]::IsOSPlatform('Windows')) and Exists('..\..\native\wgpu-native\win-x64\lib\wgpu_native.pdb')">
       <Link>wgpu_native.pdb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
