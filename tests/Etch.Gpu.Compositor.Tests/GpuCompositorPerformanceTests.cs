@@ -12,6 +12,7 @@ namespace Etch.Gpu.Compositor.Tests;
 // the macos-14 runner VM took 15 ms against 8 ms for a single path. The gating CI run
 // (tools/ci/run-all-tests.ps1) excludes this category; a plain `dotnet run` still enforces it.
 [Category("Performance")]
+[NotInParallel("EtchGpuDevice")]
 internal sealed class GpuCompositorPerformanceTests : IDisposable
 {
     private readonly Instance _instance;
