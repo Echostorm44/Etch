@@ -42,6 +42,25 @@ jobs:
         run: ./native/wgpu-native/fetch.ps1 all
         shell: pwsh
 
+      # naga-cli backs Etch.Shaders.Tests and Etch.Build.Tests (NagaValidation). Its version is
+      # pinned in build/NagaCli.props; the cargo build is cached per OS so only a bump rebuilds it.
+      - name: Resolve naga-cli version
+        id: naga
+        run: echo "version=$(./tools/ci/install-naga.ps1 -PrintVersion)" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Cache naga-cli
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/naga
+            ~/.cargo/bin/naga.exe
+          key: naga-cli-${{ steps.naga.outputs.version }}-${{ runner.os }}-${{ runner.arch }}
+
+      - name: Install naga-cli
+        run: ./tools/ci/install-naga.ps1
+        shell: pwsh
+
       # The kurbo oracle is a Rust cdylib (not checked in) used by Etch.Geometry.Differential.
       - name: Build kurbo oracle
         run: ./tools/ci/build-oracle.ps1 -Targets ${{ matrix.rid }}
@@ -58,9 +77,10 @@ jobs:
         run: echo "ETCH_SOFTWARE_GPU=1" >> "$GITHUB_ENV"
         shell: bash
 
-      # Every suite under tests/. On Windows the GPU suites run on the runner's WARP adapter;
+      # Every suite under tests/, minus the Flaky and Performance categories (see the script header).
+      # On Windows the GPU suites run on the runner's WARP adapter;
       # on Linux (software GPU) the device-opening suites are skipped by the script.
-      - name: Run tests (excluding Flaky)
+      - name: Run tests (excluding Flaky and Performance)
         run: ./tools/ci/run-all-tests.ps1
         shell: pwsh
 
@@ -133,9 +153,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install naga
-        run: ./tools/ci/install-naga.sh
-        shell: bash
+      # naga-cli backs Etch.Shaders.Tests and Etch.Build.Tests (NagaValidation). Its version is
+      # pinned in build/NagaCli.props; the cargo build is cached per OS so only a bump rebuilds it.
+      - name: Resolve naga-cli version
+        id: naga
+        run: echo "version=$(./tools/ci/install-naga.ps1 -PrintVersion)" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Cache naga-cli
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/naga
+            ~/.cargo/bin/naga.exe
+          key: naga-cli-${{ steps.naga.outputs.version }}-${{ runner.os }}-${{ runner.arch }}
+
+      - name: Install naga-cli
+        run: ./tools/ci/install-naga.ps1
+        shell: pwsh
 
       - name: Validate shaders
         run: |

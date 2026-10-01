@@ -6,8 +6,9 @@
     The CLI is installed via `cargo install naga-cli` and should be available
     on PATH, or in the user-local cargo bin directory.
 
-    CI installs via tools/ci/install-naga.ps1 / install-naga.sh.
-    Developers can install manually: cargo install naga-cli
+    CI installs exactly this version via tools/ci/install-naga.ps1 (install-naga.sh wraps it),
+    which reads NagaCliVersion from this file; the CI cache key uses it too.
+    Developers install the same version with tools/ci/install-naga.ps1.
   -->
 
   <PropertyGroup>
@@ -32,7 +33,7 @@
   </PropertyGroup>
 
   <!--
-    Developer install: cargo install naga-cli -v $(NagaCliVersion)
+    Developer install: tools/ci/install-naga.ps1 (cargo-installs the version pinned above)
     CI uses: tools/ci/install-naga.ps1 or install-naga.sh
   -->
 </Project>
