@@ -3,17 +3,44 @@
   (wgpu / FreeType / HarfBuzz) to a package consumer's output.
 
   The shared NativeLibraryResolver probes runtimes/<rid>/native/ relative to the app
-  base directory first, so copying the whole runtimes/ tree there is sufficient — no
+  base directory first, so copying the runtimes/ tree there is sufficient — no
   output-root copy is needed. Only fires for NuGet consumers (build/assets ships inside
   the package; the Exists guard is false for Etch's own in-repo build, which gets natives
   via the project references).
+
+  A RID-specific build or publish (-r win-x64, Native AOT) gets only that RID's folder and
+  its family folder (osx-arm64 also uses runtimes/osx for FreeType/HarfBuzz); shipping every
+  platform's libraries added ~20 MB of dead weight to a win-x64 publish. A portable build
+  (no RuntimeIdentifier) keeps every RID, since it may run anywhere.
 -->
 <Project>
 
-  <ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)assets')">
-    <None Include="$(MSBuildThisFileDirectory)assets\runtimes\**\*.*">
+  <PropertyGroup>
+    <_EtchNativeAssets>$(MSBuildThisFileDirectory)assets\runtimes\</_EtchNativeAssets>
+    <_EtchRidFamily Condition="'$(RuntimeIdentifier)' != '' and $(RuntimeIdentifier.StartsWith('win'))">win</_EtchRidFamily>
+    <_EtchRidFamily Condition="'$(RuntimeIdentifier)' != '' and $(RuntimeIdentifier.StartsWith('osx'))">osx</_EtchRidFamily>
+    <_EtchRidFamily Condition="'$(RuntimeIdentifier)' != '' and $(RuntimeIdentifier.StartsWith('linux'))">linux</_EtchRidFamily>
+  </PropertyGroup>
+
+  <!-- Portable: every RID. -->
+  <ItemGroup Condition="Exists('$(_EtchNativeAssets)') and '$(RuntimeIdentifier)' == ''">
+    <None Include="$(_EtchNativeAssets)**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>runtimes\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+
+  <!-- RID-specific: that RID and its family folder only. -->
+  <ItemGroup Condition="Exists('$(_EtchNativeAssets)') and '$(RuntimeIdentifier)' != ''">
+    <None Include="$(_EtchNativeAssets)$(RuntimeIdentifier)\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>runtimes\$(RuntimeIdentifier)\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </None>
+    <None Include="$(_EtchNativeAssets)$(_EtchRidFamily)\**\*.*" Condition="'$(_EtchRidFamily)' != ''">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>runtimes\$(_EtchRidFamily)\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <Visible>false</Visible>
     </None>
   </ItemGroup>
