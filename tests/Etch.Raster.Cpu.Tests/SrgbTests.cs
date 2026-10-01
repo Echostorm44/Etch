@@ -20,57 +20,117 @@ internal sealed class SrgbTests
         }
     }
 
+    // 259 pixels: a whole number of every vectorised block size plus a ragged tail, so a block
+    // loop that strides or offsets wrongly cannot hide behind a tidy length.
+    private const int ConversionPixelCount = 259;
+
+    // Guard bytes after the destination catch writes past the end of the span (heap corruption
+    // that otherwise shows up later as an unrelated failure).
+    private const int GuardLength = 64;
+    private const byte GuardByte = 0xA5;
+
     [Test]
-    public void DecodeBgra8ToLinearF16MatchesScalar()
+    public void DecodeBgra8ToLinearF16MatchesPerChannelReference()
     {
-        var src = new byte[256 * 4];
-        for (int i = 0; i < 256; i++)
+        var src = new byte[ConversionPixelCount * 4];
+        for (int i = 0; i < ConversionPixelCount; i++)
         {
             src[i * 4 + 0] = (byte)i;
             src[i * 4 + 1] = (byte)(255 - i);
             src[i * 4 + 2] = (byte)(i / 2);
-            src[i * 4 + 3] = 255;
+            src[i * 4 + 3] = (byte)(i * 7);
         }
 
-        var dstSimd = new Rgba16f[256];
-        var dstScalar = new Rgba16f[256];
+        var dst = new Rgba16f[ConversionPixelCount];
+        Srgb.DecodeBgra8ToLinearF16(src, dst);
 
-        Srgb.DecodeBgra8ToLinearF16(src, dstScalar);
-        Srgb.DecodeBgra8ToLinearF16(src, dstSimd);
-
-        for (int i = 0; i < 256; i++)
+        for (int i = 0; i < ConversionPixelCount; i++)
         {
-            var ps = dstScalar[i];
-            var pm = dstSimd[i];
-            if (Math.Abs((float)ps.R - (float)pm.R) > 0.0001f ||
-                Math.Abs((float)ps.G - (float)pm.G) > 0.0001f ||
-                Math.Abs((float)ps.B - (float)pm.B) > 0.0001f ||
-                Math.Abs((float)ps.A - (float)pm.A) > 0.0001f)
+            byte b = src[i * 4 + 0];
+            byte g = src[i * 4 + 1];
+            byte r = src[i * 4 + 2];
+            byte a = src[i * 4 + 3];
+            var expected = Rgba16f.From(Srgb.DecodeChannelScalar(r), Srgb.DecodeChannelScalar(g), Srgb.DecodeChannelScalar(b), a * (1.0f / 255.0f));
+            var actual = dst[i];
+            if (actual.R != expected.R || actual.G != expected.G || actual.B != expected.B || actual.A != expected.A)
             {
-                throw new InvalidOperationException($"SIMD/scalar mismatch at {i}");
+                throw new InvalidOperationException($"Decode mismatch at pixel {i}: expected ({expected.R}, {expected.G}, {expected.B}, {expected.A}), got ({actual.R}, {actual.G}, {actual.B}, {actual.A})");
             }
         }
     }
 
     [Test]
-    public void EncodeLinearF16ToBgra8MatchesScalar()
+    public void EncodeLinearF16ToBgra8MatchesPerChannelReference()
     {
-        var src = new Rgba16f[256];
-        for (int i = 0; i < 256; i++)
+        Rgba16f[] src = CreateEncodeSource();
+        byte[] buffer = CreateGuardedDestination(out Span<byte> dst);
+
+        Srgb.EncodeLinearF16ToBgra8(src, dst);
+
+        AssertGuardIntact(buffer);
+        for (int i = 0; i < ConversionPixelCount; i++)
         {
-            src[i] = Rgba16f.From(i / 255.0f, (255 - i) / 255.0f, (i / 2) / 255.0f, 1.0f);
+            AssertEncodedChannel(dst, i, 0, Srgb.EncodeChannelScalar((float)src[i].B));
+            AssertEncodedChannel(dst, i, 1, Srgb.EncodeChannelScalar((float)src[i].G));
+            AssertEncodedChannel(dst, i, 2, Srgb.EncodeChannelScalar((float)src[i].R));
+            AssertEncodedChannel(dst, i, 3, (byte)((float)src[i].A * 255.0f + 0.5f));
         }
+    }
 
-        var dstSimd = new byte[256 * 4];
-        var dstScalar = new byte[256 * 4];
+    [Test]
+    public void EncodeLinearF16ToRgba8MatchesPerChannelReference()
+    {
+        Rgba16f[] src = CreateEncodeSource();
+        byte[] buffer = CreateGuardedDestination(out Span<byte> dst);
 
-        Srgb.EncodeLinearF16ToBgra8(src, dstScalar);
-        Srgb.EncodeLinearF16ToBgra8(src, dstSimd);
+        Srgb.EncodeLinearF16ToRgba8(src, dst);
 
-        for (int i = 0; i < 256 * 4; i++)
+        AssertGuardIntact(buffer);
+        for (int i = 0; i < ConversionPixelCount; i++)
         {
-            if (dstSimd[i] != dstScalar[i])
-                throw new InvalidOperationException($"SIMD/scalar mismatch at byte {i}: SIMD={dstSimd[i]}, Scalar={dstScalar[i]}");
+            AssertEncodedChannel(dst, i, 0, Srgb.EncodeChannelScalar((float)src[i].R));
+            AssertEncodedChannel(dst, i, 1, Srgb.EncodeChannelScalar((float)src[i].G));
+            AssertEncodedChannel(dst, i, 2, Srgb.EncodeChannelScalar((float)src[i].B));
+            AssertEncodedChannel(dst, i, 3, (byte)((float)src[i].A * 255.0f + 0.5f));
+        }
+    }
+
+    private static Rgba16f[] CreateEncodeSource()
+    {
+        var src = new Rgba16f[ConversionPixelCount];
+        for (int i = 0; i < ConversionPixelCount; i++)
+        {
+            int v = i & 0xFF;
+            src[i] = Rgba16f.From(v / 255.0f, (255 - v) / 255.0f, (v / 2) / 255.0f, ((v * 7) & 0xFF) / 255.0f);
+        }
+        return src;
+    }
+
+    private static byte[] CreateGuardedDestination(out Span<byte> dst)
+    {
+        var buffer = new byte[ConversionPixelCount * 4 + GuardLength];
+        Array.Fill(buffer, GuardByte);
+        dst = buffer.AsSpan(0, ConversionPixelCount * 4);
+        return buffer;
+    }
+
+    private static void AssertGuardIntact(byte[] buffer)
+    {
+        for (int i = ConversionPixelCount * 4; i < buffer.Length; i++)
+        {
+            if (buffer[i] != GuardByte)
+            {
+                throw new InvalidOperationException($"Encode wrote past the destination span (guard byte {i - ConversionPixelCount * 4} overwritten)");
+            }
+        }
+    }
+
+    private static void AssertEncodedChannel(Span<byte> dst, int pixel, int channel, byte expected)
+    {
+        byte actual = dst[pixel * 4 + channel];
+        if (actual != expected)
+        {
+            throw new InvalidOperationException($"Encode mismatch at pixel {pixel} channel {channel}: expected {expected}, got {actual}");
         }
     }
 
