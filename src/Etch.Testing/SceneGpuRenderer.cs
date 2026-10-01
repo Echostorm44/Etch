@@ -79,12 +79,13 @@ public static class SceneGpuRenderer
             Etch.Panic.Invariant(Etch.PanicCodes.InvalidSurfaceSize, "Render dimensions must be positive");
 
         using var instance = Instance.Create();
-        var (adapterStatus, adapter) = AsyncRequest.RequestAdapterSync(
+        RequestAdapterResult adapterResult = AsyncRequest.RequestAdapterSync(
             instance, compatibleSurface: null, preference: PowerPreference.HighPerformance, backendType: backendType);
+        Adapter adapter = adapterResult.Adapter;
 
-        if (adapterStatus != RequestAdapterStatus.Success || adapter.IsInvalid)
+        if (adapterResult.Status != RequestAdapterStatus.Success || adapter.IsInvalid)
             Etch.Panic.Invariant(Etch.PanicCodes.GpuAdapterUnavailable,
-                $"GPU path failed: no adapter for backend {backendType}.");
+                $"GPU path failed: no adapter for backend {backendType} ({adapterResult.Status}: {adapterResult.Message}).");
 
         DeviceDescriptor deviceDesc = default;
         unsafe
