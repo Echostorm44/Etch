@@ -77,8 +77,14 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libvulkan1 mesa-vulkan-drivers
-          echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json" >> "$GITHUB_ENV"
+          sudo apt-get install -y libvulkan1 mesa-vulkan-drivers vulkan-tools
+          # The ICD file name varies with the Mesa version: lvp_icd.x86_64.json exists with Mesa 25.0
+          # but not with the runner's 25.2 ("Failed to open JSON file"), so find it, and fail here
+          # if Lavapipe is not usable: GPU tests that find no adapter skip, which would hide it.
+          icd=$(ls /usr/share/vulkan/icd.d/lvp_icd*.json | head -n 1)
+          test -n "$icd"
+          VK_ICD_FILENAMES="$icd" vulkaninfo --summary | grep -i llvmpipe
+          echo "VK_ICD_FILENAMES=$icd" >> "$GITHUB_ENV"
         shell: bash
 
       # Every suite under tests/, minus the Flaky and Performance categories (see the script header).
