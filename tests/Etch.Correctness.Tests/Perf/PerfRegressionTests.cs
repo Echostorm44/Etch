@@ -11,29 +11,26 @@ namespace Etch.Correctness.Tests.Perf;
 public class PerfRegressionTests
 {
     [Test]
-    public async Task ParseProjectPlan_PerformanceSection_HasExpectedRows()
+    public async Task ParseBudgetTables_PerformanceSection_HasExpectedRows()
     {
-        var rows = PerfRegressionParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = PerfRegressionParser.Parse(BudgetTables.TrackedCopyPath);
 
         await Assert.That(rows.Count).IsGreaterThanOrEqualTo(10);
     }
 
     [Test]
-    public async Task ParseProjectPlan_CpuSection_HasFiveRows()
+    public async Task ParseBudgetTables_CpuSection_HasFiveRows()
     {
-        var rows = PerfRegressionParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = PerfRegressionParser.Parse(BudgetTables.TrackedCopyPath);
         var cpuRows = rows.FindAll(r => r.Section == "CPU");
 
         await Assert.That(cpuRows.Count).IsEqualTo(5);
     }
 
     [Test]
-    public async Task ParseProjectPlan_GpuSection_HasFiveRows()
+    public async Task ParseBudgetTables_GpuSection_HasFiveRows()
     {
-        var rows = PerfRegressionParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = PerfRegressionParser.Parse(BudgetTables.TrackedCopyPath);
         var gpuRows = rows.FindAll(r => r.Section == "GPU");
 
         await Assert.That(gpuRows.Count).IsEqualTo(5);
@@ -77,8 +74,7 @@ public class PerfRegressionTests
     [Test]
     public async Task AllPerfRows_HaveParsableTargets()
     {
-        var rows = PerfRegressionParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = PerfRegressionParser.Parse(BudgetTables.TrackedCopyPath);
 
         int parseableCount = 0;
         foreach (var row in rows)

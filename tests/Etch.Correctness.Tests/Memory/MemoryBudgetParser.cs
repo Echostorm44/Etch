@@ -28,11 +28,15 @@ internal static class MemoryBudgetParser
         @"^\|\s*(.+?)\s*\|\s*\*{0,2}(?:<\s*)?(\d+(?:,\d{3})*(?:\.\d+)?)\s*(MB|bytes|GB)[^|]*\|",
         RegexOptions.Compiled);
 
-    public static List<MemoryBudgetRow> ParseProjectPlan(string projectRoot)
+    /// <summary>
+    /// Parses the budget tables of a ProjectPlan-format markdown file (the tracked
+    /// <see cref="BudgetTables.TrackedCopyPath"/>, or ProjectPlan.md itself). A missing file throws
+    /// rather than yielding no rows, which used to let every budget check pass vacuously.
+    /// </summary>
+    public static List<MemoryBudgetRow> Parse(string planPath)
     {
-        var planPath = Path.Combine(projectRoot, "ProjectPlan.md");
         if (!File.Exists(planPath))
-            return new List<MemoryBudgetRow>();
+            throw new FileNotFoundException("Budget tables not found", planPath);
 
         var rows = new List<MemoryBudgetRow>();
         var lines = File.ReadAllLines(planPath);

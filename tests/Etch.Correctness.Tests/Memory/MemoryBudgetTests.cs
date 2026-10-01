@@ -16,10 +16,9 @@ public class MemoryBudgetTests
     private const int StressPathCount = 100;
 
     [Test]
-    public async Task ParseProjectPlan_MemorySection_HasAllExpectedRows()
+    public async Task ParseBudgetTables_MemorySection_HasAllExpectedRows()
     {
-        var rows = MemoryBudgetParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = MemoryBudgetParser.Parse(BudgetTables.TrackedCopyPath);
 
         await Assert.That(rows.Count).IsGreaterThanOrEqualTo(5);
     }
@@ -122,8 +121,7 @@ public class MemoryBudgetTests
     [Test]
     public async Task AllBudgetRows_SatisfyManagedConstraints()
     {
-        var rows = MemoryBudgetParser.ParseProjectPlan(
-            TestRepoRoot.Path);
+        var rows = MemoryBudgetParser.Parse(BudgetTables.TrackedCopyPath);
 
         // The per-frame allocation budgets (notably the "0 bytes" hard rule) apply to the
         // warm-cache render path. Measure it after warmup, per-thread.

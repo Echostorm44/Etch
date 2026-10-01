@@ -40,11 +40,15 @@ internal readonly struct PerfBudgetRow
 
 internal static class PerfRegressionParser
 {
-    public static List<PerfBudgetRow> ParseProjectPlan(string projectRoot)
+    /// <summary>
+    /// Parses the budget tables of a ProjectPlan-format markdown file (the tracked
+    /// <see cref="BudgetTables.TrackedCopyPath"/>, or ProjectPlan.md itself). A missing file throws
+    /// rather than yielding no rows, which used to let every budget check pass vacuously.
+    /// </summary>
+    public static List<PerfBudgetRow> Parse(string planPath)
     {
-        var planPath = Path.Combine(projectRoot, "ProjectPlan.md");
         if (!File.Exists(planPath))
-            return new List<PerfBudgetRow>();
+            throw new FileNotFoundException("Budget tables not found", planPath);
 
         var rows = new List<PerfBudgetRow>();
         var lines = File.ReadAllLines(planPath);
