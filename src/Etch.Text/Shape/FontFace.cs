@@ -66,8 +66,7 @@ public sealed class FontFace : IDisposable
 
             unsafe
             {
-                FT_Error err = FreeTypeNative.FT_New_Memory_Face(
-                    FreeTypeLibrary.Instance,
+                FT_Error err = FreeTypeLibrary.NewMemoryFace(
                     (nint)ptr,
                     fontBlob.Length,
                     0,
@@ -93,7 +92,7 @@ public sealed class FontFace : IDisposable
             }
             if (ftFace != 0)
             {
-                FreeTypeNative.FT_Done_Face(ftFace);
+                FreeTypeLibrary.DoneFace(ftFace);
             }
             font?.Dispose();
             face?.Dispose();
@@ -201,7 +200,7 @@ public sealed class FontFace : IDisposable
         }
         if (_ftFace != 0)
         {
-            FreeTypeNative.FT_Done_Face(_ftFace);
+            FreeTypeLibrary.DoneFace(_ftFace);
         }
         if (_dataHandle.HasValue)
         {
