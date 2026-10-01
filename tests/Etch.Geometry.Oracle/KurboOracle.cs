@@ -35,45 +35,66 @@ public static unsafe partial class KurboOracle
     [LibraryImport(LibName, EntryPoint = "quad_flatten")]
     private static partial int QuadFlattenNative(double* quad, double startX, double startY, double tolerance, double* output, nuint maxOutput, nuint* outCount);
 
+    private static readonly object s_loadLock = new();
     private static string? _loadError;
+    private static nint s_libraryHandle;
 
     public static string? LastLoadError => _loadError;
 
+    /// <summary>
+    /// Loads the oracle cdylib from <c>runtimes/&lt;rid&gt;/native</c> under the app base directory
+    /// and binds every <c>[LibraryImport]</c> in this assembly to that exact handle. Loading by path
+    /// alone is not enough: the P/Invoke stubs resolve "etch_kurbo_oracle" through the default
+    /// probing, which searches only the native-asset folders named in deps.json. On win-x64 and
+    /// linux-x64 other packages (SkiaSharp, code coverage) happen to put runtimes/&lt;rid&gt;/native
+    /// on that list; on osx-arm64 the only one is runtimes/osx/native, so the import failed with
+    /// DllNotFoundException even though the load by path had succeeded.
+    /// </summary>
     public static bool TryLoad()
     {
-        if (_loadError == "loaded") return true;
-
-        if (_loadError != null && _loadError != "loaded")
-            return false;
-
-        string rid;
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && RuntimeInformation.OSArchitecture == Architecture.X64)
-            rid = "win-x64";
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) && RuntimeInformation.OSArchitecture == Architecture.X64)
-            rid = "linux-x64";
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && RuntimeInformation.OSArchitecture == Architecture.Arm64)
-            rid = "osx-arm64";
-        else
+        lock (s_loadLock)
         {
-            _loadError = $"Unsupported platform: {RuntimeInformation.OSDescription} {RuntimeInformation.OSArchitecture}";
-            return false;
+            if (s_libraryHandle != 0)
+                return true;
+
+            if (_loadError != null)
+                return false;
+
+            string rid;
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && RuntimeInformation.OSArchitecture == Architecture.X64)
+                rid = "win-x64";
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) && RuntimeInformation.OSArchitecture == Architecture.X64)
+                rid = "linux-x64";
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && RuntimeInformation.OSArchitecture == Architecture.Arm64)
+                rid = "osx-arm64";
+            else
+            {
+                _loadError = $"Unsupported platform: {RuntimeInformation.OSDescription} {RuntimeInformation.OSArchitecture}";
+                return false;
+            }
+
+            var libFileName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? LibName + ".dll"
+                : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? "lib" + LibName + ".dylib"
+                : "lib" + LibName + ".so";
+
+            var basePath = AppContext.BaseDirectory;
+            var nativePath = Path.Combine(basePath, "runtimes", rid, "native", libFileName);
+
+            if (!NativeLibrary.TryLoad(nativePath, out nint handle))
+            {
+                _loadError = $"Oracle native library not found at {nativePath} — run tools/ci/build-oracle.ps1";
+                return false;
+            }
+
+            s_libraryHandle = handle;
+            NativeLibrary.SetDllImportResolver(typeof(KurboOracle).Assembly, ResolveOracleImport);
+            return true;
         }
+    }
 
-        var libFileName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? LibName + ".dll"
-            : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? "lib" + LibName + ".dylib"
-            : "lib" + LibName + ".so";
-
-        var basePath = AppContext.BaseDirectory;
-        var nativePath = Path.Combine(basePath, "runtimes", rid, "native", libFileName);
-
-        if (!NativeLibrary.TryLoad(nativePath, out _))
-        {
-            _loadError = $"Oracle native library not found at {nativePath} — run tools/ci/build-oracle.ps1";
-            return false;
-        }
-
-        _loadError = "loaded";
-        return true;
+    private static nint ResolveOracleImport(string libraryName, System.Reflection.Assembly assembly, DllImportSearchPath? searchPath)
+    {
+        return libraryName == LibName ? s_libraryHandle : 0;
     }
 
     private static void EnsureLoaded()
