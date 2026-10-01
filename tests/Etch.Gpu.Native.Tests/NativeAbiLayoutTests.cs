@@ -41,6 +41,19 @@ internal sealed class NativeAbiLayoutTests
     }
 
     [Test]
+    public async Task CallbackInfosMatchNativeLayout()
+    {
+        // { nextInChain, mode (+4 padding), callback, userdata1, userdata2 } = 40 bytes. These travel
+        // by value, so a missing field (PopErrorScope once lacked `mode`) misplaces the callback.
+        foreach ((int size, int mode, int callback) in Layout.CallbackInfos())
+        {
+            await Assert.That(size).IsEqualTo(40);
+            await Assert.That(mode).IsEqualTo(8);
+            await Assert.That(callback).IsEqualTo(16);
+        }
+    }
+
+    [Test]
     public async Task UndefinedLimitsLeaveEveryFieldAtWgpuDefault()
     {
         WGPULimits limits = WGPULimits.Undefined();
@@ -74,6 +87,21 @@ internal sealed class NativeAbiLayoutTests
                 (int)((byte*)&extras.Flags - start),
                 (int)((byte*)&extras.DxcPath - start),
                 (int)((byte*)&extras.DisplayHandle - start));
+        }
+
+        public static (int Size, int Mode, int Callback)[] CallbackInfos()
+        {
+            WGPURequestAdapterCallbackInfo adapter = default;
+            WGPURequestDeviceCallbackInfo device = default;
+            WGPUBufferMapCallbackInfo map = default;
+            WGPUPopErrorScopeCallbackInfo popErrorScope = default;
+            return
+            [
+                (sizeof(WGPURequestAdapterCallbackInfo), (int)((byte*)&adapter.Mode - (byte*)&adapter), (int)((byte*)&adapter.Callback - (byte*)&adapter)),
+                (sizeof(WGPURequestDeviceCallbackInfo), (int)((byte*)&device.Mode - (byte*)&device), (int)((byte*)&device.Callback - (byte*)&device)),
+                (sizeof(WGPUBufferMapCallbackInfo), (int)((byte*)&map.Mode - (byte*)&map), (int)((byte*)&map.Callback - (byte*)&map)),
+                (sizeof(WGPUPopErrorScopeCallbackInfo), (int)((byte*)&popErrorScope.Mode - (byte*)&popErrorScope), (int)((byte*)&popErrorScope.Callback - (byte*)&popErrorScope)),
+            ];
         }
 
         public static (int Size, int MemoryHints, int BlockSizeStart) DeviceExtras()

@@ -20,7 +20,7 @@ public static partial class WebGPU
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuInstanceRequestAdapter")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-    public static partial void InstanceRequestAdapter(InstanceHandle instance, System.IntPtr options, System.IntPtr callbackInfo);
+    public static partial void InstanceRequestAdapter(InstanceHandle instance, System.IntPtr options, WGPURequestAdapterCallbackInfo callbackInfo);
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuAdapterReference")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
@@ -32,7 +32,7 @@ public static partial class WebGPU
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuAdapterRequestDevice")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-    public static partial void AdapterRequestDevice(AdapterHandle adapter, System.IntPtr descriptor, System.IntPtr callbackInfo);
+    public static partial void AdapterRequestDevice(AdapterHandle adapter, System.IntPtr descriptor, WGPURequestDeviceCallbackInfo callbackInfo);
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuDeviceReference")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]

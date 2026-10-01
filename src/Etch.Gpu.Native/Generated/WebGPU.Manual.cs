@@ -37,7 +37,8 @@ public static partial class WebGPU
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuBufferMapAsync")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-    public static partial void BufferMapAsync(BufferHandle buffer, uint mode, ulong offset, ulong size, System.IntPtr callbackInfo);
+    // mode is WGPUMapMode (WGPUFlags, 64-bit); callbackInfo is passed by value like every callback info.
+    public static partial void BufferMapAsync(BufferHandle buffer, ulong mode, ulong offset, ulong size, WGPUBufferMapCallbackInfo callbackInfo);
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuBufferGetConstMappedRange")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]

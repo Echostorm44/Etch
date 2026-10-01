@@ -41,7 +41,7 @@ public readonly struct Buffer : IDisposable
             Userdata1 = null,
             Userdata2 = null
         };
-        WebGPU.BufferMapAsync(_handle, (uint)mode, offset, size, (nint)(&callbackInfo));
+        WebGPU.BufferMapAsync(_handle, (ulong)mode, offset, size, callbackInfo);
     }
 
     public unsafe ReadOnlySpan<byte> GetConstMappedRange(ulong offset, ulong size)
@@ -88,7 +88,7 @@ public readonly struct Buffer : IDisposable
             Userdata1 = (void*)&state
         };
 
-        WebGPU.BufferMapAsync(_handle, (uint)mode, offset, size, (nint)(&callbackInfo));
+        WebGPU.BufferMapAsync(_handle, (ulong)mode, offset, size, callbackInfo);
 
         // A blocking poll returns when the submitted work has finished and fires the map callback.
         // Sleeping between non-blocking polls instead rounded every readback up to a scheduler tick

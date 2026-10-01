@@ -130,14 +130,14 @@ public static unsafe class AsyncRequest
         options.BackendType = (uint)backendType;
         options.CompatibleSurface = compatibleSurface.HasValue ? compatibleSurface.Value.Handle : IntPtr.Zero;
 
-        RequestAdapterCallbackInfo callbackInfo = default;
-        callbackInfo.NextInChain = IntPtr.Zero;
-        callbackInfo.Mode = (uint)CallbackMode.AllowProcessEvents;
-        callbackInfo.Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, AdapterHandle, StringViewRaw, void*, void*, void>)&AdapterCallback;
-        callbackInfo.Userdata1 = (IntPtr)(&state);
-        callbackInfo.Userdata2 = IntPtr.Zero;
+        var callbackInfo = new WGPURequestAdapterCallbackInfo
+        {
+            Mode = (uint)CallbackMode.AllowProcessEvents,
+            Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, AdapterHandle, StringViewRaw, void*, void*, void>)&AdapterCallback,
+            Userdata1 = &state,
+        };
 
-        WebGPU.InstanceRequestAdapter(instance.Handle, (nint)(&options), (nint)(&callbackInfo));
+        WebGPU.InstanceRequestAdapter(instance.Handle, (nint)(&options), callbackInfo);
 
         if (!WaitForCompletion(instance, &state, timeoutMilliseconds))
         {
@@ -260,14 +260,14 @@ public static unsafe class AsyncRequest
         RequestState state = default;
         state.StatusValue = (uint)RequestDeviceStatus.Error;
 
-        RequestDeviceCallbackInfo callbackInfo = default;
-        callbackInfo.NextInChain = IntPtr.Zero;
-        callbackInfo.Mode = (uint)CallbackMode.AllowProcessEvents;
-        callbackInfo.Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, DeviceHandle, StringViewRaw, void*, void*, void>)&DeviceCallback;
-        callbackInfo.Userdata1 = (IntPtr)(&state);
-        callbackInfo.Userdata2 = IntPtr.Zero;
+        var callbackInfo = new WGPURequestDeviceCallbackInfo
+        {
+            Mode = (uint)CallbackMode.AllowProcessEvents,
+            Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, DeviceHandle, StringViewRaw, void*, void*, void>)&DeviceCallback,
+            Userdata1 = &state,
+        };
 
-        WebGPU.AdapterRequestDevice(adapter.Handle, (nint)(&effective), (nint)(&callbackInfo));
+        WebGPU.AdapterRequestDevice(adapter.Handle, (nint)(&effective), callbackInfo);
 
         if (!WaitForCompletion(instance, &state, timeoutMilliseconds))
         {

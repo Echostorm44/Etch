@@ -354,6 +354,31 @@ public enum WGPUPopErrorScopeStatus : uint
     Error = 0x00000003,
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// Callback infos. Every wgpu entry point that takes one takes it BY VALUE. Windows x64 and AArch64
+// pass a 40-byte struct by hidden reference, so declaring the parameter as a pointer happened to work
+// there; SysV x64 (linux-x64) copies it onto the stack, and wgpu then read a garbage callback
+// ("invalid callback" panic, i.e. a crash on every adapter request).
+// ═══════════════════════════════════════════════════════════════════════════
+
+public unsafe struct WGPURequestAdapterCallbackInfo
+{
+    public WGPUChainedStruct* NextInChain;
+    public uint Mode;                    // WGPUCallbackMode
+    public IntPtr Callback;              // WGPURequestAdapterCallback
+    public void* Userdata1;
+    public void* Userdata2;
+}
+
+public unsafe struct WGPURequestDeviceCallbackInfo
+{
+    public WGPUChainedStruct* NextInChain;
+    public uint Mode;                    // WGPUCallbackMode
+    public IntPtr Callback;              // WGPURequestDeviceCallback
+    public void* Userdata1;
+    public void* Userdata2;
+}
+
 public unsafe struct WGPUPopErrorScopeCallbackInfo
 {
     public WGPUChainedStruct* NextInChain;
