@@ -9,20 +9,22 @@ using Etch.Gpu.Native;
 
 namespace Etch.Gpu.Validation;
 
+// Values are WGPUErrorType / WGPUErrorFilter (webgpu.h v29): PopErrorScope reports the native
+// value, which is cast straight to GpuErrorType.
 public enum GpuErrorType : uint
 {
-    NoError = 0,
-    Validation = 1,
-    OutOfMemory = 2,
-    Unknown = 3,
-    DeviceLost = 4,
+    NoError = 1,
+    Validation = 2,
+    OutOfMemory = 3,
+    Internal = 4,
+    Unknown = 5,
 }
 
 public enum ErrorFilter : uint
 {
     Validation = 1,
     OutOfMemory = 2,
-    DeviceLost = 3,
+    Internal = 3,
 }
 
 public readonly struct GpuError
@@ -37,6 +39,9 @@ public readonly struct GpuError
     }
 }
 
+// WGPUStringView. wgpu callbacks receive it BY VALUE: on Windows x64 a 16-byte struct travels as a
+// hidden pointer, which is why a pointer parameter happened to work there, but SysV x64 and AArch64
+// pass it in two registers, so declaring it as a pointer shifts every later argument by one.
 [StructLayout(LayoutKind.Sequential)]
 internal struct StringViewNative
 {
@@ -45,12 +50,16 @@ internal struct StringViewNative
 }
 
 [StructLayout(LayoutKind.Sequential)]
-internal struct PopErrorScopeState
+internal unsafe struct PopErrorScopeState
 {
+    // wgpu owns the message only for the duration of the callback, so it is copied in here.
+    public const int MessageCapacity = 1024;
+
     public uint Completed;
     public uint Status;
     public uint ErrorType;
-    public IntPtr ErrorMessage;
+    public int MessageLength;
+    public fixed byte Message[MessageCapacity];
 }
 
 public sealed class ErrorScope : IDisposable
@@ -82,7 +91,8 @@ public sealed class ErrorScope : IDisposable
             callbackInfo = new WGPUPopErrorScopeCallbackInfo
             {
                 NextInChain = null,
-                Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, uint, StringViewNative*, IntPtr, IntPtr, void>)&PopErrorScopeCallback,
+                Mode = (uint)CallbackMode.AllowProcessEvents,
+                Callback = (IntPtr)(delegate* unmanaged[Cdecl]<uint, uint, StringViewNative, IntPtr, IntPtr, void>)&PopErrorScopeCallback,
                 Userdata1 = (void*)(&state),
                 Userdata2 = null
             };
@@ -107,15 +117,18 @@ public sealed class ErrorScope : IDisposable
         {
             _capturedError = new GpuError(GpuErrorType.Unknown, "PopErrorScope timed out");
         }
-        else if (state.Status == (uint)WGPUPopErrorScopeStatus.Success)
-        {
-            _capturedError = new GpuError((GpuErrorType)state.ErrorType, null);
-        }
         else
         {
-            string? message = state.ErrorMessage != IntPtr.Zero
-                ? Marshal.PtrToStringAnsi(state.ErrorMessage)
-                : null;
+            // On Success the message is the captured error's text (empty for NoError); otherwise
+            // it says why the pop failed.
+            string? message = null;
+            if (state.MessageLength > 0)
+            {
+                unsafe
+                {
+                    message = System.Text.Encoding.UTF8.GetString(state.Message, state.MessageLength);
+                }
+            }
             _capturedError = new GpuError((GpuErrorType)state.ErrorType, message);
         }
 
@@ -134,7 +147,7 @@ public sealed class ErrorScope : IDisposable
     private static unsafe void PopErrorScopeCallback(
         uint status,
         uint type,
-        StringViewNative* messagePtr,
+        StringViewNative message,
         IntPtr userdata1,
         IntPtr userdata2)
     {
@@ -144,7 +157,9 @@ public sealed class ErrorScope : IDisposable
 
         state->Status = status;
         state->ErrorType = type;
-        state->ErrorMessage = messagePtr != null ? messagePtr->Data : IntPtr.Zero;
+        int length = message.Data == IntPtr.Zero ? 0 : (int)Math.Min((ulong)message.Length, (ulong)PopErrorScopeState.MessageCapacity);
+        new ReadOnlySpan<byte>((byte*)message.Data, length).CopyTo(new Span<byte>(state->Message, PopErrorScopeState.MessageCapacity));
+        state->MessageLength = length;
         state->Completed = 1;
     }
 }
@@ -159,7 +174,12 @@ public static class ValidationBridge
 {
     private static readonly ValidationLogRing s_ring = new ValidationLogRing();
     private static IEtchLogger? s_logger;
-    private static long s_callbackCounter; // diagnostics: how many errors captured
+    // Two separate counts: how many errors the wgpu callback delivered, and how many ring writes
+    // have been reported or acknowledged. They used to be one counter that the callback also bumped,
+    // which marked every real error as already acknowledged, so ThrowIfValidationErrorsPresent
+    // only ever saw entries pushed straight into the ring.
+    private static long s_deliveredCount;
+    private static long s_acknowledgedWrites;
 
     /// <summary>
     /// The ring that receives every uncaptured validation message. Thread-safe
@@ -168,19 +188,21 @@ public static class ValidationBridge
     public static ValidationLogRing Ring => s_ring;
 
     /// <summary>
-    /// Total number of uncaptured errors that have been delivered to the ring.
+    /// Total number of uncaptured errors the wgpu callback has delivered to the ring (entries pushed
+    /// directly with <see cref="ValidationLogRing.Push"/> are not counted).
     /// </summary>
-    public static long TotalDelivered => Interlocked.Read(ref s_callbackCounter);
+    public static long TotalDelivered => Interlocked.Read(ref s_deliveredCount);
 
     /// <summary>
-    /// Advances the internal counter so that all current ring entries are
-    /// considered acknowledged. Use in test cleanup to avoid cross-test
-    /// interference on the shared <see cref="Ring"/>.
+    /// Marks all current ring entries as acknowledged so that
+    /// <see cref="ThrowIfValidationErrorsPresent"/> reports only later ones. Does not change
+    /// <see cref="TotalDelivered"/>. Use in test setup/cleanup to avoid cross-test interference on
+    /// the shared <see cref="Ring"/>.
     /// </summary>
     public static void AcknowledgeAll()
     {
         long ringWrites = s_ring.TotalWrites;
-        Interlocked.Exchange(ref s_callbackCounter, ringWrites);
+        Interlocked.Exchange(ref s_acknowledgedWrites, ringWrites);
     }
 
     /// <summary>
@@ -201,7 +223,7 @@ public static class ValidationBridge
         descriptor->UncapturedErrorCallbackInfo = new UncapturedErrorCallbackInfo
         {
             NextInChain = IntPtr.Zero,
-            Callback = (IntPtr)(delegate* unmanaged[Cdecl]<void*, uint, void*, void*, void*, void>)&EtchValidationCallback,
+            Callback = (IntPtr)(delegate* unmanaged[Cdecl]<void*, uint, StringViewNative, void*, void*, void>)&EtchValidationCallback,
             Userdata1 = IntPtr.Zero,
             Userdata2 = IntPtr.Zero
         };
@@ -217,7 +239,7 @@ public static class ValidationBridge
     /// </remarks>
     public static int ThrowIfValidationErrorsPresent(string context)
     {
-        long total = Interlocked.Read(ref s_callbackCounter);
+        long total = Interlocked.Read(ref s_acknowledgedWrites);
         long ringWrites = s_ring.TotalWrites;
         long newErrors = ringWrites - total;
 
@@ -225,7 +247,7 @@ public static class ValidationBridge
             return 0;
 
         // Advance the counter so subsequent calls don't re-report the same errors.
-        Interlocked.Add(ref s_callbackCounter, newErrors);
+        Interlocked.Add(ref s_acknowledgedWrites, newErrors);
 
         byte[] blob = s_ring.Snapshot();
         if (ValidationLogRing.TryDecode(blob, out var snapshot) && snapshot.Count > 0)
@@ -242,19 +264,17 @@ public static class ValidationBridge
     private static unsafe void EtchValidationCallback(
         void* device,
         uint errorType,
-        void* message,
+        StringViewNative message,
         void* userdata1,
         void* userdata2)
     {
-        // All parameters are raw void* to eliminate any C# struct ABI mismatch.
-        // message is a pointer to WGPUStringView.
-        var messagePtr = (StringViewNative*)message;
-        ReadOnlySpan<byte> utf8 = messagePtr != null && messagePtr->Data != IntPtr.Zero
-            ? new ReadOnlySpan<byte>((byte*)messagePtr->Data, (int)messagePtr->Length)
+        // message is a WGPUStringView passed by value (see StringViewNative).
+        ReadOnlySpan<byte> utf8 = message.Data != IntPtr.Zero
+            ? new ReadOnlySpan<byte>((byte*)message.Data, (int)message.Length)
             : ReadOnlySpan<byte>.Empty;
 
         s_ring.Push((ErrorType)errorType, utf8, Stopwatch.GetTimestamp());
-        Interlocked.Increment(ref s_callbackCounter);
+        Interlocked.Increment(ref s_deliveredCount);
 
 #if DEBUG
         if (utf8.Length > 0)

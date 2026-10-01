@@ -357,6 +357,7 @@ public enum WGPUPopErrorScopeStatus : uint
 public unsafe struct WGPUPopErrorScopeCallbackInfo
 {
     public WGPUChainedStruct* NextInChain;
+    public uint Mode;                    // WGPUCallbackMode (webgpu.h v29 has it; without it every field after shifted)
     public IntPtr Callback;              // WGPUPopErrorScopeCallback
     public void* Userdata1;
     public void* Userdata2;

@@ -70,10 +70,9 @@ internal sealed class ValidationBridgeTests
     [Test]
     public async Task TotalDeliveredTracksCallbackCount()
     {
-        // TotalDelivered tracks s_callbackCounter, which is only incremented
-        // by the unmanaged callback (EtchValidationCallback), not by direct
-        // Ring.Push calls. We verify the counter itself by observing that
-        // AcknowledgeAll aligns it with the ring.
+        // TotalDelivered counts only errors delivered by the unmanaged callback
+        // (EtchValidationCallback), not direct Ring.Push calls, and acknowledging
+        // entries does not change it.
         ValidationBridge.AcknowledgeAll();
         long before = ValidationBridge.TotalDelivered;
 
@@ -87,12 +86,11 @@ internal sealed class ValidationBridgeTests
             throw new InvalidOperationException($"Direct Push should not affect TotalDelivered, but got {mid - before}");
         }
 
-        // After acknowledging, TotalDelivered catches up.
         ValidationBridge.AcknowledgeAll();
         long after = ValidationBridge.TotalDelivered;
-        if (after != before + 2)
+        if (after != before)
         {
-            throw new InvalidOperationException($"Expected +2 after AcknowledgeAll, got {after - before}");
+            throw new InvalidOperationException($"AcknowledgeAll should not affect TotalDelivered, but got {after - before}");
         }
 
         await Task.CompletedTask;
