@@ -5,10 +5,6 @@ using TUnit;
 
 namespace Etch.PixelParity.Tests;
 
-// wgpu instance/device create and release are serialized across GPU tests (see 9bde783): on Lavapipe
-// a concurrent create/teardown made another test's instance fail with "vulkan drivers/libraries could
-// not be loaded" (CI run 36810924712).
-[NotInParallel("EtchGpuDevice")]
 internal sealed class GpuRenderProbeTests
 {
     [Test]

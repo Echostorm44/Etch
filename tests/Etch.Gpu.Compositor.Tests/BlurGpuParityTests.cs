@@ -13,10 +13,6 @@ namespace Etch.Gpu.Compositor.Tests;
 // The GPU blur and the CPU reference implement the same kernels with texel-exact addressing, so
 // they must agree up to half-float rounding. Before this pairing existed the GPU passes bound no
 // inputs, the shaders' weights did not sum to one, and nothing compared the two.
-// wgpu instance/device create and release are serialized across GPU tests (see 9bde783): on Lavapipe
-// a concurrent create/teardown made another test's instance fail with "vulkan drivers/libraries could
-// not be loaded" (CI run 36810924712).
-[NotInParallel("EtchGpuDevice")]
 internal sealed class BlurGpuParityTests
 {
     private const int Width = 64;
