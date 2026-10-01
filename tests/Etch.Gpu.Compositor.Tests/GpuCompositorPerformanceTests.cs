@@ -7,6 +7,11 @@ using TUnit;
 
 namespace Etch.Gpu.Compositor.Tests;
 
+// Wall-clock budgets for reference hardware (ProjectPlan "GPU Performance Targets"). Shared CI
+// runners cannot meet them: windows-2022 renders on WARP (100 paths took 266 ms against 32 ms) and
+// the macos-14 runner VM took 15 ms against 8 ms for a single path. The gating CI run
+// (tools/ci/run-all-tests.ps1) excludes this category; a plain `dotnet run` still enforces it.
+[Category("Performance")]
 internal sealed class GpuCompositorPerformanceTests : IDisposable
 {
     private readonly Instance _instance;
