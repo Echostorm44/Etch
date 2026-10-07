@@ -183,26 +183,7 @@ public static class UiFrameScene
     }
 
     // Roboto from Google Fonts (cached on disk), as Etch.Text.Tests uses; the system UI font offline.
-    private static byte[] LoadFont()
-    {
-        string cache = Path.Combine(Path.GetTempPath(), "etch-test-fonts", "Roboto-Regular.ttf");
-        if (File.Exists(cache))
-        {
-            return File.ReadAllBytes(cache);
-        }
-        try
-        {
-            using var http = new HttpClient { Timeout = TimeSpan.FromSeconds(20) };
-            byte[] bytes = http.GetByteArrayAsync(new Uri("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me5Q.ttf")).GetAwaiter().GetResult();
-            Directory.CreateDirectory(Path.GetDirectoryName(cache)!);
-            File.WriteAllBytes(cache, bytes);
-            return bytes;
-        }
-        catch (Exception e) when (e is HttpRequestException or TaskCanceledException)
-        {
-            return File.ReadAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "segoeui.ttf"));
-        }
-    }
+    private static byte[] LoadFont() => Etch.Testing.TestFontCache.RobotoRegular();
 
     private static ComposeColor Rgb(byte r, byte g, byte b, float a = 1f)
         => new(Srgb.Decode(r / 255f), Srgb.Decode(g / 255f), Srgb.Decode(b / 255f), a);

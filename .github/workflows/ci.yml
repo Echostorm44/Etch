@@ -87,11 +87,22 @@ jobs:
           echo "VK_ICD_FILENAMES=$icd" >> "$GITHUB_ENV"
         shell: bash
 
+      # Test fonts are downloaded on first use (font files are not checked in) and kept in
+      # ETCH_TEST_FONTS_DIR (Etch.Testing.TestFontCache); caching it spares every run the download
+      # and keeps the suites green when the font host is unreachable. Bump the key to refetch.
+      - name: Cache test fonts
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.test-fonts
+          key: etch-test-fonts-v1
+
       # Every suite under tests/, minus the Flaky and Performance categories (see the script header).
       # GPU suites run on WARP (Windows), Lavapipe (Linux) and Metal (macOS).
       - name: Run tests (excluding Flaky and Performance)
         run: ./tools/ci/run-all-tests.ps1
         shell: pwsh
+        env:
+          ETCH_TEST_FONTS_DIR: ${{ github.workspace }}/.test-fonts
 
       - name: Upload test results
         if: always()

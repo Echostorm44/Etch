@@ -26,9 +26,8 @@ internal static class ParityScenes
     private static readonly ComposeColor Yellow = Rgb(255, 214, 10);
     private static readonly ComposeColor Slate = Rgb(44, 44, 46);
 
-    // Fonts are not checked in (the repository ignores *.ttf). Like Etch.Text.Tests, the scenes use
-    // Roboto from Google Fonts, cached on disk, with the system UI font as the offline fallback.
-    // Either works: parity compares two renders of the same glyphs.
+    // Roboto through Etch.Testing.TestFontCache (downloaded once, cached on disk; the system UI font
+    // offline). Any font works: parity compares two renders of the same glyphs.
     private static readonly Lazy<byte[]> FontBytes = new(LoadFont);
 
     private static readonly Dictionary<float, FontFace> Faces = new();
@@ -289,26 +288,7 @@ internal static class ParityScenes
 
     // ── Helpers ─────────────────────────────────────────────────────────
 
-    private static byte[] LoadFont()
-    {
-        string cache = Path.Combine(Path.GetTempPath(), "etch-test-fonts", "Roboto-Regular.ttf");
-        if (File.Exists(cache))
-        {
-            return File.ReadAllBytes(cache);
-        }
-        try
-        {
-            using var http = new HttpClient { Timeout = TimeSpan.FromSeconds(20) };
-            byte[] bytes = http.GetByteArrayAsync(new Uri("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me5Q.ttf")).GetAwaiter().GetResult();
-            Directory.CreateDirectory(Path.GetDirectoryName(cache)!);
-            File.WriteAllBytes(cache, bytes);
-            return bytes;
-        }
-        catch (Exception e) when (e is HttpRequestException or TaskCanceledException)
-        {
-            return File.ReadAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "segoeui.ttf"));
-        }
-    }
+    private static byte[] LoadFont() => Etch.Testing.TestFontCache.RobotoRegular();
 
     /// <summary>
     /// Clips and fills far larger than an atlas page: a full-width rounded clip, a nested rounded

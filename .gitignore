@@ -43,3 +43,6 @@ ProjectPlan.md
 native/wgpu-native/*/lib/
 native/wgpu-native/src/
 native/wgpu-native/out/
+
+# Downloaded test fonts (Etch.Testing.TestFontCache; CI sets ETCH_TEST_FONTS_DIR here)
+.test-fonts/
