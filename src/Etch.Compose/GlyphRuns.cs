@@ -10,8 +10,9 @@ namespace Etch.Compose;
 /// rasterized bitmap (one of four quarter-pixel buckets), so the quad sits at the integer pen
 /// origin; placing it at the fractional pen position too would apply the shift twice. The baseline
 /// snaps to the nearest pixel row (horizontal text has no vertical subpixel bitmaps). Colour glyphs
-/// are rasterized without a subpixel offset and sampled bilinearly, so they are placed at the
-/// fractional pen position instead.
+/// are rasterized without a subpixel offset, so their quad sits at the pen origin rounded to the
+/// nearest pixel: every quad maps 1:1 onto its atlas texels and both composers read them exactly
+/// (no resampling blur, and no dependence on a GPU's filtering precision).
 /// </summary>
 public static class GlyphPlacement
 {
@@ -24,6 +25,9 @@ public static class GlyphPlacement
 
     /// <summary>Left edge of a mono glyph quad: integer pen origin plus the bitmap's left bearing.</summary>
     public static float QuadOriginX(float penX, int bitmapLeftBearing) => MathF.Floor(penX) + bitmapLeftBearing;
+
+    /// <summary>Left edge of a colour glyph quad: the pen origin rounded to the nearest pixel plus the bitmap's left bearing.</summary>
+    public static float ColorQuadOriginX(float penX, int bitmapLeftBearing) => MathF.Round(penX, MidpointRounding.AwayFromZero) + bitmapLeftBearing;
 
     /// <summary>Top edge of a mono glyph quad: the baseline snapped to the nearest row, minus the bitmap's ascent.</summary>
     public static float QuadOriginY(float penY, int bitmapTopBearing, int bitmapHeight)
@@ -84,7 +88,8 @@ public static class GlyphRunBuilder
 
             if (GlyphOutlineBuilder.HasColorLayers(face, glyphId))
             {
-                var colorKey = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, subpixel);
+                // Colour glyphs have no subpixel variants (bucket 0): one bitmap per size.
+                var colorKey = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, 0);
                 if (!colorAtlas.TryLookup(colorKey, out var colorRegion, out _))
                 {
                     byte[] rented = ArrayPool<byte>.Shared.Rent(256 * 256 * 4);
@@ -104,8 +109,8 @@ public static class GlyphRunBuilder
 
                 if (colorRegion.W > 0 && colorRegion.H > 0)
                 {
-                    float cpx = gx + colorRegion.OffsetX;
-                    float cpy = gy - (colorRegion.OffsetY + colorRegion.H);
+                    float cpx = GlyphPlacement.ColorQuadOriginX(gx, colorRegion.OffsetX);
+                    float cpy = GlyphPlacement.QuadOriginY(gy, colorRegion.OffsetY, colorRegion.H);
                     if (cpx + colorRegion.W <= clip.MinX || cpx >= clip.MaxX || cpy + colorRegion.H <= clip.MinY || cpy >= clip.MaxY)
                     {
                         culled++;

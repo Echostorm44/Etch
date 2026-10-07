@@ -32,7 +32,7 @@ internal static class ParityScenes
 
     private static readonly Dictionary<float, FontFace> Faces = new();
 
-    public static readonly string[] Names = ["shapes", "strokes", "paths", "gradients", "clips", "images", "text", "blur", "layers"];
+    public static readonly string[] Names = ["shapes", "strokes", "paths", "gradients", "clips", "images", "text", "emoji", "blur", "layers"];
 
     public static ComposeColor Rgb(byte r, byte g, byte b, float a = 1f)
         => new(Srgb.Decode(r / 255f), Srgb.Decode(g / 255f), Srgb.Decode(b / 255f), a);
@@ -60,6 +60,9 @@ internal static class ParityScenes
                 break;
             case "clips":
                 Clips(rec, t, scale);
+                break;
+            case "emoji":
+                Emoji(rec, scale);
                 break;
             case "images":
                 Images(rec, t);
@@ -245,6 +248,73 @@ internal static class ParityScenes
         rec.Glyphs(Run("Dark on yellow", 6 * scale, 225 * scale, Ink, scale, 18));
         rec.Glyphs(Run("Overlap", 180 * scale, 225 * scale, Red, scale, 20));
         rec.Glyphs(Run("Overlap", 183 * scale, 227 * scale, Blue.WithOpacity(0.7f), scale, 20));
+    }
+
+    // Colour (COLR) glyphs among text, on light and dark grounds, translucent, clipped, overlapping.
+    private static void Emoji(DrawRecording rec, float scale)
+    {
+        string emoji = "\U0001F600\U0001F680\U0001F308\u2764\uFE0F\U0001F44D\U0001F3FD\U0001F984";
+        float y = 30 * scale;
+        foreach (float size in new[] { 12f, 16f, 24f, 40f })
+        {
+            rec.Glyphs(Run("Mixed", 6 * scale, y, Ink, scale, 14));
+            rec.Glyphs(EmojiRun(emoji, 60 * scale, y, 1f, scale, size));
+            y += (size * 1.3f + 4) * scale;
+        }
+        rec.SetTransform(Affine.Scale(scale));
+        rec.FillRect(0, 170, Width, 70, ComposePaint.Solid(Slate));
+        rec.Glyphs(EmojiRun(emoji, 6 * scale, 205 * scale, 0.5f, scale, 28));
+        rec.PushClipRoundedRect(180, 175, 120, 50, 18);
+        rec.Glyphs(EmojiRun(emoji + emoji, 150 * scale, 215 * scale, 1f, scale, 32));
+        rec.PopClip();
+        rec.Glyphs(EmojiRun("\U0001F600\U0001F600", 240 * scale, 60 * scale, 1f, scale, 48));
+        rec.Glyphs(EmojiRun("\U0001F680", 262 * scale, 70 * scale, 0.8f, scale, 48));
+    }
+
+    private static readonly Lazy<byte[]> EmojiBytes = new(Etch.Testing.TestFontCache.ColorEmoji);
+    private static readonly Dictionary<float, FontFace> EmojiFaces = new();
+
+    public static GlyphRunData EmojiRun(string text, float x, float baseline, float opacity, float scale, float size)
+    {
+        float rasterSize = size * scale;
+        FontFace face;
+        lock (EmojiFaces)
+        {
+            if (!EmojiFaces.TryGetValue(rasterSize, out face!))
+            {
+                face = FontFace.Load(EmojiBytes.Value, UnitsPerEm(EmojiBytes.Value), rasterSize);
+                EmojiFaces[rasterSize] = face;
+            }
+        }
+        var shaped = Shaper.Shape(new ShapeRequest(text, face, BiDiLevel.LeftToRight, "Zyyy"));
+        var ids = new ushort[shaped.GlyphCount];
+        var positions = new float[shaped.GlyphCount * 2];
+        float pen = x;
+        for (int i = 0; i < shaped.GlyphCount; i++)
+        {
+            var g = shaped.Glyphs[i];
+            ids[i] = g.GlyphId;
+            positions[i * 2] = pen + g.XOffset;
+            positions[i * 2 + 1] = baseline - g.YOffset;
+            pen += g.XAdvance;
+        }
+        return new GlyphRunData(face, 2, ids, positions, rasterSize, new ComposeColor(1f, 1f, 1f, opacity), null);
+    }
+
+    // unitsPerEm from the font's 'head' table.
+    private static int UnitsPerEm(byte[] font)
+    {
+        int tables = font[4] << 8 | font[5];
+        for (int i = 0; i < tables; i++)
+        {
+            int record = 12 + i * 16;
+            if (font[record] == 'h' && font[record + 1] == 'e' && font[record + 2] == 'a' && font[record + 3] == 'd')
+            {
+                int offset = font[record + 8] << 24 | font[record + 9] << 16 | font[record + 10] << 8 | font[record + 11];
+                return font[offset + 18] << 8 | font[offset + 19];
+            }
+        }
+        return 2048;
     }
 
     private static void Blur(DrawRecording rec, Affine t, float scale)

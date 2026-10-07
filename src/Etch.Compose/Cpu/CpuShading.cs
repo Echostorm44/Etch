@@ -523,6 +523,8 @@ internal static class CpuShading
         }
     }
 
+    // Filter weights carry 8 bits of subtexel precision, truncated, as the reference rasterizer
+    // (WARP) filters; hardware may keep more, which the parity tests calibrate against.
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float SubTexel(float f) => MathF.Floor(f * 256f) * (1f / 256f);
 

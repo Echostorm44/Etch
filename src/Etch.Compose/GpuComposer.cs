@@ -692,7 +692,8 @@ public sealed unsafe class GpuComposer : IDisposable
 
         glyphGroup0 = CreateGlyphGroup(glyphPipeline.Group0, glyphAtlasView, nearestSampler);
         glyphGroup1 = CreateInstanceGroup(glyphPipeline.Group1, glyphBuffer);
-        colorGlyphGroup0 = CreateGlyphGroup(colorGlyphPipeline.Group0, colorGlyphAtlasView, linearSampler);
+        // Glyph quads map 1:1 onto their atlas texels: nearest sampling reads exactly that texel.
+        colorGlyphGroup0 = CreateGlyphGroup(colorGlyphPipeline.Group0, colorGlyphAtlasView, nearestSampler);
         colorGlyphGroup1 = CreateInstanceGroup(colorGlyphPipeline.Group1, colorGlyphBuffer);
 
         var blur = stackalloc BindGroupEntry[6];

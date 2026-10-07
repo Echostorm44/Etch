@@ -774,6 +774,7 @@ public sealed class CpuComposer : IDisposable
             float py = y + 0.5f;
             int row = y * width;
             float v = g.AtlasV0 + (py - g.PosY) * dv;
+            int ty = Math.Clamp((int)MathF.Floor(v * dim), 0, dim - 1);
             for (int x = x0; x < x1; x++)
             {
                 float px = x + 0.5f;
@@ -787,7 +788,11 @@ public sealed class CpuComposer : IDisposable
                     continue;
                 }
                 float u = g.AtlasU0 + (px - g.PosX) * du;
-                var (r, gr, b, a) = CpuShading.SampleBilinearSrgb(page, dim, 0, 0, dim, dim, u, v);
+                // Nearest texel, as the GPU samples colour glyphs (quads map 1:1 onto atlas texels).
+                int tx = Math.Clamp((int)MathF.Floor(u * dim), 0, dim - 1);
+                int i = ((ty * dim) + tx) * 4;
+                float r = CpuShading.Decode[page[i]], gr = CpuShading.Decode[page[i + 1]], b = CpuShading.Decode[page[i + 2]];
+                float a = page[i + 3] * (1f / 255f);
                 float alpha = a * g.A * clipCov;
                 pixels[row + x] = CpuShading.BlendPremultiplied(pixels[row + x], r * alpha, gr * alpha, b * alpha, alpha);
             }

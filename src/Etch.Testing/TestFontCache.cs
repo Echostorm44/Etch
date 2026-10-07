@@ -29,16 +29,24 @@ public static class TestFontCache
     public static byte[] AmiriRegular() => Get("Amiri-Regular.ttf", new Uri("https://github.com/google/fonts/raw/main/ofl/amiri/Amiri-Regular.ttf"), allowSystemFallback: false);
 
     /// <summary>
+    /// A colour (COLR) emoji font: Twemoji Mozilla, or Segoe UI Emoji when offline on Windows.
+    /// </summary>
+    public static byte[] ColorEmoji() => Get("Twemoji.Mozilla.ttf", new Uri("https://github.com/mozilla/twemoji-colr/releases/download/v0.7.0/Twemoji.Mozilla.ttf"), allowSystemFallback: true, EmojiFallbacks);
+
+    /// <summary>
     /// The font <paramref name="fileName"/>: from memory, the disk cache, or <paramref name="source"/>
     /// (then cached); offline, a system UI font when <paramref name="allowSystemFallback"/>.
     /// </summary>
     public static byte[] Get(string fileName, Uri source, bool allowSystemFallback)
+        => Get(fileName, source, allowSystemFallback, UiFallbacks);
+
+    private static byte[] Get(string fileName, Uri source, bool allowSystemFallback, string[] fallbacks)
     {
         ArgumentNullException.ThrowIfNull(source);
-        return Memory.GetOrAdd(fileName, _ => Load(fileName, source, allowSystemFallback));
+        return Memory.GetOrAdd(fileName, _ => Load(fileName, source, allowSystemFallback, fallbacks));
     }
 
-    private static byte[] Load(string fileName, Uri source, bool allowSystemFallback)
+    private static byte[] Load(string fileName, Uri source, bool allowSystemFallback, string[] fallbacks)
     {
         string cached = Path.Combine(Directory, fileName);
         if (File.Exists(cached))
@@ -58,7 +66,7 @@ public static class TestFontCache
         }
         catch (Exception e) when (e is HttpRequestException or TaskCanceledException && allowSystemFallback)
         {
-            foreach (string candidate in SystemFallbacks())
+            foreach (string candidate in fallbacks)
             {
                 if (File.Exists(candidate))
                 {
@@ -70,11 +78,15 @@ public static class TestFontCache
         }
     }
 
-    private static IEnumerable<string> SystemFallbacks()
-    {
-        yield return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "segoeui.ttf");
-        yield return "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf";
-        yield return "/usr/share/fonts/dejavu/DejaVuSans.ttf";
-        yield return "/System/Library/Fonts/Supplemental/Arial.ttf";
-    }
-}
+    private static readonly string[] UiFallbacks =
+    [
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "segoeui.ttf"),
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/dejavu/DejaVuSans.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+    ];
+
+    private static readonly string[] EmojiFallbacks =
+    [
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "seguiemj.ttf"),
+    ];}
