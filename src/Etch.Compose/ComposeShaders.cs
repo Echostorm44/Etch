@@ -2,12 +2,19 @@ namespace Etch.Compose;
 
 /// <summary>
 /// The WGSL the GPU composer runs. These shaders define the per-pixel semantics of every draw kind;
-/// the CPU composer's kernels are ports of exactly this arithmetic, so a change here must be mirrored
-/// there (the GPU/CPU parity tests fail otherwise).
+/// the CPU composer's kernels are ports of exactly this arithmetic, so a change here must be
+/// mirrored there (the GPU/CPU parity tests fail otherwise).
 /// </summary>
+/// <remarks>
+/// Conventions shared by every kind: pixel centres are sampled (<c>position.xy</c> = x + 0.5);
+/// antialiasing is one device pixel wide, centred on the shape's edge (<c>clamp(0.5 − distance, 0, 1)</c>,
+/// the pixel area inside a straight edge); colours are linear-light with straight alpha; the target
+/// is sRGB-encoded, so the fixed-function blend runs in linear light and every draw is re-quantized
+/// to 8 bits per channel when written.
+/// </remarks>
 internal static class ComposeShaders
 {
-    public const string GeometryWgsl = """
+    private const string Surface = """
         struct SurfaceSize {
             width: f32,
             height: f32,
@@ -19,73 +26,172 @@ internal static class ComposeShaders
             pad2: f32,
         };
 
-        struct ShapeInstance {
-            bounds_min: vec2<f32>,
-            bounds_max: vec2<f32>,
-            color0: vec4<f32>,
-            color1: vec4<f32>,
-            p0: vec2<f32>,
-            p1: vec2<f32>,
-            shape_type: u32,
-            _pad0: u32,
-            center: vec2<f32>,
-            radius: f32,
-            stroke_width: f32,
-            expand: f32,
-            _pad2: f32,
+        struct ClipEntry {
+            rect: vec4<f32>,
+            round_rect: vec4<f32>,
+            round_radius: f32,
+            has_round: u32,
+            has_mask: u32,
+            pad0: u32,
+            mask_origin: vec2<i32>,
+            mask_uv: vec2<i32>,
+            mask_size: vec2<i32>,
+            pad1: vec2<i32>,
         };
 
-        @group(0) @binding(0)
-        var<uniform> surface: SurfaceSize;
+        const QUAD = array<vec2<f32>, 4>(
+            vec2<f32>(0.0, 0.0),
+            vec2<f32>(1.0, 0.0),
+            vec2<f32>(0.0, 1.0),
+            vec2<f32>(1.0, 1.0)
+        );
+        """;
 
-        @group(0) @binding(1)
-        var<storage, read> instances: array<ShapeInstance>;
+    // Needs `surface`, `clips` and `mask_tex` declared by the including shader.
+    private const string Common = """
+        fn to_clip_space(p: vec2<f32>) -> vec4<f32> {
+            return vec4<f32>(p.x / surface.width * 2.0 - 1.0, 1.0 - p.y / surface.height * 2.0, 0.0, 1.0);
+        }
+
+        fn dissolved(position: vec2<f32>) -> bool {
+            if (surface.dissolve <= 0.0) {
+                return false;
+            }
+            let dn = fract(sin(dot(floor(position), vec2<f32>(12.9898, 78.233))) * 43758.5453);
+            return dn < surface.dissolve;
+        }
+
+        // Signed distance to a rounded rect (negative inside).
+        fn sdf_round_rect(p: vec2<f32>, lo: vec2<f32>, hi: vec2<f32>, r: f32) -> f32 {
+            let center = (lo + hi) * 0.5;
+            let half_size = (hi - lo) * 0.5;
+            let d = abs(p - center) - half_size + vec2<f32>(r, r);
+            return length(max(d, vec2<f32>(0.0))) + min(max(d.x, d.y), 0.0) - r;
+        }
+
+        // Coverage of a pixel whose centre is `dist` device pixels outside an edge: the area of the
+        // pixel on the inside of a straight edge through it (exact for axis-aligned edges), so
+        // analytic shapes have the same weight as rasterized masks of the same geometry.
+        fn edge_coverage(dist: f32) -> f32 {
+            return clamp(0.5 - dist, 0.0, 1.0);
+        }
+
+        fn mask_texel(p: vec2<f32>, origin: vec2<i32>, uv: vec2<i32>, size: vec2<i32>) -> f32 {
+            let t = vec2<i32>(floor(p)) - origin;
+            if (t.x < 0 || t.y < 0 || t.x >= size.x || t.y >= size.y) {
+                return 0.0;
+            }
+            return textureLoad(mask_tex, t + uv, 0).r;
+        }
+
+        fn clip_coverage(p: vec2<f32>, index: u32) -> f32 {
+            let c = clips[index];
+            if (p.x < c.rect.x || p.x >= c.rect.z || p.y < c.rect.y || p.y >= c.rect.w) {
+                return 0.0;
+            }
+            var cov = 1.0;
+            if (c.has_round != 0u) {
+                cov = edge_coverage(sdf_round_rect(p, c.round_rect.xy, c.round_rect.zw, c.round_radius));
+            }
+            if (c.has_mask != 0u) {
+                cov = cov * mask_texel(p, c.mask_origin, c.mask_uv, c.mask_size);
+            }
+            return cov;
+        }
+        """;
+
+    public const string ShapeWgsl = Surface + """
+
+        struct ShapeInstance {
+            quad: vec4<f32>,
+            color: vec4<f32>,
+            frame: vec4<f32>,
+            frame_t: vec4<f32>,
+            p: vec4<f32>,
+            q: vec4<f32>,
+            shape_type: u32,
+            clip_index: u32,
+            paint_index: u32,
+            pad0: u32,
+        };
+
+        struct GradientEntry {
+            m: vec4<f32>,
+            t: vec4<f32>,
+            kind: u32,
+            stop_start: u32,
+            stop_count: u32,
+            pad0: u32,
+        };
+
+        struct GradientStop {
+            offset: f32,
+            pad0: f32,
+            pad1: f32,
+            pad2: f32,
+            color: vec4<f32>,
+        };
+
+        @group(0) @binding(0) var<uniform> surface: SurfaceSize;
+        @group(0) @binding(1) var<storage, read> instances: array<ShapeInstance>;
+        @group(0) @binding(2) var<storage, read> clips: array<ClipEntry>;
+        @group(0) @binding(3) var<storage, read> gradients: array<GradientEntry>;
+        @group(0) @binding(4) var<storage, read> stops: array<GradientStop>;
+        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
+
+        """ + Common + """
 
         struct VertexOutput {
             @builtin(position) position: vec4<f32>,
             @location(0) @interpolate(flat) instance_idx: u32,
         };
 
-        const QUAD_VERTICES = array<vec2<f32>, 4>(
-            vec2<f32>(0.0, 0.0),
-            vec2<f32>(1.0, 0.0),
-            vec2<f32>(0.0, 1.0),
-            vec2<f32>(1.0, 1.0)
-        );
-
         @vertex
         fn vs(@builtin(vertex_index) vertex_idx: u32, @builtin(instance_index) instance_idx: u32) -> VertexOutput {
-            var quad = QUAD_VERTICES[vertex_idx];
-            var inst = instances[instance_idx];
-            var e = vec2<f32>(inst.expand, inst.expand);
-            var pixel_pos = mix(inst.bounds_min - e, inst.bounds_max + e, quad) + vec2<f32>(surface.offset_x, surface.offset_y);
-            var clip = vec4<f32>(
-                pixel_pos.x / surface.width * 2.0 - 1.0,
-                1.0 - pixel_pos.y / surface.height * 2.0,
-                0.0, 1.0
-            );
-            return VertexOutput(clip, instance_idx);
+            let inst = instances[instance_idx];
+            let pixel_pos = mix(inst.quad.xy, inst.quad.zw, QUAD[vertex_idx]);
+            return VertexOutput(to_clip_space(pixel_pos), instance_idx);
         }
 
-        // Compute adaptive antialias width from screen-space derivative of signed distance.
-        // This adapts fade width to the local slope: shallow angles get wider fades,
-        // steep angles get sharper fades — eliminating jaggies without blurring everything.
-        fn adaptive_aa(dist: f32) -> f32 {
-            // Use the Euclidean gradient magnitude, not fwidth (= |dFdx| + |dFdy|,
-            // the Manhattan sum). For a true distance field |grad| = 1 everywhere,
-            // but the Manhattan sum overestimates by up to sqrt(2) where the
-            // gradient runs diagonally — i.e. at rounded-rect corners — widening
-            // the antialiased band there and making stroked corners look chunkier
-            // than the straight edges. The Euclidean length keeps the band uniform.
-            let g = vec2<f32>(dpdx(dist), dpdy(dist));
-            let fw = length(g);
-            // Clamp to avoid excessive blur at glancing angles and ensure a minimum fade
-            return clamp(fw, 0.35, 1.5);
+        // Signed distance outside an annular sector's angular extent, in device pixels.
+        fn sector_angular_distance(d: vec2<f32>, dist: f32, start_angle: f32, sweep_angle: f32) -> f32 {
+            let angle = atan2(d.y, d.x);
+            let end_angle = start_angle + sweep_angle;
+            var test_angle = angle;
+            if (sweep_angle > 0.0) {
+                while (test_angle < start_angle) {
+                    test_angle = test_angle + 6.28318530718;
+                }
+                while (test_angle > start_angle + 6.28318530718) {
+                    test_angle = test_angle - 6.28318530718;
+                }
+            } else {
+                while (test_angle > start_angle) {
+                    test_angle = test_angle - 6.28318530718;
+                }
+                while (test_angle < start_angle - 6.28318530718) {
+                    test_angle = test_angle + 6.28318530718;
+                }
+            }
+            var signed_angular = 0.0;
+            if (sweep_angle > 0.0) {
+                if (test_angle <= end_angle) {
+                    signed_angular = -min(test_angle - start_angle, end_angle - test_angle);
+                } else {
+                    signed_angular = min(test_angle - end_angle, start_angle + 6.28318530718 - test_angle);
+                }
+            } else {
+                if (test_angle >= end_angle) {
+                    signed_angular = -min(start_angle - test_angle, test_angle - end_angle);
+                } else {
+                    signed_angular = min(end_angle - test_angle, test_angle - (start_angle - 6.28318530718));
+                }
+            }
+            return signed_angular * dist;
         }
 
-        // Drop shadow: coverage of a rounded rect blurred by a Gaussian (σ). Mirrors Etch's
-        // ShadowShape.Coverage (the CPU fallback) — exact across x via erf, four Gaussian-weighted
-        // samples over y (Evan Wallace, "Fast Rounded Rectangle Shadows").
+        // Drop shadow: coverage of a rounded rect blurred by a Gaussian (σ). Exact across x via erf,
+        // four Gaussian-weighted samples over y (Evan Wallace, "Fast Rounded Rectangle Shadows").
         fn shadow_erf(x: vec2<f32>) -> vec2<f32> {
             let s = sign(x);
             let a = abs(x);
@@ -121,178 +227,201 @@ internal static class ComposeShaders
             return clamp(value, 0.0, 1.0);
         }
 
+        fn shape_coverage(inst: ShapeInstance, p: vec2<f32>) -> f32 {
+            let lp = vec2<f32>(
+                inst.frame.x * p.x + inst.frame.y * p.y + inst.frame_t.x,
+                inst.frame.z * p.x + inst.frame.w * p.y + inst.frame_t.y);
+            let s = inst.frame_t.z;
+            switch (inst.shape_type) {
+                case 0u: {
+                    if (lp.x >= inst.p.x && lp.x < inst.p.z && lp.y >= inst.p.y && lp.y < inst.p.w) {
+                        return 1.0;
+                    }
+                    return 0.0;
+                }
+                case 1u: {
+                    return edge_coverage((length(lp - inst.p.xy) - inst.p.z) * s);
+                }
+                case 3u: {
+                    let d = length(lp - inst.p.xy);
+                    let outer = edge_coverage((d - inst.p.z) * s);
+                    let inner = edge_coverage(((inst.p.z - inst.p.w) - d) * s);
+                    return min(outer, inner);
+                }
+                case 4u: {
+                    let a = inst.p.xy;
+                    let ba = inst.p.zw - a;
+                    let len = length(ba);
+                    let dir = ba / len;
+                    let rel = lp - a;
+                    let hw = inst.q.x;
+                    var dist = 0.0;
+                    if (inst.q.y == 1.0) {
+                        let h = clamp(dot(rel, ba) / (len * len), 0.0, 1.0);
+                        dist = length(rel - ba * h) - hw;
+                    } else {
+                        let ext = select(0.0, hw, inst.q.y == 2.0);
+                        let along = dot(rel, dir);
+                        let perp = dot(rel, vec2<f32>(-dir.y, dir.x));
+                        let c = vec2<f32>(abs(along - len * 0.5) - (len * 0.5 + ext), abs(perp) - hw);
+                        dist = length(max(c, vec2<f32>(0.0))) + min(max(c.x, c.y), 0.0);
+                    }
+                    return edge_coverage(dist * s);
+                }
+                case 5u: {
+                    return edge_coverage(sdf_round_rect(lp, inst.p.xy, inst.p.zw, inst.q.x) * s);
+                }
+                case 6u: {
+                    let outer = edge_coverage(sdf_round_rect(lp, inst.p.xy, inst.p.zw, inst.q.x) * s);
+                    let inset = vec2<f32>(inst.q.y, inst.q.y);
+                    let inner = edge_coverage(-sdf_round_rect(lp, inst.p.xy + inset, inst.p.zw - inset, inst.q.z) * s);
+                    return min(outer, inner);
+                }
+                case 8u: {
+                    let d = lp - inst.p.xy;
+                    let dist = length(d);
+                    var cov = edge_coverage((dist - inst.p.z) * s);
+                    if (inst.p.w > 0.0) {
+                        cov = min(cov, edge_coverage((inst.p.w - dist) * s));
+                    }
+                    cov = min(cov, edge_coverage(sector_angular_distance(d, dist, inst.q.x, inst.q.y) * s));
+                    if (inst.q.z == 1.0) {
+                        let mid = (inst.p.z + inst.p.w) * 0.5;
+                        let cap_r = (inst.p.z - inst.p.w) * 0.5;
+                        let end_angle = inst.q.x + inst.q.y;
+                        let cs = inst.p.xy + mid * vec2<f32>(cos(inst.q.x), sin(inst.q.x));
+                        let ce = inst.p.xy + mid * vec2<f32>(cos(end_angle), sin(end_angle));
+                        cov = max(cov, edge_coverage((length(lp - cs) - cap_r) * s));
+                        cov = max(cov, edge_coverage((length(lp - ce) - cap_r) * s));
+                    }
+                    return cov;
+                }
+                case 9u: {
+                    return rounded_box_shadow(inst.p.xy, inst.p.zw, lp, inst.q.y, inst.q.x);
+                }
+                case 10u: {
+                    return mask_texel(p, vec2<i32>(inst.p.xy), vec2<i32>(inst.p.zw), vec2<i32>(inst.q.xy));
+                }
+                default: {
+                    return 0.0;
+                }
+            }
+        }
+
+        // Premultiplied colour of a gradient at parameter t.
+        fn gradient_color(g: GradientEntry, t_in: f32) -> vec4<f32> {
+            let t = clamp(t_in, 0.0, 1.0);
+            var prev = stops[g.stop_start];
+            if (g.stop_count == 1u || t <= prev.offset) {
+                return prev.color;
+            }
+            for (var i = 1u; i < g.stop_count; i = i + 1u) {
+                let cur = stops[g.stop_start + i];
+                if (t < cur.offset) {
+                    let span = cur.offset - prev.offset;
+                    let f = select(1.0, (t - prev.offset) / span, span > 0.0);
+                    return mix(prev.color, cur.color, f);
+                }
+                prev = cur;
+            }
+            return prev.color;
+        }
+
+        fn paint_color(inst: ShapeInstance, p: vec2<f32>) -> vec4<f32> {
+            if (inst.paint_index == 0u) {
+                return inst.color;
+            }
+            let g = gradients[inst.paint_index];
+            let gp = vec2<f32>(g.m.x * p.x + g.m.y * p.y + g.t.x, g.m.z * p.x + g.m.w * p.y + g.t.y);
+            var t = gp.x;
+            if (g.kind == 2u) {
+                t = length(gp);
+            } else if (g.kind == 3u) {
+                t = fract((atan2(gp.y, gp.x) - g.t.z) / 6.28318530718);
+            }
+            let c = gradient_color(g, t);
+            var rgb = vec3<f32>(0.0);
+            if (c.a > 0.0) {
+                rgb = c.rgb / c.a;
+            }
+            return vec4<f32>(rgb, c.a * inst.color.a);
+        }
+
         @fragment
         fn fs(in: VertexOutput) -> @location(0) vec4<f32> {
-            if (surface.dissolve > 0.0) {
-                let dn = fract(sin(dot(floor(in.position.xy), vec2<f32>(12.9898, 78.233))) * 43758.5453);
-                if (dn < surface.dissolve) { discard; }
+            let p = in.position.xy;
+            if (dissolved(p)) {
+                discard;
             }
-            var inst = instances[in.instance_idx];
-            if (inst.shape_type == 1u) {
-                // Circle fill with adaptive antialiasing
-                let dx = in.position.x - inst.center.x;
-                let dy = in.position.y - inst.center.y;
-                let dist = sqrt(dx * dx + dy * dy) - inst.radius;
-                let aa = adaptive_aa(dist);
-                if (dist > aa) {
-                    discard;
-                }
-                let coverage = 1.0 - smoothstep(0.0, aa, dist);
-                return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
+            let inst = instances[in.instance_idx];
+            let cov = shape_coverage(inst, p) * clip_coverage(p, inst.clip_index);
+            if (cov <= 0.0) {
+                discard;
             }
-            if (inst.shape_type == 2u) {
-                let pos = in.position.xy;
-                let v = inst.p1 - inst.p0;
-                let len_sq = dot(v, v);
-                let t = select(0.0, dot(pos - inst.p0, v) / len_sq, len_sq > 0.0);
-                let clamped_t = clamp(t, 0.0, 1.0);
-                return mix(inst.color0, inst.color1, clamped_t);
-            }
-            if (inst.shape_type == 3u) {
-                // Ring (stroked circle) with adaptive antialiasing
-                let dx = in.position.x - inst.center.x;
-                let dy = in.position.y - inst.center.y;
-                let dist = sqrt(dx * dx + dy * dy);
-                let outer_dist = dist - inst.radius;
-                let inner_dist = (inst.radius - inst.stroke_width) - dist;
-                let outer_aa = adaptive_aa(outer_dist);
-                let inner_aa = adaptive_aa(inner_dist);
-                if (outer_dist > outer_aa || inner_dist > inner_aa) {
-                    discard;
-                }
-                let outer_coverage = 1.0 - smoothstep(0.0, outer_aa, outer_dist);
-                let inner_coverage = 1.0 - smoothstep(0.0, inner_aa, inner_dist);
-                let coverage = min(outer_coverage, inner_coverage);
-                return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-            }
-            if (inst.shape_type == 4u) {
-                // Line segment stroke with adaptive antialiasing
-                let p = in.position.xy;
-                let a = inst.p0;
-                let b = inst.p1;
-                let pa = p - a;
-                let ba = b - a;
-                let h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
-                let dist = length(pa - ba * h);
-                let half_sw = inst.stroke_width * 0.5;
-                let aa = adaptive_aa(dist - half_sw);
-                if (dist > half_sw + aa) {
-                    discard;
-                }
-                let coverage = 1.0 - smoothstep(half_sw, half_sw + aa, dist);
-                return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-            }
-            if (inst.shape_type == 5u || inst.shape_type == 6u || inst.shape_type == 7u) {
-                // Rounded rect (5=fill, 6=stroke, 7=gradient) with adaptive antialiasing
-                let center = (inst.bounds_min + inst.bounds_max) * 0.5;
-                let half_size = (inst.bounds_max - inst.bounds_min) * 0.5;
-                let d = abs(in.position.xy - center) - half_size + vec2<f32>(inst.radius, inst.radius);
-                let dist = length(max(d, vec2<f32>(0.0))) + min(max(d.x, d.y), 0.0) - inst.radius;
-                let aa = adaptive_aa(dist);
-                if (inst.shape_type == 5u || inst.shape_type == 7u) {
-                    // Fill
-                    if (dist > aa) {
-                        discard;
-                    }
-                    let coverage = 1.0 - smoothstep(0.0, aa, dist);
-                    if (inst.shape_type == 7u) {
-                        let pos = in.position.xy;
-                        let v = inst.p1 - inst.p0;
-                        let len_sq = dot(v, v);
-                        let t = select(0.0, dot(pos - inst.p0, v) / len_sq, len_sq > 0.0);
-                        let clamped_t = clamp(t, 0.0, 1.0);
-                        let grad = mix(inst.color0, inst.color1, clamped_t);
-                        return vec4<f32>(grad.rgb, grad.a * coverage);
-                    }
-                    return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-                } else {
-                    // Stroke
-                    let abs_dist = abs(dist);
-                    let half_sw = inst.stroke_width * 0.5;
-                    let stroke_aa = adaptive_aa(abs_dist - half_sw);
-                    if (abs_dist > half_sw + stroke_aa) {
-                        discard;
-                    }
-                    let coverage = 1.0 - smoothstep(half_sw, half_sw + stroke_aa, abs_dist);
-                    return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-                }
-            }
-            if (inst.shape_type == 9u) {
-                // Drop shadow: p0..p1 = shadow rect, radius = corner, stroke_width = σ. The quad
-                // (bounds) is the rect grown by 3σ and already clipped.
-                let coverage = rounded_box_shadow(inst.p0, inst.p1, in.position.xy, inst.stroke_width, inst.radius);
-                if (coverage <= 0.0) {
-                    discard;
-                }
-                return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-            }
-            if (inst.shape_type == 8u) {
-                // Annular sector (pie/donut slice) with radial and angular antialiasing
-                let dx = in.position.x - inst.center.x;
-                let dy = in.position.y - inst.center.y;
-                let dist = sqrt(dx * dx + dy * dy);
-                let outer_r = inst.radius;
-                let inner_r = inst.stroke_width;
-                let outer_dist = dist - outer_r;
-                let inner_dist = inner_r - dist;
-                let outer_aa = adaptive_aa(outer_dist);
-                let inner_aa = adaptive_aa(inner_dist);
-                if (outer_dist > outer_aa || inner_dist > inner_aa) {
-                    discard;
-                }
-                let outer_coverage = 1.0 - smoothstep(0.0, outer_aa, outer_dist);
-                let inner_coverage = 1.0 - smoothstep(0.0, inner_aa, inner_dist);
-                var coverage = min(outer_coverage, inner_coverage);
-                // Angular test: p0.x = startAngle, p0.y = sweepAngle (both in radians)
-                let angle = atan2(dy, dx);
-                let start_angle = inst.p0.x;
-                let sweep_angle = inst.p0.y;
-                let end_angle = start_angle + sweep_angle;
-                // Normalize the test angle into [start_angle, start_angle + 2π] range
-                var test_angle = angle;
-                if (sweep_angle > 0.0) {
-                    while (test_angle < start_angle) {
-                        test_angle = test_angle + 6.28318530718;
-                    }
-                } else {
-                    while (test_angle > start_angle) {
-                        test_angle = test_angle - 6.28318530718;
-                    }
-                }
-                // Determine if inside the angular sweep and compute signed distance
-                // to the nearest angular edge (positive = outside, negative = inside)
-                var signed_angular_dist = 0.0;
-                var in_sweep = false;
-                if (sweep_angle > 0.0) {
-                    in_sweep = test_angle >= start_angle && test_angle <= end_angle;
-                } else {
-                    in_sweep = test_angle <= start_angle && test_angle >= end_angle;
-                }
-                if (in_sweep) {
-                    let dist_to_start = abs(test_angle - start_angle);
-                    let dist_to_end = abs(test_angle - end_angle);
-                    signed_angular_dist = -min(dist_to_start, dist_to_end);
-                } else {
-                    if (sweep_angle > 0.0) {
-                        signed_angular_dist = max(start_angle - test_angle, test_angle - end_angle);
-                    } else {
-                        signed_angular_dist = max(test_angle - start_angle, end_angle - test_angle);
-                    }
-                }
-                let signed_angular_dist_px = signed_angular_dist * dist;
-                let angular_aa = adaptive_aa(signed_angular_dist_px);
-                let angular_coverage = 1.0 - smoothstep(0.0, angular_aa, signed_angular_dist_px);
-                if (angular_coverage <= 0.0) {
-                    discard;
-                }
-                coverage = min(coverage, angular_coverage);
-                return vec4<f32>(inst.color0.rgb, inst.color0.a * coverage);
-            }
-            return inst.color0;
+            let color = paint_color(inst, p);
+            return vec4<f32>(color.rgb, color.a * cov);
         }
         """;
 
-    public const string TextWgsl = """
+    public const string ImageWgsl = Surface + """
+
+        struct ImageInstance {
+            quad: vec4<f32>,
+            u_row: vec4<f32>,
+            v_row: vec4<f32>,
+            opacity: f32,
+            clip_index: u32,
+            handle: i32,
+            edge_aa: f32,
+        };
+
+        @group(0) @binding(0) var<uniform> surface: SurfaceSize;
+        @group(0) @binding(1) var<storage, read> images: array<ImageInstance>;
+        @group(0) @binding(2) var<storage, read> clips: array<ClipEntry>;
+        @group(0) @binding(3) var mask_tex: texture_2d<f32>;
+        @group(1) @binding(0) var image_tex: texture_2d<f32>;
+        @group(1) @binding(1) var image_sampler: sampler;
+
+        """ + Common + """
+
+        struct VertexOutput {
+            @builtin(position) position: vec4<f32>,
+            @location(0) @interpolate(flat) instance_idx: u32,
+        };
+
+        @vertex
+        fn vs(@builtin(vertex_index) vertex_idx: u32, @builtin(instance_index) instance_idx: u32) -> VertexOutput {
+            let inst = images[instance_idx];
+            let pixel_pos = mix(inst.quad.xy, inst.quad.zw, QUAD[vertex_idx]);
+            return VertexOutput(to_clip_space(pixel_pos), instance_idx);
+        }
+
+        @fragment
+        fn fs(in: VertexOutput) -> @location(0) vec4<f32> {
+            let p = in.position.xy;
+            let inst = images[in.instance_idx];
+            let u = inst.u_row.x * p.x + inst.u_row.y * p.y + inst.u_row.z;
+            let v = inst.v_row.x * p.x + inst.v_row.y * p.y + inst.v_row.z;
+            var edge = 0.0;
+            if (inst.edge_aa != 0.0) {
+                // Device-space distance inside each pair of edges; half a pixel either side of an
+                // edge antialiases it.
+                let du = min(u, 1.0 - u) / length(inst.u_row.xy);
+                let dv = min(v, 1.0 - v) / length(inst.v_row.xy);
+                edge = clamp(du + 0.5, 0.0, 1.0) * clamp(dv + 0.5, 0.0, 1.0);
+            } else if (u >= 0.0 && u < 1.0 && v >= 0.0 && v < 1.0) {
+                edge = 1.0;
+            }
+            let cov = edge * clip_coverage(p, inst.clip_index) * inst.opacity;
+            if (cov <= 0.0) {
+                discard;
+            }
+            let texel = textureSampleLevel(image_tex, image_sampler, vec2<f32>(u, v), 0.0);
+            return vec4<f32>(texel.rgb, texel.a * cov);
+        }
+        """;
+
+    public const string FullFrameWgsl = """
         @group(0) @binding(0) var tex: texture_2d<f32>;
         @group(0) @binding(1) var samp: sampler;
 
@@ -308,21 +437,11 @@ internal static class ComposeShaders
 
         @fragment
         fn fs(in: VertexOutput) -> @location(0) vec4<f32> {
-            return textureSample(tex, samp, in.uv);
+            return textureSampleLevel(tex, samp, in.uv, 0.0);
         }
         """;
 
-    public const string GlyphAtlasWgsl = """
-        struct SurfaceSize {
-            width: f32,
-            height: f32,
-            offset_x: f32,
-            offset_y: f32,
-            text_gamma: f32,
-            light_weight: f32,
-            dissolve: f32,
-            pad2: f32,
-        };
+    public const string GlyphWgsl = Surface + """
 
         struct GlyphInstance {
             pos: vec2<f32>,
@@ -330,15 +449,21 @@ internal static class ComposeShaders
             atlas_uv0: vec2<f32>,
             atlas_uv1: vec2<f32>,
             color: vec4<f32>,
-            clip_min: vec2<f32>,
-            clip_max: vec2<f32>,
+            fg_lum: f32,
+            clip_index: u32,
+            pad0: f32,
+            pad1: f32,
         };
 
         @group(0) @binding(0) var<uniform> surface: SurfaceSize;
         @group(0) @binding(1) var atlas: texture_2d<f32>;
         @group(0) @binding(2) var atlas_sampler: sampler;
         @group(0) @binding(3) var bg_tex: texture_2d<f32>;
+        @group(0) @binding(4) var<storage, read> clips: array<ClipEntry>;
+        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
         @group(1) @binding(0) var<storage, read> instances: array<GlyphInstance>;
+
+        """ + Common + """
 
         fn lin_to_srgb(c: vec3<f32>) -> vec3<f32> {
             let lo = c * 12.92;
@@ -346,110 +471,61 @@ internal static class ComposeShaders
             return select(lo, hi, c > vec3<f32>(0.0031308));
         }
 
+        fn srgb_to_lin1(c: f32) -> f32 {
+            return select(c / 12.92, pow((c + 0.055) / 1.055, 2.4), c > 0.04045);
+        }
+
         struct VsOut {
             @builtin(position) position: vec4<f32>,
             @location(0) uv: vec2<f32>,
-            @location(1) @interpolate(flat) color: vec4<f32>,
-            @location(2) @interpolate(flat) clip_min: vec2<f32>,
-            @location(3) @interpolate(flat) clip_max: vec2<f32>,
+            @location(1) @interpolate(flat) instance_idx: u32,
         };
-
-        const QUAD = array<vec2<f32>, 4>(
-            vec2<f32>(0.0, 0.0),
-            vec2<f32>(1.0, 0.0),
-            vec2<f32>(0.0, 1.0),
-            vec2<f32>(1.0, 1.0)
-        );
 
         @vertex
         fn vs(@builtin(vertex_index) vi: u32, @builtin(instance_index) ii: u32) -> VsOut {
             let quad = QUAD[vi];
             let inst = instances[ii];
-            let screen_pos = inst.pos + quad * inst.size;
-            let ndc = vec2<f32>(
-                screen_pos.x / surface.width * 2.0 - 1.0,
-                1.0 - screen_pos.y / surface.height * 2.0
-            );
-            let uv = mix(inst.atlas_uv0, inst.atlas_uv1, quad);
-            return VsOut(
-                vec4<f32>(ndc, 0.0, 1.0),
-                uv,
-                inst.color,
-                inst.clip_min,
-                inst.clip_max
-            );
+            return VsOut(to_clip_space(inst.pos + quad * inst.size), mix(inst.atlas_uv0, inst.atlas_uv1, quad), ii);
+        }
+
+        // The text-weight curve. Linear-correct coverage blending renders black-on-white text too
+        // light, so `text_gamma` > 0 pre-distorts coverage: dark-on-light gets the displayed weight
+        // 1 − (1 − c)^γ; light-on-dark (which blooms) is scaled toward linear coverage as its
+        // contrast grows. Both luminances are of sRGB-encoded colour.
+        fn weighted_coverage(cov: f32, fg_lum: f32, bg_lum: f32) -> f32 {
+            if (surface.text_gamma <= 0.0) {
+                return cov;
+            }
+            let pc = 1.0 - pow(max(1.0 - cov, 0.0), surface.text_gamma);
+            let rel = clamp(fg_lum - bg_lum, 0.0, 1.0);
+            let w_light = mix(cov, pc, 1.0 - surface.light_weight * rel);
+            // Map the target displayed weight to the linear-light blend alpha per polarity.
+            let a_dark = 1.0 - srgb_to_lin1(1.0 - pc);
+            let a_light = srgb_to_lin1(w_light);
+            let polarity = smoothstep(-0.1, 0.1, fg_lum - bg_lum);
+            return mix(a_dark, a_light, polarity);
         }
 
         @fragment
         fn fs(in: VsOut) -> @location(0) vec4<f32> {
-            if (surface.dissolve > 0.0) {
-                let dn = fract(sin(dot(floor(in.position.xy), vec2<f32>(12.9898, 78.233))) * 43758.5453);
-                if (dn < surface.dissolve) { discard; }
+            let p = in.position.xy;
+            if (dissolved(p)) {
+                discard;
             }
-            if (in.clip_max.x > in.clip_min.x || in.clip_max.y > in.clip_min.y) {
-                let screen_pos = in.position.xy;
-                if (screen_pos.x < in.clip_min.x || screen_pos.x >= in.clip_max.x ||
-                    screen_pos.y < in.clip_min.y || screen_pos.y >= in.clip_max.y) {
-                    discard;
-                }
+            let inst = instances[in.instance_idx];
+            let clip = clip_coverage(p, inst.clip_index);
+            if (clip <= 0.0) {
+                discard;
             }
-            // The swapchain is sRGB, so the hardware blends in linear light and
-            // coverage IS the linear-correct blend factor (text_gamma == 0).
-            // But linear-correct blending renders black-on-white text too LIGHT
-            // (coverage 0.5 -> sRGB ~0.74), which reads washed-out at small
-            // sizes. text_gamma > 0 selects a perceptual weight: we pre-distort
-            // the coverage so the *displayed* black-on-white luminance becomes
-            // (1-coverage)^text_gamma (1.0 ≈ sRGB weight, 1.5 ≈ macOS smoothing).
-            // Unlike a contrast preblend this is monotonic, so no partial pixel
-            // is pushed to fully on/off — it adds weight without adding aliasing.
-            let cov = textureSample(atlas, atlas_sampler, in.uv).r;
-            var weighted = cov;
-            if (surface.text_gamma > 0.0) {
-                // Perceptual ink fraction: darken the antialiased coverage so text
-                // reads with correct weight (WP-3519).
-                let pc = 1.0 - pow(max(1.0 - cov, 0.0), surface.text_gamma);
-
-                // WP-3537: adapt the weight to the ACTUAL contrast between the glyph
-                // and the local background (read from the framebuffer copy), so text
-                // is correctly weighted on any background with no tuned constant. The
-                // luminance comparison is in sRGB; bg_tex is sRGB-format so textureLoad
-                // returns linear — convert it back.
-                let bg_srgb = lin_to_srgb(textureLoad(bg_tex, vec2<i32>(i32(in.position.x), i32(in.position.y)), 0).rgb);
-                let fg_lum = dot(in.color.rgb, vec3<f32>(0.2126, 0.7152, 0.0722));
-                let bg_lum = dot(bg_srgb, vec3<f32>(0.2126, 0.7152, 0.0722));
-
-                // Dark-on-light (fg darker than bg) keeps the full perceptual weight
-                // (light-theme output unchanged). Light-on-dark blooms, so scale its
-                // displayed weight toward the un-weighted linear coverage as contrast
-                // grows. surface.light_weight is the adaptive strength (1 = full
-                // adaptive, 0 = legacy symmetric weight).
-                let rel = clamp(fg_lum - bg_lum, 0.0, 1.0);
-                let w_light = mix(cov, pc, 1.0 - surface.light_weight * rel);
-
-                // Map the target displayed weight to the HW linear-blend alpha per
-                // polarity, then blend by the true (bg-aware) polarity.
-                let dDark = 1.0 - pc;
-                let aDark = 1.0 - select(dDark / 12.92, pow((dDark + 0.055) / 1.055, 2.4), dDark > 0.04045);
-                let aLight = select(w_light / 12.92, pow((w_light + 0.055) / 1.055, 2.4), w_light > 0.04045);
-                let polarity = smoothstep(-0.1, 0.1, fg_lum - bg_lum);
-                weighted = mix(aDark, aLight, polarity);
-            }
-            let finalAlpha = in.color.a * weighted;
-            return vec4<f32>(in.color.rgb * finalAlpha, finalAlpha);
+            let cov = textureSampleLevel(atlas, atlas_sampler, in.uv, 0.0).r;
+            let bg = lin_to_srgb(textureLoad(bg_tex, vec2<i32>(i32(p.x), i32(p.y)), 0).rgb);
+            let bg_lum = dot(bg, vec3<f32>(0.2126, 0.7152, 0.0722));
+            let alpha = inst.color.a * weighted_coverage(cov, inst.fg_lum, bg_lum) * clip;
+            return vec4<f32>(inst.color.rgb * alpha, alpha);
         }
         """;
 
-    public const string ColorGlyphAtlasWgsl = """
-        struct SurfaceSize {
-            width: f32,
-            height: f32,
-            offset_x: f32,
-            offset_y: f32,
-            text_gamma: f32,
-            light_weight: f32,
-            dissolve: f32,
-            pad2: f32,
-        };
+    public const string ColorGlyphWgsl = Surface + """
 
         struct GlyphInstance {
             pos: vec2<f32>,
@@ -457,117 +533,87 @@ internal static class ComposeShaders
             atlas_uv0: vec2<f32>,
             atlas_uv1: vec2<f32>,
             color: vec4<f32>,
-            clip_min: vec2<f32>,
-            clip_max: vec2<f32>,
+            fg_lum: f32,
+            clip_index: u32,
+            pad0: f32,
+            pad1: f32,
         };
 
         @group(0) @binding(0) var<uniform> surface: SurfaceSize;
         @group(0) @binding(1) var atlas: texture_2d<f32>;
         @group(0) @binding(2) var atlas_sampler: sampler;
+        @group(0) @binding(3) var bg_tex: texture_2d<f32>;
+        @group(0) @binding(4) var<storage, read> clips: array<ClipEntry>;
+        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
         @group(1) @binding(0) var<storage, read> instances: array<GlyphInstance>;
+
+        """ + Common + """
 
         struct VsOut {
             @builtin(position) position: vec4<f32>,
             @location(0) uv: vec2<f32>,
-            @location(1) @interpolate(flat) clip_min: vec2<f32>,
-            @location(2) @interpolate(flat) clip_max: vec2<f32>,
+            @location(1) @interpolate(flat) instance_idx: u32,
         };
-
-        const QUAD = array<vec2<f32>, 4>(
-            vec2<f32>(0.0, 0.0),
-            vec2<f32>(1.0, 0.0),
-            vec2<f32>(0.0, 1.0),
-            vec2<f32>(1.0, 1.0)
-        );
 
         @vertex
         fn vs(@builtin(vertex_index) vi: u32, @builtin(instance_index) ii: u32) -> VsOut {
             let quad = QUAD[vi];
             let inst = instances[ii];
-            let screen_pos = inst.pos + quad * inst.size;
-            let ndc = vec2<f32>(
-                screen_pos.x / surface.width * 2.0 - 1.0,
-                1.0 - screen_pos.y / surface.height * 2.0
-            );
-            let uv = mix(inst.atlas_uv0, inst.atlas_uv1, quad);
-            return VsOut(
-                vec4<f32>(ndc, 0.0, 1.0),
-                uv,
-                inst.clip_min,
-                inst.clip_max
-            );
+            return VsOut(to_clip_space(inst.pos + quad * inst.size), mix(inst.atlas_uv0, inst.atlas_uv1, quad), ii);
         }
 
         @fragment
         fn fs(in: VsOut) -> @location(0) vec4<f32> {
-            if (surface.dissolve > 0.0) {
-                let dn = fract(sin(dot(floor(in.position.xy), vec2<f32>(12.9898, 78.233))) * 43758.5453);
-                if (dn < surface.dissolve) { discard; }
+            let p = in.position.xy;
+            if (dissolved(p)) {
+                discard;
             }
-            if (in.clip_max.x > in.clip_min.x || in.clip_max.y > in.clip_min.y) {
-                let screen_pos = in.position.xy;
-                if (screen_pos.x < in.clip_min.x || screen_pos.x >= in.clip_max.x ||
-                    screen_pos.y < in.clip_min.y || screen_pos.y >= in.clip_max.y) {
-                    discard;
-                }
+            let inst = instances[in.instance_idx];
+            let clip = clip_coverage(p, inst.clip_index);
+            if (clip <= 0.0) {
+                discard;
             }
-            let texColor = textureSample(atlas, atlas_sampler, in.uv);
-            // Atlas stores straight RGBA; pipeline blend is premultiplied (One, OneMinusSrcAlpha)
-            return vec4<f32>(texColor.rgb * texColor.a, texColor.a);
+            // The atlas holds straight RGBA; the colour glyph keeps its own colours and takes only
+            // the text's opacity.
+            let texel = textureSampleLevel(atlas, atlas_sampler, in.uv, 0.0);
+            let alpha = texel.a * inst.color.a * clip;
+            return vec4<f32>(texel.rgb * alpha, alpha);
         }
         """;
 
-    // Frosted-glass backdrop blur: for each rounded-rect panel, Gaussian-blur the
-    // framebuffer copy (bg_tex) behind it and tint the result. bg_tex is sRGB so
-    // sampling returns linear; we blur in linear (correct) and output linear (the
-    // sRGB target re-encodes on write, reproducing the backdrop). Premultiplied.
-    public const string BackdropBlurWgsl = """
-        struct SurfaceSize {
-            width: f32,
-            height: f32,
-            offset_x: f32,
-            offset_y: f32,
-            text_gamma: f32,
-            light_weight: f32,
-            dissolve: f32,
-            pad2: f32,
-        };
+    // Frosted-glass backdrop blur: for each rounded-rect panel, Gaussian-blur the framebuffer copy
+    // (bg_tex) behind it and tint the result. bg_tex is sRGB so sampling returns linear; the blur is
+    // in linear light, and the output is premultiplied.
+    public const string BlurWgsl = Surface + """
+
         struct BlurInstance {
             bounds_min: vec2<f32>,
             bounds_max: vec2<f32>,
             tint: vec4<f32>,
             radius: f32,
             sigma: f32,
-            pad0: f32,
-            pad1: f32,
+            clip_index: u32,
+            opacity: f32,
         };
 
         @group(0) @binding(0) var<uniform> surface: SurfaceSize;
         @group(0) @binding(1) var bg_tex: texture_2d<f32>;
         @group(0) @binding(2) var bg_sampler: sampler;
+        @group(0) @binding(3) var<storage, read> clips: array<ClipEntry>;
+        @group(0) @binding(4) var mask_tex: texture_2d<f32>;
         @group(1) @binding(0) var<storage, read> instances: array<BlurInstance>;
 
-        var<private> QUAD: array<vec2<f32>, 4> = array<vec2<f32>, 4>(
-            vec2<f32>(0.0, 0.0), vec2<f32>(1.0, 0.0), vec2<f32>(0.0, 1.0), vec2<f32>(1.0, 1.0)
-        );
+        """ + Common + """
 
         struct VsOut {
             @builtin(position) position: vec4<f32>,
             @location(0) @interpolate(flat) idx: u32,
         };
 
-        fn srgb_to_lin(c: vec3<f32>) -> vec3<f32> {
-            let lo = c / 12.92;
-            let hi = pow((c + vec3<f32>(0.055)) / 1.055, vec3<f32>(2.4));
-            return select(lo, hi, c > vec3<f32>(0.04045));
-        }
-
         @vertex
         fn vs(@builtin(vertex_index) vi: u32, @builtin(instance_index) ii: u32) -> VsOut {
             let inst = instances[ii];
-            let p = mix(inst.bounds_min, inst.bounds_max, QUAD[vi]);
-            let ndc = vec2<f32>(p.x / surface.width * 2.0 - 1.0, 1.0 - p.y / surface.height * 2.0);
-            return VsOut(vec4<f32>(ndc, 0.0, 1.0), ii);
+            return VsOut(to_clip_space(mix(inst.bounds_min, inst.bounds_max, QUAD[vi])), ii);
         }
 
         @fragment
@@ -575,17 +621,16 @@ internal static class ComposeShaders
             let inst = instances[in.idx];
             let pos = in.position.xy;
 
-            // Rounded-rect coverage (SDF), like shape_type 5 in the geometry shader.
-            let center = (inst.bounds_min + inst.bounds_max) * 0.5;
-            let half_size = (inst.bounds_max - inst.bounds_min) * 0.5;
-            let q = abs(pos - center) - half_size + vec2<f32>(inst.radius, inst.radius);
-            let dist = length(max(q, vec2<f32>(0.0))) + min(max(q.x, q.y), 0.0) - inst.radius;
+            let dist = sdf_round_rect(pos, inst.bounds_min, inst.bounds_max, inst.radius);
             if (dist > 1.0) {
                 discard;
             }
-            let coverage = 1.0 - smoothstep(-1.0, 1.0, dist);
+            let coverage = (1.0 - smoothstep(-1.0, 1.0, dist)) * clip_coverage(pos, inst.clip_index) * inst.opacity;
+            if (coverage <= 0.0) {
+                discard;
+            }
 
-            // 7x7 Gaussian tap of the framebuffer copy behind the panel.
+            // 7x7 Gaussian taps of the framebuffer copy behind the panel.
             let sigma = max(inst.sigma, 0.5);
             let texel = vec2<f32>(1.0 / surface.width, 1.0 / surface.height);
             let step = sigma * 0.5;
@@ -595,15 +640,12 @@ internal static class ComposeShaders
                 for (var i: i32 = -3; i <= 3; i = i + 1) {
                     let off = vec2<f32>(f32(i), f32(j)) * step;
                     let w = exp(-(off.x * off.x + off.y * off.y) / (2.0 * sigma * sigma));
-                    let uv = (pos + off) * texel;
-                    acc = acc + textureSampleLevel(bg_tex, bg_sampler, uv, 0.0).rgb * w;
+                    acc = acc + textureSampleLevel(bg_tex, bg_sampler, (pos + off) * texel, 0.0).rgb * w;
                     wsum = wsum + w;
                 }
             }
             let blurred = acc / max(wsum, 0.0001);
-
-            // Tint over the blur (convert the sRGB tint to linear to match).
-            let outc = mix(blurred, srgb_to_lin(inst.tint.rgb), inst.tint.a);
+            let outc = mix(blurred, inst.tint.rgb, inst.tint.a);
             return vec4<f32>(outc * coverage, coverage);
         }
         """;

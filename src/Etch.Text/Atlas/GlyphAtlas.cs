@@ -11,12 +11,14 @@ using Etch.Gpu.Descriptors;
 using Etch.Gpu.Native;
 
 /// <summary>
-/// Multi-page glyph atlas. Each page is an independent texture + <see cref="LruCache"/>.
-/// Pages manage their own LRU eviction; there is no global LRU layer.
+/// Multi-page glyph atlas. Each page is an independent texture (or, for the CPU composer, a block
+/// of memory) + <see cref="LruCache"/>. Pages manage their own LRU eviction; there is no global LRU
+/// layer. Both kinds pack identically, so a glyph lands at the same texels either way.
 /// </summary>
 public sealed class GlyphAtlas : IDisposable
 {
     private readonly Device device;
+    private readonly bool gpu;
     private readonly int dim;
     private readonly TextureFormat format;
     private readonly int rowHeight;
@@ -120,6 +122,7 @@ public sealed class GlyphAtlas : IDisposable
         }
 
         this.device = device;
+        this.gpu = true;
         this.dim = pageDimension;
         this.format = format;
         this.rowHeight = rowHeight;
@@ -127,8 +130,49 @@ public sealed class GlyphAtlas : IDisposable
         this.maxPages = maxPages;
 
         // Pre-create the first page so GetPage(0) is always valid.
-        pages.Add(new GlyphAtlasPage(device, dim, format, rowHeight, bytesPerPixel));
+        pages.Add(CreatePage());
     }
+
+    /// <summary>
+    /// Creates a memory-backed atlas (no GPU): pages are byte arrays the CPU composer samples.
+    /// <paramref name="format"/> selects 1 (R8) or 4 (RGBA8) bytes per texel.
+    /// </summary>
+    public GlyphAtlas(
+        int pageDimension,
+        TextureFormat format,
+        int rowHeight,
+        int maxPages)
+    {
+        if (pageDimension is not 512 and not 1024 and not 2048 and not 4096)
+        {
+            Panic.Invariant(PanicCodes.InvalidAtlasDimension, $"Atlas dimension must be 512, 1024, 2048 or 4096, got {pageDimension}");
+        }
+
+        if (format != TextureFormat.R8Unorm && format != TextureFormat.Rgba8Unorm && format != TextureFormat.Rgba8UnormSrgb)
+        {
+            Panic.Invariant(PanicCodes.InvalidAtlasDimension, $"Atlas format must be R8Unorm, Rgba8Unorm, or Rgba8UnormSrgb, got {format}");
+        }
+
+        if (rowHeight <= 0 || rowHeight > pageDimension)
+        {
+            Panic.Invariant(PanicCodes.InvalidAtlasDimension, $"Row height must be > 0 and <= dim, got {rowHeight}");
+        }
+
+        this.device = default;
+        this.gpu = false;
+        this.dim = pageDimension;
+        this.format = format;
+        this.rowHeight = rowHeight;
+        this.bytesPerPixel = (format == TextureFormat.Rgba8Unorm || format == TextureFormat.Rgba8UnormSrgb) ? 4 : 1;
+        this.maxPages = maxPages;
+        pages.Add(CreatePage());
+    }
+
+    /// <summary>Bytes per texel of the pages (1 for R8, 4 for RGBA8).</summary>
+    public int BytesPerPixel => bytesPerPixel;
+
+    private GlyphAtlasPage CreatePage()
+        => gpu ? new GlyphAtlasPage(device, dim, format, rowHeight, bytesPerPixel) : new GlyphAtlasPage(dim, rowHeight, bytesPerPixel);
 
     public bool TryInsert(GlyphCacheKey key, ReadOnlySpan<byte> bitmap, int w, int h, out AtlasRegion region, out int pageIndex, short offsetX, short offsetY)
     {
@@ -153,7 +197,7 @@ public sealed class GlyphAtlas : IDisposable
             // Create a new page if under limit
             if (pages.Count < maxPages)
             {
-                var page = new GlyphAtlasPage(device, dim, format, rowHeight, bytesPerPixel);
+                var page = CreatePage();
                 pages.Add(page);
                 int newPageIndex = pages.Count - 1;
                 if (page.Cache.TryInsert(key, w, h, 0, 0, offsetX, offsetY, out region))
@@ -220,6 +264,17 @@ public sealed class GlyphAtlas : IDisposable
 
     private void UploadToPage(int pageIndex, AtlasRegion region, ReadOnlySpan<byte> bitmap)
     {
+        if (!gpu)
+        {
+            var pixels = pages[pageIndex].Pixels!;
+            int rowBytes = region.W * bytesPerPixel;
+            for (int row = 0; row < region.H; row++)
+            {
+                bitmap.Slice(row * rowBytes, rowBytes).CopyTo(pixels.AsSpan(((region.V + row) * dim + region.U) * bytesPerPixel, rowBytes));
+            }
+            return;
+        }
+
         var texture = pages[pageIndex].Texture;
         var origin = new WGPUOrigin3D { X = region.U, Y = region.V, Z = 0 };
         var writeSize = new Extent3D { Width = (uint)region.W, Height = (uint)region.H, DepthOrArrayLayers = 1 };

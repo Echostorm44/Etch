@@ -115,25 +115,4 @@ internal sealed class PaintOrderBatcherTests
             list.Add(name);
         }
     }
-
-    [Test]
-    public async Task DrawList_OnlyShapesFastPath_MatchesPerInstancePlacement()
-    {
-        // The fast path places a run of leading shapes as one item; it must produce the same batch
-        // as placing them one by one would.
-        var shapes = new ShapeInstance[]
-        {
-            new() { MinX = 0, MinY = 0, MaxX = 100, MaxY = 100 },
-            new() { MinX = 10, MinY = 10, MaxX = 50, MaxY = 50, Expand = 1.5f },
-        };
-        var list = new DrawList();
-        list.Reset(200, 200);
-        list.AddShapes(shapes);
-        list.Finish();
-
-        await Assert.That(list.BatchCount).IsEqualTo(1);
-        await Assert.That(list.Batches[0].Count).IsEqualTo(2);
-        await Assert.That(list.Batches[0].MinX).IsEqualTo(0f);
-        await Assert.That(list.Batches[0].MaxX).IsEqualTo(100f);
-    }
 }
