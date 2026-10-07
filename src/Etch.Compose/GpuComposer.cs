@@ -304,15 +304,28 @@ public sealed unsafe class GpuComposer : IDisposable
     }
 
     /// <summary>
-    /// Records a full-target blit of a CPU-rendered frame (<paramref name="rgba"/>: RGBA8,
-    /// sRGB-encoded, tightly packed, <paramref name="width"/> × <paramref name="height"/>).
+    /// Records a full-target blit of a CPU-rendered frame: <paramref name="pixels"/> is a
+    /// <see cref="Cpu.CpuFramebuffer"/>'s BGRA8 (0xAARRGGBB, sRGB-encoded) pixels,
+    /// <paramref name="width"/> × <paramref name="height"/>. Only <paramref name="dirty"/> is
+    /// uploaded into the persistent frame texture (everything when the texture is new or resized);
+    /// the blit draws all of it.
     /// </summary>
-    public void EncodeFullFrameUpload(CommandEncoder encoder, TextureView targetView, ReadOnlySpan<byte> rgba, uint width, uint height)
+    public void EncodeFramebufferUpload(CommandEncoder encoder, TextureView targetView, ReadOnlySpan<uint> pixels, uint width, uint height,
+        ReadOnlySpan<Cpu.CpuDirtyRect> dirty)
     {
-        EnsureFallbackTexture(width, height);
-        var origin = new WGPUOrigin3D { X = 0, Y = 0, Z = 0 };
-        var writeSize = new Extent3D { Width = width, Height = height, DepthOrArrayLayers = 1 };
-        device.Queue.WriteTexture(fallbackTexture, 0, origin, rgba, width * 4, height, writeSize);
+        bool fresh = EnsureFallbackTexture(width, height);
+        var bytes = MemoryMarshal.AsBytes(pixels);
+        if (fresh)
+        {
+            UploadFrameRect(bytes, width, new Cpu.CpuDirtyRect(0, 0, (int)width, (int)height));
+        }
+        else
+        {
+            foreach (var rect in dirty)
+            {
+                UploadFrameRect(bytes, width, rect);
+            }
+        }
 
         using var pass = BeginPass(encoder, targetView, clear: true);
         pass.SetPipeline(fullFramePipeline.Render);
@@ -320,6 +333,19 @@ public sealed unsafe class GpuComposer : IDisposable
         pass.SetBindGroup(0, fallbackBindGroup);
         pass.Draw(6);
         pass.End();
+    }
+
+    private void UploadFrameRect(ReadOnlySpan<byte> bytes, uint width, Cpu.CpuDirtyRect rect)
+    {
+        if (rect.Width <= 0 || rect.Height <= 0)
+        {
+            return;
+        }
+        var origin = new WGPUOrigin3D { X = (uint)rect.X, Y = (uint)rect.Y, Z = 0 };
+        var size = new Extent3D { Width = (uint)rect.Width, Height = (uint)rect.Height, DepthOrArrayLayers = 1 };
+        int start = (rect.Y * (int)width + rect.X) * 4;
+        int length = ((rect.Height - 1) * (int)width + rect.Width) * 4;
+        device.Queue.WriteTexture(fallbackTexture, 0, origin, bytes.Slice(start, length), width * 4, (uint)rect.Height, size);
     }
 
     /// <summary>Drops the GPU textures of images not in <paramref name="liveHandles"/>.</summary>
@@ -600,11 +626,12 @@ public sealed unsafe class GpuComposer : IDisposable
         return true;
     }
 
-    private void EnsureFallbackTexture(uint width, uint height)
+    // True when the texture was (re)created and holds nothing yet.
+    private bool EnsureFallbackTexture(uint width, uint height)
     {
         if (!fallbackTexture.IsInvalid && fallbackWidth == width && fallbackHeight == height)
         {
-            return;
+            return false;
         }
         if (!fallbackBindGroup.IsInvalid)
         {
@@ -619,12 +646,12 @@ public sealed unsafe class GpuComposer : IDisposable
             fallbackTexture.Dispose();
         }
 
-        // The CPU frame is sRGB-encoded: an sRGB view decodes it on sample, so the sRGB target
+        // The CPU frame is sRGB-encoded BGRA: an sRGB view decodes it on sample, so the sRGB target
         // re-encodes it to the same bytes.
         fallbackTexture = device.CreateTexture(new TextureDescriptor
         {
             Size = new Extent3D { Width = width, Height = height, DepthOrArrayLayers = 1 },
-            Format = TextureFormat.Rgba8UnormSrgb,
+            Format = TextureFormat.Bgra8UnormSrgb,
             Usage = (ulong)(TextureUsage.TextureBinding | TextureUsage.CopyDst),
             Dimension = TextureDimension.D2,
             MipLevelCount = 1,
@@ -634,6 +661,24 @@ public sealed unsafe class GpuComposer : IDisposable
         fallbackWidth = width;
         fallbackHeight = height;
         fallbackBindGroup = CreateTextureSamplerGroup(fullFramePipeline.Group0, fallbackTextureView, nearestSampler);
+        return true;
+    }
+
+    /// <summary>Releases the CPU-frame texture (call when CPU frames stop, or the window hides).</summary>
+    public void ReleaseFramebufferTexture()
+    {
+        DisposeGroup(ref fallbackBindGroup);
+        if (!fallbackTextureView.IsInvalid)
+        {
+            fallbackTextureView.Dispose();
+        }
+        if (!fallbackTexture.IsInvalid)
+        {
+            fallbackTexture.Dispose();
+        }
+        fallbackTextureView = default;
+        fallbackTexture = default;
+        fallbackWidth = fallbackHeight = 0;
     }
 
     private void EnsureImageTexture(int handle, ComposeImage image)

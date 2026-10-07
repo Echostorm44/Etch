@@ -209,6 +209,20 @@ internal sealed unsafe class ParityHarness : IDisposable
         builder.End();
         gpuList.Parameters = parameters;
         gpu.Resize(width, height);
+        return Readback(width, height, (encoder, target, view) => gpu.Encode(encoder, target, view, gpuList));
+    }
+
+    /// <summary>Blits a CPU framebuffer through the GPU composer's frame upload (only <paramref name="dirty"/> uploaded) and reads it back.</summary>
+    public byte[] BlitCpuFrame(CpuFramebuffer frame, CpuDirtyRect[] dirty)
+    {
+        uint width = (uint)frame.Width;
+        uint height = (uint)frame.Height;
+        var pixels = frame.Pixels.ToArray();
+        return Readback(width, height, (encoder, _, view) => gpu.EncodeFramebufferUpload(encoder, view, pixels, width, height, dirty));
+    }
+
+    private byte[] Readback(uint width, uint height, Action<CommandEncoder, Texture, TextureView> encode)
+    {
 
         using var target = device.CreateTexture(new TextureDescriptor
         {
@@ -231,7 +245,7 @@ internal sealed unsafe class ParityHarness : IDisposable
 
         using (var encoder = device.CreateCommandEncoder())
         {
-            gpu.Encode(encoder, target, view, gpuList);
+            encode(encoder, target, view);
             var src = new WGPUTexelCopyTextureInfo { Aspect = (uint)TextureAspect.All, MipLevel = 0, Origin = default, Texture = target.Handle };
             var dst = new WGPUTexelCopyBufferInfo
             {

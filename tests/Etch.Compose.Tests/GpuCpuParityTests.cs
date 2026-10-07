@@ -125,6 +125,41 @@ internal sealed class GpuCpuParityTests
         }
     }
 
+    /// <summary>
+    /// A CPU frame presented through the GPU (BGRA upload of the damaged rects, then a full-target
+    /// blit) reaches the target byte for byte, including after a partial update.
+    /// </summary>
+    [Test]
+    [Arguments(ParityAdapter.Reference)]
+    [Arguments(ParityAdapter.Hardware)]
+    public async Task CpuFramesBlitExactlyThroughTheGpu(ParityAdapter adapter)
+    {
+        const uint width = 640, height = 360;
+        using var harness = ParityHarness.TryCreate(width, height, ParityAdapter.Reference, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"Needs the reference adapter: {reason}");
+            return;
+        }
+        using var composer = new Etch.Compose.Cpu.CpuComposer();
+        var builder = new DrawListBuilder();
+        var list = new DrawList();
+        var frame = new Etch.Compose.Cpu.CpuFramebuffer();
+        for (int i = 0; i < 3; i++)
+        {
+            var recording = Etch.Bench.Compose.UiFrameScene.Build((int)width, (int)height, 0.5f, caret: i == 1, titleVariant: i);
+            builder.Begin(list, width, height, composer.Masks, composer.MonoAtlas, composer.ColorAtlas);
+            builder.Replay(recording);
+            builder.End();
+            list.Parameters = Parameters;
+            var dirty = composer.RenderIncremental(list, frame).ToArray();
+            byte[] shown = harness.BlitCpuFrame(frame, dirty);
+            var expected = new byte[width * height * 4];
+            frame.CopyToRgba(expected);
+            await Assert.That(shown.AsSpan().SequenceEqual(expected)).IsTrue().Because($"frame {i} ({dirty.Length} dirty rects)");
+        }
+    }
+
     private static ComposeParameters Parameters => new() { TextGamma = 1.5f, LightWeight = 1f };
 
     private static (uint Width, uint Height) Size(float scale)
