@@ -37,8 +37,14 @@ public sealed class DrawListBuilder
     private readonly XxHash3 hasher = new();
     private readonly List<ClipLayer> clipStack = new();
     private readonly List<GradientStopEntry> stopScratch = new();
-    private byte[] coverage = new byte[MaskTileSize * MaskTileSize];
-    private byte[] clipCoverage = Array.Empty<byte>();
+    private readonly byte[] coverage = new byte[MaskTileSize * MaskTileSize];
+    private readonly byte[] clipCoverage = new byte[MaskAtlas.ClipMaskTile * MaskAtlas.ClipMaskTile];
+    private readonly List<MaskTileEntry> tileScratch = new();
+
+    // Mask tiles found to be uniform (all one coverage value) take no atlas space; their value is
+    // remembered here by tile key for as long as the atlas keeps its content.
+    private readonly Dictionary<ulong, byte> uniformTiles = new();
+    private int uniformGeneration = -1;
 
     private DrawList list = null!;
     private MaskAtlas masks = null!;
@@ -91,6 +97,11 @@ public sealed class DrawListBuilder
         ArgumentNullException.ThrowIfNull(color);
         list = target;
         masks = maskAtlas;
+        if (uniformGeneration != maskAtlas.ContentGeneration)
+        {
+            uniformTiles.Clear();
+            uniformGeneration = maskAtlas.ContentGeneration;
+        }
         monoAtlas = mono;
         colorAtlas = color;
         placedGlyphs = placed;
@@ -393,7 +404,9 @@ public sealed class DrawListBuilder
         return index;
     }
 
-    // Rasterizes the product of every non-rect clip over the hard rect into the mask atlas.
+    // Rasterizes the product of every non-rect clip over the hard rect into the mask atlas, as
+    // ClipMaskTile-square tiles: tiles wholly inside or outside the clip are stored as a value, the
+    // rest as atlas texels, so a clip mask of any size fits.
     private void BuildClipMask(ref ClipEntry entry, ReadOnlySpan<ClipLayer> stack)
     {
         int x0 = (int)MathF.Floor(entry.MinX);
@@ -402,11 +415,9 @@ public sealed class DrawListBuilder
         int y1 = (int)MathF.Ceiling(entry.MaxY);
         int w = x1 - x0;
         int h = y1 - y0;
-        if (w > MaskAtlas.PageSize || h > MaskAtlas.PageSize)
-        {
-            // Wider than an atlas page: keep the hard rect only (documented limitation).
-            return;
-        }
+        const int tile = MaskAtlas.ClipMaskTile;
+        int columns = (w + tile - 1) / tile;
+        int rows = (h + tile - 1) / tile;
 
         hasher.Reset();
         Hash(x0);
@@ -421,53 +432,84 @@ public sealed class DrawListBuilder
             }
             HashClipLayer(layer);
         }
-        ulong key = hasher.GetCurrentHashAsUInt64();
+        ulong clipKey = hasher.GetCurrentHashAsUInt64();
 
-        if (!masks.TryLookup(key, out var region))
+        tileScratch.Clear();
+        for (int row = 0; row < rows; row++)
         {
-            int size = w * h;
-            if (clipCoverage.Length < size)
+            for (int col = 0; col < columns; col++)
             {
-                clipCoverage = new byte[Math.Max(size, clipCoverage.Length * 2)];
-            }
-            var combined = clipCoverage.AsSpan(0, size);
-            combined.Fill(255);
-            if (coverage.Length < size)
-            {
-                coverage = new byte[Math.Max(size, coverage.Length * 2)];
-            }
-            var layerCoverage = coverage.AsSpan(0, size);
-            foreach (ref readonly var layer in stack)
-            {
-                if (layer.Kind == ClipKind.Rect)
+                int tx = x0 + col * tile;
+                int ty = y0 + row * tile;
+                int tw = Math.Min(tile, x1 - tx);
+                int th = Math.Min(tile, y1 - ty);
+                ulong key = TileKey(clipKey, FillRule.NonZero, tx, ty, tw, th);
+                if (uniformTiles.TryGetValue(key, out byte value))
                 {
+                    tileScratch.Add(MaskTileEntry.Uniform(value));
                     continue;
                 }
-                FlattenClipLayer(layer);
-                rasterizer.Reset(w, h);
-                rasterizer.AddPath(flat, -x0, -y0);
-                rasterizer.Resolve(layerCoverage, layer.Rule);
-                for (int i = 0; i < size; i++)
+                if (masks.TryLookup(key, out var region))
                 {
-                    combined[i] = (byte)((combined[i] * layerCoverage[i] + 127) / 255);
+                    tileScratch.Add(MaskTileEntry.Atlas(region));
+                    continue;
                 }
-            }
-            if (!masks.TryInsert(key, combined, w, h, out region))
-            {
-                DroppedMasks++;
-                return;
+                var combined = clipCoverage.AsSpan(0, tw * th);
+                RasterizeClipTile(stack, combined, tx, ty, tw, th);
+                if (IsUniform(combined, out value))
+                {
+                    uniformTiles[key] = value;
+                    tileScratch.Add(MaskTileEntry.Uniform(value));
+                    continue;
+                }
+                if (!masks.TryInsert(key, combined, tw, th, out region))
+                {
+                    // Every page is full: this frame's tile reads as outside the clip (the owner
+                    // resets the atlas before the next frame).
+                    DroppedMasks++;
+                    tileScratch.Add(MaskTileEntry.Uniform(0));
+                    continue;
+                }
+                tileScratch.Add(MaskTileEntry.Atlas(region));
             }
         }
 
         entry.HasMask = 1;
         entry.MaskOriginX = x0;
         entry.MaskOriginY = y0;
-        entry.MaskU = region.U;
-        entry.MaskV = region.V;
+        entry.MaskTileStart = list.AddMaskTiles(CollectionsMarshal.AsSpan(tileScratch));
+        entry.MaskTileColumns = columns;
         entry.MaskWidth = w;
         entry.MaskHeight = h;
     }
 
+    // The product of every non-rect clip layer's coverage over one tile.
+    private void RasterizeClipTile(ReadOnlySpan<ClipLayer> stack, Span<byte> combined, int tx, int ty, int tw, int th)
+    {
+        combined.Fill(255);
+        var layerCoverage = coverage.AsSpan(0, tw * th);
+        foreach (ref readonly var layer in stack)
+        {
+            if (layer.Kind == ClipKind.Rect)
+            {
+                continue;
+            }
+            FlattenClipLayer(layer);
+            rasterizer.Reset(tw, th);
+            rasterizer.AddPath(flat, -tx, -ty);
+            rasterizer.Resolve(layerCoverage, layer.Rule);
+            for (int i = 0; i < combined.Length; i++)
+            {
+                combined[i] = (byte)((combined[i] * layerCoverage[i] + 127) / 255);
+            }
+        }
+    }
+
+    private static bool IsUniform(ReadOnlySpan<byte> texels, out byte value)
+    {
+        value = texels[0];
+        return texels.IndexOfAnyExcept(value) < 0;
+    }
     private void FlattenClipLayer(in ClipLayer layer)
     {
         if (layer.Kind == ClipKind.RoundRect)
@@ -1258,24 +1300,58 @@ public sealed class DrawListBuilder
                 int tw = Math.Min(MaskTileSize, x1 - tx);
                 int th = Math.Min(MaskTileSize, y1 - ty);
                 ulong key = TileKey(geometryKey, rule, tx, ty, tw, th);
-                if (!masks.TryLookup(key, out var region))
+                if (!uniformTiles.TryGetValue(key, out byte uniform) && !masks.TryLookup(key, out _))
                 {
                     var tile = coverage.AsSpan(0, tw * th);
                     rasterizer.Reset(tw, th);
                     rasterizer.AddPath(devicePath, -tx, -ty);
                     rasterizer.Resolve(tile, rule);
-                    if (!masks.TryInsert(key, tile, tw, th, out region))
+                    if (IsUniform(tile, out uniform))
+                    {
+                        uniformTiles[key] = uniform;
+                    }
+                    else if (!masks.TryInsert(key, tile, tw, th, out _))
                     {
                         DroppedMasks++;
                         continue;
                     }
                 }
+                if (uniformTiles.TryGetValue(key, out uniform))
+                {
+                    if (uniform == 0)
+                    {
+                        continue;
+                    }
+                    if (uniform == 255)
+                    {
+                        // Fully covered: a hard rect over the tile is the same coverage (1 at every pixel centre).
+                        var rect = inst;
+                        rect.Type = ShapeType.Rect;
+                        rect.P0 = rect.MinX = tx;
+                        rect.P1 = rect.MinY = ty;
+                        rect.P2 = rect.MaxX = tx + tw;
+                        rect.P3 = rect.MaxY = ty + th;
+                        list.AddShape(rect);
+                        continue;
+                    }
+                    // A uniform partial tile is rare (a path of constant fractional coverage): store it.
+                    var tile = coverage.AsSpan(0, tw * th);
+                    tile.Fill(uniform);
+                    uniformTiles.Remove(key);
+                    if (!masks.TryInsert(key, tile, tw, th, out _))
+                    {
+                        DroppedMasks++;
+                        continue;
+                    }
+                }
+                masks.TryLookup(key, out var region);
                 inst.P0 = tx;
                 inst.P1 = ty;
                 inst.P2 = region.U;
                 inst.P3 = region.V;
                 inst.Q0 = tw;
                 inst.Q1 = th;
+                inst.Q2 = region.Layer;
                 inst.MinX = tx;
                 inst.MinY = ty;
                 inst.MaxX = tx + tw;

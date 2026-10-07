@@ -163,6 +163,26 @@ internal sealed unsafe class ParityHarness : IDisposable
     /// <summary>The composer whose atlases the GPU half builds against.</summary>
     public GpuComposer Gpu => gpu;
 
+    /// <summary>Pages the CPU half's mask atlas holds.</summary>
+    public int MaskPages => cpu.Masks.PageCount;
+
+    /// <summary>Clip-table entries with a mask in the last CPU frame.</summary>
+    public int CpuMaskedClips
+    {
+        get
+        {
+            int n = 0;
+            foreach (ref readonly var clip in cpuList.Clips)
+            {
+                n += clip.HasMask != 0 ? 1 : 0;
+            }
+            return n;
+        }
+    }
+
+    /// <summary>Masks the last CPU frame's builder dropped for lack of atlas space.</summary>
+    public int CpuDroppedMasks { get; private set; }
+
     /// <summary>Renders on both composers; returns RGBA8 frames (GPU, CPU).</summary>
     public (byte[] Gpu, byte[] Cpu) Render(DrawRecording recording, uint width, uint height, ComposeParameters parameters)
     {
@@ -174,6 +194,7 @@ internal sealed unsafe class ParityHarness : IDisposable
         builder.Begin(cpuList, width, height, cpu.Masks, cpu.MonoAtlas, cpu.ColorAtlas);
         builder.Replay(recording);
         builder.End();
+        CpuDroppedMasks = builder.DroppedMasks;
         cpuList.Parameters = parameters;
         cpu.Render(cpuList, framebuffer);
         var rgba = new byte[width * height * 4];

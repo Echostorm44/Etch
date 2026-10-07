@@ -96,6 +96,35 @@ internal sealed class GpuCpuParityTests
         }
     }
 
+    /// <summary>Clip and path masks far beyond an atlas page (tiled clip masks, several pages).</summary>
+    [Test]
+    [Arguments(3840, 1200)]
+    [Arguments(4096, 2160)]
+    public async Task LargeClipsMatchTheReferenceGpu(int width, int height)
+    {
+        using var harness = ParityHarness.TryCreate((uint)width, (uint)height, ParityAdapter.Reference, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"GPU parity needs the reference adapter: {reason}");
+            return;
+        }
+        var recording = ParityScenes.BuildLarge(width, height);
+        var (gpu, cpu) = harness.Render(recording, (uint)width, (uint)height, Parameters);
+        var stats = ParityStats.Compare(gpu, cpu, width, height);
+        string name = $"large-{width}x{height}";
+        await Report($"{name} reference: {stats}; mask pages {harness.MaskPages}");
+        await Assert.That(harness.MaskPages).IsGreaterThanOrEqualTo(height >= 2000 ? 2 : 1).Because("at 4K the stripe clip needs more than one atlas page");
+        // Parity cannot see a clip both backends drop; check the masks exist and cut.
+        await Assert.That(harness.CpuMaskedClips).IsGreaterThanOrEqualTo(3);
+        await Assert.That(harness.CpuDroppedMasks).IsEqualTo(0);
+        int corner = (24 * width + 24) * 4;
+        await Assert.That(cpu[corner + 2] > cpu[corner] + 40).IsFalse().Because("the rounded corner outside the clip keeps the paper colour"); bool pass = stats.MeanError < MeanBudget && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
+        if (!pass)
+        {
+            await Fail(name, gpu, cpu, width, height, stats);
+        }
+    }
+
     private static ComposeParameters Parameters => new() { TextGamma = 1.5f, LightWeight = 1f };
 
     private static (uint Width, uint Height) Size(float scale)

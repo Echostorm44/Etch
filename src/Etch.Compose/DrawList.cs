@@ -36,6 +36,7 @@ public sealed class DrawList
     private readonly List<ClipEntry> clips = new();
     private readonly List<GradientEntry> gradients = new();
     private readonly List<GradientStopEntry> stops = new();
+    private readonly List<MaskTileEntry> maskTiles = new();
     private readonly Dictionary<int, ComposeImage> imageTable = new();
 
     private List<ShapeInstance> finishedShapes;
@@ -94,6 +95,9 @@ public sealed class DrawList
     /// <summary>The gradient stops the gradient table indexes.</summary>
     public ReadOnlySpan<GradientStopEntry> GradientStops => CollectionsMarshal.AsSpan(stops);
 
+    /// <summary>The clip-mask tiles the clip table's masks index.</summary>
+    public ReadOnlySpan<MaskTileEntry> MaskTiles => CollectionsMarshal.AsSpan(maskTiles);
+
     /// <summary>The images the frame's quads reference, by handle.</summary>
     public IReadOnlyDictionary<int, ComposeImage> Images => imageTable;
 
@@ -132,6 +136,7 @@ public sealed class DrawList
         clips.Clear();
         gradients.Clear();
         stops.Clear();
+        maskTiles.Clear();
         finishedShapes = shapes;
         finishedGlyphs = glyphs;
         finishedColorGlyphs = colorGlyphs;
@@ -148,6 +153,14 @@ public sealed class DrawList
     {
         clips.Add(clip);
         return (uint)(clips.Count - 1);
+    }
+
+    /// <summary>Appends a clip mask's tiles (row-major) and returns the index of the first.</summary>
+    public int AddMaskTiles(ReadOnlySpan<MaskTileEntry> tiles)
+    {
+        int start = maskTiles.Count;
+        maskTiles.AddRange(tiles);
+        return start;
     }
 
     /// <summary>Appends a gradient with its stops and returns its index.</summary>

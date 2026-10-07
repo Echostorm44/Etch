@@ -486,7 +486,7 @@ public sealed class CpuComposer : IDisposable
         return end > first;
     }
 
-    private ReadOnlySpan<byte> MaskPage => maskAtlas.HasPage ? maskAtlas.PagePixels : ReadOnlySpan<byte>.Empty;
+    private MaskSource MasksOf(DrawList list) => new(maskAtlas.Pages, list.MaskTiles);
 
     // ── Shapes ──────────────────────────────────────────────────────────
 
@@ -506,7 +506,7 @@ public sealed class CpuComposer : IDisposable
         }
         var gradients = list.Gradients;
         var stops = list.GradientStops;
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var pixels = target.Pixels;
         int width = target.Width;
         bool spans = FastPaths && dissolve <= 0f && CpuSpans.IsAxisAligned(inst);
@@ -552,7 +552,7 @@ public sealed class CpuComposer : IDisposable
 
     // The per-pixel path over [from, to), skipping [holeA, holeB) where coverage is known to be 0.
     private static void ShadeSpan(in ShapeInstance inst, DrawList list, Span<uint> pixels, int row, int from, int to, float py,
-        in ClipEntry clip, ReadOnlySpan<byte> mask, ReadOnlySpan<GradientEntry> gradients, ReadOnlySpan<GradientStopEntry> stops,
+        in ClipEntry clip, in MaskSource mask, ReadOnlySpan<GradientEntry> gradients, ReadOnlySpan<GradientStopEntry> stops,
         float dissolve, int holeA, int holeB)
     {
         for (int x = from; x < to; x++)
@@ -618,7 +618,7 @@ public sealed class CpuComposer : IDisposable
     private void DrawShadow(DrawList list, CpuFramebuffer target, in ShapeInstance inst, in ClipEntry clip,
         int x0, int x1, int y0, int y1, TileScratch work)
     {
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var gradients = list.Gradients;
         var stops = list.GradientStops;
         var pixels = target.Pixels;
@@ -684,7 +684,7 @@ public sealed class CpuComposer : IDisposable
             return;
         }
         ref readonly var clip = ref list.Clips[(int)g.ClipIndex];
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var page = monoAtlas.GetPage(0).Pixels!;
         int dim = monoAtlas.Dimension;
         var p = list.Parameters;
@@ -761,7 +761,7 @@ public sealed class CpuComposer : IDisposable
             return;
         }
         ref readonly var clip = ref list.Clips[(int)g.ClipIndex];
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var page = colorAtlas.GetPage(0).Pixels!;
         int dim = colorAtlas.Dimension;
         float dissolve = list.Parameters.Dissolve;
@@ -808,7 +808,7 @@ public sealed class CpuComposer : IDisposable
             return;
         }
         ref readonly var clip = ref list.Clips[(int)inst.ClipIndex];
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var pixels = target.Pixels;
         int width = target.Width;
         float gu = MathF.Sqrt(inst.Ux * inst.Ux + inst.Uy * inst.Uy);
@@ -852,7 +852,7 @@ public sealed class CpuComposer : IDisposable
             return;
         }
         ref readonly var clip = ref list.Clips[(int)inst.ClipIndex];
-        var mask = MaskPage;
+        var mask = MasksOf(list);
         var pixels = target.Pixels;
         int width = target.Width;
         int height = target.Height;

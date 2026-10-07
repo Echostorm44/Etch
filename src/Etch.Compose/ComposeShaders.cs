@@ -34,7 +34,7 @@ internal static class ComposeShaders
             has_mask: u32,
             pad0: u32,
             mask_origin: vec2<i32>,
-            mask_uv: vec2<i32>,
+            mask_tiles: vec2<i32>,
             mask_size: vec2<i32>,
             pad1: vec2<i32>,
         };
@@ -47,7 +47,7 @@ internal static class ComposeShaders
         );
         """;
 
-    // Needs `surface`, `clips` and `mask_tex` declared by the including shader.
+    // Needs `surface`, `clips`, `mask_tiles` and `mask_tex` declared by the including shader.
     private const string Common = """
         fn to_clip_space(p: vec2<f32>) -> vec4<f32> {
             return vec4<f32>(p.x / surface.width * 2.0 - 1.0, 1.0 - p.y / surface.height * 2.0, 0.0, 1.0);
@@ -76,12 +76,26 @@ internal static class ComposeShaders
             return clamp(0.5 - dist, 0.0, 1.0);
         }
 
-        fn mask_texel(p: vec2<f32>, origin: vec2<i32>, uv: vec2<i32>, size: vec2<i32>) -> f32 {
+        fn mask_texel(p: vec2<f32>, origin: vec2<i32>, uv: vec2<i32>, size: vec2<i32>, layer: i32) -> f32 {
             let t = vec2<i32>(floor(p)) - origin;
             if (t.x < 0 || t.y < 0 || t.x >= size.x || t.y >= size.y) {
                 return 0.0;
             }
-            return textureLoad(mask_tex, t + uv, 0).r;
+            return textureLoad(mask_tex, t + uv, layer, 0).r;
+        }
+
+        // A clip mask is tiled (256-texel tiles, row-major from mask_tiles.x, mask_tiles.y per row):
+        // each tile is a constant coverage (w >= 0) or a texel rect in the atlas (xy, layer z).
+        fn clip_mask(p: vec2<f32>, c: ClipEntry) -> f32 {
+            let t = vec2<i32>(floor(p)) - c.mask_origin;
+            if (t.x < 0 || t.y < 0 || t.x >= c.mask_size.x || t.y >= c.mask_size.y) {
+                return 0.0;
+            }
+            let tile = mask_tiles[c.mask_tiles.x + (t.y >> 8u) * c.mask_tiles.y + (t.x >> 8u)];
+            if (tile.w >= 0) {
+                return f32(tile.w) / 255.0;
+            }
+            return textureLoad(mask_tex, tile.xy + (t & vec2<i32>(255)), tile.z, 0).r;
         }
 
         fn clip_coverage(p: vec2<f32>, index: u32) -> f32 {
@@ -94,7 +108,7 @@ internal static class ComposeShaders
                 cov = edge_coverage(sdf_round_rect(p, c.round_rect.xy, c.round_rect.zw, c.round_radius));
             }
             if (c.has_mask != 0u) {
-                cov = cov * mask_texel(p, c.mask_origin, c.mask_uv, c.mask_size);
+                cov = cov * clip_mask(p, c);
             }
             return cov;
         }
@@ -137,7 +151,8 @@ internal static class ComposeShaders
         @group(0) @binding(2) var<storage, read> clips: array<ClipEntry>;
         @group(0) @binding(3) var<storage, read> gradients: array<GradientEntry>;
         @group(0) @binding(4) var<storage, read> stops: array<GradientStop>;
-        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
+        @group(0) @binding(5) var mask_tex: texture_2d_array<f32>;
+        @group(0) @binding(6) var<storage, read> mask_tiles: array<vec4<i32>>;
 
         """ + Common + """
 
@@ -300,7 +315,7 @@ internal static class ComposeShaders
                     return rounded_box_shadow(inst.p.xy, inst.p.zw, lp, inst.q.y, inst.q.x);
                 }
                 case 10u: {
-                    return mask_texel(p, vec2<i32>(inst.p.xy), vec2<i32>(inst.p.zw), vec2<i32>(inst.q.xy));
+                    return mask_texel(p, vec2<i32>(inst.p.xy), vec2<i32>(inst.p.zw), vec2<i32>(inst.q.xy), i32(inst.q.z));
                 }
                 default: {
                     return 0.0;
@@ -379,7 +394,8 @@ internal static class ComposeShaders
         @group(0) @binding(0) var<uniform> surface: SurfaceSize;
         @group(0) @binding(1) var<storage, read> images: array<ImageInstance>;
         @group(0) @binding(2) var<storage, read> clips: array<ClipEntry>;
-        @group(0) @binding(3) var mask_tex: texture_2d<f32>;
+        @group(0) @binding(3) var mask_tex: texture_2d_array<f32>;
+        @group(0) @binding(4) var<storage, read> mask_tiles: array<vec4<i32>>;
         @group(1) @binding(0) var image_tex: texture_2d<f32>;
         @group(1) @binding(1) var image_sampler: sampler;
 
@@ -461,7 +477,8 @@ internal static class ComposeShaders
         @group(0) @binding(2) var atlas_sampler: sampler;
         @group(0) @binding(3) var bg_tex: texture_2d<f32>;
         @group(0) @binding(4) var<storage, read> clips: array<ClipEntry>;
-        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
+        @group(0) @binding(5) var mask_tex: texture_2d_array<f32>;
+        @group(0) @binding(6) var<storage, read> mask_tiles: array<vec4<i32>>;
         @group(1) @binding(0) var<storage, read> instances: array<GlyphInstance>;
 
         """ + Common + """
@@ -545,7 +562,8 @@ internal static class ComposeShaders
         @group(0) @binding(2) var atlas_sampler: sampler;
         @group(0) @binding(3) var bg_tex: texture_2d<f32>;
         @group(0) @binding(4) var<storage, read> clips: array<ClipEntry>;
-        @group(0) @binding(5) var mask_tex: texture_2d<f32>;
+        @group(0) @binding(5) var mask_tex: texture_2d_array<f32>;
+        @group(0) @binding(6) var<storage, read> mask_tiles: array<vec4<i32>>;
         @group(1) @binding(0) var<storage, read> instances: array<GlyphInstance>;
 
         """ + Common + """
@@ -601,7 +619,8 @@ internal static class ComposeShaders
         @group(0) @binding(1) var bg_tex: texture_2d<f32>;
         @group(0) @binding(2) var bg_sampler: sampler;
         @group(0) @binding(3) var<storage, read> clips: array<ClipEntry>;
-        @group(0) @binding(4) var mask_tex: texture_2d<f32>;
+        @group(0) @binding(4) var mask_tex: texture_2d_array<f32>;
+        @group(0) @binding(5) var<storage, read> mask_tiles: array<vec4<i32>>;
         @group(1) @binding(0) var<storage, read> instances: array<BlurInstance>;
 
         """ + Common + """

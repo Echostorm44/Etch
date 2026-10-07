@@ -41,7 +41,7 @@ internal sealed class CpuShadowTests
             CpuShadow.Row(inst, py, x0, row, vectorWidth);
             for (int i = 0; i < row.Length; i++)
             {
-                float expected = CpuShading.ShapeCoverage(inst, x0 + i + 0.5f, py + 0.5f, ReadOnlySpan<byte>.Empty);
+                float expected = CpuShading.ShapeCoverage(inst, x0 + i + 0.5f, py + 0.5f, MaskSource.None);
                 if (BitConverter.SingleToInt32Bits(expected) != BitConverter.SingleToInt32Bits(row[i]))
                 {
                     mismatches++;

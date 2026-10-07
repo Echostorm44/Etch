@@ -48,7 +48,7 @@ public enum ShapeType : uint
     /// <summary>Gaussian-blurred rounded rect; P = rect, Q = (corner, sigma, 0, 0).</summary>
     Shadow = 9,
 
-    /// <summary>Coverage read from the mask atlas; P = (device origin x, y, atlas u, v), Q = (width, height, 0, 0).</summary>
+    /// <summary>Coverage read from the mask atlas; P = (device origin x, y, atlas u, v), Q = (width, height, atlas layer, 0).</summary>
     Mask = 10,
 }
 
@@ -252,13 +252,43 @@ public struct ClipEntry
     /// <summary>Device pixel of the mask's first texel.</summary>
     public int MaskOriginX, MaskOriginY;
 
-    /// <summary>Atlas texel of the mask's first texel.</summary>
-    public int MaskU, MaskV;
+    /// <summary>
+    /// The mask's first tile in <see cref="DrawList.MaskTiles"/>; tiles are
+    /// <see cref="MaskAtlas.ClipMaskTile"/> texels square, row-major.
+    /// </summary>
+    public int MaskTileStart;
+
+    /// <summary>Tiles per row of the mask.</summary>
+    public int MaskTileColumns;
 
     /// <summary>Mask size in texels.</summary>
     public int MaskWidth, MaskHeight;
 
     private int pad1, pad2;
+}
+
+/// <summary>
+/// One tile of a clip mask: either a constant coverage (tiles wholly inside or outside the clip,
+/// which take no atlas space) or a texel rect in the mask atlas. Layout is the WGSL
+/// <c>vec4&lt;i32&gt;</c> the shaders read, 16 bytes.
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Size = 16)]
+public struct MaskTileEntry
+{
+    /// <summary>Atlas texel of the tile's first texel.</summary>
+    public int U, V;
+
+    /// <summary>Atlas page.</summary>
+    public int Layer;
+
+    /// <summary>Constant coverage 0–255 for the whole tile, or −1 to read the atlas.</summary>
+    public int Value;
+
+    /// <summary>A tile of constant coverage.</summary>
+    public static MaskTileEntry Uniform(byte value) => new() { Value = value };
+
+    /// <summary>A tile read from the atlas at <paramref name="region"/>.</summary>
+    public static MaskTileEntry Atlas(MaskRegion region) => new() { U = region.U, V = region.V, Layer = region.Layer, Value = -1 };
 }
 
 /// <summary>The geometry of a gradient paint.</summary>

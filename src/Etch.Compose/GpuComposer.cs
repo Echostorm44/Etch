@@ -41,6 +41,7 @@ public sealed unsafe class GpuComposer : IDisposable
     private readonly GrowableBuffer colorGlyphBuffer;
     private readonly GrowableBuffer imageBuffer;
     private readonly GrowableBuffer blurBuffer;
+    private readonly GrowableBuffer maskTileBuffer;
 
     private readonly Sampler linearSampler;
     private readonly Sampler nearestSampler;
@@ -90,7 +91,7 @@ public sealed unsafe class GpuComposer : IDisposable
     private BindGroup blurGroup1;
     private int bindGeneration = -1;
     private int resourceGeneration;
-    private bool maskPageBound;
+    private int boundMaskTexture = -1;
 
     private readonly record struct Pipeline(ShaderModule Shader, RenderPipeline Render, PipelineLayout Layout, BindGroupLayout Group0, BindGroupLayout Group1)
     {
@@ -182,6 +183,7 @@ public sealed unsafe class GpuComposer : IDisposable
         colorGlyphBuffer = new GrowableBuffer(device, storage);
         imageBuffer = new GrowableBuffer(device, storage);
         blurBuffer = new GrowableBuffer(device, storage);
+        maskTileBuffer = new GrowableBuffer(device, storage);
 
         linearSampler = CreateSampler(FilterMode.Linear);
         nearestSampler = CreateSampler(FilterMode.Nearest);
@@ -205,7 +207,16 @@ public sealed unsafe class GpuComposer : IDisposable
             MipLevelCount = 1,
             SampleCount = 1,
         });
-        emptyMaskView = emptyMask.CreateView();
+        emptyMaskView = emptyMask.CreateView(new TextureViewDescriptor
+        {
+            Format = TextureFormat.R8Unorm,
+            Dimension = TextureViewDimension.D2Array,
+            BaseMipLevel = 0,
+            MipLevelCount = 1,
+            BaseArrayLayer = 0,
+            ArrayLayerCount = 1,
+            Aspect = TextureAspect.All,
+        });
 
         EnsureBgCopyTexture(width, height);
 
@@ -350,13 +361,14 @@ public sealed unsafe class GpuComposer : IDisposable
         grew |= Write(colorGlyphBuffer, CollectionsMarshal.AsSpan(list.OrderedColorGlyphs));
         grew |= Write(imageBuffer, CollectionsMarshal.AsSpan(list.OrderedImages));
         grew |= Write(blurBuffer, CollectionsMarshal.AsSpan(list.OrderedBlurs));
+        grew |= Write(maskTileBuffer, list.MaskTiles);
         if (grew)
         {
             resourceGeneration++;
         }
-        if (!maskPageBound && maskAtlas.HasPage)
+        if (boundMaskTexture != maskAtlas.TextureGeneration)
         {
-            maskPageBound = true;
+            boundMaskTexture = maskAtlas.TextureGeneration;
             resourceGeneration++;
         }
         if (bindGeneration != resourceGeneration)
@@ -660,47 +672,51 @@ public sealed unsafe class GpuComposer : IDisposable
     {
         DisposeFrameBindGroups();
 
-        var shape = stackalloc BindGroupEntry[6];
+        var shape = stackalloc BindGroupEntry[7];
         shape[0] = Uniform(0);
         shape[1] = Storage(1, shapeBuffer);
         shape[2] = Storage(2, clipBuffer);
         shape[3] = Storage(3, gradientBuffer);
         shape[4] = Storage(4, stopBuffer);
         shape[5] = new BindGroupEntry { Binding = 5, TextureView = MaskView.Handle };
-        shapeGroup = CreateGroup(shapePipeline.Group0, shape, 6);
+        shape[6] = Storage(6, maskTileBuffer);
+        shapeGroup = CreateGroup(shapePipeline.Group0, shape, 7);
 
-        var image = stackalloc BindGroupEntry[4];
+        var image = stackalloc BindGroupEntry[5];
         image[0] = Uniform(0);
         image[1] = Storage(1, imageBuffer);
         image[2] = Storage(2, clipBuffer);
         image[3] = new BindGroupEntry { Binding = 3, TextureView = MaskView.Handle };
-        imageGroup = CreateGroup(imagePipeline.Group0, image, 4);
+        image[4] = Storage(4, maskTileBuffer);
+        imageGroup = CreateGroup(imagePipeline.Group0, image, 5);
 
         glyphGroup0 = CreateGlyphGroup(glyphPipeline.Group0, glyphAtlasView, nearestSampler);
         glyphGroup1 = CreateInstanceGroup(glyphPipeline.Group1, glyphBuffer);
         colorGlyphGroup0 = CreateGlyphGroup(colorGlyphPipeline.Group0, colorGlyphAtlasView, linearSampler);
         colorGlyphGroup1 = CreateInstanceGroup(colorGlyphPipeline.Group1, colorGlyphBuffer);
 
-        var blur = stackalloc BindGroupEntry[5];
+        var blur = stackalloc BindGroupEntry[6];
         blur[0] = Uniform(0);
         blur[1] = new BindGroupEntry { Binding = 1, TextureView = bgCopyView.Handle };
         blur[2] = new BindGroupEntry { Binding = 2, Sampler = blurSampler.Handle };
         blur[3] = Storage(3, clipBuffer);
         blur[4] = new BindGroupEntry { Binding = 4, TextureView = MaskView.Handle };
-        blurGroup0 = CreateGroup(blurPipeline.Group0, blur, 5);
+        blur[5] = Storage(5, maskTileBuffer);
+        blurGroup0 = CreateGroup(blurPipeline.Group0, blur, 6);
         blurGroup1 = CreateInstanceGroup(blurPipeline.Group1, blurBuffer);
     }
 
     private BindGroup CreateGlyphGroup(BindGroupLayout layout, TextureView atlasView, Sampler sampler)
     {
-        var entries = stackalloc BindGroupEntry[6];
+        var entries = stackalloc BindGroupEntry[7];
         entries[0] = Uniform(0);
         entries[1] = new BindGroupEntry { Binding = 1, TextureView = atlasView.Handle };
         entries[2] = new BindGroupEntry { Binding = 2, Sampler = sampler.Handle };
         entries[3] = new BindGroupEntry { Binding = 3, TextureView = bgCopyView.Handle };
         entries[4] = Storage(4, clipBuffer);
         entries[5] = new BindGroupEntry { Binding = 5, TextureView = MaskView.Handle };
-        return CreateGroup(layout, entries, 6);
+        entries[6] = Storage(6, maskTileBuffer);
+        return CreateGroup(layout, entries, 7);
     }
 
     private BindGroup CreateInstanceGroup(BindGroupLayout layout, GrowableBuffer buffer)
@@ -772,6 +788,13 @@ public sealed unsafe class GpuComposer : IDisposable
         Texture = new TextureBindingLayout { SampleType = sampleType, ViewDimension = TextureViewDimension.D2, Multisampled = 0 },
     };
 
+    private static BindGroupLayoutEntry MaskArrayEntry(uint binding) => new()
+    {
+        Binding = binding,
+        Visibility = (ulong)ShaderStage.Fragment,
+        Texture = new TextureBindingLayout { SampleType = TextureSampleType.UnfilterableFloat, ViewDimension = TextureViewDimension.D2Array, Multisampled = 0 },
+    };
+
     private static BindGroupLayoutEntry SamplerEntry(uint binding) => new()
     {
         Binding = binding,
@@ -784,7 +807,7 @@ public sealed unsafe class GpuComposer : IDisposable
         Span<BindGroupLayoutEntry> entries =
         [
             UniformEntry(0), StorageEntry(1), StorageEntry(2), StorageEntry(3), StorageEntry(4),
-            TextureEntry(5, TextureSampleType.UnfilterableFloat),
+            MaskArrayEntry(5), StorageEntry(6),
         ];
         return CreateLayout(entries);
     }
@@ -793,7 +816,7 @@ public sealed unsafe class GpuComposer : IDisposable
     {
         Span<BindGroupLayoutEntry> entries =
         [
-            UniformEntry(0), StorageEntry(1), StorageEntry(2), TextureEntry(3, TextureSampleType.UnfilterableFloat),
+            UniformEntry(0), StorageEntry(1), StorageEntry(2), MaskArrayEntry(3), StorageEntry(4),
         ];
         return CreateLayout(entries);
     }
@@ -803,7 +826,7 @@ public sealed unsafe class GpuComposer : IDisposable
         Span<BindGroupLayoutEntry> entries =
         [
             UniformEntry(0), TextureEntry(1, TextureSampleType.Float), SamplerEntry(2),
-            TextureEntry(3, TextureSampleType.UnfilterableFloat), StorageEntry(4), TextureEntry(5, TextureSampleType.UnfilterableFloat),
+            TextureEntry(3, TextureSampleType.UnfilterableFloat), StorageEntry(4), MaskArrayEntry(5), StorageEntry(6),
         ];
         return CreateLayout(entries);
     }
@@ -813,7 +836,7 @@ public sealed unsafe class GpuComposer : IDisposable
         Span<BindGroupLayoutEntry> entries =
         [
             UniformEntry(0), TextureEntry(1, TextureSampleType.Float), SamplerEntry(2), StorageEntry(3),
-            TextureEntry(4, TextureSampleType.UnfilterableFloat),
+            MaskArrayEntry(4), StorageEntry(5),
         ];
         return CreateLayout(entries);
     }
@@ -946,6 +969,7 @@ public sealed unsafe class GpuComposer : IDisposable
         colorGlyphBuffer.Dispose();
         imageBuffer.Dispose();
         blurBuffer.Dispose();
+        maskTileBuffer.Dispose();
 
         linearSampler.Dispose();
         nearestSampler.Dispose();

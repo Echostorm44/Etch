@@ -172,7 +172,27 @@ internal static class CpuShading
         return page[(ty + v) * MaskAtlas.PageSize + tx + u] * (1f / 255f);
     }
 
-    public static float ClipCoverage(float px, float py, in ClipEntry c, ReadOnlySpan<byte> maskPage)
+    /// <summary>The WGSL <c>clip_mask</c>: a tiled clip mask's coverage at the pixel.</summary>
+    public static float ClipMask(float px, float py, in ClipEntry c, in MaskSource masks)
+    {
+        int tx = (int)MathF.Floor(px) - c.MaskOriginX;
+        int ty = (int)MathF.Floor(py) - c.MaskOriginY;
+        if (tx < 0 || ty < 0 || tx >= c.MaskWidth || ty >= c.MaskHeight)
+        {
+            return 0f;
+        }
+        const int shift = 8;
+        const int low = MaskAtlas.ClipMaskTile - 1;
+        ref readonly var tile = ref masks.Tiles[c.MaskTileStart + (ty >> shift) * c.MaskTileColumns + (tx >> shift)];
+        if (tile.Value >= 0)
+        {
+            return tile.Value / 255f;
+        }
+        var page = masks.Page(tile.Layer);
+        return page[(tile.V + (ty & low)) * MaskAtlas.PageSize + tile.U + (tx & low)] * (1f / 255f);
+    }
+
+    public static float ClipCoverage(float px, float py, in ClipEntry c, in MaskSource masks)
     {
         if (px < c.MinX || px >= c.MaxX || py < c.MinY || py >= c.MaxY)
         {
@@ -185,7 +205,7 @@ internal static class CpuShading
         }
         if (c.HasMask != 0)
         {
-            cov *= MaskTexel(px, py, c.MaskOriginX, c.MaskOriginY, c.MaskU, c.MaskV, c.MaskWidth, c.MaskHeight, maskPage);
+            cov *= ClipMask(px, py, c, masks);
         }
         return cov;
     }
@@ -284,7 +304,7 @@ internal static class CpuShading
     }
 
     /// <summary>The WGSL <c>shape_coverage</c> at pixel centre (px, py).</summary>
-    public static float ShapeCoverage(in ShapeInstance inst, float px, float py, ReadOnlySpan<byte> maskPage)
+    public static float ShapeCoverage(in ShapeInstance inst, float px, float py, in MaskSource masks)
     {
         float lx = inst.FrameA * px + inst.FrameB * py + inst.FrameTx;
         float ly = inst.FrameC * px + inst.FrameD * py + inst.FrameTy;
@@ -377,7 +397,7 @@ internal static class CpuShading
                 return RoundedBoxShadow(inst.P0, inst.P1, inst.P2, inst.P3, lx, ly, inst.Q1, inst.Q0);
 
             case ShapeType.Mask:
-                return MaskTexel(px, py, (int)inst.P0, (int)inst.P1, (int)inst.P2, (int)inst.P3, (int)inst.Q0, (int)inst.Q1, maskPage);
+                return MaskTexel(px, py, (int)inst.P0, (int)inst.P1, (int)inst.P2, (int)inst.P3, (int)inst.Q0, (int)inst.Q1, masks.Page((int)inst.Q2));
 
             default:
                 return 0f;
@@ -527,4 +547,24 @@ internal static class CpuShading
             Decode[(p00 >> 8) & 0xFF] * w00 + Decode[(p10 >> 8) & 0xFF] * w10 + Decode[(p01 >> 8) & 0xFF] * w01 + Decode[(p11 >> 8) & 0xFF] * w11,
             Decode[p00 & 0xFF] * w00 + Decode[p10 & 0xFF] * w10 + Decode[p01 & 0xFF] * w01 + Decode[p11 & 0xFF] * w11);
     }
+}
+
+/// <summary>The mask atlas pages and the frame's clip-mask tiles, as the per-pixel functions read them.</summary>
+internal readonly ref struct MaskSource
+{
+    private readonly IReadOnlyList<byte[]>? pages;
+
+    public MaskSource(IReadOnlyList<byte[]>? pages, ReadOnlySpan<MaskTileEntry> tiles)
+    {
+        this.pages = pages;
+        Tiles = tiles;
+    }
+
+    /// <summary>No masks (tests of analytic shapes).</summary>
+    public static MaskSource None => default;
+
+    public ReadOnlySpan<MaskTileEntry> Tiles { get; }
+
+    public ReadOnlySpan<byte> Page(int layer)
+        => pages is not null && (uint)layer < (uint)pages.Count ? pages[layer] : ReadOnlySpan<byte>.Empty;
 }

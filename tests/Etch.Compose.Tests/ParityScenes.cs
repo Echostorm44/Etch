@@ -310,6 +310,49 @@ internal static class ParityScenes
         }
     }
 
+    /// <summary>
+    /// Clips and fills far larger than an atlas page: a full-width rounded clip, a nested rounded
+    /// clip pair and a large star path clip (tiled clip masks), a fine stripe path clip whose
+    /// tiles are all partial (forcing more than one atlas page), and a large path fill.
+    /// </summary>
+    public static DrawRecording BuildLarge(int width, int height)
+    {
+        var rec = new DrawRecording();
+        rec.SetTransform(Affine.Identity);
+        rec.FillRect(0, 0, width, height, ComposePaint.Solid(Paper));
+
+        rec.PushClipRoundedRect(20.5f, 20.25f, width - 41, height * 0.3f, 60);
+        rec.FillRect(0, 0, width, height, ComposePaint.Linear(0, 0, width, 0, [new(0f, Blue), new(1f, Purple)]));
+        rec.PopClip();
+
+        rec.PushClipRoundedRect(40, height * 0.35f, width * 0.6f, height * 0.3f, 90);
+        rec.PushClipRoundedRect(width * 0.2f, height * 0.33f, width * 0.6f, height * 0.25f, 40);
+        rec.FillRect(0, 0, width, height, ComposePaint.Solid(Green));
+        rec.PopClip();
+        rec.PopClip();
+
+        rec.PushClipPath(Star(width * 0.8, height * 0.55, height * 0.4, height * 0.18, 7), FillRule.NonZero);
+        rec.FillRect(0, 0, width, height, ComposePaint.Radial(width * 0.8f, height * 0.55f, height * 0.4f, [new(0f, Yellow), new(1f, Red)]));
+        rec.PopClip();
+
+        var stripes = BezPathBuilder.Begin(4 * 400 + 8);
+        for (int i = 0; i < 400; i++)
+        {
+            double x = 10 + i * (width - 20) / 400.0;
+            stripes.MoveTo(new Point(x, height * 0.7));
+            stripes.LineTo(new Point(x + 1.3, height * 0.7));
+            stripes.LineTo(new Point(x + 1.3 + height * 0.05, height * 0.98));
+            stripes.LineTo(new Point(x + height * 0.05, height * 0.98));
+            stripes.Close();
+        }
+        rec.PushClipPath(stripes.Build(), FillRule.NonZero);
+        rec.FillRect(0, 0, width, height, ComposePaint.Solid(Ink));
+        rec.PopClip();
+
+        rec.FillPath(Circle(width * 0.35, height * 0.5, height * 0.22), FillRule.NonZero, ComposePaint.Solid(Orange.WithOpacity(0.7f)));
+        return rec;
+    }
+
     private static FontFace Face(float rasterSize)
     {
         lock (Faces)
