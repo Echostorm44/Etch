@@ -32,7 +32,7 @@ internal static class ParityScenes
 
     private static readonly Dictionary<float, FontFace> Faces = new();
 
-    public static readonly string[] Names = ["shapes", "strokes", "paths", "gradients", "clips", "images", "text", "emoji", "blur", "layers"];
+    public static readonly string[] Names = ["shapes", "strokes", "paths", "gradients", "clips", "images", "text", "emoji", "blur", "layers", "composite"];
 
     public static ComposeColor Rgb(byte r, byte g, byte b, float a = 1f)
         => new(Srgb.Decode(r / 255f), Srgb.Decode(g / 255f), Srgb.Decode(b / 255f), a);
@@ -60,6 +60,9 @@ internal static class ParityScenes
                 break;
             case "clips":
                 Clips(rec, t, scale);
+                break;
+            case "composite":
+                Composite(rec, t, scale);
                 break;
             case "emoji":
                 Emoji(rec, scale);
@@ -315,6 +318,41 @@ internal static class ParityScenes
             }
         }
         return 2048;
+    }
+
+    // Images, blurs and shadows inside translucent and nested layers, rotated images in a layer,
+    // a blur clipped by a rounded clip inside a layer, a large blur radius.
+    private static void Composite(DrawRecording rec, Affine t, float scale)
+    {
+        var checker = CheckerImage();
+        var ramp = RampImage();
+        ComposeColor[] stripes = [Red, Orange, Yellow, Green, Blue, Purple];
+        for (int i = 0; i < 27; i++)
+        {
+            rec.FillRect(i * 12, 0, 6, Height, ComposePaint.Solid(stripes[i % stripes.Length]));
+        }
+
+        var inner = new DrawRecording();
+        inner.SetTransform(t);
+        inner.Image(1, checker, 10, 10, 50, 50, 0.7f);
+        inner.SetTransform(t * Affine.Translate(100, 40) * Affine.Rotate(0.35));
+        inner.Image(2, ramp, -30, -20, 60, 40, 1f);
+        inner.SetTransform(t);
+        inner.Shadow(20, 80, 90, 40, 10, 6, Rgb(0, 0, 0, 0.4f));
+        inner.FillRoundedRect(20, 80, 90, 40, 10, ComposePaint.Solid(Paper));
+        inner.BackdropBlur(30 * scale, 85 * scale, 70 * scale, 30 * scale, 6 * scale, 3 * scale, White.WithOpacity(0.2f));
+
+        var outer = new DrawRecording();
+        outer.SetTransform(t);
+        outer.FillRoundedRect(5, 5, 150, 140, 14, ComposePaint.Solid(White.WithOpacity(0.5f)));
+        outer.Layer(inner, 10 * scale, 5 * scale, 0.8f);
+        outer.PushClipRoundedRect(20, 150, 130, 70, 20);
+        outer.BackdropBlur(10 * scale, 140 * scale, 150 * scale, 90 * scale, 0, 12 * scale, Blue.WithOpacity(0.15f));
+        outer.PopClip();
+
+        rec.Layer(outer, 0, 0, 1f);
+        rec.Layer(outer, 160 * scale, 10 * scale, 0.6f);
+        rec.Glyphs(Run("Composite", 175 * scale, 230 * scale, Ink, scale, 16));
     }
 
     private static void Blur(DrawRecording rec, Affine t, float scale)
