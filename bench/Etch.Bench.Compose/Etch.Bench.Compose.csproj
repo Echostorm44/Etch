@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Bench.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Bench.Compose</RootNamespace>
+    <AssemblyName>Etch.Bench.Compose</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1001;CA1815;CA1515;CA1725;CA1031;CA1303;CA1305;CA1062;IL3000;IL3053;IL2104;IL3050</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\Etch.Bench.Shared\Etch.Bench.Shared.csproj" />
+  </ItemGroup>
+</Project>

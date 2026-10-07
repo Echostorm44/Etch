@@ -15,6 +15,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="Etch.Compose.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Etch.Gpu\Etch.Gpu.csproj" />
     <ProjectReference Include="..\Etch.Scene\Etch.Scene.csproj" />
     <ProjectReference Include="..\Etch.Geometry\Etch.Geometry.csproj" />

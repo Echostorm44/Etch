@@ -6,9 +6,13 @@
     <IsAotCompatible>true</IsAotCompatible>
     <RootNamespace>Etch.Compose.Tests</RootNamespace>
     <AssemblyName>Etch.Compose.Tests</AssemblyName>
-    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515;CA5394</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- The benchmark's application frame doubles as the large CPU test scene. -->
+    <Compile Include="..\..\bench\Etch.Bench.Compose\UiFrameScene.cs" Link="UiFrameScene.cs" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" />
     <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
