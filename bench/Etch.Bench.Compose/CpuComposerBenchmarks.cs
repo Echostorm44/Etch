@@ -33,6 +33,14 @@ public class CpuComposerBenchmarks
     [AllocationBudget(0)]
     public void RenderUiFrame1080() => harness.Render();
 
+    /// <summary>
+    /// A caret blink: the frame is rebuilt from its recording (caret toggled) and rendered
+    /// incrementally into the previous frame — only the caret's tiles render. Budget 0.5 ms.
+    /// </summary>
+    [Benchmark]
+    [AllocationBudget(0)]
+    public void CaretBlinkFrame1080() => harness.BlinkFrame();
+
     /// <summary>Replaying the recording into the draw list (steady state: glyphs and masks cached).</summary>
     [Benchmark]
     [AllocationBudget(0)]
@@ -43,7 +51,10 @@ public class CpuComposerBenchmarks
 public sealed class ComposeHarness : IDisposable
 {
     private readonly DrawRecording recording;
+    private readonly DrawRecording caretOn;
+    private readonly DrawRecording caretOff;
     private readonly DrawListBuilder builder = new();
+    private bool blink;
     private readonly DrawList list = new();
     private readonly CpuFramebuffer framebuffer = new();
     private readonly uint width;
@@ -54,6 +65,8 @@ public sealed class ComposeHarness : IDisposable
         this.width = (uint)width;
         this.height = (uint)height;
         recording = UiFrameScene.Build(width, height, scale);
+        caretOn = UiFrameScene.Build(width, height, scale, caret: true);
+        caretOff = UiFrameScene.Build(width, height, scale, caret: false);
     }
 
     public CpuComposer Composer { get; } = new();
@@ -71,6 +84,22 @@ public sealed class ComposeHarness : IDisposable
     }
 
     public void Render() => Composer.Render(list, framebuffer);
+
+    /// <summary>One caret-blink frame: rebuild with the caret toggled, render incrementally. Returns damaged pixels.</summary>
+    public long BlinkFrame()
+    {
+        blink = !blink;
+        builder.Begin(list, width, height, Composer.Masks, Composer.MonoAtlas, Composer.ColorAtlas);
+        builder.Replay(blink ? caretOn : caretOff);
+        builder.End();
+        list.Parameters = new ComposeParameters { TextGamma = 1.5f, LightWeight = 1f };
+        long damaged = 0;
+        foreach (var rect in Composer.RenderIncremental(list, framebuffer))
+        {
+            damaged += (long)rect.Width * rect.Height;
+        }
+        return damaged;
+    }
 
     public void Dispose() => Composer.Dispose();
 }

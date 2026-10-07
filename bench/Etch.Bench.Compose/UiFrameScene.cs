@@ -30,8 +30,12 @@ public static class UiFrameScene
 
     private const string Body = "The quick brown fox jumps over the lazy dog while the composer keeps every pixel honest.";
 
-    /// <summary>Builds the frame at <paramref name="scale"/> (logical 1920/scale × 1080/scale).</summary>
-    public static DrawRecording Build(int width, int height, float scale)
+    /// <summary>
+    /// Builds the frame at <paramref name="scale"/> (logical 1920/scale × 1080/scale). With
+    /// <paramref name="caret"/> a text caret shows in the search field (a blink toggles it);
+    /// <paramref name="titleVariant"/> changes the first card's title (an edit).
+    /// </summary>
+    public static DrawRecording Build(int width, int height, float scale, bool caret = false, int titleVariant = 0)
     {
         var rec = new DrawRecording();
         var t = Affine.Scale(scale);
@@ -61,6 +65,10 @@ public static class UiFrameScene
         rec.FillRoundedRect(w - 620, 12, 320, 32, 8, ComposePaint.Solid(Window));
         rec.Border(w - 620, 12, 320, 32, 8, 1, Hairline);
         rec.Glyphs(Run("Type to filter entries…", (w - 596) * scale, 33 * scale, Secondary, scale, 14));
+        if (caret)
+        {
+            rec.FillRect(w - 600, 19, 1.5f, 18, ComposePaint.Solid(Accent));
+        }
         for (int i = 0; i < 3; i++)
         {
             float x = w - 280 + i * 92;
@@ -79,7 +87,7 @@ public static class UiFrameScene
             {
                 float x = gridX + col * (cardW + 20);
                 float y = gridY + row * (cardH + 20);
-                CardAt(rec, x, y, cardW, cardH, row * 3 + col, scale);
+                CardAt(rec, x, y, cardW, cardH, row * 3 + col, scale, row == 0 && col == 0 ? titleVariant : 0);
             }
         }
 
@@ -89,14 +97,14 @@ public static class UiFrameScene
         return rec;
     }
 
-    private static void CardAt(DrawRecording rec, float x, float y, float w, float h, int index, float scale)
+    private static void CardAt(DrawRecording rec, float x, float y, float w, float h, int index, float scale, int titleVariant)
     {
         rec.Shadow(x, y + 4, w, h, 12, 10, Shadow);
         rec.FillRoundedRect(x, y, w, h, 12, ComposePaint.Solid(Card));
         rec.Border(x, y, w, h, 12, 1, Hairline);
         rec.PushClipRoundedRect(x, y, w, h, 12);
         rec.Image(1, Thumbnail.Value, x + 16, y + 16, 56, 56, 1f);
-        rec.Glyphs(Run($"Card {index + 1}: weekly summary", (x + 88) * scale, (y + 34) * scale, Ink, scale, 16));
+        rec.Glyphs(Run(titleVariant == 0 ? $"Card {index + 1}: weekly summary" : $"Card {index + 1}: edited {titleVariant}", (x + 88) * scale, (y + 34) * scale, Ink, scale, 16));
         rec.Glyphs(Run("Updated today", (x + 88) * scale, (y + 56) * scale, Secondary, scale, 12));
         float lineY = y + 98;
         for (int line = 0; line < 4 && lineY < y + h - 40; line++)

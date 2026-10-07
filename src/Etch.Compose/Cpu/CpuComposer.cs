@@ -1,3 +1,6 @@
+using System.IO.Hashing;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Etch.Gpu;
 using Etch.Text.Atlas;
@@ -61,6 +64,20 @@ public sealed class CpuComposer : IDisposable
     private int phaseCounter;
     private TileScratch[] scratch = Array.Empty<TileScratch>();
 
+    // Damage tracking (RenderIncremental): a hash per tile of everything drawn there, kept from the
+    // last incremental frame into the same framebuffer.
+    private bool trackDamage;
+    private ulong[] itemHashes = Array.Empty<ulong>();
+    private ulong[] clipHashes = Array.Empty<ulong>();
+    private ulong[] tileHashes = Array.Empty<ulong>();
+    private ulong[] previousTileHashes = Array.Empty<ulong>();
+    private bool[] tileDirty = Array.Empty<bool>();
+    private bool renderDirtyOnly;
+    private CpuFramebuffer? historyTarget;
+    private int historyWidth;
+    private int historyHeight;
+    private readonly List<CpuDirtyRect> dirtyRects = new();
+
     /// <summary>Creates a CPU composer with empty atlases.</summary>
     public CpuComposer()
     {
@@ -108,25 +125,99 @@ public sealed class CpuComposer : IDisposable
         }
     }
 
-    /// <summary>Renders the whole of <paramref name="list"/> (finished) into <paramref name="target"/>.</summary>
+    /// <summary>
+    /// Renders the whole of <paramref name="list"/> (finished) into <paramref name="target"/>. Forgets
+    /// the damage history: the next <see cref="RenderIncremental"/> renders everything.
+    /// </summary>
     public void Render(DrawList list, CpuFramebuffer target)
     {
         ArgumentNullException.ThrowIfNull(list);
         ArgumentNullException.ThrowIfNull(target);
         ObjectDisposedException.ThrowIf(disposed, this);
-        target.Resize((int)list.Width, (int)list.Height);
-        target.Pixels.Fill(0xFF000000u);
-        if (target.Width == 0 || target.Height == 0)
+        historyTarget = null;
+        RenderFrame(list, target, incremental: false);
+    }
+
+    /// <summary>
+    /// Renders <paramref name="list"/> into <paramref name="target"/>, which must hold the previous
+    /// frame this method rendered into it: only the 64×64 tiles whose draws changed are rendered
+    /// again (a tile's hash covers every draw binned to it, the tables those draws index, the atlas
+    /// generations, and backdrop blurs reaching into it). Returns the changed rects, valid until the
+    /// next call; the whole target when there is no usable history (first frame, other target,
+    /// resize, <see cref="Render"/> in between).
+    /// </summary>
+    /// <remarks>
+    /// Images are identified by handle and instance: an image's pixels must not change once drawn
+    /// (the GPU composer caches its texture by handle on the same assumption).
+    /// </remarks>
+    public ReadOnlySpan<CpuDirtyRect> RenderIncremental(DrawList list, CpuFramebuffer target)
+    {
+        ArgumentNullException.ThrowIfNull(list);
+        ArgumentNullException.ThrowIfNull(target);
+        ObjectDisposedException.ThrowIf(disposed, this);
+        RenderFrame(list, target, incremental: true);
+        return CollectionsMarshal.AsSpan(dirtyRects);
+    }
+
+    private void RenderFrame(DrawList list, CpuFramebuffer target, bool incremental)
+    {
+        int width = (int)list.Width;
+        int height = (int)list.Height;
+        bool history = incremental && ReferenceEquals(historyTarget, target)
+            && historyWidth == width && historyHeight == height && target.Width == width && target.Height == height;
+        target.Resize(width, height);
+        dirtyRects.Clear();
+        if (width == 0 || height == 0)
         {
             return;
         }
 
+        trackDamage = incremental;
+        Bin(list, width, height);
+        int tileCount = tilesX * tilesY;
+        renderDirtyOnly = false;
+        if (incremental)
+        {
+            HashTiles(list);
+            if (history)
+            {
+                for (int t = 0; t < tileCount; t++)
+                {
+                    tileDirty[t] = tileHashes[t] != previousTileHashes[t];
+                }
+                DilateForBlurs(list);
+                renderDirtyOnly = true;
+            }
+            else
+            {
+                Array.Fill(tileDirty, true, 0, tileCount);
+            }
+            (tileHashes, previousTileHashes) = (previousTileHashes, tileHashes);
+            historyTarget = target;
+            historyWidth = width;
+            historyHeight = height;
+            CollectDirtyRects(width, height);
+            if (dirtyRects.Count == 0)
+            {
+                return;
+            }
+        }
+
+        if (renderDirtyOnly)
+        {
+            ClearDirtyTiles(target);
+        }
+        else
+        {
+            target.Pixels.Fill(0xFF000000u);
+        }
+
         frameList = list;
         frameTarget = target;
-        Bin(list, target.Width, target.Height);
-
         int threads = MaxDegreeOfParallelism <= 0 ? Environment.ProcessorCount : MaxDegreeOfParallelism;
-        threads = Math.Clamp(threads, 1, tilesX * tilesY);
+        // At least four tiles per worker: waking a thread for less costs more than it saves.
+        int workTiles = renderDirtyOnly ? DirtyTileCount(tileCount) : tileCount;
+        threads = Math.Clamp(threads, 1, Math.Max(1, workTiles / 4));
         EnsureScratch(threads);
 
         // Phases: a backdrop-blur batch reads beyond its tile, so it starts a phase after a
@@ -153,6 +244,229 @@ public sealed class CpuComposer : IDisposable
         frameTarget = null;
     }
 
+    // ── Damage ──────────────────────────────────────────────────────────
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ulong Mix(ulong h, ulong value) => BitOperations.RotateLeft(h ^ value, 27) * 0x9E3779B97F4A7C15UL + 0x165667B19E3779F9UL;
+
+    private static ulong HashOf<T>(in T value)
+        where T : unmanaged
+        => XxHash3.HashToUInt64(MemoryMarshal.AsBytes(new ReadOnlySpan<T>(in value)));
+
+    // Hashes of every clip-table entry, with its mask tiles and the atlas content they point at.
+    private void HashClips(DrawList list)
+    {
+        var clips = list.Clips;
+        if (clipHashes.Length < clips.Length)
+        {
+            clipHashes = new ulong[Math.Max(clips.Length, clipHashes.Length * 2)];
+        }
+        var tiles = list.MaskTiles;
+        for (int i = 0; i < clips.Length; i++)
+        {
+            ref readonly var clip = ref clips[i];
+            ulong h = HashOf(clip);
+            if (clip.HasMask != 0)
+            {
+                int columns = Math.Max(clip.MaskTileColumns, 1);
+                int rows = (clip.MaskHeight + MaskAtlas.ClipMaskTile - 1) / MaskAtlas.ClipMaskTile;
+                int count = Math.Min(columns * rows, tiles.Length - clip.MaskTileStart);
+                if (count > 0)
+                {
+                    h = Mix(h, XxHash3.HashToUInt64(MemoryMarshal.AsBytes(tiles.Slice(clip.MaskTileStart, count))));
+                }
+                h = Mix(h, (ulong)maskAtlas.ContentGeneration);
+            }
+            clipHashes[i] = h;
+        }
+    }
+
+    // One draw's hash: its instance, the clip and paint it indexes, and what its texels come from.
+    private ulong ItemHash(DrawList list, DrawKind kind, int index)
+    {
+        switch (kind)
+        {
+            case DrawKind.Shape:
+                {
+                    ref readonly var s = ref CollectionsMarshal.AsSpan(list.OrderedShapes)[index];
+                    ulong h = Mix(HashOf(s), clipHashes[(int)s.ClipIndex]);
+                    if (s.PaintIndex != 0)
+                    {
+                        ref readonly var g = ref list.Gradients[(int)s.PaintIndex];
+                        h = Mix(h, HashOf(g));
+                        h = Mix(h, XxHash3.HashToUInt64(MemoryMarshal.AsBytes(list.GradientStops.Slice((int)g.StopStart, (int)g.StopCount))));
+                    }
+                    if (s.Type == ShapeType.Mask)
+                    {
+                        h = Mix(h, (ulong)maskAtlas.ContentGeneration);
+                    }
+                    return h;
+                }
+            case DrawKind.Glyph:
+                {
+                    ref readonly var g = ref CollectionsMarshal.AsSpan(list.OrderedGlyphs)[index];
+                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), (ulong)monoAtlas.Generation);
+                }
+            case DrawKind.ColorGlyph:
+                {
+                    ref readonly var g = ref CollectionsMarshal.AsSpan(list.OrderedColorGlyphs)[index];
+                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), (ulong)(uint)colorAtlas.Generation | (1UL << 40));
+                }
+            case DrawKind.Image:
+                {
+                    ref readonly var m = ref CollectionsMarshal.AsSpan(list.OrderedImages)[index];
+                    ulong h = Mix(HashOf(m), clipHashes[(int)m.ClipIndex]);
+                    ulong identity = list.Images.TryGetValue(m.Handle, out var image) ? (ulong)RuntimeHelpers.GetHashCode(image) : 0;
+                    return Mix(h, identity);
+                }
+            default:
+                {
+                    ref readonly var u = ref CollectionsMarshal.AsSpan(list.OrderedBlurs)[index];
+                    return Mix(HashOf(u), clipHashes[(int)u.ClipIndex]);
+                }
+        }
+    }
+
+    // A tile's hash: the frame's parameters and size, then each draw binned to it in paint order,
+    // with where batches begin (a glyph batch reads the tile as it stood at its start).
+    private void HashTiles(DrawList list)
+    {
+        int tileCount = tilesX * tilesY;
+        if (tileHashes.Length < tileCount)
+        {
+            tileHashes = new ulong[tileCount];
+            previousTileHashes = new ulong[tileCount];
+            tileDirty = new bool[tileCount];
+        }
+        var p = list.Parameters;
+        ulong seed = Mix(Mix(HashOf(p), list.Width), list.Height);
+        var batches = list.Batches;
+        for (int t = 0; t < tileCount; t++)
+        {
+            ulong h = seed;
+            int previousBatch = -1;
+            for (int i = tileStart[t]; i < tileStart[t + 1]; i++)
+            {
+                var entry = entries[i];
+                ulong kind = (ulong)batches[entry.Batch].Kind;
+                if (entry.Batch != previousBatch)
+                {
+                    kind |= 0x100;
+                    previousBatch = entry.Batch;
+                }
+                h = Mix(Mix(h, kind), itemHashes[entry.Item]);
+            }
+            tileHashes[t] = h;
+        }
+    }
+
+    // A backdrop blur reads around itself: when anything it reads or covers changed, every tile in
+    // its reach renders again (so the tiles it reads hold their state at the blur's phase).
+    private void DilateForBlurs(DrawList list)
+    {
+        var blurs = CollectionsMarshal.AsSpan(list.OrderedBlurs);
+        if (blurs.IsEmpty)
+        {
+            return;
+        }
+        foreach (ref readonly var blur in blurs)
+        {
+            float reach = DrawList.BlurReach(blur.Sigma);
+            int x0 = Math.Clamp((int)MathF.Floor(blur.MinX - reach), 0, historyWidth - 1) >> TileShift;
+            int y0 = Math.Clamp((int)MathF.Floor(blur.MinY - reach), 0, historyHeight - 1) >> TileShift;
+            int x1 = Math.Clamp((int)MathF.Ceiling(blur.MaxX + reach), 0, historyWidth - 1) >> TileShift;
+            int y1 = Math.Clamp((int)MathF.Ceiling(blur.MaxY + reach), 0, historyHeight - 1) >> TileShift;
+            bool any = false;
+            for (int ty = y0; ty <= y1 && !any; ty++)
+            {
+                for (int tx = x0; tx <= x1; tx++)
+                {
+                    if (tileDirty[ty * tilesX + tx])
+                    {
+                        any = true;
+                        break;
+                    }
+                }
+            }
+            if (!any)
+            {
+                continue;
+            }
+            for (int ty = y0; ty <= y1; ty++)
+            {
+                for (int tx = x0; tx <= x1; tx++)
+                {
+                    tileDirty[ty * tilesX + tx] = true;
+                }
+            }
+        }
+    }
+
+    // Dirty tiles as rects: runs of dirty tiles along each tile row, merged with the run below when
+    // it spans the same columns.
+    private void CollectDirtyRects(int width, int height)
+    {
+        for (int ty = 0; ty < tilesY; ty++)
+        {
+            int y = ty << TileShift;
+            int h = Math.Min(TileSize, height - y);
+            int rowStart = dirtyRects.Count;
+            int tx = 0;
+            while (tx < tilesX)
+            {
+                if (!tileDirty[ty * tilesX + tx])
+                {
+                    tx++;
+                    continue;
+                }
+                int first = tx;
+                while (tx < tilesX && tileDirty[ty * tilesX + tx])
+                {
+                    tx++;
+                }
+                int x = first << TileShift;
+                int w = Math.Min(tx << TileShift, width) - x;
+                bool merged = false;
+                for (int r = 0; r < rowStart; r++)
+                {
+                    var above = dirtyRects[r];
+                    if (above.X == x && above.Width == w && above.Y + above.Height == y)
+                    {
+                        dirtyRects[r] = above with { Height = above.Height + h };
+                        merged = true;
+                        break;
+                    }
+                }
+                if (!merged)
+                {
+                    dirtyRects.Add(new CpuDirtyRect(x, y, w, h));
+                }
+            }
+        }
+    }
+
+    private int DirtyTileCount(int tileCount)
+    {
+        int n = 0;
+        for (int t = 0; t < tileCount; t++)
+        {
+            n += tileDirty[t] ? 1 : 0;
+        }
+        return n;
+    }
+
+    private void ClearDirtyTiles(CpuFramebuffer target)
+    {
+        var pixels = target.Pixels;
+        int width = target.Width;
+        foreach (var rect in dirtyRects)
+        {
+            for (int y = rect.Y; y < rect.Y + rect.Height; y++)
+            {
+                pixels.Slice(y * width + rect.X, rect.Width).Fill(0xFF000000u);
+            }
+        }
+    }
     /// <summary>Releases the per-frame buffers (bins, snapshot, scratch); atlases are kept.</summary>
     public void Trim()
     {
@@ -168,7 +482,7 @@ public sealed class CpuComposer : IDisposable
     internal readonly record struct Region(int X0, int Y0, int X1, int Y1);
 
     /// <summary>A draw binned to a tile: its batch and its index in the batch kind's ordered list.</summary>
-    private readonly record struct BinEntry(int Batch, int Index);
+    private readonly record struct BinEntry(int Batch, int Index, int Item);
 
     /// <summary>The tiles a draw touches, inclusive; empty when <see cref="X1"/> &lt; <see cref="X0"/>.</summary>
     private readonly record struct TileRange(int X0, int Y0, int X1, int Y1);
@@ -212,6 +526,14 @@ public sealed class CpuComposer : IDisposable
 
         Array.Clear(tileStart, 0, tileCount + 1);
         var clips = list.Clips;
+        if (trackDamage)
+        {
+            HashClips(list);
+            if (itemHashes.Length < items)
+            {
+                itemHashes = new ulong[Math.Max(items, itemHashes.Length * 2)];
+            }
+        }
         int item = 0;
         for (int b = 0; b < batches.Length; b++)
         {
@@ -219,6 +541,10 @@ public sealed class CpuComposer : IDisposable
             for (int i = 0; i < batch.Count; i++)
             {
                 var range = RangeOf(list, clips, batch.Kind, batch.Start + i, width, height);
+                if (trackDamage)
+                {
+                    itemHashes[item] = ItemHash(list, batch.Kind, batch.Start + i);
+                }
                 ranges[item++] = range;
                 for (int ty = range.Y0; ty <= range.Y1; ty++)
                 {
@@ -245,12 +571,13 @@ public sealed class CpuComposer : IDisposable
             ref readonly var batch = ref batches[b];
             for (int i = 0; i < batch.Count; i++)
             {
-                var range = ranges[item++];
+                int itemNumber = item++;
+                var range = ranges[itemNumber];
                 for (int ty = range.Y0; ty <= range.Y1; ty++)
                 {
                     for (int tx = range.X0; tx <= range.X1; tx++)
                     {
-                        entries[tileFill[ty * tilesX + tx]++] = new BinEntry(b, batch.Start + i);
+                        entries[tileFill[ty * tilesX + tx]++] = new BinEntry(b, batch.Start + i, itemNumber);
                     }
                 }
             }
@@ -340,6 +667,10 @@ public sealed class CpuComposer : IDisposable
         int tile;
         while ((tile = Interlocked.Increment(ref phaseCounter) - 1) < tileCount)
         {
+            if (renderDirtyOnly && !tileDirty[tile])
+            {
+                continue;
+            }
             RenderTile(list, target, tile, work);
         }
     }
@@ -931,3 +1262,6 @@ public sealed class CpuComposer : IDisposable
         maskAtlas.Dispose();
     }
 }
+
+/// <summary>A rect of framebuffer pixels a <see cref="CpuComposer.RenderIncremental"/> frame changed.</summary>
+public readonly record struct CpuDirtyRect(int X, int Y, int Width, int Height);

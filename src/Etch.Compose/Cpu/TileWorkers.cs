@@ -3,15 +3,24 @@ using System.Runtime.ExceptionServices;
 namespace Etch.Compose.Cpu;
 
 /// <summary>
-/// Runs a worker body on N threads — the caller plus N − 1 thread-pool work items — and waits for
-/// all of them, without allocating: the work items and the countdown are created once and reused.
+/// Runs a worker body on N threads — the caller plus N − 1 dedicated background threads — and
+/// waits for all of them, without allocating per run.
 /// </summary>
+/// <remarks>
+/// Dedicated threads rather than the thread pool: pool threads spin for work after finishing a
+/// frame, which measurably slowed the single-threaded work that follows (building the next draw
+/// list ran 5× slower). These block on an event that does not spin. Threads are created when a
+/// frame first needs them and end with <see cref="Dispose"/>; an idle composer costs no CPU.
+/// </remarks>
 internal sealed class TileWorkers : IDisposable
 {
+    private const int StackSize = 256 * 1024;
+
     private readonly Action<int> body;
     private readonly CountdownEvent done = new(1);
-    private Item[] items = Array.Empty<Item>();
+    private readonly List<Worker> workers = new();
     private ExceptionDispatchInfo? failure;
+    private volatile bool stopping;
 
     public TileWorkers(Action<int> body)
     {
@@ -26,21 +35,15 @@ internal sealed class TileWorkers : IDisposable
             body(0);
             return;
         }
-        if (items.Length < threads)
+        while (workers.Count < threads - 1)
         {
-            var grown = new Item[threads];
-            Array.Copy(items, grown, items.Length);
-            for (int i = items.Length; i < threads; i++)
-            {
-                grown[i] = new Item(this, i);
-            }
-            items = grown;
+            workers.Add(new Worker(this, workers.Count + 1));
         }
         failure = null;
         done.Reset(threads - 1);
-        for (int i = 1; i < threads; i++)
+        for (int i = 0; i < threads - 1; i++)
         {
-            ThreadPool.UnsafeQueueUserWorkItem(items[i], preferLocal: false);
+            workers[i].Start.Set();
         }
         try
         {
@@ -53,26 +56,63 @@ internal sealed class TileWorkers : IDisposable
         failure?.Throw();
     }
 
-    private void Execute(int worker)
+    public void Dispose()
     {
-        try
+        stopping = true;
+        foreach (var worker in workers)
         {
-            body(worker);
+            worker.Start.Set();
         }
-        catch (Exception e)
+        foreach (var worker in workers)
         {
-            Interlocked.CompareExchange(ref failure, ExceptionDispatchInfo.Capture(e), null);
+            worker.Thread.Join();
+            worker.Start.Dispose();
         }
-        finally
-        {
-            done.Signal();
-        }
+        workers.Clear();
+        done.Dispose();
     }
 
-    public void Dispose() => done.Dispose();
-
-    private sealed class Item(TileWorkers owner, int worker) : IThreadPoolWorkItem
+    private sealed class Worker
     {
-        public void Execute() => owner.Execute(worker);
+        private readonly TileWorkers owner;
+        private readonly int index;
+
+        public Worker(TileWorkers owner, int index)
+        {
+            this.owner = owner;
+            this.index = index;
+            Thread = new Thread(Loop, StackSize) { IsBackground = true, Name = $"Etch CPU composer {index}" };
+            Thread.Start();
+        }
+
+        // No spinning: a worker sleeps in the kernel between frames.
+        public ManualResetEventSlim Start { get; } = new(false, spinCount: 0);
+
+        public Thread Thread { get; }
+
+        private void Loop()
+        {
+            while (true)
+            {
+                Start.Wait();
+                Start.Reset();
+                if (owner.stopping)
+                {
+                    return;
+                }
+                try
+                {
+                    owner.body(index);
+                }
+                catch (Exception e)
+                {
+                    Interlocked.CompareExchange(ref owner.failure, ExceptionDispatchInfo.Capture(e), null);
+                }
+                finally
+                {
+                    owner.done.Signal();
+                }
+            }
+        }
     }
 }

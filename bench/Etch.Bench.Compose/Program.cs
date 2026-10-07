@@ -32,6 +32,18 @@ public static class Program
             harness.Build();
             harness.Render();
         }
+        if (Environment.GetEnvironmentVariable("ETCH_BENCH_BLINK_FIRST") == "1")
+        {
+            var early = new double[frames];
+            for (int i = 0; i < frames; i++)
+            {
+                long e0 = Stopwatch.GetTimestamp();
+                harness.BlinkFrame();
+                early[i] = Stopwatch.GetElapsedTime(e0).TotalMilliseconds;
+            }
+            Array.Sort(early);
+            Console.WriteLine($"caret blink (before timed renders): median {early[frames / 2]:F3} ms");
+        }
         var build = new double[frames];
         var render = new double[frames];
         long allocBefore = GC.GetTotalAllocatedBytes(true);
@@ -49,6 +61,16 @@ public static class Program
         Array.Sort(build);
         Array.Sort(render);
         var l = harness.List;
+        var blinks = new double[frames];
+        long damaged = 0;
+        for (int i = 0; i < frames; i++)
+        {
+            long b0 = Stopwatch.GetTimestamp();
+            damaged = harness.BlinkFrame();
+            blinks[i] = Stopwatch.GetElapsedTime(b0).TotalMilliseconds;
+        }
+        Array.Sort(blinks);
+        Console.WriteLine($"caret blink: median {blinks[frames / 2]:F3} ms (min {blinks[0]:F3}), {damaged} px damaged");
         Console.WriteLine($"threads {threads}: render median {render[frames / 2]:F2} ms (min {render[0]:F2}), build median {build[frames / 2]:F2} ms, allocated {allocated / frames} B/frame; shapes {l.OrderedShapes.Count} glyphs {l.OrderedGlyphs.Count} images {l.OrderedImages.Count} batches {l.Batches.Length}");
     }
 }
