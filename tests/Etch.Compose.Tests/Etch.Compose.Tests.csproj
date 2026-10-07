@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
     <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
     <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />

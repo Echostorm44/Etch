@@ -337,7 +337,8 @@ internal static class ComposeShaders
             if (g.kind == 2u) {
                 t = length(gp);
             } else if (g.kind == 3u) {
-                t = fract((atan2(gp.y, gp.x) - g.t.z) / 6.28318530718);
+                // The centre has no angle: pin it (within a thousandth of a pixel) to the start.
+                t = select(fract((atan2(gp.y, gp.x) - g.t.z) / 6.28318530718), 0.0, dot(gp, gp) < 1e-6);
             }
             let c = gradient_color(g, t);
             var rgb = vec3<f32>(0.0);
