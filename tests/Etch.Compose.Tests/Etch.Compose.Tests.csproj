@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\build\Test.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.Compose.Tests</RootNamespace>
+    <AssemblyName>Etch.Compose.Tests</AssemblyName>
+    <NoWarn>$(NoWarn);CS1591;CA1707;CA2007;CA1031;CA1305;ET0105;TUnitAssertions0005;CA1515</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" />
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />
+  </ItemGroup>
+</Project>

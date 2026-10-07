@@ -54,6 +54,7 @@
     <ProjectReference Include="..\..\src\Etch.Raster.Cpu\Etch.Raster.Cpu.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Gpu.Compositor\Etch.Gpu.Compositor.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Tiling\Etch.Tiling.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" PrivateAssets="all" />
   </ItemGroup>
 
   <!-- Third-party runtime dependencies the bundled Etch assemblies need. Declared here so
