@@ -111,6 +111,15 @@ jobs:
           name: test-results-${{ matrix.rid }}
           path: TestResults/
 
+      # GPU/CPU parity failures write actual | expected | diff PNGs next to the test binaries.
+      - name: Upload parity failure images
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: parity-failures-${{ matrix.rid }}
+          path: tests/*/bin/Release/*/parity-failures/
+          if-no-files-found: ignore
+
   aot-publish:
     strategy:
       fail-fast: false

@@ -119,11 +119,15 @@ internal sealed unsafe class ParityHarness : IDisposable
         var description = adapter.GetDescription();
         AdapterName = description.ToString();
         IsSoftware = description.IsSoftware;
+        IsLlvmpipe = description.Name.Contains("llvmpipe", StringComparison.OrdinalIgnoreCase);
     }
 
     public string AdapterName { get; }
 
     public bool IsSoftware { get; }
+
+    /// <summary>Mesa's llvmpipe (Lavapipe), whose sRGB conversions are approximations (see <see cref="GpuCpuParityTests"/>).</summary>
+    public bool IsLlvmpipe { get; }
 
     public static ParityHarness? TryCreate(uint width, uint height, ParityAdapter kind, out string reason)
     {

@@ -17,6 +17,10 @@ namespace Etch.Compose.Tests;
 /// filters with finer subtexel weights). Against hardware the CPU must be as close as the reference
 /// rasterizer itself is: no more than one level beyond the reference's own p99.9 and maximum.
 /// </para>
+/// <para>
+/// On Linux the reference is Lavapipe (llvmpipe), whose sRGB conversions are approximations; its
+/// mean budget is calibrated (see <c>LlvmpipeMeanBudget</c>), its p99.9 and maximum are D4's.
+/// </para>
 /// </remarks>
 [NotInParallel(nameof(GpuCpuParityTests))]
 internal sealed class GpuCpuParityTests
@@ -24,6 +28,19 @@ internal sealed class GpuCpuParityTests
     private const double MeanBudget = 0.1;
     private const int P999Budget = 2;
     private const int MaxBudget = 4;
+
+    // Lavapipe (Mesa's llvmpipe, the reference adapter on Linux) does not convert sRGB exactly the
+    // way WARP does: it decodes an sRGB destination with a cubic polynomial (up to 0.34 levels off)
+    // and encodes the blended result with a rational approximation (up to 0.17 levels), both within
+    // D3D10's 0.6-ULP allowance (Mesa 25.2, gallivm/lp_bld_format_srgb.c). Every translucent blend
+    // into an sRGB target goes through both, so a result near the middle of two levels can round
+    // the other way, mostly down: 30% white over paper level 234 is exactly 240.556 (241, the CPU's
+    // and WARP's answer) and llvmpipe's 240.466 (240) — evaluating Mesa's two approximations
+    // reproduces its output. Each translucent layer stacked on a pixel adds another chance, so the
+    // composite scene (stripes under two translucent layers, a nested layer, a blur, a shadow)
+    // measures mean 0.111–0.116 on llvmpipe; every other scene stays at or under 0.056, all within
+    // p99.9 2 and max 3. Only the mean is calibrated, and only for llvmpipe.
+    private const double LlvmpipeMeanBudget = 0.15;
 
     // Absolute ceilings for the hardware tier (the RTX 4090's worst: mean 0.10, p99.9 3, max 8).
     private const double HardwareMeanCap = 0.2;
@@ -59,7 +76,7 @@ internal sealed class GpuCpuParityTests
         string name = $"{scene}-{scale * 100:0}";
         await Report($"{name} reference: {stats}");
 
-        bool pass = stats.MeanError < MeanBudget && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
+        bool pass = stats.MeanError < ReferenceMeanBudget(harness) && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
         if (!pass)
         {
             await Fail(name, gpu, cpu, (int)width, (int)height, stats);
@@ -127,7 +144,7 @@ internal sealed class GpuCpuParityTests
         await Assert.That(harness.CpuDroppedMasks).IsEqualTo(0);
         int corner = (24 * width + 24) * 4;
         await Assert.That(cpu[corner + 2] > cpu[corner] + 40).IsFalse().Because("the rounded corner outside the clip keeps the paper colour");
-        bool pass = stats.MeanError < MeanBudget && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
+        bool pass = stats.MeanError < ReferenceMeanBudget(harness) && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
         if (!pass)
         {
             await Fail(name, gpu, cpu, width, height, stats);
@@ -170,6 +187,9 @@ internal sealed class GpuCpuParityTests
     }
 
     private static ComposeParameters Parameters => new() { TextGamma = 1.5f, LightWeight = 1f };
+
+    private static double ReferenceMeanBudget(ParityHarness reference)
+        => reference.IsLlvmpipe ? LlvmpipeMeanBudget : MeanBudget;
 
     private static (uint Width, uint Height) Size(float scale)
         => ((uint)Math.Round(ParityScenes.Width * scale), (uint)Math.Round(ParityScenes.Height * scale));
