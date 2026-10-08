@@ -269,7 +269,8 @@ public sealed unsafe class GpuComposer : IDisposable
     }
 
     /// <summary>
-    /// Clears every atlas that filled up last frame (or all of them, when <paramref name="force"/>).
+    /// Clears every glyph atlas that filled up last frame (or all of them, when <paramref name="force"/>)
+    /// and ends the mask atlas's frame (eviction, page budget: <see cref="MaskAtlas.EndFrame"/>).
     /// Must run between frames, before the next frame's draw list is built.
     /// </summary>
     public void ResetAtlasesIfExhausted(bool force)
@@ -282,10 +283,7 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             colorGlyphAtlas.Reset();
         }
-        if (force || maskAtlas.WasExhausted)
-        {
-            maskAtlas.Reset();
-        }
+        maskAtlas.EndFrame(force);
     }
 
     /// <summary>

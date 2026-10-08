@@ -409,19 +409,46 @@ public sealed class DrawListBuilder
     // rest as atlas texels, so a clip mask of any size fits.
     private void BuildClipMask(ref ClipEntry entry, ReadOnlySpan<ClipLayer> stack)
     {
-        int x0 = (int)MathF.Floor(entry.MinX);
-        int y0 = (int)MathF.Floor(entry.MinY);
-        int x1 = (int)MathF.Ceiling(entry.MaxX);
-        int y1 = (int)MathF.Ceiling(entry.MaxY);
+        // The mask covers the non-rect layers' own bounds, anchored at their integer floor, so a
+        // clip that moves by whole pixels (scrolled) keeps its masks; parts outside the hard rect
+        // are never read (the hard rect is tested first) and stay uniform 0 without rasterizing.
+        // A very large clip shape is anchored at the visible region instead (its tile table
+        // would otherwise grow with the shape).
+        float uMinX = float.MaxValue, uMinY = float.MaxValue, uMaxX = float.MinValue, uMaxY = float.MinValue;
+        foreach (ref readonly var layer in stack)
+        {
+            if (layer.Kind == ClipKind.Rect)
+            {
+                continue;
+            }
+            uMinX = Math.Min(uMinX, layer.MinX);
+            uMinY = Math.Min(uMinY, layer.MinY);
+            uMaxX = Math.Max(uMaxX, layer.MaxX);
+            uMaxY = Math.Max(uMaxY, layer.MaxY);
+        }
+        const float MaxAnchoredExtent = 8192f;
+        if (!(uMaxX - uMinX <= MaxAnchoredExtent && uMaxY - uMinY <= MaxAnchoredExtent))
+        {
+            uMinX = entry.MinX;
+            uMinY = entry.MinY;
+            uMaxX = entry.MaxX;
+            uMaxY = entry.MaxY;
+        }
+        int x0 = (int)MathF.Floor(uMinX);
+        int y0 = (int)MathF.Floor(uMinY);
+        int x1 = (int)MathF.Ceiling(uMaxX);
+        int y1 = (int)MathF.Ceiling(uMaxY);
         int w = x1 - x0;
         int h = y1 - y0;
+        if (w <= 0 || h <= 0)
+        {
+            return;
+        }
         const int tile = MaskAtlas.ClipMaskTile;
         int columns = (w + tile - 1) / tile;
         int rows = (h + tile - 1) / tile;
 
         hasher.Reset();
-        Hash(x0);
-        Hash(y0);
         Hash(w);
         Hash(h);
         foreach (ref readonly var layer in stack)
@@ -430,7 +457,7 @@ public sealed class DrawListBuilder
             {
                 continue;
             }
-            HashClipLayer(layer);
+            HashClipLayer(layer, x0, y0);
         }
         ulong clipKey = hasher.GetCurrentHashAsUInt64();
 
@@ -443,7 +470,12 @@ public sealed class DrawListBuilder
                 int ty = y0 + row * tile;
                 int tw = Math.Min(tile, x1 - tx);
                 int th = Math.Min(tile, y1 - ty);
-                ulong key = TileKey(clipKey, FillRule.NonZero, tx, ty, tw, th);
+                if (tx + tw <= entry.MinX || tx >= entry.MaxX || ty + th <= entry.MinY || ty >= entry.MaxY)
+                {
+                    tileScratch.Add(MaskTileEntry.Uniform(0));
+                    continue;
+                }
+                ulong key = TileKey(clipKey, FillRule.NonZero, tx - x0, ty - y0, tw, th);
                 if (uniformTiles.TryGetValue(key, out byte value))
                 {
                     tileScratch.Add(MaskTileEntry.Uniform(value));
@@ -482,7 +514,6 @@ public sealed class DrawListBuilder
         entry.MaskWidth = w;
         entry.MaskHeight = h;
     }
-
     // The product of every non-rect clip layer's coverage over one tile.
     private void RasterizeClipTile(ReadOnlySpan<ClipLayer> stack, Span<byte> combined, int tx, int ty, int tw, int th)
     {
@@ -528,20 +559,20 @@ public sealed class DrawListBuilder
         }
     }
 
-    private void HashClipLayer(in ClipLayer layer)
+    // A clip layer's geometry relative to the mask's anchor pixel.
+    private void HashClipLayer(in ClipLayer layer, int anchorX, int anchorY)
     {
         Hash((int)layer.Kind);
         Hash((int)layer.Rule);
         if (layer.Kind == ClipKind.RoundRect)
         {
-            Hash(layer.MinX);
-            Hash(layer.MinY);
-            Hash(layer.MaxX);
-            Hash(layer.MaxY);
+            Span<double> rect = [layer.MinX - (double)anchorX, layer.MinY - (double)anchorY, layer.MaxX - (double)anchorX, layer.MaxY - (double)anchorY];
+            hasher.Append(MemoryMarshal.AsBytes(rect));
             Hash(layer.Radius);
             return;
         }
-        HashAffine(layer.Transform);
+        HashLinear(layer.Transform);
+        HashAnchoredTranslation(layer.Transform, anchorX, anchorY);
         if (layer.PathIndex < 0)
         {
             Hash(layer.LocalX);
@@ -568,9 +599,18 @@ public sealed class DrawListBuilder
 
     private void Hash(float value) => Hash(BitConverter.SingleToInt32Bits(value));
 
-    private void HashAffine(in Affine t)
+    // A mask key covers the transform's linear part; the translation enters relative to the
+    // integer pixel the mask is anchored at (HashAnchoredTranslation), so content that moves by
+    // whole pixels — scrolling — reuses its masks instead of rasterizing new ones every frame.
+    private void HashLinear(in Affine t)
     {
-        Span<double> values = [t.M00, t.M01, t.M10, t.M11, t.M02, t.M12];
+        Span<double> values = [t.M00, t.M01, t.M10, t.M11];
+        hasher.Append(MemoryMarshal.AsBytes(values));
+    }
+
+    private void HashAnchoredTranslation(in Affine t, int anchorX, int anchorY)
+    {
+        Span<double> values = [t.M02 - anchorX, t.M12 - anchorY];
         hasher.Append(MemoryMarshal.AsBytes(values));
     }
 
@@ -759,7 +799,7 @@ public sealed class DrawListBuilder
             return;
         }
         RoundedRectFlat(t, x, y, w, h, 0f, flat);
-        FillMask(flat, FillRule.NonZero, MaskKeyForShape(t, 1, x, y, w, h, 0f, 0f), inst);
+        FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 1, x, y, w, h, 0f, 0f), inst);
     }
 
     private void FillRoundedRect(in Affine t, float x, float y, float w, float h, float radius, in ComposePaint paint, float opacity)
@@ -801,7 +841,7 @@ public sealed class DrawListBuilder
             return;
         }
         RoundedRectFlat(t, x, y, w, h, radius, flat);
-        FillMask(flat, FillRule.NonZero, MaskKeyForShape(t, 2, x, y, w, h, radius, 0f), inst);
+        FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 2, x, y, w, h, radius, 0f), inst);
     }
 
     private void Border(in Affine t, float x, float y, float w, float h, float radius, float borderWidth, ComposeColor color)
@@ -873,7 +913,7 @@ public sealed class DrawListBuilder
         strokeOutput.Clear();
         RoundedRectFlat(t, x + borderWidth, y + borderWidth, w - 2 * borderWidth, h - 2 * borderWidth, Math.Max(radius - borderWidth, 0f), strokeOutput);
         AppendReversed(strokeOutput, flat);
-        FillMask(flat, FillRule.NonZero, MaskKeyForShape(t, 3, x, y, w, h, radius, borderWidth), inst);
+        FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 3, x, y, w, h, radius, borderWidth), inst);
     }
 
     private void FillCircle(in Affine t, float cx, float cy, float r, in ComposePaint paint, float opacity)
@@ -899,7 +939,7 @@ public sealed class DrawListBuilder
             return;
         }
         EllipseFlat(t, cx, cy, r, flat);
-        FillMask(flat, FillRule.NonZero, MaskKeyForShape(t, 4, cx, cy, r, 0f, 0f, 0f), inst);
+        FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 4, cx, cy, r, 0f, 0f, 0f), inst);
     }
 
     private void StrokeCircle(in Affine t, float cx, float cy, float r, float strokeWidth, ComposeColor color)
@@ -950,7 +990,7 @@ public sealed class DrawListBuilder
         }
         SectorFlat(cx, cy, outer, inner, start, sweep, flat);
         flat.Transform(t);
-        FillMask(flat, FillRule.NonZero, MaskKeyForShape(t, 6, cx, cy, outer, inner, start, sweep), inst);
+        FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 6, cx, cy, outer, inner, start, sweep), inst);
     }
 
     // Maps start/sweep angles through a similarity transform (rotation, and reflection's mirror).
@@ -1092,10 +1132,10 @@ public sealed class DrawListBuilder
         hasher.Reset();
         Hash(10);
         Hash((int)rule);
-        HashAffine(t);
+        HashLinear(t);
         hasher.Append(verbs);
         hasher.Append(MemoryMarshal.AsBytes(coords));
-        FillMask(flat, rule, hasher.GetCurrentHashAsUInt64(), inst);
+        FillMask(flat, rule, t, hasher.GetCurrentHashAsUInt64(), inst);
     }
 
     private void StrokePath(DrawRecording recording, int pathIndex, in StrokeParameters stroke, in Affine t, in ComposePaint paint, float opacity)
@@ -1132,7 +1172,7 @@ public sealed class DrawListBuilder
         hasher.Reset();
         Hash(11);
         HashStroke(stroke);
-        HashAffine(t);
+        HashLinear(t);
         hasher.Append(verbs);
         hasher.Append(MemoryMarshal.AsBytes(coords));
         StrokeMask(strokeInput, stroke, t, hasher.GetCurrentHashAsUInt64(), inst);
@@ -1283,7 +1323,7 @@ public sealed class DrawListBuilder
     {
         hasher.Reset();
         Hash(kind);
-        HashAffine(t);
+        HashLinear(t);
         Hash(a);
         Hash(b);
         Hash(c);
@@ -1299,19 +1339,26 @@ public sealed class DrawListBuilder
         float local = FlattenTolerance / Math.Max(MaxScale(t), 1e-3f);
         stroker.Stroke(localContours, stroke, local, strokeOutput);
         strokeOutput.Transform(t);
-        FillMask(strokeOutput, FillRule.NonZero, key, inst);
+        FillMask(strokeOutput, FillRule.NonZero, t, key, inst);
     }
 
     /// <summary>
-    /// Rasterizes device-space contours (once, keyed by <paramref name="geometryKey"/>) into the mask
-    /// atlas and places one mask shape per tile, over the part inside the clip rect.
+    /// Rasterizes device-space contours into the mask atlas as tiles on a grid anchored at the
+    /// contours' own integer-floored bounds, keyed by <paramref name="geometryKey"/> (the geometry
+    /// under <paramref name="t"/>'s linear part) and <paramref name="t"/>'s translation relative to
+    /// that anchor — so a whole-pixel move hits the same masks — and places a mask shape for each
+    /// tile inside the clip rect.
     /// </summary>
-    private void FillMask(FlatPath devicePath, FillRule rule, ulong geometryKey, ShapeInstance inst)
+    private void FillMask(FlatPath devicePath, FillRule rule, in Affine t, ulong geometryKey, ShapeInstance inst)
     {
         if (!devicePath.TryGetBounds(out float minX, out float minY, out float maxX, out float maxY))
         {
             return;
         }
+        int ax = (int)MathF.Floor(minX);
+        int ay = (int)MathF.Floor(minY);
+        int bx = (int)MathF.Ceiling(maxX);
+        int by = (int)MathF.Ceiling(maxY);
         uint clip = CurrentClip();
         if (!ClipExtent(ref minX, ref minY, ref maxX, ref maxY, clip))
         {
@@ -1321,17 +1368,29 @@ public sealed class DrawListBuilder
         int y0 = (int)MathF.Floor(minY);
         int x1 = (int)MathF.Ceiling(maxX);
         int y1 = (int)MathF.Ceiling(maxY);
+        hasher.Reset();
+        Span<long> head = [(long)geometryKey, (long)rule];
+        hasher.Append(MemoryMarshal.AsBytes(head));
+        HashAnchoredTranslation(t, ax, ay);
+        ulong anchoredKey = hasher.GetCurrentHashAsUInt64();
 
         inst.Type = ShapeType.Mask;
         inst.SetIdentityFrame();
         inst.ClipIndex = clip;
-        for (int ty = y0; ty < y1; ty += MaskTileSize)
+        // Tiles of the anchored grid that intersect the clipped extent.
+        int firstRow = ay + (y0 - ay) / MaskTileSize * MaskTileSize;
+        int firstColumn = ax + (x0 - ax) / MaskTileSize * MaskTileSize;
+        for (int ty = firstRow; ty < y1; ty += MaskTileSize)
         {
-            for (int tx = x0; tx < x1; tx += MaskTileSize)
+            for (int tx = firstColumn; tx < x1; tx += MaskTileSize)
             {
-                int tw = Math.Min(MaskTileSize, x1 - tx);
-                int th = Math.Min(MaskTileSize, y1 - ty);
-                ulong key = TileKey(geometryKey, rule, tx, ty, tw, th);
+                int tw = Math.Min(MaskTileSize, bx - tx);
+                int th = Math.Min(MaskTileSize, by - ty);
+                if (tw <= 0 || th <= 0)
+                {
+                    continue;
+                }
+                ulong key = TileKey(anchoredKey, rule, tx - ax, ty - ay, tw, th);
                 if (!uniformTiles.TryGetValue(key, out byte uniform) && !masks.TryLookup(key, out _))
                 {
                     var tile = coverage.AsSpan(0, tw * th);
@@ -1359,11 +1418,14 @@ public sealed class DrawListBuilder
                         // Fully covered: a hard rect over the tile is the same coverage (1 at every pixel centre).
                         var rect = inst;
                         rect.Type = ShapeType.Rect;
-                        rect.P0 = rect.MinX = tx;
-                        rect.P1 = rect.MinY = ty;
-                        rect.P2 = rect.MaxX = tx + tw;
-                        rect.P3 = rect.MaxY = ty + th;
-                        list.AddShape(rect);
+                        rect.P0 = tx;
+                        rect.P1 = ty;
+                        rect.P2 = tx + tw;
+                        rect.P3 = ty + th;
+                        if (TileExtent(ref rect, tx, ty, tw, th, clip))
+                        {
+                            list.AddShape(rect);
+                        }
                         continue;
                     }
                     // A uniform partial tile is rare (a path of constant fractional coverage): store it.
@@ -1384,15 +1446,28 @@ public sealed class DrawListBuilder
                 inst.Q0 = tw;
                 inst.Q1 = th;
                 inst.Q2 = region.Layer;
-                inst.MinX = tx;
-                inst.MinY = ty;
-                inst.MaxX = tx + tw;
-                inst.MaxY = ty + th;
-                list.AddShape(inst);
+                if (TileExtent(ref inst, tx, ty, tw, th, clip))
+                {
+                    list.AddShape(inst);
+                }
             }
         }
     }
 
+    // The tile's raster extent, cut to the clip rect; false when nothing of it is inside.
+    private bool TileExtent(ref ShapeInstance inst, int tx, int ty, int tw, int th, uint clip)
+    {
+        float minX = tx, minY = ty, maxX = tx + tw, maxY = ty + th;
+        if (!ClipExtent(ref minX, ref minY, ref maxX, ref maxY, clip))
+        {
+            return false;
+        }
+        inst.MinX = minX;
+        inst.MinY = minY;
+        inst.MaxX = maxX;
+        inst.MaxY = maxY;
+        return true;
+    }
     private ulong TileKey(ulong geometryKey, FillRule rule, int x, int y, int w, int h)
     {
         hasher.Reset();

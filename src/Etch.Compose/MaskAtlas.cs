@@ -1,4 +1,6 @@
 using System.Buffers;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Etch.Gpu;
 using Etch.Gpu.Descriptors;
 using Etch.Gpu.Native;
@@ -16,10 +18,16 @@ public readonly record struct MaskRegion(int U, int V, int Layer, int Width, int
 /// <remarks>
 /// <para>
 /// Pages are created on demand: a UI that never fills an arbitrary path or clips to one pays
-/// nothing; each page is 4 MB. The atlas grows to <see cref="MaxPages"/> pages (existing masks keep
-/// their place, the GPU array is copied into a larger one); only when that is full does insertion
-/// fail for the rest of the frame, setting <see cref="WasExhausted"/> so the owner resets the atlas
-/// between frames.
+/// nothing; each page is 4 MB. Within a frame the atlas grows to <see cref="MaxPages"/> pages
+/// (existing masks keep their place, the GPU array is copied into a larger one); only when that is
+/// full does insertion fail for the rest of the frame, setting <see cref="WasExhausted"/>.
+/// </para>
+/// <para>
+/// Between frames <see cref="EndFrame"/> keeps the atlas bounded: masks no frame has used recently
+/// are evicted when they outweigh the masks the last frame used, and the pages shrink back to
+/// <see cref="BudgetPages"/> unless a frame needs more. Masks are keyed relative to the pixel they
+/// are anchored at, so scrolled content reuses its masks rather than adding new ones.
+/// <see cref="Trim"/> releases everything (the window is hidden).
 /// </para>
 /// <para>
 /// A mask larger than <see cref="MaxMaskSize"/> must be split by the caller: path fills are drawn
@@ -35,8 +43,13 @@ public sealed class MaskAtlas : IDisposable
     /// <summary>Largest mask edge the atlas accepts.</summary>
     public const int MaxMaskSize = 1024;
 
-    /// <summary>Most pages the atlas grows to (64 MB of masks).</summary>
+    /// <summary>Most pages the atlas grows to within one frame (64 MB of masks).</summary>
     public const int MaxPages = 16;
+
+    /// <summary>Pages the atlas keeps between frames unless the frames need more (8 MB).</summary>
+    public const int BudgetPages = 2;
+
+    private const long PageArea = (long)PageSize * PageSize;
 
     /// <summary>Edge of a clip-mask tile, texels (a power of two the shaders shift by).</summary>
     public const int ClipMaskTile = 256;
@@ -45,7 +58,7 @@ public sealed class MaskAtlas : IDisposable
 
     private readonly Device device;
     private readonly bool gpu;
-    private readonly Dictionary<ulong, MaskRegion> entries = new();
+    private readonly Dictionary<ulong, Entry> entries = new();
     private readonly List<Shelf> shelves = new();
     private readonly List<int> nextShelfY = new();
     private int pageCount;
@@ -54,6 +67,19 @@ public sealed class MaskAtlas : IDisposable
     private int textureLayers;
     private readonly List<byte[]> pages = new();
     private bool disposed;
+
+    private struct Entry
+    {
+        public MaskRegion Region;
+        public long LastUsed;
+    }
+
+    // Frame bookkeeping for eviction: texels allocated since the last reset, and texels the
+    // current frame has used (each mask counted once per frame).
+    private long frame;
+    private long allocatedArea;
+    private long frameArea;
+    private long lastFrameArea;
 
     private struct Shelf
     {
@@ -105,7 +131,27 @@ public sealed class MaskAtlas : IDisposable
     internal IReadOnlyList<byte[]> Pages => pages;
 
     /// <summary>Looks up a mask by key.</summary>
-    public bool TryLookup(ulong key, out MaskRegion region) => entries.TryGetValue(key, out region);
+    public bool TryLookup(ulong key, out MaskRegion region)
+    {
+        ref var entry = ref CollectionsMarshal.GetValueRefOrNullRef(entries, key);
+        if (Unsafe.IsNullRef(ref entry))
+        {
+            region = default;
+            return false;
+        }
+        Touch(ref entry);
+        region = entry.Region;
+        return true;
+    }
+
+    private void Touch(ref Entry entry)
+    {
+        if (entry.LastUsed != frame)
+        {
+            entry.LastUsed = frame;
+            frameArea += (long)entry.Region.Width * entry.Region.Height;
+        }
+    }
 
     /// <summary>
     /// Packs <paramref name="coverage"/> (row-major, stride <paramref name="width"/>) under
@@ -113,7 +159,7 @@ public sealed class MaskAtlas : IDisposable
     /// </summary>
     public bool TryInsert(ulong key, ReadOnlySpan<byte> coverage, int width, int height, out MaskRegion region)
     {
-        if (entries.TryGetValue(key, out region))
+        if (TryLookup(key, out region))
         {
             return true;
         }
@@ -131,14 +177,45 @@ public sealed class MaskAtlas : IDisposable
 
         region = new MaskRegion(u, v, layer, width, height);
         Upload(region, coverage);
-        entries[key] = region;
+        long area = (long)width * height;
+        entries[key] = new Entry { Region = region, LastUsed = frame };
+        allocatedArea += area;
+        frameArea += area;
         return true;
     }
+
+    /// <summary>
+    /// Ends a frame (call between frames, before the next frame's draw list is built): resets the
+    /// atlas when it filled up, or when masks the frame did not use outweigh the ones it did
+    /// (eviction), and shrinks it back to <see cref="BudgetPages"/> when the last frame fits there.
+    /// <paramref name="force"/> resets regardless.
+    /// </summary>
+    public void EndFrame(bool force = false)
+    {
+        lastFrameArea = frameArea;
+        frameArea = 0;
+        frame++;
+        bool stale = allocatedArea > PageArea / 2 && allocatedArea > 2 * lastFrameArea;
+        if (force || WasExhausted || stale)
+        {
+            Reset();
+        }
+        if (pageCount > BudgetPages && lastFrameArea * 2 <= BudgetPages * PageArea)
+        {
+            // The pages a peak frame needed are no longer needed: release them; a page comes back
+            // when a mask is next inserted.
+            Trim();
+        }
+    }
+
+    /// <summary>Texels the last ended frame used.</summary>
+    public long LastFrameArea => lastFrameArea;
 
     /// <summary>Forgets every mask (pages are kept, shelves restart). Call between frames.</summary>
     public void Reset()
     {
         entries.Clear();
+        allocatedArea = 0;
         shelves.Clear();
         for (int i = 0; i < nextShelfY.Count; i++)
         {

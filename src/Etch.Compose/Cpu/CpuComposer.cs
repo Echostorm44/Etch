@@ -108,7 +108,10 @@ public sealed class CpuComposer : IDisposable
     /// </summary>
     internal bool FastPaths { get; set; } = true;
 
-    /// <summary>Clears every atlas that filled up last frame (or all, when <paramref name="force"/>). Call between frames.</summary>
+    /// <summary>
+    /// Clears every glyph atlas that filled up last frame (or all, when <paramref name="force"/>) and ends
+    /// the mask atlas's frame (eviction, page budget: <see cref="MaskAtlas.EndFrame"/>). Call between frames.
+    /// </summary>
     public void ResetAtlasesIfExhausted(bool force)
     {
         if (force || monoAtlas.WasExhausted)
@@ -119,10 +122,7 @@ public sealed class CpuComposer : IDisposable
         {
             colorAtlas.Reset();
         }
-        if (force || maskAtlas.WasExhausted)
-        {
-            maskAtlas.Reset();
-        }
+        maskAtlas.EndFrame(force);
     }
 
     /// <summary>
