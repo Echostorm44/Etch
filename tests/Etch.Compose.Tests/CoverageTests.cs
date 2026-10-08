@@ -88,6 +88,43 @@ internal sealed class CoverageTests
     }
 
     [Test]
+    public async Task Tiles_StitchToTheWholeMask()
+    {
+        // Masks are rasterized in tiles (clip masks, large fills). Slanted edges crossing tile
+        // borders must land in the border column exactly as in one big mask: no seams.
+        var path = new FlatPath();
+        path.MoveTo(1.3f, 0.7f);
+        path.LineTo(37.1f, 9.9f);
+        path.LineTo(21.6f, 29.2f);
+        path.LineTo(9.4f, 22.3f);
+        path.Close();
+        var whole = Rasterize(path, 40, 32);
+
+        var rasterizer = new CoverageRasterizer();
+        int mismatches = 0;
+        const int tile = 7;
+        for (int ty = 0; ty < 32; ty += tile)
+        {
+            for (int tx = 0; tx < 40; tx += tile)
+            {
+                int tw = Math.Min(tile, 40 - tx), th = Math.Min(tile, 32 - ty);
+                rasterizer.Reset(tw, th);
+                rasterizer.AddPath(path, -tx, -ty);
+                var part = new byte[tw * th];
+                rasterizer.Resolve(part, FillRule.NonZero);
+                for (int y = 0; y < th; y++)
+                {
+                    for (int x = 0; x < tw; x++)
+                    {
+                        mismatches += Math.Abs(part[y * tw + x] - whole[(ty + y) * 40 + tx + x]) > 1 ? 1 : 0;
+                    }
+                }
+            }
+        }
+        await Assert.That(mismatches).IsEqualTo(0);
+    }
+
+    [Test]
     public async Task OverlappingContours_NonZeroUnions_EvenOddCutsHoles()
     {
         var path = Rect(0, 0, 4, 4);

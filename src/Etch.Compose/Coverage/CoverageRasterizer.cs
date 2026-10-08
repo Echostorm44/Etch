@@ -109,6 +109,50 @@ public sealed class CoverageRasterizer
             y1 = height;
         }
 
+        // Split where the edge crosses the mask's left or right border. A piece left of the mask
+        // changes the winding of every pixel in its rows exactly as a vertical edge on the left
+        // border does; a piece right of it affects no pixel. Clamping a crossing segment as a
+        // whole would misplace its area in the border column (a visible seam between tiles).
+        float t0 = (x0 < 0f) != (x1 < 0f) ? (0f - x0) / (x1 - x0) : 2f;
+        float t1 = (x0 > width) != (x1 > width) ? (width - x0) / (x1 - x0) : 2f;
+        if (t1 < t0)
+        {
+            (t0, t1) = (t1, t0);
+        }
+        float px = x0, py = y0;
+        foreach (float t in stackalloc float[] { t0, t1, 1f })
+        {
+            if (t > 1f)
+            {
+                continue;
+            }
+            float nx = t >= 1f ? x1 : x0 + (x1 - x0) * t;
+            float ny = t >= 1f ? y1 : y0 + (y1 - y0) * t;
+            if (ny > py)
+            {
+                float mid = 0.5f * (px + nx);
+                if (mid <= 0f)
+                {
+                    Accumulate(0f, py, 0f, ny, dir);
+                }
+                else if (mid >= width)
+                {
+                    Accumulate(width, py, width, ny, dir);
+                }
+                else
+                {
+                    Accumulate(Math.Clamp(px, 0f, width), py, Math.Clamp(nx, 0f, width), ny, dir);
+                }
+            }
+            px = nx;
+            py = ny;
+        }
+    }
+
+    // Deposits the area of an edge with 0 ≤ y0 < y1 ≤ height and x within [0, width].
+    private void Accumulate(float x0, float y0, float x1, float y1, float dir)
+    {
+        float dxdy = (x1 - x0) / (y1 - y0);
         float x = x0;
         int yStart = (int)y0;
         int yEnd = Math.Min(height, (int)MathF.Ceiling(y1));
