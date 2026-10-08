@@ -163,14 +163,37 @@ public sealed class CpuComposer : IDisposable
     {
         int width = (int)list.Width;
         int height = (int)list.Height;
+        dirtyRects.Clear();
+        if (width <= 0 || height <= 0)
+        {
+            // Nothing to draw into (a zero-height client area): no frame, no history.
+            historyTarget = null;
+            return;
+        }
         bool history = incremental && ReferenceEquals(historyTarget, target)
             && historyWidth == width && historyHeight == height && target.Width == width && target.Height == height;
         target.Resize(width, height);
-        dirtyRects.Clear();
-        if (width == 0 || height == 0)
+        try
         {
-            return;
+            RenderTiles(list, target, incremental, history, width, height);
         }
+        catch
+        {
+            // A frame that did not finish leaves the target and the hashes out of step: the next
+            // incremental frame starts over.
+            historyTarget = null;
+            dirtyRects.Clear();
+            throw;
+        }
+        finally
+        {
+            frameList = null;
+            frameTarget = null;
+        }
+    }
+
+    private void RenderTiles(DrawList list, CpuFramebuffer target, bool incremental, bool history, int width, int height)
+    {
 
         trackDamage = incremental;
         Bin(list, width, height);
@@ -482,6 +505,14 @@ public sealed class CpuComposer : IDisposable
         entries = Array.Empty<BinEntry>();
         ranges = Array.Empty<TileRange>();
         scratch = Array.Empty<TileScratch>();
+        itemHashes = Array.Empty<ulong>();
+        clipHashes = Array.Empty<ulong>();
+        tileHashes = Array.Empty<ulong>();
+        previousTileHashes = Array.Empty<ulong>();
+        tileDirty = Array.Empty<bool>();
+        dirtyRects.Clear();
+        dirtyRects.TrimExcess();
+        historyTarget = null;
     }
 
     /// <summary>A rectangle of target pixels [X0, X1) × [Y0, Y1).</summary>

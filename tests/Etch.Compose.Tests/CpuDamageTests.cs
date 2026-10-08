@@ -88,6 +88,52 @@ internal sealed class CpuDamageTests
     }
 
     [Test]
+    public async Task FrameThatThrows_DoesNotCorruptTheHistory()
+    {
+        using var incremental = new Pipeline();
+        using var full = new Pipeline();
+        // One thread: the tiles after the failing one are never rendered.
+        incremental.Composer.MaxDegreeOfParallelism = 1;
+        var good = UiFrameScene.Build(Width, Height, 1f, caret: true);
+        incremental.RenderIncremental(good, Width, Height, out _);
+
+        // An image whose pixel array is shorter than its size: sampling it throws mid-render.
+        var broken = UiFrameScene.Build(Width, Height, 1f, caret: false, titleVariant: 3);
+        broken.Image(99, new ComposeImage(new byte[16], 64, 64), 300, 300, 200, 200, 1f);
+        // A change in a tile rendered after the failing one (tiles render in order on one thread).
+        broken.FillRect(1200, 680, 40, 20, ComposePaint.Solid(new ComposeColor(1, 0, 0, 1)));
+        await Assert.That(() => incremental.RenderIncremental(broken, Width, Height, out _)).Throws<Exception>();
+
+        var next = UiFrameScene.Build(Width, Height, 1f, caret: false, titleVariant: 3);
+        next.FillRect(1200, 680, 40, 20, ComposePaint.Solid(new ComposeColor(1, 0, 0, 1)));
+        byte[] a = incremental.RenderIncremental(next, Width, Height, out _);
+        byte[] b = full.RenderFull(next, Width, Height);
+        await Assert.That(FirstDifference(a, b)).IsEqualTo(-1);
+    }
+
+    [Test]
+    public async Task ZeroSizedFrame_RendersNothing()
+    {
+        using var pipeline = new Pipeline();
+        byte[] rgba = pipeline.RenderIncremental(UiFrameScene.Build(Width, Height, 1f), Width, 0, out var dirty);
+        await Assert.That(dirty.Count).IsEqualTo(0);
+        await Assert.That(rgba.Length).IsEqualTo(0);
+    }
+
+    [Test]
+    public async Task Trim_ReleasesTheHistory_NextFrameIsFull()
+    {
+        using var incremental = new Pipeline();
+        using var full = new Pipeline();
+        var frame = UiFrameScene.Build(Width, Height, 1f, caret: true);
+        incremental.RenderIncremental(frame, Width, Height, out _);
+        incremental.Composer.Trim();
+        byte[] a = incremental.RenderIncremental(frame, Width, Height, out var dirty);
+        await Assert.That(dirty.Sum(r => (long)r.Width * r.Height)).IsEqualTo((long)Width * Height);
+        await Assert.That(FirstDifference(a, full.RenderFull(frame, Width, Height))).IsEqualTo(-1);
+    }
+
+    [Test]
     public async Task CaretBlinkDamagesOneOrTwoTiles()
     {
         using var incremental = new Pipeline();
@@ -116,12 +162,13 @@ internal sealed class CpuDamageTests
         {
             pipeline.BuildAndRenderIncremental(i % 2 == 0 ? on : off, Width, Height);
         }
-        long before = GC.GetAllocatedBytesForCurrentThread();
+        // Every thread's allocations: worker threads render tiles too.
+        long before = GC.GetTotalAllocatedBytes(precise: true);
         for (int i = 0; i < 6; i++)
         {
             pipeline.BuildAndRenderIncremental(i % 2 == 0 ? on : off, Width, Height);
         }
-        await Assert.That(GC.GetAllocatedBytesForCurrentThread() - before).IsEqualTo(0L);
+        await Assert.That(GC.GetTotalAllocatedBytes(precise: true) - before).IsEqualTo(0L);
     }
 
     private static int FirstDifference(byte[] a, byte[] b)
