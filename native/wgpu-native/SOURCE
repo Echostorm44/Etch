@@ -4,6 +4,15 @@
 # Pinned past v29.0.1.1 for gfx-rs/wgpu-native#619 (memory_hints via WGPUDeviceExtras), which no
 # upstream release carries yet. Move back to upstream prebuilt releases once one does and the
 # feature set below is no longer a size win (see design-decisions.md D-015).
+#
+# Etch patches the pinned source (patches/*.patch, applied in name order by build.ps1):
+#   0001  device loss is not fatal. The pinned wgpu-native aborts the process (handle_error_fatal
+#         panics inside extern "C") when a submit, acquire, present, configure, poll, mapped-range
+#         read or surface-texture release meets a lost device; Rust wgpu reports those through the
+#         device's error sink instead, and so does the patch. Upstream: gfx-rs/wgpu-native#113
+#         (open); #630 (open, unmerged) changes only the two submit functions.
+#   0002  wgpuDevicePoll takes and returns WGPUBool as wgpu.h declares (it used Rust bool).
+# Any change to the patches needs a new VERSION (a new release), since the binaries change.
 repo = https://github.com/gfx-rs/wgpu-native.git
 commit = b83eb6454f908f179a06e149ba212d57a1468ad0
 

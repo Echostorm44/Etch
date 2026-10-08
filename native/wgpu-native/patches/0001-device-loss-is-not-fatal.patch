@@ -1,0 +1,485 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Echostorm <echostorm@outlook.com>
+Date: Wed, 7 Oct 2026 23:14:41 -0400
+Subject: [PATCH] Device loss is not fatal: report it through the error sink
+
+Operations that meet a lost device (driver reset/TDR, GPU removed, wgpuDeviceDestroy) panicked
+through handle_error_fatal, and a panic in an extern "C" function aborts the process:
+wgpuQueueSubmit, wgpuQueueSubmitForIndex, wgpuSurfaceGetCurrentTexture, wgpuSurfaceConfigure,
+wgpuDevicePoll, wgpuBufferGet(Const)MappedRange, wgpuRenderBundleEncoderFinish, releasing an
+unpresented surface texture (wgpuTextureRelease) and releasing a lost device (wgpuDeviceRelease).
+They now report through the device's error sink, as wgpu's own wgpu_core backend does.
+
+- handle_error classifies by wgpu-core's WebGpuError (the source walk missed a DeviceError
+  wrapped #[error(transparent)], e.g. QueueSubmitError::Queue, so a lost device's submit
+  would have been reported as a validation error).
+- wgpu-core's device-lost closure forwards spontaneous losses with their reason; the callback
+  runs at most once per device, never after the device is released, and a lost device reports
+  no further errors (WebGPU), so none reach the default (fatal) uncaptured-error handler.
+- wgpuSurfaceGetCurrentTexture reports status Error with no texture; wgpuSurfacePresent also
+  reports to the error sink; the mapped-range getters return NULL; wgpuDevicePoll reports the
+  queue empty.
+---
+ src/conv.rs |   6 ++
+ src/lib.rs  | 220 ++++++++++++++++++++++++++++++++++++++++++++--------
+ 2 files changed, 194 insertions(+), 32 deletions(-)
+
+diff --git a/src/conv.rs b/src/conv.rs
+index 5fd1a56..fedb7b3 100644
+--- a/src/conv.rs
++++ b/src/conv.rs
+@@ -734,6 +734,12 @@ pub enum ShaderParseError {
+     Glsl(#[from] naga::front::glsl::ParseErrors),
+ }
+ 
++impl wgt::error::WebGpuError for ShaderParseError {
++    fn webgpu_error_type(&self) -> wgt::error::ErrorType {
++        wgt::error::ErrorType::Validation
++    }
++}
++
+ #[inline]
+ pub unsafe fn map_shader_module<'a>(
+     _: &native::WGPUShaderModuleDescriptor,
+diff --git a/src/lib.rs b/src/lib.rs
+index e725738..933ba0d 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -27,6 +27,7 @@ use wgc::{
+     command::{bundle_ffi, ComputePass, RenderPass},
+     id, resource, Label,
+ };
++use wgt::error::{ErrorType, WebGpuError};
+ 
+ use crate::conv::map_primitive_state;
+ 
+@@ -186,10 +187,19 @@ impl Drop for WGPUDeviceImpl {
+         if !thread::panicking() {
+             let context = &self.context;
+ 
+-            // pre v27 this would wait for 60 seconds instead of waiting indefinitely
++            // The device is being released: its lost callback must not run any more (the
++            // final poll below can retire a destroyed device and fire wgpu-core's lost closure).
++            self.error_sink
++                .lock()
++                .device_lost_notified
++                .store(true, atomic::Ordering::SeqCst);
++
++            // pre v27 this would wait for 60 seconds instead of waiting indefinitely.
++            // A lost device (driver reset, GPU removed) fails the wait; it must still be
++            // released, so the failure is logged rather than fatal.
+             match context.device_poll(self.id, wgt::PollType::wait_indefinitely()) {
+                 Ok(_) => (),
+-                Err(err) => handle_error_fatal(err, "WGPUDeviceImpl::drop"),
++                Err(err) => log::warn!("WGPUDeviceImpl::drop: device poll failed: {err}"),
+             }
+ 
+             context.device_drop(self.id);
+@@ -253,6 +263,7 @@ impl Drop for WGPURenderBundleImpl {
+ pub struct WGPURenderBundleEncoderImpl {
+     context: Arc<Context>,
+     encoder: *mut Option<*mut wgc::command::RenderBundleEncoder>,
++    error_sink: ErrorSink,
+ }
+ impl Drop for WGPURenderBundleEncoderImpl {
+     fn drop(&mut self) {
+@@ -372,9 +383,10 @@ impl Drop for WGPUTextureImpl {
+         }
+         if let Some(surface_id) = self.surface_id {
+             if !self.has_surface_presented.load(atomic::Ordering::SeqCst) {
+-                match self.context.surface_texture_discard(surface_id) {
+-                    Ok(_) => (),
+-                    Err(cause) => handle_error_fatal(cause, "wgpuTextureRelease"),
++                // Discarding fails when the device is lost (the frame could not be presented
++                // either): report it through the device's error sink instead of aborting.
++                if let Err(cause) = self.context.surface_texture_discard(surface_id) {
++                    handle_error(&self.error_sink, cause, None, "wgpuTextureRelease");
+                 }
+             }
+         }
+@@ -496,22 +508,47 @@ struct ErrorSinkRaw {
+     uncaptured_handler: UncapturedErrorCallback,
+     device_lost_handler: DeviceLostCallback,
+     device: Weak<WGPUDeviceImpl>,
++    // Set once the device-lost callback has run (or must no longer run, when the device is
++    // released). Shared with the lost closure registered on wgpu-core's device, so the
++    // callback runs at most once per device whichever path notices the loss first.
++    device_lost_notified: Arc<atomic::AtomicBool>,
+ }
+ 
+ impl ErrorSinkRaw {
+-    fn new(device_lost_handler: DeviceLostCallback, device: Weak<WGPUDeviceImpl>) -> ErrorSinkRaw {
++    fn new(
++        device_lost_handler: DeviceLostCallback,
++        device: Weak<WGPUDeviceImpl>,
++        device_lost_notified: Arc<atomic::AtomicBool>,
++    ) -> ErrorSinkRaw {
+         ErrorSinkRaw {
+             scopes: Vec::new(),
+             uncaptured_handler: DEFAULT_UNCAPTURED_ERROR_HANDLER,
+             device_lost_handler,
+             device,
++            device_lost_notified,
+         }
+     }
+ 
+     fn handle_error(&mut self, err: crate::Error) {
++        // WebGPU: once a device is lost it generates no further errors. Operations on a lost
++        // device fail with a mix of device-lost and validation errors (destroyed resources,
++        // unconfigured surfaces); none of them may reach the uncaptured-error handler, whose
++        // default is fatal.
++        let already_lost = self.device_lost_notified.load(atomic::Ordering::SeqCst);
++        if already_lost {
++            log::debug!("Error on a lost device (ignored): {err}");
++            return;
++        }
++
+         let (typ, filter) = match err {
+             crate::Error::DeviceLost { .. } => {
+                 // handle device lost error early
++                if self
++                    .device_lost_notified
++                    .swap(true, atomic::Ordering::SeqCst)
++                {
++                    return;
++                }
+                 if let Some(callback) = self.device_lost_handler.callback {
+                     let userdata = &self.device_lost_handler.userdata;
+                     let msg = err.to_string();
+@@ -607,16 +644,33 @@ fn handle_error_fatal(
+ 
+ fn handle_error(
+     sink_mutex: &Mutex<ErrorSinkRaw>,
+-    source: impl error::Error + Send + Sync + 'static,
++    source: impl WebGpuError + Send + Sync + 'static,
+     label: Label<'_>,
+     fn_ident: &'static str,
+ ) {
++    // wgpu-core classifies its own errors. The source walk below cannot see a DeviceError
++    // wrapped as `#[error(transparent)]` (QueueSubmitError::Queue, SurfaceError::Device, ...):
++    // a transparent wrapper forwards source() to the inner error's source, skipping it.
++    let error_type = source.webgpu_error_type();
+     let error = wgc::error::ContextError {
+         fn_ident,
+         source: Box::new(source),
+         label: label.unwrap_or_default().to_string(),
+     };
+     let mut sink = sink_mutex.lock();
++    match error_type {
++        ErrorType::DeviceLost => {
++            return sink.handle_error(crate::Error::DeviceLost {
++                source: Box::new(error),
++            });
++        }
++        ErrorType::OutOfMemory => {
++            return sink.handle_error(crate::Error::OutOfMemory {
++                source: Box::new(error),
++            });
++        }
++        ErrorType::Internal | ErrorType::Validation => (),
++    }
+     let mut source_opt: Option<&(dyn error::Error + 'static)> = Some(&error);
+     while let Some(source) = source_opt {
+         match source.downcast_ref::<wgc::device::DeviceError>() {
+@@ -860,8 +914,20 @@ pub unsafe extern "C" fn wgpuAdapterRequestDevice(
+     let result = context.adapter_request_device(adapter_id, &desc, None, None);
+     match result {
+         Ok((device_id, queue_id)) => {
++            let device_lost_notified = Arc::new(atomic::AtomicBool::new(false));
++            let lost_callback = device_lost_handler.callback;
++            let lost_userdata = utils::Userdata::new(
++                device_lost_handler.userdata.get_1(),
++                device_lost_handler.userdata.get_2(),
++            );
++            let mut device_address = 0usize;
+             let device_impl = Arc::new_cyclic(|device| {
+-                let mut error_sink = ErrorSinkRaw::new(device_lost_handler, device.clone());
++                device_address = device.as_ptr() as usize;
++                let mut error_sink = ErrorSinkRaw::new(
++                    device_lost_handler,
++                    device.clone(),
++                    device_lost_notified.clone(),
++                );
+                 if let Some(error_callback) = error_callback {
+                     error_sink.uncaptured_handler = error_callback;
+                 }
+@@ -876,6 +942,40 @@ pub unsafe extern "C" fn wgpuAdapterRequestDevice(
+                     error_sink: error_sink.clone(),
+                 }
+             });
++
++            // wgpu-core loses a device on its own when the backend reports it lost (driver
++            // reset, GPU removed) and finishes a destroyed device's loss once its queue is idle.
++            // Forward both to the device-lost callback with wgpu-core's reason; the error sink
++            // reports a loss that an operation runs into first, and the shared flag keeps the
++            // callback to one call. wgpu-core may call this while holding its own locks, so the
++            // callback must not call back into wgpu.
++            let closure_notified = device_lost_notified.clone();
++            context.device_set_device_lost_closure(
++                device_id,
++                Box::new(move |reason, message| {
++                    if closure_notified.swap(true, atomic::Ordering::SeqCst) {
++                        return;
++                    }
++                    let Some(callback) = lost_callback else {
++                        return;
++                    };
++                    let reason = match reason {
++                        wgt::DeviceLostReason::Destroyed => native::WGPUDeviceLostReason_Destroyed,
++                        wgt::DeviceLostReason::Unknown => native::WGPUDeviceLostReason_Unknown,
++                    };
++                    let device = device_address as native::WGPUDevice;
++                    unsafe {
++                        callback(
++                            &device,
++                            reason,
++                            str_into_string_view(&message),
++                            lost_userdata.get_1(),
++                            lost_userdata.get_2(),
++                        );
++                    }
++                }),
++            );
++
+             let device = Arc::into_raw(device_impl);
+ 
+             callback(
+@@ -958,11 +1058,13 @@ pub unsafe extern "C" fn wgpuBufferGetConstMappedRange(
+     offset: usize,
+     size: usize,
+ ) -> *const u8 {
+-    let (buffer_id, context) = {
++    let (buffer_id, context, error_sink) = {
+         let buffer = buffer.as_ref().expect("invalid buffer");
+-        (buffer.id, &buffer.context)
++        (buffer.id, &buffer.context, &buffer.error_sink)
+     };
+ 
++    // webgpu.h: NULL when the range cannot be returned (unmapped, destroyed, or the device
++    // was lost and its resources released).
+     let buf = match context.buffer_get_mapped_range(
+         buffer_id,
+         offset as wgt::BufferAddress,
+@@ -972,7 +1074,10 @@ pub unsafe extern "C" fn wgpuBufferGetConstMappedRange(
+         },
+     ) {
+         Ok((ptr, _)) => ptr,
+-        Err(err) => handle_error_fatal(err, "wgpuBufferGetConstMappedRange"),
++        Err(err) => {
++            handle_error(error_sink, err, None, "wgpuBufferGetConstMappedRange");
++            return std::ptr::null();
++        }
+     };
+ 
+     buf.as_ptr()
+@@ -984,11 +1089,13 @@ pub unsafe extern "C" fn wgpuBufferGetMappedRange(
+     offset: usize,
+     size: usize,
+ ) -> *mut u8 {
+-    let (buffer_id, context) = {
++    let (buffer_id, context, error_sink) = {
+         let buffer = buffer.as_ref().expect("invalid buffer");
+-        (buffer.id, &buffer.context)
++        (buffer.id, &buffer.context, &buffer.error_sink)
+     };
+ 
++    // webgpu.h: NULL when the range cannot be returned (unmapped, destroyed, or the device
++    // was lost and its resources released).
+     let buf = match context.buffer_get_mapped_range(
+         buffer_id,
+         offset as wgt::BufferAddress,
+@@ -998,7 +1105,10 @@ pub unsafe extern "C" fn wgpuBufferGetMappedRange(
+         },
+     ) {
+         Ok((ptr, _)) => ptr,
+-        Err(err) => handle_error_fatal(err, "wgpuBufferGetMappedRange"),
++        Err(err) => {
++            handle_error(error_sink, err, None, "wgpuBufferGetMappedRange");
++            return std::ptr::null_mut();
++        }
+     };
+ 
+     buf.as_ptr()
+@@ -2170,9 +2280,9 @@ pub unsafe extern "C" fn wgpuDeviceCreateRenderBundleEncoder(
+     device: native::WGPUDevice,
+     descriptor: Option<&native::WGPURenderBundleEncoderDescriptor>,
+ ) -> native::WGPURenderBundleEncoder {
+-    let (device_id, context) = {
++    let (device_id, context, error_sink) = {
+         let device = device.as_ref().expect("invalid device");
+-        (device.id, &device.context)
++        (device.id, &device.context, &device.error_sink)
+     };
+     let descriptor = descriptor.expect("invalid descriptor");
+ 
+@@ -2197,6 +2307,7 @@ pub unsafe extern "C" fn wgpuDeviceCreateRenderBundleEncoder(
+         Ok(encoder) => Arc::into_raw(Arc::new(WGPURenderBundleEncoderImpl {
+             context: context.clone(),
+             encoder: Box::into_raw(Box::new(Some(Box::into_raw(Box::new(encoder))))),
++            error_sink: error_sink.clone(),
+         })),
+         Err(cause) => {
+             handle_error_fatal(cause, "wgpuDeviceCreateRenderBundleEncoder");
+@@ -3076,9 +3187,9 @@ pub unsafe extern "C" fn wgpuQueueSubmit(
+     command_count: usize,
+     commands: *const native::WGPUCommandBuffer,
+ ) {
+-    let (queue_id, context) = {
++    let (queue_id, context, error_sink) = {
+         let queue = queue.as_ref().expect("invalid queue");
+-        (queue.queue.id, &queue.queue.context)
++        (queue.queue.id, &queue.queue.context, &queue.error_sink)
+     };
+ 
+     let command_buffers = make_slice(commands, command_count)
+@@ -3090,8 +3201,10 @@ pub unsafe extern "C" fn wgpuQueueSubmit(
+         })
+         .collect::<SmallVec<[_; 4]>>();
+ 
++    // Submitting to a lost device fails; as in wgpu, the error goes to the device's error
++    // sink (which reports the loss) instead of aborting.
+     if let Err(cause) = context.queue_submit(queue_id, &command_buffers) {
+-        handle_error_fatal(cause.1, "wgpuQueueSubmit");
++        handle_error(error_sink, cause.1, None, "wgpuQueueSubmit");
+     }
+ }
+ 
+@@ -3307,8 +3420,15 @@ pub unsafe extern "C" fn wgpuRenderBundleEncoderFinish(
+     };
+ 
+     let (render_bundle_id, error) = context.render_bundle_encoder_finish(*encoder, &desc, None);
++    // A failed finish (a lost device, say) yields an invalid bundle, as in wgpu; the error
++    // goes to the device's error sink rather than aborting.
+     if let Some(cause) = error {
+-        handle_error_fatal(cause, "wgpuRenderBundleEncoderFinish");
++        handle_error(
++            &bundle.error_sink,
++            cause,
++            None,
++            "wgpuRenderBundleEncoderFinish",
++        );
+     }
+ 
+     Arc::into_raw(Arc::new(WGPURenderBundleImpl {
+@@ -4055,7 +4175,9 @@ pub unsafe extern "C" fn wgpuSurfaceConfigure(
+     ));
+ 
+     match context.surface_configure(surface.id, device.id, &surface_config) {
+-        Some(cause) => handle_error_fatal(cause, "wgpuSurfaceConfigure"),
++        // As in wgpu: a failed configuration (a lost device, say) is reported through the
++        // device's error sink and leaves the surface's previous state as it was.
++        Some(cause) => handle_error(&device.error_sink, cause, None, "wgpuSurfaceConfigure"),
+         None => {
+             let mut surface_data_guard = surface.data.lock();
+             *surface_data_guard = Some(SurfaceData {
+@@ -4170,13 +4292,21 @@ pub unsafe extern "C" fn wgpuSurfaceGetCurrentTexture(
+     let context = &surface.context;
+     let surface_texture = surface_texture.expect("invalid return pointer \"surface_texture\"");
+ 
++    // Errors leave no texture and status Error (webgpu.h: a deterministic error, logged).
++    surface_texture.texture = std::ptr::null_mut();
++    surface_texture.status = native::WGPUSurfaceGetCurrentTextureStatus_Error;
++
+     let surface_data_guard = surface.data.lock();
+     let surface_data = match surface_data_guard.as_ref() {
+         Some(surface_data) => surface_data,
+-        None => handle_error_fatal(
+-            wgc::present::SurfaceError::NotConfigured,
+-            "wgpuSurfaceGetCurrentTexture",
+-        ),
++        None => {
++            // Never configured, or its configuration failed (on a lost device, say).
++            log::warn!(
++                "wgpuSurfaceGetCurrentTexture: {}",
++                wgc::present::SurfaceError::NotConfigured
++            );
++            return;
++        }
+     };
+ 
+     match context.surface_get_current_texture(surface.id, None) {
+@@ -4212,7 +4342,17 @@ pub unsafe extern "C" fn wgpuSurfaceGetCurrentTexture(
+                 None => std::ptr::null_mut(),
+             };
+         }
+-        Err(cause) => handle_error_fatal(cause, "wgpuSurfaceGetCurrentTexture"),
++        // A lost device fails the acquire: as in wgpu, the error goes to the configuring
++        // device's error sink (which reports the loss) and the status is Error.
++        Err(cause) => {
++            log::warn!("wgpuSurfaceGetCurrentTexture: {cause}");
++            handle_error(
++                &surface_data.error_sink,
++                cause,
++                None,
++                "wgpuSurfaceGetCurrentTexture",
++            );
++        }
+     };
+ }
+ 
+@@ -4225,6 +4365,11 @@ pub unsafe extern "C" fn wgpuSurfacePresent(surface: native::WGPUSurface) -> nat
+         Ok(status) => status,
+         Err(cause) => {
+             log::warn!("Presentation error: {}", cause);
++            // As in wgpu, the error also goes to the device's error sink, so a device lost at
++            // present is reported through the device-lost callback.
++            if let Some(surface_data) = surface.data.lock().as_ref() {
++                handle_error(&surface_data.error_sink, cause, None, "wgpuSurfacePresent");
++            }
+             return native::WGPUStatus_Error;
+         }
+     };
+@@ -4464,9 +4609,9 @@ pub unsafe extern "C" fn wgpuQueueSubmitForIndex(
+     command_count: usize,
+     commands: *const native::WGPUCommandBuffer,
+ ) -> native::WGPUSubmissionIndex {
+-    let (queue_id, context) = {
++    let (queue_id, context, error_sink) = {
+         let queue = queue.as_ref().expect("invalid queue");
+-        (queue.queue.id, &queue.queue.context)
++        (queue.queue.id, &queue.queue.context, &queue.error_sink)
+     };
+ 
+     let command_buffers = make_slice(commands, command_count)
+@@ -4480,7 +4625,10 @@ pub unsafe extern "C" fn wgpuQueueSubmitForIndex(
+ 
+     match context.queue_submit(queue_id, &command_buffers) {
+         Ok(submission_index) => submission_index,
+-        Err(cause) => handle_error_fatal(cause.1, "wgpuQueueSubmitForIndex"),
++        Err((submission_index, cause)) => {
++            handle_error(error_sink, cause, None, "wgpuQueueSubmitForIndex");
++            submission_index
++        }
+     }
+ }
+ 
+@@ -4491,9 +4639,9 @@ pub unsafe extern "C" fn wgpuDevicePoll(
+     wait: bool,
+     submission_index: Option<&native::WGPUSubmissionIndex>,
+ ) -> bool {
+-    let (device_id, context) = {
++    let (device_id, context, error_sink) = {
+         let device = device.as_ref().expect("invalid device");
+-        (device.id, &device.context)
++        (device.id, &device.context, &device.error_sink)
+     };
+ 
+     let maintain = match wait {
+@@ -4510,8 +4658,16 @@ pub unsafe extern "C" fn wgpuDevicePoll(
+     match context.device_poll(device_id, maintain) {
+         Ok(wgt::PollStatus::QueueEmpty) => true,
+         Ok(_) => false,
++        // The wait fails when the device is lost (or the submission index was never
++        // submitted). Report it through the error sink; nothing in flight will complete any
++        // more, so a caller waiting for an empty queue must not spin: report it empty.
++        Err(wgc::device::WaitIdleError::Device(cause)) => {
++            handle_error(error_sink, cause, None, "wgpuDevicePoll");
++            true
++        }
+         Err(cause) => {
+-            handle_error_fatal(cause, "wgpuDevicePoll");
++            log::warn!("wgpuDevicePoll: {cause}");
++            true
+         }
+     }
+ }

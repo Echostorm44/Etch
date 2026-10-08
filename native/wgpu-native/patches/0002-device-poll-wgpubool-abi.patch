@@ -1,0 +1,58 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Echostorm <echostorm@outlook.com>
+Date: Wed, 7 Oct 2026 23:14:59 -0400
+Subject: [PATCH] wgpuDevicePoll: use the header's WGPUBool ABI
+
+wgpu.h declares `WGPUBool wgpuDevicePoll(WGPUDevice, WGPUBool wait, ...)`, but the export took
+and returned a Rust `bool`. A Rust `bool` return only defines the low byte of the return
+register, so a caller reading the declared 32-bit WGPUBool could see garbage above it (and a
+`wait` other than 0 or 1 was undefined behaviour). Upstream fixes the same in
+gfx-rs/wgpu-native#630 (not merged).
+---
+ src/lib.rs | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 933ba0d..35979ae 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -4636,15 +4636,15 @@ pub unsafe extern "C" fn wgpuQueueSubmitForIndex(
+ #[no_mangle]
+ pub unsafe extern "C" fn wgpuDevicePoll(
+     device: native::WGPUDevice,
+-    wait: bool,
++    wait: native::WGPUBool,
+     submission_index: Option<&native::WGPUSubmissionIndex>,
+-) -> bool {
++) -> native::WGPUBool {
+     let (device_id, context, error_sink) = {
+         let device = device.as_ref().expect("invalid device");
+         (device.id, &device.context, &device.error_sink)
+     };
+ 
+-    let maintain = match wait {
++    let maintain = match wait != 0 {
+         true => match submission_index {
+             Some(&index) => wgt::PollType::Wait {
+                 submission_index: Some(index),
+@@ -4655,7 +4655,9 @@ pub unsafe extern "C" fn wgpuDevicePoll(
+         false => wgt::PollType::Poll,
+     };
+ 
+-    match context.device_poll(device_id, maintain) {
++    // wgpu.h declares WGPUBool (32-bit) for both `wait` and the result; a Rust `bool` only
++    // defines the low byte, so a caller reading the declared WGPUBool saw garbage above it.
++    let queue_empty = match context.device_poll(device_id, maintain) {
+         Ok(wgt::PollStatus::QueueEmpty) => true,
+         Ok(_) => false,
+         // The wait fails when the device is lost (or the submission index was never
+@@ -4669,7 +4671,8 @@ pub unsafe extern "C" fn wgpuDevicePoll(
+             log::warn!("wgpuDevicePoll: {cause}");
+             true
+         }
+-    }
++    };
++    queue_empty as native::WGPUBool
+ }
+ 
+ // FIXME: wgpu has generic shader passthrough now, we should be doing something similar
