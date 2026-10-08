@@ -905,7 +905,7 @@ public sealed class CpuComposer : IDisposable
                 continue;
             }
             float cov = CpuShading.ShapeCoverage(inst, px, py, mask) * CpuShading.ClipCoverage(px, py, clip, mask);
-            if (cov <= 0f)
+            if (!(cov > 0f))
             {
                 continue;
             }
@@ -928,7 +928,7 @@ public sealed class CpuComposer : IDisposable
                 return;
             }
             float a = inst.A0 * 1f;
-            if (a <= 0f)
+            if (!(a > 0f))
             {
                 return;
             }
@@ -940,7 +940,7 @@ public sealed class CpuComposer : IDisposable
             float px = firstX + i + 0.5f;
             var (r, g, b, a) = CpuShading.PaintColor(inst, px, py, gradients, stops);
             float alpha = a * 1f;
-            if (alpha <= 0f)
+            if (!(alpha > 0f))
             {
                 continue;
             }
@@ -989,7 +989,7 @@ public sealed class CpuComposer : IDisposable
                 float px = x + 0.5f;
                 float shape = axis ? rowCoverage[x - x0] : CpuShading.ShapeCoverage(inst, px, py, mask);
                 float cov = shape * (x >= ca && x < cb ? 1f : CpuShading.ClipCoverage(px, py, clip, mask));
-                if (cov <= 0f)
+                if (!(cov > 0f))
                 {
                     continue;
                 }
@@ -1056,7 +1056,7 @@ public sealed class CpuComposer : IDisposable
                     continue;
                 }
                 float clipCov = x >= ca && x < cb ? 1f : CpuShading.ClipCoverage(px, py, clip, mask);
-                if (clipCov <= 0f)
+                if (!(clipCov > 0f))
                 {
                     continue;
                 }
@@ -1120,7 +1120,7 @@ public sealed class CpuComposer : IDisposable
                     continue;
                 }
                 float clipCov = CpuShading.ClipCoverage(px, py, clip, mask);
-                if (clipCov <= 0f)
+                if (!(clipCov > 0f))
                 {
                     continue;
                 }
@@ -1176,7 +1176,7 @@ public sealed class CpuComposer : IDisposable
                     edge = u >= 0f && u < 1f && v >= 0f && v < 1f ? 1f : 0f;
                 }
                 float cov = edge * CpuShading.ClipCoverage(px, py, clip, mask) * inst.Opacity;
-                if (cov <= 0f)
+                if (!(cov > 0f))
                 {
                     continue;
                 }
@@ -1229,7 +1229,7 @@ public sealed class CpuComposer : IDisposable
                     continue;
                 }
                 float coverage = (1f - CpuShading.SmoothStep(-1f, 1f, dist)) * CpuShading.ClipCoverage(px, py, clip, mask) * inst.Opacity;
-                if (coverage <= 0f)
+                if (!(coverage > 0f))
                 {
                     continue;
                 }

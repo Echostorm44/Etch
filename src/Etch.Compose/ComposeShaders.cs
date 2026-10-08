@@ -267,6 +267,10 @@ internal static class ComposeShaders
                     let a = inst.p.xy;
                     let ba = inst.p.zw - a;
                     let len = length(ba);
+                    // A degenerate segment has no direction (the builder never emits one; guard anyway).
+                    if (!(len > 0.0)) {
+                        return 0.0;
+                    }
                     let dir = ba / len;
                     let rel = lp - a;
                     let hw = inst.q.x;
@@ -371,7 +375,7 @@ internal static class ComposeShaders
             }
             let inst = instances[in.instance_idx];
             let cov = shape_coverage(inst, p) * clip_coverage(p, inst.clip_index);
-            if (cov <= 0.0) {
+            if (!(cov > 0.0)) {
                 discard;
             }
             let color = paint_color(inst, p);
@@ -430,7 +434,7 @@ internal static class ComposeShaders
                 edge = 1.0;
             }
             let cov = edge * clip_coverage(p, inst.clip_index) * inst.opacity;
-            if (cov <= 0.0) {
+            if (!(cov > 0.0)) {
                 discard;
             }
             let texel = textureSampleLevel(image_tex, image_sampler, vec2<f32>(u, v), 0.0);
@@ -532,7 +536,7 @@ internal static class ComposeShaders
             }
             let inst = instances[in.instance_idx];
             let clip = clip_coverage(p, inst.clip_index);
-            if (clip <= 0.0) {
+            if (!(clip > 0.0)) {
                 discard;
             }
             let cov = textureSampleLevel(atlas, atlas_sampler, in.uv, 0.0).r;
@@ -589,7 +593,7 @@ internal static class ComposeShaders
             }
             let inst = instances[in.instance_idx];
             let clip = clip_coverage(p, inst.clip_index);
-            if (clip <= 0.0) {
+            if (!(clip > 0.0)) {
                 discard;
             }
             // The atlas holds straight RGBA; the colour glyph keeps its own colours and takes only
@@ -646,7 +650,7 @@ internal static class ComposeShaders
                 discard;
             }
             let coverage = (1.0 - smoothstep(-1.0, 1.0, dist)) * clip_coverage(pos, inst.clip_index) * inst.opacity;
-            if (coverage <= 0.0) {
+            if (!(coverage > 0.0)) {
                 discard;
             }
 

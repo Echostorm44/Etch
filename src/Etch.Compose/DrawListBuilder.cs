@@ -975,10 +975,42 @@ public sealed class DrawListBuilder
             return;
         }
         var inst = SolidInstance(color);
-        if (!stroke.IsDashed && IsSimilarity(t, out float scale) && (x0 != x1 || y0 != y1))
+        var d0 = t.Transform(new Point(x0, y0));
+        var d1 = t.Transform(new Point(x1, y1));
+        // Degenerate in device space (a zero-length segment, or one a transform collapses): a butt
+        // cap draws nothing; round and square caps draw the cap alone, a dot of the stroke width
+        // (SVG's rule). The analytic line has no direction to measure distance along here.
+        float dx = (float)(d1.X - d0.X), dy = (float)(d1.Y - d0.Y);
+        if (!(dx * dx + dy * dy > 1e-8f))
         {
-            var p0 = t.Transform(new Point(x0, y0));
-            var p1 = t.Transform(new Point(x1, y1));
+            if (stroke.Cap == StrokeCap.Butt || !IsSimilarity(t, out float dotScale))
+            {
+                return;
+            }
+            float r = stroke.Width * 0.5f * dotScale;
+            if (stroke.Cap == StrokeCap.Round)
+            {
+                inst.Type = ShapeType.Circle;
+                inst.P0 = (float)d0.X;
+                inst.P1 = (float)d0.Y;
+                inst.P2 = r;
+            }
+            else
+            {
+                inst.Type = ShapeType.RoundedRect;
+                inst.P0 = (float)d0.X - r;
+                inst.P1 = (float)d0.Y - r;
+                inst.P2 = (float)d0.X + r;
+                inst.P3 = (float)d0.Y + r;
+                inst.Q0 = 0f;
+            }
+            Place(ref inst, (float)d0.X - r, (float)d0.Y - r, (float)d0.X + r, (float)d0.Y + r, AaMargin);
+            return;
+        }
+        if (!stroke.IsDashed && IsSimilarity(t, out float scale))
+        {
+            var p0 = d0;
+            var p1 = d1;
             float hw = stroke.Width * 0.5f * scale;
             inst.Type = ShapeType.Line;
             inst.P0 = (float)p0.X;

@@ -334,6 +334,10 @@ internal static class CpuShading
                     float ax = inst.P0, ay = inst.P1;
                     float bax = inst.P2 - ax, bay = inst.P3 - ay;
                     float len = MathF.Sqrt(bax * bax + bay * bay);
+                    if (!(len > 0f))
+                    {
+                        return 0f;
+                    }
                     float dirX = bax / len, dirY = bay / len;
                     float rx = lx - ax, ry = ly - ay;
                     float hw = inst.Q0;
