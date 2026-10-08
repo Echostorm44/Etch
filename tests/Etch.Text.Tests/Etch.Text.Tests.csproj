@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Etch.TestFonts\Etch.TestFonts.csproj" />
     <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
     <ProjectReference Include="..\..\src\Etch.SkiaRef\Etch.SkiaRef.csproj" />
     <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" />

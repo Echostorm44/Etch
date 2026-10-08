@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Test-only helper (not a test suite, not packaged): font downloads for tests and benchmarks.
+       Kept out of Etch.Testing, which ships in the Echostorm.Etch package. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>Etch.TestFonts</RootNamespace>
+    <AssemblyName>Etch.TestFonts</AssemblyName>
+  </PropertyGroup>
+</Project>

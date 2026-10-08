@@ -20,7 +20,7 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 
 # Helper libraries that import Test.props but contain no tests of their own.
-$notSuites = @("Etch.Geometry.Oracle")
+$notSuites = @("Etch.Geometry.Oracle", "Etch.TestFonts")
 
 $failed = [System.Collections.Generic.List[string]]::new()
 

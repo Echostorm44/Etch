@@ -14,6 +14,7 @@
     <Compile Include="..\..\bench\Etch.Bench.Compose\UiFrameScene.cs" Link="UiFrameScene.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Etch.TestFonts\Etch.TestFonts.csproj" />
     <ProjectReference Include="..\..\src\Etch.Compose\Etch.Compose.csproj" />
     <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />

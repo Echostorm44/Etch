@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Echostorm.Etch.Testing — Etch's test infrastructure (pixel diffs, PNG readers/writers, the
+    Scene API's reference renderers) as its own package, for test projects only. It depends on
+    the Echostorm.Etch runtime bundle; apps never reference it, so none of it ships with them.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IsPackable>true</IsPackable>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <RunAnalyzers>false</RunAnalyzers>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <IsAotCompatible>false</IsAotCompatible>
+
+    <PackageId>Echostorm.Etch.Testing</PackageId>
+    <Description>Test infrastructure for Etch and its consumers: pixel diffs, PNG readers and writers, and the Scene API's reference renderers. For test projects only.</Description>
+    <PackageTags>rendering;testing;pixel-diff;etch</PackageTags>
+    <PackageProjectUrl>https://github.com/Echostorm44/Etch</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Echostorm44/Etch.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version Condition="'$(Version)' == ''">0.1.0-alpha.1</Version>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);AddEtchTestingContent</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" PrivateAssets="all" />
+    <!-- Becomes a package dependency on Echostorm.Etch of the same version. -->
+    <ProjectReference Include="..\Echostorm.Etch\Echostorm.Etch.csproj" />
+  </ItemGroup>
+
+  <Target Name="AddEtchTestingContent" DependsOnTargets="Build">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)Etch.Testing.dll" PackagePath="lib/$(TargetFramework)/Etch.Testing.dll" />
+    </ItemGroup>
+  </Target>
+
+</Project>

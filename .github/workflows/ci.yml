@@ -88,7 +88,7 @@ jobs:
         shell: bash
 
       # Test fonts are downloaded on first use (font files are not checked in) and kept in
-      # ETCH_TEST_FONTS_DIR (Etch.Testing.TestFontCache); caching it spares every run the download
+      # ETCH_TEST_FONTS_DIR (tests/Etch.TestFonts, SHA-256 pinned); caching it spares every run the download
       # and keeps the suites green when the font host is unreachable. Bump the key to refetch.
       - name: Cache test fonts
         uses: actions/cache@v4

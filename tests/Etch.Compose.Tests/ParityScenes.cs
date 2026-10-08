@@ -26,7 +26,7 @@ internal static class ParityScenes
     private static readonly ComposeColor Yellow = Rgb(255, 214, 10);
     private static readonly ComposeColor Slate = Rgb(44, 44, 46);
 
-    // Roboto through Etch.Testing.TestFontCache (downloaded once, cached on disk; the system UI font
+    // Roboto through Etch.TestFonts.TestFontCache (downloaded once, cached on disk; the system UI font
     // offline). Any font works: parity compares two renders of the same glyphs.
     private static readonly Lazy<byte[]> FontBytes = new(LoadFont);
 
@@ -274,7 +274,7 @@ internal static class ParityScenes
         rec.Glyphs(EmojiRun("\U0001F680", 262 * scale, 70 * scale, 0.8f, scale, 48));
     }
 
-    private static readonly Lazy<byte[]> EmojiBytes = new(Etch.Testing.TestFontCache.ColorEmoji);
+    private static readonly Lazy<byte[]> EmojiBytes = new(Etch.TestFonts.TestFontCache.ColorEmoji);
     private static readonly Dictionary<float, FontFace> EmojiFaces = new();
 
     public static GlyphRunData EmojiRun(string text, float x, float baseline, float opacity, float scale, float size)
@@ -396,7 +396,7 @@ internal static class ParityScenes
 
     // ── Helpers ─────────────────────────────────────────────────────────
 
-    private static byte[] LoadFont() => Etch.Testing.TestFontCache.RobotoRegular();
+    private static byte[] LoadFont() => Etch.TestFonts.TestFontCache.RobotoOrSystemUiFont();
 
     /// <summary>
     /// Clips and fills far larger than an atlas page: a full-width rounded clip, a nested rounded

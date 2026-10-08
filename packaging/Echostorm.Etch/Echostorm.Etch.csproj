@@ -49,7 +49,6 @@
     <ProjectReference Include="..\..\src\Etch.Text\Etch.Text.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Scene\Etch.Scene.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Geometry\Etch.Geometry.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\..\src\Etch.Testing\Etch.Testing.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Raster.Cpu\Etch.Raster.Cpu.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\..\src\Etch.Gpu.Compositor\Etch.Gpu.Compositor.csproj" PrivateAssets="all" />
@@ -76,10 +75,10 @@
        needs no other native packs. Runs after Build so OutputPath is populated. -->
   <Target Name="AddEtchBundleContent" DependsOnTargets="Build">
     <ItemGroup>
-      <!-- Exclude only the compile-time Roslyn analyzer; Etch.Testing IS referenced by
-           Cascade.UI at compile time, so it must ship in the bundle. -->
+      <!-- Exclude the compile-time Roslyn analyzer and the test infrastructure (Etch.Testing ships in
+           Echostorm.Etch.Testing, which tests reference; nothing an app ships depends on it). -->
       <_EtchDll Include="$(OutputPath)Etch.*.dll"
-          Exclude="$(OutputPath)Etch.Analyzers.dll" />
+          Exclude="$(OutputPath)Etch.Analyzers.dll;$(OutputPath)Etch.Testing.dll" />
       <TfmSpecificPackageFile Include="@(_EtchDll)"
           PackagePath="lib/$(TargetFramework)/%(Filename)%(Extension)" />
       <!-- FreeType + HarfBuzz already land under runtimes/<rid>/native in OutputPath (Etch.Text). -->
