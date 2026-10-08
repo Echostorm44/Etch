@@ -151,7 +151,9 @@ public static class PathShapes
 
     /// <summary>
     /// A closed contour of four axis-aligned lines and four quarter-circle corner cubics of one
-    /// radius (zero-length lines allowed), in either winding and starting anywhere.
+    /// radius (zero-length lines allowed), in either winding and starting anywhere. The corners
+    /// must be convex — each arc centred r inside a different corner of the bounds — and every
+    /// point on the bounds: a rect with concave quarter-circle notches is not a rounded rect.
     /// </summary>
     public static bool TryRoundedRect(ReadOnlySpan<byte> verbs, ReadOnlySpan<double> coords,
         out float x, out float y, out float w, out float h, out float radius)
@@ -162,11 +164,16 @@ public static class PathShapes
         {
             n--;
         }
-        if (n < 5 || n > 10 || verbs[0] != (byte)PathVerb.MoveTo)
+        if (n < 5 || n > 10 || verbs[0] != (byte)PathVerb.MoveTo || coords.Length < 2)
         {
             return false;
         }
 
+        Span<double> centres = stackalloc double[16];
+        Span<double> points = stackalloc double[20];
+        points[0] = coords[0];
+        points[1] = coords[1];
+        int pointCount = 1;
         double px = coords[0], py = coords[1];
         int c = 2;
         int cubics = 0;
@@ -176,6 +183,10 @@ public static class PathShapes
         {
             if (verbs[i] == (byte)PathVerb.LineTo)
             {
+                if (c + 2 > coords.Length)
+                {
+                    return false;
+                }
                 double qx = coords[c], qy = coords[c + 1];
                 if (qx != px && qy != py)
                 {
@@ -187,6 +198,10 @@ public static class PathShapes
             }
             else if (verbs[i] == (byte)PathVerb.CubicTo)
             {
+                if (c + 6 > coords.Length || cubics == 4)
+                {
+                    return false;
+                }
                 double ex = coords[c + 4], ey = coords[c + 5];
                 double dx = Math.Abs(ex - px), dy = Math.Abs(ey - py);
                 if (Math.Abs(dx - dy) > Epsilon * Math.Max(dx, 1))
@@ -220,6 +235,11 @@ public static class PathShapes
                 {
                     return false;
                 }
+                // Which way the arc bulges from its centre: toward the bounds corner it rounds.
+                centres[cubics * 4] = ccx;
+                centres[cubics * 4 + 1] = ccy;
+                centres[cubics * 4 + 2] = Math.Sign(px + ex - 2 * ccx);
+                centres[cubics * 4 + 3] = Math.Sign(py + ey - 2 * ccy);
                 cubics++;
                 px = ex;
                 py = ey;
@@ -229,6 +249,9 @@ public static class PathShapes
             {
                 return false;
             }
+            points[pointCount * 2] = px;
+            points[pointCount * 2 + 1] = py;
+            pointCount++;
             minX = Math.Min(minX, px);
             minY = Math.Min(minY, py);
             maxX = Math.Max(maxX, px);
@@ -241,6 +264,35 @@ public static class PathShapes
         if (Math.Abs(px - coords[0]) > Epsilon * r || Math.Abs(py - coords[1]) > Epsilon * r)
         {
             return false;
+        }
+        // Convex corners: each centre r inside a corner of the bounds, the four corners distinct.
+        double tol = Epsilon * Math.Max(r, 1);
+        int seen = 0;
+        for (int k = 0; k < 4; k++)
+        {
+            double ccx = centres[k * 4], ccy = centres[k * 4 + 1];
+            double sx = centres[k * 4 + 2], sy = centres[k * 4 + 3];
+            // A convex corner bulges toward the bounds corner, with its centre r inside both edges.
+            int qx = sx < 0 && Math.Abs(ccx - (minX + r)) <= tol ? 0 : sx > 0 && Math.Abs(ccx - (maxX - r)) <= tol ? 1 : -1;
+            int qy = sy < 0 && Math.Abs(ccy - (minY + r)) <= tol ? 0 : sy > 0 && Math.Abs(ccy - (maxY - r)) <= tol ? 1 : -1;
+            if (qx < 0 || qy < 0)
+            {
+                return false;
+            }
+            seen |= 1 << (qy * 2 + qx);
+        }
+        if (seen != 0b1111)
+        {
+            return false;
+        }
+        // Every vertex on the bounds (no line cuts inward).
+        for (int k = 0; k < pointCount; k++)
+        {
+            double vx = points[k * 2], vy = points[k * 2 + 1];
+            if (Math.Abs(vx - minX) > tol && Math.Abs(vx - maxX) > tol && Math.Abs(vy - minY) > tol && Math.Abs(vy - maxY) > tol)
+            {
+                return false;
+            }
         }
         x = (float)minX;
         y = (float)minY;

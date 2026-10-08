@@ -298,4 +298,96 @@ internal sealed class CoverageTests
         await Assert.That(rx == 10 && ry == 20 && rw == 60 && rh == 30).IsTrue();
         await Assert.That(Math.Abs(radius - 6f)).IsLessThan(1e-4f);
     }
+
+    // A rect of x, y, w, h whose corners are quarter-circle cubics of radius r centred at
+    // `centre(corner)`: inward (r inside the corner) for a rounded rect, at the corner itself for a
+    // ticket's concave notches. Clockwise from the top edge.
+    private static (byte[] Verbs, double[] Coords) Cornered(double x, double y, double w, double h, double r, bool concave)
+    {
+        const double k = PathShapes.Kappa;
+        var coords = new List<double> { x + r, y, x + w - r, y };
+        (double Px, double Py, double Ex, double Ey, double Cx, double Cy)[] corners =
+        [
+            (x + w - r, y, x + w, y + r, concave ? x + w : x + w - r, concave ? y : y + r),
+            (x + w, y + h - r, x + w - r, y + h, concave ? x + w : x + w - r, concave ? y + h : y + h - r),
+            (x + r, y + h, x, y + h - r, concave ? x : x + r, concave ? y + h : y + h - r),
+            (x, y + r, x + r, y, concave ? x : x + r, concave ? y : y + r),
+        ];
+        var verbs = new List<byte> { 0, 1 };
+        for (int i = 0; i < 4; i++)
+        {
+            var c = corners[i];
+            coords.AddRange([c.Px + k * (c.Ex - c.Cx), c.Py + k * (c.Ey - c.Cy), c.Ex + k * (c.Px - c.Cx), c.Ey + k * (c.Py - c.Cy), c.Ex, c.Ey]);
+            verbs.Add(3);
+            if (i < 3)
+            {
+                double[] next = i switch { 0 => [x + w, y + h - r], 1 => [x + r, y + h], _ => [x, y + r] };
+                coords.AddRange(next);
+                verbs.Add(1);
+            }
+        }
+        verbs.Add(4);
+        return (verbs.ToArray(), coords.ToArray());
+    }
+
+    [Test]
+    public async Task PathShapes_RejectConcaveCornersAndBrokenInput()
+    {
+        var (verbs, coords) = Cornered(10, 20, 80, 40, 10, concave: false);
+        await Assert.That(PathShapes.TryRoundedRect(verbs, coords, out _, out _, out _, out _, out _)).IsTrue();
+
+        // A ticket: the same outline with concave quarter-circle notches.
+        var (ticketVerbs, ticketCoords) = Cornered(10, 20, 80, 40, 10, concave: true);
+        await Assert.That(PathShapes.TryRoundedRect(ticketVerbs, ticketCoords, out _, out _, out _, out _, out _)).IsFalse();
+
+        // A pill (radius = half the height) is a rounded rect.
+        var (pillVerbs, pillCoords) = Cornered(10, 20, 80, 40, 20, concave: false);
+        await Assert.That(PathShapes.TryRoundedRect(pillVerbs, pillCoords, out _, out _, out _, out _, out _)).IsTrue();
+
+        // Too few coordinates for the verbs: rejected, not read past the end.
+        await Assert.That(PathShapes.TryRoundedRect(verbs, coords.AsSpan(0, coords.Length - 3), out _, out _, out _, out _, out _)).IsFalse();
+        await Assert.That(PathShapes.TryRoundedRect(verbs, coords.AsSpan(0, 1), out _, out _, out _, out _, out _)).IsFalse();
+    }
+
+    [Test]
+    public async Task Ticket_RendersItsNotches()
+    {
+        var (verbs, coords) = Cornered(10, 10, 80, 40, 10, concave: true);
+        var builder = BezPathBuilder.Begin(16);
+        int c = 0;
+        foreach (byte verb in verbs)
+        {
+            switch (verb)
+            {
+                case 0:
+                    builder.MoveTo(new Point(coords[c], coords[c + 1]));
+                    c += 2;
+                    break;
+                case 1:
+                    builder.LineTo(new Point(coords[c], coords[c + 1]));
+                    c += 2;
+                    break;
+                case 3:
+                    builder.CubicTo(new Point(coords[c], coords[c + 1]), new Point(coords[c + 2], coords[c + 3]), new Point(coords[c + 4], coords[c + 5]));
+                    c += 6;
+                    break;
+                default:
+                    builder.Close();
+                    break;
+            }
+        }
+        var rec = new DrawRecording();
+        rec.SetTransform(Affine.Identity);
+        rec.FillRect(0, 0, 100, 60, ComposePaint.Solid(new ComposeColor(1, 1, 1, 1)));
+        rec.FillPath(builder.Build(), FillRule.NonZero, ComposePaint.Solid(new ComposeColor(0, 0, 1, 1)));
+        byte[] rgba = EdgeCaseTests.RenderCpu(rec, 100, 60);
+
+        // (14, 14) is inside the top-left notch (3.9 px of 10 from its corner): background. A convex
+        // rounded corner of the same radius covers it.
+        int notch = (14 * 100 + 14) * 4;
+        await Assert.That((int)rgba[notch]).IsGreaterThan(200);
+        int inside = (30 * 100 + 50) * 4;
+        await Assert.That((int)rgba[inside]).IsLessThan(50);
+        await EdgeCaseTests.AssertGpuParity(rec, 100, 60);
+    }
 }
