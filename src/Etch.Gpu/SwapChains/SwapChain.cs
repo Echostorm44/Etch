@@ -94,7 +94,11 @@ public readonly struct SwapChain : IDisposable
 
     public void Dispose()
     {
-        WebGPU.SurfaceUnconfigure(_surface.Handle);
+        // A default (never configured) swap chain has no surface to unconfigure.
+        if (!_surface.Handle.IsInvalid)
+        {
+            WebGPU.SurfaceUnconfigure(_surface.Handle);
+        }
     }
 
     private static unsafe void ApplyConfiguration(Surface surface, Device device, SwapChainConfig config, uint width, uint height)

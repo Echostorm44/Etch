@@ -252,6 +252,19 @@ public readonly struct Device : IDisposable
         }
     }
 
+    /// <summary>
+    /// Destroys the device's GPU resources now: the device is lost (reason Destroyed) and every
+    /// later use fails, as after a driver reset. The handle is still released by <see cref="Dispose"/>.
+    /// </summary>
+    public void Destroy()
+    {
+        if (!_handle.IsInvalid)
+        {
+            using var gate = WarpSerialization.Enter();
+            WebGPU.DeviceDestroy(_handle);
+        }
+    }
+
     /// <summary>Processes completed GPU work; with <paramref name="wait"/>, blocks until the queue drains.</summary>
     /// <param name="wait">Block until all submitted work has finished.</param>
     /// <returns>True when no submissions are still in flight.</returns>

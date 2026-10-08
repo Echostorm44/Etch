@@ -31,6 +31,10 @@ public unsafe struct WGPUBufferMapCallbackInfo
 
 public static partial class WebGPU
 {
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuDeviceDestroy")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial void DeviceDestroy(DeviceHandle device);
+
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuCommandEncoderCopyTextureToBuffer")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
     public static partial void CommandEncoderCopyTextureToBuffer(CommandEncoderHandle encoder, System.IntPtr source, System.IntPtr destination, System.IntPtr copySize);
