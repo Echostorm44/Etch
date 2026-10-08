@@ -38,9 +38,12 @@ jobs:
       - name: Restore
         run: dotnet restore Etch.sln
 
-      - name: Fetch native binaries
-        run: ./native/wgpu-native/fetch.ps1 all
-        shell: pwsh
+      # The published wgpu-native release, or (until it is published) a cached source build of the
+      # runner's RID: .github/actions/wgpu-native.
+      - name: Provide wgpu-native
+        uses: ./.github/actions/wgpu-native
+        with:
+          rids: all
 
       # naga-cli backs Etch.Shaders.Tests and Etch.Build.Tests (NagaValidation). Its version is
       # pinned in build/NagaCli.props; the cargo build is cached per OS so only a bump rebuilds it.
@@ -170,9 +173,12 @@ jobs:
       - name: Restore
         run: dotnet restore Etch.sln
 
-      - name: Fetch native binaries
-        run: ./native/wgpu-native/fetch.ps1 all
-        shell: pwsh
+      # The published wgpu-native release, or (until it is published) a cached source build of the
+      # runner's RID: .github/actions/wgpu-native.
+      - name: Provide wgpu-native
+        uses: ./.github/actions/wgpu-native
+        with:
+          rids: all
 
       - name: Build with analyzers
         run: dotnet build Etch.sln -c Release -p:RunAnalyzersDuringBuild=true -p:TreatWarningsAsErrors=true --no-restore
@@ -243,9 +249,12 @@ jobs:
         with:
           global-json-file: global.json
 
-      - name: Fetch native binaries
-        run: ./native/wgpu-native/fetch.ps1 all
-        shell: pwsh
+      # The published wgpu-native release, or (until it is published) a cached source build of the
+      # runner's RID: .github/actions/wgpu-native.
+      - name: Provide wgpu-native
+        uses: ./.github/actions/wgpu-native
+        with:
+          rids: all
 
       - name: Restore
         run: dotnet restore tests/Etch.Shaders.Tests/Etch.Shaders.Tests.csproj

@@ -1,0 +1,79 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Provides the wgpu-native binaries a job builds and tests against.
+# ─────────────────────────────────────────────────────────────────────────────
+# Published (CHECKSUMS.txt records a release for the current VERSION and build inputs, see
+# native/wgpu-native/fetch.ps1): fetch.ps1 downloads and verifies the requested RIDs.
+#
+# Unpublished (VERSION or the patches changed and the release is not out yet): build.ps1 builds
+# the runner's own RID from the pinned source plus native/wgpu-native/patches, exactly as
+# .github/workflows/wgpu-native.yml does for a release. The archive is cached under a key derived
+# from SOURCE, the patches and build.ps1, so each runner OS builds once per change. Only the host
+# RID can be built; a job that asks for `all` gets the host RID and a warning.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: wgpu-native
+description: Fetch the published wgpu-native binaries, or build the runner's RID from source when the pinned VERSION is not published yet.
+
+inputs:
+  rids:
+    description: "'all' or 'host' (the runner's own RID)."
+    required: false
+    default: host
+
+runs:
+  using: composite
+  steps:
+    - name: Resolve wgpu-native state
+      id: state
+      shell: pwsh
+      run: |
+        $status = @(./native/wgpu-native/fetch.ps1 -Status)
+        $rid = if ($IsWindows) { 'win-x64' } elseif ($IsMacOS) { 'osx-arm64' } else { 'linux-x64' }
+        $archive = @{ 'win-x64' = 'wgpu-windows-x86_64-msvc-release'; 'linux-x64' = 'wgpu-linux-x86_64-release'; 'osx-arm64' = 'wgpu-macos-aarch64-release' }[$rid]
+        "published=$($status[0] -eq 'published')" >> $env:GITHUB_OUTPUT
+        "rid=$rid" >> $env:GITHUB_OUTPUT
+        "archive=$archive" >> $env:GITHUB_OUTPUT
+        if ($status[0] -ne 'published') {
+          Write-Host "::notice title=wgpu-native::Building $rid from source: $($status[1])"
+          if ('${{ inputs.rids }}' -eq 'all') {
+            Write-Host "::warning title=wgpu-native::Only $rid can be built here; the other RIDs need the published release."
+          }
+        }
+
+    - name: Fetch published binaries
+      if: steps.state.outputs.published == 'True'
+      shell: pwsh
+      run: ./native/wgpu-native/fetch.ps1 ${{ inputs.rids == 'all' && 'all' || steps.state.outputs.rid }}
+
+    - name: Restore source build
+      if: steps.state.outputs.published != 'True'
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: native/wgpu-native/out/${{ steps.state.outputs.archive }}.zip
+        key: wgpu-native-${{ steps.state.outputs.rid }}-${{ hashFiles('native/wgpu-native/SOURCE', 'native/wgpu-native/patches/**', 'native/wgpu-native/build.ps1') }}
+
+    - name: Install libclang (bindgen)
+      if: steps.state.outputs.published != 'True' && steps.cache.outputs.cache-hit != 'true' && runner.os == 'Linux'
+      shell: bash
+      run: sudo apt-get update && sudo apt-get install -y libclang-dev
+
+    - name: Build from source
+      if: steps.state.outputs.published != 'True' && steps.cache.outputs.cache-hit != 'true'
+      shell: pwsh
+      run: |
+        if ($IsWindows) {
+          $env:LIBCLANG_PATH = 'C:\Program Files\LLVM\bin'
+        }
+        ./native/wgpu-native/build.ps1 -OutDir native/wgpu-native/out -Install
+
+    - name: Install cached build
+      if: steps.state.outputs.published != 'True' && steps.cache.outputs.cache-hit == 'true'
+      shell: pwsh
+      run: |
+        $dest = 'native/wgpu-native/${{ steps.state.outputs.rid }}'
+        if (Test-Path $dest) {
+          Remove-Item $dest -Recurse -Force
+        }
+        Expand-Archive 'native/wgpu-native/out/${{ steps.state.outputs.archive }}.zip' -DestinationPath $dest
+        Get-Content "$dest/wgpu-native-meta/patches"

@@ -1,16 +1,18 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# wgpu-native.yml — build wgpu-native from the commit pinned in native/wgpu-native/SOURCE
+# wgpu-native.yml — build wgpu-native from the commit pinned in native/wgpu-native/SOURCE, with
+# Etch's patches (native/wgpu-native/patches) applied by build.ps1
 # ─────────────────────────────────────────────────────────────────────────────
 # Why Etch builds wgpu-native itself: design-decisions.md D-015.
 #
 # Triggered by pushing a tag equal to native/wgpu-native/VERSION (pattern wgpu-native-*):
 #
-#   git tag wgpu-native-b83eb64 && git push origin wgpu-native-b83eb64
+#   git tag wgpu-native-b83eb64-p1 && git push origin wgpu-native-b83eb64-p1
 #
 # Each RID is built on its own runner by native/wgpu-native/build.ps1, then one job creates the
 # GitHub release named after the tag and attaches the three archives. fetch.ps1 downloads from
-# that release and verifies CHECKSUMS.txt, so after the release exists:
-#   1. download the three archives, 2. update CHECKSUMS.txt, 3. commit.
+# that release and verifies CHECKSUMS.txt, so after the release exists, copy the version, inputs and
+# checksum lines from the release job's summary into CHECKSUMS.txt and commit. Until then CI builds the
+# binaries from source (.github/actions/wgpu-native).
 #
 # Order matters: publish-nuget.yml runs fetch.ps1, so this release must exist before a v* tag.
 # ─────────────────────────────────────────────────────────────────────────────
@@ -88,7 +90,18 @@ jobs:
         run: |
           sha256sum archives/*.zip
           commit=$(sed -n 's/^commit *= *//p' native/wgpu-native/SOURCE)
+          patches=$(cd native/wgpu-native/patches 2>/dev/null && ls *.patch | paste -sd ' ' -)
           gh release create "$TAG" archives/*.zip \
             --title "$TAG" \
-            --notes "wgpu-native built from gfx-rs/wgpu-native@${commit} with Etch's feature set (native/wgpu-native/SOURCE). Consumed by native/wgpu-native/fetch.ps1; see design-decisions.md D-015." \
+            --notes "wgpu-native built from gfx-rs/wgpu-native@${commit} with Etch's feature set and patches (${patches:-none}) (native/wgpu-native/SOURCE, native/wgpu-native/patches). Consumed by native/wgpu-native/fetch.ps1; see design-decisions.md D-015." \
             --prerelease
+
+      - name: CHECKSUMS.txt lines
+        shell: pwsh
+        run: |
+          $lines = @("version = $env:GITHUB_REF_NAME", "inputs = $(./native/wgpu-native/fetch.ps1 -InputsHash)")
+          foreach ($zip in Get-ChildItem archives -Filter *.zip | Sort-Object Name) {
+            $lines += "$($zip.Name) = $((Get-FileHash $zip.FullName -Algorithm SHA256).Hash.ToLower())"
+          }
+          $summary = @('Replace the version, inputs and checksum lines of native/wgpu-native/CHECKSUMS.txt with:', '', '```') + $lines + '```'
+          $summary -join "`n" | Out-File -Append $env:GITHUB_STEP_SUMMARY
