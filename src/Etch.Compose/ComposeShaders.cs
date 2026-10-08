@@ -330,20 +330,29 @@ internal static class ComposeShaders
         // Premultiplied colour of a gradient at parameter t.
         fn gradient_color(g: GradientEntry, t_in: f32) -> vec4<f32> {
             let t = clamp(t_in, 0.0, 1.0);
-            var prev = stops[g.stop_start];
-            if (g.stop_count == 1u || t <= prev.offset) {
-                return prev.color;
+            let first = stops[g.stop_start];
+            if (g.stop_count == 1u || t <= first.offset) {
+                return first.color;
             }
+            // The segment starts at the last stop at or below t (offsets never decrease). The loop
+            // has no early exit on purpose: the WARP of Windows Server 2022 (and the 2022 WARP
+            // redistributable, 1.0.0) corrupts the result when pixels of one quad leave a loop at
+            // different iterations, whether by return or by break: pixels next to a stop boundary
+            // came out (r, 0, 0), (0, 0, b) or transparent depending on the exit's shape.
+            var lo = 0u;
             for (var i = 1u; i < g.stop_count; i = i + 1u) {
-                let cur = stops[g.stop_start + i];
-                if (t < cur.offset) {
-                    let span = cur.offset - prev.offset;
-                    let f = select(1.0, (t - prev.offset) / span, span > 0.0);
-                    return mix(prev.color, cur.color, f);
+                if (stops[g.stop_start + i].offset <= t) {
+                    lo = i;
                 }
-                prev = cur;
             }
-            return prev.color;
+            let a = stops[g.stop_start + lo];
+            if (lo + 1u >= g.stop_count) {
+                return a.color;
+            }
+            let b = stops[g.stop_start + lo + 1u];
+            let span = b.offset - a.offset;
+            let f = select(1.0, (t - a.offset) / span, span > 0.0);
+            return mix(a.color, b.color, f);
         }
 
         fn paint_color(inst: ShapeInstance, p: vec2<f32>) -> vec4<f32> {
