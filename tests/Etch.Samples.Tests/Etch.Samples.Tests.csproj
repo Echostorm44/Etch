@@ -19,7 +19,8 @@
     <ProjectReference Include="..\..\samples\FilledCircle\FilledCircle.csproj" />
   </ItemGroup>
 
-  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+  <!-- The suite runs on Windows only (run-all-tests.ps1); other hosts have only their own RID's wgpu-native. -->
+  <Target Name="CopyNativeBinaries" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <PropertyGroup>
       <_WgpuDll>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\native\wgpu-native\win-x64\lib\wgpu_native.dll'))</_WgpuDll>
     </PropertyGroup>

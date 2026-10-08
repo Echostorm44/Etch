@@ -22,7 +22,8 @@
     <None Include="RedTriangle.wgsl" Pack="True" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
-  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+  <!-- Windows-only app: only a Windows host has (and can run) the win-x64 wgpu-native. -->
+  <Target Name="CopyNativeBinaries" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <Copy SourceFiles="..\..\native\wgpu-native\$(RuntimeIdentifier)\lib\wgpu_native.dll"
           DestinationFiles="$(OutDir)wgpu_native.dll"
           Condition="'$(RuntimeIdentifier)' != ''" />

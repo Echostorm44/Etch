@@ -19,7 +19,8 @@
     <ProjectReference Include="..\..\src\Etch.Gpu.Native\Etch.Gpu.Native.csproj" />
     <ProjectReference Include="..\..\src\Etch.Gpu\Etch.Gpu.csproj" />
   </ItemGroup>
-  <Target Name="CopyNativeBinaries" AfterTargets="Build">
+  <!-- Windows-only app: only a Windows host has (and can run) the win-x64 wgpu-native. -->
+  <Target Name="CopyNativeBinaries" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <Copy SourceFiles="..\..\native\wgpu-native\win-x64\lib\wgpu_native.dll"
           DestinationFiles="$(OutDir)wgpu_native.dll"
           Condition="'$(RuntimeIdentifier)' != ''" />
