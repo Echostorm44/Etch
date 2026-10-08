@@ -288,15 +288,14 @@ public unsafe struct WGPUSurfaceTexture
     public uint Status;                  // WGPUSurfaceGetCurrentTextureStatus
 }
 
-// WGPUSurfaceGetCurrentTextureStatus (webgpu.h v29):
+// WGPUSurfaceGetCurrentTextureStatus (webgpu.h v29, plus wgpu.h's native Occluded):
 //   SuccessOptimal    = 1
 //   SuccessSuboptimal = 2
 //   Timeout           = 3
 //   Outdated          = 4
 //   Lost              = 5
-//   OutOfMemory       = 6
-//   DeviceLost        = 7
-//   Error             = 8
+//   Error             = 6
+//   Occluded          = 0x00030001 (wgpu.h)
 
 // ═══════════════════════════════════════════════════════════════════════════
 // Query set descriptor.

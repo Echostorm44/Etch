@@ -13,6 +13,15 @@ namespace Etch.Gpu.Validation;
 /// device is requested (<see cref="Attach"/>); dispose it before releasing the device, so the
 /// release itself is not reported.
 /// </summary>
+/// <remarks>
+/// The loss is reported by whichever comes first: wgpu-core noticing it (a backend call failing
+/// with device-removed, reason <see cref="DeviceLostReason.Unknown"/>; a destroyed device going
+/// idle, <see cref="DeviceLostReason.Destroyed"/>), or an operation meeting the lost device —
+/// creating an encoder, submitting, acquiring or presenting a frame, configuring a surface,
+/// polling. With Etch's wgpu-native (native/wgpu-native/patches) none of those operations abort
+/// the process on a lost device; they fail and report here, at most once per device. The callback
+/// may run on any thread, inside the failing wgpu call.
+/// </remarks>
 public sealed class DeviceLossWatch : IDisposable
 {
     private static readonly ConcurrentDictionary<long, DeviceLossWatch> Watches = new();
