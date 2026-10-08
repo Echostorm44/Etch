@@ -115,6 +115,14 @@ public sealed class PaintOrderBatcher
         Array.Fill(kindInOrder, true);
     }
 
+    /// <summary>Clears every batch and frees the lists' storage (the target is hidden).</summary>
+    public void Trim()
+    {
+        Reset();
+        batches.TrimExcess();
+        boxes.TrimExcess();
+    }
+
     /// <summary>
     /// Chooses the batch for a draw of <paramref name="kind"/> covering the given device bounds:
     /// after the last batch it overlaps, in the first batch of its own kind from there, else a new

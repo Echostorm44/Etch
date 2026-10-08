@@ -71,7 +71,7 @@ public sealed unsafe class GpuComposer : IDisposable
     private readonly GpuBuffer fullFrameVertices;
 
     // Images
-    private readonly Dictionary<int, (Texture Texture, TextureView View, BindGroup Group)> imageTextures = new();
+    private readonly Dictionary<int, (Texture Texture, TextureView View, BindGroup Group, long Bytes)> imageTextures = new();
 
     // Full-frame CPU blit
     private Texture fallbackTexture;
@@ -253,6 +253,63 @@ public sealed unsafe class GpuComposer : IDisposable
 
     /// <summary>Number of GPU textures held for images.</summary>
     public int ImageTextureCount => imageTextures.Count;
+
+    /// <summary>
+    /// The GPU objects the composer holds right now, and their bytes: what a native-memory
+    /// snapshot reports. Counted from the live resources, so a trimmed composer reports less.
+    /// </summary>
+    public GpuResourceUsage ResourceUsage()
+    {
+        // Fixed: the uniform buffer, nine growable instance/table buffers and the full-frame quad.
+        GrowableBuffer[] growable = [shapeBuffer, clipBuffer, gradientBuffer, stopBuffer, glyphBuffer, colorGlyphBuffer, imageBuffer, blurBuffer, maskTileBuffer];
+        long bufferBytes = (long)sizeof(SurfaceSizeData) + FullFrameQuad.Length * sizeof(float);
+        foreach (var buffer in growable)
+        {
+            bufferBytes += (long)buffer.Capacity;
+        }
+
+        int textures = 0;
+        long textureBytes = 0;
+        void Add(long bytes)
+        {
+            textures++;
+            textureBytes += bytes;
+        }
+        Add((long)glyphAtlas.Dimension * glyphAtlas.Dimension * glyphAtlas.BytesPerPixel);
+        Add((long)colorGlyphAtlas.Dimension * colorGlyphAtlas.Dimension * colorGlyphAtlas.BytesPerPixel);
+        Add(1);
+        if (maskAtlas.TextureLayers > 0)
+        {
+            Add((long)MaskAtlas.PageSize * MaskAtlas.PageSize * maskAtlas.TextureLayers);
+        }
+        if (!bgCopyTexture.IsInvalid)
+        {
+            Add((long)bgCopyWidth * bgCopyHeight * 4);
+        }
+        if (!fallbackTexture.IsInvalid)
+        {
+            Add((long)fallbackWidth * fallbackHeight * 4);
+        }
+        foreach (var entry in imageTextures.Values)
+        {
+            Add(entry.Bytes);
+        }
+
+        // Bind groups: the frame's eight (when built), the CPU-frame group, one per image.
+        int bindGroups = (shapeGroup.IsInvalid ? 0 : 8) + (fallbackBindGroup.IsInvalid ? 0 : 1) + imageTextures.Count;
+        return new GpuResourceUsage(
+            ShaderModules: PipelineCount,
+            RenderPipelines: PipelineCount,
+            Buffers: growable.Length + 2,
+            BufferBytes: bufferBytes,
+            Textures: textures,
+            TextureViews: textures,
+            TextureBytes: textureBytes,
+            BindGroups: bindGroups);
+    }
+
+    // shape, image, glyph, colour glyph, blur, full frame.
+    private const int PipelineCount = 6;
 
     /// <summary>Number of framebuffer copies the last <see cref="Encode"/> made.</summary>
     public int LastCopyCount { get; private set; }
@@ -703,7 +760,8 @@ public sealed unsafe class GpuComposer : IDisposable
         var origin = new WGPUOrigin3D { X = 0, Y = 0, Z = 0 };
         var writeSize = new Extent3D { Width = (uint)image.Width, Height = (uint)image.Height, DepthOrArrayLayers = 1 };
         device.Queue.WriteTexture(texture, 0, origin, image.Pixels, (uint)image.Width * 4, (uint)image.Height, writeSize);
-        imageTextures[handle] = (texture, view, CreateTextureSamplerGroup(imagePipeline.Group1, view, linearSampler));
+        imageTextures[handle] = (texture, view, CreateTextureSamplerGroup(imagePipeline.Group1, view, linearSampler),
+            (long)image.Width * image.Height * 4);
     }
 
     private BindGroup CreateTextureSamplerGroup(BindGroupLayout layout, TextureView view, Sampler sampler)

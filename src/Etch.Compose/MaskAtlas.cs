@@ -124,6 +124,9 @@ public sealed class MaskAtlas : IDisposable
     /// <summary>The page array's view, dimension <c>D2Array</c> (GPU atlas, after the first insertion).</summary>
     public TextureView PageView => view;
 
+    /// <summary>Layers of the GPU page texture (0 without a device, or before the first mask).</summary>
+    public int TextureLayers => textureLayers;
+
     /// <summary>Page <paramref name="layer"/>'s texels, row-major, stride <see cref="PageSize"/> (memory atlas).</summary>
     public ReadOnlySpan<byte> PagePixels(int layer) => layer < pages.Count ? pages[layer] : ReadOnlySpan<byte>.Empty;
 

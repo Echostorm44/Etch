@@ -152,6 +152,40 @@ public sealed class DrawList
         gradients.Add(default);
     }
 
+    /// <summary>
+    /// Empties the list and frees its storage, including its references to the frame's images:
+    /// the target is hidden, and the next frame starts from <see cref="Reset"/> as usual.
+    /// </summary>
+    public void Trim()
+    {
+        Reset(0, 0);
+        batcher.Trim();
+        orderedShapes.Clear();
+        orderedGlyphs.Clear();
+        orderedColorGlyphs.Clear();
+        orderedImages.Clear();
+        orderedBlurs.Clear();
+        shapes.TrimExcess();
+        orderedShapes.TrimExcess();
+        shapeItems.TrimExcess();
+        glyphs.TrimExcess();
+        orderedGlyphs.TrimExcess();
+        glyphItems.TrimExcess();
+        colorGlyphs.TrimExcess();
+        orderedColorGlyphs.TrimExcess();
+        colorGlyphItems.TrimExcess();
+        images.TrimExcess();
+        orderedImages.TrimExcess();
+        imageItems.TrimExcess();
+        blurs.TrimExcess();
+        orderedBlurs.TrimExcess();
+        blurItems.TrimExcess();
+        clips.TrimExcess();
+        gradients.TrimExcess();
+        stops.TrimExcess();
+        maskTiles.TrimExcess();
+        imageTable.TrimExcess();
+    }
     /// <summary>Appends a clip entry and returns its index.</summary>
     public uint AddClip(in ClipEntry clip)
     {
