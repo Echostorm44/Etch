@@ -1,7 +1,16 @@
-# SHA-256 checksums for the wgpu-native archives fetch.ps1 downloads.
-# Version: wgpu-native-b83eb64 (built by .github/workflows/wgpu-native.yml from native/wgpu-native/SOURCE)
-# To regenerate: gh release download <VERSION> --repo Echostorm44/Etch, then Get-FileHash -Algorithm SHA256
+# SHA-256 checksums for the wgpu-native archives fetch.ps1 downloads, and which release they are.
+#   version  the release (a VERSION) the archives below were downloaded from
+#   inputs   what that release was built from: fetch.ps1 -InputsHash (SOURCE's commit and
+#            features, and patches/*.patch) at the commit that published it
+# fetch.ps1 only fetches when both match the working tree (VERSION, and SOURCE + patches/ now);
+# otherwise the binaries are unpublished and CI builds them (.github/actions/wgpu-native).
+#
+# To publish (after the change that bumped VERSION is on main):
+#   git tag <VERSION> && git push origin <VERSION>     (runs .github/workflows/wgpu-native.yml)
+# then copy the lines from that run's "Publish release" summary over the ones below and commit.
 
+version = wgpu-native-b83eb64
+inputs = 11aa907accb38823ab033c57b170c9bc6cc927261b38adbf9034292280c7514f
 wgpu-windows-x86_64-msvc-release.zip = 0f589535ed545b549156b70769ce93f096ef3d4e994f34e59039f5349f52a2fd
 wgpu-linux-x86_64-release.zip = fa4ef8456f95d198d2382b1be3707fe810d674ce2d1b33a6c0969440d8b9aaf4
 wgpu-macos-aarch64-release.zip = e41e59f00d0a72ce502e453b19becf0603afb978c40264a1dd4a46a8dea2b595

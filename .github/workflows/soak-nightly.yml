@@ -25,9 +25,12 @@ jobs:
       - name: Restore
         run: dotnet restore Etch.sln
 
-      - name: Install wgpu-native
-        run: ./native/wgpu-native/fetch.ps1 all
-        shell: pwsh
+      # The published wgpu-native release, or (until it is published) a cached source build of the
+      # runner's RID: .github/actions/wgpu-native.
+      - name: Provide wgpu-native
+        uses: ./.github/actions/wgpu-native
+        with:
+          rids: all
 
       - name: Build
         run: dotnet build Etch.sln -c Release --no-restore
