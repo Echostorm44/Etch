@@ -263,4 +263,36 @@ internal sealed class EdgeCaseTests
             }
         }
     }
+
+    [Test]
+    public async Task GlyphsTallerThanTheAtlasShelf_DrawAsOutlines()
+    {
+        // 200-px text: 'H' is ~140 px tall, more than a 128-px atlas shelf holds. Such glyphs were
+        // dropped (mono) or fell back to a monochrome silhouette (colour).
+        const int Width = 420;
+        const int Height = 260;
+        var rec = OnWhite(Width, Height);
+        rec.Glyphs(ParityScenes.Run("H", 10, 200, new ComposeColor(0, 0, 0, 1), 1f, 200));
+        rec.Glyphs(ParityScenes.EmojiRun("\U0001F600", 200, 220, 1f, 1f, 200));
+        byte[] rgba = RenderCpu(rec, Width, Height);
+
+        // The H's left stem, well inside it: black.
+        int stem = (150 * Width + 45) * 4;
+        await Assert.That((int)rgba[stem]).IsLessThan(40).Because("the H is drawn");
+        // The emoji: yellow pixels (a silhouette would be the run's white/black).
+        int yellow = 0;
+        for (int y = 40; y < 240; y++)
+        {
+            for (int x = 200; x < 410; x++)
+            {
+                int i = (y * Width + x) * 4;
+                if (rgba[i] > 200 && rgba[i + 1] > 150 && rgba[i + 2] < 100)
+                {
+                    yellow++;
+                }
+            }
+        }
+        await Assert.That(yellow).IsGreaterThan(5000).Because("the emoji is drawn in colour");
+        await AssertGpuParity(rec, Width, Height);
+    }
 }

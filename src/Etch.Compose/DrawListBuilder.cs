@@ -44,6 +44,15 @@ public sealed class DrawListBuilder
     // Mask tiles found to be uniform (all one coverage value) take no atlas space; their value is
     // remembered here by tile key for as long as the atlas keeps its content.
     private readonly Dictionary<ulong, byte> uniformTiles = new();
+
+    // Glyphs too large for the atlas, drawn as outlines (see DrawOversizedGlyph): the run's list,
+    // a scratch recording, and the outlines and colour layers by (face, glyph), in font units.
+    private readonly OversizedGlyphs oversizedGlyphs = new();
+    private readonly DrawRecording glyphOutlines = new();
+    private readonly Dictionary<(int FaceId, ushort GlyphId), BezPath?> outlineCache = new();
+    private readonly Dictionary<(int FaceId, ushort GlyphId), (ushort GlyphId, ComposeColor? Color)[]?> colorLayerCache = new();
+    private readonly Dictionary<int, ComposeColor> paletteBase = new();
+    private const int MaxCachedOutlines = 512;
     private int uniformGeneration = -1;
 
     private DrawList list = null!;
@@ -1318,9 +1327,118 @@ public sealed class DrawListBuilder
         uint clip = CurrentClip();
         int monoStart = list.Glyphs.Count;
         int colorStart = list.ColorGlyphs.Count;
-        CulledGlyphs += GlyphRunBuilder.Append(list, run, offsetX, offsetY, opacity, clip, monoAtlas, colorAtlas, placedGlyphs);
+        oversizedGlyphs.Glyphs.Clear();
+        CulledGlyphs += GlyphRunBuilder.Append(list, run, offsetX, offsetY, opacity, clip, monoAtlas, colorAtlas, placedGlyphs, oversizedGlyphs);
         list.PlaceGlyphs(DrawKind.Glyph, monoStart);
         list.PlaceGlyphs(DrawKind.ColorGlyph, colorStart);
+        foreach (var glyph in oversizedGlyphs.Glyphs)
+        {
+            DrawOversizedGlyph(run, glyph, opacity);
+        }
+    }
+
+    /// <summary>
+    /// Draws a glyph too large for the atlas as its outline, an analytic path fill like any other
+    /// (so it is exact on both backends): a colour glyph as its colour layers, in order, the
+    /// foreground layer in the run's colour. Placement follows the atlas glyphs': the baseline on
+    /// a whole row, a colour glyph's pen on a whole pixel.
+    /// </summary>
+    private void DrawOversizedGlyph(in GlyphRunData run, in OversizedGlyph glyph, float opacity)
+    {
+        var face = run.Face;
+        if (face.UnitsPerEm <= 0)
+        {
+            return;
+        }
+        float scale = face.PointSize * 96f / (72f * face.UnitsPerEm);
+        float x = glyph.IsColor ? MathF.Round(glyph.PenX, MidpointRounding.AwayFromZero) : glyph.PenX;
+        float y = MathF.Round(glyph.PenY, MidpointRounding.AwayFromZero);
+        glyphOutlines.Clear();
+        glyphOutlines.SetTransform(Affine.Translate(x, y) * Affine.Scale(scale, -scale));
+        var layers = glyph.IsColor ? ColorLayers(run, glyph.GlyphId) : null;
+        if (layers is not null && ColorBaseFill(run) is ComposeColor baseColor && Outline(face, run.FaceId, glyph.GlyphId) is BezPath basePath)
+        {
+            // As the atlas rasterizer does (GlyphRasterizer.RasterizeColorGlyph): the base glyph
+            // under the layers, in palette entry 0.
+            glyphOutlines.FillPath(basePath, FillRule.NonZero, ComposePaint.Solid(baseColor with { A = baseColor.A * run.Color.A }));
+        }
+        if (layers is null)
+        {
+            if (Outline(face, run.FaceId, glyph.GlyphId) is BezPath outline)
+            {
+                glyphOutlines.FillPath(outline, FillRule.NonZero, ComposePaint.Solid(run.Color));
+            }
+        }
+        else
+        {
+            foreach (var (layerGlyph, color) in layers)
+            {
+                if (Outline(face, run.FaceId, layerGlyph) is BezPath outline)
+                {
+                    var paint = color is ComposeColor c ? c with { A = c.A * run.Color.A } : run.Color;
+                    glyphOutlines.FillPath(outline, FillRule.NonZero, ComposePaint.Solid(paint));
+                }
+            }
+        }
+        Replay(glyphOutlines, 0f, 0f, opacity);
+    }
+
+    private BezPath? Outline(Etch.Text.Shape.FontFace face, int faceId, ushort glyphId)
+    {
+        if (outlineCache.TryGetValue((faceId, glyphId), out var cached))
+        {
+            return cached;
+        }
+        var builder = BezPathBuilder.Begin(64);
+        var outline = Etch.Text.Outline.GlyphOutlineBuilder.Build(face, glyphId, builder);
+        builder.Dispose();
+        if (outlineCache.Count >= MaxCachedOutlines)
+        {
+            outlineCache.Clear();
+        }
+        outlineCache[(faceId, glyphId)] = outline is { IsEmpty: false } ? outline : null;
+        return outlineCache[(faceId, glyphId)];
+    }
+
+    // CPAL palette entry 0 of the run's face (known once a colour glyph's layers were read).
+    private ComposeColor? ColorBaseFill(in GlyphRunData run) => paletteBase.TryGetValue(run.FaceId, out var c) ? c : null;
+
+    private static ComposeColor Linear(Etch.Text.Outline.GlyphColorValue p)
+        => new(Srgb.Decode(p.R / 255f), Srgb.Decode(p.G / 255f), Srgb.Decode(p.B / 255f), p.A / 255f);
+
+    // The glyph's COLR layers with their CPAL colours (linear; null: the run's colour), or null
+    // when the glyph has none.
+    private (ushort GlyphId, ComposeColor? Color)[]? ColorLayers(in GlyphRunData run, ushort glyphId)
+    {
+        if (colorLayerCache.TryGetValue((run.FaceId, glyphId), out var cached))
+        {
+            return cached;
+        }
+        (ushort, ComposeColor?)[]? result = null;
+        if (Etch.Text.Outline.GlyphOutlineBuilder.TryGetColorLayers(run.Face, glyphId, out var layers, out var palette) && layers.Length > 0)
+        {
+            if (palette.Length > 0)
+            {
+                paletteBase[run.FaceId] = Linear(palette[0]);
+            }
+            result = new (ushort, ComposeColor?)[layers.Length];
+            for (int i = 0; i < layers.Length; i++)
+            {
+                var layer = layers[i];
+                ComposeColor? color = null;
+                if (layer.PaletteIndex != 0xFFFF && layer.PaletteIndex < palette.Length)
+                {
+                    color = Linear(palette[layer.PaletteIndex]);
+                }
+                result[i] = (layer.GlyphId, color);
+            }
+        }
+        if (colorLayerCache.Count >= MaxCachedOutlines)
+        {
+            colorLayerCache.Clear();
+        }
+        colorLayerCache[(run.FaceId, glyphId)] = result;
+        return result;
     }
 
     // ── Masks ───────────────────────────────────────────────────────────

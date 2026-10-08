@@ -34,6 +34,36 @@ public static class GlyphPlacement
         => MathF.Round(penY, MidpointRounding.AwayFromZero) - (bitmapTopBearing + bitmapHeight);
 }
 
+/// <summary>
+/// A glyph too large for the glyph atlas (taller than a shelf): the builder draws its outline
+/// instead (its colour layers, for a colour glyph). Pen position in device pixels.
+/// </summary>
+public readonly record struct OversizedGlyph(ushort GlyphId, float PenX, float PenY, bool IsColor);
+
+/// <summary>
+/// Collects a run's <see cref="OversizedGlyph"/>s, and remembers which colour glyphs are too large
+/// for the atlas so they are not rasterized again to find out.
+/// </summary>
+public sealed class OversizedGlyphs
+{
+    private const int MaxRemembered = 1024;
+    private readonly HashSet<GlyphCacheKey> known = new();
+
+    /// <summary>The current run's glyphs too large for the atlas.</summary>
+    public List<OversizedGlyph> Glyphs { get; } = new();
+
+    internal HashSet<GlyphCacheKey> Known => known;
+
+    internal void Remember(GlyphCacheKey key)
+    {
+        if (known.Count >= MaxRemembered)
+        {
+            known.Clear();
+        }
+        known.Add(key);
+    }
+}
+
 /// <summary>Where one glyph of a run was placed (for draw-provenance tooling).</summary>
 public readonly record struct PlacedGlyph(
     float X, float Y, float Width, float Height,
@@ -51,10 +81,11 @@ public static class GlyphRunBuilder
     /// Appends the instances of <paramref name="run"/>, shifted by (<paramref name="offsetX"/>,
     /// <paramref name="offsetY"/>) and faded by <paramref name="opacity"/>, to
     /// <paramref name="list"/>'s glyph lists. Glyphs whose quad misses the clip's hard rect are skipped.
-    /// Returns the number of glyphs skipped that way.
+    /// Returns the number of glyphs skipped that way. Glyphs too large for the atlas are reported to
+    /// <paramref name="oversized"/> (when given) for the caller to draw as outlines.
     /// </summary>
     public static int Append(DrawList list, in GlyphRunData run, float offsetX, float offsetY, float opacity, uint clipIndex,
-        GlyphAtlas monoAtlas, GlyphAtlas colorAtlas, List<PlacedGlyph>? placed)
+        GlyphAtlas monoAtlas, GlyphAtlas colorAtlas, List<PlacedGlyph>? placed, OversizedGlyphs? oversized = null)
     {
         ArgumentNullException.ThrowIfNull(list);
         ArgumentNullException.ThrowIfNull(monoAtlas);
@@ -94,11 +125,22 @@ public static class GlyphRunBuilder
                 var colorKey = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, 0);
                 if (!colorAtlas.TryLookup(colorKey, out var colorRegion, out _))
                 {
+                    if (oversized is not null && oversized.Known.Contains(colorKey))
+                    {
+                        oversized.Glyphs.Add(new OversizedGlyph(glyphId, gx, gy, true));
+                        continue;
+                    }
+                    bool tooLarge = false;
                     byte[] rented = ArrayPool<byte>.Shared.Rent(256 * 256 * 4);
                     try
                     {
-                        if (GlyphRasterizer.RasterizeColorGlyph(face, glyphId, rented.AsSpan(), out int cw, out int ch, out int cminX, out int cminY)
-                            && cw > 0 && ch > 0)
+                        // False with a size: the bitmap is larger than the buffer.
+                        bool rasterized = GlyphRasterizer.RasterizeColorGlyph(face, glyphId, rented.AsSpan(), out int cw, out int ch, out int cminX, out int cminY);
+                        if (cw > 0 && ch > 0 && (!rasterized || !colorAtlas.CanEverHold(cw, ch)))
+                        {
+                            tooLarge = true;
+                        }
+                        else if (rasterized && cw > 0 && ch > 0)
                         {
                             colorAtlas.TryInsert(colorKey, rented.AsSpan(0, cw * ch * 4), cw, ch, out colorRegion, out _, (short)cminX, (short)cminY);
                         }
@@ -106,6 +148,12 @@ public static class GlyphRunBuilder
                     finally
                     {
                         ArrayPool<byte>.Shared.Return(rented);
+                    }
+                    if (tooLarge && oversized is not null)
+                    {
+                        oversized.Remember(colorKey);
+                        oversized.Glyphs.Add(new OversizedGlyph(glyphId, gx, gy, true));
+                        continue;
                     }
                 }
 
@@ -147,6 +195,11 @@ public static class GlyphRunBuilder
             if (!monoAtlas.TryLookup(key, out var region, out _))
             {
                 GlyphRasterizer.Measure(face, glyphId, out int gw, out int gh, subpixel / 4f);
+                if (oversized is not null && !monoAtlas.CanEverHold(gw + 1, gh))
+                {
+                    oversized.Glyphs.Add(new OversizedGlyph(glyphId, gx, gy, false));
+                    continue;
+                }
                 if (gw > 0 && gh > 0)
                 {
                     // The rasterizer widens the bitmap by one column when the subpixel shift > 0.

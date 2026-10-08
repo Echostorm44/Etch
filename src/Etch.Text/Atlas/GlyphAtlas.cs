@@ -183,6 +183,12 @@ public sealed class GlyphAtlas : IDisposable
         pages.Add(CreatePage());
     }
 
+    /// <summary>
+    /// True when a <paramref name="width"/> × <paramref name="height"/> bitmap fits an empty page's
+    /// shelf (padding included). A larger glyph can never be cached and must be drawn another way.
+    /// </summary>
+    public bool CanEverHold(int width, int height) => height + 1 <= rowHeight && width + 1 <= dim;
+
     /// <summary>Bytes per texel of the pages (1 for R8, 4 for RGBA8).</summary>
     public int BytesPerPixel => bytesPerPixel;
 
