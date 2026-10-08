@@ -25,6 +25,11 @@ internal sealed class GpuCpuParityTests
     private const int P999Budget = 2;
     private const int MaxBudget = 4;
 
+    // Absolute ceilings for the hardware tier (the RTX 4090's worst: mean 0.10, p99.9 3, max 8).
+    private const double HardwareMeanCap = 0.2;
+    private const int HardwareP999Cap = 4;
+    private const int HardwareMaxCap = 10;
+
     public static IEnumerable<(string, float)> Cases()
     {
         foreach (string scene in ParityScenes.Names)
@@ -87,9 +92,12 @@ internal sealed class GpuCpuParityTests
         string name = $"{scene}-{scale * 100:0}";
         await Report($"{name} {hardware.AdapterName}: cpu {cpuStats} | reference {referenceStats}");
 
+        // As close as the reference rasterizer is — and never beyond an absolute ceiling, so a
+        // hardware adapter that renders badly wrong cannot loosen its own budget.
         bool pass = cpuStats.MeanError < Math.Max(MeanBudget, referenceStats.MeanError * 1.25)
             && cpuStats.P999 <= Math.Max(P999Budget, referenceStats.P999 + 1)
-            && cpuStats.Max <= Math.Max(MaxBudget, referenceStats.Max + 1);
+            && cpuStats.Max <= Math.Max(MaxBudget, referenceStats.Max + 1)
+            && cpuStats.MeanError < HardwareMeanCap && cpuStats.P999 <= HardwareP999Cap && cpuStats.Max <= HardwareMaxCap;
         if (!pass)
         {
             await Fail(name + "-hw", gpu, cpu, (int)width, (int)height, cpuStats);
@@ -118,7 +126,8 @@ internal sealed class GpuCpuParityTests
         await Assert.That(harness.CpuMaskedClips).IsGreaterThanOrEqualTo(3);
         await Assert.That(harness.CpuDroppedMasks).IsEqualTo(0);
         int corner = (24 * width + 24) * 4;
-        await Assert.That(cpu[corner + 2] > cpu[corner] + 40).IsFalse().Because("the rounded corner outside the clip keeps the paper colour"); bool pass = stats.MeanError < MeanBudget && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
+        await Assert.That(cpu[corner + 2] > cpu[corner] + 40).IsFalse().Because("the rounded corner outside the clip keeps the paper colour");
+        bool pass = stats.MeanError < MeanBudget && stats.P999 <= P999Budget && stats.Max <= MaxBudget;
         if (!pass)
         {
             await Fail(name, gpu, cpu, width, height, stats);
@@ -135,10 +144,10 @@ internal sealed class GpuCpuParityTests
     public async Task CpuFramesBlitExactlyThroughTheGpu(ParityAdapter adapter)
     {
         const uint width = 640, height = 360;
-        using var harness = ParityHarness.TryCreate(width, height, ParityAdapter.Reference, out string reason);
+        using var harness = ParityHarness.TryCreate(width, height, adapter, out string reason);
         if (harness is null)
         {
-            Skip.Test($"Needs the reference adapter: {reason}");
+            Skip.Test($"Needs the {adapter} adapter: {reason}");
             return;
         }
         using var composer = new Etch.Compose.Cpu.CpuComposer();
