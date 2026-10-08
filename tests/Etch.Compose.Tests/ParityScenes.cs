@@ -214,6 +214,13 @@ internal static class ParityScenes
         rec.PushClipRect(10, 175, 140, 35);
         rec.Glyphs(Run("Clipped text runs past", 15, 205 * scale, Ink, scale));
         rec.PopClip();
+        // Text cut by a rounded clip and by a path (mask) clip: glyphs take the clip coverage too.
+        rec.PushClipRoundedRect(160, 212, 150, 22, 11);
+        rec.Glyphs(Run("Rounded clip cuts text", 150 * scale, 230 * scale, Ink, scale, 16));
+        rec.PopClip();
+        rec.PushClipPath(Circle(255, 45, 38), FillRule.NonZero);
+        rec.Glyphs(Run("MASKED", 205 * scale, 52 * scale, Ink, scale, 22));
+        rec.PopClip();
     }
 
     private static void Images(DrawRecording rec, Affine t)
