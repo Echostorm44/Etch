@@ -17,8 +17,16 @@ public enum SurfaceTextureResult
     Suboptimal = 1,
     Timeout = 2,
     Outdated = 3,
+    /// <summary>The surface was lost (not the device): reconfigure or recreate it.</summary>
     Lost = 4,
+    /// <summary>Not reported by the current wgpu-native (webgpu.h has no such status).</summary>
     OutOfMemory = 5,
+    /// <summary>
+    /// The device is lost (driver reset, GPU removed, <c>Device.Destroy</c>). Reported by a swap
+    /// chain configured with the device's <see cref="Validation.DeviceLossWatch"/>.
+    /// </summary>
     DeviceLost = 6,
     Error = 7,
+    /// <summary>The window is occluded (wgpu.h); try again once it is visible.</summary>
+    Occluded = 8,
 }

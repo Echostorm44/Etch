@@ -89,7 +89,7 @@ internal sealed class BindingsGenerator
         ["wgpuCommandEncoderRelease"] = new("void", "CommandEncoderRelease", new[] { ("CommandEncoderHandle", "encoder") }),
         ["wgpuSurfaceConfigure"] = new("void", "SurfaceConfigure", new[] { ("SurfaceHandle", "surface"), ("System.IntPtr", "config") }),
         ["wgpuSurfaceGetCurrentTexture"] = new("void", "SurfaceGetCurrentTexture", new[] { ("SurfaceHandle", "surface"), ("System.IntPtr", "texture") }),
-        ["wgpuSurfacePresent"] = new("void", "SurfacePresent", new[] { ("SurfaceHandle", "surface") }),
+        ["wgpuSurfacePresent"] = new("uint", "SurfacePresent", new[] { ("SurfaceHandle", "surface") }),
         ["wgpuSurfaceUnconfigure"] = new("void", "SurfaceUnconfigure", new[] { ("SurfaceHandle", "surface") }),
         ["wgpuDeviceCreateQuerySet"] = new("QuerySetHandle", "DeviceCreateQuerySet", new[] { ("DeviceHandle", "device"), ("System.IntPtr", "descriptor") }),
         ["wgpuQuerySetDestroy"] = new("void", "QuerySetDestroy", new[] { ("QuerySetHandle", "querySet") }),

@@ -46,12 +46,17 @@ public readonly ref struct FrameContext : IDisposable
 
     public SurfaceTexture Texture => _texture;
 
-    public void Present()
+    /// <summary>Presents the frame; <see cref="Dispose"/> still releases its texture.</summary>
+    /// <returns>False when the frame could not be presented (a lost device, say).</returns>
+    public bool Present()
     {
-        if (_ownsTexture && _texture.IsValid)
+        if (!_ownsTexture || !_texture.IsValid)
         {
-            _swapChain.Present(_texture);
+            return false;
         }
+
+        // Not SwapChain.Present(texture): that releases the texture, and Dispose releases it again.
+        return _swapChain.Present();
     }
 
     public void Dispose()

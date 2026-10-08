@@ -323,7 +323,7 @@ public static partial class WebGPU
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuSurfacePresent")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-    public static partial void SurfacePresent(SurfaceHandle surface);
+    public static partial uint SurfacePresent(SurfaceHandle surface);
 
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuSurfaceUnconfigure")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]

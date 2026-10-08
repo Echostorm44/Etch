@@ -267,7 +267,10 @@ public readonly struct Device : IDisposable
 
     /// <summary>Processes completed GPU work; with <paramref name="wait"/>, blocks until the queue drains.</summary>
     /// <param name="wait">Block until all submitted work has finished.</param>
-    /// <returns>True when no submissions are still in flight.</returns>
+    /// <returns>
+    /// True when no submissions are still in flight. A lost device reports true: nothing it has
+    /// in flight will complete any more.
+    /// </returns>
     public bool Poll(bool wait = false)
     {
         // Retiring a submission can destroy pipelines released while it was in flight.

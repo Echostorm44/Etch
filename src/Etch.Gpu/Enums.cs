@@ -516,6 +516,7 @@ public enum CompositeAlphaMode : uint
     Inherit = 4,
 }
 
+/// <summary>WGPUSurfaceGetCurrentTextureStatus (webgpu.h), plus wgpu.h's native Occluded.</summary>
 public enum SurfaceGetCurrentTextureStatus : uint
 {
     SuccessOptimal = 1,
@@ -523,7 +524,7 @@ public enum SurfaceGetCurrentTextureStatus : uint
     Timeout = 3,
     Outdated = 4,
     Lost = 5,
-    OutOfMemory = 6,
-    DeviceLost = 7,
-    Error = 8,
+    /// <summary>A deterministic error; also what acquiring from a lost device reports.</summary>
+    Error = 6,
+    Occluded = 0x00030001,
 }
