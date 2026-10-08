@@ -139,6 +139,31 @@ internal sealed class EdgeCaseTests
     }
 
     [Test]
+    public async Task GpuImageTextures_AreFreedWhenReleasedOrTrimmed()
+    {
+        using var harness = ParityHarness.TryCreate(ParityScenes.Width, ParityScenes.Height, ParityAdapter.Reference, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"Needs the reference adapter: {reason}");
+            return;
+        }
+        var parameters = new ComposeParameters { TextGamma = 1.5f, LightWeight = 1f };
+        harness.RenderGpu(ParityScenes.Build("images", 1f), ParityScenes.Width, ParityScenes.Height, parameters);
+        int images = harness.Gpu.ImageTextureCount;
+        await Assert.That(images).IsEqualTo(2);
+        harness.Gpu.ReleaseImage(1);
+        await Assert.That(harness.Gpu.ImageTextureCount).IsEqualTo(1);
+        harness.RenderGpu(ParityScenes.Build("clips", 1f), ParityScenes.Width, ParityScenes.Height, parameters);
+        await Assert.That(harness.Gpu.Masks.PageCount).IsGreaterThan(0);
+        harness.Gpu.Trim();
+        await Assert.That(harness.Gpu.ImageTextureCount).IsEqualTo(0);
+        await Assert.That(harness.Gpu.Masks.PageCount).IsEqualTo(0);
+        // Everything comes back on the next frame.
+        var (gpu, cpu) = harness.Render(ParityScenes.Build("clips", 1f), ParityScenes.Width, ParityScenes.Height, parameters);
+        await Assert.That(ParityStats.Compare(gpu, cpu, ParityScenes.Width, ParityScenes.Height).Max).IsLessThanOrEqualTo(4);
+    }
+
+    [Test]
     public async Task DegenerateLineInstance_HasZeroCoverage_NotNaN()
     {
         var inst = new ShapeInstance { Type = ShapeType.Line, P0 = 5, P1 = 5, P2 = 5, P3 = 5, Q0 = 3, Q1 = 1 };

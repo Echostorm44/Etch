@@ -346,32 +346,37 @@ public sealed unsafe class GpuComposer : IDisposable
         device.Queue.WriteTexture(fallbackTexture, 0, origin, bytes.Slice(start, length), width * 4, (uint)rect.Height, size);
     }
 
-    /// <summary>Drops the GPU textures of images not in <paramref name="liveHandles"/>.</summary>
-    public void ReleaseImagesExcept(IReadOnlySet<int> liveHandles)
+    /// <summary>
+    /// Frees the GPU texture of image <paramref name="handle"/> (the image was destroyed; a later
+    /// image may reuse the handle and must not draw the old texture). No-op for an unknown handle.
+    /// </summary>
+    public void ReleaseImage(int handle)
     {
-        ArgumentNullException.ThrowIfNull(liveHandles);
-        List<int>? dead = null;
-        foreach (int handle in imageTextures.Keys)
-        {
-            if (!liveHandles.Contains(handle))
-            {
-                (dead ??= new List<int>()).Add(handle);
-            }
-        }
-        if (dead is null)
+        if (!imageTextures.Remove(handle, out var entry))
         {
             return;
         }
-        foreach (int handle in dead)
+        entry.Group.Dispose();
+        entry.View.Dispose();
+        entry.Texture.Dispose();
+    }
+
+    /// <summary>
+    /// Frees every GPU resource that is re-creatable on the next frame — image textures, mask
+    /// pages, the CPU-frame texture — while the window is hidden. Glyph atlases are kept.
+    /// </summary>
+    public void Trim()
+    {
+        foreach (var entry in imageTextures.Values)
         {
-            var entry = imageTextures[handle];
             entry.Group.Dispose();
             entry.View.Dispose();
             entry.Texture.Dispose();
-            imageTextures.Remove(handle);
         }
+        imageTextures.Clear();
+        maskAtlas.Trim();
+        ReleaseFramebufferTexture();
     }
-
     // ── Upload ──────────────────────────────────────────────────────────
 
     private void Upload(DrawList list)
