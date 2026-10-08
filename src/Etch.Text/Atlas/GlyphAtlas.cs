@@ -99,6 +99,21 @@ public sealed class GlyphAtlas : IDisposable
         }
     }
 
+    /// <summary>
+    /// Starts a frame: glyphs the frame uses are protected from LRU eviction until the next call
+    /// (see <see cref="LruCache.BeginFrame"/>). Call between frames, after any <see cref="Reset"/>.
+    /// </summary>
+    public void BeginFrame()
+    {
+        lock (_lock)
+        {
+            foreach (var page in pages)
+            {
+                page.Cache.BeginFrame();
+            }
+        }
+    }
+
     public GlyphAtlas(
         Device device,
         int pageDimension,

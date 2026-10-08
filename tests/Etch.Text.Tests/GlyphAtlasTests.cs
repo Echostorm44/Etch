@@ -543,4 +543,46 @@ public sealed class GlyphAtlasTests
             }
         }
     }
+
+    [Test]
+    public async Task FrameGlyphs_AreNeverEvictedForAnotherGlyphOfTheSameFrame()
+    {
+        // 512² page, 128 px shelves: sixteen 127² glyphs fill it by area. Inserting more in the
+        // same frame used to evict the frame's own oldest glyph and hand its slot to the next one,
+        // overwriting texels the frame still draws.
+        using var atlas = new GlyphAtlas(512, Etch.Gpu.TextureFormat.R8Unorm, 128, 1);
+        atlas.BeginFrame();
+        var placed = new List<(GlyphCacheKey Key, AtlasRegion Region, byte Value)>();
+        for (int i = 0; i < 20; i++)
+        {
+            byte value = (byte)(10 + i);
+            byte[] bitmap = new byte[127 * 127];
+            Array.Fill(bitmap, value);
+            var key = new GlyphCacheKey(1, 640, (ushort)i, 0);
+            if (atlas.TryInsert(key, bitmap, 127, 127, out var region, out _, 0, 0))
+            {
+                placed.Add((key, region, value));
+            }
+        }
+
+        await Assert.That(placed.Count).IsGreaterThan(8);
+        await Assert.That(atlas.WasExhausted).IsTrue();
+        var page = atlas.GetPage(0).Pixels!;
+        foreach (var (key, region, value) in placed)
+        {
+            // Every glyph the frame placed still holds its own pixels.
+            await Assert.That(page[region.V * 512 + region.U]).IsEqualTo(value);
+            await Assert.That(page[(region.V + 126) * 512 + region.U + 126]).IsEqualTo(value);
+        }
+
+        // Next frame: glyphs it does not use may be evicted again (plain LRU).
+        atlas.BeginFrame();
+        var lastKey = placed[^1].Key;
+        await Assert.That(atlas.TryLookup(lastKey, out _, out _)).IsTrue();
+        byte[] fresh = new byte[127 * 127];
+        bool inserted = atlas.TryInsert(new GlyphCacheKey(2, 640, 1, 0), fresh, 127, 127, out var freshRegion, out _, 0, 0);
+        await Assert.That(inserted).IsTrue();
+        await Assert.That(atlas.TryLookup(lastKey, out var lastRegion, out _)).IsTrue();
+        await Assert.That(freshRegion.U != lastRegion.U || freshRegion.V != lastRegion.V).IsTrue();
+    }
 }

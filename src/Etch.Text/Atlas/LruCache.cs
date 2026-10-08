@@ -123,6 +123,9 @@ internal sealed class LruCache
     private readonly ShelfPack _packer;
     private readonly List<Slot> _evictedSlots;
 
+    // The frame being built (see BeginFrame); 0 until a caller marks frames, which keeps plain LRU.
+    private int _frame;
+
     public LruCache(int capacity)
         : this(capacity, 4096, 4096, 256)
     {
@@ -142,10 +145,19 @@ internal sealed class LruCache
         _evictedSlots = new List<Slot>();
     }
 
+    /// <summary>
+    /// Starts a frame. From then on, a glyph the frame has looked up or inserted is never evicted
+    /// for another during the same frame: its texels are referenced by the frame's instances, so
+    /// reusing its slot would draw the newcomer in its place. An insert that would need such an
+    /// eviction fails instead, which flags the atlas exhausted and resets it between frames.
+    /// </summary>
+    public void BeginFrame() => _frame++;
+
     public bool TryLookup(GlyphCacheKey key, out AtlasRegion region)
     {
         if (_map.TryGetValue(key, out var entry))
         {
+            entry.LastUsedFrame = _frame;
             MoveToHead(entry);
             region = new AtlasRegion((ushort)entry.U, (ushort)entry.V, (ushort)entry.W, (ushort)entry.H, entry.OffsetX, entry.OffsetY);
             return true;
@@ -158,6 +170,7 @@ internal sealed class LruCache
     {
         if (_map.TryGetValue(key, out var existing))
         {
+            existing.LastUsedFrame = _frame;
             MoveToHead(existing);
             region = new AtlasRegion((ushort)existing.U, (ushort)existing.V, (ushort)existing.W, (ushort)existing.H, existing.OffsetX, existing.OffsetY);
             return true;
@@ -165,21 +178,20 @@ internal sealed class LruCache
 
         int approxSize = w * h;
 
-        for (int i = _evictedSlots.Count - 1; i >= 0; i--)
+        if (TryTakeEvictedSlot(w, h, out u, out v))
         {
-            var slot = _evictedSlots[i];
-            if (slot.W >= w && slot.H >= h)
-            {
-                u = slot.X;
-                v = slot.Y;
-                _evictedSlots.RemoveAt(i);
-                goto placed;
-            }
+            goto placed;
         }
 
         while (_totalSize + approxSize > _capacity && _tail != null)
         {
             var evictEntry = _tail!;
+            if (_frame != 0 && evictEntry.LastUsedFrame == _frame)
+            {
+                // Everything left was drawn this frame (the list is in recency order).
+                region = default;
+                return false;
+            }
             _evictedSlots.Add(new Slot { X = evictEntry.U, Y = evictEntry.V, W = evictEntry.W, H = evictEntry.H });
             EvictTail();
         }
@@ -188,6 +200,12 @@ internal sealed class LruCache
         {
             region = default;
             return false;
+        }
+
+        // A slot the evictions just freed.
+        if (TryTakeEvictedSlot(w, h, out u, out v))
+        {
+            goto placed;
         }
 
         if (!_packer.Allocate(w, h, out u, out v))
@@ -203,13 +221,31 @@ internal sealed class LruCache
         }
 
     placed:
-        var entry = new LruCacheEntry(key, w, h, u, v, offsetX, offsetY);
+        var entry = new LruCacheEntry(key, w, h, u, v, offsetX, offsetY) { LastUsedFrame = _frame };
         AddToHead(entry);
         _map.Add(key, entry);
         _totalSize += approxSize;
 
         region = new AtlasRegion((ushort)u, (ushort)v, (ushort)w, (ushort)h, offsetX, offsetY);
         return true;
+    }
+
+    private bool TryTakeEvictedSlot(int w, int h, out int u, out int v)
+    {
+        for (int i = _evictedSlots.Count - 1; i >= 0; i--)
+        {
+            var slot = _evictedSlots[i];
+            if (slot.W >= w && slot.H >= h)
+            {
+                u = slot.X;
+                v = slot.Y;
+                _evictedSlots.RemoveAt(i);
+                return true;
+            }
+        }
+        u = 0;
+        v = 0;
+        return false;
     }
 
     public int Count => _map.Count;
@@ -335,6 +371,9 @@ internal sealed class LruCacheEntry
     public int H { get; set; }
     public short OffsetX { get; set; }
     public short OffsetY { get; set; }
+
+    /// <summary>The last frame (<see cref="LruCache.BeginFrame"/>) that looked this glyph up or inserted it.</summary>
+    public int LastUsedFrame { get; set; }
     public LruCacheEntry? Next { get; set; }
     public LruCacheEntry? Prev { get; set; }
 

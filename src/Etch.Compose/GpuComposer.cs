@@ -326,7 +326,8 @@ public sealed unsafe class GpuComposer : IDisposable
     }
 
     /// <summary>
-    /// Clears every glyph atlas that filled up last frame (or all of them, when <paramref name="force"/>)
+    /// Starts a frame: clears every glyph atlas that filled up last frame (or all of them, when <paramref name="force"/>),
+    /// protects the glyphs the new frame uses from eviction (<see cref="Etch.Text.Atlas.GlyphAtlas.BeginFrame"/>)
     /// and ends the mask atlas's frame (eviction, page budget: <see cref="MaskAtlas.EndFrame"/>).
     /// Must run between frames, before the next frame's draw list is built.
     /// </summary>
@@ -340,6 +341,9 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             colorGlyphAtlas.Reset();
         }
+        // A new frame: the glyphs it uses are protected from eviction until the next one.
+        glyphAtlas.BeginFrame();
+        colorGlyphAtlas.BeginFrame();
         maskAtlas.EndFrame(force);
     }
 
