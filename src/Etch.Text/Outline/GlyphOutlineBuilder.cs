@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using Etch.Geometry;
 using Etch.Text.Shape;
 using Etch.Text.HarfBuzz;
@@ -316,8 +316,7 @@ public static class GlyphOutlineBuilder
 
     private static Face? GetHarfBuzzFace(FontFace face)
     {
-        var fontField = typeof(FontFace).GetField("_face", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        return (Face?)fontField?.GetValue(face);
+        return face.HarfBuzzFace;
     }
 
     private static BezPath? BuildComposite(FontFace face, Span<byte> glyfSpan, int glyphOffset, BezPathBuilder dest)
@@ -468,9 +467,11 @@ public static class GlyphOutlineBuilder
     private static readonly Tag ColrTag = new Tag('C', 'O', 'L', 'R');
     private static readonly Tag CpalTag = new Tag('C', 'P', 'A', 'L');
 
-    // CPAL palette cache: keyed by native face handle. Palettes are per-font,
-    // not per-glyph, so parsing once and reusing avoids repeated LOH allocations.
-    private static readonly ConcurrentDictionary<nint, GlyphColorValue[]> s_paletteCache = new();
+    // CPAL palette cache. Palettes are per-font, not per-glyph, so parsing once and reusing avoids
+    // repeated LOH allocations. Keyed by the managed HarfBuzz face, so an entry lives exactly as long
+    // as its face: keyed by the native face pointer it outlived the face, and a face later created at
+    // the same address inherited its palette (a colour font reported no colour layers).
+    private static readonly ConditionalWeakTable<Face, GlyphColorValue[]> s_paletteCache = new();
 
     /// <summary>
     /// Parses the CPAL table once per font face and caches the result.
@@ -486,7 +487,7 @@ public static class GlyphOutlineBuilder
             return false;
         }
 
-        nint key = hbFace.Handle;
+        Face key = hbFace;
         if (s_paletteCache.TryGetValue(key, out var cachedPalette))
         {
             palette = cachedPalette;
@@ -498,14 +499,14 @@ public static class GlyphOutlineBuilder
 
         if (cpalSpan.Length < 12)
         {
-            s_paletteCache.TryAdd(key, Array.Empty<GlyphColorValue>());
+            s_paletteCache.AddOrUpdate(key, Array.Empty<GlyphColorValue>());
             return false;
         }
 
         ushort cpalVersion = ReadUInt16(cpalSpan, 0);
         if (cpalVersion > 1)
         {
-            s_paletteCache.TryAdd(key, Array.Empty<GlyphColorValue>());
+            s_paletteCache.AddOrUpdate(key, Array.Empty<GlyphColorValue>());
             return false;
         }
 
@@ -516,14 +517,14 @@ public static class GlyphOutlineBuilder
 
         if (offsetFirstColorRecord + numColorRecords * 4 > cpalSpan.Length)
         {
-            s_paletteCache.TryAdd(key, Array.Empty<GlyphColorValue>());
+            s_paletteCache.AddOrUpdate(key, Array.Empty<GlyphColorValue>());
             return false;
         }
 
         int paletteIndex = 0;
         if (paletteIndex >= numPalettes)
         {
-            s_paletteCache.TryAdd(key, Array.Empty<GlyphColorValue>());
+            s_paletteCache.AddOrUpdate(key, Array.Empty<GlyphColorValue>());
             return false;
         }
 
@@ -537,7 +538,7 @@ public static class GlyphOutlineBuilder
             int indicesOffset = 12 + paletteIndex * 2;
             if (indicesOffset + 2 > cpalSpan.Length)
             {
-                s_paletteCache.TryAdd(key, Array.Empty<GlyphColorValue>());
+                s_paletteCache.AddOrUpdate(key, Array.Empty<GlyphColorValue>());
                 return false;
             }
             colorRecordIndex = ReadUInt16(cpalSpan, indicesOffset);
@@ -561,7 +562,7 @@ public static class GlyphOutlineBuilder
             palette[i] = new GlyphColorValue(r, g, b, a);
         }
 
-        s_paletteCache.TryAdd(key, palette);
+        s_paletteCache.AddOrUpdate(key, palette);
         return true;
     }
 
