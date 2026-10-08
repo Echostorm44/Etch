@@ -5,8 +5,9 @@
     Builds wgpu-native from the commit pinned in SOURCE and packages it like an upstream release.
 
 .DESCRIPTION
-    Clones (or reuses) the pinned wgpu-native checkout, builds the cdylib for the host RID with the
-    feature set from SOURCE, and writes <OutDir>/<archive>.zip laid out exactly like the upstream
+    Clones (or reuses) the pinned wgpu-native checkout, applies Etch's patches (patches/*.patch, in
+    name order, onto a clean checkout), builds the cdylib for the host RID with the feature set from
+    SOURCE, and writes <OutDir>/<archive>.zip laid out exactly like the upstream
     release archives (include/webgpu/*.h, lib/*, wgpu-native-meta/*), so fetch.ps1 and the packaging
     targets consume it unchanged. The static library is not shipped (D-008: never statically linked).
 
@@ -68,6 +69,17 @@ if ($LASTEXITCODE -ne 0) {
     throw "Could not check out wgpu-native $commit."
 }
 
+# `checkout --force` reset tracked files; also drop anything a previous build or patch added.
+git -C $WorkDir clean -fdq --exclude=target
+$patches = @(Get-ChildItem (Join-Path $PSScriptRoot 'patches') -Filter '*.patch' -ErrorAction SilentlyContinue | Sort-Object Name)
+foreach ($patch in $patches) {
+    Write-Host "Applying $($patch.Name)"
+    git -C $WorkDir apply --whitespace=nowarn $patch.FullName
+    if ($LASTEXITCODE -ne 0) {
+        throw "Could not apply $($patch.Name) to wgpu-native $commit."
+    }
+}
+
 if ($IsWindows -and -not $env:LIBCLANG_PATH) {
     $vsLlvm = Get-ChildItem 'C:\Program Files\Microsoft Visual Studio' -Directory -ErrorAction SilentlyContinue |
         ForEach-Object { Get-ChildItem $_.FullName -Directory } |
@@ -105,6 +117,7 @@ foreach ($library in $libraries) {
 }
 Set-Content (Join-Path $stage 'wgpu-native-meta/wgpu-native-git-tag') $commit -NoNewline
 Set-Content (Join-Path $stage 'wgpu-native-meta/features') $features -NoNewline
+Set-Content (Join-Path $stage 'wgpu-native-meta/patches') (($patches | ForEach-Object Name) -join "`n") -NoNewline
 
 $zip = Join-Path $OutDir "$archive.zip"
 if (Test-Path $zip) {
