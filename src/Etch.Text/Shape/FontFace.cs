@@ -182,6 +182,9 @@ public sealed class FontFace : IDisposable
 
     internal nint FreeTypeFace => _ftFace;
 
+    /// <summary>The HarfBuzz face (shared with this face's subpixel variant).</summary>
+    internal Face HarfBuzzFace => _face;
+
     public void Dispose()
     {
         if (_disposed)
