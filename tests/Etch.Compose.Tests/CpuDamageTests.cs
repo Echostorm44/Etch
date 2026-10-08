@@ -76,12 +76,15 @@ internal sealed class CpuDamageTests
 
     [Test]
     [NotInParallel]
-    public async Task IncrementalFrameAllocatesNothing()
+    [Arguments(1)]
+    [Arguments(-1)]
+    public async Task IncrementalFrameAllocatesNothing(int threads)
     {
+        // A caret blink and a text edit (more tiles, so worker threads run too).
         var on = UiFrameScene.Build(Width, Height, 1f, caret: true);
-        var off = UiFrameScene.Build(Width, Height, 1f, caret: false);
+        var off = UiFrameScene.Build(Width, Height, 1.25f, caret: false);
         using var pipeline = new Pipeline();
-        pipeline.Composer.MaxDegreeOfParallelism = 1;
+        pipeline.Composer.MaxDegreeOfParallelism = threads;
         for (int i = 0; i < 4; i++)
         {
             pipeline.BuildAndRenderIncremental(i % 2 == 0 ? on : off, Width, Height);
