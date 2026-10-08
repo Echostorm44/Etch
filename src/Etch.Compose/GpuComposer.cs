@@ -71,7 +71,53 @@ public sealed unsafe class GpuComposer : IDisposable
     private readonly GpuBuffer fullFrameVertices;
 
     // Images
-    private readonly Dictionary<int, (Texture Texture, TextureView View, BindGroup Group, long Bytes)> imageTextures = new();
+    private readonly Dictionary<int, ImageTextures> imageTextures = new();
+
+    // An image's GPU textures: one, or a grid of tiles when the image is larger than a texture
+    // may be (see MaxImageTextureSize). Uniform is the tile's own map, or invalid for a whole
+    // image (which binds the shared wholeImageMap).
+    private readonly record struct ImageTile(Texture Texture, TextureView View, BindGroup Group, GpuBuffer Uniform);
+
+    private sealed class ImageTextures(ImageTile[] tiles, long bytes)
+    {
+        public readonly ImageTile[] Tiles = tiles;
+        public readonly long Bytes = bytes;
+
+        public void Dispose()
+        {
+            foreach (var tile in Tiles)
+            {
+                tile.Group.Dispose();
+                tile.View.Dispose();
+                tile.Texture.Dispose();
+                if (!tile.Uniform.IsInvalid)
+                {
+                    tile.Uniform.Dispose();
+                }
+            }
+        }
+    }
+
+    // The image shader's tile map (ComposeShaders.ImageWgsl): the full-image UV range a tile
+    // draws (owned), and the image's size with the tile texture's origin in it (zero: the
+    // texture is the whole image).
+    [StructLayout(LayoutKind.Sequential)]
+    private struct ImageTileMap
+    {
+        public float OwnedU0;
+        public float OwnedV0;
+        public float OwnedU1;
+        public float OwnedV1;
+        public float ImageWidth;
+        public float ImageHeight;
+        public float OriginX;
+        public float OriginY;
+    }
+
+    // An owned bound that no UV reaches: a border tile also draws the antialiased fringe outside the image.
+    private const float Unbounded = 1e30f;
+
+    private readonly GpuBuffer wholeImageMap;
 
     // Full-frame CPU blit
     private Texture fallbackTexture;
@@ -221,7 +267,7 @@ public sealed unsafe class GpuComposer : IDisposable
         EnsureBgCopyTexture(width, height);
 
         shapePipeline = BuildPipeline("Shape", ComposeShaders.ShapeWgsl, ShapeLayout(), default, StraightOver(), PrimitiveTopology.TriangleStrip, null, 0);
-        imagePipeline = BuildPipeline("Image", ComposeShaders.ImageWgsl, ImageLayout0(), TextureSamplerLayout(), StraightOver(), PrimitiveTopology.TriangleStrip, null, 0);
+        imagePipeline = BuildPipeline("Image", ComposeShaders.ImageWgsl, ImageLayout0(), ImageLayout1(), StraightOver(), PrimitiveTopology.TriangleStrip, null, 0);
         glyphPipeline = BuildPipeline("Glyph", ComposeShaders.GlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
         colorGlyphPipeline = BuildPipeline("ColorGlyph", ComposeShaders.ColorGlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
         blurPipeline = BuildPipeline("Blur", ComposeShaders.BlurWgsl, BlurLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
@@ -237,7 +283,25 @@ public sealed unsafe class GpuComposer : IDisposable
             Size = (ulong)(FullFrameQuad.Length * sizeof(float)),
         });
         device.Queue.WriteBuffer(fullFrameVertices, 0, MemoryMarshal.AsBytes(FullFrameQuad));
+
+        wholeImageMap = CreateTileMap(new ImageTileMap
+        {
+            OwnedU0 = -Unbounded,
+            OwnedV0 = -Unbounded,
+            OwnedU1 = Unbounded,
+            OwnedV1 = Unbounded,
+        });
     }
+
+    /// <summary>
+    /// The largest image side uploaded as one texture: WebGPU's default <c>maxTextureDimension2D</c>,
+    /// which is what the device is created with. Larger images are uploaded as a grid of tiles at
+    /// full resolution (the original pixels, never rescaled) and drawn tile by tile. Tests lower it.
+    /// </summary>
+    internal int MaxImageTextureSize { get; set; } = 8192;
+
+    /// <summary>GPU textures held for image <paramref name="handle"/> (0 when none; tests).</summary>
+    internal int ImageTileCount(int handle) => imageTextures.TryGetValue(handle, out var entry) ? entry.Tiles.Length : 0;
 
     /// <summary>The monochrome glyph atlas glyph instances' UVs refer to.</summary>
     public GlyphAtlas MonoAtlas => glyphAtlas;
@@ -290,17 +354,26 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             Add((long)fallbackWidth * fallbackHeight * 4);
         }
+        int imageTiles = 0;
+        int tileMaps = 0;
         foreach (var entry in imageTextures.Values)
         {
+            textures += entry.Tiles.Length - 1;
             Add(entry.Bytes);
+            imageTiles += entry.Tiles.Length;
+            foreach (var tile in entry.Tiles)
+            {
+                tileMaps += tile.Uniform.IsInvalid ? 0 : 1;
+            }
         }
+        bufferBytes += (1L + tileMaps) * sizeof(ImageTileMap);
 
-        // Bind groups: the frame's eight (when built), the CPU-frame group, one per image.
-        int bindGroups = (shapeGroup.IsInvalid ? 0 : 8) + (fallbackBindGroup.IsInvalid ? 0 : 1) + imageTextures.Count;
+        // Bind groups: the frame's eight (when built), the CPU-frame group, one per image tile.
+        int bindGroups = (shapeGroup.IsInvalid ? 0 : 8) + (fallbackBindGroup.IsInvalid ? 0 : 1) + imageTiles;
         return new GpuResourceUsage(
             ShaderModules: PipelineCount,
             RenderPipelines: PipelineCount,
-            Buffers: growable.Length + 2,
+            Buffers: growable.Length + 3 + tileMaps,
             BufferBytes: bufferBytes,
             Textures: textures,
             TextureViews: textures,
@@ -417,9 +490,7 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             return;
         }
-        entry.Group.Dispose();
-        entry.View.Dispose();
-        entry.Texture.Dispose();
+        entry.Dispose();
     }
 
     /// <summary>
@@ -430,9 +501,7 @@ public sealed unsafe class GpuComposer : IDisposable
     {
         foreach (var entry in imageTextures.Values)
         {
-            entry.Group.Dispose();
-            entry.View.Dispose();
-            entry.Texture.Dispose();
+            entry.Dispose();
         }
         imageTextures.Clear();
         maskAtlas.Trim();
@@ -575,8 +644,12 @@ public sealed unsafe class GpuComposer : IDisposable
                         }
                         for (int i = batch.Start; i < batch.Start + batch.Count; i++)
                         {
-                            pass.SetBindGroup(1, imageTextures[images[i].Handle].Group);
-                            pass.Draw(4, 1, 0, (uint)i);
+                            // A tiled image draws once per tile; each tile keeps to its own UV range.
+                            foreach (var tile in imageTextures[images[i].Handle].Tiles)
+                            {
+                                pass.SetBindGroup(1, tile.Group);
+                                pass.Draw(4, 1, 0, (uint)i);
+                            }
                         }
                         break;
 
@@ -751,9 +824,60 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             return;
         }
+        int width = image.Width;
+        int height = image.Height;
+        int max = MaxImageTextureSize;
+        if (width <= max && height <= max)
+        {
+            var whole = CreateImageTile(image, 0, 0, width, height, default);
+            imageTextures[handle] = new ImageTextures([whole], (long)width * height * 4);
+            return;
+        }
+
+        // Tiles own (step × step) texels and hold one more on each interior side, so bilinear
+        // samples at a seam find both neighbours in the tile that draws the pixel.
+        int step = max - 2;
+        int columns = (width + step - 1) / step;
+        int rows = (height + step - 1) / step;
+        var tiles = new ImageTile[columns * rows];
+        long bytes = 0;
+        for (int row = 0; row < rows; row++)
+        {
+            int ownedY0 = row * step;
+            int ownedY1 = Math.Min(height, ownedY0 + step);
+            int y0 = Math.Max(0, ownedY0 - 1);
+            int y1 = Math.Min(height, ownedY1 + 1);
+            for (int column = 0; column < columns; column++)
+            {
+                int ownedX0 = column * step;
+                int ownedX1 = Math.Min(width, ownedX0 + step);
+                int x0 = Math.Max(0, ownedX0 - 1);
+                int x1 = Math.Min(width, ownedX1 + 1);
+                var map = CreateTileMap(new ImageTileMap
+                {
+                    OwnedU0 = column == 0 ? -Unbounded : (float)ownedX0 / width,
+                    OwnedV0 = row == 0 ? -Unbounded : (float)ownedY0 / height,
+                    OwnedU1 = column == columns - 1 ? Unbounded : (float)ownedX1 / width,
+                    OwnedV1 = row == rows - 1 ? Unbounded : (float)ownedY1 / height,
+                    ImageWidth = width,
+                    ImageHeight = height,
+                    OriginX = x0,
+                    OriginY = y0,
+                });
+                tiles[row * columns + column] = CreateImageTile(image, x0, y0, x1 - x0, y1 - y0, map);
+                bytes += (long)(x1 - x0) * (y1 - y0) * 4;
+            }
+        }
+        imageTextures[handle] = new ImageTextures(tiles, bytes);
+    }
+
+    // A texture of the (x, y, w, h) rect of the image's original pixels, bound with its tile map
+    // (invalid: the shared whole-image map).
+    private ImageTile CreateImageTile(ComposeImage image, int x, int y, int w, int h, GpuBuffer map)
+    {
         var texture = device.CreateTexture(new TextureDescriptor
         {
-            Size = new Extent3D { Width = (uint)image.Width, Height = (uint)image.Height, DepthOrArrayLayers = 1 },
+            Size = new Extent3D { Width = (uint)w, Height = (uint)h, DepthOrArrayLayers = 1 },
             Format = TextureFormat.Rgba8UnormSrgb,
             Usage = (ulong)(TextureUsage.TextureBinding | TextureUsage.CopyDst),
             Dimension = TextureDimension.D2,
@@ -762,10 +886,34 @@ public sealed unsafe class GpuComposer : IDisposable
         });
         var view = texture.CreateView();
         var origin = new WGPUOrigin3D { X = 0, Y = 0, Z = 0 };
-        var writeSize = new Extent3D { Width = (uint)image.Width, Height = (uint)image.Height, DepthOrArrayLayers = 1 };
-        device.Queue.WriteTexture(texture, 0, origin, image.Pixels, (uint)image.Width * 4, (uint)image.Height, writeSize);
-        imageTextures[handle] = (texture, view, CreateTextureSamplerGroup(imagePipeline.Group1, view, linearSampler),
-            (long)image.Width * image.Height * 4);
+        var writeSize = new Extent3D { Width = (uint)w, Height = (uint)h, DepthOrArrayLayers = 1 };
+        // The rect's rows, read at the image's stride straight from its pixels.
+        var source = image.Pixels.AsSpan((y * image.Width + x) * 4);
+        device.Queue.WriteTexture(texture, 0, origin, source, (uint)image.Width * 4, (uint)h, writeSize);
+
+        var entries = stackalloc BindGroupEntry[2];
+        entries[0] = new BindGroupEntry { Binding = 0, TextureView = view.Handle };
+        entries[1] = new BindGroupEntry
+        {
+            Binding = 1,
+            Buffer = (map.IsInvalid ? wholeImageMap : map).Handle,
+            Offset = 0,
+            Size = (ulong)sizeof(ImageTileMap),
+        };
+        var group = device.CreateBindGroup(new BindGroupDescriptor { Layout = imagePipeline.Group1.Handle, EntryCount = (UIntPtr)2, Entries = (nint)entries });
+        return new ImageTile(texture, view, group, map);
+    }
+
+    private GpuBuffer CreateTileMap(in ImageTileMap map)
+    {
+        var buffer = device.CreateBuffer(new BufferDescriptor
+        {
+            Usage = (ulong)(BufferUsage.Uniform | BufferUsage.CopyDst),
+            Size = (ulong)sizeof(ImageTileMap),
+        });
+        var copy = map;
+        device.Queue.WriteBuffer(buffer, 0, MemoryMarshal.AsBytes(MemoryMarshal.CreateReadOnlySpan(ref copy, 1)));
+        return buffer;
     }
 
     private BindGroup CreateTextureSamplerGroup(BindGroupLayout layout, TextureView view, Sampler sampler)
@@ -958,6 +1106,21 @@ public sealed unsafe class GpuComposer : IDisposable
         return CreateLayout(entries);
     }
 
+    private BindGroupLayout ImageLayout1()
+    {
+        Span<BindGroupLayoutEntry> entries =
+        [
+            TextureEntry(0, TextureSampleType.Float),
+            new BindGroupLayoutEntry
+            {
+                Binding = 1,
+                Visibility = (ulong)ShaderStage.Fragment,
+                Buffer = new BufferBindingLayout { Type = BufferBindingType.Uniform, MinBindingSize = (ulong)sizeof(ImageTileMap) },
+            },
+        ];
+        return CreateLayout(entries);
+    }
+
     private BindGroupLayout TextureSamplerLayout()
     {
         Span<BindGroupLayoutEntry> entries = [TextureEntry(0, TextureSampleType.Float), SamplerEntry(1)];
@@ -1048,9 +1211,7 @@ public sealed unsafe class GpuComposer : IDisposable
         DisposeFrameBindGroups();
         foreach (var entry in imageTextures.Values)
         {
-            entry.Group.Dispose();
-            entry.View.Dispose();
-            entry.Texture.Dispose();
+            entry.Dispose();
         }
         imageTextures.Clear();
         DisposeGroup(ref fallbackBindGroup);
@@ -1070,6 +1231,7 @@ public sealed unsafe class GpuComposer : IDisposable
         blurPipeline.Dispose();
         fullFramePipeline.Dispose();
         fullFrameVertices.Dispose();
+        wholeImageMap.Dispose();
 
         uniformBuffer.Dispose();
         shapeBuffer.Dispose();

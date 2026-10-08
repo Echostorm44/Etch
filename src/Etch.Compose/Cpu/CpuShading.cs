@@ -497,11 +497,13 @@ internal static class CpuShading
     public static (float R, float G, float B, float A) SampleBilinearSrgb(ReadOnlySpan<byte> rgba, int stride,
         int originX, int originY, int pageWidth, int pageHeight, float u, float v)
     {
-        // Normalized coordinates are over the whole page; texel centres at +0.5.
-        float x = u * pageWidth - 0.5f;
-        float y = v * pageHeight - 0.5f;
-        float fx = SubTexel(x - MathF.Floor(x));
-        float fy = SubTexel(y - MathF.Floor(y));
+        // Normalized coordinates are over the whole page; texel centres at +0.5. The coordinate is
+        // snapped to the nearest 1/256 of a texel (ComposeShaders.ImageWgsl does the same), so one
+        // a rounding error from a texel centre filters as the centre on both backends.
+        float x = SnapTexel(u * pageWidth - 0.5f);
+        float y = SnapTexel(v * pageHeight - 0.5f);
+        float fx = x - MathF.Floor(x);
+        float fy = y - MathF.Floor(y);
         int x0 = (int)MathF.Floor(x);
         int y0 = (int)MathF.Floor(y);
         int x1 = Math.Clamp(x0 + 1, 0, pageWidth - 1);
@@ -527,8 +529,12 @@ internal static class CpuShading
         }
     }
 
+    // A texel coordinate on the 1/256-texel grid, to the nearest step (ties to even, as WGSL's round).
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static float SnapTexel(float x) => MathF.Round(x * 256f) * (1f / 256f);
+
     // Filter weights carry 8 bits of subtexel precision, truncated, as the reference rasterizer
-    // (WARP) filters; hardware may keep more, which the parity tests calibrate against.
+    // (WARP) filters with a sampler; hardware may keep more, which the parity tests calibrate against.
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float SubTexel(float f) => MathF.Floor(f * 256f) * (1f / 256f);
 

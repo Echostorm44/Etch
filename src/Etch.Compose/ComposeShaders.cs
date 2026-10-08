@@ -401,7 +401,43 @@ internal static class ComposeShaders
         @group(0) @binding(3) var mask_tex: texture_2d_array<f32>;
         @group(0) @binding(4) var<storage, read> mask_tiles: array<vec4<i32>>;
         @group(1) @binding(0) var image_tex: texture_2d<f32>;
-        @group(1) @binding(1) var image_sampler: sampler;
+
+        // The part of the image this draw covers. A whole image owns every UV and its texture is
+        // the image (texel = 0). A tile of a larger-than-a-texture image owns its UV range; texel
+        // holds the image's size and the tile texture's origin in it.
+        struct ImageTile {
+            owned: vec4<f32>,
+            texel: vec4<f32>,
+        };
+        @group(1) @binding(1) var<uniform> tile: ImageTile;
+
+        // Bilinear filtering done here rather than by a sampler, with the CPU composer's
+        // arithmetic (CpuShading.SampleBilinearSrgb): the texel coordinate is snapped to the
+        // nearest 1/256 of a texel, so one a rounding error away from a texel centre (every pixel
+        // of an image drawn 1:1) filters as the centre on every GPU and on the CPU. A sampler's
+        // own subtexel rounding flips there, which near black is a dozen sRGB steps.
+        fn sample_image(u: f32, v: f32) -> vec4<f32> {
+            let dims = vec2<i32>(textureDimensions(image_tex));
+            var scale = tile.texel.xy;
+            if (scale.x == 0.0) {
+                scale = vec2<f32>(dims);
+            }
+            let xy = vec2<f32>(u, v) * scale - 0.5 - tile.texel.zw;
+            let snapped = round(xy * 256.0) / 256.0;
+            let base = floor(snapped);
+            let f = snapped - base;
+            let i0 = clamp(vec2<i32>(base), vec2<i32>(0), dims - 1);
+            let i1 = clamp(vec2<i32>(base) + 1, vec2<i32>(0), dims - 1);
+            let t00 = textureLoad(image_tex, i0, 0);
+            let t10 = textureLoad(image_tex, vec2<i32>(i1.x, i0.y), 0);
+            let t01 = textureLoad(image_tex, vec2<i32>(i0.x, i1.y), 0);
+            let t11 = textureLoad(image_tex, i1, 0);
+            let w00 = (1.0 - f.x) * (1.0 - f.y);
+            let w10 = f.x * (1.0 - f.y);
+            let w01 = (1.0 - f.x) * f.y;
+            let w11 = f.x * f.y;
+            return t00 * w00 + t10 * w10 + t01 * w01 + t11 * w11;
+        }
 
         """ + Common + """
 
@@ -423,6 +459,9 @@ internal static class ComposeShaders
             let inst = images[in.instance_idx];
             let u = inst.u_row.x * p.x + inst.u_row.y * p.y + inst.u_row.z;
             let v = inst.v_row.x * p.x + inst.v_row.y * p.y + inst.v_row.z;
+            if (u < tile.owned.x || u >= tile.owned.z || v < tile.owned.y || v >= tile.owned.w) {
+                discard;
+            }
             var edge = 0.0;
             if (inst.edge_aa != 0.0) {
                 // Device-space distance inside each pair of edges; half a pixel either side of an
@@ -437,7 +476,7 @@ internal static class ComposeShaders
             if (!(cov > 0.0)) {
                 discard;
             }
-            let texel = textureSampleLevel(image_tex, image_sampler, vec2<f32>(u, v), 0.0);
+            let texel = sample_image(u, v);
             return vec4<f32>(texel.rgb, texel.a * cov);
         }
         """;

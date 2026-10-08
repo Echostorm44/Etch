@@ -172,4 +172,95 @@ internal sealed class EdgeCaseTests
         await Assert.That(float.IsNaN(cov)).IsFalse();
         await Assert.That(cov).IsEqualTo(0f);
     }
+
+    // A deterministic, detailed opaque pattern: neighbouring texels differ, so a seam or an
+    // off-by-one tile offset shows.
+    private static ComposeImage Pattern(int width, int height)
+    {
+        var pixels = new byte[width * height * 4];
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                int i = (y * width + x) * 4;
+                uint h = (uint)(x * 73856093) ^ (uint)(y * 19349663);
+                pixels[i] = (byte)(x * 255 / Math.Max(1, width - 1));
+                pixels[i + 1] = (byte)(y * 7 + (h >> 28));
+                pixels[i + 2] = (byte)(h >> 8);
+                pixels[i + 3] = 255;
+            }
+        }
+        return new ComposeImage(pixels, width, height);
+    }
+
+    [Test]
+    public async Task ImagesLargerThanATexture_DrawTiled_AsTheWholeImageWould()
+    {
+        const int Size = 200;
+        using var harness = ParityHarness.TryCreate(Size, Size, ParityAdapter.Reference, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"Needs the reference adapter: {reason}");
+            return;
+        }
+        var image = Pattern(150, 100);
+        var rec = OnWhite(Size, Size);
+        rec.Image(1, image, 5, 5, 150, 100, 1f);
+        rec.SetTransform(Affine.Translate(100, 90) * Affine.Rotate(0.4) * Affine.Scale(0.83, 1.21));
+        rec.Image(1, image, -60, -40, 120, 80, 0.8f);
+        var parameters = new ComposeParameters { TextGamma = 1.5f, LightWeight = 1f };
+
+        byte[] whole = harness.RenderGpu(rec, Size, Size, parameters);
+        await Assert.That(harness.Gpu.ImageTileCount(1)).IsEqualTo(1);
+
+        // The same frame with 40-px textures: 4 × 3 tiles, seams everywhere.
+        harness.Gpu.ReleaseImage(1);
+        harness.Gpu.MaxImageTextureSize = 40;
+        var (tiled, cpu) = harness.Render(rec, Size, Size, parameters);
+        await Assert.That(harness.Gpu.ImageTileCount(1)).IsEqualTo(12);
+        var againstWhole = ParityStats.Compare(tiled, whole, Size, Size);
+        await Assert.That(againstWhole.Max).IsLessThanOrEqualTo(1).Because(againstWhole.ToString());
+        var againstCpu = ParityStats.Compare(tiled, cpu, Size, Size);
+        await Assert.That(againstCpu.Max).IsLessThanOrEqualTo(4).Because(againstCpu.ToString());
+        await Assert.That(againstCpu.P999).IsLessThanOrEqualTo(2).Because(againstCpu.ToString());
+    }
+
+    [Test]
+    [Arguments(ParityAdapter.Reference)]
+    [Arguments(ParityAdapter.Hardware)]
+    public async Task ATallScreenshot_DrawsAtFullResolution_AcrossTheTextureLimit(ParityAdapter adapter)
+    {
+        // 600 × 9000: taller than the 8192 texture limit. The window shows rows 8090..8290 at 1:1,
+        // across the seam between the two tiles (rows 0..8189 and 8190..8999).
+        const int Size = 200;
+        using var harness = ParityHarness.TryCreate(Size, Size, adapter, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"Needs the {adapter} adapter: {reason}");
+            return;
+        }
+        var image = Pattern(600, 9000);
+        var rec = OnWhite(Size, Size);
+        rec.SetTransform(Affine.Translate(-200, -8090));
+        rec.Image(7, image, 0, 0, 600, 9000, 1f);
+        var parameters = new ComposeParameters { TextGamma = 1.5f, LightWeight = 1f };
+
+        // The image's pixels at 1:1, high-contrast down to black: the filter's subtexel rounding
+        // is what differs between samplers here, so this also holds every GPU to the CPU.
+        var (gpu, cpu) = harness.Render(rec, Size, Size, parameters);
+        await Assert.That(harness.Gpu.ImageTileCount(7)).IsEqualTo(2);
+        var stats = ParityStats.Compare(gpu, cpu, Size, Size);
+        await Assert.That(stats.Max).IsLessThanOrEqualTo(4).Because(stats.ToString());
+        // At 1:1 the original pixels come through (an image rescaled to fit would not).
+        int seamRow = 8190 - 8090;
+        for (int y = seamRow - 2; y <= seamRow + 2; y++)
+        {
+            int at = (y * Size + 50) * 4;
+            int source = ((8090 + y) * 600 + 250) * 4;
+            for (int c = 0; c < 3; c++)
+            {
+                await Assert.That(Math.Abs(gpu[at + c] - image.Pixels[source + c])).IsLessThanOrEqualTo(1).Because($"row {y}");
+            }
+        }
+    }
 }
