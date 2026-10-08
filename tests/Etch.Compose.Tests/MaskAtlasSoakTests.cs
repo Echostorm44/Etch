@@ -83,13 +83,13 @@ internal sealed class MaskAtlasSoakTests
         int maxPages = 0;
         for (int pass = 0; pass < 2; pass++)
         {
-            long before = GC.GetTotalAllocatedBytes(precise: true);
+            long before = GC.GetAllocatedBytesForCurrentThread() + composer.WorkerAllocatedBytes;
             for (int i = 0; i < 400; i++)
             {
                 Render(-(i < 200 ? i * 9 : (400 - i) * 9));
                 maxPages = Math.Max(maxPages, composer.Masks.PageCount);
             }
-            long allocated = GC.GetTotalAllocatedBytes(precise: true) - before;
+            long allocated = GC.GetAllocatedBytesForCurrentThread() + composer.WorkerAllocatedBytes - before;
             if (pass == 1)
             {
                 await Assert.That(allocated).IsEqualTo(0L).Because("a second scroll over the same content reuses every mask");

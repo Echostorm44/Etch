@@ -499,6 +499,12 @@ public sealed class CpuComposer : IDisposable
             }
         }
     }
+    /// <summary>
+    /// Bytes this composer's worker threads have allocated (as observed after each frame they ran).
+    /// With the calling thread's own counter, what a frame allocated — other threads excluded.
+    /// </summary>
+    internal long WorkerAllocatedBytes => workers.WorkerAllocatedBytes;
+
     /// <summary>Releases the per-frame buffers (bins, snapshot, scratch); atlases are kept.</summary>
     public void Trim()
     {

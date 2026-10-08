@@ -162,13 +162,15 @@ internal sealed class CpuDamageTests
         {
             pipeline.BuildAndRenderIncremental(i % 2 == 0 ? on : off, Width, Height);
         }
-        // Every thread's allocations: worker threads render tiles too.
-        long before = GC.GetTotalAllocatedBytes(precise: true);
+        // This thread's and the composer's worker threads' allocations (other threads in the test
+        // process allocate too, so a process-wide count would be flaky).
+        long before = GC.GetAllocatedBytesForCurrentThread() + pipeline.Composer.WorkerAllocatedBytes;
         for (int i = 0; i < 6; i++)
         {
             pipeline.BuildAndRenderIncremental(i % 2 == 0 ? on : off, Width, Height);
         }
-        await Assert.That(GC.GetTotalAllocatedBytes(precise: true) - before).IsEqualTo(0L);
+        long after = GC.GetAllocatedBytesForCurrentThread() + pipeline.Composer.WorkerAllocatedBytes;
+        await Assert.That(after - before).IsEqualTo(0L);
     }
 
     private static int FirstDifference(byte[] a, byte[] b)

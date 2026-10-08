@@ -56,6 +56,23 @@ internal sealed class TileWorkers : IDisposable
         failure?.Throw();
     }
 
+    /// <summary>
+    /// Bytes the worker threads have allocated, as each last observed after running the body
+    /// (tests prove frames allocate nothing without counting other threads in the process).
+    /// </summary>
+    public long WorkerAllocatedBytes
+    {
+        get
+        {
+            long total = 0;
+            foreach (var worker in workers)
+            {
+                total += Volatile.Read(ref worker.Allocated);
+            }
+            return total;
+        }
+    }
+
     public void Dispose()
     {
         stopping = true;
@@ -90,6 +107,9 @@ internal sealed class TileWorkers : IDisposable
 
         public Thread Thread { get; }
 
+        // This thread's allocation counter after its last run of the body.
+        public long Allocated;
+
         private void Loop()
         {
             while (true)
@@ -110,6 +130,7 @@ internal sealed class TileWorkers : IDisposable
                 }
                 finally
                 {
+                    Volatile.Write(ref Allocated, GC.GetAllocatedBytesForCurrentThread());
                     owner.done.Signal();
                 }
             }

@@ -38,8 +38,7 @@ internal sealed class CpuComposerTests
         await Assert.That(FirstDifference(reference, three)).IsEqualTo(-1).Because("the thread count must not change a pixel");
     }
 
-    // Single-threaded frames are measured on this thread alone; parallel frames process-wide, so
-    // this test runs exclusively.
+    // Counts this thread's and the composer's worker threads' allocations (not the rest of the process).
     [Test]
     [NotInParallel]
     [Arguments(1)]
@@ -52,12 +51,12 @@ internal sealed class CpuComposerTests
         {
             cpu.BuildAndRender();
         }
-        long before = threads == 1 ? GC.GetAllocatedBytesForCurrentThread() : GC.GetTotalAllocatedBytes(precise: true);
+        long before = GC.GetAllocatedBytesForCurrentThread() + cpu.Composer.WorkerAllocatedBytes;
         for (int i = 0; i < 5; i++)
         {
             cpu.BuildAndRender();
         }
-        long allocated = (threads == 1 ? GC.GetAllocatedBytesForCurrentThread() : GC.GetTotalAllocatedBytes(precise: true)) - before;
+        long allocated = GC.GetAllocatedBytesForCurrentThread() + cpu.Composer.WorkerAllocatedBytes - before;
         await Assert.That(allocated).IsEqualTo(0L);
     }
 
