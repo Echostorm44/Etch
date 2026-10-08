@@ -1,3 +1,4 @@
+using System.Buffers;
 using Etch.Scene;
 
 namespace Etch.Compose.Coverage;
@@ -39,7 +40,7 @@ public sealed class PathStroker
         }
 
         FlatPath source = input;
-        if (stroke.IsDashed)
+        if (stroke.IsDashed && DashCount(input, stroke) <= MaxDashes)
         {
             Dash(input, stroke, dashed);
             source = dashed;
@@ -103,7 +104,23 @@ public sealed class PathStroker
     private static void StrokeOpen(ReadOnlySpan<float> px, ReadOnlySpan<float> py, float hw, in StrokeParameters stroke, float tol, FlatPath output)
     {
         // Drop repeated points so every segment has a direction.
-        Span<int> keep = px.Length <= 256 ? stackalloc int[px.Length] : new int[px.Length];
+        int[]? rented = px.Length <= 256 ? null : ArrayPool<int>.Shared.Rent(px.Length);
+        Span<int> keep = rented is null ? stackalloc int[px.Length] : rented.AsSpan(0, px.Length);
+        try
+        {
+            StrokeOpenCore(px, py, hw, stroke, tol, output, keep);
+        }
+        finally
+        {
+            if (rented is not null)
+            {
+                ArrayPool<int>.Shared.Return(rented);
+            }
+        }
+    }
+
+    private static void StrokeOpenCore(ReadOnlySpan<float> px, ReadOnlySpan<float> py, float hw, in StrokeParameters stroke, float tol, FlatPath output, Span<int> keep)
+    {
         int n = 0;
         for (int i = 0; i < px.Length; i++)
         {
@@ -145,7 +162,24 @@ public sealed class PathStroker
     private static void StrokeClosed(ReadOnlySpan<float> px, ReadOnlySpan<float> py, float hw, in StrokeParameters stroke, float tol, FlatPath output)
     {
         int count = px.Length;
-        Span<int> keep = count <= 256 ? stackalloc int[count] : new int[count];
+        int[]? rented = count <= 256 ? null : ArrayPool<int>.Shared.Rent(count);
+        Span<int> keep = rented is null ? stackalloc int[count] : rented.AsSpan(0, count);
+        try
+        {
+            StrokeClosedCore(px, py, hw, stroke, tol, output, keep);
+        }
+        finally
+        {
+            if (rented is not null)
+            {
+                ArrayPool<int>.Shared.Return(rented);
+            }
+        }
+    }
+
+    private static void StrokeClosedCore(ReadOnlySpan<float> px, ReadOnlySpan<float> py, float hw, in StrokeParameters stroke, float tol, FlatPath output, Span<int> keep)
+    {
+        int count = px.Length;
         int n = 0;
         for (int i = 0; i < count; i++)
         {
@@ -321,6 +355,40 @@ public sealed class PathStroker
                     break;
                 }
         }
+    }
+
+    /// <summary>
+    /// Most dashes a stroke is split into. A pattern finer than that (a dash length of 1e-6, say)
+    /// would hang or exhaust memory; at that density the dashes blend into a line anyway, so the
+    /// stroke is drawn solid (Skia gives up on dashing the same way).
+    /// </summary>
+    public const int MaxDashes = 16384;
+
+    // How many on-dashes the pattern makes over the input's length (infinite for a bad period).
+    private static double DashCount(FlatPath input, in StrokeParameters stroke)
+    {
+        double period = (double)stroke.DashOn + stroke.DashOff;
+        if (!(period > 0) || !double.IsFinite(period))
+        {
+            return double.PositiveInfinity;
+        }
+        double length = 0;
+        int contours = 0;
+        var xs = input.X;
+        var ys = input.Y;
+        foreach (var contour in input.Contours)
+        {
+            contours++;
+            int segments = contour.Closed ? contour.Count : contour.Count - 1;
+            for (int s = 0; s < segments; s++)
+            {
+                int i0 = contour.Start + s;
+                int i1 = contour.Start + (s + 1) % contour.Count;
+                double dx = xs[i1] - xs[i0], dy = ys[i1] - ys[i0];
+                length += Math.Sqrt(dx * dx + dy * dy);
+            }
+        }
+        return length / period + contours;
     }
 
     /// <summary>Appends points of the arc of radius <paramref name="r"/> about (cx, cy).</summary>

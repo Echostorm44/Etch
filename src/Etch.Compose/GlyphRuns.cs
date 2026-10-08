@@ -71,13 +71,15 @@ public static class GlyphRunBuilder
         var color = run.Color;
         float alpha = color.A * opacity;
         float fgLuminance = Luminance(color);
-        face.TryGetGlyph(0x0020, out uint spaceGid);
+        // Spaces draw nothing and are skipped — but only a real space glyph: in a face without one,
+        // spaceGid would be 0, the .notdef glyph, and missing characters' tofu boxes would vanish.
+        bool hasSpace = face.TryGetGlyph(0x0020, out uint spaceGid);
 
         int culled = 0;
         for (int i = 0; i < run.GlyphIds.Length; i++)
         {
             ushort glyphId = run.GlyphIds[i];
-            if (glyphId == spaceGid)
+            if (IsSpace(hasSpace, spaceGid, glyphId))
             {
                 continue;
             }
@@ -200,6 +202,13 @@ public static class GlyphRunBuilder
         }
         return culled;
     }
+
+    /// <summary>
+    /// Whether <paramref name="glyphId"/> is the face's space glyph (drawn as nothing). A face with no
+    /// space maps U+0020 to glyph 0, .notdef — the tofu box missing characters must still show.
+    /// </summary>
+    internal static bool IsSpace(bool faceHasSpace, uint spaceGlyph, ushort glyphId)
+        => faceHasSpace && spaceGlyph != 0 && glyphId == spaceGlyph;
 
     /// <summary>Rec. 709 luminance of the colour's sRGB-encoded channels — the space the text-weight curve compares in.</summary>
     public static float Luminance(ComposeColor color)

@@ -101,6 +101,10 @@ public sealed class DrawList
     /// <summary>The images the frame's quads reference, by handle.</summary>
     public IReadOnlyDictionary<int, ComposeImage> Images => imageTable;
 
+    // The same table, for allocation-free enumeration inside the assembly (a foreach over the
+    // interface boxes the enumerator).
+    internal Dictionary<int, ComposeImage> ImageTable => imageTable;
+
     /// <summary>Shapes in batch order (valid after <see cref="Finish"/>).</summary>
     public List<ShapeInstance> OrderedShapes => finishedShapes;
 

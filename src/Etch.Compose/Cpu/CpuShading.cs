@@ -219,22 +219,22 @@ internal static class CpuShading
         float test = angle;
         if (sweepAngle > 0f)
         {
-            while (test < startAngle)
+            for (int turns = 0; turns < 4 && test < startAngle; turns++)
             {
                 test += TwoPi;
             }
-            while (test > startAngle + TwoPi)
+            for (int turns = 0; turns < 4 && test > startAngle + TwoPi; turns++)
             {
                 test -= TwoPi;
             }
         }
         else
         {
-            while (test > startAngle)
+            for (int turns = 0; turns < 4 && test > startAngle; turns++)
             {
                 test -= TwoPi;
             }
-            while (test < startAngle - TwoPi)
+            for (int turns = 0; turns < 4 && test < startAngle - TwoPi; turns++)
             {
                 test += TwoPi;
             }

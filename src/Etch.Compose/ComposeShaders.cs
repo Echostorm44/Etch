@@ -174,17 +174,17 @@ internal static class ComposeShaders
             let end_angle = start_angle + sweep_angle;
             var test_angle = angle;
             if (sweep_angle > 0.0) {
-                while (test_angle < start_angle) {
+                for (var turns = 0; turns < 4 && test_angle < start_angle; turns++) {
                     test_angle = test_angle + 6.28318530718;
                 }
-                while (test_angle > start_angle + 6.28318530718) {
+                for (var turns = 0; turns < 4 && test_angle > start_angle + 6.28318530718; turns++) {
                     test_angle = test_angle - 6.28318530718;
                 }
             } else {
-                while (test_angle > start_angle) {
+                for (var turns = 0; turns < 4 && test_angle > start_angle; turns++) {
                     test_angle = test_angle - 6.28318530718;
                 }
-                while (test_angle < start_angle - 6.28318530718) {
+                for (var turns = 0; turns < 4 && test_angle < start_angle - 6.28318530718; turns++) {
                     test_angle = test_angle + 6.28318530718;
                 }
             }

@@ -293,7 +293,7 @@ public sealed unsafe class GpuComposer : IDisposable
     public void Encode(CommandEncoder encoder, Texture target, TextureView targetView, DrawList list)
     {
         ArgumentNullException.ThrowIfNull(list);
-        foreach (var (handle, image) in list.Images)
+        foreach (var (handle, image) in list.ImageTable)
         {
             EnsureImageTexture(handle, image);
         }

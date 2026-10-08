@@ -1006,6 +1006,19 @@ public sealed class DrawListBuilder
         {
             start = (float)(start + rotation);
         }
+        // Normalize: start into [-pi, pi), sweep to at most a full turn. The shaders walk the angle
+        // into range a turn at a time, so an unnormalized start (1e6 rad) looped a million times.
+        double s = start % (2 * Math.PI);
+        if (s < -Math.PI)
+        {
+            s += 2 * Math.PI;
+        }
+        else if (s >= Math.PI)
+        {
+            s -= 2 * Math.PI;
+        }
+        start = (float)s;
+        sweep = Math.Clamp(sweep, -2f * MathF.PI, 2f * MathF.PI);
     }
 
     private void StrokeLine(in Affine t, float x0, float y0, float x1, float y1, in StrokeParameters stroke, ComposeColor color)

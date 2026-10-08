@@ -92,6 +92,53 @@ internal sealed class EdgeCaseTests
     }
 
     [Test]
+    [Timeout(20_000)]
+    public async Task MicroscopicDashes_DrawSolid_InsteadOfHanging(CancellationToken cancellation)
+    {
+        // 1e-5-unit dashes over a 300-unit line would be 15 million dashes.
+        var rec = OnWhite(320, 40);
+        var dashed = StrokeParameters.Solid(6) with { DashOn = 1e-5f, DashOff = 1e-5f };
+        rec.StrokeLine(10, 20, 310, 20, dashed, Blue);
+        byte[] rgba = RenderCpu(rec, 320, 40);
+        int mid = (20 * 320 + 160) * 4;
+        await Assert.That((int)rgba[mid]).IsLessThan(50).Because("drawn solid");
+        await AssertGpuParity(rec, 320, 40);
+    }
+
+    [Test]
+    [Timeout(20_000)]
+    public async Task SectorWithAHugeStartAngle_IsTheSameSector(CancellationToken cancellation)
+    {
+        // A start angle a million radians out walked the angle into range one turn at a time —
+        // per pixel, on both backends (a GPU timeout). It must equal the same angle mod 2π.
+        double start = 1e6;
+        double reduced = Math.IEEERemainder(start, 2 * Math.PI);
+        var far = OnWhite(80, 80);
+        far.FillSector(40, 40, 30, 10, (float)start, 2f, Blue);
+        var near = OnWhite(80, 80);
+        near.FillSector(40, 40, 30, 10, (float)reduced, 2f, Blue);
+        byte[] a = RenderCpu(far, 80, 80);
+        byte[] b = RenderCpu(near, 80, 80);
+        int worst = 0;
+        for (int i = 0; i < a.Length; i++)
+        {
+            worst = Math.Max(worst, Math.Abs(a[i] - b[i]));
+        }
+        await Assert.That(worst).IsLessThanOrEqualTo(2);
+        await AssertGpuParity(far, 80, 80);
+    }
+
+    [Test]
+    public async Task NotdefGlyph_IsNotMistakenForASpace()
+    {
+        // A face without a space maps U+0020 to glyph 0 (.notdef): tofu boxes must still draw.
+        await Assert.That(GlyphRunBuilder.IsSpace(faceHasSpace: false, spaceGlyph: 0, glyphId: 0)).IsFalse();
+        await Assert.That(GlyphRunBuilder.IsSpace(faceHasSpace: true, spaceGlyph: 0, glyphId: 0)).IsFalse();
+        await Assert.That(GlyphRunBuilder.IsSpace(faceHasSpace: true, spaceGlyph: 3, glyphId: 3)).IsTrue();
+        await Assert.That(GlyphRunBuilder.IsSpace(faceHasSpace: true, spaceGlyph: 3, glyphId: 0)).IsFalse();
+    }
+
+    [Test]
     public async Task DegenerateLineInstance_HasZeroCoverage_NotNaN()
     {
         var inst = new ShapeInstance { Type = ShapeType.Line, P0 = 5, P1 = 5, P2 = 5, P3 = 5, Q0 = 3, Q1 = 1 };

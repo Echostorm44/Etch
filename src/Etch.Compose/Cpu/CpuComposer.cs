@@ -67,6 +67,9 @@ public sealed class CpuComposer : IDisposable
     // Damage tracking (RenderIncremental): a hash per tile of everything drawn there, kept from the
     // last incremental frame into the same framebuffer.
     private bool trackDamage;
+    private ulong monoGeneration;
+    private ulong colorGeneration;
+    private ulong maskGeneration;
     private ulong[] itemHashes = Array.Empty<ulong>();
     private ulong[] clipHashes = Array.Empty<ulong>();
     private ulong[] tileHashes = Array.Empty<ulong>();
@@ -298,7 +301,7 @@ public sealed class CpuComposer : IDisposable
                 {
                     h = Mix(h, XxHash3.HashToUInt64(MemoryMarshal.AsBytes(tiles.Slice(clip.MaskTileStart, count))));
                 }
-                h = Mix(h, (ulong)maskAtlas.ContentGeneration);
+                h = Mix(h, maskGeneration);
             }
             clipHashes[i] = h;
         }
@@ -321,19 +324,19 @@ public sealed class CpuComposer : IDisposable
                     }
                     if (s.Type == ShapeType.Mask)
                     {
-                        h = Mix(h, (ulong)maskAtlas.ContentGeneration);
+                        h = Mix(h, maskGeneration);
                     }
                     return h;
                 }
             case DrawKind.Glyph:
                 {
                     ref readonly var g = ref CollectionsMarshal.AsSpan(list.OrderedGlyphs)[index];
-                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), (ulong)monoAtlas.Generation);
+                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), monoGeneration);
                 }
             case DrawKind.ColorGlyph:
                 {
                     ref readonly var g = ref CollectionsMarshal.AsSpan(list.OrderedColorGlyphs)[index];
-                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), (ulong)(uint)colorAtlas.Generation | (1UL << 40));
+                    return Mix(Mix(HashOf(g), clipHashes[(int)g.ClipIndex]), colorGeneration);
                 }
             case DrawKind.Image:
                 {
@@ -565,6 +568,10 @@ public sealed class CpuComposer : IDisposable
         var clips = list.Clips;
         if (trackDamage)
         {
+            // Atlas generations, read once per frame (each read takes the atlas's lock).
+            monoGeneration = (ulong)(uint)monoAtlas.Generation;
+            colorGeneration = (ulong)(uint)colorAtlas.Generation | (1UL << 40);
+            maskGeneration = (ulong)(uint)maskAtlas.ContentGeneration;
             HashClips(list);
             if (itemHashes.Length < items)
             {
