@@ -75,6 +75,9 @@ public sealed class CpuComposer : IDisposable
     private ulong[] tileHashes = Array.Empty<ulong>();
     private ulong[] previousTileHashes = Array.Empty<ulong>();
     private bool[] tileDirty = Array.Empty<bool>();
+    // CollectDirtyRects: per tile column, the rect whose run starts there and ends at the row above.
+    private int[] openAbove = Array.Empty<int>();
+    private int[] openHere = Array.Empty<int>();
     private bool renderDirtyOnly;
     private CpuFramebuffer? historyTarget;
     private int historyWidth;
@@ -438,15 +441,22 @@ public sealed class CpuComposer : IDisposable
             }
         }
     }
-    // Dirty tiles as rects: runs of dirty tiles along each tile row, merged with the run below when
-    // it spans the same columns.
+    // Dirty tiles as rects: runs of dirty tiles along each tile row, merged with the run above when
+    // it spans the same columns. Linear in the tile count: a run looks up the one rect that could
+    // extend (the run above starting at the same column), not every rect so far.
     private void CollectDirtyRects(int width, int height)
     {
+        if (openAbove.Length < tilesX)
+        {
+            openAbove = new int[tilesX];
+            openHere = new int[tilesX];
+        }
+        Array.Fill(openAbove, -1, 0, tilesX);
         for (int ty = 0; ty < tilesY; ty++)
         {
             int y = ty << TileShift;
             int h = Math.Min(TileSize, height - y);
-            int rowStart = dirtyRects.Count;
+            Array.Fill(openHere, -1, 0, tilesX);
             int tx = 0;
             while (tx < tilesX)
             {
@@ -462,22 +472,19 @@ public sealed class CpuComposer : IDisposable
                 }
                 int x = first << TileShift;
                 int w = Math.Min(tx << TileShift, width) - x;
-                bool merged = false;
-                for (int r = 0; r < rowStart; r++)
+                int r = openAbove[first];
+                if (r >= 0 && dirtyRects[r].Width == w)
                 {
-                    var above = dirtyRects[r];
-                    if (above.X == x && above.Width == w && above.Y + above.Height == y)
-                    {
-                        dirtyRects[r] = above with { Height = above.Height + h };
-                        merged = true;
-                        break;
-                    }
+                    dirtyRects[r] = dirtyRects[r] with { Height = dirtyRects[r].Height + h };
                 }
-                if (!merged)
+                else
                 {
+                    r = dirtyRects.Count;
                     dirtyRects.Add(new CpuDirtyRect(x, y, w, h));
                 }
+                openHere[first] = r;
             }
+            (openAbove, openHere) = (openHere, openAbove);
         }
     }
 
@@ -523,6 +530,8 @@ public sealed class CpuComposer : IDisposable
         tileHashes = Array.Empty<ulong>();
         previousTileHashes = Array.Empty<ulong>();
         tileDirty = Array.Empty<bool>();
+        openAbove = Array.Empty<int>();
+        openHere = Array.Empty<int>();
         dirtyRects.Clear();
         dirtyRects.TrimExcess();
         historyTarget = null;

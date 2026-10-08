@@ -173,6 +173,56 @@ internal sealed class CpuDamageTests
         await Assert.That(after - before).IsEqualTo(0L);
     }
 
+    [Test]
+    [Arguments(false)]
+    [Arguments(true)]
+    public async Task DamageRects_CoverExactlyTheChangedTiles(bool checkerboard)
+    {
+        // Every other tile column changes (stripes merge into full-height rects), or a checkerboard
+        // (nothing merges): the rects are disjoint and are the changed tiles, no more, no fewer.
+        const int Tile = CpuComposer.TileSize;
+        int tilesX = Width / Tile;
+        int tilesY = (Height + Tile - 1) / Tile;
+        using var pipeline = new Pipeline();
+        var white = new DrawRecording();
+        white.SetTransform(Affine.Identity);
+        white.FillRect(0, 0, Width, Height, ComposePaint.Solid(new ComposeColor(1, 1, 1, 1)));
+        pipeline.RenderIncremental(white, Width, Height, out _);
+
+        var changed = new DrawRecording();
+        changed.SetTransform(Affine.Identity);
+        changed.FillRect(0, 0, Width, Height, ComposePaint.Solid(new ComposeColor(1, 1, 1, 1)));
+        var expected = new bool[tilesX * tilesY];
+        for (int ty = 0; ty < tilesY; ty++)
+        {
+            for (int tx = 0; tx < tilesX; tx++)
+            {
+                if ((checkerboard ? tx + ty : tx) % 2 == 0)
+                {
+                    expected[ty * tilesX + tx] = true;
+                    changed.FillRect(tx * Tile + 4, ty * Tile + 4, 6, 6, ComposePaint.Solid(new ComposeColor(1, 0, 0, 1)));
+                }
+            }
+        }
+        pipeline.RenderIncremental(changed, Width, Height, out var dirty);
+
+        var covered = new int[tilesX * tilesY];
+        foreach (var rect in dirty)
+        {
+            for (int y = rect.Y; y < rect.Y + rect.Height; y += Tile)
+            {
+                for (int x = rect.X; x < rect.X + rect.Width; x += Tile)
+                {
+                    covered[(y / Tile) * tilesX + x / Tile]++;
+                }
+            }
+        }
+        for (int i = 0; i < covered.Length; i++)
+        {
+            await Assert.That(covered[i]).IsEqualTo(expected[i] ? 1 : 0).Because($"tile {i}");
+        }
+        await Assert.That(dirty.Count).IsEqualTo(checkerboard ? expected.Count(e => e) : tilesX / 2);
+    }
     private static int FirstDifference(byte[] a, byte[] b)
     {
         int n = a.AsSpan().CommonPrefixLength(b);
