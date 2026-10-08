@@ -361,7 +361,9 @@ public sealed class CpuComposer : IDisposable
     }
 
     // A backdrop blur reads around itself: when anything it reads or covers changed, every tile in
-    // its reach renders again (so the tiles it reads hold their state at the blur's phase).
+    // its reach renders again (so the tiles it reads hold their state at the blur's phase). Marking
+    // one blur's reach can put tiles in another blur's reach — one drawn earlier, say — so this
+    // repeats until no blur adds a tile (each pass only adds tiles: it ends within tile-count passes).
     private void DilateForBlurs(DrawList list)
     {
         var blurs = CollectionsMarshal.AsSpan(list.OrderedBlurs);
@@ -369,39 +371,43 @@ public sealed class CpuComposer : IDisposable
         {
             return;
         }
-        foreach (ref readonly var blur in blurs)
+        bool changed = true;
+        while (changed)
         {
-            float reach = DrawList.BlurReach(blur.Sigma);
-            int x0 = Math.Clamp((int)MathF.Floor(blur.MinX - reach), 0, historyWidth - 1) >> TileShift;
-            int y0 = Math.Clamp((int)MathF.Floor(blur.MinY - reach), 0, historyHeight - 1) >> TileShift;
-            int x1 = Math.Clamp((int)MathF.Ceiling(blur.MaxX + reach), 0, historyWidth - 1) >> TileShift;
-            int y1 = Math.Clamp((int)MathF.Ceiling(blur.MaxY + reach), 0, historyHeight - 1) >> TileShift;
-            bool any = false;
-            for (int ty = y0; ty <= y1 && !any; ty++)
+            changed = false;
+            foreach (ref readonly var blur in blurs)
             {
-                for (int tx = x0; tx <= x1; tx++)
+                float reach = DrawList.BlurReach(blur.Sigma);
+                int x0 = Math.Clamp((int)MathF.Floor(blur.MinX - reach), 0, historyWidth - 1) >> TileShift;
+                int y0 = Math.Clamp((int)MathF.Floor(blur.MinY - reach), 0, historyHeight - 1) >> TileShift;
+                int x1 = Math.Clamp((int)MathF.Ceiling(blur.MaxX + reach), 0, historyWidth - 1) >> TileShift;
+                int y1 = Math.Clamp((int)MathF.Ceiling(blur.MaxY + reach), 0, historyHeight - 1) >> TileShift;
+                bool any = false;
+                bool all = true;
+                for (int ty = y0; ty <= y1; ty++)
                 {
-                    if (tileDirty[ty * tilesX + tx])
+                    for (int tx = x0; tx <= x1; tx++)
                     {
-                        any = true;
-                        break;
+                        bool dirty = tileDirty[ty * tilesX + tx];
+                        any |= dirty;
+                        all &= dirty;
                     }
                 }
-            }
-            if (!any)
-            {
-                continue;
-            }
-            for (int ty = y0; ty <= y1; ty++)
-            {
-                for (int tx = x0; tx <= x1; tx++)
+                if (!any || all)
                 {
-                    tileDirty[ty * tilesX + tx] = true;
+                    continue;
                 }
+                for (int ty = y0; ty <= y1; ty++)
+                {
+                    for (int tx = x0; tx <= x1; tx++)
+                    {
+                        tileDirty[ty * tilesX + tx] = true;
+                    }
+                }
+                changed = true;
             }
         }
     }
-
     // Dirty tiles as rects: runs of dirty tiles along each tile row, merged with the run below when
     // it spans the same columns.
     private void CollectDirtyRects(int width, int height)

@@ -61,6 +61,33 @@ internal sealed class CpuDamageTests
     }
 
     [Test]
+    public async Task TwoNearbyBlurs_FollowEachOthersDamage()
+    {
+        // Blur B is drawn first; a change beside blur A (drawn later) dirties tiles in A's reach,
+        // some of which B covers — so B's whole reach must render again too, or B reads its
+        // clean neighbours' final pixels instead of their state at B's phase (a seam).
+        using var incremental = new Pipeline();
+        using var full = new Pipeline();
+        for (int frame = 0; frame < 4; frame++)
+        {
+            var rec = new DrawRecording();
+            rec.SetTransform(Affine.Identity);
+            rec.FillRect(0, 0, 640, 320, ComposePaint.Solid(new ComposeColor(1, 1, 1, 1)));
+            for (int i = 0; i < 40; i++)
+            {
+                rec.FillRect(i * 16, 0, 8, 320, ComposePaint.Solid(new ComposeColor(i % 2, 0.3f, 1 - i % 2, 1)));
+            }
+            rec.BackdropBlur(60, 40, 150, 120, 10, 10, new ComposeColor(1, 1, 1, 0.1f));
+            rec.FillRect(150, 10, 60, 20, ComposePaint.Solid(new ComposeColor(0, 0, 0, 1)));
+            rec.BackdropBlur(230, 40, 150, 120, 10, 10, new ComposeColor(1, 1, 1, 0.1f));
+            rec.FillRect(400 + frame * 9, 60, 40, 40, ComposePaint.Solid(new ComposeColor(1, 0.8f, 0, 1)));
+            byte[] a = incremental.RenderIncremental(rec, 640, 320, out _);
+            byte[] b = full.RenderFull(rec, 640, 320);
+            await Assert.That(FirstDifference(a, b)).IsEqualTo(-1).Because($"frame {frame}");
+        }
+    }
+
+    [Test]
     public async Task CaretBlinkDamagesOneOrTwoTiles()
     {
         using var incremental = new Pipeline();
