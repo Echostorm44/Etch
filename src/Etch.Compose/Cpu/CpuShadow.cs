@@ -122,7 +122,8 @@ internal static class CpuShadow
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float Erf(float x)
     {
-        float s = MathF.Sign(x);
+        // A select, not MathF.Sign (which throws on NaN): NaN gives 0, as the vector paths do.
+        float s = x > 0f ? 1f : x < 0f ? -1f : 0f;
         float a = MathF.Abs(x);
         float r = 1f + (C1 + (C2 + C3 * (a * a)) * a) * a;
         r *= r;

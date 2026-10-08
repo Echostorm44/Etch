@@ -295,4 +295,20 @@ internal sealed class EdgeCaseTests
         await Assert.That(yellow).IsGreaterThan(5000).Because("the emoji is drawn in colour");
         await AssertGpuParity(rec, Width, Height);
     }
+
+    [Test]
+    [Arguments(1)]
+    [Arguments(8)]
+    public async Task ShadowWithNaNSigma_HasNoCoverage_InsteadOfThrowing(int vectorWidth)
+    {
+        // The builder never emits one (NaN geometry is dropped earlier), but the shading functions
+        // must not throw on it: MathF.Sign(NaN) throws, and the erf used it.
+        var inst = new ShapeInstance { Type = ShapeType.Shadow, P0 = 0, P1 = 0, P2 = 20, P3 = 20, Q0 = 2, Q1 = float.NaN };
+        inst.SetIdentityFrame();
+        float cov = CpuShading.ShapeCoverage(inst, 5.5f, 5.5f, MaskSource.None);
+        await Assert.That(cov > 0f).IsFalse();
+        var row = new float[19];
+        CpuShadow.Row(inst, 5, 0, row, vectorWidth);
+        await Assert.That(row.All(c => !(c > 0f))).IsTrue();
+    }
 }

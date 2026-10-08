@@ -261,7 +261,8 @@ internal static class CpuShading
 
         static float Erf(float x)
         {
-            float s = MathF.Sign(x);
+            // A select, not MathF.Sign (which throws on NaN): NaN gives 0, as the vector paths do.
+            float s = x > 0f ? 1f : x < 0f ? -1f : 0f;
             float a = MathF.Abs(x);
             float r = 1f + (0.278393f + (0.230389f + 0.078108f * (a * a)) * a) * a;
             r *= r;

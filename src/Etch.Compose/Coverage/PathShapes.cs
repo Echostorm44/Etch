@@ -238,8 +238,8 @@ public static class PathShapes
                 // Which way the arc bulges from its centre: toward the bounds corner it rounds.
                 centres[cubics * 4] = ccx;
                 centres[cubics * 4 + 1] = ccy;
-                centres[cubics * 4 + 2] = Math.Sign(px + ex - 2 * ccx);
-                centres[cubics * 4 + 3] = Math.Sign(py + ey - 2 * ccy);
+                centres[cubics * 4 + 2] = Sign(px + ex - 2 * ccx);
+                centres[cubics * 4 + 3] = Sign(py + ey - 2 * ccy);
                 cubics++;
                 px = ex;
                 py = ey;
@@ -325,4 +325,7 @@ public static class PathShapes
     }
 
     private static double Sq(double v) => v * v;
+
+    // Math.Sign throws on NaN; a NaN coordinate gives 0 here (and fails the shape tests).
+    private static int Sign(double v) => v > 0 ? 1 : v < 0 ? -1 : 0;
 }
