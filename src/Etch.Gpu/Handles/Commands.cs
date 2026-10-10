@@ -63,6 +63,26 @@ public unsafe readonly struct CommandEncoder : IDisposable
 
         WebGPU.CommandEncoderCopyTextureToBuffer(_handle, (nint)(&srcInfo), (nint)(&dstInfo), (nint)(&copySize));
     }
+
+    /// <summary>
+    /// Records a copy of <paramref name="copySize"/> texels from <paramref name="source"/> (laid out
+    /// as <paramref name="layout"/>; <c>BytesPerRow</c> a multiple of 256) into
+    /// <paramref name="destination"/> at <paramref name="dstOrigin"/> (<c>Z</c> is the array layer).
+    /// </summary>
+    public unsafe void CopyBufferToTexture(Buffer source, WGPUTexelCopyBufferLayout layout, Texture destination, uint dstMipLevel, WGPUOrigin3D dstOrigin, Extent3D copySize)
+    {
+        WGPUTexelCopyBufferInfo srcInfo = default;
+        srcInfo.Layout = layout;
+        srcInfo.Buffer = source.Handle;
+
+        WGPUTexelCopyTextureInfo dstInfo = default;
+        dstInfo.Texture = destination.Handle;
+        dstInfo.MipLevel = dstMipLevel;
+        dstInfo.Origin = dstOrigin;
+        dstInfo.Aspect = 1u;
+
+        WebGPU.CommandEncoderCopyBufferToTexture(_handle, (nint)(&srcInfo), (nint)(&dstInfo), (nint)(&copySize));
+    }
 }
 
 public readonly struct RenderPass : IDisposable
