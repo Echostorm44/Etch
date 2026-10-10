@@ -1,4 +1,3 @@
-using System.Buffers;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Etch.Gpu;
@@ -18,7 +17,9 @@ public readonly record struct MaskRegion(int U, int V, int Layer, int Width, int
 /// <remarks>
 /// <para>
 /// Pages are created on demand: a UI that never fills an arbitrary path or clips to one pays
-/// nothing; each page is 4 MB. Within a frame the atlas grows to <see cref="MaxPages"/> pages
+/// nothing. The first page starts at <see cref="InitialPageSize"/>² texels (64 KB) and doubles, keeping
+/// every mask where it is, up to <see cref="PageSize"/>² (4 MB) as masks arrive; only then are more
+/// pages added. Within a frame the atlas grows to <see cref="MaxPages"/> pages
 /// (existing masks keep their place, the GPU array is copied into a larger one); only when that is
 /// full does insertion fail for the rest of the frame, setting <see cref="WasExhausted"/>.
 /// </para>
@@ -37,8 +38,11 @@ public readonly record struct MaskRegion(int U, int V, int Layer, int Width, int
 /// </remarks>
 public sealed class MaskAtlas : IDisposable
 {
-    /// <summary>Page edge length in texels.</summary>
+    /// <summary>Page edge length in texels at its largest (every page beyond the first has this size).</summary>
     public const int PageSize = 2048;
+
+    /// <summary>Edge length in texels the first page starts at (it doubles up to <see cref="PageSize"/> as masks arrive).</summary>
+    public const int InitialPageSize = 256;
 
     /// <summary>Largest mask edge the atlas accepts.</summary>
     public const int MaxMaskSize = 1024;
@@ -58,6 +62,7 @@ public sealed class MaskAtlas : IDisposable
 
     private readonly Device device;
     private readonly bool gpu;
+    private readonly TextureUploadBatch? uploads;
     private readonly Dictionary<ulong, Entry> entries = new();
     private readonly List<Shelf> shelves = new();
     private readonly List<int> nextShelfY = new();
@@ -65,6 +70,8 @@ public sealed class MaskAtlas : IDisposable
     private Texture texture;
     private TextureView view;
     private int textureLayers;
+    private int textureDimension;
+    private int pageDimension = InitialPageSize;
     private readonly List<byte[]> pages = new();
     private bool disposed;
 
@@ -94,6 +101,7 @@ public sealed class MaskAtlas : IDisposable
     {
         this.device = device;
         gpu = true;
+        uploads = new TextureUploadBatch(device);
     }
 
     /// <summary>Creates a memory-backed atlas for the CPU composer.</summary>
@@ -127,7 +135,18 @@ public sealed class MaskAtlas : IDisposable
     /// <summary>Layers of the GPU page texture (0 without a device, or before the first mask).</summary>
     public int TextureLayers => textureLayers;
 
-    /// <summary>Page <paramref name="layer"/>'s texels, row-major, stride <see cref="PageSize"/> (memory atlas).</summary>
+    /// <summary>
+    /// The pages' current edge length in texels: <see cref="InitialPageSize"/> up to <see cref="PageSize"/>
+    /// (every page has the same; a second page exists only at <see cref="PageSize"/>).
+    /// </summary>
+    public int PageDimension => pageDimension;
+
+    /// <summary>Bytes the pages occupy (GPU texture array or memory).</summary>
+    public long ResidentBytes => gpu
+        ? (long)textureDimension * textureDimension * textureLayers
+        : (long)pageDimension * pageDimension * pages.Count;
+
+    /// <summary>Page <paramref name="layer"/>'s texels, row-major, stride <see cref="PageDimension"/> (memory atlas).</summary>
     public ReadOnlySpan<byte> PagePixels(int layer) => layer < pages.Count ? pages[layer] : ReadOnlySpan<byte>.Empty;
 
     /// <summary>Every memory page, indexed by layer (memory atlas).</summary>
@@ -228,15 +247,21 @@ public sealed class MaskAtlas : IDisposable
         ContentGeneration++;
     }
 
-    /// <summary>Forgets every mask and releases the pages (memory and GPU texture).</summary>
+    /// <summary>
+    /// Forgets every mask and releases the pages (memory and GPU texture); the next mask starts a
+    /// page of <see cref="InitialPageSize"/> again.
+    /// </summary>
     public void Trim()
     {
         Reset();
         pages.Clear();
         nextShelfY.Clear();
         pageCount = 0;
+        pageDimension = InitialPageSize;
+        uploads?.Clear();
         ReleaseTexture();
         textureLayers = 0;
+        textureDimension = 0;
         TextureGeneration++;
     }
 
@@ -244,85 +269,112 @@ public sealed class MaskAtlas : IDisposable
     {
         int w = width + Padding;
         int h = height + Padding;
-        // The shortest shelf tall enough with room left, on any page.
-        int best = -1;
-        for (int i = 0; i < shelves.Count; i++)
+        while (true)
         {
-            var shelf = shelves[i];
-            if (shelf.Height >= h && shelf.NextX + w <= PageSize && (best < 0 || shelf.Height < shelves[best].Height))
+            // The shortest shelf tall enough with room left, on any page.
+            int best = -1;
+            for (int i = 0; i < shelves.Count; i++)
             {
-                best = i;
-            }
-        }
-        if (best < 0)
-        {
-            // A new shelf, rounded up to a multiple of 8 so similar masks share it, on the first
-            // page with room; a new page when none has.
-            int shelfHeight = (h + 7) & ~7;
-            int page = -1;
-            for (int p = 0; p < pageCount; p++)
-            {
-                if (nextShelfY[p] + shelfHeight <= PageSize)
+                var shelf = shelves[i];
+                if (shelf.Height >= h && shelf.NextX + w <= pageDimension && (best < 0 || shelf.Height < shelves[best].Height))
                 {
-                    page = p;
-                    break;
+                    best = i;
                 }
             }
-            if (page < 0)
+            if (best < 0)
             {
-                if (pageCount >= MaxPages)
+                // A new shelf, rounded up to a multiple of 8 so similar masks share it, on the first
+                // page with room.
+                int shelfHeight = (h + 7) & ~7;
+                int page = -1;
+                for (int p = 0; p < pageCount && w <= pageDimension; p++)
                 {
-                    u = v = layer = 0;
-                    return false;
+                    if (nextShelfY[p] + shelfHeight <= pageDimension)
+                    {
+                        page = p;
+                        break;
+                    }
                 }
-                page = AddPage();
+                if (page < 0)
+                {
+                    // No room: the first page doubles (masks keep their texels) until it is full
+                    // size; only then are pages added.
+                    if (pageCount == 0)
+                    {
+                        AddPage();
+                    }
+                    else if (pageDimension < PageSize)
+                    {
+                        GrowPages(pageDimension * 2);
+                    }
+                    else if (pageCount < MaxPages)
+                    {
+                        AddPage();
+                    }
+                    else
+                    {
+                        u = v = layer = 0;
+                        return false;
+                    }
+                    continue;
+                }
+                shelves.Add(new Shelf { Layer = page, Y = nextShelfY[page], Height = shelfHeight, NextX = 0 });
+                nextShelfY[page] += shelfHeight;
+                best = shelves.Count - 1;
             }
-            shelves.Add(new Shelf { Layer = page, Y = nextShelfY[page], Height = shelfHeight, NextX = 0 });
-            nextShelfY[page] += shelfHeight;
-            best = shelves.Count - 1;
-        }
 
-        var chosen = shelves[best];
-        u = chosen.NextX;
-        v = chosen.Y;
-        layer = chosen.Layer;
-        chosen.NextX += w;
-        shelves[best] = chosen;
-        return true;
+            var chosen = shelves[best];
+            u = chosen.NextX;
+            v = chosen.Y;
+            layer = chosen.Layer;
+            chosen.NextX += w;
+            shelves[best] = chosen;
+            return true;
+        }
     }
 
-    private int AddPage()
+    private void AddPage()
     {
-        int page = pageCount++;
-        if (page < nextShelfY.Count)
-        {
-            nextShelfY[page] = 0;
-        }
-        else
-        {
-            nextShelfY.Add(0);
-        }
+        pageCount++;
+        nextShelfY.Add(0);
         if (!gpu)
         {
-            if (page >= pages.Count)
-            {
-                pages.Add(new byte[PageSize * PageSize]);
-            }
-            return page;
+            pages.Add(new byte[pageDimension * pageDimension]);
+            return;
         }
-        if (pageCount > textureLayers)
+        if (pageCount > textureLayers || textureDimension != pageDimension)
         {
-            GrowTexture(Math.Min(MaxPages, Math.Max(1, textureLayers * 2)));
+            EnsureTexture(pageDimension, Math.Min(MaxPages, Math.Max(pageCount, textureLayers * 2)));
         }
-        return page;
     }
 
-    // Replaces the texture array with a larger one, copying the existing layers on the GPU.
-    private unsafe void GrowTexture(int layers)
+    // The single page grows to dimension² texels; every mask keeps its texel coordinates.
+    private void GrowPages(int dimension)
+    {
+        int old = pageDimension;
+        pageDimension = dimension;
+        if (!gpu)
+        {
+            for (int p = 0; p < pages.Count; p++)
+            {
+                var grown = new byte[dimension * dimension];
+                for (int row = 0; row < old; row++)
+                {
+                    pages[p].AsSpan(row * old, old).CopyTo(grown.AsSpan(row * dimension, old));
+                }
+                pages[p] = grown;
+            }
+            return;
+        }
+        EnsureTexture(dimension, Math.Max(textureLayers, 1));
+    }
+
+    // Replaces the texture array with one of the given size, copying the existing layers on the GPU.
+    private unsafe void EnsureTexture(int dimension, int layers)
     {
         var grown = device.CreateTexture(new TextureDescriptor
         {
-            Size = new Extent3D { Width = PageSize, Height = PageSize, DepthOrArrayLayers = (uint)layers },
+            Size = new Extent3D { Width = (uint)dimension, Height = (uint)dimension, DepthOrArrayLayers = (uint)layers },
             Format = TextureFormat.R8Unorm,
             Dimension = TextureDimension.D2,
             Usage = (ulong)(TextureUsage.TextureBinding | TextureUsage.CopyDst | TextureUsage.CopySrc),
@@ -331,9 +383,11 @@ public sealed class MaskAtlas : IDisposable
         });
         if (textureLayers > 0)
         {
+            // Uploads queued for the old texture run before this submission's copy.
+            int copyDimension = Math.Min(textureDimension, dimension);
             using var encoder = device.CreateCommandEncoder();
             encoder.CopyTextureToTexture(texture, 0, default, grown, 0, default,
-                new Extent3D { Width = PageSize, Height = PageSize, DepthOrArrayLayers = (uint)textureLayers });
+                new Extent3D { Width = (uint)copyDimension, Height = (uint)copyDimension, DepthOrArrayLayers = (uint)Math.Min(textureLayers, layers) });
             using var commands = encoder.Finish();
             Span<CommandBuffer> submit = stackalloc CommandBuffer[1];
             submit[0] = commands;
@@ -352,6 +406,7 @@ public sealed class MaskAtlas : IDisposable
             Aspect = TextureAspect.All,
         });
         textureLayers = layers;
+        textureDimension = dimension;
         TextureGeneration++;
     }
 
@@ -377,32 +432,32 @@ public sealed class MaskAtlas : IDisposable
             for (int row = 0; row < region.Height; row++)
             {
                 coverage.Slice(row * region.Width, region.Width)
-                    .CopyTo(dst.Slice((region.V + row) * PageSize + region.U, region.Width));
+                    .CopyTo(dst.Slice((region.V + row) * pageDimension + region.U, region.Width));
             }
             return;
         }
 
-        uint bytesPerRow = (uint)((region.Width + 255) & ~255);
-        int length = (int)bytesPerRow * region.Height;
-        byte[] rented = ArrayPool<byte>.Shared.Rent(length);
-        try
-        {
-            var staging = rented.AsSpan(0, length);
-            for (int row = 0; row < region.Height; row++)
-            {
-                coverage.Slice(row * region.Width, region.Width).CopyTo(staging.Slice(row * (int)bytesPerRow, region.Width));
-            }
-            var origin = new WGPUOrigin3D { X = (uint)region.U, Y = (uint)region.V, Z = (uint)region.Layer };
-            var size = new Extent3D { Width = (uint)region.Width, Height = (uint)region.Height, DepthOrArrayLayers = 1 };
-            device.Queue.WriteTexture(texture, 0, origin, staging, bytesPerRow, (uint)region.Height, size);
-        }
-        finally
-        {
-            ArrayPool<byte>.Shared.Return(rented);
-        }
+        // Queued: FlushUploads writes every mask of the frame in one batch.
+        uploads!.Add((uint)region.U, (uint)region.V, (uint)region.Layer, region.Width, region.Height, 1, coverage);
     }
 
-    /// <summary>Releases the GPU pages.</summary>
+    /// <summary>
+    /// Records the mask uploads queued since the last call into <paramref name="encoder"/> (GPU
+    /// atlas; the memory atlas writes its texels on insertion). <see cref="GpuComposer.Encode"/> calls it.
+    /// </summary>
+    public void FlushUploads(CommandEncoder encoder)
+    {
+        if (uploads is null || texture.IsInvalid)
+        {
+            return;
+        }
+        uploads.Flush(encoder, texture);
+    }
+
+    /// <summary>Mask uploads waiting for <see cref="FlushUploads"/> (GPU atlas).</summary>
+    public int PendingUploads => uploads?.PendingCount ?? 0;
+
+    /// <summary>Releases the pages (GPU texture array, or memory).</summary>
     public void Dispose()
     {
         if (disposed)
@@ -410,6 +465,8 @@ public sealed class MaskAtlas : IDisposable
             return;
         }
         disposed = true;
+        uploads?.Dispose();
         ReleaseTexture();
+        pages.Clear();
     }
 }
