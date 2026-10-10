@@ -431,6 +431,9 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             EnsureImageTexture(handle, image);
         }
+        // The glyphs the list's build added, written in one batch per atlas before any pass reads them.
+        glyphAtlas.FlushUploads(encoder);
+        colorGlyphAtlas.FlushUploads(encoder);
         Upload(list);
         LastCopyCount = EncodeBatches(encoder, target, targetView, list);
     }

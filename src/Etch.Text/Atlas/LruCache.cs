@@ -3,113 +3,109 @@ using System.Collections.Generic;
 
 namespace Etch.Text.Atlas;
 
-internal sealed class Shelf
-{
-    public int Y;
-    public int X;
-    public int Height;
-    public Shelf? Next;
-
-    public Shelf(int y, int height)
-    {
-        Y = y;
-        X = 0;
-        Height = height;
-    }
-}
-
+/// <summary>
+/// Shelf packing with shelves as tall as their glyphs: a glyph goes on the shortest shelf that is
+/// tall enough and has room, else on a new shelf of its own height rounded up to
+/// <see cref="ShelfQuantum"/> (similar glyphs share it). <c>maxShelfHeight</c> caps a shelf and so
+/// the tallest glyph the page accepts. The packed area can grow (<see cref="Grow"/>): existing shelves
+/// extend to the new width and new shelves start below them, so placed glyphs keep their texels.
+/// </summary>
 internal sealed class ShelfPack
 {
-    private readonly int _width;
-    private readonly int _height;
-    private readonly int _rowHeight;
-    private Shelf? _head;
+    /// <summary>Shelf heights are multiples of this many texels.</summary>
+    public const int ShelfQuantum = 8;
 
-    public ShelfPack(int width, int height, int rowHeight)
+    // One texel right of and below every glyph, so neighbours never touch.
+    private const int Padding = 1;
+
+    private readonly int maxShelfHeight;
+    private readonly List<PackShelf> shelves = new();
+    private int width;
+    private int height;
+    private int nextShelfY;
+
+    private struct PackShelf
     {
-        _width = width;
-        _height = height;
-        _rowHeight = rowHeight;
-        _head = new Shelf(0, rowHeight);
+        public int Y;
+        public int Height;
+        public int NextX;
+    }
+
+    public ShelfPack(int width, int height, int maxShelfHeight)
+    {
+        this.width = width;
+        this.height = height;
+        this.maxShelfHeight = maxShelfHeight;
     }
 
     public bool Allocate(int w, int h, out int outX, out int outY)
     {
         outX = 0;
         outY = 0;
+        int paddedW = w + Padding;
+        int paddedH = h + Padding;
 
-        // Add 1 pixel padding on all sides to prevent atlas bleeding with linear filtering
-        const int pad = 1;
-        int paddedW = w + pad;
-        int paddedH = h + pad;
-
-        // Reject glyphs that can never fit a shelf — too tall for the row, or
-        // wider than the page. The new-shelf path below places at x=0 without a
-        // width check, so without this guard a too-wide glyph would "succeed"
-        // out of bounds and corrupt the texture upload.
-        if (paddedH > _rowHeight || paddedW > _width)
+        // A glyph too tall for any shelf or wider than the page can never be placed.
+        if (paddedH > maxShelfHeight || paddedW > width)
         {
             return false;
         }
 
-        for (var shelf = _head; shelf != null; shelf = shelf.Next)
+        int best = -1;
+        for (int i = 0; i < shelves.Count; i++)
         {
-            if (paddedH > shelf.Height)
-                continue;
-            if (shelf.X + paddedW <= _width)
+            var shelf = shelves[i];
+            if (shelf.Height >= paddedH && shelf.NextX + paddedW <= width && (best < 0 || shelf.Height < shelves[best].Height))
             {
-                outX = shelf.X;
-                outY = shelf.Y;
-                shelf.X += paddedW;
-                return true;
+                best = i;
             }
         }
+        if (best < 0)
+        {
+            int shelfHeight = Math.Min(maxShelfHeight, (paddedH + ShelfQuantum - 1) / ShelfQuantum * ShelfQuantum);
+            if (nextShelfY + shelfHeight > height)
+            {
+                return false;
+            }
+            shelves.Add(new PackShelf { Y = nextShelfY, Height = shelfHeight, NextX = 0 });
+            nextShelfY += shelfHeight;
+            best = shelves.Count - 1;
+        }
 
-        int newY = GetLastShelfY() + _rowHeight;
-        if (newY + _rowHeight > _height)
-            return false;
-
-        var newShelf = new Shelf(newY, _rowHeight);
-        AddShelf(newShelf);
-        outX = 0;
-        outY = newY;
-        newShelf.X = paddedW;
+        var chosen = shelves[best];
+        outX = chosen.NextX;
+        outY = chosen.Y;
+        chosen.NextX += paddedW;
+        shelves[best] = chosen;
         return true;
-    }
-
-    public static void Free(int x, int w, int y)
-    {
     }
 
     /// <summary>
     /// True when a glyph of height <paramref name="h"/> can never be placed
-    /// because, padded, it exceeds the shelf row height. Mirrors the height
+    /// because, padded, it exceeds the tallest shelf. Mirrors the height
     /// check in <see cref="Allocate"/>.
     /// </summary>
-    public bool IsTallerThanShelf(int h) => h + 1 > _rowHeight;
+    public bool IsTallerThanShelf(int h) => h + Padding > maxShelfHeight;
 
-    private int GetLastShelfY()
+    /// <summary>Enlarges the packed area to <paramref name="newWidth"/> × <paramref name="newHeight"/>; placements are kept.</summary>
+    public void Grow(int newWidth, int newHeight)
     {
-        var shelf = _head;
-        while (shelf?.Next != null)
-            shelf = shelf.Next;
-        return shelf?.Y ?? 0;
+        width = Math.Max(width, newWidth);
+        height = Math.Max(height, newHeight);
     }
 
-    private void AddShelf(Shelf newShelf)
+    /// <summary>Resizes the packed area and forgets every placement.</summary>
+    public void Reset(int newWidth, int newHeight)
     {
-        var shelf = _head;
-        while (shelf?.Next != null)
-            shelf = shelf.Next;
-        if (shelf != null)
-            shelf.Next = newShelf;
-        else
-            _head = newShelf;
+        width = newWidth;
+        height = newHeight;
+        Reset();
     }
 
     public void Reset()
     {
-        _head = new Shelf(0, _rowHeight);
+        shelves.Clear();
+        nextShelfY = 0;
     }
 }
 
@@ -119,7 +115,7 @@ internal sealed class LruCache
     private LruCacheEntry? _head;
     private LruCacheEntry? _tail;
     private int _totalSize;
-    private readonly int _capacity;
+    private int _capacity;
     private readonly ShelfPack _packer;
     private readonly List<Slot> _evictedSlots;
 
@@ -167,7 +163,17 @@ internal sealed class LruCache
     }
 
     public bool TryInsert(GlyphCacheKey key, int w, int h, int u, int v, short offsetX, short offsetY, out AtlasRegion region)
+        => TryInsert(key, w, h, offsetX, offsetY, allowEviction: true, out region);
+
+    /// <summary>
+    /// Places a glyph. Without <paramref name="allowEviction"/> only free space is used (the caller
+    /// would rather grow the page than evict); with it, glyphs no frame has used recently may be
+    /// evicted for room.
+    /// </summary>
+    public bool TryInsert(GlyphCacheKey key, int w, int h, short offsetX, short offsetY, bool allowEviction, out AtlasRegion region)
     {
+        int u;
+        int v;
         if (_map.TryGetValue(key, out var existing))
         {
             existing.LastUsedFrame = _frame;
@@ -183,7 +189,7 @@ internal sealed class LruCache
             goto placed;
         }
 
-        while (_totalSize + approxSize > _capacity && _tail != null)
+        while (allowEviction && _totalSize + approxSize > _capacity && _tail != null)
         {
             var evictEntry = _tail!;
             if (_frame != 0 && evictEntry.LastUsedFrame == _frame)
@@ -345,8 +351,26 @@ internal sealed class LruCache
     }
 
     /// <summary>
+    /// The page grew to <paramref name="dimension"/>² texels: the budget and the packed area follow,
+    /// and every cached glyph keeps its place.
+    /// </summary>
+    public void Grow(int dimension)
+    {
+        _capacity = dimension * dimension;
+        _packer.Grow(dimension, dimension);
+    }
+
+    /// <summary>Forgets every glyph and resizes the page to <paramref name="dimension"/>² texels.</summary>
+    public void Reset(int dimension)
+    {
+        Reset();
+        _capacity = dimension * dimension;
+        _packer.Reset(dimension, dimension);
+    }
+
+    /// <summary>
     /// True when a glyph of this height can never fit a shelf (taller than the
-    /// packer's row height, padding included), so a <see cref="Reset"/> would
+    /// packer's row height, padding included), so a <see cref="Reset()"/> would
     /// not help. Distinguishes recoverable packer exhaustion from a glyph that
     /// is fundamentally too large for the atlas geometry.
     /// </summary>

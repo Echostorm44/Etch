@@ -78,4 +78,18 @@ public sealed class ShelfPacker : ISliceStrategy
         else
             _head = newShelf;
     }
+
+    private sealed class Shelf
+    {
+        public int Y;
+        public int X;
+        public int Height;
+        public Shelf? Next;
+
+        public Shelf(int y, int height)
+        {
+            Y = y;
+            Height = height;
+        }
+    }
 }
