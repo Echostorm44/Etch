@@ -148,6 +148,41 @@ internal sealed class CpuDamageTests
     }
 
     [Test]
+    public async Task TransparentCaret_KeepsItsBatch_SoABlinkDamagesOnlyItsTile()
+    {
+        // A caret drawn between two overlapping text runs. Dropped while it is off, it let the second
+        // run join the first run's batch: every tile the runs share hashed differently, and each blink
+        // damaged the whole row. Held in place, only the caret's tile changes.
+        const int W = 640;
+        const int H = 120;
+        using var incremental = new Pipeline();
+        using var full = new Pipeline();
+        incremental.RenderIncremental(CaretBetweenTextRuns(1f), W, H, out _);
+        float[] phases = [0f, 1f, 0f];
+        foreach (float alpha in phases)
+        {
+            var frame = CaretBetweenTextRuns(alpha);
+            byte[] a = incremental.RenderIncremental(frame, W, H, out var dirty);
+            byte[] b = full.RenderFull(frame, W, H);
+            long pixels = dirty.Sum(r => (long)r.Width * r.Height);
+            await Assert.That(FirstDifference(a, b)).IsEqualTo(-1).Because($"caret alpha {alpha}");
+            await Assert.That(pixels).IsEqualTo((long)CpuComposer.TileSize * CpuComposer.TileSize).Because($"caret alpha {alpha}");
+        }
+    }
+
+    private static DrawRecording CaretBetweenTextRuns(float caretAlpha)
+    {
+        var ink = new ComposeColor(0.1f, 0.1f, 0.12f, 1);
+        var rec = new DrawRecording();
+        rec.SetTransform(Affine.Identity);
+        rec.FillRect(0, 0, 640, 120, ComposePaint.Solid(new ComposeColor(1, 1, 1, 1)));
+        rec.Glyphs(UiFrameScene.Run("Type to filter entries across the whole search field", 8, 40, ink, 1f, 16));
+        rec.FillRect(20, 24, 1.5f, 20, ComposePaint.Solid(new ComposeColor(0.04f, 0.52f, 1f, caretAlpha)));
+        rec.Glyphs(UiFrameScene.Run("A second run of text drawn over the first one", 8, 46, ink, 1f, 16));
+        return rec;
+    }
+
+    [Test]
     [NotInParallel]
     [Arguments(1)]
     [Arguments(-1)]

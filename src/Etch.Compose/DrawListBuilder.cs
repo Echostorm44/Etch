@@ -748,7 +748,8 @@ public sealed class DrawListBuilder
         return inst;
     }
 
-    // Finalizes the raster extent (geometry bounds grown by margin, clipped) and places the shape.
+    // Finalizes the raster extent (geometry bounds grown by margin, clipped) and places the shape. A
+    // transparent solid shape takes its place in paint order without an instance (see IsInvisibleSolid).
     private void Place(ref ShapeInstance inst, float minX, float minY, float maxX, float maxY, float margin)
     {
         uint clip = CurrentClip();
@@ -758,6 +759,11 @@ public sealed class DrawListBuilder
         maxY += margin;
         if (!ClipExtent(ref minX, ref minY, ref maxX, ref maxY, clip))
         {
+            return;
+        }
+        if (inst.PaintIndex == 0 && inst.A0 <= 0f)
+        {
+            list.HoldShapePlace(minX, minY, maxX, maxY);
             return;
         }
         inst.MinX = minX;
@@ -770,6 +776,15 @@ public sealed class DrawListBuilder
 
     // ── Shapes ──────────────────────────────────────────────────────────
 
+    // A fully transparent solid paint draws nothing, but an analytic rect, rounded rect or line still
+    // takes its place in paint order (Place → DrawList.HoldShapePlace). Batches are chosen by
+    // footprint, so dropping the shape would move the draws after it into other batches: a blinking
+    // caret, or a shape fading through zero, would change the batches — and with them the glyph
+    // backgrounds and the CPU composer's damage — of everything drawn after it, not just its own
+    // pixels. Masked fallbacks (transformed or complex geometry) are still skipped.
+    private static bool IsInvisibleSolid(in ComposePaint paint, float opacity)
+        => paint.Kind == GradientKind.None && paint.Color.A * opacity <= 0f;
+
     private void FillRect(in Affine t, float x, float y, float w, float h, in ComposePaint paint, float opacity)
     {
         if (!(w > 0f) || !(h > 0f))
@@ -777,9 +792,14 @@ public sealed class DrawListBuilder
             return;
         }
         var inst = SolidInstance(default);
+        bool invisible = false;
         if (!ApplyPaint(ref inst, paint, t, opacity))
         {
-            return;
+            if (!IsInvisibleSolid(paint, opacity))
+            {
+                return;
+            }
+            invisible = true;
         }
 
         if (IsAxisAligned(t))
@@ -807,6 +827,10 @@ public sealed class DrawListBuilder
             Place(ref inst, minX, minY, maxX, maxY, AaMargin);
             return;
         }
+        if (invisible)
+        {
+            return;
+        }
         RoundedRectFlat(t, x, y, w, h, 0f, flat);
         FillMask(flat, FillRule.NonZero, t, MaskKeyForShape(t, 1, x, y, w, h, 0f, 0f), inst);
     }
@@ -818,9 +842,14 @@ public sealed class DrawListBuilder
             return;
         }
         var inst = SolidInstance(default);
+        bool invisible = false;
         if (!ApplyPaint(ref inst, paint, t, opacity))
         {
-            return;
+            if (!IsInvisibleSolid(paint, opacity))
+            {
+                return;
+            }
+            invisible = true;
         }
 
         bool aligned = IsAxisAligned(t);
@@ -847,6 +876,10 @@ public sealed class DrawListBuilder
             inst.P3 = y + h;
             inst.Q0 = radius;
             Place(ref inst, minX, minY, maxX, maxY, AaMargin);
+            return;
+        }
+        if (invisible)
+        {
             return;
         }
         RoundedRectFlat(t, x, y, w, h, radius, flat);
@@ -1032,10 +1065,12 @@ public sealed class DrawListBuilder
 
     private void StrokeLine(in Affine t, float x0, float y0, float x1, float y1, in StrokeParameters stroke, ComposeColor color)
     {
-        if (!(stroke.Width > 0f) || color.A <= 0f)
+        // A transparent line still takes its place in paint order (see IsInvisibleSolid).
+        if (!(stroke.Width > 0f) || float.IsNaN(color.A))
         {
             return;
         }
+        bool invisible = color.A <= 0f;
         var inst = SolidInstance(color);
         var d0 = t.Transform(new Point(x0, y0));
         var d1 = t.Transform(new Point(x1, y1));
@@ -1085,6 +1120,10 @@ public sealed class DrawListBuilder
             float ext = hw + extend;
             Place(ref inst, Math.Min(inst.P0, inst.P2) - ext, Math.Min(inst.P1, inst.P3) - ext,
                 Math.Max(inst.P0, inst.P2) + ext, Math.Max(inst.P1, inst.P3) + ext, AaMargin);
+            return;
+        }
+        if (invisible)
+        {
             return;
         }
         strokeInput.Clear();
