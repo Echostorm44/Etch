@@ -272,6 +272,11 @@ public sealed class CpuComposer : IDisposable
             }
             if (batches[phaseStart].Kind == DrawKind.Blur && batches[phaseStart].Count > 0)
             {
+                // Only backdrop blurs read the whole-frame copy: a frame without one never allocates it.
+                if (snapshot.Length < target.Width * target.Height)
+                {
+                    snapshot = new uint[target.Width * target.Height];
+                }
                 CopyRect(target, batches[phaseStart], new Region(0, 0, target.Width, target.Height), snapshot, 0, 0, target.Width);
             }
             phaseEnd = end;
@@ -554,6 +559,19 @@ public sealed class CpuComposer : IDisposable
         colorAtlas.Trim();
     }
 
+    /// <summary>The memory the composer holds right now, by owner (atlases, per-frame buffers).</summary>
+    public CpuMemoryUsage MemoryUsage()
+    {
+        long frameBytes = (long)snapshot.Length * sizeof(uint)
+            + (long)(tileStart.Length + tileFill.Length + openAbove.Length + openHere.Length) * sizeof(int)
+            + (long)entries.Length * Unsafe.SizeOf<BinEntry>()
+            + (long)ranges.Length * Unsafe.SizeOf<TileRange>()
+            + (long)(itemHashes.Length + clipHashes.Length + tileHashes.Length + previousTileHashes.Length) * sizeof(ulong)
+            + tileDirty.Length
+            + (long)scratch.Length * TileScratch.Bytes;
+        return new CpuMemoryUsage(monoAtlas.ResidentBytes, colorAtlas.ResidentBytes, maskAtlas.ResidentBytes, frameBytes);
+    }
+
     /// <summary>A rectangle of target pixels [X0, X1) × [Y0, Y1).</summary>
     internal readonly record struct Region(int X0, int Y0, int X1, int Y1);
 
@@ -566,6 +584,8 @@ public sealed class CpuComposer : IDisposable
     /// <summary>Per-worker scratch: the tile's background copy and lookup tables.</summary>
     private sealed class TileScratch
     {
+        public const long Bytes = (TileSize * TileSize + TileSize + 256) * 4;
+
         public readonly uint[] Background = new uint[TileSize * TileSize];
         public readonly float[] RowCoverage = new float[TileSize];
         public readonly float[] DarkWeight = new float[256];
@@ -583,10 +603,6 @@ public sealed class CpuComposer : IDisposable
         {
             tileStart = new int[tileCount + 1];
             tileFill = new int[tileCount];
-        }
-        if (snapshot.Length < width * height)
-        {
-            snapshot = new uint[width * height];
         }
 
         var batches = list.Batches;
@@ -1328,7 +1344,7 @@ public sealed class CpuComposer : IDisposable
         }
     }
 
-    /// <summary>Releases the atlases and the worker items.</summary>
+    /// <summary>Releases the atlases, the per-frame buffers and the worker threads.</summary>
     public void Dispose()
     {
         if (disposed)
@@ -1340,8 +1356,20 @@ public sealed class CpuComposer : IDisposable
         monoAtlas.Dispose();
         colorAtlas.Dispose();
         maskAtlas.Dispose();
+        // A disposed composer may stay referenced (a closed window's renderer): drop what it held.
+        Trim();
     }
 }
 
 /// <summary>A rect of framebuffer pixels a <see cref="CpuComposer.RenderIncremental"/> frame changed.</summary>
 public readonly record struct CpuDirtyRect(int X, int Y, int Width, int Height);
+
+/// <summary>
+/// Bytes a <see cref="CpuComposer"/> holds: its glyph atlases (monochrome, colour), its mask atlas
+/// pages, and its per-frame buffers (bins, damage hashes, blur snapshot, worker scratch).
+/// </summary>
+public readonly record struct CpuMemoryUsage(long MonoAtlasBytes, long ColorAtlasBytes, long MaskAtlasBytes, long FrameBytes)
+{
+    /// <summary>Everything together.</summary>
+    public long TotalBytes => MonoAtlasBytes + ColorAtlasBytes + MaskAtlasBytes + FrameBytes;
+}
