@@ -39,6 +39,10 @@ public static partial class WebGPU
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
     public static partial void CommandEncoderCopyTextureToBuffer(CommandEncoderHandle encoder, System.IntPtr source, System.IntPtr destination, System.IntPtr copySize);
 
+    [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuCommandEncoderCopyBufferToTexture")]
+    [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    public static partial void CommandEncoderCopyBufferToTexture(CommandEncoderHandle encoder, System.IntPtr source, System.IntPtr destination, System.IntPtr copySize);
+
     [System.Runtime.InteropServices.LibraryImport("wgpu_native", EntryPoint = "wgpuBufferMapAsync")]
     [System.Runtime.InteropServices.UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
     // mode is WGPUMapMode (WGPUFlags, 64-bit); callbackInfo is passed by value like every callback info.
