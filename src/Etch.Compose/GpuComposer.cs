@@ -21,11 +21,23 @@ namespace Etch.Compose;
 /// </remarks>
 public sealed unsafe class GpuComposer : IDisposable
 {
-    /// <summary>Monochrome glyph atlas page size (one page; resets when full).</summary>
+    /// <summary>
+    /// Monochrome glyph atlas page size at its largest (one page; resets when full at this size).
+    /// It starts at <see cref="InitialGlyphAtlasSize"/> and doubles as glyphs arrive.
+    /// </summary>
     public const int GlyphAtlasSize = 2048;
 
-    /// <summary>Colour glyph atlas page size (one page; resets when full).</summary>
+    /// <summary>Monochrome glyph atlas page size a composer starts with (64 KB; a few hundred UI glyphs).</summary>
+    public const int InitialGlyphAtlasSize = 256;
+
+    /// <summary>
+    /// Colour glyph atlas page size at its largest (one page; resets when full at this size).
+    /// It starts at <see cref="InitialColorGlyphAtlasSize"/> and doubles as colour glyphs arrive.
+    /// </summary>
     public const int ColorGlyphAtlasSize = 1024;
+
+    /// <summary>Colour glyph atlas page size a composer starts with (64 KB of RGBA; most UIs draw no colour glyph).</summary>
+    public const int InitialColorGlyphAtlasSize = 128;
 
     private readonly Device device;
     private uint targetWidth;
@@ -48,9 +60,7 @@ public sealed unsafe class GpuComposer : IDisposable
     private readonly Sampler blurSampler;
 
     private readonly GlyphAtlas glyphAtlas;
-    private readonly TextureView glyphAtlasView;
     private readonly GlyphAtlas colorGlyphAtlas;
-    private readonly TextureView colorGlyphAtlasView;
     private readonly MaskAtlas maskAtlas;
     private readonly Texture emptyMask;
     private readonly TextureView emptyMaskView;
@@ -138,6 +148,8 @@ public sealed unsafe class GpuComposer : IDisposable
     private int bindGeneration = -1;
     private int resourceGeneration;
     private int boundMaskTexture = -1;
+    private int boundMonoTexture = -1;
+    private int boundColorTexture = -1;
 
     private readonly record struct Pipeline(ShaderModule Shader, RenderPipeline Render, PipelineLayout Layout, BindGroupLayout Group0, BindGroupLayout Group1)
     {
@@ -235,12 +247,11 @@ public sealed unsafe class GpuComposer : IDisposable
         nearestSampler = CreateSampler(FilterMode.Nearest);
         blurSampler = CreateSampler(FilterMode.Linear);
 
-        // Atlas sizes are a resident-memory budget: 2048² R8 is 4 MB and holds thousands of UI
-        // glyphs; 1024² RGBA for emoji is 4 MB. Both reset when full (WasExhausted).
-        glyphAtlas = new GlyphAtlas(device, GlyphAtlasSize, TextureFormat.R8Unorm, 128, maxPages: 1);
-        glyphAtlasView = glyphAtlas.GetPage(0).Texture.CreateView();
-        colorGlyphAtlas = new GlyphAtlas(device, ColorGlyphAtlasSize, TextureFormat.Rgba8UnormSrgb, 128, maxPages: 1);
-        colorGlyphAtlasView = colorGlyphAtlas.GetPage(0).Texture.CreateView();
+        // Atlas sizes are a resident-memory budget: they start small and grow as glyphs arrive, up
+        // to 2048² R8 (4 MB, thousands of UI glyphs) and 1024² RGBA for emoji (4 MB). Both reset
+        // when full at that size (WasExhausted).
+        glyphAtlas = new GlyphAtlas(device, GlyphAtlasSize, TextureFormat.R8Unorm, 128, maxPages: 1, initialDimension: InitialGlyphAtlasSize);
+        colorGlyphAtlas = new GlyphAtlas(device, ColorGlyphAtlasSize, TextureFormat.Rgba8UnormSrgb, 128, maxPages: 1, initialDimension: InitialColorGlyphAtlasSize);
         maskAtlas = new MaskAtlas(device);
 
         // Bound in place of the mask page until a mask exists (the page is created lazily).
@@ -510,6 +521,17 @@ public sealed unsafe class GpuComposer : IDisposable
         maskAtlas.Trim();
         ReleaseFramebufferTexture();
     }
+
+    /// <summary>
+    /// Forgets every cached glyph and shrinks both glyph atlases back to their initial size
+    /// (<see cref="InitialGlyphAtlasSize"/>, <see cref="InitialColorGlyphAtlasSize"/>): the memory a
+    /// peak left behind is released, and the next frame rasterizes its glyphs again. Call between frames.
+    /// </summary>
+    public void TrimGlyphAtlases()
+    {
+        glyphAtlas.Trim();
+        colorGlyphAtlas.Trim();
+    }
     // ── Upload ──────────────────────────────────────────────────────────
 
     private void Upload(DrawList list)
@@ -531,6 +553,13 @@ public sealed unsafe class GpuComposer : IDisposable
         if (boundMaskTexture != maskAtlas.TextureGeneration)
         {
             boundMaskTexture = maskAtlas.TextureGeneration;
+            resourceGeneration++;
+        }
+        // A glyph atlas that grew while the list was built has a new texture.
+        if (boundMonoTexture != glyphAtlas.TextureGeneration || boundColorTexture != colorGlyphAtlas.TextureGeneration)
+        {
+            boundMonoTexture = glyphAtlas.TextureGeneration;
+            boundColorTexture = colorGlyphAtlas.TextureGeneration;
             resourceGeneration++;
         }
         if (bindGeneration != resourceGeneration)
@@ -951,10 +980,10 @@ public sealed unsafe class GpuComposer : IDisposable
         image[4] = Storage(4, maskTileBuffer);
         imageGroup = CreateGroup(imagePipeline.Group0, image, 5);
 
-        glyphGroup0 = CreateGlyphGroup(glyphPipeline.Group0, glyphAtlasView, nearestSampler);
+        glyphGroup0 = CreateGlyphGroup(glyphPipeline.Group0, glyphAtlas.GetPage(0).View, nearestSampler);
         glyphGroup1 = CreateInstanceGroup(glyphPipeline.Group1, glyphBuffer);
         // Glyph quads map 1:1 onto their atlas texels: nearest sampling reads exactly that texel.
-        colorGlyphGroup0 = CreateGlyphGroup(colorGlyphPipeline.Group0, colorGlyphAtlasView, nearestSampler);
+        colorGlyphGroup0 = CreateGlyphGroup(colorGlyphPipeline.Group0, colorGlyphAtlas.GetPage(0).View, nearestSampler);
         colorGlyphGroup1 = CreateInstanceGroup(colorGlyphPipeline.Group1, colorGlyphBuffer);
 
         var blur = stackalloc BindGroupEntry[6];
@@ -1251,9 +1280,7 @@ public sealed unsafe class GpuComposer : IDisposable
         nearestSampler.Dispose();
         blurSampler.Dispose();
 
-        glyphAtlasView.Dispose();
         glyphAtlas.Dispose();
-        colorGlyphAtlasView.Dispose();
         colorGlyphAtlas.Dispose();
         maskAtlas.Dispose();
         emptyMaskView.Dispose();

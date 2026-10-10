@@ -97,8 +97,6 @@ public static class GlyphRunBuilder
             return run.GlyphIds.Length;
         }
 
-        float monoDim = monoAtlas.Dimension;
-        float colorDim = colorAtlas.Dimension;
         var color = run.Color;
         float alpha = color.A * opacity;
         float fgLuminance = Luminance(color);
@@ -173,10 +171,10 @@ public static class GlyphRunBuilder
                         PosY = cpy,
                         SizeX = colorRegion.W,
                         SizeY = colorRegion.H,
-                        AtlasU0 = colorRegion.U / colorDim,
-                        AtlasV0 = (colorRegion.V + colorRegion.H) / colorDim,
-                        AtlasU1 = (colorRegion.U + colorRegion.W) / colorDim,
-                        AtlasV1 = colorRegion.V / colorDim,
+                        AtlasU0 = colorRegion.U,
+                        AtlasV0 = colorRegion.V + colorRegion.H,
+                        AtlasU1 = colorRegion.U + colorRegion.W,
+                        AtlasV1 = colorRegion.V,
                         R = 1f,
                         G = 1f,
                         B = 1f,
@@ -239,10 +237,10 @@ public static class GlyphRunBuilder
                 PosY = py,
                 SizeX = region.W,
                 SizeY = region.H,
-                AtlasU0 = region.U / monoDim,
-                AtlasV0 = (region.V + region.H) / monoDim,
-                AtlasU1 = (region.U + region.W) / monoDim,
-                AtlasV1 = region.V / monoDim,
+                AtlasU0 = region.U,
+                AtlasV0 = region.V + region.H,
+                AtlasU1 = region.U + region.W,
+                AtlasV1 = region.V,
                 R = color.R,
                 G = color.G,
                 B = color.B,

@@ -33,11 +33,17 @@ namespace Etch.Compose.Cpu;
 /// </remarks>
 public sealed class CpuComposer : IDisposable
 {
-    /// <summary>Monochrome glyph atlas page size (one page; resets when full).</summary>
+    /// <summary>Monochrome glyph atlas page size at its largest (one page; resets when full at this size).</summary>
     public const int GlyphAtlasSize = GpuComposer.GlyphAtlasSize;
 
-    /// <summary>Colour glyph atlas page size (one page; resets when full).</summary>
+    /// <summary>Monochrome glyph atlas page size a composer starts with; it doubles as glyphs arrive.</summary>
+    public const int InitialGlyphAtlasSize = GpuComposer.InitialGlyphAtlasSize;
+
+    /// <summary>Colour glyph atlas page size at its largest (one page; resets when full at this size).</summary>
     public const int ColorGlyphAtlasSize = GpuComposer.ColorGlyphAtlasSize;
+
+    /// <summary>Colour glyph atlas page size a composer starts with; it doubles as colour glyphs arrive.</summary>
+    public const int InitialColorGlyphAtlasSize = GpuComposer.InitialColorGlyphAtlasSize;
 
     /// <summary>Tile edge, pixels.</summary>
     public const int TileSize = 64;
@@ -87,8 +93,8 @@ public sealed class CpuComposer : IDisposable
     /// <summary>Creates a CPU composer with empty atlases.</summary>
     public CpuComposer()
     {
-        monoAtlas = new GlyphAtlas(GlyphAtlasSize, TextureFormat.R8Unorm, 128, 1);
-        colorAtlas = new GlyphAtlas(ColorGlyphAtlasSize, TextureFormat.Rgba8UnormSrgb, 128, 1);
+        monoAtlas = new GlyphAtlas(GlyphAtlasSize, TextureFormat.R8Unorm, 128, 1, InitialGlyphAtlasSize);
+        colorAtlas = new GlyphAtlas(ColorGlyphAtlasSize, TextureFormat.Rgba8UnormSrgb, 128, 1, InitialColorGlyphAtlasSize);
         maskAtlas = new MaskAtlas();
         workers = new TileWorkers(RunTiles);
     }
@@ -535,6 +541,17 @@ public sealed class CpuComposer : IDisposable
         dirtyRects.Clear();
         dirtyRects.TrimExcess();
         historyTarget = null;
+    }
+
+    /// <summary>
+    /// Forgets every cached glyph and shrinks both glyph atlases back to their initial size
+    /// (<see cref="InitialGlyphAtlasSize"/>, <see cref="InitialColorGlyphAtlasSize"/>): the memory a
+    /// peak left behind is released, and the next frame rasterizes its glyphs again. Call between frames.
+    /// </summary>
+    public void TrimGlyphAtlases()
+    {
+        monoAtlas.Trim();
+        colorAtlas.Trim();
     }
 
     /// <summary>A rectangle of target pixels [X0, X1) × [Y0, Y1).</summary>
@@ -1095,7 +1112,7 @@ public sealed class CpuComposer : IDisposable
             int row = y * width;
             int bgRow = (y - region.Y0) * TileSize - region.X0;
             float v = g.AtlasV0 + (py - g.PosY) * dv;
-            int ty = Math.Clamp((int)MathF.Floor(v * dim), 0, dim - 1);
+            int ty = Math.Clamp((int)MathF.Floor(v), 0, dim - 1);
             int ca = 0, cb = 0;
             if (fast)
             {
@@ -1105,7 +1122,7 @@ public sealed class CpuComposer : IDisposable
             {
                 float px = x + 0.5f;
                 float u = g.AtlasU0 + (px - g.PosX) * du;
-                int tx = Math.Clamp((int)MathF.Floor(u * dim), 0, dim - 1);
+                int tx = Math.Clamp((int)MathF.Floor(u), 0, dim - 1);
                 byte texel = page[ty * dim + tx];
                 // Zero coverage blends nothing: the pixel would re-encode to itself.
                 if (texel == 0 || CpuShading.Dissolved(px, py, p.Dissolve))
@@ -1168,7 +1185,7 @@ public sealed class CpuComposer : IDisposable
             float py = y + 0.5f;
             int row = y * width;
             float v = g.AtlasV0 + (py - g.PosY) * dv;
-            int ty = Math.Clamp((int)MathF.Floor(v * dim), 0, dim - 1);
+            int ty = Math.Clamp((int)MathF.Floor(v), 0, dim - 1);
             for (int x = x0; x < x1; x++)
             {
                 float px = x + 0.5f;
@@ -1183,7 +1200,7 @@ public sealed class CpuComposer : IDisposable
                 }
                 float u = g.AtlasU0 + (px - g.PosX) * du;
                 // Nearest texel, as the GPU samples colour glyphs (quads map 1:1 onto atlas texels).
-                int tx = Math.Clamp((int)MathF.Floor(u * dim), 0, dim - 1);
+                int tx = Math.Clamp((int)MathF.Floor(u), 0, dim - 1);
                 int i = ((ty * dim) + tx) * 4;
                 float r = CpuShading.Decode[page[i]], gr = CpuShading.Decode[page[i + 1]], b = CpuShading.Decode[page[i + 2]];
                 float a = page[i + 3] * (1f / 255f);
