@@ -211,6 +211,16 @@ public sealed class DrawList
         return (uint)(gradients.Count - 1);
     }
 
+    /// <summary>
+    /// Takes a shape's place in paint order without drawing it: a fully transparent solid shape
+    /// batches as it would when visible, so whether it shows changes only its own pixels, not the
+    /// batches of everything drawn after it.
+    /// </summary>
+    public void HoldShapePlace(float minX, float minY, float maxX, float maxY)
+    {
+        batcher.Place(DrawKind.Shape, minX, minY, maxX, maxY);
+    }
+
     /// <summary>Places one shape in paint order.</summary>
     public void AddShape(in ShapeInstance inst)
     {
