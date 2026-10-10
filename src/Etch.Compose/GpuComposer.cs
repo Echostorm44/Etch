@@ -355,7 +355,7 @@ public sealed unsafe class GpuComposer : IDisposable
         Add(1);
         if (maskAtlas.TextureLayers > 0)
         {
-            Add((long)MaskAtlas.PageSize * MaskAtlas.PageSize * maskAtlas.TextureLayers);
+            Add(maskAtlas.ResidentBytes);
         }
         if (!bgCopyTexture.IsInvalid)
         {
@@ -442,9 +442,10 @@ public sealed unsafe class GpuComposer : IDisposable
         {
             EnsureImageTexture(handle, image);
         }
-        // The glyphs the list's build added, written in one batch per atlas before any pass reads them.
+        // The glyphs and masks the list's build added, written in one batch per atlas before any pass reads them.
         glyphAtlas.FlushUploads(encoder);
         colorGlyphAtlas.FlushUploads(encoder);
+        maskAtlas.FlushUploads(encoder);
         Upload(list);
         LastCopyCount = EncodeBatches(encoder, target, targetView, list);
     }

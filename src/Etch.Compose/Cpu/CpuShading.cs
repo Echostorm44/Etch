@@ -161,7 +161,7 @@ internal static class CpuShading
         return dn < dissolve;
     }
 
-    public static float MaskTexel(float px, float py, int originX, int originY, int u, int v, int width, int height, ReadOnlySpan<byte> page)
+    public static float MaskTexel(float px, float py, int originX, int originY, int u, int v, int width, int height, ReadOnlySpan<byte> page, int stride)
     {
         int tx = (int)MathF.Floor(px) - originX;
         int ty = (int)MathF.Floor(py) - originY;
@@ -169,7 +169,7 @@ internal static class CpuShading
         {
             return 0f;
         }
-        return page[(ty + v) * MaskAtlas.PageSize + tx + u] * (1f / 255f);
+        return page[(ty + v) * stride + tx + u] * (1f / 255f);
     }
 
     /// <summary>The WGSL <c>clip_mask</c>: a tiled clip mask's coverage at the pixel.</summary>
@@ -189,7 +189,7 @@ internal static class CpuShading
             return tile.Value / 255f;
         }
         var page = masks.Page(tile.Layer);
-        return page[(tile.V + (ty & low)) * MaskAtlas.PageSize + tile.U + (tx & low)] * (1f / 255f);
+        return page[(tile.V + (ty & low)) * masks.Stride + tile.U + (tx & low)] * (1f / 255f);
     }
 
     public static float ClipCoverage(float px, float py, in ClipEntry c, in MaskSource masks)
@@ -402,7 +402,7 @@ internal static class CpuShading
                 return RoundedBoxShadow(inst.P0, inst.P1, inst.P2, inst.P3, lx, ly, inst.Q1, inst.Q0);
 
             case ShapeType.Mask:
-                return MaskTexel(px, py, (int)inst.P0, (int)inst.P1, (int)inst.P2, (int)inst.P3, (int)inst.Q0, (int)inst.Q1, masks.Page((int)inst.Q2));
+                return MaskTexel(px, py, (int)inst.P0, (int)inst.P1, (int)inst.P2, (int)inst.P3, (int)inst.Q0, (int)inst.Q1, masks.Page((int)inst.Q2), masks.Stride);
 
             default:
                 return 0f;
@@ -567,16 +567,20 @@ internal readonly ref struct MaskSource
 {
     private readonly IReadOnlyList<byte[]>? pages;
 
-    public MaskSource(IReadOnlyList<byte[]>? pages, ReadOnlySpan<MaskTileEntry> tiles)
+    public MaskSource(IReadOnlyList<byte[]>? pages, ReadOnlySpan<MaskTileEntry> tiles, int stride)
     {
         this.pages = pages;
         Tiles = tiles;
+        Stride = stride;
     }
 
     /// <summary>No masks (tests of analytic shapes).</summary>
     public static MaskSource None => default;
 
     public ReadOnlySpan<MaskTileEntry> Tiles { get; }
+
+    /// <summary>Row stride of every page, texels (the atlas's current page dimension).</summary>
+    public int Stride { get; }
 
     public ReadOnlySpan<byte> Page(int layer)
         => pages is not null && (uint)layer < (uint)pages.Count ? pages[layer] : ReadOnlySpan<byte>.Empty;

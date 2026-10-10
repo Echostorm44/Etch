@@ -897,7 +897,7 @@ public sealed class CpuComposer : IDisposable
         return end > first;
     }
 
-    private MaskSource MasksOf(DrawList list) => new(maskAtlas.Pages, list.MaskTiles);
+    private MaskSource MasksOf(DrawList list) => new(maskAtlas.Pages, list.MaskTiles, maskAtlas.PageDimension);
 
     // ── Shapes ──────────────────────────────────────────────────────────
 
