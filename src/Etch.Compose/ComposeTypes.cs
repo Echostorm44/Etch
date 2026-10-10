@@ -119,8 +119,9 @@ public struct ShapeInstance
 }
 
 /// <summary>
-/// One glyph quad: integer-aligned device position and size, atlas UVs (V0 at the quad's top edge,
-/// V1 at its bottom, because atlas bitmaps are stored bottom-up), colour, the foreground luminance
+/// One glyph quad: integer-aligned device position and size, atlas texel coordinates (V0 at the quad's top edge,
+/// V1 at its bottom, because atlas bitmaps are stored bottom-up; texels, not normalized UVs, because the
+/// atlas page may grow while the frame is built), colour, the foreground luminance
 /// used by the adaptive text weight, and a clip index. Layout is the WGSL <c>GlyphInstance</c>
 /// (std430), 64 bytes.
 /// </summary>
@@ -133,10 +134,10 @@ public struct GlyphInstance
     /// <summary>Quad size, device pixels.</summary>
     public float SizeX, SizeY;
 
-    /// <summary>Atlas UV at the quad's top-left.</summary>
+    /// <summary>Atlas texel coordinates at the quad's top-left.</summary>
     public float AtlasU0, AtlasV0;
 
-    /// <summary>Atlas UV at the quad's bottom-right.</summary>
+    /// <summary>Atlas texel coordinates at the quad's bottom-right.</summary>
     public float AtlasU1, AtlasV1;
 
     /// <summary>

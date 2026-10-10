@@ -587,7 +587,8 @@ internal static class ComposeShaders
             if (!(clip > 0.0)) {
                 discard;
             }
-            let cov = textureSampleLevel(atlas, atlas_sampler, in.uv, 0.0).r;
+            // Instances carry texel coordinates (the atlas may have grown since they were built).
+            let cov = textureSampleLevel(atlas, atlas_sampler, in.uv / vec2<f32>(textureDimensions(atlas)), 0.0).r;
             let bg = lin_to_srgb(textureLoad(bg_tex, vec2<i32>(i32(p.x), i32(p.y)), 0).rgb);
             let bg_lum = dot(bg, vec3<f32>(0.2126, 0.7152, 0.0722));
             let alpha = inst.color.a * weighted_coverage(cov, inst.fg_lum, bg_lum) * clip;
@@ -646,7 +647,7 @@ internal static class ComposeShaders
             }
             // The atlas holds straight RGBA; the colour glyph keeps its own colours and takes only
             // the text's opacity.
-            let texel = textureSampleLevel(atlas, atlas_sampler, in.uv, 0.0);
+            let texel = textureSampleLevel(atlas, atlas_sampler, in.uv / vec2<f32>(textureDimensions(atlas)), 0.0);
             let alpha = texel.a * inst.color.a * clip;
             return vec4<f32>(texel.rgb * alpha, alpha);
         }
