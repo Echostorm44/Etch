@@ -226,6 +226,47 @@ internal sealed class EdgeCaseTests
     }
 
     [Test]
+    [Arguments(0)]
+    [Arguments(40)]
+    public async Task ImagePixelsRewrittenInPlace_AreReuploaded_IntoTheSameTextures(int maxTextureSize)
+    {
+        // A video frame: the same ComposeImage, its pixels overwritten, MarkChanged called. The GPU
+        // must draw the new texels (whole or tiled) without building new textures.
+        const int Size = 200;
+        using var harness = ParityHarness.TryCreate(Size, Size, ParityAdapter.Reference, out string reason);
+        if (harness is null)
+        {
+            Skip.Test($"Needs the reference adapter: {reason}");
+            return;
+        }
+        if (maxTextureSize > 0)
+        {
+            harness.Gpu.MaxImageTextureSize = maxTextureSize;
+        }
+        var image = Pattern(150, 100);
+        var rec = OnWhite(Size, Size);
+        rec.Image(3, image, 10, 10, 150, 100, 1f);
+        var parameters = new ComposeParameters { TextGamma = 1.5f, LightWeight = 1f };
+        harness.RenderGpu(rec, Size, Size, parameters);
+        int tiles = harness.Gpu.ImageTileCount(3);
+
+        // Next frame: every texel inverted, same object.
+        byte[] pixels = image.Pixels;
+        for (int i = 0; i < pixels.Length; i += 4)
+        {
+            pixels[i] = (byte)(255 - pixels[i]);
+            pixels[i + 1] = (byte)(255 - pixels[i + 1]);
+            pixels[i + 2] = (byte)(255 - pixels[i + 2]);
+        }
+        image.MarkChanged();
+
+        var (gpu, cpu) = harness.Render(rec, Size, Size, parameters);
+        await Assert.That(harness.Gpu.ImageTileCount(3)).IsEqualTo(tiles);
+        var stats = ParityStats.Compare(gpu, cpu, Size, Size);
+        await Assert.That(stats.Max).IsLessThanOrEqualTo(4).Because(stats.ToString());
+    }
+
+    [Test]
     [Arguments(ParityAdapter.Reference)]
     [Arguments(ParityAdapter.Hardware)]
     public async Task ATallScreenshot_DrawsAtFullResolution_AcrossTheTextureLimit(ParityAdapter adapter)

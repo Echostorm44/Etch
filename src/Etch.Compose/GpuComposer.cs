@@ -85,13 +85,17 @@ public sealed unsafe class GpuComposer : IDisposable
 
     // An image's GPU textures: one, or a grid of tiles when the image is larger than a texture
     // may be (see MaxImageTextureSize). Uniform is the tile's own map, or invalid for a whole
-    // image (which binds the shared wholeImageMap).
-    private readonly record struct ImageTile(Texture Texture, TextureView View, BindGroup Group, GpuBuffer Uniform);
+    // image (which binds the shared wholeImageMap). X, Y, Width, Height: the texels of the image it holds.
+    private readonly record struct ImageTile(Texture Texture, TextureView View, BindGroup Group, GpuBuffer Uniform,
+        int X, int Y, int Width, int Height);
 
-    private sealed class ImageTextures(ImageTile[] tiles, long bytes)
+    private sealed class ImageTextures(ImageTile[] tiles, long bytes, int version)
     {
         public readonly ImageTile[] Tiles = tiles;
         public readonly long Bytes = bytes;
+
+        // The ComposeImage.Version these textures hold.
+        public int Version = version;
 
         public void Dispose()
         {
@@ -853,8 +857,18 @@ public sealed unsafe class GpuComposer : IDisposable
 
     private void EnsureImageTexture(int handle, ComposeImage image)
     {
-        if (imageTextures.ContainsKey(handle))
+        if (imageTextures.TryGetValue(handle, out var existing))
         {
+            if (existing.Version == image.Version)
+            {
+                return;
+            }
+            // Pixels rewritten in place (a video frame): refresh every tile's texels where they are.
+            foreach (var tile in existing.Tiles)
+            {
+                WriteImageTexels(image, tile.Texture, tile.X, tile.Y, tile.Width, tile.Height);
+            }
+            existing.Version = image.Version;
             return;
         }
         int width = image.Width;
@@ -863,7 +877,7 @@ public sealed unsafe class GpuComposer : IDisposable
         if (width <= max && height <= max)
         {
             var whole = CreateImageTile(image, 0, 0, width, height, default);
-            imageTextures[handle] = new ImageTextures([whole], (long)width * height * 4);
+            imageTextures[handle] = new ImageTextures([whole], (long)width * height * 4, image.Version);
             return;
         }
 
@@ -901,7 +915,7 @@ public sealed unsafe class GpuComposer : IDisposable
                 bytes += (long)(x1 - x0) * (y1 - y0) * 4;
             }
         }
-        imageTextures[handle] = new ImageTextures(tiles, bytes);
+        imageTextures[handle] = new ImageTextures(tiles, bytes, image.Version);
     }
 
     // A texture of the (x, y, w, h) rect of the image's original pixels, bound with its tile map
@@ -918,11 +932,7 @@ public sealed unsafe class GpuComposer : IDisposable
             SampleCount = 1,
         });
         var view = texture.CreateView();
-        var origin = new WGPUOrigin3D { X = 0, Y = 0, Z = 0 };
-        var writeSize = new Extent3D { Width = (uint)w, Height = (uint)h, DepthOrArrayLayers = 1 };
-        // The rect's rows, read at the image's stride straight from its pixels.
-        var source = image.Pixels.AsSpan((y * image.Width + x) * 4);
-        device.Queue.WriteTexture(texture, 0, origin, source, (uint)image.Width * 4, (uint)h, writeSize);
+        WriteImageTexels(image, texture, x, y, w, h);
 
         var entries = stackalloc BindGroupEntry[2];
         entries[0] = new BindGroupEntry { Binding = 0, TextureView = view.Handle };
@@ -934,7 +944,16 @@ public sealed unsafe class GpuComposer : IDisposable
             Size = (ulong)sizeof(ImageTileMap),
         };
         var group = device.CreateBindGroup(new BindGroupDescriptor { Layout = imagePipeline.Group1.Handle, EntryCount = (UIntPtr)2, Entries = (nint)entries });
-        return new ImageTile(texture, view, group, map);
+        return new ImageTile(texture, view, group, map, x, y, w, h);
+    }
+
+    // Writes the (x, y, w, h) rect of the image's pixels into texture, read at the image's stride.
+    private void WriteImageTexels(ComposeImage image, Texture texture, int x, int y, int w, int h)
+    {
+        var origin = new WGPUOrigin3D { X = 0, Y = 0, Z = 0 };
+        var writeSize = new Extent3D { Width = (uint)w, Height = (uint)h, DepthOrArrayLayers = 1 };
+        var source = image.Pixels.AsSpan((y * image.Width + x) * 4);
+        device.Queue.WriteTexture(texture, 0, origin, source, (uint)image.Width * 4, (uint)h, writeSize);
     }
 
     private GpuBuffer CreateTileMap(in ImageTileMap map)

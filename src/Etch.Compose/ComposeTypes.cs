@@ -458,4 +458,16 @@ public sealed class ComposeImage
 
     /// <summary>Height in texels.</summary>
     public int Height { get; }
+
+    /// <summary>
+    /// Bumped by <see cref="MarkChanged"/>. A composer that has uploaded this image re-uploads it when the
+    /// version moves on, writing into the texture it already has.
+    /// </summary>
+    public int Version { get; private set; }
+
+    /// <summary>
+    /// Tells composers that <see cref="Pixels"/> were rewritten in place (a video frame, a live preview),
+    /// so their uploaded copy is stale. Call it on the thread that builds and encodes frames.
+    /// </summary>
+    public void MarkChanged() => Version++;
 }
