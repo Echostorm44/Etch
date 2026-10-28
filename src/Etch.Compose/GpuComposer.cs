@@ -281,11 +281,20 @@ public sealed unsafe class GpuComposer : IDisposable
 
         EnsureBgCopyTexture(width, height);
 
-        shapePipeline = BuildPipeline("Shape", ComposeShaders.ShapeWgsl, ShapeLayout(), default, StraightOver(), PrimitiveTopology.TriangleStrip, null, 0);
-        imagePipeline = BuildPipeline("Image", ComposeShaders.ImageWgsl, ImageLayout0(), ImageLayout1(), StraightOver(), PrimitiveTopology.TriangleStrip, null, 0);
-        glyphPipeline = BuildPipeline("Glyph", ComposeShaders.GlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
-        colorGlyphPipeline = BuildPipeline("ColorGlyph", ComposeShaders.ColorGlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
-        blurPipeline = BuildPipeline("Blur", ComposeShaders.BlurWgsl, BlurLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0);
+        // Each pipeline's shader is translated and compiled by the driver (FXC/DXC on D3D12) — the bulk of
+        // startup. They don't depend on each other and the device is thread-safe, so they compile in parallel.
+        Pipeline shape = default, image = default, glyph = default, colorGlyph = default, blur = default;
+        System.Threading.Tasks.Parallel.Invoke(
+            () => shape = BuildPipeline("Shape", ComposeShaders.ShapeWgsl, ShapeLayout(), default, StraightOver(), PrimitiveTopology.TriangleStrip, null, 0),
+            () => image = BuildPipeline("Image", ComposeShaders.ImageWgsl, ImageLayout0(), ImageLayout1(), StraightOver(), PrimitiveTopology.TriangleStrip, null, 0),
+            () => glyph = BuildPipeline("Glyph", ComposeShaders.GlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0),
+            () => colorGlyph = BuildPipeline("ColorGlyph", ComposeShaders.ColorGlyphWgsl, GlyphLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0),
+            () => blur = BuildPipeline("Blur", ComposeShaders.BlurWgsl, BlurLayout0(), StorageLayout(), Premultiplied(), PrimitiveTopology.TriangleStrip, null, 0));
+        shapePipeline = shape;
+        imagePipeline = image;
+        glyphPipeline = glyph;
+        colorGlyphPipeline = colorGlyph;
+        blurPipeline = blur;
 
         var attributes = stackalloc VertexAttribute[2];
         attributes[0] = new VertexAttribute { Format = VertexFormat.Float32x2, Offset = 0, ShaderLocation = 0 };
