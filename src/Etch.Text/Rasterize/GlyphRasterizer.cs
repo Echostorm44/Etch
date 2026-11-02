@@ -11,12 +11,27 @@ namespace Etch.Text.Rasterize;
 
 public static class GlyphRasterizer
 {
+    /// <summary>
+    /// The size of the bitmap <see cref="Rasterize(FontFace, ushort, float, Span{byte}, out int, out int, out int, out int, float)"/>
+    /// produces for the same arguments (without FreeType it may add a column for a subpixel shift).
+    /// </summary>
     public static void Measure(
         FontFace face,
         ushort glyphId,
         out int w,
         out int h,
-        float subpixelX = 0)
+        float subpixelX = 0,
+        float outlineWidth = 0)
+    {
+        if (outlineWidth > 0 && GlyphOutlineBuilder.TryGetColorLayers(face, glyphId, out var layers, out _))
+        {
+            RasterizeColorGlyphOutline(face, glyphId, layers, subpixelX, outlineWidth, Span<byte>.Empty, measureOnly: true, out w, out h, out _, out _);
+            return;
+        }
+        MeasureMonoGlyph(face, glyphId, out w, out h, subpixelX, outlineWidth);
+    }
+
+    private static void MeasureMonoGlyph(FontFace face, ushort glyphId, out int w, out int h, float subpixelX, float outlineWidth)
     {
         // Use FreeType for all glyph measurement when available.
         // Our custom outline builder and rasterizer produce incorrect bounding
@@ -27,7 +42,7 @@ public static class GlyphRasterizer
         // outline can produce different bitmap dimensions than the unshifted one.
         if (face.FreeTypeFace != 0)
         {
-            FreeTypeGlyphRasterizer.Measure(face.FreeTypeFace, glyphId, face.Hinting, out w, out h, lcd: false, subpixelX);
+            FreeTypeGlyphRasterizer.Measure(face.FreeTypeFace, glyphId, face.Hinting, out w, out h, lcd: false, subpixelX, outlineWidth);
             return;
         }
 
@@ -52,6 +67,12 @@ public static class GlyphRasterizer
 
         float pixelScale = face.PointSize * 96.0f / (72.0f * face.UnitsPerEm);
         ComputeDimensions(path, pixelScale, out w, out h, out _, out _);
+        if (outlineWidth > 0 && w > 0 && h > 0)
+        {
+            int pad = OutlinePadding(outlineWidth);
+            w += 2 * pad;
+            h += 2 * pad;
+        }
     }
 
     public static void Rasterize(
@@ -65,7 +86,233 @@ public static class GlyphRasterizer
         Rasterize(face, glyphId, subpixelX, dest, out w, out h, out _, out _);
     }
 
+    /// <summary>
+    /// Rasterizes the glyph's A8 coverage into <paramref name="dest"/>, bottom row first, with its
+    /// bearings in <paramref name="minX"/> / <paramref name="minY"/> (pixels, y up). With
+    /// <paramref name="outlineWidth"/> &gt; 0 it rasterizes the glyph's outline instead: the glyph
+    /// grown outward by that many pixels with round corners. Drawn under the glyph itself, in
+    /// another colour, it outlines the text. A colour glyph's outline is that of its whole
+    /// picture (base glyph and layers).
+    /// </summary>
     public static void Rasterize(
+        FontFace face,
+        ushort glyphId,
+        float subpixelX,
+        Span<byte> dest,
+        out int w,
+        out int h,
+        out int minX,
+        out int minY,
+        float outlineWidth = 0)
+    {
+        if (outlineWidth > 0 && GlyphOutlineBuilder.TryGetColorLayers(face, glyphId, out var layers, out _))
+        {
+            RasterizeColorGlyphOutline(face, glyphId, layers, subpixelX, outlineWidth, dest, measureOnly: false, out w, out h, out minX, out minY);
+            return;
+        }
+        RasterizeMonoGlyph(face, glyphId, subpixelX, dest, out w, out h, out minX, out minY, outlineWidth);
+    }
+
+    private static void RasterizeMonoGlyph(
+        FontFace face,
+        ushort glyphId,
+        float subpixelX,
+        Span<byte> dest,
+        out int w,
+        out int h,
+        out int minX,
+        out int minY,
+        float outlineWidth)
+    {
+        // Use FreeType for all glyph rasterization when available.
+        // Our custom outline builder and rasterizer produce incorrect bounding
+        // boxes and bitmaps for some TrueType outlines. FreeType is authoritative.
+        if (face.FreeTypeFace != 0)
+        {
+            FreeTypeGlyphRasterizer.Rasterize(face.FreeTypeFace, glyphId, subpixelX, face.Hinting, dest, out w, out h, out minX, out minY, lcd: false, outlineWidth);
+            return;
+        }
+
+        if (outlineWidth <= 0)
+        {
+            RasterizeOwnOutline(face, glyphId, subpixelX, dest, out w, out h, out minX, out minY);
+            return;
+        }
+
+        // Without FreeType's stroker, grow the glyph's own coverage instead.
+        MeasureMonoGlyph(face, glyphId, out int glyphW, out int glyphH, subpixelX, 0f);
+        int glyphSize = (glyphW + 1) * glyphH;
+        if (glyphSize <= 0)
+        {
+            w = 0; h = 0; minX = 0; minY = 0;
+            return;
+        }
+        byte[] glyphCoverage = ArrayPool<byte>.Shared.Rent(glyphSize);
+        try
+        {
+            RasterizeOwnOutline(face, glyphId, subpixelX, glyphCoverage.AsSpan(0, glyphSize), out glyphW, out glyphH, out minX, out minY);
+            GrowCoverage(glyphCoverage.AsSpan(0, glyphW * glyphH), glyphW, glyphH, outlineWidth, dest, out w, out h);
+            int pad = OutlinePadding(outlineWidth);
+            minX -= pad;
+            minY -= pad;
+        }
+        finally
+        {
+            ArrayPool<byte>.Shared.Return(glyphCoverage);
+        }
+    }
+
+    /// <summary>
+    /// The outline of a COLR colour glyph: the union of the outlines of its base glyph and of every
+    /// layer. Growing distributes over union, so this is the outline of the whole picture (the base
+    /// glyph alone is often empty). With <paramref name="measureOnly"/> it only reports the size.
+    /// </summary>
+    private static void RasterizeColorGlyphOutline(
+        FontFace face,
+        ushort glyphId,
+        ColorLayer[] layers,
+        float subpixelX,
+        float outlineWidth,
+        Span<byte> dest,
+        bool measureOnly,
+        out int w,
+        out int h,
+        out int minX,
+        out int minY)
+    {
+        w = 0; h = 0; minX = 0; minY = 0;
+        var parts = new (byte[] Coverage, int W, int H, int MinX, int MinY)[layers.Length + 1];
+        try
+        {
+            int left = int.MaxValue, bottom = int.MaxValue, right = int.MinValue, top = int.MinValue;
+            for (int i = 0; i < parts.Length; i++)
+            {
+                ushort partGlyph = i == 0 ? glyphId : layers[i - 1].GlyphId;
+                MeasureMonoGlyph(face, partGlyph, out int partW, out int partH, subpixelX, outlineWidth);
+                if (partW <= 0 || partH <= 0)
+                {
+                    continue;
+                }
+                // Etch's own rasterizer adds a column for a subpixel shift that Measure leaves out.
+                byte[] coverage = ArrayPool<byte>.Shared.Rent((partW + 1) * partH);
+                parts[i].Coverage = coverage;
+                RasterizeMonoGlyph(face, partGlyph, subpixelX, coverage, out partW, out partH, out int partMinX, out int partMinY, outlineWidth);
+                if (partW <= 0 || partH <= 0)
+                {
+                    continue;
+                }
+                parts[i] = (coverage, partW, partH, partMinX, partMinY);
+                left = Math.Min(left, partMinX);
+                bottom = Math.Min(bottom, partMinY);
+                right = Math.Max(right, partMinX + partW);
+                top = Math.Max(top, partMinY + partH);
+            }
+            if (left == int.MaxValue)
+            {
+                return;
+            }
+
+            w = right - left;
+            h = top - bottom;
+            minX = left;
+            minY = bottom;
+            if (measureOnly)
+            {
+                return;
+            }
+            if ((long)w * h > dest.Length)
+            {
+                Panic.Invariant(PanicCodes.AtlasInsertFailedAfterEviction, "Dest span too small for colour glyph outline bitmap");
+            }
+
+            var union = dest.Slice(0, w * h);
+            union.Clear();
+            foreach (var part in parts)
+            {
+                if (part.W <= 0)
+                {
+                    continue;
+                }
+                for (int row = 0; row < part.H; row++)
+                {
+                    var source = part.Coverage.AsSpan(row * part.W, part.W);
+                    var target = union.Slice((part.MinY - bottom + row) * w + (part.MinX - left), part.W);
+                    for (int column = 0; column < source.Length; column++)
+                    {
+                        target[column] = Math.Max(target[column], source[column]);
+                    }
+                }
+            }
+        }
+        finally
+        {
+            foreach (var part in parts)
+            {
+                if (part.Coverage is not null)
+                {
+                    ArrayPool<byte>.Shared.Return(part.Coverage);
+                }
+            }
+        }
+    }
+
+    /// <summary>How far an outline of <paramref name="outlineWidth"/> pixels reaches past the glyph's bitmap.</summary>
+    private static int OutlinePadding(float outlineWidth) => (int)MathF.Ceiling(outlineWidth);
+
+    /// <summary>
+    /// Dilates A8 coverage by <paramref name="radius"/> pixels with a round brush: each output pixel
+    /// takes the strongest source pixel within reach, faded over the last pixel so the edge is
+    /// anti-aliased. Distances run centre to centre, so the reach is the radius plus a pixel: a
+    /// solid source pixel's edge lies half a pixel from its centre, and a destination pixel is half
+    /// covered when the grown edge passes through its centre. The output is padded by
+    /// <see cref="OutlinePadding"/> on every side.
+    /// </summary>
+    internal static void GrowCoverage(ReadOnlySpan<byte> source, int sourceW, int sourceH, float radius, Span<byte> dest, out int destW, out int destH)
+    {
+        int pad = OutlinePadding(radius);
+        destW = sourceW + 2 * pad;
+        destH = sourceH + 2 * pad;
+        if ((long)destW * destH > dest.Length)
+        {
+            Panic.Invariant(PanicCodes.AtlasInsertFailedAfterEviction, "Dest span too small for glyph outline bitmap");
+        }
+
+        float reach = radius + 1f;
+        for (int y = 0; y < destH; y++)
+        {
+            for (int x = 0; x < destW; x++)
+            {
+                float strongest = 0f;
+                for (int dy = -pad; dy <= pad; dy++)
+                {
+                    int sy = y - pad + dy;
+                    if ((uint)sy >= (uint)sourceH)
+                    {
+                        continue;
+                    }
+                    for (int dx = -pad; dx <= pad; dx++)
+                    {
+                        int sx = x - pad + dx;
+                        if ((uint)sx >= (uint)sourceW)
+                        {
+                            continue;
+                        }
+                        byte coverage = source[sy * sourceW + sx];
+                        if (coverage == 0)
+                        {
+                            continue;
+                        }
+                        float edge = Math.Clamp(reach - MathF.Sqrt(dx * dx + dy * dy), 0f, 1f);
+                        strongest = MathF.Max(strongest, coverage * edge);
+                    }
+                }
+                dest[y * destW + x] = (byte)MathF.Round(strongest);
+            }
+        }
+    }
+
+    /// <summary>Etch's own outline rasterizer, for faces loaded without FreeType.</summary>
+    private static void RasterizeOwnOutline(
         FontFace face,
         ushort glyphId,
         float subpixelX,
@@ -75,14 +322,6 @@ public static class GlyphRasterizer
         out int minX,
         out int minY)
     {
-        // Use FreeType for all glyph rasterization when available.
-        // Our custom outline builder and rasterizer produce incorrect bounding
-        // boxes and bitmaps for some TrueType outlines. FreeType is authoritative.
-        if (face.FreeTypeFace != 0)
-        {
-            FreeTypeGlyphRasterizer.Rasterize(face.FreeTypeFace, glyphId, subpixelX, face.Hinting, dest, out w, out h, out minX, out minY);
-            return;
-        }
 
         var builder = BezPathBuilder.Begin(64);
         var pathOpt = GlyphOutlineBuilder.Build(face, glyphId, builder);

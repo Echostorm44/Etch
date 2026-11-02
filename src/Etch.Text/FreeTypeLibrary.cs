@@ -13,6 +13,9 @@ internal static class FreeTypeLibrary
     // violation in FT_Done_Face (CI run 36811554062, ShaperTests.Dispose on windows-2022).
     private static readonly Lock s_faceListLock = new();
 
+    /// <summary>The shared FT_Library (a stroker is created against it).</summary>
+    public static nint Handle => s_library;
+
     private static nint InitializeLibrary()
     {
         FT_Error err = FreeTypeNative.FT_Init_FreeType(out nint lib);

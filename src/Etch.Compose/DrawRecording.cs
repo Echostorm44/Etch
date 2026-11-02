@@ -14,7 +14,18 @@ namespace Etch.Compose;
 /// <param name="RasterSize">Pixel size the glyphs are rasterized at.</param>
 /// <param name="Color">Text colour, linear-light, straight alpha.</param>
 /// <param name="Source">Caller data echoed into <see cref="PlacedGlyph"/> records (draw provenance), or null.</param>
-public readonly record struct GlyphRunData(FontFace Face, int FaceId, ushort[] GlyphIds, float[] Positions, float RasterSize, ComposeColor Color, object? Source);
+public readonly record struct GlyphRunData(FontFace Face, int FaceId, ushort[] GlyphIds, float[] Positions, float RasterSize, ComposeColor Color, object? Source)
+{
+    /// <summary>
+    /// 0 (the default) draws the glyphs. A positive width draws their outline instead, in
+    /// <see cref="Color"/>: each glyph grown outward by this many device pixels with round
+    /// corners, quantized to a quarter pixel and capped at
+    /// <see cref="Etch.Text.Atlas.GlyphCacheKey.MaxOutlineWidth"/>. Draw it before the same run
+    /// without an outline to get outlined text. Colour glyphs are outlined by their base outline
+    /// (a bitmap-only glyph has none).
+    /// </summary>
+    public float OutlineWidth { get; init; }
+}
 
 /// <summary>
 /// A retained list of drawing commands in paint order — geometry in local space under recorded

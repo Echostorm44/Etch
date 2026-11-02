@@ -103,6 +103,9 @@ public static class GlyphRunBuilder
         // Spaces draw nothing and are skipped — but only a real space glyph: in a face without one,
         // spaceGid would be 0, the .notdef glyph, and missing characters' tofu boxes would vanish.
         bool hasSpace = face.TryGetGlyph(0x0020, out uint spaceGid);
+        // An outline run rasterizes every glyph's outline stroke as mono coverage, colour glyphs
+        // included (their base outline).
+        bool isOutline = GlyphCacheKey.QuantizeOutlineWidth(run.OutlineWidth) > 0;
 
         int culled = 0;
         for (int i = 0; i < run.GlyphIds.Length; i++)
@@ -117,7 +120,7 @@ public static class GlyphRunBuilder
             float gy = run.Positions[i * 2 + 1] + offsetY;
             byte subpixel = GlyphPlacement.SubpixelBucket(gx);
 
-            if (GlyphOutlineBuilder.HasColorLayers(face, glyphId))
+            if (!isOutline && GlyphOutlineBuilder.HasColorLayers(face, glyphId))
             {
                 // Colour glyphs have no subpixel variants (bucket 0): one bitmap per size.
                 var colorKey = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, 0);
@@ -189,10 +192,11 @@ public static class GlyphRunBuilder
                 // Colour rasterization failed — fall through to monochrome.
             }
 
-            var key = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, subpixel);
+            var key = GlyphCacheKey.FromSizeAndSubpixel(run.RasterSize, run.FaceId, glyphId, subpixel, run.OutlineWidth);
             if (!monoAtlas.TryLookup(key, out var region, out _))
             {
-                GlyphRasterizer.Measure(face, glyphId, out int gw, out int gh, subpixel / 4f);
+                float outlineWidth = key.OutlineWidth;
+                GlyphRasterizer.Measure(face, glyphId, out int gw, out int gh, subpixel / 4f, outlineWidth);
                 if (oversized is not null && !monoAtlas.CanEverHold(gw + 1, gh))
                 {
                     oversized.Glyphs.Add(new OversizedGlyph(glyphId, gx, gy, false));
@@ -205,7 +209,7 @@ public static class GlyphRunBuilder
                     byte[] rented = ArrayPool<byte>.Shared.Rent(bufSize);
                     try
                     {
-                        GlyphRasterizer.Rasterize(face, glyphId, subpixel / 4f, rented.AsSpan(0, bufSize), out int rw, out int rh, out int minX, out int minY);
+                        GlyphRasterizer.Rasterize(face, glyphId, subpixel / 4f, rented.AsSpan(0, bufSize), out int rw, out int rh, out int minX, out int minY, outlineWidth);
                         if (rw > 0 && rh > 0)
                         {
                             monoAtlas.TryInsert(key, rented.AsSpan(0, rw * rh), rw, rh, out region, out _, (short)minX, (short)minY);

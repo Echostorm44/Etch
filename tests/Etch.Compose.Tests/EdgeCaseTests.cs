@@ -338,6 +338,74 @@ internal sealed class EdgeCaseTests
     }
 
     [Test]
+    [Arguments(48f, 3f)]   // from the glyph atlas
+    [Arguments(200f, 6f)]  // too tall for an atlas shelf: drawn as paths
+    public async Task OutlineRun_UnderTheText_RingsEachGlyphWithTheOutlineWidth(float size, float outlineWidth)
+    {
+        const int Width = 420;
+        const int Height = 260;
+        var black = new ComposeColor(0f, 0f, 0f, 1f);
+        var red = new ComposeColor(1f, 0f, 0f, 1f);
+        var rec = OnWhite(Width, Height);
+        float baseline = 30 + size;
+        rec.Glyphs(ParityScenes.Run("H", 20, baseline, black, 1f, size) with { OutlineWidth = outlineWidth });
+        rec.Glyphs(ParityScenes.Run("H", 20, baseline, red, 1f, size));
+        byte[] rgba = RenderCpu(rec, Width, Height);
+
+        // Across the middle of the H's left stem: white, then the black outline, then the red stem.
+        int row = (int)(baseline - size * 0.35f);
+        int outlinePixels = 0;
+        bool reachedStem = false;
+        for (int x = 0; x < Width && !reachedStem; x++)
+        {
+            int i = (row * Width + x) * 4;
+            if (rgba[i] > 200 && rgba[i + 1] < 60)
+            {
+                reachedStem = true;
+            }
+            else if (rgba[i] < 60 && rgba[i + 1] < 60 && rgba[i + 2] < 60)
+            {
+                outlinePixels++;
+            }
+        }
+        await Assert.That(reachedStem).IsTrue().Because("the red H is drawn over its outline");
+        // The anti-aliased pixels at either edge of the ring are neither black nor red.
+        await Assert.That(outlinePixels).IsBetween((int)outlineWidth - 2, (int)outlineWidth + 1);
+        await AssertGpuParity(rec, Width, Height);
+    }
+
+    [Test]
+    [Arguments(64f, 2500)]     // from the glyph atlas: a 64-px disc is ~3000 px
+    [Arguments(200f, 25000)]   // too tall for an atlas shelf: drawn as paths (~31000 px)
+    public async Task OutlineRun_WithColourGlyphs_OutlinesTheWholePictureInTheRunColour(float size, int minimumOutlinePixels)
+    {
+        const int Width = 260;
+        const int Height = 260;
+        var rec = OnWhite(Width, Height);
+        var outlineRun = ParityScenes.EmojiRun("\U0001F600", 20, 30 + size, 1f, 1f, size);
+        rec.Glyphs(outlineRun with { Color = new ComposeColor(0f, 0f, 0f, 1f), OutlineWidth = 3f });
+        byte[] rgba = RenderCpu(rec, Width, Height);
+
+        int black = 0;
+        int coloured = 0;
+        for (int i = 0; i < rgba.Length; i += 4)
+        {
+            if (rgba[i] < 40 && rgba[i + 1] < 40 && rgba[i + 2] < 40)
+            {
+                black++;
+            }
+            if (Math.Abs(rgba[i] - rgba[i + 2]) > 30)
+            {
+                coloured++;
+            }
+        }
+        // The face's silhouette (its layers: the base glyph is empty) grown by 3 px, all in black.
+        await Assert.That(black).IsGreaterThan(minimumOutlinePixels);
+        await Assert.That(coloured).IsEqualTo(0).Because("an outline is never drawn in the glyph's own colours");
+        await AssertGpuParity(rec, Width, Height);
+    }
+
+    [Test]
     [Arguments(1)]
     [Arguments(8)]
     public async Task ShadowWithNaNSigma_HasNoCoverage_InsteadOfThrowing(int vectorWidth)

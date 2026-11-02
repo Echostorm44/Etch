@@ -1394,6 +1394,26 @@ public sealed class DrawListBuilder
         float y = MathF.Round(glyph.PenY, MidpointRounding.AwayFromZero);
         glyphOutlines.Clear();
         glyphOutlines.SetTransform(Affine.Translate(x, y) * Affine.Scale(scale, -scale));
+        float outlineWidth = GlyphCacheKey.QuantizeOutlineWidth(run.OutlineWidth) / 4f;
+        if (outlineWidth > 0f)
+        {
+            // An outline run, as the atlas rasterizes it: the glyph (and, for a colour glyph, each
+            // of its layers) grown by the outline width: its fill plus a round-joined stroke
+            // reaching outlineWidth past each edge (font units here), all in the run colour. A
+            // translucent outline blends twice where the pieces overlap, under the glyph that is
+            // drawn on top of it.
+            var stroke = StrokeParameters.Solid(2f * outlineWidth / scale, StrokeCap.Round, StrokeJoin.Round);
+            DrawGrownOutline(run, glyph.GlyphId, stroke);
+            if (ColorLayers(run, glyph.GlyphId) is { } outlinedLayers)
+            {
+                foreach (var (layerGlyph, _) in outlinedLayers)
+                {
+                    DrawGrownOutline(run, layerGlyph, stroke);
+                }
+            }
+            Replay(glyphOutlines, 0f, 0f, opacity);
+            return;
+        }
         var layers = glyph.IsColor ? ColorLayers(run, glyph.GlyphId) : null;
         if (layers is not null && ColorBaseFill(run) is ComposeColor baseColor && Outline(face, run.FaceId, glyph.GlyphId) is BezPath basePath)
         {
@@ -1420,6 +1440,15 @@ public sealed class DrawListBuilder
             }
         }
         Replay(glyphOutlines, 0f, 0f, opacity);
+    }
+
+    private void DrawGrownOutline(in GlyphRunData run, ushort glyphId, in StrokeParameters stroke)
+    {
+        if (Outline(run.Face, run.FaceId, glyphId) is BezPath outline)
+        {
+            glyphOutlines.FillPath(outline, FillRule.NonZero, ComposePaint.Solid(run.Color));
+            glyphOutlines.StrokePath(outline, stroke, ComposePaint.Solid(run.Color));
+        }
     }
 
     private BezPath? Outline(Etch.Text.Shape.FontFace face, int faceId, ushort glyphId)

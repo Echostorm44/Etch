@@ -56,9 +56,54 @@ internal static partial class FreeTypeNative
 
     [LibraryImport(LibraryName)]
     internal static partial FT_Error FT_Done_Face(nint face);
+
+    // ---- Glyph stroking (ftstroke.h / ftglyph.h), for outlined text ----
+
+    [LibraryImport(LibraryName)]
+    internal static partial FT_Error FT_Stroker_New(nint library, out nint astroker);
+
+    [LibraryImport(LibraryName)]
+    internal static partial void FT_Stroker_Set(nint stroker, nint radius, FT_Stroker_LineCap lineCap, FT_Stroker_LineJoin lineJoin, nint miterLimit);
+
+    [LibraryImport(LibraryName)]
+    internal static partial void FT_Stroker_Done(nint stroker);
+
+    [LibraryImport(LibraryName)]
+    internal static partial FT_Error FT_Get_Glyph(nint slot, out nint aglyph);
+
+    [LibraryImport(LibraryName)]
+    internal static partial FT_Error FT_Glyph_StrokeBorder(ref nint pglyph, nint stroker, byte inside, byte destroy);
+
+    [LibraryImport(LibraryName)]
+    internal static partial FT_Error FT_Glyph_To_Bitmap(ref nint theGlyph, FT_Render_Mode renderMode, nint origin, byte destroy);
+
+    [LibraryImport(LibraryName)]
+    internal static partial void FT_Done_Glyph(nint glyph);
 }
 
 // ---- Enums ----
+
+internal enum FT_Stroker_LineCap
+{
+    FT_STROKER_LINECAP_BUTT = 0,
+    FT_STROKER_LINECAP_ROUND = 1,
+    FT_STROKER_LINECAP_SQUARE = 2,
+}
+
+internal enum FT_Stroker_LineJoin
+{
+    FT_STROKER_LINEJOIN_ROUND = 0,
+    FT_STROKER_LINEJOIN_BEVEL = 1,
+    FT_STROKER_LINEJOIN_MITER_VARIABLE = 2,
+    FT_STROKER_LINEJOIN_MITER_FIXED = 3,
+}
+
+/// <summary>FT_Glyph_Format tags (FT_IMAGE_TAG: four ASCII bytes, big-endian).</summary>
+internal static class FT_Glyph_Format
+{
+    public const uint Outline = ('o' << 24) | ('u' << 16) | ('t' << 8) | 'l';
+    public const uint Bitmap = ('b' << 24) | ('i' << 16) | ('t' << 8) | 's';
+}
 
 internal enum FT_Error
 {
@@ -193,4 +238,22 @@ internal unsafe struct FT_GlyphSlotRec
     public FT_Bitmap bitmap;
     public int bitmap_left;
     public int bitmap_top;
+}
+
+/// <summary>
+/// Mirror of <c>FT_BitmapGlyphRec</c>: the <c>FT_GlyphRec</c> header (library, class, format,
+/// advance), then the bitmap's left and top bearings and the bitmap. What
+/// <c>FT_Glyph_To_Bitmap</c> leaves behind; readers check <see cref="format"/> is
+/// <see cref="FT_Glyph_Format.Bitmap"/> first.
+/// </summary>
+[StructLayout(LayoutKind.Sequential)]
+internal struct FT_BitmapGlyphRec
+{
+    public nint library;
+    public nint clazz;
+    public uint format;
+    public FT_Vector advance;
+    public int left;
+    public int top;
+    public FT_Bitmap bitmap;
 }
