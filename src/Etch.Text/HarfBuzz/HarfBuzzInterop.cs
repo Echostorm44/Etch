@@ -83,6 +83,9 @@ internal static unsafe partial class HarfBuzzNative
     internal static partial void hb_font_set_variations(nint font, HbVariation* variations, uint variationsLength);
 
     [LibraryImport(LibraryName)]
+    internal static partial int hb_ot_metrics_get_position(nint font, uint metricsTag, out int position);
+
+    [LibraryImport(LibraryName)]
     internal static partial uint hb_ot_var_get_axis_infos(nint face, uint startOffset, uint* axesCount, HbAxisInfo* axesArray);
 
     [LibraryImport(LibraryName)]
@@ -415,6 +418,24 @@ internal sealed class Font : IDisposable
                 HarfBuzzNative.hb_font_set_variations(handle, pointer, (uint)native.Length);
             }
         }
+    }
+
+    /// <summary>OpenType metric tags for <see cref="TryGetMetricsPosition"/> (hb_ot_metrics_tag_t).</summary>
+    public static class MetricsTag
+    {
+        public static readonly Tag UnderlineSize = new('u', 'n', 'd', 's');
+        public static readonly Tag UnderlineOffset = new('u', 'n', 'd', 'o');
+        public static readonly Tag StrikeoutSize = new('s', 't', 'r', 's');
+        public static readonly Tag StrikeoutOffset = new('s', 't', 'r', 'o');
+    }
+
+    /// <summary>
+    /// An OpenType font metric (post / OS/2 tables) at the font's scale, variations applied
+    /// (hb_ot_metrics_get_position). Offsets are y-up from the baseline.
+    /// </summary>
+    public bool TryGetMetricsPosition(Tag tag, out int position)
+    {
+        return HarfBuzzNative.hb_ot_metrics_get_position(handle, tag, out position) != 0;
     }
 
     /// <summary>Installs the OpenType font funcs (metrics/glyphs read from the OT tables).</summary>
