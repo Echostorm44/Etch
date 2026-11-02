@@ -80,6 +80,12 @@ internal static unsafe partial class HarfBuzzNative
     internal static partial void hb_font_destroy(nint font);
 
     [LibraryImport(LibraryName)]
+    internal static partial void hb_font_set_variations(nint font, HbVariation* variations, uint variationsLength);
+
+    [LibraryImport(LibraryName)]
+    internal static partial uint hb_ot_var_get_axis_infos(nint face, uint startOffset, uint* axesCount, HbAxisInfo* axesArray);
+
+    [LibraryImport(LibraryName)]
     internal static partial void hb_shape(nint font, nint buffer, Feature* features, uint numFeatures);
 
     [LibraryImport(LibraryName)]
@@ -175,6 +181,28 @@ internal struct Feature
         Start = start;
         End = end;
     }
+}
+
+/// <summary>Mirrors hb_variation_t: an axis tag and its design-space value.</summary>
+[StructLayout(LayoutKind.Sequential)]
+internal struct HbVariation
+{
+    public uint Tag;
+    public float Value;
+}
+
+/// <summary>Mirrors hb_ot_var_axis_info_t: one axis of a variable font's fvar table.</summary>
+[StructLayout(LayoutKind.Sequential)]
+internal struct HbAxisInfo
+{
+    public uint AxisIndex;
+    public uint Tag;
+    public uint NameId;
+    public uint Flags;
+    public float MinValue;
+    public float DefaultValue;
+    public float MaxValue;
+    public uint Reserved;
 }
 
 /// <summary>Mirrors hb_glyph_info_t; Etch reads Codepoint and Cluster.</summary>
@@ -319,6 +347,26 @@ internal sealed class Face : IDisposable
         return new Blob(HarfBuzzNative.hb_face_reference_table(handle, tag));
     }
 
+    /// <summary>The variation axes of a variable font, in fvar order (empty for a static font).</summary>
+    public HbAxisInfo[] GetVariationAxes()
+    {
+        unsafe
+        {
+            uint count = HarfBuzzNative.hb_ot_var_get_axis_infos(handle, 0, null, null);
+            if (count == 0)
+            {
+                return [];
+            }
+            var axes = new HbAxisInfo[count];
+            fixed (HbAxisInfo* destination = axes)
+            {
+                uint written = count;
+                _ = HarfBuzzNative.hb_ot_var_get_axis_infos(handle, 0, &written, destination);
+                return written == count ? axes : axes[..(int)written];
+            }
+        }
+    }
+
     public void Dispose()
     {
         if (handle != 0)
@@ -350,6 +398,23 @@ internal sealed class Font : IDisposable
     public bool TryGetGlyph(uint codepoint, out uint glyph)
     {
         return HarfBuzzNative.hb_font_get_glyph(handle, codepoint, 0, out glyph) != 0;
+    }
+
+    /// <summary>Sets design-axis values (hb_font_set_variations); unset axes keep their defaults.</summary>
+    public void SetVariations(ReadOnlySpan<Shape.FontVariation> variations)
+    {
+        unsafe
+        {
+            Span<HbVariation> native = variations.Length <= 16 ? stackalloc HbVariation[variations.Length] : new HbVariation[variations.Length];
+            for (int i = 0; i < variations.Length; i++)
+            {
+                native[i] = new HbVariation { Tag = variations[i].Tag, Value = variations[i].Value };
+            }
+            fixed (HbVariation* pointer = native)
+            {
+                HarfBuzzNative.hb_font_set_variations(handle, pointer, (uint)native.Length);
+            }
+        }
     }
 
     /// <summary>Installs the OpenType font funcs (metrics/glyphs read from the OT tables).</summary>

@@ -19,6 +19,13 @@ public static class GlyphOutlineBuilder
             Panic.ArgumentNull(nameof(face));
         }
 
+        // The glyf table holds only a variable font's default instance; FreeType applies the
+        // face's design coordinates.
+        if (face.FreeTypeFace != 0 && !face.Variations.IsEmpty)
+        {
+            return FreeTypeGlyphOutline.Build(face, glyphId, dest);
+        }
+
         var hbFace = GetHarfBuzzFace(face);
         if (hbFace == null)
         {

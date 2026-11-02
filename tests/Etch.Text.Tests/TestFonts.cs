@@ -6,6 +6,7 @@ namespace Etch.Text.Tests;
 internal static class TestFonts
 {
     public static byte[] RobotoRegular => TestFontCache.RobotoRegular();
+    public static byte[] InterVariable => TestFontCache.InterVariableFont();
 
     public static byte[] AmiriArabic => TestFontCache.AmiriRegular();
 }

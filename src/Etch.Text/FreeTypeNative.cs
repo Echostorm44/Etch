@@ -30,7 +30,9 @@ internal static partial class FreeTypeNative
 
     // ---- Load flags (FT_LOAD_*) ----
     internal const int FT_LOAD_DEFAULT = 0x0;
+    internal const int FT_LOAD_NO_SCALE = 0x1;
     internal const int FT_LOAD_NO_HINTING = 0x2;
+    internal const int FT_LOAD_NO_BITMAP = 0x8;
     internal const int FT_LOAD_TARGET_NORMAL = 0x0;    // FT_LOAD_TARGET_(FT_RENDER_MODE_NORMAL)
     internal const int FT_LOAD_TARGET_LIGHT = 0x10000; // FT_LOAD_TARGET_(FT_RENDER_MODE_LIGHT)
 
@@ -79,6 +81,12 @@ internal static partial class FreeTypeNative
 
     [LibraryImport(LibraryName)]
     internal static partial void FT_Done_Glyph(nint glyph);
+
+    // ---- Variable fonts (ftmm.h) ----
+
+    /// <summary>Sets the first <paramref name="numCoords"/> axes, in fvar order, as 16.16 design coordinates.</summary>
+    [LibraryImport(LibraryName)]
+    internal static unsafe partial FT_Error FT_Set_Var_Design_Coordinates(nint face, uint numCoords, nint* coords);
 }
 
 // ---- Enums ----
@@ -218,8 +226,8 @@ internal unsafe struct FT_FaceRec
 }
 
 /// <summary>
-/// Partial mirror of <c>FT_GlyphSlotRec</c> up to and including <c>bitmap_top</c> — the fields
-/// Etch.Text reads (<c>bitmap</c>, <c>bitmap_left</c>, <c>bitmap_top</c>). Fields before them must
+/// Partial mirror of <c>FT_GlyphSlotRec</c> up to and including <c>outline</c> — the fields
+/// Etch.Text reads (<c>format</c>, <c>bitmap</c>, its bearings and <c>outline</c>). Fields before them must
 /// be present so the offsets match; nothing after is needed.
 /// </summary>
 [StructLayout(LayoutKind.Sequential)]
@@ -238,6 +246,23 @@ internal unsafe struct FT_GlyphSlotRec
     public FT_Bitmap bitmap;
     public int bitmap_left;
     public int bitmap_top;
+    public FT_Outline outline;
+}
+
+/// <summary>
+/// Mirror of <c>FT_Outline</c>: contour end indices into the point and tag arrays. A tag's bit 0
+/// marks an on-curve point; off-curve, bit 1 marks a cubic control (else a conic one). The counts
+/// are <c>unsigned short</c> since FreeType 2.13.3 (signed before; the same size and bits here).
+/// </summary>
+[StructLayout(LayoutKind.Sequential)]
+internal unsafe struct FT_Outline
+{
+    public ushort n_contours;
+    public ushort n_points;
+    public FT_Vector* points;
+    public byte* tags;
+    public ushort* contours;
+    public int flags;
 }
 
 /// <summary>

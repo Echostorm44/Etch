@@ -31,6 +31,11 @@ public static class TestFontCache
         new Uri("https://github.com/mozilla/twemoji-colr/releases/download/v0.7.0/Twemoji.Mozilla.ttf"),
         "6D90152EE0D29E82FE2A87793AF5AA4B7AD13E6538360889E141E81ED299EE8E");
 
+    private static readonly FontSource InterVariable = new(
+        "InterVariable.ttf",
+        new Uri("https://github.com/rsms/inter/raw/v4.1/docs/font-files/InterVariable.ttf"),
+        "4989B125924991B90D05B2D16E0E388C48F7D5BB8B30539BBF9C755278D0CCAF");
+
     private static readonly string[] UiFallbacks =
     [
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "segoeui.ttf"),
@@ -55,6 +60,9 @@ public static class TestFontCache
             return string.IsNullOrEmpty(configured) ? Path.Combine(Path.GetTempPath(), "etch-test-fonts") : configured;
         }
     }
+
+    /// <summary>Inter 4.1's variable font (wght 100-900, opsz 14-32) — no fallback: variation tests need it.</summary>
+    public static byte[] InterVariableFont() => Get(InterVariable, null);
 
     /// <summary>Roboto Regular (Google Fonts) — no fallback: text tests measure this font.</summary>
     public static byte[] RobotoRegular() => Get(Roboto, null);

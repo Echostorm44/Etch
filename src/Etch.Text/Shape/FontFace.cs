@@ -5,6 +5,19 @@ using Etch.Text.HarfBuzz;
 
 namespace Etch.Text.Shape;
 
+/// <summary>
+/// A design-axis setting of a variable font: an OpenType axis tag (such as <c>wght</c>) and a value
+/// in that axis's design units (wght: 100 thin to 900 black). Values are clamped to the font's range.
+/// </summary>
+public readonly record struct FontVariation(uint Tag, float Value)
+{
+    /// <summary>The weight axis tag, <c>wght</c>.</summary>
+    public const uint WeightAxis = ('w' << 24) | ('g' << 16) | ('h' << 8) | 't';
+
+    /// <summary>A weight setting (100 thin, 400 regular, 700 bold, 900 black).</summary>
+    public static FontVariation Weight(float weight) => new(WeightAxis, weight);
+}
+
 public sealed class FontFace : IDisposable
 {
     private static int s_nextId = 1;
@@ -24,6 +37,7 @@ public sealed class FontFace : IDisposable
     // FreeType integration
     private readonly GCHandle? _dataHandle;
     private readonly nint _ftFace;
+    private FontVariation[] _variations = [];
 
     internal event Action<FontFace>? OnDisposed;
 
@@ -43,6 +57,14 @@ public sealed class FontFace : IDisposable
     }
 
     public static FontFace Load(byte[] fontBlob, int unitsPerEm, float pointSize)
+        => Load(fontBlob, unitsPerEm, pointSize, []);
+
+    /// <summary>
+    /// Loads a face at <paramref name="pointSize"/> with the design-axis settings in
+    /// <paramref name="variations"/> applied to both shaping (HarfBuzz) and rasterizing
+    /// (FreeType). A static font ignores them.
+    /// </summary>
+    public static FontFace Load(byte[] fontBlob, int unitsPerEm, float pointSize, ReadOnlySpan<FontVariation> variations)
     {
         GCHandle? handle = null;
         nint ftFace = 0;
@@ -63,6 +85,11 @@ public sealed class FontFace : IDisposable
 
             font = new Font(face);
             font.SetScale((int)(pointSize * 64), (int)(pointSize * 64));
+            HbAxisInfo[] axes = variations.IsEmpty ? [] : face.GetVariationAxes();
+            if (axes.Length > 0)
+            {
+                font.SetVariations(variations);
+            }
 
             unsafe
             {
@@ -74,6 +101,10 @@ public sealed class FontFace : IDisposable
                 if (err == FT_Error.FT_Err_Ok)
                 {
                     FreeTypeNative.FT_Set_Char_Size(ftFace, 0, (nint)(pointSize * 64), 96, 96);
+                    if (axes.Length > 0)
+                    {
+                        SetFreeTypeVariations(ftFace, axes, variations);
+                    }
                 }
                 else
                 {
@@ -82,7 +113,10 @@ public sealed class FontFace : IDisposable
             }
 
             int id = Interlocked.Increment(ref s_nextId);
-            return new FontFace(blob, face, font, unitsPerEm, pointSize, id, handle, ftFace, ownsFaceBlob: true);
+            return new FontFace(blob, face, font, unitsPerEm, pointSize, id, handle, ftFace, ownsFaceBlob: true)
+            {
+                _variations = axes.Length > 0 ? variations.ToArray() : [],
+            };
         }
         catch
         {
@@ -98,6 +132,32 @@ public sealed class FontFace : IDisposable
             face?.Dispose();
             blob?.Dispose();
             throw;
+        }
+    }
+
+    /// <summary>
+    /// FreeType takes every axis in fvar order: each requested axis gets its value clamped to the
+    /// font's range, the others their defaults.
+    /// </summary>
+    private static unsafe void SetFreeTypeVariations(nint ftFace, HbAxisInfo[] axes, ReadOnlySpan<FontVariation> variations)
+    {
+        Span<nint> coords = axes.Length <= 16 ? stackalloc nint[axes.Length] : new nint[axes.Length];
+        for (int i = 0; i < axes.Length; i++)
+        {
+            var axis = axes[i];
+            float value = axis.DefaultValue;
+            foreach (var variation in variations)
+            {
+                if (variation.Tag == axis.Tag && float.IsFinite(variation.Value))
+                {
+                    value = Math.Clamp(variation.Value, axis.MinValue, axis.MaxValue);
+                }
+            }
+            coords[(int)axis.AxisIndex < axes.Length ? (int)axis.AxisIndex : i] = (nint)MathF.Round(value * 65536f);
+        }
+        fixed (nint* pointer = coords)
+        {
+            FreeTypeNative.FT_Set_Var_Design_Coordinates(ftFace, (uint)coords.Length, pointer);
         }
     }
 
@@ -132,8 +192,15 @@ public sealed class FontFace : IDisposable
 
         var font = new Font(_face);
         font.SetScale((int)(_pointSize * 64 * 3), (int)(_pointSize * 64));
+        if (_variations.Length > 0)
+        {
+            font.SetVariations(_variations);
+        }
         int id = Interlocked.Increment(ref s_nextId);
-        var newVariant = new FontFace(_blob, _face, font, _unitsPerEm, _pointSize, id, null, 0, ownsFaceBlob: false);
+        var newVariant = new FontFace(_blob, _face, font, _unitsPerEm, _pointSize, id, null, 0, ownsFaceBlob: false)
+        {
+            _variations = _variations,
+        };
 
         var existing = Interlocked.CompareExchange(ref _subpixelVariant, newVariant, null);
         if (existing != null)
@@ -164,6 +231,9 @@ public sealed class FontFace : IDisposable
     }
 
     public int Id => _id;
+
+    /// <summary>The design-axis settings applied to this face (empty for a static font or none set).</summary>
+    public ReadOnlySpan<FontVariation> Variations => _variations;
 
     public int UnitsPerEm => _unitsPerEm;
 
