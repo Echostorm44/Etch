@@ -233,7 +233,7 @@ public static class GlyphOutlineBuilder
         }
     }
 
-    private static int GetGlyphOffset(Span<byte> locaSpan, ushort glyphId, int indexToLocFormat, int glyfLength)
+    private static int GetGlyphOffset(ReadOnlySpan<byte> locaSpan, ushort glyphId, int indexToLocFormat, int glyfLength)
     {
         if (indexToLocFormat == 0)
         {
@@ -310,13 +310,13 @@ public static class GlyphOutlineBuilder
     }
 
     [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-    private static short ReadInt16(Span<byte> data, int offset)
+    private static short ReadInt16(ReadOnlySpan<byte> data, int offset)
     {
         return (short)(data[offset] << 8 | data[offset + 1]);
     }
 
     [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-    private static ushort ReadUInt16(Span<byte> data, int offset)
+    private static ushort ReadUInt16(ReadOnlySpan<byte> data, int offset)
     {
         return (ushort)(data[offset] << 8 | data[offset + 1]);
     }
@@ -326,7 +326,7 @@ public static class GlyphOutlineBuilder
         return face.HarfBuzzFace;
     }
 
-    private static BezPath? BuildComposite(FontFace face, Span<byte> glyfSpan, int glyphOffset, BezPathBuilder dest)
+    private static BezPath? BuildComposite(FontFace face, ReadOnlySpan<byte> glyfSpan, int glyphOffset, BezPathBuilder dest)
     {
         int cursor = glyphOffset + 10;
 

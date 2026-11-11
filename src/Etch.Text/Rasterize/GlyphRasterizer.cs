@@ -410,7 +410,7 @@ public static class GlyphRasterizer
         w = rasterW;
     }
 
-    private static void Downsample4x(Span<byte> src, int srcW, int srcH, Span<byte> dst, int dstW, int dstH)
+    private static void Downsample4x(ReadOnlySpan<byte> src, int srcW, int srcH, Span<byte> dst, int dstW, int dstH)
     {
         for (int y = 0; y < dstH; y++)
         {

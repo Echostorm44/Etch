@@ -253,7 +253,7 @@ public static class ShaderErrorParser
                 sb.Append(" | ");
                 sb.AppendLine(lineText);
                 int caretPos = Math.Min(errorColumn - 1, lineText.Length);
-                sb.Append(new string(' ', 6 + caretPos));
+                sb.Append(' ', 6 + caretPos);
                 sb.AppendLine("^");
             }
             else

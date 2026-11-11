@@ -641,7 +641,7 @@ public static class BidiAlgorithm
     // Phase 5 — Implicit levels (I1-I2)
     // =====================================================================
     private static void ResolveImplicitLevels(
-        Span<BidiClass> types, Span<sbyte> levels, sbyte paraLevel)
+        ReadOnlySpan<BidiClass> types, Span<sbyte> levels, sbyte paraLevel)
     {
         int len = types.Length;
         for (int i = 0; i < len; i++)

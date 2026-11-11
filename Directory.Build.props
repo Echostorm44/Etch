@@ -4,6 +4,11 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- ICU4N_IDE_0002 is an ICU4N advisory that it cannot find NuGet.Build.Tasks.Pack to check
+         3-letter-language satellite support. The SDK is newer than the 9.0.200 it asks for, so it is
+         a false positive; keep `-warnaserror` builds (CascadeUI builds Etch from source that way)
+         from failing on it. Code warnings are still errors via TreatWarningsAsErrors above. -->
+    <MSBuildWarningsNotAsErrors>$(MSBuildWarningsNotAsErrors);ICU4N_IDE_0002</MSBuildWarningsNotAsErrors>
     <AnalysisLevel>latest-all</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <ImplicitUsings>disable</ImplicitUsings>
