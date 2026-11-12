@@ -25,7 +25,7 @@ jobs:
           - rid: linux-x64
             os: ubuntu-24.04
           - rid: osx-arm64
-            os: macos-14
+            os: macos-15
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -135,7 +135,7 @@ jobs:
           - rid: linux-x64
             os: ubuntu-24.04
           - rid: osx-arm64
-            os: macos-14
+            os: macos-15
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -278,7 +278,7 @@ jobs:
           - rid: linux-x64
             os: ubuntu-24.04
           - rid: osx-arm64
-            os: macos-14
+            os: macos-15
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

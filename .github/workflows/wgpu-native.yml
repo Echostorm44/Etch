@@ -40,7 +40,7 @@ jobs:
           - rid: linux-x64
             os: ubuntu-22.04
           - rid: osx-arm64
-            os: macos-14
+            os: macos-15
 
     steps:
       - name: Checkout
